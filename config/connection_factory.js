@@ -1,4 +1,4 @@
-var mysql = require("mysql12");
+var mysql = require("mysql2");
 const dotenv = require("dotenv");
 dotenv.config();
 

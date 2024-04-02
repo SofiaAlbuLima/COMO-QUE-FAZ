@@ -1,0 +1,227 @@
+@media only screen and (max-width: 480px) {
+    * {
+      font-family: Heavitas;
+    padding: 0;
+    margin: 0;
+    }
+    @font-face{
+      font-family: Heavitas;
+      src: url("../fonts/Heavitas.ttf");
+    }
+    @font-face{
+      font-family: Fira Sans Bold;
+      src: url("../fonts/fira-sans.bold.ttf");
+    }
+    @font-face{
+      font-family: Fira Sans;
+      src: url("../fonts/fira-sans.regular.ttf");
+    }
+
+    .header-dispositivo-desktop{
+        display: none;
+    }
+    /* INÍCIO - HEADER MOBILE - SEM LOGIN */
+      
+    .logos {
+      display: flex;
+      justify-content: space-around;
+      height: 70px;
+      box-shadow: 1px 5px 5px rgb(173, 173, 173);
+      background-color: white;
+      }
+      
+      .logo {
+      margin-top: 5px;
+      margin-right: 50px;
+      margin-left: 50px;
+      
+      }
+      .logo img {
+      max-width: 50px;
+      margin-top: 5px;
+      align-self: center;
+      }
+      .search {
+      margin-top: 22px;
+      margin-right: 13px;
+      }
+      .search img {
+      max-width: 26px;
+      }
+      .login {
+      margin-top: 9px;
+      margin-left: 18px;
+      margin-right: -7px;
+      position: relative;
+      display: inline-block;
+      }
+      .login img {
+      max-width: 34px;
+      margin-top: 10px;    
+      }
+      .topcs {
+      background-color: #5417bd;
+      background-image: linear-gradient(to right, #5417bd, #9d21cb);
+      display: flex;
+      justify-content: center;
+      justify-content: space-around;
+      height: 38px;
+      }
+      .topcs a {
+      text-decoration: none;
+      color: white;
+      margin-top: 9px;
+      font-size: 14px;
+      }
+      .culinaria {
+      margin-left: 13.14px;
+      font-family: Fira Sans Bold;
+      font-weight: 700;
+      margin-top: 12px;
+      }
+      .bem-estar {
+      margin-right: 8.59px;
+      font-family: Fira Sans Bold;
+      margin-top: 12px;
+      font-weight: 700;
+      }
+      .limpeza{
+          font-family: Fira Sans Bold;
+          text-align: center;
+          margin-top: 12px;
+          font-weight: 700;
+      }
+    
+    /* FIM - HEADER MOBILE - SEM LOGIN */
+
+}
+
+@media only screen and (min-width: 480px) {
+/* INIÍCIO - HEADER DESKTOP - SEM LOGIN */
+    * {
+    font-family: Heavitas;
+    padding: 0;
+    margin: 0;
+    }
+    @font-face{
+    font-family: Heavitas;
+    src: url("../fonts/Heavitas.ttf");
+    }
+    @font-face{
+    font-family: Fira Sans Bold;
+    src: url("../fonts/fira-sans.bold.ttf");
+    }
+    @font-face{
+    font-family: Fira Sans;
+    src: url("../fonts/fira-sans.regular.ttf");
+    }
+    .header-dispositivo-mobile{
+    display: none;
+    }
+    .logos {
+    display: flex;
+    justify-content: space-around;
+    height: 85px;
+    box-shadow: 1px 5px 5px rgb(173, 173, 173);
+    background-color: white;
+    }
+    
+    .logo {
+    margin-top: 5px;
+    margin-right: 50px;
+    margin-left: 50px;
+    
+    }
+    .logo img {
+    max-width: 65px;
+    margin-top: 5px;
+    align-self: center;
+    }
+    .search {
+    margin-top: 22px;
+    margin-right: 18px;
+    }
+    .search img {
+    max-width: 37px;
+    }
+    .login {
+    margin-top: 9px;
+    margin-left: 13px;
+    margin-right: -7px;
+    position: relative;
+    display: inline-block;
+    }
+    #img-login{
+    max-width: 50px;
+    margin-top: 10px;    
+    }
+    .topcs {
+    background-color: #5417bd;
+    background-image: linear-gradient(to right, #5417bd, #9d21cb);
+    display: flex;
+    justify-content: space-around;
+    height: 43px;
+    }
+    .topcs a {
+    text-decoration: none;
+    color: white;
+    margin-top: 9px;
+    font-size: 20px;
+    }
+    .culinaria {
+    margin-left: 270px;
+    font-family: Fira Sans Bold;
+    font-weight: 700;
+    margin-top: 12px;
+    }
+    .bem-estar {
+    margin-right: 270px;
+    font-family: Fira Sans Bold;
+    margin-top: 12px;
+    font-weight: 700;
+    }
+    .limpeza{
+        font-family: Fira Sans Bold;
+        text-align: center;
+        margin-top: 12px;
+        font-weight: 700;
+    }
+    #hide-hover-span {
+        display: none;
+        position: absolute;
+        color: #474747;
+        text-align: center;
+        margin-top: -46px;
+        width: 200px;
+        margin-left: 70px;
+    } 
+    #hide-hover-span p{
+        text-align: left;
+        font-family: Fira Sans Bold;
+    }
+    .p-1{
+        font-size: 14px;
+    }
+    .p-2{
+        font-size: 18px;
+        margin-top: -25px;
+    }
+    #hide-hover-search {
+        display: none;
+        position: absolute;
+        color: #474747;
+        text-align: center;
+        margin-top: -28px;
+        width: 200px;
+        margin-left: -220px;
+    }
+    #hide-hover-search input{
+        border-top: none;
+        border-left: none;
+        border-right: none;
+        border-bottom: 2px solid #9d21cb;
+        font-family: Fira Sans;
+        font-size: 17px;
+    }
+  /* FIM - HEADER DESKTOP - SEM LOGIN */
+}
