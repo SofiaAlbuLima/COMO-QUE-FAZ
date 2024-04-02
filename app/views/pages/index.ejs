@@ -1,0 +1,2115 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+   <meta charset="UTF-8">
+   <meta http-equiv="X-UA-Compatible" content="IE=edge">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <link rel="stylesheet" href="./css/style-home-mob.css">
+   <link rel="stylesheet" href="./css/base-post-mb.css">
+   <link rel="stylesheet" href="./css/style-header.css">
+   <link rel="stylesheet" href="./css/style-base-post-desk.css">
+   <link rel="stylesheet" href="./css/style-footer.css">
+   <script src="./js/script-header.js"></script>
+   <script src="./js/script-Home-SemLogin.js"></script>
+   <script src="./js/script-base-post-desk.js"></script>
+   <link rel="shortcut icon" href="imagens/favicon.png" type="image/x-icon" />
+   <title>Como que Faz | Página Inicial</title>
+</head>
+
+<body>
+   <header>
+      <section class="header-dispositivo-mobile">
+         <nav class="logos">
+            <article class="login">
+               <a href="https://grupo4-tca.github.io/Como-que-faz/Fazer-Login">
+                  <img src="imagens/user_icon.png" alt="Faça Login">
+               </a>
+            </article>
+            <article class="logo">
+               <a href="https://grupo4-tca.github.io/Como-que-faz/index">
+                  <img src="imagens/ComoQueFaz_logo.png" alt="Logo do ComoQueFaz">
+               </a>
+            </article>
+            <article class="search">
+               <a href="/">
+                  <img src="imagens/search_icon.png" alt="Ícone de Pesquisa">
+               </a>
+            </article>
+         </nav>
+         <nav class="topcs">
+            <a class="culinaria" href="https://grupo4-tca.github.io/Como-que-faz/Categoria-Culinária">CULINÁRIA</a>
+            <a class="limpeza" href="https://grupo4-tca.github.io/Como-que-faz/Categoria-Limpeza">LIMPEZA</a>
+            <a class="bem-estar" href="https://grupo4-tca.github.io/Como-que-faz/Categoria-Bem-Estar">BEM-ESTAR</a>
+         </nav>
+      </section>
+
+      <section class="header-dispositivo-desktop">
+         <nav class="logos">
+            <aside id="container" onmouseover="showDiv1()" onmouseout="hideDiv1()" class="login">
+               <a href="https://grupo4-tca.github.io/Como-que-faz/Fazer-Login">
+                  <img id="img-login" src="imagens/user_icon.png" alt="Faça Login"></a>
+               <article id="hide-hover-span">
+                  <p class="p-1">LOGIN</p>
+                  <br>
+                  <p class="p-2">ENTRAR / CADASTRAR</p>
+               </article>
+            </aside>
+            <article class="logo">
+               <a href="https://grupo4-tca.github.io/Como-que-faz/index">
+                  <img src="imagens/ComoQueFaz_logo.png" alt="Logo do ComoQueFaz">
+               </a>
+            </article>
+            <aside id="container2" onmouseover="showDiv2()" onmouseout="hideDiv2()" class="search">
+               <img src="imagens/search_icon.png" alt="Ícone de Pesquisa">
+               <article id="hide-hover-search">
+                  <input class="texto-search" type="text" name="inserir-pesquisa" placeholder="Pesquisar...">
+                  <label id="inserir-pesquisa"></label>
+               </article>
+            </aside>
+         </nav>
+         <nav class="topcs">
+            <a class="culinaria" href="https://grupo4-tca.github.io/Como-que-faz/Categoria-Culinária">CULINÁRIA</a>
+            <a class="limpeza" href="https://grupo4-tca.github.io/Como-que-faz/Categoria-Limpeza">LIMPEZA</a>
+            <a class="bem-estar" href="https://grupo4-tca.github.io/Como-que-faz/Categoria-Bem-Estar">BEM-ESTAR</a>
+         </nav>
+      </section>
+   </header>
+   
+   <main>
+      <section class="conteudo-dispositivo mobile">
+         <section class="slider">
+            <article class="slides">
+               <input type="radio" name="radio-btn" id="radio1">
+               <input type="radio" name="radio-btn" id="radio2">
+               <input type="radio" name="radio-btn" id="radio3">
+               <figure class="slide primeiro">
+                  <img class="imagens-slide" src="imagens/imagem-slide1.png" alt="imagem-culinaria">
+                  <img class="imagem-categoria" src="imagens/icon-culinaria-branco.png" alt="icon-culinaria">
+                  <section class="textos-carrossel">
+                     <h1 class="texto-slide1">ARROZ DE FORNO</h1>
+                     <section class="itens-necessarios">óleo - arroz - água - presunto - queijo - ervilha - cenoura -
+                        salsa
+                        - queijo parmesão - bacon</section>
+                  </section>
+               </figure>
+               <figure class="slide">
+                  <img class="imagens-slide" src="imagens/imagem-slide2.png" alt="imagem-limpeza">
+                  <img class="imagem-categoria" src="imagens/icon-limpeza-branco.png" alt="icon-culinaria">
+                  <section class="textos-carrossel">
+                     <h1 class="texto-slide2">COMO LIMPAR SEU FOGÃO</h1>
+                     <p class="itens-necessarios">vinagre branco - água - bicarbonato de sódio - detergente neutro
+                        -
+                        Esponja - Papel toalha</p>
+                  </section>
+               </figure>
+               <figure class="slide">
+                  <img class="imagens-slide" src="imagens/imagem-slide3.png" alt="imagem-bem-estar">
+                  <img class="imagem-categoria" src="imagens/icon-bemestar-branco.png" alt="icon-culinaria">
+                  <section class="textos-carrossel">
+                     <h1 class="texto-slide3">COMO DEFINIR SEUS CACHOS</h1>
+                     <section class="itens-necessarios3">creme para pentear - mascara hidratante - manual</section>
+                  </section>
+               </figure>
+            </article>
+         </section>
+         <nav class="manual-navigation">
+            <label for="radio1" class="manual-btn manual-btn1"></label>
+            <label for="radio2" class="manual-btn manual-btn2"></label>
+            <label for="radio3" class="manual-btn manual-btn3"></label>
+         </nav>
+         <nav class="recente-emalta-rapidas">
+            <button class="Recente" onclick="VisiRecente()">+RECENTE</button>
+            <button class="EmAlta" onclick="VisiEmAlta()">EM ALTA</button>
+            <button class="Rapidas" onclick="VisiRapidas()">+RÁPIDAS</button>
+         </nav>
+         <section class="conteudo-recente-emalta-rapidas">
+            <section class="Conteudo-EmAlta" id="Conteudo-EmAlta">
+               <section id="pinterest-style">
+                  <section id="segunda-fileira-posts-em-alta">
+                     <!-- 1 POST CACHOS - FILEIRA 2 -->
+                     <article id="base-post">
+                        <section id="post-cachos">
+                           <article id="post-cachos-fileira2">
+                              <img id="cachos" src="./imagens/cachos.svg" alt="post">
+                              <figure id="sombra-b"></figure>
+                              <h2 id="descri-post-cachos-fileira2">COMO DEFINIR <br>SEUS CACHOS?</h2>
+                           </article>
+                           <section id="post-baixo-f">
+                              <img id="icon-post" src="./imagens/tempo.svg" alt="tempo de execusão">
+                              <h3 id="descri-icon">0H50</h3>
+                              <img id="icon-post" src="./imagens/avalia.svg" alt="avaliação">
+                              <h3 id="descri-icon">2.4</h3>
+                              <img id="icon-post" src="./imagens/porcao.png" alt="porção">
+                              <h3 id="descri-icon">1</h3>
+                           </section>
+                        </section>
+                     </article>
+                     <section id="longpress-post-cachos-fileira2">
+                        <article id="long-cima">
+                           <p id="plongpress">Creme para pentear modelador - Mascára recuperadora - Shampoo -
+                              Condicionador hidratante</p>
+                           <img id="icon-salvar-vazado" src="./imagens/salvar-post-vazado.png" alt="salvar">
+                        </article>
+                        <article id="cachos-long-baixo">
+                           <img id="icon-limpeza-longpress" src="./imagens/icon-bemestar-branco.png"
+                              alt="post com categoria limpeza">
+                           <h2 id="texto-longpress">COMO DEFINIR <br>SEUS CACHOS?</h2>
+                        </article>
+                     </section>
+                     <!-- FINAL 1 POST CACHOS - FILEIRA 2 -->
+                     <!-- 2 POST BOLO DE CENOURA - FILEIRA 2 -->
+                     <article id="base-post">
+                        <section id="post-bolo-de-cenoura">
+                           <article id="post-bolo-de-cenoura-fileira2">
+                              <img id="dispensa" src="./imagens/bolo.svg" alt="post">
+                              <figure id="sombra"></figure>
+                              <h2 id="descri-post-bolo-de-cenoura">BOLO DE CENOURA<br>CALDA PERFEITA</h2>
+                           </article>
+                           <section id="post-baixo-c">
+                              <img id="icon-post" src="./imagens/tempo.svg" alt="tempo de execusão">
+                              <h3 id="descri-icon">0H40</h3>
+                              <img id="icon-post" src="./imagens/avalia.svg" alt="avaliação">
+                              <h3 id="descri-icon">5.0</h3>
+                              <img id="icon-post" src="./imagens/porcao.png" alt="porção">
+                              <h3 id="descri-icon">9</h3>
+                           </section>
+                        </section>
+                     </article>
+                     <section id="longpress-post-bolo-de-cenoura-fileira2">
+                        <article id="long-cima">
+                           <p id="plongpress">Ovo - Manteiga - Açúcar - Óleo - Farinha de trigo - Fermento em pó -
+                              Cenoura média ralada</p>
+                           <img id="icon-salvar-vazado" src="./imagens/salvar-post-vazado.png" alt="salvar">
+                        </article>
+                        <article id="bolo-de-cenoura-long-baixo">
+                           <img id="icon-culinaria-longpress" src="./imagens/icon-culinaria-branco.png"
+                              alt="post com categoria limpeza">
+                           <h2 id="texto-longpress">BOLO DE CENOURA<br>CALDA PERFEITA</h2>
+                        </article>
+                     </section>
+                     <!-- FINAL 2 POST BOLO DE CENOURA - FILEIRA 2 -->
+                     <article id="base-post">
+                        <section id="post">
+                           <section id="c">
+                              <article id="post-perg">
+                                 <figure id="fundoperg"></figure>
+                                 <h2 id="text-pergunta">Queria tanto aprender a lavar roupa sem maquina</h2>
+                              </article>
+                              <section id="post-baixo-h">
+                                 <img id="icon-post" src="./imagens/comentpergunta.png" alt="avaliação">
+                                 <h3 id="descri-icon">20</h3>
+                                 <img id="icon-post" src="./imagens/respostapergunta.png" alt="porção">
+                                 <h3 id="descri-icon">0</h3>
+                              </section>
+                           </section>
+                        </section>
+                     </article>
+                     <article id="base-post">
+                        <section id="post-bolin-de-chuva">
+                           <article id="post-bolin-fileira2">
+                              <img id="bolin" src="./imagens/bolin.svg" alt="post">
+                              <figure id="sombra-a"></figure>
+                              <h2 id="descri-post-bolin-fileira2">BOLINHO DE<br>CHUVA DA VOVÓ</h2>
+                           </article>
+                           <section id="post-baixo-a">
+                              <img id="icon-post" src="./imagens/tempo.svg" alt="tempo de execusão">
+                              <h3 id="descri-icon">0H30</h3>
+                              <img id="icon-post" src="./imagens/avalia.svg" alt="avaliação">
+                              <h3 id="descri-icon">4.5</h3>
+                              <img id="icon-post" src="./imagens/porcao.png" alt="porção">
+                              <h3 id="descri-icon">8</h3>
+                           </section>
+                        </section>
+                     </article>
+                     <section id="longpress-post-bolin-fileira2">
+                        <article id="long-cima">
+                           <p id="plongpress">Farinha de trigo - Açúcar - Extrato de baunilha - Fermento em pó - Canela
+                              em pó - óleo - Ovo</p>
+                           <img id="icon-salvar-vazado" src="./imagens/salvar-post-vazado.png" alt="salvar">
+                        </article>
+                        <article id="bolin2-long-baixo">
+                           <img id="icon-culinaria-longpress" src="./imagens/icon-culinaria-branco.png"
+                              alt="post com categoria limpeza">
+                           <h2 id="texto-longpress">BOLINHO DE <br>CHUVA DA VOVÓ</h2>
+                        </article>
+                     </section>
+                     <article id="base-post">
+                        <section id="post">
+                           <article id="post-dispensa-fileira2">
+                              <img id="dispensa" src="./imagens/dispensa.svg" alt="post">
+                              <figure id="sombra"></figure>
+                              <h2 id="descri-post-dispensa-fileira2">ORGANIZE SUA <br>DISPENSA JÁ!</h2>
+                           </article>
+                           <section id="post-baixo">
+                              <img id="icon-post" src="./imagens/tempo.svg" alt="tempo de execusão">
+                              <h3 id="descri-icon">0H40</h3>
+                              <img id="icon-post" src="./imagens/avalia.svg" alt="avaliação">
+                              <h3 id="descri-icon">5.0</h3>
+                              <img id="icon-post" src="./imagens/porcao.png" alt="porção">
+                              <h3 id="descri-icon">~</h3>
+                           </section>
+                        </section>
+                     </article>
+                     <section id="longpress-post-dispensa-fileira2">
+                        <article id="long-cima">
+                           <p id="plongpress">Etiquetas - organizadores - caneta gráfica - cestas - manual</p>
+                           <img id="icon-salvar-vazado" src="./imagens/salvar-post-vazado.png" alt="salvar">
+                        </article>
+                        <article id="long-baixo-dispensa-fileira2">
+                           <img id="icon-limpeza-longpress" src="./imagens/icon-limpeza-branco.png"
+                              alt="post com categoria limpeza">
+                           <h2 id="texto-longpress">ORGANIZE SUA <br>DISPENSA JÁ!</h2>
+                        </article>
+                     </section>
+                  </section>
+                  <section id="primeira-fileira-posts-em-alta">
+                     <!-- 1 POST DISPENSA - FILEIRA 1 -->
+                     <article id="base-post">
+                        <section id="post">
+                           <article id="post-dispensa-fileira1">
+                              <img id="dispensa" src="./imagens/dispensa.svg" alt="post">
+                              <figure id="sombra"></figure>
+                              <h2 id="descri-post">ORGANIZE SUA <br>DISPENSA JÁ!</h2>
+                           </article>
+                           <section id="post-baixo">
+                              <img id="icon-post" src="./imagens/tempo.svg" alt="tempo de execusão">
+                              <h3 id="descri-icon">0H40</h3>
+                              <img id="icon-post" src="./imagens/avalia.svg" alt="avaliação">
+                              <h3 id="descri-icon">5.0</h3>
+                              <img id="icon-post" src="./imagens/porcao.png" alt="porção">
+                              <h3 id="descri-icon">~</h3>
+                           </section>
+                        </section>
+                     </article>
+                     <section id="longpress-post-dispensa-fileira1">
+                        <article id="long-cima">
+                           <p id="plongpress">Etiquetas - organizadores - caneta gráfica - cestas - manual</p>
+                           <img id="icon-salvar-vazado" src="./imagens/salvar-post-vazado.png" alt="salvar">
+                        </article>
+                        <article id="long-baixo">
+                           <img id="icon-limpeza-longpress" src="./imagens/icon-limpeza-branco.png"
+                              alt="post com categoria limpeza">
+                           <h2 id="texto-longpress">ORGANIZE SUA <br>DISPENSA JÁ!</h2>
+                        </article>
+                     </section>
+                     <!-- FINAL 1 POST DISPENSA - FILEIRA 1 -->
+                     <!-- 2 PERGUNTA LAVAR ROUPA - FILEIRA 1 -->
+                     <article id="base-post">
+                        <section id="post-pergunta">
+                           <section id="c">
+                              <article id="post-perg">
+                                 <figure id="fundoperg"></figure>
+                                 <h2 id="text-pergunta">Amo pão de alho, como posso preparar um?</h2>
+                              </article>
+                              <section id="post-baixo-h">
+                                 <img id="icon-post" src="./imagens/comentpergunta.png" alt="avaliação">
+                                 <h3 id="descri-icon">20</h3>
+                                 <img id="icon-post" src="./imagens/respostapergunta.png" alt="porção">
+                                 <h3 id="descri-icon">0</h3>
+                              </section>
+                           </section>
+                        </section>
+                     </article>
+                     <!-- FINAL 2 PERGUNTA LAVAR ROUPA - FILEIRA 1 -->
+                     <!-- 3 POST BOLINHO DE CHUVA - FILEIRA 1 -->
+                     <article id="base-post">
+                        <section id="post-bolin-de-chuva">
+                           <article id="post-bolin-fileira1">
+                              <img id="bolin" src="./imagens/bolin.svg" alt="post">
+                              <figure id="sombra-a"></figure>
+                              <h2 id="descri-post-a">BOLINHO DE<br>CHUVA DA VOVÓ</h2>
+                           </article>
+                           <section id="post-baixo-a">
+                              <img id="icon-post" src="./imagens/tempo.svg" alt="tempo de execusão">
+                              <h3 id="descri-icon">0H30</h3>
+                              <img id="icon-post" src="./imagens/avalia.svg" alt="avaliação">
+                              <h3 id="descri-icon">4.5</h3>
+                              <img id="icon-post" src="./imagens/porcao.png" alt="porção">
+                              <h3 id="descri-icon">8</h3>
+                           </section>
+                        </section>
+                     </article>
+                     <section id="longpress-post-bolin-fileira1">
+                        <article id="long-cima">
+                           <p id="plongpress">Farinha de trigo - Açúcar - Extrato de baunilha - Fermento em pó - Canela
+                              em pó - óleo - Ovo</p>
+                           <img id="icon-salvar-vazado" src="./imagens/salvar-post-vazado.png" alt="salvar">
+                        </article>
+                        <article id="bolin-long-baixo">
+                           <img id="icon-culinaria-longpress" src="./imagens/icon-culinaria-branco.png"
+                              alt="post com categoria limpeza">
+                           <h2 id="texto-longpress">BOLINHO DE <br>CHUVA DA VOVÓ</h2>
+                        </article>
+                     </section>
+                     <!-- FINAL 3 POST BOLINHO DE CHUVA - FILEIRA 1 -->
+                     <!-- 4 POST CACHOS - FILEIRA 1 -->
+                     <article id="base-post">
+                        <section id="post-cachos">
+                           <article id="post-cachos-fileira1">
+                              <img id="cachos" src="./imagens/cachos.svg" alt="post">
+                              <figure id="sombra-b"></figure>
+                              <h2 id="descri-post-cachos-fileira1">COMO DEFINIR <br>SEUS CACHOS?</h2>
+                           </article>
+                           <section id="post-baixo-f">
+                              <img id="icon-post" src="./imagens/tempo.svg" alt="tempo de execusão">
+                              <h3 id="descri-icon">0H50</h3>
+                              <img id="icon-post" src="./imagens/avalia.svg" alt="avaliação">
+                              <h3 id="descri-icon">2.4</h3>
+                              <img id="icon-post" src="./imagens/porcao.png" alt="porção">
+                              <h3 id="descri-icon">1</h3>
+                           </section>
+                        </section>
+                     </article>
+                     <section id="longpress-post-cachos-fileira1">
+                        <article id="long-cima">
+                           <p id="plongpress">Creme para pentear modelador - Mascára recuperadora - Shampoo -
+                              Condicionador hidratante</p>
+                           <img id="icon-salvar-vazado" src="./imagens/salvar-post-vazado.png" alt="salvar">
+                        </article>
+                        <article id="cachos-long-baixo">
+                           <img id="icon-limpeza-longpress" src="./imagens/icon-bemestar-branco.png"
+                              alt="post com categoria limpeza">
+                           <h2 id="texto-longpress">COMO DEFINIR <br>SEUS CACHOS?</h2>
+                        </article>
+                     </section>
+                     <!-- FINAL 4 POST CACHOS - FILEIRA 1 -->
+                     <!-- 5 POST PERGUNTA - FILEIRA 1 -->
+                     <article id="base-post">
+                        <article id="post">
+                           <section id="c">
+                              <article id="post-perg">
+                                 <figure id="fundoperg"></figure>
+                                 <h2 id="text-pergunta">Como faço Skincare com ingredientes naturais?</h2>
+                              </article>
+                              <section id="post-baixo-h">
+                                 <img id="icon-post" src="./imagens/comentpergunta.png" alt="avaliação">
+                                 <h3 id="descri-icon">20</h3>
+                                 <img id="icon-post" src="./imagens/respostapergunta.png" alt="porção">
+                                 <h3 id="descri-icon">0</h3>
+                              </section>
+                           </section>
+                        </article>
+                     </article>
+                     <!-- FINAL 5 POST PERGUNTA - FILEIRA 1 -->
+                  </section>
+               </section>
+            </section>
+            <section class="Conteudo-Recente" id="Conteudo-Recente" style="display: none;">
+               <section id="pinterest-style">
+                  <section id="primeira-fileira-posts">
+                     <!-- 1 POST DISPENSA - FILEIRA 1 -->
+                     <article id="base-post">
+                        <section id="post">
+                           <article id="post-dispensa-fileira1">
+                              <img id="dispensa" src="./imagens/dispensa.svg" alt="post">
+                              <figure id="sombra"></figure>
+                              <h2 id="descri-post">ORGANIZE SUA <br>DISPENSA JÁ!</h2>
+                           </article>
+                           <section id="post-baixo">
+                              <img id="icon-post" src="./imagens/tempo.svg" alt="tempo de execusão">
+                              <h3 id="descri-icon">0H40</h3>
+                              <img id="icon-post" src="./imagens/avalia.svg" alt="avaliação">
+                              <h3 id="descri-icon">5.0</h3>
+                              <img id="icon-post" src="./imagens/porcao.png" alt="porção">
+                              <h3 id="descri-icon">~</h3>
+                           </section>
+                        </section>
+                     </article>
+                     <section id="longpress-post-dispensa-fileira1">
+                        <article id="long-cima">
+                           <p id="plongpress">Etiquetas - organizadores - caneta gráfica - cestas - manual</p>
+                           <img id="icon-salvar-vazado" src="./imagens/salvar-post-vazado.png" alt="salvar">
+                        </article>
+                        <article id="long-baixo">
+                           <img id="icon-limpeza-longpress" src="./imagens/icon-limpeza-branco.png"
+                              alt="post com categoria limpeza">
+                           <h2 id="texto-longpress">ORGANIZE SUA <br>DISPENSA JÁ!</h2>
+                        </article>
+                     </section>
+                     <!-- FINAL 1 POST DISPENSA - FILEIRA 1 -->
+                     <!-- 2 PERGUNTA LAVAR ROUPA - FILEIRA 1 -->
+                     <article id="base-post">
+                        <section id="post-pergunta">
+                           <section id="c">
+                              <article id="post-perg">
+                                 <figure id="fundoperg"></figure>
+                                 <h2 id="text-pergunta">Amo pão de alho, como posso preparar um?</h2>
+                              </article>
+                              <section id="post-baixo-h">
+                                 <img id="icon-post" src="./imagens/comentpergunta.png" alt="avaliação">
+                                 <h3 id="descri-icon">20</h3>
+                                 <img id="icon-post" src="./imagens/respostapergunta.png" alt="porção">
+                                 <h3 id="descri-icon">0</h3>
+                              </section>
+                           </section>
+                        </section>
+                     </article>
+                     <!-- FINAL 2 PERGUNTA LAVAR ROUPA - FILEIRA 1 -->
+                     <!-- 3 POST BOLINHO DE CHUVA - FILEIRA 1 -->
+                     <article id="base-post">
+                        <section id="post-bolin-de-chuva">
+                           <article id="post-bolin-fileira1">
+                              <img id="bolin" src="./imagens/bolin.svg" alt="post">
+                              <figure id="sombra-a"></figure>
+                              <h2 id="descri-post-a">BOLINHO DE<br>CHUVA DA VOVÓ</h2>
+                           </article>
+                           <section id="post-baixo-a">
+                              <img id="icon-post" src="./imagens/tempo.svg" alt="tempo de execusão">
+                              <h3 id="descri-icon">0H30</h3>
+                              <img id="icon-post" src="./imagens/avalia.svg" alt="avaliação">
+                              <h3 id="descri-icon">4.5</h3>
+                              <img id="icon-post" src="./imagens/porcao.png" alt="porção">
+                              <h3 id="descri-icon">8</h3>
+                           </section>
+                        </section>
+                     </article>
+                     <section id="longpress-post-bolin-fileira1">
+                        <article id="long-cima">
+                           <p id="plongpress">Farinha de trigo - Açúcar - Extrato de baunilha - Fermento em pó - Canela
+                              em pó - óleo - Ovo</p>
+                           <img id="icon-salvar-vazado" src="./imagens/salvar-post-vazado.png" alt="salvar">
+                        </article>
+                        <article id="bolin-long-baixo">
+                           <img id="icon-culinaria-longpress" src="./imagens/icon-culinaria-branco.png"
+                              alt="post com categoria limpeza">
+                           <h2 id="texto-longpress">BOLINHO DE <br>CHUVA DA VOVÓ</h2>
+                        </article>
+                     </section>
+                     <!-- FINAL 3 POST BOLINHO DE CHUVA - FILEIRA 1 -->
+                     <!-- 4 POST CACHOS - FILEIRA 1 -->
+                     <article id="base-post">
+                        <section id="post-cachos">
+                           <article id="post-cachos-fileira1">
+                              <img id="cachos" src="./imagens/cachos.svg" alt="post">
+                              <figure id="sombra-b"></figure>
+                              <h2 id="descri-post-cachos-fileira1">COMO DEFINIR <br>SEUS CACHOS?</h2>
+                           </article>
+                           <section id="post-baixo-f">
+                              <img id="icon-post" src="./imagens/tempo.svg" alt="tempo de execusão">
+                              <h3 id="descri-icon">0H50</h3>
+                              <img id="icon-post" src="./imagens/avalia.svg" alt="avaliação">
+                              <h3 id="descri-icon">2.4</h3>
+                              <img id="icon-post" src="./imagens/porcao.png" alt="porção">
+                              <h3 id="descri-icon">1</h3>
+                           </section>
+                        </section>
+                     </article>
+                     <section id="longpress-post-cachos-fileira1">
+                        <article id="long-cima">
+                           <p id="plongpress">Creme para pentear modelador - Mascára recuperadora - Shampoo -
+                              Condicionador hidratante</p>
+                           <img id="icon-salvar-vazado" src="./imagens/salvar-post-vazado.png" alt="salvar">
+                        </article>
+                        <article id="cachos-long-baixo">
+                           <img id="icon-limpeza-longpress" src="./imagens/icon-bemestar-branco.png"
+                              alt="post com categoria limpeza">
+                           <h2 id="texto-longpress">COMO DEFINIR <br>SEUS CACHOS?</h2>
+                        </article>
+                     </section>
+                     <!-- FINAL 4 POST CACHOS - FILEIRA 1 -->
+                     <!-- 5 POST PERGUNTA - FILEIRA 1 -->
+                     <article id="base-post">
+                        <section id="post">
+                           <section id="c">
+                              <article id="post-perg">
+                                 <figure id="fundoperg"></figure>
+                                 <h2 id="text-pergunta">Como faço SkinCare com ingredientes naturais?</h2>
+                              </article>
+                              <section id="post-baixo-h">
+                                 <img id="icon-post" src="./imagens/comentpergunta.png" alt="avaliação">
+                                 <h3 id="descri-icon">20</h3>
+                                 <img id="icon-post" src="./imagens/respostapergunta.png" alt="porção">
+                                 <h3 id="descri-icon">0</h3>
+                              </section>
+                           </section>
+                        </section>
+                     </article>
+                     <!-- FINAL 5 POST PERGUNTA - FILEIRA 1 -->
+                  </section>
+                  <section id="segunda-fileira-posts">
+                     <!-- 1 POST CACHOS - FILEIRA 2 -->
+                     <article id="base-post">
+                        <section id="post-cachos">
+                           <article id="post-cachos-fileira2">
+                              <img id="cachos" src="./imagens/cachos.svg" alt="post">
+                              <figure id="sombra-b"></figure>
+                              <h2 id="descri-post-cachos-fileira2">COMO DEFINIR <br>SEUS CACHOS?</h2>
+                           </article>
+                           <section id="post-baixo-f">
+                              <img id="icon-post" src="./imagens/tempo.svg" alt="tempo de execusão">
+                              <h3 id="descri-icon">0H50</h3>
+                              <img id="icon-post" src="./imagens/avalia.svg" alt="avaliação">
+                              <h3 id="descri-icon">2.4</h3>
+                              <img id="icon-post" src="./imagens/porcao.png" alt="porção">
+                              <h3 id="descri-icon">1</h3>
+                           </section>
+                        </section>
+                     </article>
+                     <section id="longpress-post-cachos-fileira2">
+                        <article id="long-cima">
+                           <p id="plongpress">Creme para pentear modelador - Mascára recuperadora - Shampoo -
+                              Condicionador hidratante</p>
+                           <img id="icon-salvar-vazado" src="./imagens/salvar-post-vazado.png" alt="salvar">
+                        </article>
+                        <article id="cachos-long-baixo">
+                           <img id="icon-limpeza-longpress" src="./imagens/icon-bemestar-branco.png"
+                              alt="post com categoria limpeza">
+                           <h2 id="texto-longpress">COMO DEFINIR <br>SEUS CACHOS?</h2>
+                        </article>
+                     </section>
+                     <!-- FINAL 1 POST CACHOS - FILEIRA 2 -->
+                     <!-- 2 POST BOLO DE CENOURA - FILEIRA 2 -->
+                     <article id="base-post">
+                        <section id="post-bolo-de-cenoura">
+                           <article id="post-bolo-de-cenoura-fileira2">
+                              <img id="dispensa" src="./imagens/bolo.svg" alt="post">
+                              <figure id="sombra"></figure>
+                              <h2 id="descri-post-bolo-de-cenoura">BOLO DE CENOURA<br>CALDA PERFEITA</h2>
+                           </article>
+                           <section id="post-baixo-c">
+                              <img id="icon-post" src="./imagens/tempo.svg" alt="tempo de execusão">
+                              <h3 id="descri-icon">0H40</h3>
+                              <img id="icon-post" src="./imagens/avalia.svg" alt="avaliação">
+                              <h3 id="descri-icon">5.0</h3>
+                              <img id="icon-post" src="./imagens/porcao.png" alt="porção">
+                              <h3 id="descri-icon">9</h3>
+                           </section>
+                        </section>
+                     </article>
+                     <section id="longpress-post-bolo-de-cenoura-fileira2">
+                        <article id="long-cima">
+                           <p id="plongpress">Ovo - Manteiga - Açúcar - Óleo - Farinha de trigo - Fermento em pó -
+                              Cenoura média ralada</p>
+                           <img id="icon-salvar-vazado" src="./imagens/salvar-post-vazado.png" alt="salvar">
+                        </article>
+                        <article id="bolo-de-cenoura-long-baixo">
+                           <img id="icon-culinaria-longpress" src="./imagens/icon-culinaria-branco.png"
+                              alt="post com categoria limpeza">
+                           <h2 id="texto-longpress">BOLO DE CENOURA<br>CALDA PERFEITA</h2>
+                        </article>
+                     </section>
+                     <!-- FINAL 2 POST BOLO DE CENOURA - FILEIRA 2 -->
+                     <article id="base-post">
+                        <section id="post">
+                           <section id="c">
+                              <article id="post-perg">
+                                 <figure id="fundoperg"></figure>
+                                 <h2 id="text-pergunta">Queria tanto aprender a lavar roupa sem maquina</h2>
+                              </article>
+                              <section id="post-baixo-h">
+                                 <img id="icon-post" src="./imagens/comentpergunta.png" alt="avaliação">
+                                 <h3 id="descri-icon">20</h3>
+                                 <img id="icon-post" src="./imagens/respostapergunta.png" alt="porção">
+                                 <h3 id="descri-icon">0</h3>
+                              </section>
+                           </section>
+                        </section>
+                     </article>
+                     <article id="base-post">
+                        <section id="post-bolin-de-chuva">
+                           <article id="post-bolin-fileira2">
+                              <img id="bolin" src="./imagens/bolin.svg" alt="post">
+                              <figure id="sombra-a"></figure>
+                              <h2 id="descri-post-bolin-fileira2">BOLINHO DE<br>CHUVA DA VOVÓ</h2>
+                           </article>
+                           <section id="post-baixo-a">
+                              <img id="icon-post" src="./imagens/tempo.svg" alt="tempo de execusão">
+                              <h3 id="descri-icon">0H30</h3>
+                              <img id="icon-post" src="./imagens/avalia.svg" alt="avaliação">
+                              <h3 id="descri-icon">4.5</h3>
+                              <img id="icon-post" src="./imagens/porcao.png" alt="porção">
+                              <h3 id="descri-icon">8</h3>
+                           </section>
+                        </section>
+                     </article>
+                     <section id="longpress-post-bolin-fileira2">
+                        <article id="long-cima">
+                           <p id="plongpress">Farinha de trigo - Açúcar - Extrato de baunilha - Fermento em pó - Canela
+                              em pó - óleo - Ovo</p>
+                           <img id="icon-salvar-vazado" src="./imagens/salvar-post-vazado.png" alt="salvar">
+                        </article>
+                        <article id="bolin2-long-baixo">
+                           <img id="icon-culinaria-longpress" src="./imagens/icon-culinaria-branco.png"
+                              alt="post com categoria limpeza">
+                           <h2 id="texto-longpress">BOLINHO DE <br>CHUVA DA VOVÓ</h2>
+                        </article>
+                     </section>
+                     <article id="base-post">
+                        <section id="post">
+                           <article id="post-dispensa-fileira2">
+                              <img id="dispensa" src="./imagens/dispensa.svg" alt="post">
+                              <figure id="sombra"></figure>
+                              <h2 id="descri-post-dispensa-fileira2">ORGANIZE SUA <br>DISPENSA JÁ!</h2>
+                           </article>
+                           <section id="post-baixo">
+                              <img id="icon-post" src="./imagens/tempo.svg" alt="tempo de execusão">
+                              <h3 id="descri-icon">0H40</h3>
+                              <img id="icon-post" src="./imagens/avalia.svg" alt="avaliação">
+                              <h3 id="descri-icon">5.0</h3>
+                              <img id="icon-post" src="./imagens/porcao.png" alt="porção">
+                              <h3 id="descri-icon">~</h3>
+                           </section>
+                        </section>
+                     </article>
+                     <section id="longpress-post-dispensa-fileira2">
+                        <article id="long-cima">
+                           <p id="plongpress">Etiquetas - organizadores - caneta gráfica - cestas - manual</p>
+                           <img id="icon-salvar-vazado" src="./imagens/salvar-post-vazado.png" alt="salvar">
+                        </article>
+                        <article id="long-baixo-dispensa-fileira2">
+                           <img id="icon-limpeza-longpress" src="./imagens/icon-limpeza-branco.png"
+                              alt="post com categoria limpeza">
+                           <h2 id="texto-longpress">ORGANIZE SUA <br>DISPENSA JÁ!</h2>
+                        </article>
+                     </section>
+                  </section>
+               </section>
+            </section>
+            <section class="Conteudo-Rapidas" id="Conteudo-Rapidas" style="display: none;">
+               <section id="pinterest-style">
+                  <section id="primeira-fileira-posts">
+                     <!-- 1 POST DISPENSA - FILEIRA 1 -->
+                     <article id="base-post">
+                        <section id="post">
+                           <article id="post-dispensa-fileira1">
+                              <img id="dispensa" src="./imagens/dispensa.svg" alt="post">
+                              <figure id="sombra"></figure>
+                              <h2 id="descri-post">ORGANIZE SUA <br>DISPENSA JÁ!</h2>
+                           </article>
+                           <section id="post-baixo">
+                              <img id="icon-post" src="./imagens/tempo.svg" alt="tempo de execusão">
+                              <h3 id="descri-icon">0H40</h3>
+                              <img id="icon-post" src="./imagens/avalia.svg" alt="avaliação">
+                              <h3 id="descri-icon">5.0</h3>
+                              <img id="icon-post" src="./imagens/porcao.png" alt="porção">
+                              <h3 id="descri-icon">~</h3>
+                           </section>
+                        </section>
+                     </article>
+                     <section id="longpress-post-dispensa-fileira1">
+                        <article id="long-cima">
+                           <p id="plongpress">Etiquetas - organizadores - caneta gráfica - cestas - manual</p>
+                           <img id="icon-salvar-vazado" src="./imagens/salvar-post-vazado.png" alt="salvar">
+                        </article>
+                        <article id="long-baixo">
+                           <img id="icon-limpeza-longpress" src="./imagens/icon-limpeza-branco.png"
+                              alt="post com categoria limpeza">
+                           <h2 id="texto-longpress">ORGANIZE SUA <br>DISPENSA JÁ!</h2>
+                        </article>
+                     </section>
+                     <!-- FINAL 1 POST DISPENSA - FILEIRA 1 -->
+                     <!-- 2 PERGUNTA LAVAR ROUPA - FILEIRA 1 -->
+                     <article id="base-post">
+                        <section id="post-pergunta">
+                           <section id="c">
+                              <article id="post-perg">
+                                 <figure id="fundoperg"></figure>
+                                 <h2 id="text-pergunta">Amo pão de alho, como posso preparar um?</h2>
+                              </article>
+                              <section id="post-baixo-h">
+                                 <img id="icon-post" src="./imagens/comentpergunta.png" alt="avaliação">
+                                 <h3 id="descri-icon">20</h3>
+                                 <img id="icon-post" src="./imagens/respostapergunta.png" alt="porção">
+                                 <h3 id="descri-icon">0</h3>
+                              </section>
+                           </section>
+                        </section>
+                     </article>
+                     <!-- FINAL 2 PERGUNTA LAVAR ROUPA - FILEIRA 1 -->
+                     <!-- 3 POST BOLINHO DE CHUVA - FILEIRA 1 -->
+                     <article id="base-post">
+                        <section id="post-bolin-de-chuva">
+                           <article id="post-bolin-fileira1">
+                              <img id="bolin" src="./imagens/bolin.svg" alt="post">
+                              <figure id="sombra-a"></figure>
+                              <h2 id="descri-post-a">BOLINHO DE<br>CHUVA DA VOVÓ</h2>
+                           </article>
+                           <section id="post-baixo-a">
+                              <img id="icon-post" src="./imagens/tempo.svg" alt="tempo de execusão">
+                              <h3 id="descri-icon">0H30</h3>
+                              <img id="icon-post" src="./imagens/avalia.svg" alt="avaliação">
+                              <h3 id="descri-icon">4.5</h3>
+                              <img id="icon-post" src="./imagens/porcao.png" alt="porção">
+                              <h3 id="descri-icon">8</h3>
+                           </section>
+                        </section>
+                     </article>
+                     <section id="longpress-post-bolin-fileira1">
+                        <article id="long-cima">
+                           <p id="plongpress">Farinha de trigo - Açúcar - Extrato de baunilha - Fermento em pó - Canela
+                              em pó - óleo - Ovo</p>
+                           <img id="icon-salvar-vazado" src="./imagens/salvar-post-vazado.png" alt="salvar">
+                        </article>
+                        <article id="bolin-long-baixo">
+                           <img id="icon-culinaria-longpress" src="./imagens/icon-culinaria-branco.png"
+                              alt="post com categoria limpeza">
+                           <h2 id="texto-longpress">BOLINHO DE <br>CHUVA DA VOVÓ</h2>
+                        </article>
+                     </section>
+                     <!-- FINAL 3 POST BOLINHO DE CHUVA - FILEIRA 1 -->
+                     <!-- 4 POST CACHOS - FILEIRA 1 -->
+                     <article id="base-post">
+                        <section id="post-cachos">
+                           <article id="post-cachos-fileira1">
+                              <img id="cachos" src="./imagens/cachos.svg" alt="post">
+                              <figure id="sombra-b"></figure>
+                              <h2 id="descri-post-cachos-fileira1">COMO DEFINIR <br>SEUS CACHOS?</h2>
+                           </article>
+                           <section id="post-baixo-f">
+                              <img id="icon-post" src="./imagens/tempo.svg" alt="tempo de execusão">
+                              <h3 id="descri-icon">0H50</h3>
+                              <img id="icon-post" src="./imagens/avalia.svg" alt="avaliação">
+                              <h3 id="descri-icon">2.4</h3>
+                              <img id="icon-post" src="./imagens/porcao.png" alt="porção">
+                              <h3 id="descri-icon">1</h3>
+                           </section>
+                        </section>
+                     </article>
+                     <section id="longpress-post-cachos-fileira1">
+                        <article id="long-cima">
+                           <p id="plongpress">Creme para pentear modelador - Mascára recuperadora - Shampoo -
+                              Condicionador hidratante</p>
+                           <img id="icon-salvar-vazado" src="./imagens/salvar-post-vazado.png" alt="salvar">
+                        </article>
+                        <article id="cachos-long-baixo">
+                           <img id="icon-limpeza-longpress" src="./imagens/icon-bemestar-branco.png"
+                              alt="post com categoria limpeza">
+                           <h2 id="texto-longpress">COMO DEFINIR <br>SEUS CACHOS?</h2>
+                        </article>
+                     </section>
+                     <!-- FINAL 4 POST CACHOS - FILEIRA 1 -->
+                     <!-- 5 POST PERGUNTA - FILEIRA 1 -->
+                     <article id="base-post">
+                        <section id="post">
+                           <section id="c">
+                              <article id="post-perg">
+                                 <figure id="fundoperg"></figure>
+                                 <h2 id="text-pergunta">Como faço SkinCare com ingredientes naturais?</h2>
+                              </article>
+                              <section id="post-baixo-h">
+                                 <img id="icon-post" src="./imagens/comentpergunta.png" alt="avaliação">
+                                 <h3 id="descri-icon">20</h3>
+                                 <img id="icon-post" src="./imagens/respostapergunta.png" alt="porção">
+                                 <h3 id="descri-icon">0</h3>
+                              </section>
+                           </section>
+                        </section>
+                     </article>
+                     <!-- FINAL 5 POST PERGUNTA - FILEIRA 1 -->
+                  </section>
+                  <section id="segunda-fileira-posts">
+                     <!-- 1 POST CACHOS - FILEIRA 2 -->
+                     <article id="base-post">
+                        <section id="post-cachos">
+                           <article id="post-cachos-fileira2">
+                              <img id="cachos" src="./imagens/cachos.svg" alt="post">
+                              <figure id="sombra-b"></figure>
+                              <h2 id="descri-post-cachos-fileira2">COMO DEFINIR <br>SEUS CACHOS?</h2>
+                           </article>
+                           <section id="post-baixo-f">
+                              <img id="icon-post" src="./imagens/tempo.svg" alt="tempo de execusão">
+                              <h3 id="descri-icon">0H50</h3>
+                              <img id="icon-post" src="./imagens/avalia.svg" alt="avaliação">
+                              <h3 id="descri-icon">2.4</h3>
+                              <img id="icon-post" src="./imagens/porcao.png" alt="porção">
+                              <h3 id="descri-icon">1</h3>
+                           </section>
+                        </section>
+                     </article>
+                     <section id="longpress-post-cachos-fileira2">
+                        <article id="long-cima">
+                           <p id="plongpress">Creme para pentear modelador - Mascára recuperadora - Shampoo -
+                              Condicionador hidratante</p>
+                           <img id="icon-salvar-vazado" src="./imagens/salvar-post-vazado.png" alt="salvar">
+                        </article>
+                        <article id="cachos-long-baixo">
+                           <img id="icon-limpeza-longpress" src="./imagens/icon-bemestar-branco.png"
+                              alt="post com categoria limpeza">
+                           <h2 id="texto-longpress">COMO DEFINIR <br>SEUS CACHOS?</h2>
+                        </article>
+                     </section>
+                     <!-- FINAL 1 POST CACHOS - FILEIRA 2 -->
+                     <!-- 2 POST BOLO DE CENOURA - FILEIRA 2 -->
+                     <article id="base-post">
+                        <section id="post-bolo-de-cenoura">
+                           <article id="post-bolo-de-cenoura-fileira2">
+                              <img id="dispensa" src="./imagens/bolo.svg" alt="post">
+                              <figure id="sombra"></figure>
+                              <h2 id="descri-post-bolo-de-cenoura">BOLO DE CENOURA<br>CALDA PERFEITA</h2>
+                           </article>
+                           <section id="post-baixo-c">
+                              <img id="icon-post" src="./imagens/tempo.svg" alt="tempo de execusão">
+                              <h3 id="descri-icon">0H40</h3>
+                              <img id="icon-post" src="./imagens/avalia.svg" alt="avaliação">
+                              <h3 id="descri-icon">5.0</h3>
+                              <img id="icon-post" src="./imagens/porcao.png" alt="porção">
+                              <h3 id="descri-icon">9</h3>
+                           </section>
+                        </section>
+                     </article>
+                     <section id="longpress-post-bolo-de-cenoura-fileira2">
+                        <article id="long-cima">
+                           <p id="plongpress">Ovo - Manteiga - Açúcar - Óleo - Farinha de trigo - Fermento em pó -
+                              Cenoura média ralada</p>
+                           <img id="icon-salvar-vazado" src="./imagens/salvar-post-vazado.png" alt="salvar">
+                        </article>
+                        <article id="bolo-de-cenoura-long-baixo">
+                           <img id="icon-culinaria-longpress" src="./imagens/icon-culinaria-branco.png"
+                              alt="post com categoria limpeza">
+                           <h2 id="texto-longpress">BOLO DE CENOURA<br>CALDA PERFEITA</h2>
+                        </article>
+                     </section>
+                     <!-- FINAL 2 POST BOLO DE CENOURA - FILEIRA 2 -->
+                     <article id="base-post">
+                        <section id="post">
+                           <section id="c">
+                              <article id="post-perg">
+                                 <figure id="fundoperg"></figure>
+                                 <h2 id="text-pergunta">Queria tanto aprender a lavar roupa sem maquina</h2>
+                              </article>
+                              <section id="post-baixo-h">
+                                 <img id="icon-post" src="./imagens/comentpergunta.png" alt="avaliação">
+                                 <h3 id="descri-icon">20</h3>
+                                 <img id="icon-post" src="./imagens/respostapergunta.png" alt="porção">
+                                 <h3 id="descri-icon">0</h3>
+                              </section>
+                           </section>
+                        </section>
+                     </article>
+                     <article id="base-post">
+                        <section id="post-bolin-de-chuva">
+                           <article id="post-bolin-fileira2">
+                              <img id="bolin" src="./imagens/bolin.svg" alt="post">
+                              <figure id="sombra-a"></figure>
+                              <h2 id="descri-post-bolin-fileira2">BOLINHO DE<br>CHUVA DA VOVÓ</h2>
+                           </article>
+                           <section id="post-baixo-a">
+                              <img id="icon-post" src="./imagens/tempo.svg" alt="tempo de execusão">
+                              <h3 id="descri-icon">0H30</h3>
+                              <img id="icon-post" src="./imagens/avalia.svg" alt="avaliação">
+                              <h3 id="descri-icon">4.5</h3>
+                              <img id="icon-post" src="./imagens/porcao.png" alt="porção">
+                              <h3 id="descri-icon">8</h3>
+                           </section>
+                        </section>
+                     </article>
+                     <section id="longpress-post-bolin-fileira2">
+                        <article id="long-cima">
+                           <p id="plongpress">Farinha de trigo - Açúcar - Extrato de baunilha - Fermento em pó - Canela
+                              em pó - óleo - Ovo</p>
+                           <img id="icon-salvar-vazado" src="./imagens/salvar-post-vazado.png" alt="salvar">
+                        </article>
+                        <article id="bolin2-long-baixo">
+                           <img id="icon-culinaria-longpress" src="./imagens/icon-culinaria-branco.png"
+                              alt="post com categoria limpeza">
+                           <h2 id="texto-longpress">BOLINHO DE <br>CHUVA DA VOVÓ</h2>
+                        </article>
+                     </section>
+                     <article id="base-post">
+                        <section id="post">
+                           <article id="post-dispensa-fileira2">
+                              <img id="dispensa" src="./imagens/dispensa.svg" alt="post">
+                              <figure id="sombra"></figure>
+                              <h2 id="descri-post-dispensa-fileira2">ORGANIZE SUA <br>DISPENSA JÁ!</h2>
+                           </article>
+                           <section id="post-baixo">
+                              <img id="icon-post" src="./imagens/tempo.svg" alt="tempo de execusão">
+                              <h3 id="descri-icon">0H40</h3>
+                              <img id="icon-post" src="./imagens/avalia.svg" alt="avaliação">
+                              <h3 id="descri-icon">5.0</h3>
+                              <img id="icon-post" src="./imagens/porcao.png" alt="porção">
+                              <h3 id="descri-icon">~</h3>
+                           </section>
+                        </section>
+                     </article>
+                     <section id="longpress-post-dispensa-fileira2">
+                        <article id="long-cima">
+                           <p id="plongpress">Etiquetas - organizadores - caneta gráfica - cestas - manual</p>
+                           <img id="icon-salvar-vazado" src="./imagens/salvar-post-vazado.png" alt="salvar">
+                        </article>
+                        <article id="long-baixo-dispensa-fileira2">
+                           <img id="icon-limpeza-longpress" src="./imagens/icon-limpeza-branco.png"
+                              alt="post com categoria limpeza">
+                           <h2 id="texto-longpress">ORGANIZE SUA <br>DISPENSA JÁ!</h2>
+                        </article>
+                     </section>
+                  </section>
+               </section>
+            </section>
+         </section>
+      </section>
+      <section class="conteudo-dispositivo desktop">
+         <section class="slider-D">
+            <article class="slides-D">
+               <input type="radio" name="radio-btn-D" id="radio1D">
+               <input type="radio" name="radio-btn-D" id="radio2D">
+               <input type="radio" name="radio-btn-D" id="radio3D">
+               <figure class="slideD primeiro-D">
+                  <section class="quadrado-categoria-culinaria"></section>
+                  <section class="textos-carrossel">
+                     <h1 class="texto-slide1">ARROZ DE FORNO</h1>
+                     <p class="itens-necessarios">óleo - arroz - água - presunto - queijo - ervilha - cenoura - salsa
+                        - queijo parmesão - bacon</p>
+                     <p class="descricao-culinaria">O arroz de forno é um prato versátil e reconfortante que combina
+                        ingredientes como arroz, queijo, legumes e carnes em uma preparação assada no forno.</p>
+                     <button class="ver-dica"
+                        onclick="window.location.href='https://grupo4-tca.github.io/Como-que-faz/Dica'">VER
+                        DICA</button>
+                  </section>
+                  <img class="imagens-slide" src="imagens/carrossel-home-desktop.png" alt="imagem-culinaria">
+                  <img class="imagem-categoriaD" src="imagens/icon-culinaria-branco.png" alt="icon-culinaria">
+               </figure>
+               <figure class="slideD">
+                  <section class="quadrado-categoria-limpeza"></section>
+                  <section class="textos-carrossel">
+                     <h1 class="texto-slide1">COMO LIMPAR SEU FOGÃO</h1>
+                     <p class="itens-necessarios-limpeza">vinagre branco - água - bicarbonato de sódio - detergente
+                        neutro - esponja - papel toalha</p>
+                     <p class="descricao-limpeza"> É hora de transformar a limpeza do fogão em uma tarefa simples e
+                        eficaz!</p>
+                     <button class="ver-dica">VER DICA</button>
+                  </section>
+                  <img class="imagens-slide" src="imagens/carrossel-home-desktop-limpeza.png" alt="imagem-limpeza">
+                  <img class="imagem-categoriaD" src="imagens/icon-limpeza-branco.png" alt="icon-culinaria">
+                  <section class="textos-carrossel">
+                  </section>
+               </figure>
+               <figure class="slideD">
+                  <section class="quadrado-categoria-bemestar"></section>
+                  <section class="textos-carrossel">
+                     <h1 class="texto-slide1">COMO DEFINIR SEUS CACHOS</h1>
+                     <p class="itens-necessarios-bemestar">creme de pentear - mascara hidratante - manual</p>
+                     <p class="descricao-bemestar">Quer arrasar com cachos perfeitos? 😍 Descubra conosco o segredo para
+                        definir seus cachos como nunca antes!</p>
+                     <button class="ver-dica">VER DICA</button>
+                  </section>
+                  <img class="imagens-slide" src="imagens/carrossel-home-desktop-bemestar.png" alt="imagem-bem-estar">
+                  <img class="imagem-categoriaD" src="imagens/icon-bemestar-branco.png" alt="icon-culinaria">
+                  <section class="textos-carrossel">
+                  </section>
+               </figure>
+            </article>
+         </section>
+         <nav class="manual-navigation-D">
+            <label for="radio1D" class="manual-btnD manual-btnD1-D"></label>
+            <label for="radio2D" class="manual-btnD manual-btnD2-D"></label>
+            <label for="radio3D" class="manual-btnD manual-btnD3-D"></label>
+         </nav>
+         <nav class="recente-emalta-rapidas-Dkt">
+            <button class="Recente-Dkt" onclick="VisiRecenteDkt()">+RECENTE</button>
+            <button class="EmAlta-Dkt" onclick="VisiEmAltaDkt()">EM ALTA</button>
+            <button class="Rapidas-Dkt" onclick="VisiRapidasDkt()">+RÁPIDAS</button>
+         </nav>
+         <section class="conteudo-recente-emalta-rapidas-Dkt">
+            <section class="Conteudo-Recente-Dkt" id="Conteudo-Recente-Dkt" style="display: none;">
+               <section class="postagens">
+                  <section class="postagens1">
+                     <article class="post1" onmouseover="mostrarDivOculta()" onmouseout="esconderDivOculta()" id="posts">
+                        <img src="imagens/arroz-de-forno.png" alt="foto-post1" class="info-cima-post">
+                        <h1 id="texto-atras" class="info-cima-post">Arroz de Forno Colorido</h1>
+                        <img id="icon-culinaria-branco" src="imagens/icon-culinaria-branco.png"
+                           alt="icon-culinaria-branco" class="info-cima-post">
+                        <aside class="legenda">
+                           <figure class="legenda relogio">
+                              <img src="imagens/relogio-cinza.svg" alt="relogio">
+                              <h3>1H00</h3>
+                           </figure>
+                           <figure class="legenda estrela">
+                              <img src="imagens/estrela-cinza.svg" alt="estrela">
+                              <h3>4.9</h3>
+                           </figure>
+                           <figure class="legenda partes">
+                              <img src="imagens/partes-cinza.png" alt="partes">
+                              <h3>5</h3>
+                           </figure>
+                        </aside>
+                        <aside class="hover-post1" id="hover-post1">
+                           <h3>óleo - arroz - água - presunto - queijo - ervilha - cenoura - salsa - queijo parmesão -
+                              bacon</h3>
+                        </aside>
+                     </article>
+                     <article class="post2" onmouseover="mostrarDivOculta2()" onmouseout="esconderDivOculta2()">
+                        <img src="imagens/post-bolo-de-cenoura.png" alt="foto-post2" class="info-cima-post">
+                        <h1 id="texto-atras2" class="info-cima-post">Bolo de Cenoura Fofo</h1>
+                        <img id="icon-culinaria-branco2" src="imagens/icon-culinaria-branco.png"
+                           alt="icon-culinaria-branco2" class="info-cima-post2">
+                        <aside class="legenda2">
+                           <figure class="legenda2 relogio">
+                              <img src="imagens/relogio-cinza.svg" alt="relogio">
+                              <h3>0H30</h3>
+                           </figure>
+                           <figure class="legenda2 estrela">
+                              <img src="imagens/estrela-cinza.svg" alt="estrela">
+                              <h3>4.9</h3>
+                           </figure>
+                           <figure class="legenda2 partes">
+                              <img src="imagens/partes-cinza.png" alt="partes">
+                              <h3>12</h3>
+                           </figure>
+                        </aside>
+                        <aside class="hover-post2" id="hover-post2">
+                           <h3>ovos - cenoura picada - açúcar - leite ou suco de laranja - farinha de trigo - farinha de
+                              trigo - amido de milho - leite - açúcar - chocolate em pó - Essência de baunilha -
+                              Chocolate granulado</h3>
+                        </aside>
+                     </article>
+                     <article class="post3" onmouseover="mostrarDivOculta3()" onmouseout="esconderDivOculta3()">
+                        <img src="imagens/post-limpar-fogao.png" alt="foto-post3" class="info-cima-post">
+                        <h1 id="texto-atras3" class="info-cima-post">Limpe seu forno fácil</h1>
+                        <img id="icon-limpeza-branco3" src="imagens/icon-limpeza-branco.png" alt="icon-limpeza-branco3"
+                           class="info-cima-post3">
+                        <aside class="legenda3">
+                           <figure class="legenda3 relogio3">
+                              <img src="imagens/relogio-cinza.svg" alt="relogio">
+                              <h3>0H20</h3>
+                           </figure>
+                           <figure class="legenda3 estrela3">
+                              <img src="imagens/estrela-cinza.svg" alt="estrela">
+                              <h3>4.9</h3>
+                           </figure>
+                        </aside>
+                        <aside class="hover-post3" id="hover-post3">
+                           <h3>vinagre branco - água - bicarbonato de sódio - detergente neutro - Esponja - Papel toalha
+                           </h3>
+                        </aside>
+                     </article>
+                     <article class="post4" onmouseover="mostrarDivOculta4()" onmouseout="esconderDivOculta4()">
+                        <img src="imagens/post-imagem-pele.png" alt="foto-post4" class="info-cima-post">
+                        <h1 id="texto-atras4" class="info-cima-post">Cuidados com a pele negra</h1>
+                        <img id="icon-limpeza-branco4" src="imagens/icon-bemestar-branco.png" alt="icon-limpeza-branco4"
+                           class="info-cima-post4">
+                        <aside class="legenda4">
+                           <figure class="legenda4 relogio3">
+                              <img src="imagens/relogio-cinza.svg" alt="relogio">
+                              <h3>0H10</h3>
+                           </figure>
+                           <figure class="legenda4 estrela3">
+                              <img src="imagens/estrela-cinza.svg" alt="estrela">
+                              <h3>4.9</h3>
+                           </figure>
+                        </aside>
+                        <aside class="hover-post4" id="hover-post4">
+                           <h3>esfoliante - água - hidratante</h3>
+                        </aside>
+                     </article>
+                     <article id="post13" class="post13" onmouseover="mostrarDivOculta13()"
+                        onmouseout="esconderDivOculta13()" style="display: none;">
+                        <img src="imagens/post-sorvete-açai.png" alt="foto-post13" class="info-cima-post">
+                        <h1 id="texto-atras13" class="info-cima-post">Sorverte de açaí caseiro</h1>
+                        <img id="icon-culinaria-branco13" src="imagens/icon-culinaria-branco.png"
+                           alt="icon-culinaria-branco13" class="info-cima-post13">
+                        <aside class="legenda13">
+                           <figure class="legenda11 relogio">
+                              <img src="imagens/relogio-cinza.svg" alt="relogio">
+                              <h3>1H20</h3>
+                           </figure>
+                           <figure class="legenda11 estrela">
+                              <img src="imagens/estrela-cinza.svg" alt="estrela">
+                              <h3>4.9</h3>
+                           </figure>
+                           <figure class="legenda11 partes">
+                              <img src="imagens/partes-cinza.png" alt="partes">
+                              <h3>8</h3>
+                           </figure>
+                        </aside>
+                        <aside class="hover-post13" id="hover-post13">
+                           <h3>esfoliante - água - hidratante</h3>
+                        </aside>
+                     </article>
+                  </section>
+                  <section class="postagens2">
+                     <article class="post5" onmouseover="mostrarDivOculta5()" onmouseout="esconderDivOculta5()">
+                        <img src="imagens/post-organizacao-rotina.png" alt="foto-post5" class="info-cima-post">
+                        <h1 id="texto-atras5" class="info-cima-post">Organize sua rotina</h1>
+                        <img id="icon-limpeza-branco5" src="imagens/icon-bemestar-branco.png" alt="icon-limpeza-branco5"
+                           class="info-cima-post5">
+                        <aside class="legenda5">
+                           <figure class="legenda5 relogio5">
+                              <img src="imagens/relogio-cinza.svg" alt="relogio">
+                              <h3>1H20</h3>
+                           </figure>
+                           <figure class="legenda5 estrela5">
+                              <img src="imagens/estrela-cinza.svg" alt="estrela">
+                              <h3>5.0</h3>
+                           </figure>
+                        </aside>
+                        <aside class="hover-post5" id="hover-post5">
+                           <h3>essa dica não possui itens necessários</h3>
+                        </aside>
+                     </article>
+                     <article class="post6" onmouseover="mostrarDivOculta6()" onmouseout="esconderDivOculta6()">
+                        <img src="imagens/post-limpeza-pia.png" alt="foto-post6" class="info-cima-post">
+                        <h1 id="texto-atras6" class="info-cima-post">Limpar o ralo nunca foi tão fácil!</h1>
+                        <img id="icon-limpeza-branco6" src="imagens/icon-limpeza-branco.png" alt="icon-limpeza-branco6"
+                           class="info-cima-post6">
+                        <aside class="legenda6">
+                           <figure class="legenda6 relogio6">
+                              <img src="imagens/relogio-cinza.svg" alt="relogio">
+                              <h3>1H20</h3>
+                           </figure>
+                           <figure class="legenda6 estrela6">
+                              <img src="imagens/estrela-cinza.svg" alt="estrela">
+                              <h3>5.0</h3>
+                           </figure>
+                        </aside>
+                        <aside class="hover-post6" id="hover-post6">
+                           <h3>bicarbonato de sódio - vinagre - água</h3>
+                        </aside>
+                     </article>
+                     <article class="post7" onmouseover="mostrarDivOculta7()" onmouseout="esconderDivOculta7()">
+                        <img src="imagens/post-bolinho-de-chuva.png" alt="foto-post7" class="info-cima-post">
+                        <h1 id="texto-atras7" class="info-cima-post">Bolinho de chuva</h1>
+                        <img id="icon-culinaria-branco7" src="imagens/icon-culinaria-branco.png"
+                           alt="icon-culinaria-branco7" class="info-cima-post7">
+                        <aside class="legenda7">
+                           <figure class="legenda7 relogio">
+                              <img src="imagens/relogio-cinza.svg" alt="relogio">
+                              <h3>0H45</h3>
+                           </figure>
+                           <figure class="legenda7 estrela">
+                              <img src="imagens/estrela-cinza.svg" alt="estrela">
+                              <h3>4.9</h3>
+                           </figure>
+                           <figure class="legenda7 partes">
+                              <img src="imagens/partes-cinza.png" alt="partes">
+                              <h3>36</h3>
+                           </figure>
+                        </aside>
+                        <aside class="hover-post7" id="hover-post7">
+                           <h3>leite - Amido de Milho Maizena - farinha de trigo - açúcar - fermento em pó - ovos - gema
+                              - óleo para fritar - canela</h3>
+                        </aside>
+                     </article>
+                     <article class="post8" onmouseover="mostrarDivOculta8()" onmouseout="esconderDivOculta8()">
+                        <img src="imagens/post-limpeza-dispensa.png" alt="foto-post8" class="info-cima-post">
+                        <h1 id="texto-atras8" class="info-cima-post">Organize sua dispensa na rotina</h1>
+                        <img id="icon-limpeza-branco8" src="imagens/icon-limpeza-branco.png" alt="icon-limpeza-branco8"
+                           class="info-cima-post8">
+                        <aside class="legenda8">
+                           <figure class="legenda8 relogio8">
+                              <img src="imagens/relogio-cinza.svg" alt="relogio">
+                              <h3>0H20</h3>
+                           </figure>
+                           <figure class="legenda8 estrela8">
+                              <img src="imagens/estrela-cinza.svg" alt="estrela">
+                              <h3>5.0</h3>
+                           </figure>
+                        </aside>
+                        <aside class="hover-post8" id="hover-post8">
+                           <h3>multiuso - água - pano</h3>
+                        </aside>
+                     </article>
+                     <article id="post14" class="post14" onmouseover="mostrarDivOculta14()"
+                        onmouseout="esconderDivOculta14()" style="display: none;">
+                        <img src="imagens/post-exercicios-bemetar.png" alt="foto-post14" class="info-cima-post">
+                        <h1 id="texto-atras14" class="info-cima-post">Equilíbrio Vital: Exercícios!</h1>
+                        <img id="icon-bemestar-branco14" src="imagens/icon-bemestar-branco.png"
+                           alt="icon-bemestar-branco14" class="info-cima-post14">
+                        <aside class="legenda14">
+                           <figure class="legenda14 relogio14">
+                              <img src="imagens/relogio-cinza.svg" alt="relogio">
+                              <h3>0H20</h3>
+                           </figure>
+                           <figure class="legenda14 estrela14">
+                              <img src="imagens/estrela-cinza.svg" alt="estrela">
+                              <h3>4.9</h3>
+                           </figure>
+                        </aside>
+                        <aside class="hover-post14" id="hover-post14">
+                           <h3>Tapete de Yoga ou Esteira - Pesos Livres - Bola de Exercício - Barra para Flexões - Corda
+                              de Pular - Banco de Musculação</h3>
+                        </aside>
+                     </article>
+                  </section>
+                  <section class="postagens3">
+                     <article class="post9" onmouseover="mostrarDivOculta9()" onmouseout="esconderDivOculta9()">
+                        <img src="imagens/post-lavar-roupa.png" alt="foto-post9" class="info-cima-post">
+                        <h1 id="texto-atras9" class="info-cima-post">Bolinho de chuva</h1>
+                        <img id="icon-limpeza-branco9" src="imagens/icon-limpeza-branco.png"
+                           alt="icon-culinaria-branco9" class="info-cima-post9">
+                        <aside class="legenda9">
+                           <figure class="legenda9 relogio9">
+                              <img src="imagens/relogio-cinza.svg" alt="relogio">
+                              <h3>0H45</h3>
+                           </figure>
+                           <figure class="legenda9 estrela9">
+                              <img src="imagens/estrela-cinza.svg" alt="estrela">
+                              <h3>4.9</h3>
+                           </figure>
+                        </aside>
+                        <aside class="hover-post9" id="hover-post9">
+                           <h3>roupas - sabão - amaciante - máquina de lavar - água fria ou água quente</h3>
+                        </aside>
+                     </article>
+                     <article class="post10" onmouseover="mostrarDivOculta10()" onmouseout="esconderDivOculta10()">
+                        <img src="imagens/post-unhas.png" alt="foto-post10" class="info-cima-post">
+                        <h1 id="texto-atras10" class="info-cima-post">Faça suas cuticulas sem dor</h1>
+                        <img id="icon-bemestar-branco10" src="imagens/icon-bemestar-branco.png"
+                           alt="icon-culinaria-branco10" class="info-cima-post10">
+                        <aside class="legenda10">
+                           <figure class="legenda10 relogio10">
+                              <img src="imagens/relogio-cinza.svg" alt="relogio">
+                              <h3>0H45</h3>
+                           </figure>
+                           <figure class="legenda10 estrela10">
+                              <img src="imagens/estrela-cinza.svg" alt="estrela">
+                              <h3>4.9</h3>
+                           </figure>
+                        </aside>
+                        <aside class="hover-post10" id="hover-post10">
+                           <h3>alicate de unha - tesoura de unha - hidratante de cuticula - algodão - papel alumínio
+                           </h3>
+                        </aside>
+                     </article>
+                     <article class="post11" onmouseover="mostrarDivOculta11()" onmouseout="esconderDivOculta11()">
+                        <img src="imagens/post-escondidinho.png" alt="foto-post11" class="info-cima-post">
+                        <h1 id="texto-atras11" class="info-cima-post">Escondidinho de frango</h1>
+                        <img id="icon-culinaria-branco11" src="imagens/icon-culinaria-branco.png"
+                           alt="icon-culinaria-branco11" class="info-cima-post11">
+                        <aside class="legenda11">
+                           <figure class="legenda11 relogio">
+                              <img src="imagens/relogio-cinza.svg" alt="relogio">
+                              <h3>1H20</h3>
+                           </figure>
+                           <figure class="legenda11 estrela">
+                              <img src="imagens/estrela-cinza.svg" alt="estrela">
+                              <h3>4.9</h3>
+                           </figure>
+                           <figure class="legenda11 partes">
+                              <img src="imagens/partes-cinza.png" alt="partes">
+                              <h3>8</h3>
+                           </figure>
+                        </aside>
+                        <aside class="hover-post11" id="hover-post11">
+                           <h3>peitos de frango desfiado - molho de tomate pronto - cebola pequena bem picadinha -
+                              margarina - requeijão - pimenta - tempero pronto - milho verde - alho - batata - mussarela
+                              ralada - sal</h3>
+                        </aside>
+                     </article>
+                     <article class="post12" onmouseover="mostrarDivOculta12()" onmouseout="esconderDivOculta12()">
+                        <img src="imagens/post-barba.png" alt="foto-post12" class="info-cima-post">
+                        <h1 id="texto-atras12" class="info-cima-post">Barba falhada nunca mais!</h1>
+                        <img id="icon-bemestar-branco12" src="imagens/icon-bemestar-branco.png"
+                           alt="icon-bemestar-branco12" class="info-cima-post12">
+                        <aside class="legenda12">
+                           <figure class="legenda12 relogio12">
+                              <img src="imagens/relogio-cinza.svg" alt="relogio">
+                              <h3>1H20</h3>
+                           </figure>
+                           <figure class="legenda12 estrela12">
+                              <img src="imagens/estrela-cinza.svg" alt="estrela">
+                              <h3>4.9</h3>
+                           </figure>
+                        </aside>
+                        <aside class="hover-post12" id="hover-post12">
+                           <h3>barbeador - lâmina de barbear - gilete - espuma de barbear - pinça</h3>
+                        </aside>
+                     </article>
+                     <article id="post15" class="post15" onmouseover="mostrarDivOculta15()"
+                        onmouseout="esconderDivOculta15()" style="display: none;">
+                        <img src="imagens/post-macarrao-culinaria.png" alt="foto-post15" class="info-cima-post">
+                        <h1 id="texto-atras15" class="info-cima-post">Receita de Massa Incrível</h1>
+                        <img id="icon-culinaria-branco15" src="imagens/icon-culinaria-branco.png"
+                           alt="icon-limpeza-branco15" class="info-cima-post15">
+                        <aside class="legenda15">
+                           <figure class="legenda15 relogio">
+                              <img src="imagens/relogio-cinza.svg" alt="relogio">
+                              <h3>1H20</h3>
+                           </figure>
+                           <figure class="legenda15 estrela">
+                              <img src="imagens/estrela-cinza.svg" alt="estrela">
+                              <h3>4.9</h3>
+                           </figure>
+                           <figure class="legenda15 partes">
+                              <img src="imagens/partes-cinza.png" alt="partes">
+                              <h3>4</h3>
+                           </figure>
+                        </aside>
+                        <aside class="hover-post15" id="hover-post15">
+                           <h3>massa - dentes de alho - azeite de oliva - Sal</h3>
+                        </aside>
+                     </article>
+                  </section>
+               </section>
+               <button id="mostrarDivBtn" class="carregar">Carregar mais</button>
+            </section>
+            <section class="Conteudo-EmAlta-Dkt" id="Conteudo-EmAlta-Dkt">
+               <section class="postagens">
+                  <section class="postagens2-B">
+                     <article class="post5" onmouseover="mostrarDivOculta5B()" onmouseout="esconderDivOculta5B()">
+                        <img src="imagens/post-organizacao-rotina.png" alt="foto-post5" class="info-cima-post">
+                        <h1 id="texto-atras5-B" class="info-cima-post">Organize sua rotina</h1>
+                        <img id="icon-limpeza-branco5-B" src="imagens/icon-bemestar-branco.png"
+                           alt="icon-limpeza-branco5" class="info-cima-post5">
+                        <aside class="legenda5">
+                           <figure class="legenda5 relogio5">
+                              <img src="imagens/relogio-cinza.svg" alt="relogio">
+                              <h3>1H20</h3>
+                           </figure>
+                           <figure class="legenda5 estrela5">
+                              <img src="imagens/estrela-cinza.svg" alt="estrela">
+                              <h3>5.0</h3>
+                           </figure>
+                        </aside>
+                        <aside class="hover-post5" id="hover-post5-B">
+                           <h3>essa dica não possui itens necessários</h3>
+                        </aside>
+                     </article>
+                     <article class="post6" onmouseover="mostrarDivOculta6B()" onmouseout="esconderDivOculta6B()">
+                        <img src="imagens/post-limpeza-pia.png" alt="foto-post6" class="info-cima-post">
+                        <h1 id="texto-atras6-B" class="info-cima-post">Limpar o ralo nunca foi tão fácil!</h1>
+                        <img id="icon-limpeza-branco6-B" src="imagens/icon-limpeza-branco.png"
+                           alt="icon-limpeza-branco6" class="info-cima-post6">
+                        <aside class="legenda6">
+                           <figure class="legenda6 relogio6">
+                              <img src="imagens/relogio-cinza.svg" alt="relogio">
+                              <h3>1H20</h3>
+                           </figure>
+                           <figure class="legenda6 estrela6">
+                              <img src="imagens/estrela-cinza.svg" alt="estrela">
+                              <h3>4.9</h3>
+                           </figure>
+                        </aside>
+                        <aside class="hover-post6" id="hover-post6-B">
+                           <h3>bicarbonato de sódio - vinagre - água</h3>
+                        </aside>
+                     </article>
+                     <article class="post7" onmouseover="mostrarDivOculta7B()" onmouseout="esconderDivOculta7B()">
+                        <img src="imagens/post-bolinho-de-chuva.png" alt="foto-post7" class="info-cima-post">
+                        <h1 id="texto-atras7-B" class="info-cima-post">Bolinho de chuva</h1>
+                        <img id="icon-culinaria-branco7-B" src="imagens/icon-culinaria-branco.png"
+                           alt="icon-culinaria-branco7" class="info-cima-post7">
+                        <aside class="legenda7">
+                           <figure class="legenda7 relogio">
+                              <img src="imagens/relogio-cinza.svg" alt="relogio">
+                              <h3>0H45</h3>
+                           </figure>
+                           <figure class="legenda7 estrela">
+                              <img src="imagens/estrela-cinza.svg" alt="estrela">
+                              <h3>4.8</h3>
+                           </figure>
+                           <figure class="legenda7 partes">
+                              <img src="imagens/partes-cinza.png" alt="partes">
+                              <h3>36</h3>
+                           </figure>
+                        </aside>
+                        <aside class="hover-post7" id="hover-post7-B">
+                           <h3>leite - Amido de Milho Maizena - farinha de trigo - açúcar - fermento em pó - ovos - gema
+                              - óleo para fritar - canela</h3>
+                        </aside>
+                     </article>
+                     <article class="post8" onmouseover="mostrarDivOculta8B()" onmouseout="esconderDivOculta8B()">
+                        <img src="imagens/post-limpeza-dispensa.png" alt="foto-post8" class="info-cima-post">
+                        <h1 id="texto-atras8-B" class="info-cima-post">Organize sua dispensa na rotina</h1>
+                        <img id="icon-limpeza-branco8-B" src="imagens/icon-limpeza-branco.png"
+                           alt="icon-limpeza-branco8" class="info-cima-post8">
+                        <aside class="legenda8">
+                           <figure class="legenda8 relogio8">
+                              <img src="imagens/relogio-cinza.svg" alt="relogio">
+                              <h3>0H20</h3>
+                           </figure>
+                           <figure class="legenda8 estrela8">
+                              <img src="imagens/estrela-cinza.svg" alt="estrela">
+                              <h3>5.0</h3>
+                           </figure>
+                        </aside>
+                        <aside class="hover-post8" id="hover-post8-B">
+                           <h3>multiuso - água - pano</h3>
+                        </aside>
+                     </article>
+                     <article id="post14-B" class="post14" onmouseover="mostrarDivOculta14B()"
+                        onmouseout="esconderDivOculta14B()" style="display: none;">
+                        <img src="imagens/post-exercicios-bemetar.png" alt="foto-post14" class="info-cima-post">
+                        <h1 id="texto-atras14-B" class="info-cima-post">Equilíbrio Vital: Exercícios!</h1>
+                        <img id="icon-bemestar-branco14-B" src="imagens/icon-bemestar-branco.png"
+                           alt="icon-bemestar-branco14" class="info-cima-post14">
+                        <aside class="legenda14">
+                           <figure class="legenda14 relogio14">
+                              <img src="imagens/relogio-cinza.svg" alt="relogio">
+                              <h3>0H20</h3>
+                           </figure>
+                           <figure class="legenda14 estrela14">
+                              <img src="imagens/estrela-cinza.svg" alt="estrela">
+                              <h3>4.9</h3>
+                           </figure>
+                        </aside>
+                        <aside class="hover-post14" id="hover-post14-B">
+                           <h3>Tapete de Yoga ou Esteira - Pesos Livres - Bola de Exercício - Barra para Flexões - Corda
+                              de Pular - Banco de Musculação</h3>
+                        </aside>
+                     </article>
+                  </section>
+                  <section class="postagens1-B">
+                     <article class="post1" onmouseover="mostrarDivOcultaB()" onmouseout="esconderDivOcultaB()" id="posts">
+                        <img src="imagens/arroz-de-forno.png" alt="foto-post1" class="info-cima-post">
+                        <h1 id="texto-atras-B" class="info-cima-post">Arroz de Forno Colorido</h1>
+                        <img id="icon-culinaria-branco-B" src="imagens/icon-culinaria-branco.png"
+                           alt="icon-culinaria-branco" class="info-cima-post">
+                        <aside class="legenda">
+                           <figure class="legenda relogio">
+                              <img src="imagens/relogio-cinza.svg" alt="relogio">
+                              <h3>1H00</h3>
+                           </figure>
+                           <figure class="legenda estrela">
+                              <img src="imagens/estrela-cinza.svg" alt="estrela">
+                              <h3>5.0</h3>
+                           </figure>
+                           <figure class="legenda partes">
+                              <img src="imagens/partes-cinza.png" alt="partes">
+                              <h3>5</h3>
+                           </figure>
+                        </aside>
+                        <aside class="hover-post1" id="hover-post1-B">
+                           <h3>óleo - arroz - água - presunto - queijo - ervilha - cenoura - salsa - queijo parmesão -
+                              bacon</h3>
+                        </aside>
+                     </article>
+                     <article class="post2" onmouseover="mostrarDivOculta2B()" onmouseout="esconderDivOculta2B()">
+                        <img src="imagens/post-bolo-de-cenoura.png" alt="foto-post2" class="info-cima-post">
+                        <h1 id="texto-atras2-B" class="info-cima-post">Bolo de Cenoura Fofo</h1>
+                        <img id="icon-culinaria-branco2-B" src="imagens/icon-culinaria-branco.png"
+                           alt="icon-culinaria-branco2" class="info-cima-post2">
+                        <aside class="legenda2">
+                           <figure class="legenda2 relogio">
+                              <img src="imagens/relogio-cinza.svg" alt="relogio">
+                              <h3>0H30</h3>
+                           </figure>
+                           <figure class="legenda2 estrela">
+                              <img src="imagens/estrela-cinza.svg" alt="estrela">
+                              <h3>4.9</h3>
+                           </figure>
+                           <figure class="legenda2 partes">
+                              <img src="imagens/partes-cinza.png" alt="partes">
+                              <h3>12</h3>
+                           </figure>
+                        </aside>
+                        <aside class="hover-post2" id="hover-post2-B">
+                           <h3>ovos - cenoura picada - açúcar - leite ou suco de laranja - farinha de trigo - farinha de
+                              trigo - amido de milho - leite - açúcar - chocolate em pó - Essência de baunilha -
+                              Chocolate granulado</h3>
+                        </aside>
+                     </article>
+                     <article class="post3" onmouseover="mostrarDivOculta3B()" onmouseout="esconderDivOculta3B()">
+                        <img src="imagens/post-limpar-fogao.png" alt="foto-post3" class="info-cima-post">
+                        <h1 id="texto-atras3-B" class="info-cima-post">Limpe seu forno fácil</h1>
+                        <img id="icon-limpeza-branco3-B" src="imagens/icon-limpeza-branco.png"
+                           alt="icon-limpeza-branco3" class="info-cima-post3">
+                        <aside class="legenda3">
+                           <figure class="legenda3 relogio3">
+                              <img src="imagens/relogio-cinza.svg" alt="relogio">
+                              <h3>0H20</h3>
+                           </figure>
+                           <figure class="legenda3 estrela3">
+                              <img src="imagens/estrela-cinza.svg" alt="estrela">
+                              <h3>4.9</h3>
+                           </figure>
+                        </aside>
+                        <aside class="hover-post3" id="hover-post3-B">
+                           <h3>vinagre branco - água - bicarbonato de sódio - detergente neutro - Esponja - Papel toalha
+                           </h3>
+                        </aside>
+                     </article>
+                     <article class="post4" onmouseover="mostrarDivOculta4B()" onmouseout="esconderDivOculta4B()">
+                        <img src="imagens/post-imagem-pele.png" alt="foto-post4" class="info-cima-post">
+                        <h1 id="texto-atras4-B" class="info-cima-post">Cuidados com a pele negra</h1>
+                        <img id="icon-limpeza-branco4-B" src="imagens/icon-bemestar-branco.png"
+                           alt="icon-limpeza-branco4" class="info-cima-post4">
+                        <aside class="legenda4">
+                           <figure class="legenda4 relogio3">
+                              <img src="imagens/relogio-cinza.svg" alt="relogio">
+                              <h3>0H10</h3>
+                           </figure>
+                           <figure class="legenda4 estrela3">
+                              <img src="imagens/estrela-cinza.svg" alt="estrela">
+                              <h3>4.9</h3>
+                           </figure>
+                        </aside>
+                        <aside class="hover-post4" id="hover-post4-B">
+                           <h3>esfoliante - água - hidratante</h3>
+                        </aside>
+                     </article>
+                     <article id="post13-B" class="post13" onmouseover="mostrarDivOculta13B()"
+                        onmouseout="esconderDivOculta13B()" style="display: none;">
+                        <img src="imagens/post-sorvete-açai.png" alt="foto-post13" class="info-cima-post">
+                        <h1 id="texto-atras13-B" class="info-cima-post">Sorverte de açaí caseiro</h1>
+                        <img id="icon-culinaria-branco13-B" src="imagens/icon-culinaria-branco.png"
+                           alt="icon-culinaria-branco13" class="info-cima-post13">
+                        <aside class="legenda13">
+                           <figure class="legenda11 relogio">
+                              <img src="imagens/relogio-cinza.svg" alt="relogio">
+                              <h3>1H20</h3>
+                           </figure>
+                           <figure class="legenda11 estrela">
+                              <img src="imagens/estrela-cinza.svg" alt="estrela">
+                              <h3>4.9</h3>
+                           </figure>
+                           <figure class="legenda11 partes">
+                              <img src="imagens/partes-cinza.png" alt="partes">
+                              <h3>8</h3>
+                           </figure>
+                        </aside>
+                        <aside class="hover-post13" id="hover-post13-B">
+                           <h3>esfoliante - água - hidratante</h3>
+                        </aside>
+                     </article>
+                  </section>
+                  <section class="postagens3-B">
+                     <article class="post9" onmouseover="mostrarDivOculta9B()" onmouseout="esconderDivOculta9B()">
+                        <img src="imagens/post-lavar-roupa.png" alt="foto-post9" class="info-cima-post">
+                        <h1 id="texto-atras9-B" class="info-cima-post">Bolinho de chuva</h1>
+                        <img id="icon-limpeza-branco9-B" src="imagens/icon-limpeza-branco.png"
+                           alt="icon-culinaria-branco9" class="info-cima-post9">
+                        <aside class="legenda9">
+                           <figure class="legenda9 relogio9">
+                              <img src="imagens/relogio-cinza.svg" alt="relogio">
+                              <h3>0H30</h3>
+                           </figure>
+                           <figure class="legenda9 estrela9">
+                              <img src="imagens/estrela-cinza.svg" alt="estrela">
+                              <h3>5.0</h3>
+                           </figure>
+                        </aside>
+                        <aside class="hover-post9" id="hover-post9-B">
+                           <h3>roupas - sabão - amaciante - máquina de lavar - água fria ou água quente</h3>
+                        </aside>
+                     </article>
+                     <article class="post10" onmouseover="mostrarDivOculta10B()" onmouseout="esconderDivOculta10B()">
+                        <img src="imagens/post-unhas.png" alt="foto-post10" class="info-cima-post">
+                        <h1 id="texto-atras10-B" class="info-cima-post">Faça suas cuticulas sem dor</h1>
+                        <img id="icon-bemestar-branco10-B" src="imagens/icon-bemestar-branco.png"
+                           alt="icon-culinaria-branco10" class="info-cima-post10">
+                        <aside class="legenda10">
+                           <figure class="legenda10 relogio10">
+                              <img src="imagens/relogio-cinza.svg" alt="relogio">
+                              <h3>0H45</h3>
+                           </figure>
+                           <figure class="legenda10 estrela10">
+                              <img src="imagens/estrela-cinza.svg" alt="estrela">
+                              <h3>5.0</h3>
+                           </figure>
+                        </aside>
+                        <aside class="hover-post10" id="hover-post10-B">
+                           <h3>alicate de unha - tesoura de unha - hidratante de cuticula - algodão - papel alumínio
+                           </h3>
+                        </aside>
+                     </article>
+                     <article class="post11" onmouseover="mostrarDivOculta11B()" onmouseout="esconderDivOculta11B()">
+                        <img src="imagens/post-escondidinho.png" alt="foto-post11" class="info-cima-post">
+                        <h1 id="texto-atras11-B" class="info-cima-post">Escondidinho de frango</h1>
+                        <img id="icon-culinaria-branco11-B" src="imagens/icon-culinaria-branco.png"
+                           alt="icon-culinaria-branco11" class="info-cima-post11">
+                        <aside class="legenda11">
+                           <figure class="legenda11 relogio">
+                              <img src="imagens/relogio-cinza.svg" alt="relogio">
+                              <h3>1H20</h3>
+                           </figure>
+                           <figure class="legenda11 estrela">
+                              <img src="imagens/estrela-cinza.svg" alt="estrela">
+                              <h3>4.9</h3>
+                           </figure>
+                           <figure class="legenda11 partes">
+                              <img src="imagens/partes-cinza.png" alt="partes">
+                              <h3>8</h3>
+                           </figure>
+                        </aside>
+                        <aside class="hover-post11" id="hover-post11-B">
+                           <h3>peitos de frango desfiado - molho de tomate pronto - cebola pequena bem picadinha -
+                              margarina - requeijão - pimenta - tempero pronto - milho verde - alho - batata - mussarela
+                              ralada - sal</h3>
+                        </aside>
+                     </article>
+                     <article class="post12" onmouseover="mostrarDivOculta12B()" onmouseout="esconderDivOculta12B()">
+                        <img src="imagens/post-barba.png" alt="foto-post12" class="info-cima-post">
+                        <h1 id="texto-atras12-B" class="info-cima-post">Barba falhada nunca mais!</h1>
+                        <img id="icon-bemestar-branco12-B" src="imagens/icon-bemestar-branco.png"
+                           alt="icon-bemestar-branco12" class="info-cima-post12">
+                        <aside class="legenda12">
+                           <figure class="legenda12 relogio12">
+                              <img src="imagens/relogio-cinza.svg" alt="relogio">
+                              <h3>1H20</h3>
+                           </figure>
+                           <figure class="legenda12 estrela12">
+                              <img src="imagens/estrela-cinza.svg" alt="estrela">
+                              <h3>4.9</h3>
+                           </figure>
+                        </aside>
+                        <aside class="hover-post12" id="hover-post12-B">
+                           <h3>barbeador - lâmina de barbear - gilete - espuma de barbear - pinça</h3>
+                        </aside>
+                     </article>
+                     <article id="post15-B" class="post15" onmouseover="mostrarDivOculta15B()"
+                        onmouseout="esconderDivOculta15B()" style="display: none;">
+                        <img src="imagens/post-macarrao-culinaria.png" alt="foto-post15" class="info-cima-post">
+                        <h1 id="texto-atras15-B" class="info-cima-post">Receita de Massa Incrível</h1>
+                        <img id="icon-culinaria-branco15-B" src="imagens/icon-culinaria-branco.png"
+                           alt="icon-limpeza-branco15" class="info-cima-post15">
+                        <aside class="legenda15">
+                           <figure class="legenda15 relogio">
+                              <img src="imagens/relogio-cinza.svg" alt="relogio">
+                              <h3>1H20</h3>
+                           </figure>
+                           <figure class="legenda15 estrela">
+                              <img src="imagens/estrela-cinza.svg" alt="estrela">
+                              <h3>4.9</h3>
+                           </figure>
+                           <figure class="legenda15 partes">
+                              <img src="imagens/partes-cinza.png" alt="partes">
+                              <h3>4</h3>
+                           </figure>
+                        </aside>
+                        <aside class="hover-post15" id="hover-post15-B">
+                           <h3>massa - dentes de alho - azeite de oliva - Sal</h3>
+                        </aside>
+                     </article>
+                  </section>
+               </section>
+               <button id="mostrarDivBtn-B" class="carregar">Carregar mais</button>
+            </section>
+            <section class="Conteudo-Rapidas-Dkt" id="Conteudo-Rapidas-Dkt" style="display: none;">
+               <section class="postagens">
+                  <section class="postagens3-C">
+                     <article class="post9" onmouseover="mostrarDivOculta9C()" onmouseout="esconderDivOculta9C()">
+                        <img src="imagens/post-lavar-roupa.png" alt="foto-post9" class="info-cima-post">
+                        <h1 id="texto-atras9-C" class="info-cima-post">Bolinho de chuva</h1>
+                        <img id="icon-limpeza-branco9-C" src="imagens/icon-limpeza-branco.png"
+                           alt="icon-culinaria-branco9" class="info-cima-post9">
+                        <aside class="legenda9">
+                           <figure class="legenda9 relogio9">
+                              <img src="imagens/relogio-cinza.svg" alt="relogio">
+                              <h3>0H15</h3>
+                           </figure>
+                           <figure class="legenda9 estrela9">
+                              <img src="imagens/estrela-cinza.svg" alt="estrela">
+                              <h3>4.9</h3>
+                           </figure>
+                        </aside>
+                        <aside class="hover-post9" id="hover-post9-C">
+                           <h3>roupas - sabão - amaciante - máquina de lavar - água fria ou água quente</h3>
+                        </aside>
+                     </article>
+                     <article class="post10" onmouseover="mostrarDivOculta10C()" onmouseout="esconderDivOculta10C()">
+                        <img src="imagens/post-unhas.png" alt="foto-post10" class="info-cima-post">
+                        <h1 id="texto-atras10-C" class="info-cima-post">Faça suas cuticulas sem dor</h1>
+                        <img id="icon-bemestar-branco10-C" src="imagens/icon-bemestar-branco.png"
+                           alt="icon-culinaria-branco10" class="info-cima-post10">
+                        <aside class="legenda10">
+                           <figure class="legenda10 relogio10">
+                              <img src="imagens/relogio-cinza.svg" alt="relogio">
+                              <h3>0H05</h3>
+                           </figure>
+                           <figure class="legenda10 estrela10">
+                              <img src="imagens/estrela-cinza.svg" alt="estrela">
+                              <h3>4.9</h3>
+                           </figure>
+                        </aside>
+                        <aside class="hover-post10" id="hover-post10-C">
+                           <h3>alicate de unha - tesoura de unha - hidratante de cuticula - algodão - papel alumínio
+                           </h3>
+                        </aside>
+                     </article>
+                     <article class="post11" onmouseover="mostrarDivOculta11C()" onmouseout="esconderDivOculta11C()">
+                        <img src="imagens/post-escondidinho.png" alt="foto-post11" class="info-cima-post">
+                        <h1 id="texto-atras11-C" class="info-cima-post">Escondidinho de frango</h1>
+                        <img id="icon-culinaria-branco11-C" src="imagens/icon-culinaria-branco.png"
+                           alt="icon-culinaria-branco11" class="info-cima-post11">
+                        <aside class="legenda11">
+                           <figure class="legenda11 relogio">
+                              <img src="imagens/relogio-cinza.svg" alt="relogio">
+                              <h3>0H20</h3>
+                           </figure>
+                           <figure class="legenda11 estrela">
+                              <img src="imagens/estrela-cinza.svg" alt="estrela">
+                              <h3>4.9</h3>
+                           </figure>
+                           <figure class="legenda11 partes">
+                              <img src="imagens/partes-cinza.png" alt="partes">
+                              <h3>8</h3>
+                           </figure>
+                        </aside>
+                        <aside class="hover-post11" id="hover-post11-C">
+                           <h3>peitos de frango desfiado - molho de tomate pronto - cebola pequena bem picadinha -
+                              margarina - requeijão - pimenta - tempero pronto - milho verde - alho - batata - mussarela
+                              ralada - sal</h3>
+                        </aside>
+                     </article>
+                     <article class="post12" onmouseover="mostrarDivOculta12C()" onmouseout="esconderDivOculta12C()">
+                        <img src="imagens/post-barba.png" alt="foto-post12" class="info-cima-post">
+                        <h1 id="texto-atras12-C" class="info-cima-post">Barba falhada nunca mais!</h1>
+                        <img id="icon-bemestar-branco12-C" src="imagens/icon-bemestar-branco.png"
+                           alt="icon-bemestar-branco12" class="info-cima-post12">
+                        <aside class="legenda12">
+                           <figure class="legenda12 relogio12">
+                              <img src="imagens/relogio-cinza.svg" alt="relogio">
+                              <h3>0H40</h3>
+                           </figure>
+                           <figure class="legenda12 estrela12">
+                              <img src="imagens/estrela-cinza.svg" alt="estrela">
+                              <h3>4.9</h3>
+                           </figure>
+                        </aside>
+                        <aside class="hover-post12" id="hover-post12-C">
+                           <h3>barbeador - lâmina de barbear - gilete - espuma de barbear - pinça</h3>
+                        </aside>
+                     </article>
+                     <article id="post15-C" class="post15" onmouseover="mostrarDivOculta15C()"
+                        onmouseout="esconderDivOculta15C()" style="display: none;">
+                        <img src="imagens/post-macarrao-culinaria.png" alt="foto-post15" class="info-cima-post">
+                        <h1 id="texto-atras15-C" class="info-cima-post">Receita de Massa Incrível</h1>
+                        <img id="icon-culinaria-branco15-C" src="imagens/icon-culinaria-branco.png"
+                           alt="icon-limpeza-branco15" class="info-cima-post15">
+                        <aside class="legenda15">
+                           <figure class="legenda15 relogio">
+                              <img src="imagens/relogio-cinza.svg" alt="relogio">
+                              <h3>0H20</h3>
+                           </figure>
+                           <figure class="legenda15 estrela">
+                              <img src="imagens/estrela-cinza.svg" alt="estrela">
+                              <h3>4.9</h3>
+                           </figure>
+                           <figure class="legenda15 partes">
+                              <img src="imagens/partes-cinza.png" alt="partes">
+                              <h3>4</h3>
+                           </figure>
+                        </aside>
+                        <aside class="hover-post15" id="hover-post15-C">
+                           <h3>massa - dentes de alho - azeite de oliva - Sal</h3>
+                        </aside>
+                     </article>
+                  </section>
+                  <section class="postagens1-C">
+                     <article class="post1" onmouseover="mostrarDivOcultaC()" onmouseout="esconderDivOcultaC()" id="posts">
+                        <img src="imagens/arroz-de-forno.png" alt="foto-post1" class="info-cima-post">
+                        <h1 id="texto-atras-C" class="info-cima-post">Arroz de Forno Colorido</h1>
+                        <img id="icon-culinaria-branco-C" src="imagens/icon-culinaria-branco.png"
+                           alt="icon-culinaria-branco" class="info-cima-post">
+                        <aside class="legenda">
+                           <figure class="legenda relogio">
+                              <img src="imagens/relogio-cinza.svg" alt="relogio">
+                              <h3>0H15</h3>
+                           </figure>
+                           <figure class="legenda estrela">
+                              <img src="imagens/estrela-cinza.svg" alt="estrela">
+                              <h3>4.9</h3>
+                           </figure>
+                           <figure class="legenda partes">
+                              <img src="imagens/partes-cinza.png" alt="partes">
+                              <h3>5</h3>
+                           </figure>
+                        </aside>
+                        <aside class="hover-post1" id="hover-post1-C">
+                           <h3>óleo - arroz - água - presunto - queijo - ervilha - cenoura - salsa - queijo parmesão -
+                              bacon</h3>
+                        </aside>
+                     </article>
+                     <article class="post2" onmouseover="mostrarDivOculta2C()" onmouseout="esconderDivOculta2C()">
+                        <img src="imagens/post-bolo-de-cenoura.png" alt="foto-post2" class="info-cima-post">
+                        <h1 id="texto-atras2-C" class="info-cima-post">Bolo de Cenoura Fofo</h1>
+                        <img id="icon-culinaria-branco2-C" src="imagens/icon-culinaria-branco.png"
+                           alt="icon-culinaria-branco2" class="info-cima-post2">
+                        <aside class="legenda2">
+                           <figure class="legenda2 relogio">
+                              <img src="imagens/relogio-cinza.svg" alt="relogio">
+                              <h3>0H20</h3>
+                           </figure>
+                           <figure class="legenda2 estrela">
+                              <img src="imagens/estrela-cinza.svg" alt="estrela">
+                              <h3>4.9</h3>
+                           </figure>
+                           <figure class="legenda2 partes">
+                              <img src="imagens/partes-cinza.png" alt="partes">
+                              <h3>12</h3>
+                           </figure>
+                        </aside>
+                        <aside class="hover-post2" id="hover-post2-C">
+                           <h3>ovos - cenoura picada - açúcar - leite ou suco de laranja - farinha de trigo - farinha de
+                              trigo - amido de milho - leite - açúcar - chocolate em pó - Essência de baunilha -
+                              Chocolate granulado</h3>
+                        </aside>
+                     </article>
+                     <article class="post3" onmouseover="mostrarDivOculta3C()" onmouseout="esconderDivOculta3C()">
+                        <img src="imagens/post-limpar-fogao.png" alt="foto-post3" class="info-cima-post">
+                        <h1 id="texto-atras3-C" class="info-cima-post">Limpe seu forno fácil</h1>
+                        <img id="icon-limpeza-branco3-C" src="imagens/icon-limpeza-branco.png"
+                           alt="icon-limpeza-branco3" class="info-cima-post3">
+                        <aside class="legenda3">
+                           <figure class="legenda3 relogio3">
+                              <img src="imagens/relogio-cinza.svg" alt="relogio">
+                              <h3>0H25</h3>
+                           </figure>
+                           <figure class="legenda3 estrela3">
+                              <img src="imagens/estrela-cinza.svg" alt="estrela">
+                              <h3>4.9</h3>
+                           </figure>
+                        </aside>
+                        <aside class="hover-post3" id="hover-post3-C">
+                           <h3>vinagre branco - água - bicarbonato de sódio - detergente neutro - Esponja - Papel toalha
+                           </h3>
+                        </aside>
+                     </article>
+                     <article class="post4" onmouseover="mostrarDivOculta4C()" onmouseout="esconderDivOculta4C()">
+                        <img src="imagens/post-imagem-pele.png" alt="foto-post4" class="info-cima-post">
+                        <h1 id="texto-atras4-C" class="info-cima-post">Cuidados com a pele negra</h1>
+                        <img id="icon-limpeza-branco4-C" src="imagens/icon-bemestar-branco.png"
+                           alt="icon-limpeza-branco4" class="info-cima-post4">
+                        <aside class="legenda4">
+                           <figure class="legenda4 relogio3">
+                              <img src="imagens/relogio-cinza.svg" alt="relogio">
+                              <h3>1H00</h3>
+                           </figure>
+                           <figure class="legenda4 estrela3">
+                              <img src="imagens/estrela-cinza.svg" alt="estrela">
+                              <h3>4.9</h3>
+                           </figure>
+                        </aside>
+                        <aside class="hover-post4" id="hover-post4-C">
+                           <h3>esfoliante - água - hidratante</h3>
+                        </aside>
+                     </article>
+                     <article id="post13-C" class="post13" onmouseover="mostrarDivOculta13C()"
+                        onmouseout="esconderDivOculta13C()" style="display: none;">
+                        <img src="imagens/post-sorvete-açai.png" alt="foto-post13" class="info-cima-post">
+                        <h1 id="texto-atras13-C" class="info-cima-post">Sorverte de açaí caseiro</h1>
+                        <img id="icon-culinaria-branco13-C" src="imagens/icon-culinaria-branco.png"
+                           alt="icon-culinaria-branco13" class="info-cima-post13">
+                        <aside class="legenda13">
+                           <figure class="legenda11 relogio">
+                              <img src="imagens/relogio-cinza.svg" alt="relogio">
+                              <h3>1H20</h3>
+                           </figure>
+                           <figure class="legenda11 estrela">
+                              <img src="imagens/estrela-cinza.svg" alt="estrela">
+                              <h3>4.9</h3>
+                           </figure>
+                           <figure class="legenda11 partes">
+                              <img src="imagens/partes-cinza.png" alt="partes">
+                              <h3>8</h3>
+                           </figure>
+                        </aside>
+                        <aside class="hover-post13" id="hover-post13-C">
+                           <h3>esfoliante - água - hidratante</h3>
+                        </aside>
+                     </article>
+                  </section>
+                  <section class="postagens2-C">
+                     <article class="post5" onmouseover="mostrarDivOculta5C()" onmouseout="esconderDivOculta5C()">
+                        <img src="imagens/post-organizacao-rotina.png" alt="foto-post5" class="info-cima-post">
+                        <h1 id="texto-atras5-C" class="info-cima-post">Organize sua rotina</h1>
+                        <img id="icon-limpeza-branco5-C" src="imagens/icon-bemestar-branco.png"
+                           alt="icon-limpeza-branco5" class="info-cima-post5">
+                        <aside class="legenda5">
+                           <figure class="legenda5 relogio5">
+                              <img src="imagens/relogio-cinza.svg" alt="relogio">
+                              <h3>0H10</h3>
+                           </figure>
+                           <figure class="legenda5 estrela5">
+                              <img src="imagens/estrela-cinza.svg" alt="estrela">
+                              <h3>5.0</h3>
+                           </figure>
+                        </aside>
+                        <aside class="hover-post5" id="hover-post5-C">
+                           <h3>essa dica não possui itens necessários</h3>
+                        </aside>
+                     </article>
+                     <article class="post6" onmouseover="mostrarDivOculta6C()" onmouseout="esconderDivOculta6C()">
+                        <img src="imagens/post-limpeza-pia.png" alt="foto-post6" class="info-cima-post">
+                        <h1 id="texto-atras6-C" class="info-cima-post">Limpar o ralo nunca foi tão fácil!</h1>
+                        <img id="icon-limpeza-branco6-C" src="imagens/icon-limpeza-branco.png"
+                           alt="icon-limpeza-branco6" class="info-cima-post6">
+                        <aside class="legenda6">
+                           <figure class="legenda6 relogio6">
+                              <img src="imagens/relogio-cinza.svg" alt="relogio">
+                              <h3>0H20</h3>
+                           </figure>
+                           <figure class="legenda6 estrela6">
+                              <img src="imagens/estrela-cinza.svg" alt="estrela">
+                              <h3>5.0</h3>
+                           </figure>
+                        </aside>
+                        <aside class="hover-post6" id="hover-post6-C">
+                           <h3>bicarbonato de sódio - vinagre - água</h3>
+                        </aside>
+                     </article>
+                     <article class="post7" onmouseover="mostrarDivOculta7C()" onmouseout="esconderDivOculta7C()">
+                        <img src="imagens/post-bolinho-de-chuva.png" alt="foto-post7" class="info-cima-post">
+                        <h1 id="texto-atras7-C" class="info-cima-post">Bolinho de chuva</h1>
+                        <img id="icon-culinaria-branco7-C" src="imagens/icon-culinaria-branco.png"
+                           alt="icon-culinaria-branco7" class="info-cima-post7">
+                        <aside class="legenda7">
+                           <figure class="legenda7 relogio">
+                              <img src="imagens/relogio-cinza.svg" alt="relogio">
+                              <h3>0H45</h3>
+                           </figure>
+                           <figure class="legenda7 estrela">
+                              <img src="imagens/estrela-cinza.svg" alt="estrela">
+                              <h3>4.9</h3>
+                           </figure>
+                           <figure class="legenda7 partes">
+                              <img src="imagens/partes-cinza.png" alt="partes">
+                              <h3>36</h3>
+                           </figure>
+                        </aside>
+                        <aside class="hover-post7" id="hover-post7-C">
+                           <h3>leite - Amido de Milho Maizena - farinha de trigo - açúcar - fermento em pó - ovos - gema
+                              - óleo para fritar - canela</h3>
+                        </aside>
+                     </article>
+                     <article class="post8" onmouseover="mostrarDivOculta8C()" onmouseout="esconderDivOculta8C()">
+                        <img src="imagens/post-limpeza-dispensa.png" alt="foto-post8" class="info-cima-post">
+                        <h1 id="texto-atras8-C" class="info-cima-post">Organize sua dispensa na rotina</h1>
+                        <img id="icon-limpeza-branco8-C" src="imagens/icon-limpeza-branco.png"
+                           alt="icon-limpeza-branco8" class="info-cima-post8">
+                        <aside class="legenda8">
+                           <figure class="legenda8 relogio8">
+                              <img src="imagens/relogio-cinza.svg" alt="relogio">
+                              <h3>1H20</h3>
+                           </figure>
+                           <figure class="legenda8 estrela8">
+                              <img src="imagens/estrela-cinza.svg" alt="estrela">
+                              <h3>5.0</h3>
+                           </figure>
+                        </aside>
+                        <aside class="hover-post8" id="hover-post8-C">
+                           <h3>multiuso - água - pano</h3>
+                        </aside>
+                     </article>
+                     <art id="post14-C" class="post14" onmouseover="mostrarDivOculta14C()"
+                        onmouseout="esconderDivOculta14C()" style="display: none;">
+                        <img src="imagens/post-exercicios-bemetar.png" alt="foto-post14" class="info-cima-post">
+                        <h1 id="texto-atras14-C" class="info-cima-post">Equilíbrio Vital: Exercícios!</h1>
+                        <img id="icon-bemestar-branco14-C" src="imagens/icon-bemestar-branco.png"
+                           alt="icon-bemestar-branco14" class="info-cima-post14">
+                        <aside class="legenda14">
+                           <figure class="legenda14 relogio14">
+                              <img src="imagens/relogio-cinza.svg" alt="relogio">
+                              <h3>1H30</h3>
+                           </figure>
+                           <figure class="legenda14 estrela14">
+                              <img src="imagens/estrela-cinza.svg" alt="estrela">
+                              <h3>4.9</h3>
+                           </figure>
+                        </aside>
+                        <aside class="hover-post14" id="hover-post14-C">
+                           <h3>Tapete de Yoga ou Esteira - Pesos Livres - Bola de Exercício - Barra para Flexões - Corda
+                              de Pular - Banco de Musculação</h3>
+                        </aside>
+                     </art>
+                  </section>
+               </section>
+               <button id="mostrarDivBtn-C" class="carregar">Carregar mais</button>
+            </section>
+         </section>
+      </section>
+      <script src="./js/base-post-mb.js"></script>
+   </main>
+
+   <footer>
+      <section class="Footer-Mobile">
+         <article class="Veja-Mais">
+            <h1 class="titulo-veja-mais">VEJA MAIS</h1>
+            <section class="limpeza-culinaria">
+               <figure class="veja-culinaria">
+                  <h3 class="texto-veja-mais">CULINÁRIA</h3>
+               </figure>
+               <figure class="veja-limpeza">
+                  <h3 class="texto-veja-mais">LIMPEZA</h3>
+               </figure>
+            </section>
+            <section class="veja-bem-estar">
+               <h3 class="texto-veja-mais">BEM-ESTAR</h3>
+            </section>
+         </article>
+         <article class="Newsletter">
+            <h3 class="mensagem-news">CADASTRE-SE EM NOSSA NEWSLETTER!</h3>
+            <label for="e-mail"></label>
+            <section class="cadastrese-newsletter">
+               <input class="text-email" type="text" id="e-mail" name="email" placeholder="Digite o seu e-mail">
+               <input class="submit-email" type="submit" value="cadastre-se">
+            </section>
+            <hr class="Linha-Footer-1">
+         </article>
+         <article class="footer">
+            <figure class="logo2"><img src="imagens/ComoQueFaz_logo2.png" alt="Logo do ComoQueFaz?"></figure>
+            <hr class="Linha-Footer-2">
+            <section class="redes">
+               <img src="imagens/tiktok.png" alt="Tiktok">
+               <img src="imagens/twitter.png" alt="Twitter">
+               <img src="imagens/instagram.png" alt="Instagram">
+            </section>
+            <ol>
+               <li class="titulos-footer">Contato</li>
+               <li class="contato-footer"><img class="img-contato-footer" src="imagens/telefone_icon.png"
+                     alt="telefone">(11) 99999-9999</li>
+               <li class="contato-footer"><img class="img-contato-footer" src="imagens/email_icon.png"
+                     alt="e-mail">ComoQueFaz@gmail.com</li>
+               <li class="titulos-footer">Sobre</li>
+               <li class="sobre-footer">Quem Somos</li>
+               <li class="sobre-footer">Termos de Uso e Política de Privacidade</li>
+               <li class="sobre-footer">Anuncie</li>
+               <li class="sobre-footer">Parcerias</li>
+            </ol>
+         </article>
+      </section>
+      <section class="Footer-Desktop">
+         <article class="Veja-Mais">
+            <h1 class="titulo-veja-mais">VEJA MAIS</h1>
+            <section class="limpeza-culinaria-bemestar">
+               <figure class="veja-culinaria">
+                  <h3 class="texto-veja-mais">CULINÁRIA</h3>
+               </figure>
+               <figure class="veja-limpeza">
+                  <h3 class="texto-veja-mais">LIMPEZA</h3>
+               </figure>
+               <figure class="veja-bem-estar">
+                  <h3 class="texto-veja-mais">BEM-ESTAR</h3>
+               </figure>
+            </section>
+         </article>
+         <article class="Newsletter">
+            <section class="textos-newsletter">
+               <h3 class="mensagem-news" id="cadastre-se1">CADASTRE-SE EM NOSSA</h3>
+               <h3 class="mensagem-news" id="cadastre-se2">NEWSLETTER!</h3>
+               <article class="cadastrese-newsletter">
+                  <p>RECEBA SUAS NOTIFICAÇÕES:</p>
+                  <label for="e-mail"></label>
+                  <input class="text-email" type="text" id="e-mail" name="email" placeholder="   Digite o seu e-mail">
+                  <input class="submit-email" type="submit" value="cadastre-se">
+               </article>
+            </section>
+         </article>
+         <article class="footer">
+            <section class="wrapper">
+               <section class="row">
+                  <article class="col-4 logo-center">
+                     <img class="logo-footer" src="imagens/ComoQueFaz_logo2.png" alt="Logo do ComoQueFaz?">
+                     <figure class="redes-footer">
+                        <img src="imagens/tiktok.png" alt="Tiktok">
+                        <img src="imagens/twitter.png" alt="Twitter">
+                        <img src="imagens/instagram.png" alt="Instagram">
+                     </figure>
+                  </article>
+                  <article class="col-4">
+                     <h4>Contato</h4>
+                     <figure>
+                        <img class="icon" src="imagens/telefone_icon.png" alt="telefone">
+                        <p class="texto-info-rodape">(11) 99999-9999</p>
+                        <img class="icon" src="imagens/email_icon.png" alt="email">
+                        <p class="texto-info-rodape">comoquefaz@gmail.com</p>
+                     </figure>
+                  </article>
+                  <article class="col-5">
+                     <h4>Sobre</h4>
+                     <p class="texto-info-rodape">Quem somos</p>
+                     <p class="texto-info-rodape">Termos de uso</p>
+                     <p class="texto-info-rodape">Política de privacidade</p>
+                     <p class="texto-info-rodape">Anuncie</p>
+                     <p class="texto-info-rodape">Parcerias</p>
+                  </article>
+               </section>
+            </section>
+         </article>
+      </section>
+   </footer>
+</body>
+
+</html>
