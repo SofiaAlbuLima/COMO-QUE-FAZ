@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+   <meta charset="UTF-8">
+   <meta http-equiv="X-UA-Compatible" content="IE=edge">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <link rel="stylesheet" href="../css/style-home-mob.css">
+   <link rel="stylesheet" href="../css/base-post-mb.css">
+   <link rel="stylesheet" href="../css/style-header.css">
+   <link rel="stylesheet" href="../css/style-base-post-desk.css">
+   <link rel="stylesheet" href="../css/style-footer.css">
+   <script src="../js/script-header.js"></script>
+   <script src="../js/script-Home-SemLogin.js"></script>
+   <script src="../js/script-base-post-desk.js"></script>
+   <link rel="shortcut icon" href="imagens/favicon.png" type="image/x-icon" />
+   <title>Como que Faz | Página Inicial</title>
+</head>
+
+<body>
+   <header>
+      <section class="header-dispositivo-mobile">
+         <nav class="logos">
+            <article class="login">
+               <a href="https://grupo4-tca.github.io/Como-que-faz/Fazer-Login">
+                  <img src="imagens/user_icon.png" alt="Faça Login">
+               </a>
+            </article>
+            <article class="logo">
+               <a href="https://grupo4-tca.github.io/Como-que-faz/index">
+                  <img src="imagens/ComoQueFaz_logo.png" alt="Logo do ComoQueFaz">
+               </a>
+            </article>
+            <article class="search">
+               <a href="/">
+                  <img src="imagens/search_icon.png" alt="Ícone de Pesquisa">
+               </a>
+            </article>
+         </nav>
+         <nav class="topcs">
+            <a class="culinaria" href="https://grupo4-tca.github.io/Como-que-faz/Categoria-Culinária">CULINÁRIA</a>
+            <a class="limpeza" href="https://grupo4-tca.github.io/Como-que-faz/Categoria-Limpeza">LIMPEZA</a>
+            <a class="bem-estar" href="https://grupo4-tca.github.io/Como-que-faz/Categoria-Bem-Estar">BEM-ESTAR</a>
+         </nav>
+      </section>
+
+      <section class="header-dispositivo-desktop">
+         <nav class="logos">
+            <aside id="container" onmouseover="showDiv1()" onmouseout="hideDiv1()" class="login">
+               <a href="https://grupo4-tca.github.io/Como-que-faz/Fazer-Login">
+                  <img id="img-login" src="imagens/user_icon.png" alt="Faça Login"></a>
+               <article id="hide-hover-span">
+                  <p class="p-1">LOGIN</p>
+                  <br>
+                  <p class="p-2">ENTRAR / CADASTRAR</p>
+               </article>
+            </aside>
+            <article class="logo">
+               <a href="https://grupo4-tca.github.io/Como-que-faz/index">
+                  <img src="imagens/ComoQueFaz_logo.png" alt="Logo do ComoQueFaz">
+               </a>
+            </article>
+            <aside id="container2" onmouseover="showDiv2()" onmouseout="hideDiv2()" class="search">
+               <img src="imagens/search_icon.png" alt="Ícone de Pesquisa">
+               <article id="hide-hover-search">
+                  <input class="texto-search" type="text" name="inserir-pesquisa" placeholder="Pesquisar...">
+                  <label id="inserir-pesquisa"></label>
+               </article>
+            </aside>
+         </nav>
+         <nav class="topcs">
+            <a class="culinaria" href="https://grupo4-tca.github.io/Como-que-faz/Categoria-Culinária">CULINÁRIA</a>
+            <a class="limpeza" href="https://grupo4-tca.github.io/Como-que-faz/Categoria-Limpeza">LIMPEZA</a>
+            <a class="bem-estar" href="https://grupo4-tca.github.io/Como-que-faz/Categoria-Bem-Estar">BEM-ESTAR</a>
+         </nav>
+      </section>
+   </header>
+   
+   <main>
+      <%- include("../partial/"+pagina) %>
+   </main>
+
+   <footer>
+      <section class="Footer-Mobile">
+         <article class="Veja-Mais">
+            <h1 class="titulo-veja-mais">VEJA MAIS</h1>
+            <section class="limpeza-culinaria">
+               <figure class="veja-culinaria">
+                  <h3 class="texto-veja-mais">CULINÁRIA</h3>
+               </figure>
+               <figure class="veja-limpeza">
+                  <h3 class="texto-veja-mais">LIMPEZA</h3>
+               </figure>
+            </section>
+            <section class="veja-bem-estar">
+               <h3 class="texto-veja-mais">BEM-ESTAR</h3>
+            </section>
+         </article>
+         <article class="Newsletter">
+            <h3 class="mensagem-news">CADASTRE-SE EM NOSSA NEWSLETTER!</h3>
+            <label for="e-mail"></label>
+            <section class="cadastrese-newsletter">
+               <input class="text-email" type="text" id="e-mail" name="email" placeholder="Digite o seu e-mail">
+               <input class="submit-email" type="submit" value="cadastre-se">
+            </section>
+            <hr class="Linha-Footer-1">
+         </article>
+         <article class="footer">
+            <figure class="logo2"><img src="imagens/ComoQueFaz_logo2.png" alt="Logo do ComoQueFaz?"></figure>
+            <hr class="Linha-Footer-2">
+            <section class="redes">
+               <img src="imagens/tiktok.png" alt="Tiktok">
+               <img src="imagens/twitter.png" alt="Twitter">
+               <img src="imagens/instagram.png" alt="Instagram">
+            </section>
+            <ol>
+               <li class="titulos-footer">Contato</li>
+               <li class="contato-footer"><img class="img-contato-footer" src="imagens/telefone_icon.png"
+                     alt="telefone">(11) 99999-9999</li>
+               <li class="contato-footer"><img class="img-contato-footer" src="imagens/email_icon.png"
+                     alt="e-mail">ComoQueFaz@gmail.com</li>
+               <li class="titulos-footer">Sobre</li>
+               <li class="sobre-footer">Quem Somos</li>
+               <li class="sobre-footer">Termos de Uso e Política de Privacidade</li>
+               <li class="sobre-footer">Anuncie</li>
+               <li class="sobre-footer">Parcerias</li>
+            </ol>
+         </article>
+      </section>
+      <section class="Footer-Desktop">
+         <article class="Veja-Mais">
+            <h1 class="titulo-veja-mais">VEJA MAIS</h1>
+            <section class="limpeza-culinaria-bemestar">
+               <figure class="veja-culinaria">
+                  <h3 class="texto-veja-mais">CULINÁRIA</h3>
+               </figure>
+               <figure class="veja-limpeza">
+                  <h3 class="texto-veja-mais">LIMPEZA</h3>
+               </figure>
+               <figure class="veja-bem-estar">
+                  <h3 class="texto-veja-mais">BEM-ESTAR</h3>
+               </figure>
+            </section>
+         </article>
+         <article class="Newsletter">
+            <section class="textos-newsletter">
+               <h3 class="mensagem-news" id="cadastre-se1">CADASTRE-SE EM NOSSA</h3>
+               <h3 class="mensagem-news" id="cadastre-se2">NEWSLETTER!</h3>
+               <article class="cadastrese-newsletter">
+                  <p>RECEBA SUAS NOTIFICAÇÕES:</p>
+                  <label for="e-mail"></label>
+                  <input class="text-email" type="text" id="e-mail" name="email" placeholder="   Digite o seu e-mail">
+                  <input class="submit-email" type="submit" value="cadastre-se">
+               </article>
+            </section>
+         </article>
+         <article class="footer">
+            <section class="wrapper">
+               <section class="row">
+                  <article class="col-4 logo-center">
+                     <img class="logo-footer" src="imagens/ComoQueFaz_logo2.png" alt="Logo do ComoQueFaz?">
+                     <figure class="redes-footer">
+                        <img src="imagens/tiktok.png" alt="Tiktok">
+                        <img src="imagens/twitter.png" alt="Twitter">
+                        <img src="imagens/instagram.png" alt="Instagram">
+                     </figure>
+                  </article>
+                  <article class="col-4">
+                     <h4>Contato</h4>
+                     <figure>
+                        <img class="icon" src="imagens/telefone_icon.png" alt="telefone">
+                        <p class="texto-info-rodape">(11) 99999-9999</p>
+                        <img class="icon" src="imagens/email_icon.png" alt="email">
+                        <p class="texto-info-rodape">comoquefaz@gmail.com</p>
+                     </figure>
+                  </article>
+                  <article class="col-5">
+                     <h4>Sobre</h4>
+                     <p class="texto-info-rodape">Quem somos</p>
+                     <p class="texto-info-rodape">Termos de uso</p>
+                     <p class="texto-info-rodape">Política de privacidade</p>
+                     <p class="texto-info-rodape">Anuncie</p>
+                     <p class="texto-info-rodape">Parcerias</p>
+                  </article>
+               </section>
+            </section>
+         </article>
+      </section>
+   </footer>
+</body>
+
+</html>
