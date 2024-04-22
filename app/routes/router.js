@@ -3,7 +3,7 @@ var router = express.Router();
 
 
 router.get("/", function (req, res) {
-    res.render("pages/template-home", {pagina:"index", logado:null});
+    res.render("pages/template-header-footer", {pagina:"index", logado:null});
 });
 
 

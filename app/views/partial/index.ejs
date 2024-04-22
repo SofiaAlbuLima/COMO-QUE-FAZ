@@ -20,55 +20,61 @@
 <body>
    <main>
       <section class="conteudo-dispositivo mobile">
+
          <section class="slider">
             <article class="slides">
                <input type="radio" name="radio-btn" id="radio1">
                <input type="radio" name="radio-btn" id="radio2">
                <input type="radio" name="radio-btn" id="radio3">
+
                <figure class="slide primeiro">
                   <img class="imagens-slide" src="imagens/imagem-slide1.png" alt="imagem-culinaria">
                   <img class="imagem-categoria" src="imagens/icon-culinaria-branco.png" alt="icon-culinaria">
                   <section class="textos-carrossel">
                      <h1 class="texto-slide1">ARROZ DE FORNO</h1>
-                     <section class="itens-necessarios">óleo - arroz - água - presunto - queijo - ervilha - cenoura -
-                        salsa
-                        - queijo parmesão - bacon</section>
+                     <p class="itens-necessarios">óleo - arroz - água - presunto - queijo - ervilha - cenoura - salsa - queijo parmesão - bacon</p>
                   </section>
                </figure>
+
                <figure class="slide">
                   <img class="imagens-slide" src="imagens/imagem-slide2.png" alt="imagem-limpeza">
                   <img class="imagem-categoria" src="imagens/icon-limpeza-branco.png" alt="icon-culinaria">
                   <section class="textos-carrossel">
                      <h1 class="texto-slide2">COMO LIMPAR SEU FOGÃO</h1>
-                     <p class="itens-necessarios">vinagre branco - água - bicarbonato de sódio - detergente neutro
-                        -
-                        Esponja - Papel toalha</p>
+                     <p class="itens-necessarios">vinagre branco - água - bicarbonato de sódio - detergente neutro - Esponja - Papel toalha</p>
                   </section>
                </figure>
+
                <figure class="slide">
                   <img class="imagens-slide" src="imagens/imagem-slide3.png" alt="imagem-bem-estar">
                   <img class="imagem-categoria" src="imagens/icon-bemestar-branco.png" alt="icon-culinaria">
                   <section class="textos-carrossel">
                      <h1 class="texto-slide3">COMO DEFINIR SEUS CACHOS</h1>
-                     <section class="itens-necessarios3">creme para pentear - mascara hidratante - manual</section>
+                     <p class="itens-necessarios3">creme para pentear - mascara hidratante - manual</p>
                   </section>
                </figure>
+
             </article>
          </section>
+
          <nav class="manual-navigation">
             <label for="radio1" class="manual-btn manual-btn1"></label>
             <label for="radio2" class="manual-btn manual-btn2"></label>
             <label for="radio3" class="manual-btn manual-btn3"></label>
          </nav>
+
          <nav class="recente-emalta-rapidas">
             <button class="Recente" onclick="VisiRecente()">+RECENTE</button>
             <button class="EmAlta" onclick="VisiEmAlta()">EM ALTA</button>
             <button class="Rapidas" onclick="VisiRapidas()">+RÁPIDAS</button>
          </nav>
+
          <section class="conteudo-recente-emalta-rapidas">
+
             <section class="Conteudo-EmAlta" id="Conteudo-EmAlta">
                <section id="pinterest-style">
                   <section id="segunda-fileira-posts-em-alta">
+
                      <!-- 1 POST CACHOS - FILEIRA 2 -->
                      <article id="base-post">
                         <section id="post-cachos">
@@ -100,6 +106,8 @@
                         </article>
                      </section>
                      <!-- FINAL 1 POST CACHOS - FILEIRA 2 -->
+
+
                      <!-- 2 POST BOLO DE CENOURA - FILEIRA 2 -->
                      <article id="base-post">
                         <section id="post-bolo-de-cenoura">
@@ -131,6 +139,8 @@
                         </article>
                      </section>
                      <!-- FINAL 2 POST BOLO DE CENOURA - FILEIRA 2 -->
+
+                     
                      <article id="base-post">
                         <section id="post">
                            <section id="c">
@@ -337,6 +347,7 @@
                   </section>
                </section>
             </section>
+
             <section class="Conteudo-Recente" id="Conteudo-Recente" style="display: none;">
                <section id="pinterest-style">
                   <section id="primeira-fileira-posts">
@@ -608,6 +619,7 @@
                   </section>
                </section>
             </section>
+
             <section class="Conteudo-Rapidas" id="Conteudo-Rapidas" style="display: none;">
                <section id="pinterest-style">
                   <section id="primeira-fileira-posts">
@@ -880,8 +892,12 @@
                </section>
             </section>
          </section>
+
       </section>
+
+
       <section class="conteudo-dispositivo desktop">
+
          <section class="slider-D">
             <article class="slides-D">
                <input type="radio" name="radio-btn-D" id="radio1D">
@@ -933,16 +949,19 @@
                </figure>
             </article>
          </section>
+
          <nav class="manual-navigation-D">
             <label for="radio1D" class="manual-btnD manual-btnD1-D"></label>
             <label for="radio2D" class="manual-btnD manual-btnD2-D"></label>
             <label for="radio3D" class="manual-btnD manual-btnD3-D"></label>
          </nav>
+
          <nav class="recente-emalta-rapidas-Dkt">
             <button class="Recente-Dkt" onclick="VisiRecenteDkt()">+RECENTE</button>
             <button class="EmAlta-Dkt" onclick="VisiEmAltaDkt()">EM ALTA</button>
             <button class="Rapidas-Dkt" onclick="VisiRapidasDkt()">+RÁPIDAS</button>
          </nav>
+
          <section class="conteudo-recente-emalta-rapidas-Dkt">
             <section class="Conteudo-Recente-Dkt" id="Conteudo-Recente-Dkt" style="display: none;">
                <section class="postagens">
@@ -1941,9 +1960,15 @@
                <button id="mostrarDivBtn-C" class="carregar">Carregar mais</button>
             </section>
          </section>
+
       </section>
-      <script src="./js/base-post-mb.js"></script>
+
    </main>
+   
+   <script src="../js/script-header.js"></script>
+   <script src="../js/script-Home-SemLogin.js"></script>
+   <script src="../js/script-base-post-desk.js"></script>
+
 </body>
 
 </html>
