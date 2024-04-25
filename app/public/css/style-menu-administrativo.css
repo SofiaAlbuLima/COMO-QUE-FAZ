@@ -1,0 +1,229 @@
+*{
+    padding: 0;
+    margin: 0;
+}
+.Menu-Adminitrativo-Desktop{
+    vertical-align: top;
+    position: fixed;
+}
+
+.menu-fundo-roxo{
+    display: inline-block;
+    background: linear-gradient(90deg, rgba(72,30,161,1) 0%, rgba(162,96,247,1) 130%);
+    width: 30vh;
+    height: 100vh;
+    top: 0;
+    left: 0;    
+    z-index: 2;  
+}
+
+
+
+/* Icone Adm e Divisão - Inicio */
+.Imagem-PaginaIncial{
+    width: 16vh;
+    margin-left: 7vh;
+    margin-top: 5vh;
+    margin-bottom: 3vh;
+    justify-content: center;
+}
+.ImagemMinimizada-PaginaIncial{
+    display: none;
+    width: 7vh;
+    margin-left: 2.5vh;
+    margin-top: 5.6vh;
+    margin-bottom: 4.5vh;
+    justify-content: center;
+}
+.divisor-menuAdm{
+    width: 23vh;
+    margin-left: 4vh;
+}
+/* Icone Adm e Divisão - Fim */
+
+
+
+/* opções do Menu Administrativo - Inicio */
+.opcoes-menu{
+    margin-top: 4vh;
+}
+.opcao{
+    display:inline-table;
+    height: 5.5vh;
+    width: 24vh;
+    margin-bottom: 10px;
+    padding: 1.5vh 0px 0px 6vh;
+}
+.opcao h3{
+    display: inline-block;
+    font-family: Fira Sans;
+    font-weight: 500;
+    font-size: 1.8vh;
+    color: white;
+}
+.a-usuarios img, .a-postagens-perguntas img, .a-denuncias img, .a-pagina-inicial img{
+    height: 2.5vh;
+    margin-right: 3vh;
+}
+.a-acesso-premium img{
+    margin-right: 3vh;
+    height: 3.3vh;
+}
+.a-marketing-banners img{
+    margin-right: 3vh;
+    height: 2.5vh;
+    transform: translate(0px, -5px);
+}
+.a-postagens-perguntas h3, .a-marketing-banners h3{
+    transform: translate(0px, -2px);
+}
+.PaginaIncial, .denuncias, .usuarios, .premium{
+    transform: translate(0px, 5px);
+}
+.usuarios{
+    margin-left: 0.5vh;
+}
+.a-usuarios h3{
+    transform: translate(8px, 0px);
+}
+.a-denuncias{
+    transform: translate(2px, 0px);
+}
+.postagens, .a-acesso-premium h3{
+    transform: translate(0px, -5px);
+}
+.ImagemRoxo{
+    display: none;
+}
+/* opções do Menu Administrativo - Fim */
+
+
+
+/* Perfil Administrativo e Opção de Sair - Inicio */
+.perfil-sair{
+    background-color: rgba(0, 0, 0, 0.1);
+    height: 15vh;
+    position: fixed;
+    bottom: 0;
+    width: 25vh;
+    padding: 5vh 0vh 0vh 5vh;
+}
+.Icon-Perfil-Adm{
+    display: inline;
+    margin-right: 1vh;
+    width: 4vh;
+}
+.perfilmADM{
+    display: inline-flex;
+    position: relative;
+    font-family: Fira Sans;
+    color: white;
+}
+.bemvindo{
+    font-size: 1.5vh;
+    transform: translate(0px, -3.8vh);
+    font-weight: 300;
+}
+.Admin{
+    font-size: 1.8vh;
+    transform: translate(5.3vh, -3.8vh);
+}
+.perfil-administrador{
+    height: 5vh;
+}
+.sair-da-conta{
+    margin-top: 3vh;
+    margin-left: 0.8vh;
+}
+.icone-sair{
+    width: 2vh;
+    display: inline;
+}
+.link-sair{
+    display: inline;
+    margin-left: 2vh;
+}
+.link-sair p{
+    display: inline;
+    font-size: 1.5vh;
+    font-family: Fira Sans;
+    color: white;
+    text-decoration: underline;
+}
+/* Perfil Administrativo e Opção de Sair - Fim */
+
+
+
+/* Botão Minimizar Menu ADM - Inicio */
+.minimizar-menu-adm{
+    display: inline-block;
+    position: fixed;
+    background: linear-gradient(90deg, rgba(72,30,161,1) 0%, rgba(162,96,247,1) 130%);
+    width: 2.8vh;
+    height: 7vh;
+    top: 0;
+    left: 30.6vh;
+    transform: translate(-5px, 0px);
+    border-radius: 0px 10px 10px 0px; 
+    z-index: 1;  
+    cursor: pointer;
+}
+.flecha-minimizar{
+    margin-top: 2vh;
+    width: 3vh;
+}
+/* Botão Minimizar Menu ADM - Fim */
+
+
+
+/* Mudanças nos Elementos ao Minimizar Menu ADM - Inicio */
+.menu-fundo-roxo#minimizado{
+    width: 12vh;
+    background: #481ea1;
+}
+.Imagem-PaginaIncial#minimizado, .text1#minimizado, .text2#minimizado, .text3#minimizado, .text4#minimizado, .text5#minimizado, .text6#minimizado, .bemvindo#minimizado, .Admin#minimizado, .link-sair#minimizado{
+    display: none;
+}
+.ImagemMinimizada-PaginaIncial#minimizado{
+    display: block;
+}
+.divisor-menuAdm#minimizado{
+    opacity: 0%;
+}
+.a-pagina-inicial#minimizado, .a-denuncias#minimizado, .a-postagens-perguntas#minimizado, .a-usuarios#minimizado, .a-acesso-premium#minimizado, .a-marketing-banners#minimizado{
+    width: 7.35vh;
+    padding: 1.5vh 0px 0px 4.65vh;
+}
+.a-pagina-inicial#minimizado{
+    border-radius: 0 10px 10px 0;
+    width: 9vh;
+}
+.um#minimizado, .dois#minimizado, .tres#minimizado, .quatro#minimizado, 
+.ImagemBrancoUM#minimizado, .ImagemBrancoDOIS#minimizado, .ImagemBrancoTRES#minimizado, .ImagemBrancoQUATRO#minimizado{
+    margin-right: 0vh;
+}
+.tres#minimizado, .ImagemBrancoTRES#minimizado{
+    transform: translate(0, 5px);
+}
+.cinco#minimizado, .ImagemBrancoCINCO#minimizado{
+    transform: translate(-0.2vh, 2px);
+}
+.seis#minimizado, .ImagemBrancoSEIS#minimizado{
+    transform: translate(-0.2vh, 7px);
+}
+.perfil-sair#minimizado{
+    width: 8vh;
+    padding: 5vh 0vh 0vh 4vh;
+}
+.sair-da-conta#minimizado{
+    margin-left: 1vh;
+}
+.minimizar-menu-adm#minimizado{
+    position: fixed;
+    background: #703BC7;
+    left: 12.5vh;
+}
+.flecha-minimizar#minimizado{
+    transform: rotate(180deg) translate(0.3vh, 0px);
+}
+/* Mudanças nos Elementos ao Minimizar Menu ADM - Fim */

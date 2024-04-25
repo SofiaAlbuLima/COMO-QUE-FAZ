@@ -1,0 +1,50 @@
+main{
+    background-color: #EAEAEA;
+    padding: 3.3vh 0vh 10vh 22.5vh;
+}
+
+.titulo-pagina{
+    font-size: 4.7vh;
+    font-family: Heavitas;
+    color: #5800AA;
+    margin-bottom: 3vh;
+}
+.linha-pagina{
+    border: #5800AA 0.05vh solid;
+    width: 143vh;
+    margin-bottom: 3vh;
+}
+.conteudo-pagina{
+    width: 143vh;
+}
+.bloco{
+    background-color: white;
+    border-radius: 10px;
+    padding: 4vh 3vh 3vh 4vh;
+}
+.titulo-bloco{
+    color: #9E5FEF;
+    font-size: 2.5vh;
+	font-family: Fira Sans;
+}
+.bloco-denuncias{
+    width: 58vh;
+    margin: 0vh 3vh 3vh 0vh;
+    display: inline-block;
+}
+.bloco-Postagens-Perguntas{
+    display: inline-block;
+    width: 67.5vh;
+}
+.bloco-Marketing-Banners{
+    width: 95vh;
+    margin: 0vh 3vh 3vh 0vh;
+    display: inline-block;
+}
+.bloco-Premium{
+    width: 30.5vh;
+    display: inline-block;
+}
+.bloco-Premium-Cadastros-Acessos{
+    width: 95vh;
+}
