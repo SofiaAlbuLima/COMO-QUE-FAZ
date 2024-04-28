@@ -1,3 +1,16 @@
+@font-face{
+    font-family: Heavitas;
+    src: url("../fonts/Heavitas.ttf");
+  }
+  @font-face{
+    font-family: Fira Sans Bold;
+    src: url("../fonts/fira-sans.bold.ttf");
+  }
+  @font-face{
+    font-family: Fira Sans;
+    src: url("../fonts/fira-sans.regular.ttf");
+  }
+
 main{
     background-color: #EAEAEA;
     padding: 3.3vh 0vh 10vh 22.5vh;
