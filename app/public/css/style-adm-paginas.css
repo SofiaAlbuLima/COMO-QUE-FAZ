@@ -1,0 +1,35 @@
+main{
+    background-color: #EAEAEA;
+    padding: 3.3vh 0vh 10vh 22.5vh;
+}
+.imagem-pagina, .imagem-pagina-usuarios, .imagem-pagina-premium, .imagem-pagina-banners{
+    margin-right: 5vh;
+    display: inline-block;
+}
+.imagem-pagina{
+    width: 4vh;
+}
+.imagem-pagina-usuarios{
+    width: 3vh;
+}
+.imagem-pagina-premium{
+    width: 6vh;
+}
+.imagem-pagina-banners{
+    width: 5vh;
+}
+.titulo-pagina{
+    font-size: 4.7vh;
+    font-family: Heavitas;
+    color: #5800AA;
+    margin-bottom: 3vh;
+    display: inline-block;
+}
+.linha-pagina{
+    border: #5800AA 0.05vh solid;
+    width: 143vh;
+    margin-bottom: 3vh;
+}
+.conteudo-pagina{
+    width: 143vh;
+}
