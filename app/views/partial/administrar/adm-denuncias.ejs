@@ -8,6 +8,7 @@
    <link rel="shortcut icon" href="imagens/favcon-adm.png" type="image/x-icon" />
    
    <link rel="stylesheet" href="../css/style-adm-paginas.css">
+   <link rel="stylesheet" href="../css/style-adm-denuncias.css">
 
    <title>Admin | Denúncias</title>
 </head>
@@ -26,10 +27,63 @@
          </section>
    
          <section class="conteudo-pagina">
-            
+            <!-- tabela Denúncias - Inicio -->
+               <article class="pesquisar">
+                  <img class="icone-pesquisa" src="./imagens/pesquisa-cinza.png" alt="">
+                  <input class="pesquisa-input" type="text" id="myInput" onkeyup="myFunction()" placeholder="Pesquisar ID ou perfil..."> <!-- pesquisa (search) na tabala - onkeyup é quando um user digita -->
+               </article>
+
+               <section class="fundo-tabela">
+                  <table class="tabela" id="myTable">
+                     
+                     <tr class="cabeçalho-tabela">
+                        <th style="width: 11.17vh;" class="titulo-tabela"></th>
+                        <th style="width: 19.01vh;" class="titulo-tabela">Conteúdo</th>
+                        <th style="width: 24.39vh;" class="titulo-tabela">Motivo da Denúncia</th>
+                        <th style="width: 15.91vh;" class="titulo-tabela">Categoria</th>
+                        <th style="width: 23.25vh;" class="titulo-tabela">Autor da Denúncia</th>
+                        <th style="width: 31.11vh;" class="titulo-tabela">Status</th>
+                     </tr>
+
+                     <tr class="linhas"> <!-- Conteudo da tabela -->
+                        <td class="linha">+</td>
+                        <td class="linha Coluna-conteudo">Perfil</td>
+                        <td class="linha Coluna-motivo">Conteúdo Inadequado</td>
+                        <td class="linha Coluna-categoria">Cúlinária</td>
+                        <td class="linha Coluna-autor">User</td>
+                        <td class="linha Coluna-status">Analisada e Avaliada</td>
+                     </tr>
+                     <tr class="linhas"> <!-- Conteudo da tabela -->
+                        <td class="linha">+</td>
+                        <td class="linha Coluna-conteudo">Pergunta</td>
+                        <td class="linha Coluna-motivo">Spam</td>
+                        <td class="linha Coluna-categoria">Limpeza</td>
+                        <td class="linha Coluna-autor">User2</td>
+                        <td class="linha Coluna-status">Não Analisada</td>
+                     </tr>
+                     <tr class="linhas"> <!-- Conteudo da tabela -->
+                        <td class="linha">+</td>
+                        <td class="linha Coluna-conteudo">Postagem</td>
+                        <td class="linha Coluna-motivo">Violações dos termos de uso</td>
+                        <td class="linha Coluna-categoria">Bem-Estar</td>
+                        <td class="linha Coluna-autor">User3</td>
+                        <td class="linha Coluna-status">Analisada</td>
+                     </tr>
+                     <tr class="linhas"> <!-- Conteudo da tabela -->
+                        <td class="linha">+</td>
+                        <td class="linha Coluna-conteudo">Comentário</td>
+                        <td class="linha Coluna-motivo">Violações dos termos de uso</td>
+                        <td class="linha Coluna-categoria">Limpeza</td>
+                        <td class="linha Coluna-autor">User4</td>
+                        <td class="linha Coluna-status">Não Analisada</td>
+                     </tr>
+                  </table>
+               </section>
+            <!-- tabela Denúncias - Fim -->
          </section>
       </section>
    </main>
+   <script src="../js/script-adm-tabelas.js"></script>
 </body>
 
 </html>

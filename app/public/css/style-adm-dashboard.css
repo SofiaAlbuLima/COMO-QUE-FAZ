@@ -13,7 +13,7 @@
 
 main{
     background-color: #EAEAEA;
-    padding: 3.3vh 0vh 10vh 22.5vh;
+    padding: 3.3vh 0vh 5vh 22.5vh;
 }
 
 .titulo-pagina{
@@ -33,7 +33,7 @@ main{
 .bloco{
     background-color: white;
     border-radius: 10px;
-    padding: 4vh 3vh 1vh 4vh;
+    padding: 4vh 4vh 1vh 4vh;
     box-shadow: 0px 0px 13px rgba(0, 0, 0, 0.09019607843137255);
 }
 .titulo-bloco{
@@ -42,6 +42,9 @@ main{
 	font-family: Fira Sans;
     margin-bottom: 0vh;
 }
+.bloco-Premium h2{
+    text-align: center;
+}
 .bloco-denuncias{
     width: 58vh;
     margin: 0vh 3vh 3vh 0vh;
@@ -49,19 +52,25 @@ main{
 }
 .bloco-Postagens-Perguntas{
     display: inline-grid;
-    width: 67.5vh;  
+    width: 65.5vh;  
 }
 .bloco-Marketing-Banners{
-    width: 95vh;
+    width: 94vh;
     margin: 0vh 3vh 3vh 0vh;
     display: inline-grid;
 }
 .bloco-Premium{
-    width: 30.5vh;
+    width: 29.5vh;
     display: inline-grid;
+    height: 43.2vh;
 }
 .bloco-Premium-Cadastros-Acessos{
     width: 95vh;
+}
+.gatoroxobloco{
+    width: 4vh;
+    transform: translate(12.8vh, 10.2vh);
+    display: block;
 }
 .icon-denuncias-roxo-claro{
     transform: translate(8vh, 14vh);
@@ -81,6 +90,7 @@ main{
     vertical-align: top;
     border-radius: 5px;
     margin-right: 1vh;
+    cursor: pointer;
 }
 .editar-banner{
     position: absolute;
@@ -182,8 +192,8 @@ main{
     border-radius: 5px;
     background-color: #F5ECFF;
     border: 1px solid #9E5FEF;
-    margin-top: 3vh;
-    margin-bottom: 1vh;
+    margin-top: 2vh;
+    margin-bottom: 2vh;
 }
 .botao-criar-banner img{
     width: 2vh;

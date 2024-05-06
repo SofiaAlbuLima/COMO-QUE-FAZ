@@ -1,0 +1,151 @@
+.icone-pesquisa{
+    width: 2.2vh;
+    position: absolute;
+    margin: 1.8vh 0 0 2.2vh;
+}
+.pesquisa-input{
+    height: 6vh;
+    width: 25.5vh;
+    border-radius: 40px;
+    padding-left: 6vh;
+    font-size: 1.8vh;
+    border: none;
+    box-shadow: 0px 5px 5px rgba(0, 0, 0, 0.11372549019607843);
+    font-weight: 500;
+}
+.fundo-tabela{
+    width: 135vh;
+    height: 59.4vh;
+    background-color: white;
+    border-radius: 10px;
+    margin-top: 3vh;
+    box-shadow: 0px 0px 13px rgba(0, 0, 0, 0.09019607843137255);
+    padding-top: 2.6vh;
+    padding-left: 4vh;
+    padding-right: 4vh;
+    padding-bottom: 2vh;
+}
+.tabela{
+    border-collapse: collapse;
+    width: 135vh;
+}
+
+.cabeçalho-tabela{
+    background-color: #EEE3FC;
+    border: 2px solid #9E5FEF;
+    border-radius: 10px;
+}
+.titulo-tabela{
+    height: 7.5vh;
+    font-family: Fira Sans;
+    font-size: 1.7vh;
+    color: #333333;
+    text-align: left;
+    padding-right: 2vh;
+}
+
+.linha{
+    padding-bottom: 3vh;
+    padding-top: 3vh;
+    border-bottom: 1px solid #33333364;
+}
+
+/* Classes das celulas dinâmicas - Inicio */
+/* Coluna Conteúdo - Inicio */
+.classe-padrao{
+    color: #333333;
+    font-family: Fira Sans;
+    font-size: 1.7vh;
+}
+.p-conteudo{
+    position: absolute;
+    z-index: 1;
+    transform: translate(1.5vh,-2vh);
+    height: 2vh;
+}
+.Conteudo{
+    color: #5800AA;
+    font-family: Fira Sans;
+    font-size: 1.7vh;
+    font-weight: 800;
+}
+.figure-conteudo{
+    background-color: #F1F1F1 ;
+    position: absolute;
+    border-radius: 5px;
+    z-index: 0;
+    transform: translate(0,-3vh);
+    height: 4vh;
+}
+
+.figure-perfil{
+    width: 7.5vh;
+}
+.p-perfil{
+    width: 4.5vh;
+}
+.figure-pergunta{
+    width: 10vh;
+}
+.p-pergunta{
+    width: 7vh;
+}
+.figure-postagem{
+    width: 11vh;
+}
+.p-postagem{
+    width: 8vh;
+}
+.figure-comentario{
+    width: 12vh;
+}
+.p-comentario{
+    width: 9vh;
+}
+/* Coluna Conteúdo - Fim */
+
+/* Coluna Status - inicio */
+
+.Status{
+    color: white;
+    font-family: Fira Sans;
+    font-size: 1.7vh;
+    font-weight: 800;
+}
+.figure-status{
+    height: 4vh;
+    position: absolute;
+    border-radius: 5px;
+    z-index: 0;
+    transform: translate(0,-3vh);
+}
+.p-status{
+    height: 2vh;
+    position: absolute;
+    z-index: 1;
+    transform: translate(3vh,-2vh);
+}
+
+.figure-analisadaAvaliada{
+    width: 23vh;
+    background-color: #5800AA;
+}
+.p-analisadaAvaliada{
+    width: 16vh;
+}
+.figure-naoAnalisada{
+    width: 18vh;
+    background-color: #CB218C;
+}
+.p-naoAnalisada{
+    width: 12vh;
+}
+.figure-analisada{
+    width: 14vh;
+    background-color: #F0C75C;
+}
+.p-analisada{
+    width: 8vh;
+}
+/* Coluna Status - Fim */
+/* Classes das celulas dinâmicas - Fim */
