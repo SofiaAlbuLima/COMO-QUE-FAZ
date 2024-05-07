@@ -4,7 +4,7 @@ var router = express.Router();
 
 // Links Páginas Administrativas - Inicio
 router.get("/adm/administrativa", function (req, res) {
-    res.render("pages/template", {pagina: {cabecalho: "menu-administrativo", conteudo: "administrativa",rodape: "rodape"}, logado:null});
+    res.render("pages/template-adm", {pagina: {cabecalho: "menu-administrativo", conteudo: "administrativa"}, logado:null});
 });
 router.get('/adm/adm-denuncias', function(req, res){
     res.render('partial/administrar/adm-denuncias.ejs'); 
@@ -25,22 +25,22 @@ router.get('/adm/adm-banners', function(req, res){
 
 // Template do menu administrativo - Inicio
 router.get("/administrativa", function (req, res) {
-    res.render("pages/menu-administrativo", {pagina:"administrativa", logado:null});
+    res.render("partial/menu-administrativo", {pagina:"administrativa", logado:null});
 });
 router.get("/adm-denuncias", function (req, res) {
-    res.render("pages/menu-administrativo", {pagina:"adm-denuncias", logado:null});
+    res.render("partial/menu-administrativo", {pagina:"adm-denuncias", logado:null});
 });
 router.get("/adm-postagens", function (req, res) {
-    res.render("pages/menu-administrativo", {pagina:"adm-postagens", logado:null});
+    res.render("partial/menu-administrativo", {pagina:"adm-postagens", logado:null});
 });
 router.get("/adm-usuarios", function (req, res) {
-    res.render("pages/menu-administrativo", {pagina:"adm-usuarios", logado:null});
+    res.render("partial/menu-administrativo", {pagina:"adm-usuarios", logado:null});
 });
 router.get("/adm-premium", function (req, res) {
-    res.render("pages/menu-administrativo", {pagina:"adm-premium", logado:null});
+    res.render("partial/menu-administrativo", {pagina:"adm-premium", logado:null});
 });
 router.get("/adm-banners", function (req, res) {
-    res.render("pages/menu-administrativo", {pagina:"adm-banners", logado:null});
+    res.render("partial/menu-administrativo", {pagina:"adm-banners", logado:null});
 });
 // Template do menu administrativo - Fim
 
