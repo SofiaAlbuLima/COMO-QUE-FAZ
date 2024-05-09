@@ -5,26 +5,39 @@
    <meta charset="UTF-8">
    <meta http-equiv="X-UA-Compatible" content="IE=edge">
    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-   <link rel="stylesheet" href="../css/style-home-mob.css">
-   <link rel="stylesheet" href="../css/base-post-mb.css">
-   <link rel="stylesheet" href="../css/style-header.css">
-   <link rel="stylesheet" href="../css/style-base-post-desk.css">
-   <link rel="stylesheet" href="../css/style-footer.css">
-   <script src="../js/script-header.js"></script>
-   <script src="../js/script-Home-SemLogin.js"></script>
-   <script src="../js/script-base-post-desk.js"></script>
+
+   <link rel="stylesheet" href="/css/style-Pagina-Inicial.css">
+   <link rel="stylesheet" href="/css/style-Rodape.css">
+   <link rel="stylesheet" href="/css/style-Cabecalho.css">
+   <link rel="stylesheet" href="/css/style-Base-Post.css">
+   <link rel="stylesheet" href="/css/style-Login.css">
+
+   <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+
+   <link rel="preconnect" href="https://fonts.googleapis.com">
+   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+   
    <link rel="shortcut icon" href="imagens/favicon.png" type="image/x-icon" />
    <title>Como que Faz | Página Inicial</title>
 </head>
 
 <body>
-      
-   <%- include("../partial/"+pagina.cabecalho) %>
+   <header>
+      <%- include("../partial/"+pagina.cabecalho) %>
+   </header>
+
    <main>
-      <%- include("../partial/"+pagina.conteudo) %>
+      <%- include("../partial/paginas/"+pagina.conteudo) %>
    </main>
 
-   <%- include("../partial/"+pagina.rodape) %>
+   <footer>
+      <%- include("../partial/"+pagina.rodape) %>
+   </footer>
+
+   <script src="../js/script-header.js"></script>
+   <script src="../js/script-Home-SemLogin.js"></script>
+   <script src="../js/script-base-post-desk.js"></script>
 </body>
 
 </html>

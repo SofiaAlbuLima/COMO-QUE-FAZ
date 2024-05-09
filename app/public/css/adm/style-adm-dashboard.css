@@ -49,6 +49,7 @@ main{
     width: 58vh;
     margin: 0vh 3vh 3vh 0vh;
     display: inline-grid;
+    padding-bottom: 5.7vh;
 }
 .bloco-Postagens-Perguntas{
     display: inline-grid;
@@ -69,11 +70,11 @@ main{
 }
 .gatoroxobloco{
     width: 4vh;
-    transform: translate(12.8vh, 10.2vh);
+    transform: translate(12.8vh, 11.2vh);
     display: block;
 }
 .icon-denuncias-roxo-claro{
-    transform: translate(8vh, 14vh);
+    transform: translate(11.5vh, 11.5vh);
     width: 3.5vh;
 }
 
