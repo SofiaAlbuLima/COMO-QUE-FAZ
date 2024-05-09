@@ -1,0 +1,432 @@
+@media only screen and (max-width: 480px){
+	.conteudo-dispositivo-desktop{
+		display: none;
+	}
+	#Cadastro{
+		display: none;
+	}
+	.rodape-desktop{
+		display: none;
+	}
+	.header-mob {
+		display: block;
+	}
+	.login-mob {
+		background-color: #5417bd;
+		background-image: linear-gradient(to right, #5417bd, #9c21cb);
+		border: 3.5px solid #ffd662;
+		border-radius: 25px;
+		text-align: center;
+		padding: 12% 8% 7% 8%;
+		height: 420px;
+		margin: 5% 7% 8% 7%;
+	}
+	.fazer-login-mob{
+		font-size: 27px;
+		color: white;
+	}
+	.login-mob p{
+		font-family: Fira Sans Bold;
+		color: #ffd662;
+		margin-bottom: 6%;
+	}
+	.input2{
+		margin-bottom: 3%;
+	}	
+	.esqueceu-foi{
+		font-family: Fira Sans Bold;
+		font-size: 14px;
+		color: white;
+	}
+	.redes-login-mob a{
+		font-family: Fira Sans Bold;
+		font-size: 14px;
+		color: #ffd662;
+		text-decoration: underline
+	}
+	.redes-botoes-mob button {
+		width: 32%;
+		height: 32px;
+		background-color: #ffd662;
+		border: none;
+		padding: 2% 11% 2% 10%;
+		border-radius: 5px;
+		margin-top: 3%;
+		margin-bottom: 5%;
+	}
+	.redes-botoes-mob{
+		display: flex;
+		justify-content: space-between;
+	}
+	.lembrar-senha-mob {
+		margin-bottom: 5%;
+		text-align: left;
+	}
+	.lembrar-senha-mob label{
+		color: white;
+		font-size: 14px;
+		font-family: Fira Sans Bold;
+	}
+	.lembrar-senha-mob input{
+		height: 14px;
+        border-radius: 36% / 36%;
+        border: none;
+	}
+	.caixa-mob input {
+        width: 94%;
+		outline: none;
+		border-radius: 10px;
+		border: 1px solid #eee;
+		padding: 4.5% 0% 4.5% 4.5%;
+		margin-bottom: 10px;
+		font-family: Fira Sans;
+		font-weight: bold;
+	}
+	::placeholder {
+		font-family: heavitas;
+		font-weight: 400;
+		color: #cb218c;
+	}
+	.caixa-mob input:focus::placeholder {
+		color: #cb218d45;
+		transition: 0.3s;
+	  }
+	
+	.login-submit {
+		background-color: #cb218c;
+		border: none;
+		height: 45px;
+		color: white;
+		font-family: heavitas;
+		font-size: 15px;
+		max-width: 100%;
+		font-weight: 400;
+	}
+	.login-submit {
+		width: 100%;
+		outline: none;
+		border-radius: 10px;
+		padding: 4.5%;
+		margin-bottom: 10px;
+		font-weight: 400;
+		font-family: Heavitas;
+	}
+	.tablinks-login {
+		width: 100%;
+		background-color: none;
+		background-image: linear-gradient(to right, #5417bd, #9c21cb);
+		border: 1px solid white;
+		color: white;
+		border-radius: 10px;
+		height: 45px;
+		font-family: Heavitas;
+		font-weight: 400;
+	}
+	body{
+        background-image: url(../imagens/fundogatos.png);
+	}
+    .cadastro-mob{
+		background-color: white;
+		border: 3.5px solid #9e5fef;
+		border-radius: 25px;
+		text-align: center;
+		padding: 12% 8% 7% 8%;
+		height: 490px;
+		margin: 5% 7% 8% 7%;
+    }
+    .texto1-cadastro{
+        font-family: Fira Sans Bold;
+        color: #333333;
+        margin-bottom: 6%;
+    }
+    .texto2-cadastro{
+        font-size: 27px;
+        color: #5417bd;
+        margin-bottom: 6%;
+        }
+    .caixa-mob2 input{
+        width: 94%;
+        outline: none;
+        border-bottom: 1.7px solid #9e5fef;
+        border-top: none;
+        border-left: none;
+        border-right: none;
+        padding: 4.5% 0% 4.5% 4.5%;
+        margin-bottom: 10px;
+        font-family: Fira Sans;
+        font-weight: bold;
+    }
+	.cadastros-place::placeholder {
+		font-family: heavitas;
+		font-weight: 400;
+		color: #9e5fef;
+	}
+	.caixa-mob2 input:focus::placeholder {
+		color: #9e5fef45;
+		transition: 0.3s;
+	  }
+      .caixa-mob2{
+        margin-bottom: 6%;
+      }
+      .lembrar-termos-mob label{
+        color: #333333;
+        font-size: 14px;
+        font-family: Fira Sans Bold;
+      }
+      .lembrar-termos-mob{
+        margin-bottom: 6%;        
+      }
+      .cadastro-submit-mob{
+        width: 100%;
+        outline: none;
+        border-radius: 10px;
+        border: none;
+        padding: 4.5%;
+        background-color: #ffd662;
+        color: #5417bd;
+        margin-bottom: 10px;
+        font-weight: 400;
+        font-family: Heavitas;
+      }
+      .tablinks-cadastro{
+        width: 100%;
+        background-color: white;
+        border: 1px solid #5417bd;
+        color: #5417bd;
+        border-radius: 10px;
+        height: 45px;
+        font-family: Heavitas;
+        font-weight: 400;
+      }
+}
+
+@media only screen and (min-width: 480px) {
+    body{
+        background-image: url(../imagens/fundogatos-desktop.png);
+	}
+    *{
+        font-family: Heavitas;
+        padding: 0;
+        margin: 0;
+    }
+    @font-face{
+        font-family: Heavitas;
+        src: url("../fonts/Heavitas.ttf");
+    }
+    @font-face{
+        font-family: Fira Sans Bold;
+        src: url("../fonts/fira-sans.bold.ttf");
+    }
+    @font-face{
+        font-family: Fira Sans;
+        src: url("../fonts/fira-sans.regular.ttf");
+    }
+
+    #Cadastro{
+        display: block;
+    }
+    .conteudo-dispositivo-mobile{
+        display: none;
+    }
+    .login-mob{
+        width: 525px;
+		background-image: linear-gradient(-118.74754247485888deg, #cb218c 0%, #7f1aa8 0%, #4d16bb 90.67401261808497%);
+		border-top: 3.5px solid #ffd662;
+		border-left: 3.5px solid #ffd662;
+		border-bottom: 3.5px solid #ffd662;
+		border-radius: 25px 0 0 25px;
+		text-align: center;
+		height: 490px;
+		padding: 8% 0 0 0;
+		position: relative;
+		z-index: 2;
+    }
+    .cadastro-mob{
+        border: 2px solid black;
+        width: 525px;
+    }
+    .login-cadastro{
+        margin: 3% 23% 3% 23%;
+        display: flex;
+        justify-content: space-around;
+		z-index: 101;
+    }
+	.fazer-login-mob{
+		font-size: 33px;
+		color: white;
+	}
+	.login-mob p{
+		font-family: Fira Sans Bold;
+		color: #ffd662;
+		margin-bottom: 6%;
+	}
+	.caixa-mob input{
+		width: 70%;
+		outline: none;
+		border-radius: 10px;
+		border: 1px solid #eee;
+		padding: 2.5% 0% 2.5% 2.5%;
+		margin-bottom: 3%;
+		font-family: Fira Sans;
+		font-weight: bold;
+	}
+	.input2::placeholder {
+		font-family: heavitas;
+		font-weight: 400;
+		color: #cb218c;
+	}
+	.input1::placeholder {
+		font-family: heavitas;
+		font-weight: 400;
+		color: #cb218c;
+	}
+	.caixa-mob input:focus::placeholder {
+		color: #cb218d45;
+		transition: 0.3s;
+	  }
+	.input2{
+		margin-bottom: 3%;
+	}	
+	.esqueceu-foi {
+		font-family: Fira Sans Bold;
+		font-size: 16px;
+		color: white;
+	}
+	.redes-login-mob a {
+		font-family: Fira Sans Bold;
+		font-size: 16px;
+		color: #ffd662;
+		text-decoration: underline;
+	}
+	.redes-botoes-mob {
+		display: flex;
+		justify-content: space-between;
+		padding-left: 13.5%;
+		padding-right: 13.5%;
+	}
+	.redes-botoes-mob button {
+		width: 32%;
+		height: 45px;
+		background-color: #ffd662;
+		border: none;
+		padding: 2% 10% 2% 10%;
+		border-radius: 5px;
+		margin-top: 3%;
+		margin-bottom: 5%;
+	}
+	.lembrar-senha-mob label {
+		color: white;
+		font-size: 14px;
+		font-family: Fira Sans Bold;
+	}
+	.login-submit {
+		width: 73.5%;
+		outline: none;
+		border-radius: 10px;
+		padding: 3%;
+		margin-top: 3%;
+		font-weight: 400;
+		font-family: Heavitas;
+		background-color: #cb218c;
+		color: white;
+		border: none;
+	}
+    .cadastro-mob{
+		background-color: white;
+		border-top: 3.5px solid #9e5fef;
+		border-right: 3.5px solid #9e5fef;
+		border-left: none;
+		border-bottom: 3.5px solid #9e5fef;
+		border-radius: 0 25px 25px 0;
+		text-align: center;
+		height: 490px;
+		padding-top: 8%;
+		z-index: 3;
+    }
+	.texto1-cadastro {
+		font-family: Fira Sans Bold;
+		color: #333333;
+	}
+	.texto2-cadastro {
+		font-size: 33px;
+		color: #4d16bb;
+		margin-bottom: 6%;
+	}
+	.caixa-mob2 input {
+		width: 70%;
+		outline: none;
+		border-bottom: 1.7px solid #9e5fef;
+		border-top: none;
+		border-left: none;
+		border-right: none;
+		padding: 2.5% 0% 2.5% 2.5%;
+		margin-bottom: 10px;
+		font-family: Fira Sans;
+		font-weight: bold;
+	}
+	.caixa-mob2 input::placeholder {
+		font-family: heavitas;
+		font-weight: 400;
+		color: #9e5fef;
+	}
+	.caixa-mob2 input:focus::placeholder {
+		color: #9e5fef45;
+		transition: 0.3s;
+	  }
+	  .lembrar-termos-mob label {
+		color: #333333;
+		font-size: 16px;
+		font-family: Fira Sans Bold;
+	}
+	.lembrar-termos-mob{
+		margin-top: 4%;
+		margin-bottom: 2.5%;
+	}
+	.cadastro-submit-mob {
+		width: 73.5%;
+		outline: none;
+		border-radius: 10px;
+		padding: 3%;
+		margin-top: 3%;
+		font-weight: 400;
+		font-family: Heavitas;
+		background-color: #ffd662;
+		color: #4d16bb;
+		border: none;
+	}
+	.decoracao-frente img{
+		height: 75px;
+		transform: rotate(345deg);
+		position: absolute;
+		margin-left: 19.8%;
+		margin-top: 24.0%;
+		z-index: 4;
+	}
+	.circulo{
+		border-radius: 100px;
+		position: absolute;
+	}
+	#cir1{
+		height: 75px;
+		width: 75px;
+		background-color: #ffa462;
+		margin-left: 76.8%;
+		margin-top: 0.5%;
+	}
+	#cir2{
+		height: 75px;
+		width: 75px;
+		background-color: #ffd662;
+		margin-left: 21%;
+		margin-top: -5.5%;
+		z-index: 1;
+	}
+	#cir3{
+		height: 75px;
+		width: 75px;
+		background-color: #ffd662;
+		margin-left: 75%;
+		margin-top: -33%;
+		z-index: 13;
+	}
+}

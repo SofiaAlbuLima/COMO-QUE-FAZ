@@ -13,6 +13,7 @@ module.exports = function(){
         });
         console.log("Conexão estabelecida!");
         return conexao;
+        
     } catch (e){
         console.log("Falha ao estabelecer a conexão");
         console.log(e);

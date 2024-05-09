@@ -7,17 +7,17 @@
 
 	@font-face {
 		font-family: Heavitas;
-		src: url("../fonts/Heavitas.ttf");
+		src: url("fonts/Heavitas.ttf");
 	}
 
 	@font-face {
 		font-family: Fira Sans Bold;
-		src: url("../fonts/fira-sans.bold.ttf");
+		src: url("fonts/fira-sans.bold.ttf");
 	}
 
 	@font-face {
 		font-family: Fira Sans;
-		src: url("../fonts/fira-sans.regular.ttf");
+		src: url("fonts/fira-sans.regular.ttf");
 	}
 
 	.Footer-Desktop {

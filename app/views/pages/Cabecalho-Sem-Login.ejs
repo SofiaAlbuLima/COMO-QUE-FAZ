@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+   <meta charset="UTF-8">
+   <meta http-equiv="X-UA-Compatible" content="IE=edge">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   
+   <script src="js/script-header.js"></script>
+   <script src="js/script-Home-SemLogin.js"></script>
+   <script src="js/script-base-post-desk.js"></script>
+   
+   <link rel="shortcut icon" href="imagens/favicon.png" type="image/x-icon" />
+</head>
+
+<body>
+   <header>
+      <section class="header-dispositivo-mobile">
+         <nav class="logos">
+            <article class="login">
+               <a href="https://grupo4-tca.github.io/Como-que-faz/Fazer-Login">
+                  <img src="imagens/user_icon.png" alt="Faça Login">
+               </a>
+            </article>
+            <article class="logo">
+               <a href="partial/index.ejs">
+                  <img src="imagens/ComoQueFaz_logo.png" alt="Logo do ComoQueFaz">
+               </a>
+            </article>
+            <article class="search">
+               <a href="/">
+                  <img src="imagens/search_icon.png" alt="Ícone de Pesquisa">
+               </a>
+            </article>
+         </nav>
+         <nav class="topcs">
+            <a class="culinaria" href="https://grupo4-tca.github.io/Como-que-faz/Categoria-Culinária">CULINÁRIA</a>
+            <a class="limpeza" href="https://grupo4-tca.github.io/Como-que-faz/Categoria-Limpeza">LIMPEZA</a>
+            <a class="bem-estar" href="https://grupo4-tca.github.io/Como-que-faz/Categoria-Bem-Estar">BEM-ESTAR</a>
+         </nav>
+      </section>
+
+      <section class="header-dispositivo-desktop">
+         <nav class="logos">
+            <aside id="container" onmouseover="showDiv1()" onmouseout="hideDiv1()" class="login">
+               <a href="https://grupo4-tca.github.io/Como-que-faz/Fazer-Login">
+                  <img id="img-login" src="imagens/user_icon.png" alt="Faça Login"></a>
+               <article id="hide-hover-span">
+                  <p class="p-1">LOGIN</p>
+                  <br>
+                  <p class="p-2">ENTRAR / CADASTRAR</p>
+               </article>
+            </aside>
+            <article class="logo">
+               <a href="/">
+                  <img src="imagens/ComoQueFaz_logo.png" alt="Logo do ComoQueFaz">
+               </a>
+            </article>
+            <aside id="container2" onmouseover="showDiv2()" onmouseout="hideDiv2()" class="search">
+               <img src="imagens/search_icon.png" alt="Ícone de Pesquisa">
+               <article id="hide-hover-search">
+                  <input class="texto-search" type="text" name="inserir-pesquisa" placeholder="Pesquisar...">
+                  <label id="inserir-pesquisa"></label>
+               </article>
+            </aside>
+         </nav>
+         <nav class="topcs">
+            <a class="culinaria" href="https://grupo4-tca.github.io/Como-que-faz/Categoria-Culinária">CULINÁRIA</a>
+            <a class="limpeza" href="https://grupo4-tca.github.io/Como-que-faz/Categoria-Limpeza">LIMPEZA</a>
+            <a class="bem-estar" href="https://grupo4-tca.github.io/Como-que-faz/Categoria-Bem-Estar">BEM-ESTAR</a>
+         </nav>
+      </section>
+   </header>
+   
+   <main>
+      <%- include("../partial/"+pagina) %>
+   </main>
+
+   <footer>
+   </footer>
+</body>
+
+</html>
