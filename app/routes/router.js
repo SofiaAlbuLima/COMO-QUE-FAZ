@@ -31,8 +31,4 @@ router.get("/adm", function (req, res) {
     });
 
 
-var fabricaDeConexao = require("../../config/connection_factory");
-var conexao = fabricaDeConexao;
-
-
 module.exports = router;
