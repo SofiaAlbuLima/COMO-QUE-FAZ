@@ -9,6 +9,10 @@ router.get("/", function (req, res) {
         res.render("pages/template", {
             pagina: {cabecalho: "cabecalho", conteudo: "Fazer-Login", rodape: "rodape"}, logado:null});
     });
+    router.get("/bigodes-de-ouro", function (req, res) {
+        res.render("pages/template", {
+            pagina: {cabecalho: "cabecalho", conteudo: "premium", rodape: "rodape"}, logado:null});
+    });
 
 // Links & Template - Parte Administrativa
 router.get("/adm", function (req, res) {

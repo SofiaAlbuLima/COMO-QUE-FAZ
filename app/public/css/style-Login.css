@@ -122,7 +122,7 @@
 		font-family: Heavitas;
 		font-weight: 400;
 	}
-	body{
+	.main-login{
         background-image: url(../imagens/fundogatos.png);
 	}
     .cadastro-mob{
@@ -201,7 +201,7 @@
 }
 
 @media only screen and (min-width: 480px) {
-    body{
+    .main-login{
         background-image: url(../imagens/fundogatos-desktop.png);
 	}
     *{
