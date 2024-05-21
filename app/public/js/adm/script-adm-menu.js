@@ -71,6 +71,7 @@ document.addEventListener('DOMContentLoaded', function() {
             imgRoxo1.style.cssText = 'display:inline;';
             imgBranco1.style.cssText = 'display: none;';
             titulo1.style.cssText = 'color: #5225AA;';
+            console.log("oiiiiiii");
         }
         else if(urlDaPagina.includes('/adm/denuncias')){
             pagina = pag2;
@@ -132,7 +133,7 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     };
     
-    document.addEventListener('DOMContentLoaded', PaginaSelecionadaNoMenu);
+    PaginaSelecionadaNoMenu();
   });
 
 
