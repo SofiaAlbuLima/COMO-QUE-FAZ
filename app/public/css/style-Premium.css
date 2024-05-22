@@ -56,12 +56,16 @@
 
     .Secao-Beneficios-Premium{
         background: linear-gradient(270deg, rgba(159, 85, 255, 1) -88%, rgba(77, 22, 187, 1) 100%);
-        padding: 5vh 0vh 5vh 20vh;
+        padding: 10vh 0vh 5vh 20vh;
     }
     .figure-titulo-beneficios{
+        width: 55vh;
+        display: inline-flex;
     }
     .estrelinha-titulo{
         width: 5vh; 
+        height: 5vh;
+        margin-top: 2.5vh;
         display: inline-flex;
     }
     .titulo-beneficios{
@@ -69,13 +73,21 @@
         color: #FFD662;
         font-weight: 400;
         display: inline-flex;
-        margin-left: 2vh;
+        margin-left: 5vh;
         width: 45vh;
+        margin-bottom: 3vh;
     }
     .texto-beneficios{
         font-family: Fira Sans;
         font-size: 1.5vh;
         color: white;
         width: 65vh;
+        margin-top: 0.5vh;
+        margin-left: 10vh;
+    }
+
+
+    .estrelinha-lista{
+        height: 4vh;
     }
 }
