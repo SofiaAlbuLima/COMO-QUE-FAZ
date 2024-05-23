@@ -58,6 +58,10 @@
         background: linear-gradient(270deg, rgba(159, 85, 255, 1) -88%, rgba(77, 22, 187, 1) 100%);
         padding: 10vh 0vh 5vh 20vh;
     }
+    .figure-artigo-beneficios{
+        width: 75vh;
+        display: inline-block;
+    }
     .figure-titulo-beneficios{
         width: 55vh;
         display: inline-flex;
@@ -86,8 +90,71 @@
         margin-left: 10vh;
     }
 
-
+    /* quadro benefícios */
+    .quadro-beneficios{
+        width: 65vh;
+        height: 75vh;
+        display: inline-block;
+        margin-left: 10vh;
+    }
+    .quadro-beneficios h3{
+        font-size: 2.2vh;
+        font-weight: 400;
+        color: #FFD662;
+        display: inline;
+        margin-left: 2vh;
+    }
+    .fundo-quadro-beneficios{
+        background-color: gray;
+        border-radius: 10px;
+        margin-top: 1vh;
+    }
+    .estrelinhas-quadro-ben{
+        width: 5vh;
+        display: inline-block;
+        transform: translate(0, -3.5vh);
+        /* background-color: #5f25d1; */
+    }
     .estrelinha-lista{
-        height: 4vh;
+        height: 3vh;
+        display: grid;
+        margin-left: 3vh;
+        margin-top: 5.7vh;
+    }
+    .lista-beneficios-texto{
+        width: 33.5vh;
+        display: inline-block;
+    }
+    .lista-beneficios-texto p{
+        font-family: Fira Sans;
+        padding-left: 3.5vh;
+        margin-top: 6.5vh;
+        font-size: 2vh;
+        color: white;
+        transform: translate(0, -3.5vh);
+    }
+    .beneficios-free{
+        display: inline-block;
+        background-color: white;
+        padding-left: 5vh;
+        padding-right: 5vh;
+    }
+    .beneficios-free p{
+        font-size: 1.5vh;
+        margin-top: 7vh;
+        transform: translate(0, -3.5vh);
+    }
+    .beneficios-premium{
+        display: inline-block;
+        background-color: #F5F0FF;
+        padding-left: 5vh;
+        padding-right: 5vh;
+    }
+    .certinho-lista{
+        height: 3vh;
+        padding: 2vh;
+        display: grid;
+        margin-top: 3.4vh;
+        transform: translate(0, -3.5vh);
     }
 }
