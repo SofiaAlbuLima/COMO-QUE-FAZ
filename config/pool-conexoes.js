@@ -10,13 +10,16 @@ const pool = mysql.createPool({
     queueLimit: 0
 })
 
-pool.getConnection((err, conn) => {
+pool.getConnection((err, conn) => { 
+    // Se ocorrer um erro ao obter a conexão, ele será tratado e registrado
     if(err){
         console.log(err)
     }
     else{
-        console.log("Conecatado ao SGBD!")
+        console.log("Conectado ao SGBD!")
     }
 })
 
 module.exports = pool.promise()
+// conexão obtida é exportada como uma promessa
+// Agora pode-se usar a promessa para executar consultas SQL e receber os resultados como promessas assíncronas

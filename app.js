@@ -14,8 +14,6 @@ app.set('views', './app/views')
 var rotas = require('./app/routes/router');
 app.use('/', rotas);
 
-var rotasLink = require('./app/routes/router-link');
-app.use('/adm', rotasLink);
 
 app.listen(port, () => {
     console.log('Servidor ouvindo a porta:' + port)

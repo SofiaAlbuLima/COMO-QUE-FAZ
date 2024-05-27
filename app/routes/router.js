@@ -1,9 +1,12 @@
 var express = require('express');
 var router = express.Router();
+const moment = require("moment");
+const tarefasController = require("../controllers/controller");
 
 // Links & Template - Parte Publica
 router.get("/", function (req, res) {
-    res.render("pages/template", {pagina: {cabecalho: "cabecalho", conteudo: "index", rodape: "rodape"}, logado:null});
+    tarefasController.listarTarefasPaginadas(req, res);
+    // res.render("pages/template", {pagina: {cabecalho: "cabecalho", conteudo: "index", rodape: "rodape"}, logado:null});
 });
     router.get("/login", function (req, res) {
         res.render("pages/template", {
