@@ -23,7 +23,7 @@ const TarefasController = {
         //gab aqui q vc cria as regras :)
         //app.post('/Fazer-login', [
        // body('input1').isEmail().normalizeEmail(),
-      // body('input2').isLength({ min: 8 }).matches(/[A-Z]/)]
+      //  body('input2').isLength({ min: 8 , max: 60 }).matches(/[A-Z]/)]
     ]
 
 };
