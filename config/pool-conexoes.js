@@ -1,4 +1,4 @@
-const mysql = require('mysql2');
+const mysql = require('mysql2')
 const pool = mysql.createPool({
     host: process.env.DB_HOST,
     user: process.env.DB_USER,
@@ -14,6 +14,7 @@ pool.getConnection((err, conn) => {
     // Se ocorrer um erro ao obter a conexão, ele será tratado e registrado
     if(err){
         console.log(err)
+        console.log("uhulll erro :O")
     }
     else{
         console.log("Conectado ao SGBD!")

@@ -4,7 +4,7 @@ const Model = require("../models/model"); //Requisição do arquivo Model para e
 const moment = require("moment"); //datas e horas bonitinhas
 const {body, validationResult} = require("express-validator");
 
-const TarefasController = {
+const tarefasController = {
 
     // iniciarTarefa: async (req,res) =>{ //funções que executarão as funcionalidades previstas pelo sistema.​
     //     let { id } = req.query;

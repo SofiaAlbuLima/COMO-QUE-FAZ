@@ -18,7 +18,7 @@ const clienteModel = { //const que agrupa todas as funções de acesso e manipul
             return linhas
         } catch(erro){
             console.log(erro)
-        }
+        }   
     }
 }
 
