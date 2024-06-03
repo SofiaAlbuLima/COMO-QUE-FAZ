@@ -2,7 +2,6 @@
 
 const Model = require("../models/model"); //Requisição do arquivo Model para executar ações no Banco de Dados
 const moment = require("moment"); //datas e horas bonitinhas
-const {body, validationResult} = require("express-validator");
 
 const tarefasController = {
 
@@ -21,9 +20,7 @@ const tarefasController = {
 
     regrasValidacao:[
         //gab aqui q vc cria as regras :)
-        //app.post('/Fazer-login', [
-       // body('input1').isEmail().normalizeEmail(),
-      //  body('input2').isLength({ min: 8 , max: 60 }).matches(/[A-Z]/)]
+       
     ]
 
 };
