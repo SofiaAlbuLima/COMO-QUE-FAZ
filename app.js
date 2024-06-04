@@ -2,7 +2,7 @@ const express = require('express')
 const app = express()
 const port = 3000
 
-const dotenv = require('dotenv');
+const env = require('dotenv').config();
 
 app.use(express.static('app/public'));
 
@@ -16,5 +16,5 @@ app.use('/', rotas);
 
 
 app.listen(port, () => {
-    console.log('Servidor ouvindo a porta:' + port)
-})
+    console.log(`Abriu na porta ${port}\nhttp://localhost:${port}`);
+});
