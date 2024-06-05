@@ -20,17 +20,17 @@ const tarefasController = {
     // },
 
     regrasValidacaoLogin:[
-             router.post('/Fazer-login', 
-             body('input1').isEmail(),
-              with.Message("Insira um email válido!")
-            body('input2').isLength({ min: 8 , max: 60 })
-                with.Message("A senha deve ter no minimo 8 caracteres")
-            function (req, res) {
-                const errors = validationResult(req);
-                if(!errors.isEmpty()) {
-                    console.log(errors);
-                    return res.render("pages/template", {"erros": errors, "valores":req.body, "retorno": null});
-             };
+                    router.post('/Fazer-login', 
+                    body('input1').isEmail(),
+                    with.Message("Insira um email válido!")
+                    body('input2').isLength({ min: 8 , max: 60 })
+                        with.Message("A senha deve ter no minimo 8 caracteres")
+                    function (req, res) {
+                        const errors = validationResult(req);
+                        if(!errors.isEmpty()) {
+                            console.log(errors);
+                            return res.render("pages/template", {"erros": errors, "valores":req.body, "retorno": null});
+                    };
 
         // {"erros": null, "valores": {"input1": "", "input2": ""} ,"retorno": null}
        
