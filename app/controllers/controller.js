@@ -19,10 +19,30 @@ const tarefasController = {
     //     res.redirect(urlChamadora);
     // },
 
-    regrasValidacao:[
+    regrasValidacaoLogin:[
         //gab aqui q vc cria as regras :)
        
     ],
+    regrasValidacaoCadastro:[
+        //gab aqui q vc cria as regras :)
+       
+    ],
+    Login_formLogin: async (req, res) => {
+        res.locals.moment = moment;
+        try {
+            res.render("pages/template", { pagina: {cabecalho: "cabecalho", conteudo: "Fazer-Login", rodape: "rodape"}, logado:null});
+
+            const erros = validationResult(req);
+            if (!erros.isEmpty()) {
+                return res.render("partial/paginas/login", { listaErros: erros })
+            } else {
+                res.render("partial/paginas/login", { listaErros: erros })
+            }
+        } catch (e) {
+            console.log(e); 
+        }
+    },
+
 
     Index_mostrarPosts: async (req, res) => {
         res.locals.moment = moment;
@@ -31,15 +51,8 @@ const tarefasController = {
         } catch (e) {
             console.log(e); 
         }
-    },
-    Login_formLogin: async (req, res) => {
-        res.locals.moment = moment;
-        try {
-            res.render("pages/template", { pagina: {cabecalho: "cabecalho", conteudo: "Fazer-Login", rodape: "rodape"}, logado:null});
-        } catch (e) {
-            console.log(e); 
-        }
     }
+    
 
 };
 
