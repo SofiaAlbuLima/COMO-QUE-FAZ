@@ -14,12 +14,13 @@ const pool = require("../../config/pool-conexoes"); //requisição do pool
 const clienteModel = { //const que agrupa todas as funções de acesso e manipulação de dados
     findAll: async()=>{
         try {
-            const [linhas, campos] = await pool.query('SELECT * FROM clientes')
+            const [linhas] = await pool.query('SELECT * FROM clientes')
             return linhas
         } catch(erro){
             console.log(erro)
         }   
-    }
+    },
+    
 }
 
 // Login: select 
