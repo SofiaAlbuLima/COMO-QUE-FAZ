@@ -1,12 +1,13 @@
 @media only screen and (min-width: 480px) {
     .Secao-Banner-principal{
-        padding: 13vh 0vh 10vh 20vh;
+        padding: 13vh 0vh 20vh 20vh;
     }
     .Banner-bigodes-inteiro{
         width: 55vh;
     }
     .Banner-titulo-premium{
         font-size: 2vh;
+        width: 15vh;
         font-family: Fira Sans;
         font-weight: 400;
         transform: translate(25vh, -3vh);
@@ -32,18 +33,20 @@
         font-size: 2vh;
         font-family: Fira Sans;
         font-weight: 600;
-        transform: translate(2vh, 0);
+        transform: translate(1.5vh, -1vh);
         border: none;
         position: absolute;
+        z-index: 2;
     }
     .Banner-borda-botao{
         background: transparent;
-        border: 3px solid #FFD662;
+        border: 2px solid #FFD662;
         width: 40vh;
         height: 7vh;
         border-radius: 13px;
         display: inline-flex;
         position: absolute;
+        z-index: -1;
     }
     .Banner-imagem-principal{
         width: 65vh;
@@ -97,59 +100,45 @@
         display: inline-block;
         margin-left: 10vh;
     }
-    .quadro-beneficios h3{
+    .cabeçalho-tabela-beneficios th{
         font-size: 2.2vh;
         font-weight: 400;
         color: #FFD662;
         margin-left: 2vh;
     }
-    .fundo-quadro-beneficios{
-        background-color: gray;
-        border-radius: 10px;
-        margin-top: 1vh;
-        position: relative;
+    .linhas-tabela-beneficios{
+        height: 5vh;
     }
-    .estrelinhas-quadro-ben{
-        width: 10vh;
-        display: inline-block;
-        /* background-color: #5f25d1; */
-    }
-    .estrelinha-lista{
+    
+    .coluna-beneficios-estrelinha img{
         height: 3vh;
         display: grid;
         margin-left: 3vh;
         margin-top: 5.7vh;
     }
-    .lista-beneficios-texto{
+    .coluna-beneficios-beneficio p{
         width: 35.1vh;
         display: inline-block;
         height: 65vh;
     }
-    /* .lista-beneficios-texto p{
-        font-family: Fira Sans;
-        padding-left: 3.5vh;
-        margin-top: 6.5vh;
-        font-size: 1.8vh;
-        color: white;
-    } */
     .beneficios-free{
         display: inline-block;
         background-color: white;
     }
-    /* .beneficios-free p{
+    /* .coluna-beneficios-free p{
         font-size: 1.5vh;
         padding-top: 3vh;
         padding-left: 5.25vh;
         padding-right: 5.25vh;
         padding-bottom: 3vh;
     } */
-    .beneficios-premium{
+    .coluna-beneficios-premium{
         display: inline-block;
         background-color: #F5F0FF;  
         border-top-right-radius: 10px;
         border-bottom-right-radius: 10px;
     }
-    .certinho-lista{
+    .coluna-beneficios-premium img{
         width: 3vh;
         display: grid;
         padding-top: 3vh;

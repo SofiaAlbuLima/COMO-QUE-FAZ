@@ -22,6 +22,10 @@ const clienteModel = { //const que agrupa todas as funções de acesso e manipul
     }
 }
 
-
+// Login: select 
+// cadastro: select, insert
+// posts: select
+// criar post: update
+// excluir post: select, delete
 
 module.exports = clienteModel //A exportação deste objeto na forma de um módulo.

@@ -10,6 +10,7 @@ const pool = mysql.createPool({
     queueLimit: 0
 })
 
+
 pool.getConnection((err, conn) => { 
     // Se ocorrer um erro ao obter a conexão, ele será tratado e registrado
     if(err){

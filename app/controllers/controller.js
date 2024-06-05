@@ -22,7 +22,24 @@ const tarefasController = {
     regrasValidacao:[
         //gab aqui q vc cria as regras :)
        
-    ]
+    ],
+
+    Index_mostrarPosts: async (req, res) => {
+        res.locals.moment = moment;
+        try {
+            res.render("pages/template", {pagina: {cabecalho: "cabecalho", conteudo: "index", rodape: "rodape"}, logado:null});
+        } catch (e) {
+            console.log(e); 
+        }
+    },
+    Login_formLogin: async (req, res) => {
+        res.locals.moment = moment;
+        try {
+            res.render("pages/template", { pagina: {cabecalho: "cabecalho", conteudo: "Fazer-Login", rodape: "rodape"}, logado:null});
+        } catch (e) {
+            console.log(e); 
+        }
+    }
 
 };
 
