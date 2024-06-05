@@ -62,6 +62,22 @@
       </section>
 
       <section class="conteudo-dispositivo-desktop">
+
+         <!-- <%   -->
+         <!-- let erroValidacao = {"input1": "", "input2": ""}; -->
+         <!-- let msgErro = {"input1": "", "input2": ""}; -->
+         <!-- if(erros) { -->
+            <!-- erros.errors.forEach(function(erro){ -->
+               <!-- if (erro.param == "input1") { -->
+                  <!-- erroValidacao.input1 = "erro" -->
+                  <!-- msgErro.input1 = erro.msg -->
+               <!-- } -->
+               <!-- if (erro.param == "input2") { -->
+                  <!-- erroValidacao.input2 = "erro" -->
+                  <!-- msgErro.input2 = erro.msg -->
+               <!-- } -->
+            <!-- }) -->
+         <!-- }; %> -->
          <figure class="decoracao-frente">
             <img src="imagens/gatinho-laranja-decoracao.png" alt="">
             <figure class="circulo" id="cir1"></figure>
@@ -74,7 +90,7 @@
                      <form action="https://grupo4-tca.github.io/Como-que-faz/Home-Com-Login">
                         <span class="fazer-login-mob">FAZER LOGIN:</span>
                         <p>Seja bem-vindo de volta!</p>
-                        <figure class="caixa-mob">
+                        <form method="post" class="caixa-mob" action="/app/views/partial/paginas/Fazer-Login.ejs">
                            <input class="input1" type="text" placeholder="E-MAIL / NOME DE USUÁRIO" required>
                            <input class="input2" type="password" placeholder="SENHA" required>
                         </figure>
