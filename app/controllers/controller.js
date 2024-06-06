@@ -20,20 +20,10 @@ const tarefasController = {
     // },
 
     regrasValidacaoLogin:[
-                    // router.post('/Fazer-login', 
-                    // body('input1').isEmail(),
-                    // with.Message("Insira um email válido!")
-                    // body('input2').isLength({ min: 8 , max: 60 })
-                    //     with.Message("A senha deve ter no minimo 8 caracteres")
-                    // function (req, res) {
-                    //     const errors = validationResult(req);
-                    //     if(!errors.isEmpty()) {
-                    //         console.log(errors);
-                    //         return res.render("pages/template", {"erros": errors, "valores":req.body, "retorno": null});
-                    // };
-
-        // {"erros": null, "valores": {"input1": "", "input2": ""} ,"retorno": null}
-       
+        body('input1').isEmail().
+        with.Message("Insira um email válido!"),
+        body('input2').isLength({ min: 8 , max: 60 }).
+        with.Message("A senha deve ter no minimo 8 caracteres")
     ],
     regrasValidacaoCadastro:[
         //gab aqui q vc cria as regras :)
@@ -42,7 +32,7 @@ const tarefasController = {
     Login_formLogin: async (req, res) => {
         res.locals.moment = moment;
         try {
-            res.render("pages/template", { pagina: {cabecalho: "cabecalho", conteudo: "Fazer-Login", rodape: "rodape"}, logado:null});
+            res.render("pages/template", { pagina: {cabecalho: "cabecalho", conteudo: "Fazer-Login", rodape: "rodape"},  "erros": errors, "valores":req.body, "retorno": null});
 
             const erros = validationResult(req);
             if (!erros.isEmpty()) {
