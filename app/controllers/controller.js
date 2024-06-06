@@ -1,6 +1,6 @@
 // Responsável por receber as entradas do usuário, interpretá-las e acionar ações adequadas no modelo e na visualização
 
-const Model = require("../models/model"); //Requisição do arquivo Model para executar ações no Banco de Dados
+const Model = require("../models/model-usuario"); //Requisição do arquivo Model para executar ações no Banco de Dados
 const moment = require("moment"); //datas e horas bonitinhas
 
 
@@ -32,14 +32,15 @@ const tarefasController = {
     Login_formLogin: async (req, res) => {
         res.locals.moment = moment;
         try {
-            res.render("pages/template", { pagina: {cabecalho: "cabecalho", conteudo: "Fazer-Login", rodape: "rodape"},  "erros": errors, "valores":req.body, "retorno": null});
+            res.render("pages/template", { pagina: {cabecalho: "cabecalho", conteudo: "Fazer-Login", rodape: "rodape"}, logado:null});
 
             const erros = validationResult(req);
             if (!erros.isEmpty()) {
-                return res.render("partial/paginas/login", { listaErros: erros })
+                return res.render("pages/template", { pagina: {cabecalho: "cabecalho", conteudo: "Fazer-Login", rodape: "rodape"}, logado:null, listaErros: erros});
             } else {
                 res.render("partial/paginas/login", { listaErros: erros })
             }
+
         } catch (e) {
             console.log(e); 
         }

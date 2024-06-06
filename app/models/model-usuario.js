@@ -11,7 +11,7 @@ const pool = require("../../config/pool-conexoes"); //requisição do pool
 
 
 
-const clienteModel = { //const que agrupa todas as funções de acesso e manipulação de dados
+const usuarioModel = { //const que agrupa todas as funções de acesso e manipulação de dados
     findAll: async()=>{
         try {
             const [linhas] = await pool.query('SELECT * FROM clientes')
@@ -20,7 +20,18 @@ const clienteModel = { //const que agrupa todas as funções de acesso e manipul
             console.log(erro)
         }   
     },
-    
+    findUserEmail: async (camposForm) => {
+        try {
+            const [resultados] = await pool.query(
+                "SELECT * FROM clientes WHERE Nickname = ? or E-mail = ?",
+                [camposForm.user_usuario, camposForm.user_usuario]
+            )
+            return resultados;
+        } catch (error) {
+            console.log(error);
+            return error;
+        }
+    }
 }
 
 // Login: select 
@@ -29,4 +40,4 @@ const clienteModel = { //const que agrupa todas as funções de acesso e manipul
 // criar post: update
 // excluir post: select, delete
 
-module.exports = clienteModel //A exportação deste objeto na forma de um módulo.
+module.exports = usuarioModel //A exportação deste objeto na forma de um módulo.
