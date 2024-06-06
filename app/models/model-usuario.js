@@ -31,7 +31,7 @@ const usuarioModel = { //const que agrupa todas as funções de acesso e manipul
             console.log(error);
             return error;
         }
-    },
+    }
 }
 
 // Login: select 
