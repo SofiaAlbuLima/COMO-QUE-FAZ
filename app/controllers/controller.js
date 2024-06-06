@@ -6,24 +6,12 @@ const moment = require("moment"); //datas e horas bonitinhas
 
 const tarefasController = {
 
-    // iniciarTarefa: async (req,res) =>{ //funções que executarão as funcionalidades previstas pelo sistema.​
-    //     let { id } = req.query;
-    //     try {
-    //         results = await tarefasModel.situacaoTarefa(1, id);
-    //     } catch (e){
-    //         console.log(e);
-    //         res.json({ erro: "Falha ao acessar dados"});
-    //     }
-    //     let url = req.rawHeaders[25];
-    //     let urlChamadora = url.replace("https://localhost:3000", "");
-    //     res.redirect(urlChamadora);
-    // },
 
     regrasValidacaoLogin:[
-        body('input1').isEmail().
-        with.Message("Insira um email válido!"),
-        body('input2').isLength({ min: 8 , max: 60 }).
-        with.Message("A senha deve ter no minimo 8 caracteres")
+        // body('input1').isEmail().
+        // with.Message("Insira um email válido!"),
+        // body('input2').isLength({ min: 8 , max: 60 }).
+        // with.Message("A senha deve ter no minimo 8 caracteres")
     ],
     regrasValidacaoCadastro:[
         //gab aqui q vc cria as regras :)

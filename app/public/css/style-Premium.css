@@ -107,6 +107,7 @@
     }
     .linhas-tabela-beneficios{
         height: 5vh;
+        border-collapse: collapse;
     }
     .coluna-beneficios-estrelinha{
         background-color: #5f25d1;
