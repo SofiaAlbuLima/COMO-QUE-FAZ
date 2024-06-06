@@ -42,14 +42,13 @@ const tarefasController = {
     Login_formLogin: async (req, res) => {
         res.locals.moment = moment;
         try {
-            res.render("pages/template", { pagina: {cabecalho: "cabecalho", conteudo: "Fazer-Login", rodape: "rodape"}, logado:null});
-
             const erros = validationResult(req);
             if (!erros.isEmpty()) {
-                return res.render("partial/paginas/login", { listaErros: erros })
+                return res.render("pages/template", { pagina: {cabecalho: "cabecalho", conteudo: "Fazer-Login", rodape: "rodape"}, logado:null, listaErros: erros});
             } else {
                 res.render("partial/paginas/login", { listaErros: erros })
             }
+            
         } catch (e) {
             console.log(e); 
         }
