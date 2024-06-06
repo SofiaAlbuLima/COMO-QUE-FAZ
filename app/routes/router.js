@@ -11,20 +11,20 @@ const tarefasController = require("../controllers/controller");
 
     router.get("/login", function (req, res) {
         tarefasController.Login_formLogin(req, res);
-        //validação
-            //router.post('/Fazer-login', 
-            //body('input1').isEmail(),
-                //with.Message("Insira um email válido!")
-            //body('input2').isLength({ min: 8 , max: 60 })
-                //with.Message("A senha deve ter no minimo 8 caracteres")
-            // function (req, res) {
-                //const errors = validationResult(req);
-                //if(!errors.isEmpty()) {
-                    //console.log(errors);
-                    //return res.render("pages/template", {"erros": errors, "valores":req.body, "retorno": null});
-            // }
-
-        // {"erros": null, "valores": {"input1": "", "input2": ""} ,"retorno": null}
+            router.post('/Fazer-login', [
+            body('input1').isEmail().
+            with.Message("Insira um email válido!"),
+            body('input2').isLength({ min: 8 , max: 60 }).
+            with.Message("A senha deve ter no minimo 8 caracteres")],
+            function (req, res)  {
+            const errors = validationResult(req);
+            if(!
+                errors.isEmpty()) {
+            console.log(errors); 
+            return res.render("pages/template", {"erros": errors, "valores":req.body, "retorno": null});
+                }
+            return res.render("pages/template", {"erros": null, "valores":req.body, "retorno": req.body});
+            })
     });
     
     router.get("/bigodes-de-ouro", function (req, res) {
