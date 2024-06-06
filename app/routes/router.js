@@ -21,9 +21,9 @@ const tarefasController = require("../controllers/controller");
             if(!
                 errors.isEmpty()) {
             console.log(errors); 
-            return res.render("pages/template", {"erros": errors, "valores":req.body, "retorno": null});
+            return res.render("/login", {"erros": errors, "valores":req.body, "retorno": null});
                 }
-            return res.render("pages/template", {"erros": null, "valores":req.body, "retorno": req.body});
+            return res.render("/login", {"erros": null, "valores":req.body, "retorno": req.body});
             })
     });
     
