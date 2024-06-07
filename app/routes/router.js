@@ -10,19 +10,12 @@ const tarefasController = require("../controllers/controller");
     });
 
     router.get("/login", function (req, res) {
-        tarefasController.Login_formLogin(req, res);
-            router.post('/Fazer-login', [
-          ],
-            function (req, res)  {
-            const errors = validationResult(req);
-            if(!
-                errors.isEmpty()) {
-            console.log(errors); 
-            return res.render("/login", {"erros": errors, "valores":req.body, "retorno": null});
-                }
-            return res.render("/login", {"erros": null, "valores":req.body, "retorno": req.body});
-            })
+     res.render("pages/template", {cabecalho: "cabecalho", conteudo: "Fazer-Login", rodape: "rodape"}, { listaErros: erros })
     });
+    router.post('/login', 
+    tarefasController.regrasValidacaoLogin,
+    function(req, res){
+    tarefasController.Login_formLogin(req, res);})
     
     router.get("/bigodes-de-ouro", function (req, res) {
         res.render("pages/template", {
