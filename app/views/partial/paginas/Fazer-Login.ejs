@@ -23,7 +23,7 @@
                      </article>
 
                      <figure class="lembrar-senha-mob">
-                        <label><input type="checkbox"> Lembrar Senha</label>
+                        <label><input type="checkbox"> Manter Login</label>
                      </figure>
 
                      <a href="#"><input type="submit" value="Login" class="login-submit"></a>
@@ -48,7 +48,7 @@
                   </figure>
 
                   <figure class="lembrar-termos-mob">
-                     <label><input type="checkbox"> Lembrar Senha</label>
+                     <label><input type="checkbox"> Manter Login</label>
                      <p><label><input type="checkbox"> Li e concordo com os termos*</label></p>
                   </figure>
                   <a href="#"><input type="submit" value="Cadastre-se" class="cadastro-submit-mob"></a>
@@ -66,15 +66,15 @@
           <%           
            let erroValidacao = {"input1": "", "input2": ""};
           let msgErro = {"input1": "", "input2": ""}; 
-       if(erros) { 
-             erros.errors.forEach(function(erro){ 
-                if (erro.param == "input1") { 
+       if(listaErros) { 
+            listaErros.errors.forEach(function(Itemerro){ 
+                if (Itemerro.path == "input1") { 
                   erroValidacao.input1 = "erro" 
-                   msgErro.input1 = erro.msg 
+                  msgErro.input1 = Itemerro.msg 
                 } 
-                if (erro.param == "input2") { 
+                if (Itemerro.path == "input2") { 
                    erroValidacao.input2 = "erro" 
-                   msgErro.input2 = erro.msg 
+                   msgErro.input2 = Itemerro.msg 
                } 
             }) 
           }; %> 
@@ -87,15 +87,17 @@
             <section id="Login" class="tabcontent" style="display:block;">
                <figure class="background-gatin">
                   <section class="login-mob">
-                     <form action="https://grupo4-tca.github.io/Como-que-faz/Home-Com-Login">
+                     <form action="/login" method="post">
+
                         <span class="fazer-login-mob">FAZER LOGIN:</span>
+
                         <p>Seja bem-vindo de volta!</p>
-                        <form method="post" class="caixa-mob" action="/app/views/partial/paginas/Fazer-Login.ejs">
-                           <input class="input1" value="<%= valores.input1 %>"  type="text"  placeholder="E-MAIL / NOME DE USUÁRIO" required>
+
+                           <input class="input1" type="text" name="input1"  placeholder="E-MAIL / NOME DE USUÁRIO" required>
                            <span><%= msgErro.input1%></span>
-                           <input class="input2" value="<%= valores.input2 %>" type="password" placeholder="SENHA" required>
+                           
+                           <input class="input2" type="password" name="input2"  placeholder="SENHA" required>
                            <span><%= msgErro.input2%></span>
-                        </form>
                         
                         <article class="redes-login-mob">
                            <span class="esqueceu-foi">Esqueceu a senha? <a href="#">Recupere aqui</a></span>
@@ -108,9 +110,9 @@
                         </article>
 
                         <figure class="lembrar-senha-mob">
-                           <label><input type="checkbox"> Lembrar Senha</label>
+                           <label><input type="checkbox"> Manter Login</label>
                         </figure>
-                        <a href="#"><input type="submit" value="Login" class="login-submit"></a>
+                        <button type="submit" class="login-submit">Login</button>
                      </form>
                   </section>
                </figure>
@@ -125,9 +127,9 @@
                         <input type="text" placeholder="NOME DE USUÁRIO" required>
                         <input type="text" placeholder="EMAIL" required>
                         <input class="input-criarsenha" type="password" placeholder="SENHA" required>
+                        <input class="input-criarsenha" type="password" placeholder="CONFIRMAR SENHA" required>
                      </div>
                      <div class="lembrar-termos-mob">
-                        <label><input type="checkbox"> Lembrar Senha</label>
                         <p><label><input type="checkbox" required> Li e concordo com os termos*</label></p>
                      </div>
                      <a href="#"><input type="submit" value="Cadastre-se" class="cadastro-submit-mob"></a>

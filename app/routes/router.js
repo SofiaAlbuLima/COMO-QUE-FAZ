@@ -1,28 +1,27 @@
 var express = require('express');
+
 var router = express.Router();
 const moment = require("moment");
-const {body, validationResult} = require("express-validator");
+
 const tarefasController = require("../controllers/controller");
+// const { VerificarAutenticacao, limparSessao, gravarUsuAutenticado, verificarUsuAutorizado } = require("../models/autenticator-middleware");
 
 // Links & Template - Parte Publica
     router.get("/", function (req, res) {
         tarefasController.Index_mostrarPosts(req, res);
     });
+    
+    router.get("/sair", function (req, res) {
+        res.redirect("/");
+    });
 
     router.get("/login", function (req, res) {
-        tarefasController.Login_formLogin(req, res);
-            router.post('/Fazer-login', [
-          ],
-            function (req, res)  {
-            const errors = validationResult(req);
-            if(!
-                errors.isEmpty()) {
-            console.log(errors); 
-            return res.render("/login", {"erros": errors, "valores":req.body, "retorno": null});
-                }
-            return res.render("/login", {"erros": null, "valores":req.body, "retorno": req.body});
-            })
+        res.render("pages/template", {pagina: {cabecalho: "cabecalho", conteudo: "Fazer-Login", rodape: "rodape"}, 
+            logado:null, 
+            listaErros: null});
     });
+
+    router.post("/login", tarefasController.regrasValidacaoLogin, tarefasController.Login_formLogin);
     
     router.get("/bigodes-de-ouro", function (req, res) {
         res.render("pages/template", {

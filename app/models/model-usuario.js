@@ -31,7 +31,18 @@ const usuarioModel = { //const que agrupa todas as funções de acesso e manipul
             console.log(error);
             return error;
         }
-    }
+    },
+    create: async (camposForm) => {
+        try {
+            const [resultados] = await pool.query(
+                "insert into clientes set ?", [camposForm]
+            )
+            return resultados;
+        } catch (error) {
+            console.log(error);
+            return null;
+        }
+    },  
 }
 
 // Login: select 
