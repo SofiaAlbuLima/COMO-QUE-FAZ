@@ -63,17 +63,17 @@ document.addEventListener('DOMContentLoaded', function() {
         let pagina = '';
         let outros = '';
     
-        let urlDaPagina = window.location.href;
-        if(urlDaPagina.includes('/adm')){
+        let urlDaPagina = window.location.pathname;
+        if(urlDaPagina === '/adm'){
             pagina = pag1;
             outros = [pag2, pag3, pag4, pag5, pag6];
     
             imgRoxo1.style.cssText = 'display:inline;';
             imgBranco1.style.cssText = 'display: none;';
             titulo1.style.cssText = 'color: #5225AA;';
-            console.log("oiiiiiii");
         }
         else if(urlDaPagina.includes('/adm/denuncias')){
+            console.log("menuuu")
             pagina = pag2;
             outros = [pag1, pag3, pag4, pag5, pag6];
     
