@@ -28,10 +28,20 @@
    
          <section class="conteudo-pagina">
             <!-- tabela Denúncias - Inicio -->
-               <article class="pesquisar">
-                  <img class="icone-pesquisa" src="/imagens/pesquisa-cinza.png" alt="">
-                  <input class="pesquisa-input" type="text" id="myInput" onkeyup="myFunction()" placeholder="Pesquisar ID ou perfil..."> <!-- pesquisa (search) na tabala - onkeyup é quando um user digita -->
-               </article>
+               <section id="menu-achar-denuncias">
+                  <figure id="titulo-filtro-conteudo-denuncias">Conteúdo</figure>
+                  <select id="filtro-conteudo-denuncias">
+                     <option value="" id="opcao-conteudo-denuncias">Comentário</option>
+                     <option value="" id="opcao-conteudo-denuncias">Postagem</option>
+                     <option value="" id="opcao-conteudo-denuncias">Perfil</option>
+                     <option value="" id="opcao-conteudo-denuncias">Pergunta</option>
+                  </select>
+
+                  <article class="pesquisar">
+                     <img class="icone-pesquisa" src="/imagens/pesquisa-cinza.png" alt="">
+                     <input class="pesquisa-input" type="text" id="myInput" onkeyup="myFunction()" placeholder="Pesquisar ID ou perfil..."> <!-- pesquisa (search) na tabala - onkeyup é quando um user digita -->
+                  </article>
+               </section>
 
                <section class="fundo-tabela">
                   <table class="tabela" id="myTable">
