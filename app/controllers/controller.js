@@ -8,10 +8,10 @@ const tarefasController = {
 
 
     regrasValidacaoLogin:[
-        // body('input1').isEmail().
-        // with.Message("Insira um email válido!"),
-        // body('input2').isLength({ min: 8 , max: 60 }).
-        // with.Message("A senha deve ter no minimo 8 caracteres")
+         body('input1')
+         .isEmail().with.Message("Insira um e-mail válido!"),
+         body('input2')
+         .isLength({ min: 8 , max: 60 }).with.Message("A senha deve ter no minimo 8 caracteres")
     ],
     regrasValidacaoCadastro:[
         //gab aqui q vc cria as regras :)
@@ -20,12 +20,14 @@ const tarefasController = {
     Login_formLogin: async (req, res) => {
         res.locals.moment = moment;
         try {
-            res.render("pages/template", { pagina: {cabecalho: "cabecalho", conteudo: "Fazer-Login", rodape: "rodape"}, logado:null});
-
             const erros = validationResult(req);
             if (!erros.isEmpty()) {
                 return res.render("pages/template", { pagina: {cabecalho: "cabecalho", conteudo: "Fazer-Login", rodape: "rodape"}, logado:null, listaErros: erros});
-            } else {
+            }
+            if (req.session.autenticado != null) {
+                res.redirect("/");
+            }
+            else {
                 res.render("partial/paginas/login", { listaErros: erros })
             }
 
