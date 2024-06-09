@@ -1,4 +1,4 @@
-// Responsável por receber as entradas do usuário, interpretá-las e acionar ações adequadas no modelo e na visualização
+2// Responsável por receber as entradas do usuário, interpretá-las e acionar ações adequadas no modelo e na visualização
 
 const usuarioModel = require("../models/model-usuario"); //Requisição do arquivo Model para executar ações no Banco de Dados
 const moment = require("moment"); //datas e horas bonitinhas
@@ -15,7 +15,25 @@ const tarefasController = {
             withMessage("A senha deve ter no minimo 8 caracteres")
     ],
     regrasValidacaoCadastro:[
-        //gab aqui q vc cria as regras :)
+        body("cadastros-place1")
+            .isLength({ min: 8, max: 45 }).withMessage("Nome de usuário deve ter de 8 a 45 caracteres!")
+            .custom(async value => {
+                const nomeUsu = await usuario.findCampoCustom({'user_usuario':value});
+                if (nomeUsu > 0) {
+                  throw new Error('Nome de usuário em uso!');
+                }
+              }),  
+       // body("cadastros-place2")
+           // .isEmail().withMessage("Digite um e-mail válido!")
+           // .custom(async value => {
+             //   const nomeUsu = await usuario.findCampoCustom({'email_usuario':value});
+              //  if (nomeUsu > 0) {
+             //     throw new Error('E-mail em uso!');
+             //   }
+             // }), 
+        body("cadastros-place3")
+            .isStrongPassword()
+            .withMessage("A senha deve ter no mínimo 8 caracteres (mínimo 1 letra maiúscula, 1 caractere especial e 1 número)")
        
     ],
     Login_formLogin: async (req, res) => {
