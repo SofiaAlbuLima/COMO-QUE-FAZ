@@ -1,6 +1,6 @@
 // Responsável por receber as entradas do usuário, interpretá-las e acionar ações adequadas no modelo e na visualização
 
-const Model = require("../models/model-usuario"); //Requisição do arquivo Model para executar ações no Banco de Dados
+const usuarioModel = require("../models/model-usuario"); //Requisição do arquivo Model para executar ações no Banco de Dados
 const moment = require("moment"); //datas e horas bonitinhas
 const {body, validationResult} = require("express-validator");
 
@@ -37,7 +37,6 @@ const tarefasController = {
                     logado:null, 
                     listaErros: erros});
             }
-
         } catch (e) {
             console.log(e); 
         }
@@ -46,21 +45,30 @@ const tarefasController = {
         const erros = validationResult(req);
         console.log(erros);
         var dadosForm = {
-            user_usuario: req.body.nomeusu_usu,
-            senha_usuario: bcrypt.hashSync(req.body.senha_usu, salt),
-            nome_usuario: req.body.nome_usu,
-            email_usuario: req.body.email_usu,
+            Nickname: req.body.nomeusu_usu,
+            senha: req.body.senha_usu, //bcrypt.hashSync(req.body.senha_usu, salt),
+            'E-mail': req.body.email_usu,
+            Nome: "blala1",
+            Perfil: "blala2",
+            'Data de Nascimento': "1995-10-02",
+            Tipo_Cliente_idTipo_Cliente: 1
         };
         if (!erros.isEmpty()) {
             console.log(erros);
-            return res.render("pages/cadastro", { listaErros: erros, valores: req.body })
+            return res.render("pages/template", {
+                pagina: {cabecalho: "cabecalho", conteudo: "Fazer-Login", rodape: "rodape"}, 
+                logado:null, 
+                listaErros: erros});
         }
         try {
-            let create = usuario.create(dadosForm);
+            let create = usuarioModel.create(dadosForm);
             res.redirect("/")
         } catch (e) {
             console.log(e);
-            res.render("pages/cadastro", { listaErros: erros, valores: req.body })
+            res.render("pages/template", {
+                pagina: {cabecalho: "cabecalho", conteudo: "Fazer-Login", rodape: "rodape"}, 
+                logado:null, 
+                listaErros: erros});
         }
     },
 

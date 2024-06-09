@@ -22,6 +22,7 @@ const tarefasController = require("../controllers/controller");
     });
 
     router.post("/login", tarefasController.regrasValidacaoLogin, tarefasController.Login_formLogin);
+    router.post("/cadastro", tarefasController.regrasValidacaoCadastro, tarefasController.Login_formCadastro);
     
     router.get("/bigodes-de-ouro", function (req, res) {
         res.render("pages/template", {

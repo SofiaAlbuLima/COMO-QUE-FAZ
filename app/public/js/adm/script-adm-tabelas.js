@@ -33,7 +33,6 @@ function FuncaoCelulas() {
   var table = document.getElementById("myTable");
   var tr = table.getElementsByTagName("tr");
 
-  console.log("funcaoo");
   for (i = 0; i < tr.length; i++) {
     var cells = tr[i].getElementsByTagName("td"); // Obtém todas as células da linha
     

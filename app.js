@@ -11,6 +11,8 @@ app.use(session({
     cookie: {secure: false} 
 }));
 
+var bodyParser = require('body-parser');
+app.use(bodyParser.urlencoded({ extended: false }));
 
 const env = require('dotenv').config();
 
