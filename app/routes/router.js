@@ -4,10 +4,10 @@ var router = express.Router();
 const moment = require("moment");
 
 const tarefasController = require("../controllers/controller");
-// const { VerificarAutenticacao, limparSessao, gravarUsuAutenticado, verificarUsuAutorizado } = require("../models/autenticator-middleware");
+const { VerificarAutenticacao, limparSessao, gravarUsuAutenticado } = require("../models/autenticator-middleware");
 
 // Links & Template - Parte Publica
-    router.get("/", function (req, res) {
+    router.get("/", VerificarAutenticacao, function (req, res) {
         tarefasController.Index_mostrarPosts(req, res);
     });
     
@@ -21,7 +21,7 @@ const tarefasController = require("../controllers/controller");
             listaErros: null});
     });
 
-    router.post("/login", tarefasController.regrasValidacaoLogin, tarefasController.Login_formLogin);
+    router.post("/login", tarefasController.regrasValidacaoLogin, gravarUsuAutenticado, tarefasController.Login_formLogin);
     router.post("/cadastro", tarefasController.regrasValidacaoCadastro, tarefasController.Login_formCadastro);
     
     router.get("/bigodes-de-ouro", function (req, res) {

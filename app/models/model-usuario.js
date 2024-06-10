@@ -14,25 +14,25 @@ const pool = require("../../config/pool-conexoes"); //requisição do pool
 const usuarioModel = { //const que agrupa todas as funções de acesso e manipulação de dados
     findAll: async()=>{
         try {
-            const [linhas] = await pool.query('SELECT * FROM clientes')
-            return linhas
+            const [linhas] = await pool.query("SELECT * FROM clientes");
+            return linhas;
         } catch(erro){
-            console.log(erro)
+            console.log(erro);
         }   
     },
-    findUserEmail: async (camposForm) => {
+    findUserEmail: async (camposForm) => { //usado para verificar se o usuário já existe (valores unicos) 
         try {
             const [resultados] = await pool.query(
-                "SELECT * FROM clientes WHERE Nickname = ? or E-mail = ?",
-                [camposForm.user_usuario, camposForm.user_usuario]
+                "SELECT * FROM clientes WHERE Nickname = ? or 'E-mail' = ?",
+                [camposForm.Nickname, camposForm.senha]
             )
-            return resultados;
+            return resultados.length > 0;
         } catch (error) {
             console.log(error);
             return error;
         }
     },
-    create: async (camposForm) => {
+    create: async (camposForm) => { //usado para criar novo usuário na tabela clientes
         try {
             const [resultados] = await pool.query(
                 "insert into clientes set ?", [camposForm]

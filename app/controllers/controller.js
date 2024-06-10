@@ -11,7 +11,7 @@ const tarefasController = {
     regrasValidacaoLogin:[
         body('input1').isEmail().
             withMessage("Insira um email válido!"),
-        body('input2').isLength({ min: 8 , max: 60 }).
+        body('input2').isLength({ min: 6 , max: 60 }).
             withMessage("A senha deve ter no minimo 8 caracteres")
     ],
     regrasValidacaoCadastro:[
@@ -46,9 +46,9 @@ const tarefasController = {
                     logado:null, 
                     listaErros: erros});
             }
-            // if (req.session.autenticado != null) {
-            //     res.redirect("/");
-            // }
+            if (req.session.autenticado != null) { // verifica se o valor é diferente de null
+                res.redirect("/");
+            }
             else {
                 res.render("pages/template", {
                     pagina: {cabecalho: "cabecalho", conteudo: "Fazer-Login", rodape: "rodape"}, 
@@ -61,26 +61,34 @@ const tarefasController = {
     },
     Login_formCadastro: async (req, res) => {
         const erros = validationResult(req);
-        console.log(erros);
-        var dadosForm = {
+        
+        var dadosForm = { //dados que o usuário digita no formulário
             Nickname: req.body.nomeusu_usu,
-            senha: req.body.senha_usu, //bcrypt.hashSync(req.body.senha_usu, salt),
+            senha: req.body.senha_usu, //bcrypt.hashSync(req.body.senha_usu, salt), -> hash comentado por enquanto que arruma o bd
             'E-mail': req.body.email_usu,
-            Nome: "blala1",
-            Perfil: "blala2",
-            'Data de Nascimento': "1995-10-02",
+            Nome: "blala1", //dado estático por enquanto que arruma o bd
+            Perfil: "blala2", //dado estático por enquanto que arruma o bd
+            'Data de Nascimento': "1995-10-02", //dado estático por enquanto que arruma o bd
             Tipo_Cliente_idTipo_Cliente: 1
         };
-        if (!erros.isEmpty()) {
-            console.log(erros);
-            return res.render("pages/template", {
-                pagina: {cabecalho: "cabecalho", conteudo: "Fazer-Login", rodape: "rodape"}, 
-                logado:null, 
-                listaErros: erros});
-        }
-        try {
-            let create = usuarioModel.create(dadosForm);
-            res.redirect("/")
+        try {    
+            let findUserEmail = await usuarioModel.findUserEmail(dadosForm);
+            if(findUserEmail){
+                console.log("Usuário já existe");
+            }else{
+                console.log("Usuário não existe");
+                let create = usuarioModel.create(dadosForm);
+                res.redirect("/")
+
+                if (!erros.isEmpty()) {
+                    console.log(erros);
+                    return res.render("pages/template", {
+                        pagina: {cabecalho: "cabecalho", conteudo: "Fazer-Login", rodape: "rodape"}, 
+                        logado:null, 
+                        listaErros: erros});
+                }
+                console.log("cadastro realizado!");
+                }
         } catch (e) {
             console.log(e);
             res.render("pages/template", {
@@ -88,6 +96,7 @@ const tarefasController = {
                 logado:null, 
                 listaErros: erros});
         }
+        console.log("erro no cadastro!");
     },
 
     Index_mostrarPosts: async (req, res) => {
