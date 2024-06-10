@@ -24,9 +24,9 @@ const usuarioModel = { //const que agrupa todas as funções de acesso e manipul
         try {
             const [resultados] = await pool.query(
                 "SELECT * FROM clientes WHERE Nickname = ? or 'E-mail' = ?",
-                [camposForm.Nickname, camposForm.senha]
+                [camposForm.Nickname, camposForm.email_usu]
             )
-            return resultados.length > 0;
+            return resultados;
         } catch (error) {
             console.log(error);
             return error;

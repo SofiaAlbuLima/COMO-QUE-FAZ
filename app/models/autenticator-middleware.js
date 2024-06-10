@@ -1,5 +1,5 @@
 const { validationResult } = require("express-validator");
-const usuario = require("./model-usuario");
+const usuario = require("./model-usuario.js");
 const bcrypt = require("bcryptjs");
 
 VerificarAutenticacao = (req, res, next) => {
@@ -8,7 +8,7 @@ VerificarAutenticacao = (req, res, next) => {
         var autenticado = req.session.autenticado;
         console.log("gravarUsuAutenticado alt feito");
     }else{
-        var autenticado = { autenticado: null };
+        var autenticado = null;
     }
     req.session.autenticado = autenticado;
     next();
@@ -24,26 +24,25 @@ gravarUsuAutenticado = async (req, res, next) => { //verifica se o usuário exis
     if (erros.isEmpty()) {
         var dadosForm = {
             Nickname: req.body.input1,
-            senha: req.body.input2,
+            senha: req.body.input2
         };
         var results = await usuario.findUserEmail(dadosForm);
         var total = Object.keys(results).length; //retoma o numero de elemento do array (criado pelo Object.keys) results 
         
-    console.log("gravarUsuAutenticado");
         if (total == 1) { //verifica se há apenas um resultado
-            if (bcrypt.compareSync(dadosForm.senha, results[0].senha)) { //comparação da senha fornecida com a senha armazenada
+            
+            if (dadosForm.senha == results[0].senha) { //comparação da senha fornecida com a senha armazenada
                 var autenticado = results[0].Nickname;
                 
-                console.log("gravarUsuAutenticado login feito");
+                console.log("login feito");
             }
         } else {
-            var autenticado =  { autenticado: null};
-            
-            console.log("autenticado: " + autenticado + ", total: " + total + " e resultados: " + results);
+            var autenticado =  null;
         }
     } else {
-        var autenticado =  { autenticado: null};
+        var autenticado =  null;
     }
+    console.log("autenticado: " + autenticado + ", total: " + total + " e resultados: " + results);
     req.session.autenticado = autenticado;
     next();
 }

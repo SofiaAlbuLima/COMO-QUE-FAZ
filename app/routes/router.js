@@ -17,7 +17,7 @@ const { VerificarAutenticacao, limparSessao, gravarUsuAutenticado } = require(".
 
     router.get("/login", function (req, res) {
         res.render("pages/template", {pagina: {cabecalho: "cabecalho", conteudo: "Fazer-Login", rodape: "rodape"}, 
-            logado:null, 
+            usuario_logado:req.session.autenticado, 
             listaErros: null});
     });
 
@@ -26,27 +26,27 @@ const { VerificarAutenticacao, limparSessao, gravarUsuAutenticado } = require(".
     
     router.get("/bigodes-de-ouro", function (req, res) {
         res.render("pages/template", {
-            pagina: {cabecalho: "cabecalho", conteudo: "premium", rodape: "rodape"}, logado:null});
+            pagina: {cabecalho: "cabecalho", conteudo: "premium", rodape: "rodape"}, usuario_logado:req.session.autenticado});
     });
 
 // Links & Template - Parte Administrativa
 router.get("/adm", function (req, res) {
-    res.render("pages/template-adm", {pagina: {cabecalho: "administrar/menu-administrativo", conteudo: "administrar/paginas/administrativa"}, logado:null});
+    res.render("pages/template-adm", {pagina: {cabecalho: "administrar/menu-administrativo", conteudo: "administrar/paginas/administrativa"}, usuario_logado:req.session.autenticado});
 });
     router.get("/adm/denuncias", function (req, res) {
-        res.render("pages/template-adm", {pagina: {cabecalho: "administrar/menu-administrativo", conteudo: "administrar/paginas/adm-denuncias"}, logado:null});
+        res.render("pages/template-adm", {pagina: {cabecalho: "administrar/menu-administrativo", conteudo: "administrar/paginas/adm-denuncias"}, usuario_logado:req.session.autenticado});
     });
     router.get("/adm/postagens-perguntas", function (req, res) {
-        res.render("pages/template-adm", {pagina: {cabecalho: "administrar/menu-administrativo", conteudo: "administrar/paginas/adm-postagens"}, logado:null});
+        res.render("pages/template-adm", {pagina: {cabecalho: "administrar/menu-administrativo", conteudo: "administrar/paginas/adm-postagens"}, usuario_logado:req.session.autenticado});
     });
     router.get("/adm/usuarios", function (req, res) {
-        res.render("pages/template-adm", {pagina: {cabecalho: "administrar/menu-administrativo", conteudo: "administrar/paginas/adm-usuarios"}, logado:null});
+        res.render("pages/template-adm", {pagina: {cabecalho: "administrar/menu-administrativo", conteudo: "administrar/paginas/adm-usuarios"}, usuario_logado:req.session.autenticado});
     });
     router.get("/adm/acesso-premium", function (req, res) {
-        res.render("pages/template-adm", {pagina: {cabecalho: "administrar/menu-administrativo", conteudo: "administrar/paginas/adm-premium"}, logado:null});
+        res.render("pages/template-adm", {pagina: {cabecalho: "administrar/menu-administrativo", conteudo: "administrar/paginas/adm-premium"}, usuario_logado:req.session.autenticado});
     });
     router.get("/adm/marketing-banners", function (req, res) {
-        res.render("pages/template-adm", {pagina: {cabecalho: "administrar/menu-administrativo", conteudo: "administrar/paginas/adm-banners"}, logado:null});
+        res.render("pages/template-adm", {pagina: {cabecalho: "administrar/menu-administrativo", conteudo: "administrar/paginas/adm-banners"}, usuario_logado:req.session.autenticado});
     });
 
 

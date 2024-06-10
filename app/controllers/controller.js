@@ -9,8 +9,8 @@ const tarefasController = {
 
 
     regrasValidacaoLogin:[
-        body('input1').isEmail().
-            withMessage("Insira um email válido!"),
+        // body('input1').isEmail().
+        //     withMessage("Insira um email válido!"),
         body('input2').isLength({ min: 6 , max: 60 }).
             withMessage("A senha deve ter no minimo 8 caracteres")
     ],
@@ -71,6 +71,7 @@ const tarefasController = {
             'Data de Nascimento': "1995-10-02", //dado estático por enquanto que arruma o bd
             Tipo_Cliente_idTipo_Cliente: 1
         };
+
         try {    
             let findUserEmail = await usuarioModel.findUserEmail(dadosForm);
             if(findUserEmail){
@@ -102,7 +103,7 @@ const tarefasController = {
     Index_mostrarPosts: async (req, res) => {
         res.locals.moment = moment;
         try {
-            res.render("pages/template", {pagina: {cabecalho: "cabecalho", conteudo: "index", rodape: "rodape"}, logado:null});
+            res.render("pages/template", {pagina: {cabecalho: "cabecalho", conteudo: "index", rodape: "rodape"}, usuario_logado:req.session.autenticado});
         } catch (e) {
             console.log(e); 
         }

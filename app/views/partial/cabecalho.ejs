@@ -32,9 +32,13 @@
              <a href="/login">
                 <img id="img-login" src="imagens/user_icon.png" alt="Faça Login"></a>
              <article id="hide-hover-span">
-                <p class="p-1">LOGIN</p>
+                  <% if (usuario_logado) { %>
+                <p class="p-1">Oiii <%= usuario_logado %></p>
+                <% } else { %>
+                  <p class="p-1">LOGE AGORA PORRA</p>
+                  <% } %>
                 <br>
-                <p class="p-2">ENTRAR / CADASTRAR</p>
+                <p class="p-2">ENTRAR / CADASTRAR</p> 
              </article>
           </aside>
           <article class="logo">
