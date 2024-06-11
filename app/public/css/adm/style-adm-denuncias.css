@@ -1,3 +1,19 @@
+.grid-menu-filtros-denuncias{
+    display: grid;
+    grid-template-columns: 10% 10% 10% 10% 10%;
+    grid-template-rows: 3% 3% 3% 3% 3%;
+    grid-column-gap: 3%;
+}
+
+.linha-1-titulos{
+    display: inline;
+}
+
+.linha-2-filtros{
+    display: inline;
+    
+}
+
 .icone-pesquisa{
     width: 2.2vh;
     position: absolute;
