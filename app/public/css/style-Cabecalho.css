@@ -151,6 +151,12 @@
     position: relative;
     display: inline-block;
     }
+    #img-login_hover{
+      position: absolute;
+      max-width: 50px;
+      margin-top: 10px; 
+      display: none;  
+    }
     #img-login{
     max-width: 50px;
     margin-top: 10px;    
@@ -187,11 +193,10 @@
         font-weight: 700;
     }
     #hide-hover-span {
-        display: none;
         position: absolute;
         color: #474747;
         text-align: center;
-        margin-top: -46px;
+        margin-top: -50px;
         width: 200px;
         margin-left: 70px;
     } 
@@ -204,7 +209,7 @@
     }
     .p-2{
         font-size: 18px;
-        margin-top: -25px;
+        margin-top: -20px;
     }
     #hide-hover-search {
         display: none;

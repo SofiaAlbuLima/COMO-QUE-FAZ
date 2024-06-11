@@ -30,16 +30,22 @@
        <nav class="logos">
           <aside id="container" onmouseover="showDiv1()" onmouseout="hideDiv1()" class="login">
              <a href="/login">
-                <img id="img-login" src="imagens/user_icon.png" alt="Faça Login"></a>
+                <img id="img-login_hover" src="imagens/user_icon_hover.svg" alt="Faça Login">
+                <img id="img-login" src="imagens/user_icon.png" alt="Faça Login">
              <article id="hide-hover-span">
                   <% if (usuario_logado) { %>
-                <p class="p-1">Oiii <%= usuario_logado %></p>
-                <% } else { %>
-                  <p class="p-1">LOGE AGORA PORRA</p>
+                     <p class="p-1" id="text-user-hover">Seja bem vindo(a)!</p>
+                  <% } else { %>
+                     <p class="p-1" id="text-user-hover">Faça Login!</p>
                   <% } %>
                 <br>
-                <p class="p-2">ENTRAR / CADASTRAR</p> 
+                  <% if (usuario_logado) { %>
+                     <p class="p-2" id="text-user-hover2"><%= usuario_logado %></p> 
+                  <% } else { %>
+                     <p class="p-2" id="text-user-hover2">ENTRAR / CADASTRAR</p> 
+                  <% } %>
              </article>
+            </a>
           </aside>
           <article class="logo">
              <a href="/">

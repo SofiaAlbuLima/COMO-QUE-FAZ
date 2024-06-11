@@ -2,11 +2,9 @@ const { validationResult } = require("express-validator");
 const usuario = require("./model-usuario.js");
 const bcrypt = require("bcryptjs");
 
-VerificarAutenticacao = (req, res, next) => {
-    console.log("VerificarAutenticacao");
+VerificarAutenticacao = (req, res, next) => { //verificar se o usuário está autenticado na sessão
     if(req.session.autenticado){
         var autenticado = req.session.autenticado;
-        console.log("gravarUsuAutenticado alt feito");
     }else{
         var autenticado = null;
     }
@@ -47,7 +45,7 @@ gravarUsuAutenticado = async (req, res, next) => { //verifica se o usuário exis
     next();
 }
 
-// verificarUsuAutorizado = (tipoPermitido, destinoFalha) => {
+// verificarUsuAutorizado = (tipoPermitido, destinoFalha) => { //responsável por verificar se o usuário está autorizado a acessar um determinado recurso ou rota
 //     return (req, res, next) => {
 //         if (req.session.autenticado.autenticado != null &&
 //             tipoPermitido.find(function (element) { return element == req.session.autenticado.tipo }) != undefined) {

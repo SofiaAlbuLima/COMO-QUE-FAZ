@@ -10,8 +10,14 @@ const { VerificarAutenticacao, limparSessao, gravarUsuAutenticado } = require(".
     router.get("/", VerificarAutenticacao, function (req, res) {
         tarefasController.Index_mostrarPosts(req, res);
     });
+
+    router.get("/sair", function(req, res){
+        res.render("pages/template", {pagina: {cabecalho: "none", conteudo: "sair", rodape: "none"}, 
+            usuario_logado:req.session.autenticado, 
+            listaErros: null});
+    })
     
-    router.get("/sair", function (req, res) {
+    router.get("/sair-da-conta", limparSessao, function (req, res) {
         res.redirect("/");
     });
 
