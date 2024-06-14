@@ -202,17 +202,96 @@
 
     .Secao-Planos-Premium{
         background-color: #f2f2f2;
-        padding: 10vh 3vh 3vh 3vh;
+        padding: 10vh 0vh 10vh 0vh;
+        width: 100%;
+        display: grid;
+        justify-content: center;
+    }
+    .blocos_planos{
+        display: flex;
+        justify-content: space-around;
+        width: 155vh;
     }
     .plano{
         background-color: white;
+        border-radius: 20px;    
+        width: 35vh;
+        padding: 4vh 3vh 8vh 3vh;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        align-items: center;
+    }
+
+    .imagem_bigodes_de_ouro_moedinha{
         width: 10vh;
-        padding: 3vh 3vh 3vh 3vh;
-        display: inline-block;
+        height: 10vh;
+    }
+    .blocos_planos_subtitulo{
+        margin-top: 2vh;
+        font-size: 2.3vh;
+        text-align: center;
+    }
+    .blocos_planos_titulo_plano{
+        font-size: 3vh;
+        text-align: center;
+    }
+
+    .blocos_planos_subtitulo.um, .blocos_planos_titulo_plano.um{
+        color: #5F25D1;
+    }
+    .blocos_planos_subtitulo.dois, .blocos_planos_titulo_plano.dois{
+        color: #9C21C8;
+    }
+    .blocos_planos_subtitulo.tres, .blocos_planos_titulo_plano.tres{
+        color: #D53384;;
+    }
+
+    .blocos_planos_descricao{
+        margin-top: 3vh;
+        margin-bottom: 3vh;
+        font-size: 1.7vh;
+        font-family: Fira Sans;
+        text-align: center;
+        width: 32vh;
+    }
+    .blocos_planos_observacao{
+        font-family: Fira Sans;
+        text-align: center;
+        font-weight: 600;
+        font-size: 1.5vh;
+    }
+    .blocos_planos_botao{
+        margin-top: 1vh;
+        width: 32vh;
+        padding: 2vh 0vh 2vh 0;
+        text-align: center;
+        border-radius: 20px;
+        border: none;
+        color: white;
+        font-size: 2vh;
+    }
+    .blocos_planos_botao.um{
+        background: linear-gradient(270deg, rgba(159, 85, 255, 1) -59%, rgba(133, 65, 233, 1) -59%, rgba(77, 22, 187, 1) 100%);
+    }
+    .blocos_planos_botao.dois{
+        background: linear-gradient(270deg, rgba(203, 33, 140, 1) -18%, rgba(154, 33, 203, 1) 100%);
+    }
+    .blocos_planos_botao.tres{
+        background: linear-gradient(270deg, rgba(255, 131, 98, 1) -88%, rgba(203, 33, 140, 1) 100%);
+    }
+
+    .blocos_meios_de_pagamento{
+        display: flex;
+        justify-content: space-around;
     }
     .meios_de_pagamento{
-        width: 20vh;
+        margin-top: 7vh;
+        width: 90vh;
         padding: 3vh 3vh 3vh 3vh;
+        border-radius: 20px;
         background-color: #e8e8e8;
+        display: flex;
+        justify-content: space-around;
     }
 }
