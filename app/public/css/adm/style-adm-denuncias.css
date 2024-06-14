@@ -1,3 +1,35 @@
+.grid-menu-filtros-denuncias{
+    display: grid;
+    grid-template-columns: 10% 10% 10% 10% 10%;
+    grid-template-rows: 40% 40%;
+    grid-column-gap: 2%;
+}
+
+.linha-1-titulos{
+    display: inline;
+}
+
+.linha-2-filtros{
+    display: inline;
+    padding: 2px 2px 2px 2px;
+    border-radius: 5px;
+    background-color: #d3d3d3;
+    color: #333333;
+    border: none;
+    font-family: "Fira Sans Bold", "Fira Sans", sans-serif;
+    font-weight: 700;
+    text-align: left;
+    line-height: normal;
+    letter-spacing: 0.5px;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    background: url(/imagens/seta-select.svg) 96% / 15% no-repeat #ccc;
+}
+
+#pesquisar{
+}
+
 .icone-pesquisa{
     width: 2.2vh;
     position: absolute;
