@@ -59,9 +59,12 @@
 
     .Secao-Beneficios-Premium{
         background: linear-gradient(270deg, rgba(159, 85, 255, 1) -88%, rgba(77, 22, 187, 1) 100%);
-        padding: 10vh 0vh 5vh 20vh;
+        padding: 7vh 0vh 5vh 20vh;
+        z-index: -2;
+        position: relative;
     }
     .figure-artigo-beneficios{
+        margin-top: 5vh;
         width: 75vh;
         display: inline-block;
     }
@@ -94,46 +97,122 @@
     }
 
     /* quadro benefícios */
+    
     .quadro-beneficios{
-        width: 65vh;
+        width: 72.5vh;
         display: inline-block;
-        margin-left: 12vh;
+        margin-left: 14vh;
+        transform: translate(0, -4vh);
+    }
+    .tabela-beneficios{
+        border-collapse: collapse;
+        border-radius: 20px;
+        z-index: 1;
     }
     .cabeçalho-tabela-beneficios th{
         font-size: 2.2vh;
         font-weight: 400;
         color: #FFD662;
         margin-left: 2vh;
+        text-align: left;
     }
     .linhas-tabela-beneficios{
-        height: 5vh;
         border-collapse: collapse;
     }
     .coluna-beneficios-estrelinha{
         background-color: #5f25d1;
-        padding-top: 3.5vh;
-        padding-bottom: 3.5vh;
+        padding-top: 3vh;
+        padding-bottom: 3vh;
         padding-left: 2vh;
     }
     .coluna-beneficios-estrelinha img{
         height: 3vh;
     }
+    .coluna-beneficios-estrelinha.radius_top{
+        border-top-left-radius: 20px;
+    }
+    .coluna-beneficios-estrelinha.radius_bottom{
+        border-bottom-left-radius: 20px;
+    }
     .coluna-beneficios-texto{
+        padding-left: 3vh;
+        padding-right: 10vh;
         background-color: #5f25d1;
     }
     .coluna-beneficios-texto p{
         font-family: Fira Sans;
+        font-size: 1.8vh;
+        color: white;
     }
     .coluna-beneficios-free{
-        background-color: white;
+        padding-left: 6vh;
+        padding-right: 6vh;
+        background-color: #f4f4f4;
+        border-right: #5f25d1 solid 0.4vh;
     }
     .coluna-beneficios-free p{
         color: #333333;
+        font-size: 1.3vh;
+    }
+    .coluna-beneficios-free.cinza_escuro{
+        background-color: #e8e8e8;
     }
     .coluna-beneficios-premium{
+        padding-left: 5.5vh;
+        padding-right: 6.5vh;
         background-color: #F5F0FF;  
+    }
+    .coluna-beneficios-premium.radius_top{
+        border-top-right-radius: 20px;
+    }
+    .coluna-beneficios-premium.radius_bottom{
+        border-bottom-right-radius: 20px;
     }
     .coluna-beneficios-premium img{
         width: 3vh;
+    }
+    .coluna-beneficios-premium.roxo_escuro{
+        background-color: #ece3ff;  
+    }
+
+    .borda1-quadro, .borda2-quadro{
+        width: 72.5vh;
+        height: 48vh;
+        border-radius: 20px;
+        position: absolute;
+        z-index: -1;
+    }
+    .borda1-quadro{
+        border: #f2c86b solid 0.3vh;
+        transform: translate(-2vh, -52vh);
+    }
+    .borda2-quadro{
+        border: #f69d68 solid 0.3vh; 
+        transform: translate(2vh, -46vh);
+    }
+
+    .pontilhado-beneficios{
+        margin-top: 7vh;
+        margin-bottom: 3vh;
+        height: 0.56vh;
+    }
+
+
+    /* seção planos */
+
+    .Secao-Planos-Premium{
+        background-color: #f2f2f2;
+        padding: 10vh 3vh 3vh 3vh;
+    }
+    .plano{
+        background-color: white;
+        width: 10vh;
+        padding: 3vh 3vh 3vh 3vh;
+        display: inline-block;
+    }
+    .meios_de_pagamento{
+        width: 20vh;
+        padding: 3vh 3vh 3vh 3vh;
+        background-color: #e8e8e8;
     }
 }

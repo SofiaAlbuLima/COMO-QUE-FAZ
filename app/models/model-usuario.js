@@ -23,8 +23,8 @@ const usuarioModel = { //const que agrupa todas as funções de acesso e manipul
     findUserEmail: async (camposForm) => { //usado para verificar se o usuário já existe (valores unicos) 
         try {
             const [resultados] = await pool.query(
-                "SELECT * FROM clientes WHERE Nickname = ? or 'E-mail' = ?",
-                [camposForm.Nickname, camposForm.email_usu]
+                "SELECT * FROM clientes WHERE Nickname = ? or Email = ?",
+                [camposForm.Nickname, camposForm.Email]
             )
             return resultados;
         } catch (error) {

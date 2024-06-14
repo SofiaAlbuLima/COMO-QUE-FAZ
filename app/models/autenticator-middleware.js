@@ -29,7 +29,7 @@ gravarUsuAutenticado = async (req, res, next) => { //verifica se o usuário exis
         
         if (total == 1) { //verifica se há apenas um resultado
             
-            if (dadosForm.senha == results[0].senha) { //comparação da senha fornecida com a senha armazenada
+            if (bcrypt.compareSync(dadosForm.senha, results[0].senha)) { //comparação da senha fornecida com a senha armazenada
                 var autenticado = results[0].Nickname;
                 
                 console.log("login feito");
@@ -39,6 +39,7 @@ gravarUsuAutenticado = async (req, res, next) => { //verifica se o usuário exis
         }
     } else {
         var autenticado =  null;
+        console.log("erros:" + erros);
     }
     console.log("autenticado: " + autenticado + ", total: " + total + " e resultados: " + results);
     req.session.autenticado = autenticado;
