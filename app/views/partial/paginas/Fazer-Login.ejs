@@ -120,15 +120,16 @@
 
             <section id="Cadastro" class="tabcontent">
                <article class="cadastro-mob">
-                  <form action="/cadastro" method="post">
+                  <form action="/cadastro" method="post" onsubmit="return  verificaConfirmaSenha()">
                      <span class="texto1-cadastro">Ainda não tem conta?</span>
                      <p class="texto2-cadastro">SE CADASTRAR:</p>
                      <article class="caixa-mob2">
                         <input type="text" placeholder="NOME DE USUÁRIO" name="nomeusu_usu" required>
                         <input type="text" placeholder="EMAIL" name="email_usu" required>
-                        <input class="input-criarsenha" type="password" placeholder="SENHA" name="senha_usu" required>
-                        <input class="input-criarsenha" type="password" placeholder="CONFIRMAR SENHA" required>
+                        <input class="input-criarsenha" id="senha1" type="password" placeholder="SENHA" name="senha_usu" required>
+                        <input class="input-criarsenha" id="senha2" type="password" placeholder="CONFIRMAR SENHA" required>
                      </article>
+                     <p id="mensagem"></p>
                      <article class="lembrar-termos-mob">
                         <p><label><input type="checkbox" required> Li e concordo com os termos*</label></p>
                      </article>

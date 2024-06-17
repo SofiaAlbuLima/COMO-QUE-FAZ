@@ -11,9 +11,9 @@ const tarefasController = {
 
 
     regrasValidacaoLogin:[
-        // body('input1').isEmail().
-        //     withMessage("Insira um email válido!"),
-        body('input2').isLength({ min: 6 , max: 60 }).
+     body('input1').isEmail().
+         withMessage("Insira um email válido!"),
+     body('input2').isLength({ min: 6 , max: 60 }).
             withMessage("A senha deve ter no minimo 8 caracteres")
     ],
     regrasValidacaoCadastro:[
@@ -38,6 +38,7 @@ const tarefasController = {
             .withMessage("A senha deve ter no mínimo 8 caracteres (mínimo 1 letra maiúscula, 1 caractere especial e 1 número)")
        
     ],
+    
     Login_formLogin: async (req, res) => {
         res.locals.moment = moment;
         try {
