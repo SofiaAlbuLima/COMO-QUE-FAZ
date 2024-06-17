@@ -27,40 +27,56 @@
     </section>
 
     <section class="header-dispositivo-desktop">
-       <nav class="logos">
-          <aside id="container" onmouseover="showDiv1()" onmouseout="hideDiv1()" class="login">
-             <a href="/login">
-                <img id="img-login_hover" src="imagens/user_icon_hover.svg" alt="Faça Login">
-                <img id="img-login" src="imagens/user_icon.png" alt="Faça Login">
-             <article id="hide-hover-span">
-                  <% if (usuario_logado) { %>
+       <nav class="logos">  <!-- Usuário -->
+         
+            <% if (usuario_logado) { %>
+               <aside id="container" class="login">
+               <a href="/perfil">
+                  <img id="img-login" src="imagens/user_icon.png" alt="Faça Login"> <!-- ícone usuário -->
+
+                  <article id="hide-hover-span">
                      <p class="p-1" id="text-user-hover">Seja bem vindo(a)!</p>
-                  <% } else { %>
-                     <p class="p-1" id="text-user-hover">Faça Login!</p>
-                  <% } %>
-                <br>
-                  <% if (usuario_logado) { %>
                      <p class="p-2" id="text-user-hover2"><%= usuario_logado %></p> 
-                  <% } else { %>
+                  </article>
+
+                  <figure class="cabecalho_seta_abrir_menu">
+                     <img src="imagens-svg/cabecalho-menu-seta.svg" alt="Abrir Menu" class="seta">
+                     <img src="imagens-svg/cabecalho-menu-seta-hover.svg" alt="Abrir Menu" class="seta_hover">
+                  </figure>
+               </a>  
+            </aside>
+            <% } else { %>
+               <aside id="container" onmouseover="showDiv1()" onmouseout="hideDiv1()" class="login">
+               <a href="/login">
+                  <img id="img-login_hover" src="imagens/user_icon_hover.svg" alt="Faça Login">
+                  <img id="img-login" src="imagens/user_icon.png" alt="Faça Login">
+
+                  <article id="hide-hover-span">
+                     <p class="p-1" id="text-user-hover">Faça Login!</p>
                      <p class="p-2" id="text-user-hover2">ENTRAR / CADASTRAR</p> 
-                  <% } %>
-             </article>
-            </a>
-          </aside>
-          <article class="logo">
+                  </article>
+               </a>      
+               </aside>    
+            <% } %>
+
+         </aside>
+
+          <article class="logo">  <!-- logomarca -->
              <a href="/">
                 <img src="imagens/ComoQueFaz_logo.png" alt="Logo do ComoQueFaz">
              </a>
           </article>
-          <aside id="container2" class="search">
+
+          <aside id="container2" class="search">  <!-- Pesquisa -->
+            <article id="hide-hover-search">
+               <input class="texto-search" type="text" name="inserir-pesquisa" placeholder="Pesquisar...">
+               <label id="inserir-pesquisa"></label>
+            </article>
+
              <img src="imagens/search_icon.png" alt="Ícone de Pesquisa">
-             <article id="hide-hover-search">
-                <input class="texto-search" type="text" name="inserir-pesquisa" placeholder="Pesquisar...">
-                <label id="inserir-pesquisa"></label>
-             </article>
           </aside>
        </nav>
-       <nav class="topcs">
+       <nav id="categorias" class="topcs">
           <a class="culinaria" href="https://grupo4-tca.github.io/Como-que-faz/Categoria-Culinária">CULINÁRIA</a>
           <a class="limpeza" href="https://grupo4-tca.github.io/Como-que-faz/Categoria-Limpeza">LIMPEZA</a>
           <a class="bem-estar" href="https://grupo4-tca.github.io/Como-que-faz/Categoria-Bem-Estar">BEM-ESTAR</a>

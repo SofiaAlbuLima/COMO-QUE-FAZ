@@ -97,7 +97,10 @@ const tarefasController = {
     Index_mostrarPosts: async (req, res) => {
         res.locals.moment = moment;
         try {
-            res.render("pages/template", {pagina: {cabecalho: "cabecalho", conteudo: "index", rodape: "rodape"}, usuario_logado:req.session.autenticado});
+                res.render("pages/template", {
+                    pagina: {cabecalho: "cabecalho", conteudo: "index", rodape: "rodape"}, 
+                    usuario_logado:req.session.autenticado});
+            
         } catch (e) {
             console.log(e); 
         }

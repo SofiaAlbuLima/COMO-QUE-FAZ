@@ -99,80 +99,121 @@
 @media only screen and (min-width: 480px) {
 /* INIÍCIO - HEADER DESKTOP - SEM LOGIN */
     * {
-    font-family: Heavitas;
-    padding: 0;
-    margin: 0;
+      font-family: Heavitas;
+      padding: 0;
+      margin: 0;
     }
     @font-face{
-    font-family: Heavitas;
-    src: url("../fonts/Heavitas.ttf");
+      font-family: Heavitas;
+      src: url("../fonts/Heavitas.ttf");
     }
     @font-face{
-    font-family: Fira Sans Bold;
-    src: url("../fonts/fira-sans.bold.ttf");
+      font-family: Fira Sans Bold;
+      src: url("../fonts/fira-sans.bold.ttf");
     }
     @font-face{
-    font-family: Fira Sans;
-    src: url("../fonts/fira-sans.regular.ttf");
+      font-family: Fira Sans;
+      src: url("../fonts/fira-sans.regular.ttf");
     }
+    /* Header inteiro - Inicio */
     .header-dispositivo-mobile{
-    display: none;
+      display: none;
+    }
+    .header-dispositivo-desktop{
+      position: fixed;
+      z-index: 100;
+      width: 100%;
+      top: 0;
+    }
+    main{
+      margin-top: 13.5vh;
     }
     .logos {
-    display: flex;
-    justify-content: space-around;
-    height: 85px;
-    box-shadow: 1px 5px 5px rgb(173, 173, 173);
-    background-color: white;
+      display: flex;
+      justify-content: space-around;
+      height: 9vh;
+      box-shadow: 1px 5px 5px rgba(87, 87, 87, 0.377);
+      background-color: white;
+      z-index: 100;
+      position: relative;
     }
+    .topcs {
+      background: linear-gradient(to right, #5417bd, #9d21cb);
+      display: flex;
+      justify-content: space-around;
+      height: 4.5vh;
+      position: relative;
+      z-index: 99;
+      transition: transform 0.2s ease-in-out;
+      }
+      .topcs.hide{
+        transform: translateY(-100%);
+      }
+    /* Header inteiro - Fim */
+
     
+    /* Login & Perfil - Inicio */
+    .login {
+      margin-top: 2vh;
+      display: inline-block;
+      width: 30vh;
+      }
+      #img-login_hover{
+        position: absolute;
+        max-width: 5.5vh;
+        display: none;  
+      }
+      #img-login{
+        max-width: 5.5vh;
+      }
+    /* Login & Perfil - Fim */
+   
+    
+    /* Logomarca CQF - Inicio */
     .logo {
-    margin-top: 5px;
-    margin-right: 50px;
-    margin-left: 50px;
+      margin-top: 1vh;
     
     }
     .logo img {
-    max-width: 65px;
-    margin-top: 5px;
-    align-self: center;
+      max-width: 7vh;
     }
+    /* Logomarca CQF - Fim */
+
+    
+    /* Pesquisa - Inicio */
     .search {
-    margin-top: 22px;
-    margin-right: 18px;
+      width: 30vh;
+      margin-top: 2vh;
+      display: flex;
     }
     .search img {
-    max-width: 37px;
+      display: inline-block;
+      max-width: 4.5vh;
+      max-height: 4.5vh;
     }
-    .login {
-    margin-top: 9px;
-    margin-left: 13px;
-    margin-right: -7px;
-    position: relative;
-    display: inline-block;
+    #hide-hover-search input{
+      margin-top: 1.5vh;
+      color: #474747;
+      border-top: none;
+      border-left: none;
+      border-right: none;
+      border-bottom: 0.3vh solid #9d21cb;
+      font-family: Fira Sans;
+      font-size: 2vh;
+      width: 23vh;
+      margin-right: 2vh;
     }
-    #img-login_hover{
-      position: absolute;
-      max-width: 50px;
-      margin-top: 10px; 
-      display: none;  
-    }
-    #img-login{
-    max-width: 50px;
-    margin-top: 10px;    
-    }
-    .topcs {
-    background-color: #5417bd;
-    background-image: linear-gradient(to right, #5417bd, #9d21cb);
-    display: flex;
-    justify-content: space-around;
-    height: 43px;
-    }
+  /* Pesquisa - Fim */
+
+  
+  /* Categorias - Inicio */
     .topcs a {
-    text-decoration: none;
-    color: white;
-    margin-top: 9px;
-    font-size: 20px;
+      text-decoration: none;
+      color: white;
+      margin-top: 0.8vh;
+      font-size: 20px;
+      font-family: Heavitas;
+      font-weight: 300;
     }
     .culinaria {
     margin-left: 270px;
@@ -192,6 +233,8 @@
         margin-top: 12px;
         font-weight: 700;
     }
+    
+  /* Categorias - Fim */
     #hide-hover-span {
         position: absolute;
         color: #474747;
@@ -210,23 +253,23 @@
     }
     .p-2{
         font-size: 18px;
-        margin-top: -20px;
     }
-    #hide-hover-search {
-        position: absolute;
-        color: #474747;
-        text-align: center;
-        margin-top: -28px;
-        width: 200px;
-        margin-left: -220px;
+    
+    .cabecalho_seta_abrir_menu{
+      display: inline;
+      border-radius: 100px;
+      justify-content: center;
     }
-    #hide-hover-search input{
-        border-top: none;
-        border-left: none;
-        border-right: none;
-        border-bottom: 2px solid #9d21cb;
-        font-family: Fira Sans;
-        font-size: 17px;
+    .cabecalho_seta_abrir_menu:hover{
+      background-color: #f5f0ff;
+    }
+    .seta{
+      width: 2vh;
+      height: 2vh;
+      display: inline-block;
+    }
+    .seta_hover{
+      display: none;
     }
   /* FIM - HEADER DESKTOP - SEM LOGIN */
 }
