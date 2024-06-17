@@ -20,7 +20,8 @@ main{
 }
 .titulo-pagina{
     font-size: 4.7vh;
-    font-family: Heavitas;
+    font-family: "Heavitas Bold", "Heavitas", sans-serif;
+    font-weight: 900;
     color: #5800AA;
     margin-bottom: 3vh;
     display: inline-block;
