@@ -146,26 +146,63 @@
       z-index: 99;
       transition: transform 0.2s ease-in-out;
       }
-      .topcs.hide{
-        transform: translateY(-100%);
-      }
+    .topcs.hide{
+      transform: translateY(-100%);
+    }
     /* Header inteiro - Fim */
 
     
     /* Login & Perfil - Inicio */
     .login {
       margin-top: 2vh;
-      display: inline-block;
+      align-items: center;
       width: 30vh;
-      }
+      height: 5.5vh;
+      display: flex;
+    }
       #img-login_hover{
-        position: absolute;
-        max-width: 5.5vh;
-        display: none;  
-      }
-      #img-login{
-        max-width: 5.5vh;
-      }
+      position: absolute;
+      max-width: 5.5vh;
+      display: none;  
+    }
+    #img-login{
+      max-width: 5.5vh;
+      display: inline-block;
+    }
+
+    #hide-hover-span {
+      color: #474747;
+      display: inline-block;
+    } 
+    #hide-hover-span p{
+      text-align: left;
+      font-family: Fira Sans Bold;
+    }
+    
+    .p-1{
+      font-size: 14px;
+    }
+    .p-2{
+      font-size: 18px;
+    }
+
+    .cabecalho_seta_abrir_menu{
+      display: inline;
+      border-radius: 100px;
+      justify-content: center;
+      display: inline-block;
+    }
+    .cabecalho_seta_abrir_menu:hover{
+      background-color: #f5f0ff;
+    }
+    .seta{
+      width: 2vh;
+      height: 2vh;
+      display: inline-block;
+    }
+    .seta_hover{
+      display: none;
+    }
     /* Login & Perfil - Fim */
    
     
@@ -211,65 +248,18 @@
       text-decoration: none;
       color: white;
       margin-top: 0.8vh;
-      font-size: 20px;
+      font-size: 2.2vh;
       font-family: Heavitas;
       font-weight: 300;
     }
     .culinaria {
-    margin-left: 270px;
-    font-family: Fira Sans Bold;
-    font-weight: 700;
-    margin-top: 12px;
+      margin-left: 30vh;
     }
     .bem-estar {
-    margin-right: 270px;
-    font-family: Fira Sans Bold;
-    margin-top: 12px;
-    font-weight: 700;
-    }
-    .limpeza{
-        font-family: Fira Sans Bold;
-        text-align: center;
-        margin-top: 12px;
-        font-weight: 700;
+      margin-right: 30vh;
     }
     
   /* Categorias - Fim */
-    #hide-hover-span {
-        position: absolute;
-        color: #474747;
-        text-align: center;
-        margin-top: -50px;
-        width: 200px;
-        margin-left: 70px;
-    } 
-    #hide-hover-span p{
-        text-align: left;
-        font-family: Fira Sans Bold;
-    }
     
-    .p-1{
-        font-size: 14px;
-    }
-    .p-2{
-        font-size: 18px;
-    }
-    
-    .cabecalho_seta_abrir_menu{
-      display: inline;
-      border-radius: 100px;
-      justify-content: center;
-    }
-    .cabecalho_seta_abrir_menu:hover{
-      background-color: #f5f0ff;
-    }
-    .seta{
-      width: 2vh;
-      height: 2vh;
-      display: inline-block;
-    }
-    .seta_hover{
-      display: none;
-    }
   /* FIM - HEADER DESKTOP - SEM LOGIN */
 }
