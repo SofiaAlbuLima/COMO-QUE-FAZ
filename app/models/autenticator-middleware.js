@@ -5,8 +5,10 @@ const bcrypt = require("bcryptjs");
 VerificarAutenticacao = (req, res, next) => { //verificar se o usuário está autenticado na sessão
     if(req.session.autenticado){
         var autenticado = req.session.autenticado;
+        req.session.logado = requ.session.logado + 1;
     }else{
         var autenticado = null;
+        req.session.logado = 0;
     }
     req.session.autenticado = autenticado;
     next();
@@ -43,6 +45,7 @@ gravarUsuAutenticado = async (req, res, next) => { //verifica se o usuário exis
     }
     console.log("autenticado: " + autenticado + ", total: " + total + " e resultados: " + results);
     req.session.autenticado = autenticado;
+    req.session.logado= 0;
     next();
 }
 
