@@ -34,6 +34,11 @@
                   <figure id="titulo-categoria-denuncia" class="linha-1-titulos">Categoria</figure>
                   <figure id="titulo-autor-denuncia" class="linha-1-titulos">Autor</figure>
                   <figure id="titulo-status-denuncia" class="linha-1-titulos">Status</figure>
+                  
+                  <article id="pesquisar" class="linha-1-titulos">
+                     <img class="icone-pesquisa" src="/imagens/pesquisa-cinza.png" alt="">
+                     <input class="pesquisa-input" type="text" id="myInput" onkeyup="myFunction()" placeholder="Pesquisar ID ou perfil..."> <!-- pesquisa (search) na tabala - onkeyup é quando um user digita -->
+                  </article>
 
                   <select id="filtro-conteudo-denuncia" class="linha-2-filtros">
                      <option value="" id="opcao-conteudo-denuncia">Comentário</option>
@@ -63,11 +68,6 @@
                      <option value="" id="opcao-status-denuncia">Analisada</option>
                      <option value="" id="opcao-status-denuncia">Analisada e Avaliada</option>
                   </select>
-
-                  <article id="pesquisar" class="linha-1-titulos">
-                     <img class="icone-pesquisa" src="/imagens/pesquisa-cinza.png" alt="">
-                     <input class="pesquisa-input" type="text" id="myInput" onkeyup="myFunction()" placeholder="Pesquisar ID ou perfil..."> <!-- pesquisa (search) na tabala - onkeyup é quando um user digita -->
-                  </article>
                </section>
 
                <section class="fundo-tabela">
@@ -83,34 +83,38 @@
                      </tr>
 
                      <tr class="linhas"> <!-- Conteudo da tabela -->
-                        <td class="linha">+</td>
+                        <img src="/imagens-svg/add-rosa.svg" alt="ver mais sobre denúncia" class="linha" id="ver-mais-denuncia">
                         <td class="linha Coluna-conteudo">Perfil</td>
                         <td class="linha Coluna-motivo">Conteúdo Inadequado</td>
                         <td class="linha Coluna-categoria">Cúlinária</td>
+                        <img src="./imagens-svg/foto-perfil-autor.svg" alt="foto de perfil do autor" class="linha Coluna-autor">
                         <td class="linha Coluna-autor">User</td>
                         <td class="linha Coluna-status">Analisada e Avaliada</td>
                      </tr>
                      <tr class="linhas"> <!-- Conteudo da tabela -->
-                        <td class="linha">+</td>
+                        <img src="/imagens-svg/add-rosa.svg" alt="ver mais sobre denúncia" class="linha" id="ver-mais-denuncia">
                         <td class="linha Coluna-conteudo">Pergunta</td>
                         <td class="linha Coluna-motivo">Spam</td>
                         <td class="linha Coluna-categoria">Limpeza</td>
+                        <img src="./imagens-svg/foto-perfil-autor.svg" alt="foto de perfil do autor" class="linha Coluna-autor">
                         <td class="linha Coluna-autor">User2</td>
                         <td class="linha Coluna-status">Não Analisada</td>
                      </tr>
                      <tr class="linhas"> <!-- Conteudo da tabela -->
-                        <td class="linha">+</td>
+                        <img src="/imagens-svg/add-rosa.svg" alt="ver mais sobre denúncia" class="linha" id="ver-mais-denuncia">
                         <td class="linha Coluna-conteudo">Postagem</td>
                         <td class="linha Coluna-motivo">Violações dos termos de uso</td>
                         <td class="linha Coluna-categoria">Bem-Estar</td>
+                        <img src="./imagens-svg/foto-perfil-autor.svg" alt="foto de perfil do autor" class="linha Coluna-autor">
                         <td class="linha Coluna-autor">User3</td>
                         <td class="linha Coluna-status">Analisada</td>
                      </tr>
                      <tr class="linhas"> <!-- Conteudo da tabela -->
-                        <td class="linha">+</td>
+                        <img src="/imagens-svg/add-rosa.svg" alt="ver mais sobre denúncia" class="linha" id="ver-mais-denuncia">
                         <td class="linha Coluna-conteudo">Comentário</td>
                         <td class="linha Coluna-motivo">Violações dos termos de uso</td>
                         <td class="linha Coluna-categoria">Limpeza</td>
+                        <img src="./imagens-svg/foto-perfil-autor.svg" alt="foto de perfil do autor" class="linha Coluna-autor">
                         <td class="linha Coluna-autor">User4</td>
                         <td class="linha Coluna-status">Não Analisada</td>
                      </tr>

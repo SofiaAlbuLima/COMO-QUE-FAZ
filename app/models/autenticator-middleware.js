@@ -5,7 +5,7 @@ const bcrypt = require("bcryptjs");
 VerificarAutenticacao = (req, res, next) => { //verificar se o usuário está autenticado na sessão
     if(req.session.autenticado){
         var autenticado = req.session.autenticado;
-        req.session.logado = requ.session.logado + 1;
+        req.session.logado = req.session.logado + 1;
     }else{
         var autenticado = null;
         req.session.logado = 0;
