@@ -31,7 +31,7 @@
          
             <% if (usuario_logado) { %>
                <aside id="container" onmouseover="showDiv1()" onmouseout="hideDiv1()" onclick="ToggleMenu()" class="login">
-                  <img id="img-login" src="imagens/user_icon.png" alt="Faça Login"> <!-- ícone usuário -->
+                  <img id="img-usuario" src="imagens/user_icon.png" alt="Faça Login"> <!-- ícone usuário -->
 
                   <article id="hide-hover-span">
                      <p class="p-1" id="text-user-hover">Seja bem vindo(a)!</p>
@@ -57,10 +57,10 @@
                      <a href="/sair"> 
                         <li class="opcao_menu_hamburguer ultimo">Sair da Conta</li></a>
                   </ul> 
-            </aside>
+               </aside>
             <% } else { %>
+            <a href="/login" class="link-login">
                <aside id="container" onmouseover="showDiv1()" onmouseout="hideDiv1()" class="login">
-               <a href="/login">
                   <img id="img-login_hover" src="imagens/user_icon_hover.svg" alt="Faça Login">
                   <img id="img-login" src="imagens/user_icon.png" alt="Faça Login">
 
@@ -68,8 +68,8 @@
                      <p class="p-1" id="text-user-hover">Faça Login!</p>
                      <p class="p-2" id="text-user-hover2">ENTRAR / CADASTRAR</p> 
                   </article>
-               </a>      
                </aside>    
+            </a> 
             <% } %>
 
          </aside>

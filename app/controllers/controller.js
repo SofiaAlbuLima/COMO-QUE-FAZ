@@ -45,16 +45,16 @@ const tarefasController = {
             if (!erros.isEmpty()) {
                 return res.render("pages/template", {
                     pagina: {cabecalho: "cabecalho", conteudo: "Fazer-Login", rodape: "rodape"}, 
-                    usuario_logado:req.session.autenticado,
+                    usuario_logado:req.session.autenticado.autenticado,
                     listaErros: erros});
             }
-            if (req.session.autenticado != null) { // verifica se o valor é diferente de null
+            if (req.session.autenticado.autenticado != null) { // verifica se o valor é diferente de null
                 res.redirect("/");
             }
             else {
                 res.render("pages/template", {
                     pagina: {cabecalho: "cabecalho", conteudo: "Fazer-Login", rodape: "rodape"}, 
-                    usuario_logado:req.session.autenticado, 
+                    usuario_logado:req.session.autenticado.autenticado, 
                     listaErros: erros});
             }
         } catch (e) {
@@ -79,7 +79,7 @@ const tarefasController = {
                     console.log(erros);
                     return res.render("pages/template", {
                         pagina: {cabecalho: "cabecalho", conteudo: "Fazer-Login", rodape: "rodape"}, 
-                        usuario_logado:req.session.autenticado, 
+                        usuario_logado:req.session.autenticado.autenticado, 
                         listaErros: erros});
                 }
                 console.log("cadastro realizado!");
@@ -88,7 +88,7 @@ const tarefasController = {
             console.log(e);
             res.render("pages/template", {
                 pagina: {cabecalho: "cabecalho", conteudo: "Fazer-Login", rodape: "rodape"}, 
-                usuario_logado:req.session.autenticado, 
+                usuario_logado:req.session.autenticado.autenticado, 
                 listaErros: erros});
             console.log("erro no cadastro!");
         }
@@ -99,7 +99,7 @@ const tarefasController = {
         try {
                 res.render("pages/template", {
                     pagina: {cabecalho: "cabecalho", conteudo: "index", rodape: "rodape"}, 
-                    usuario_logado:req.session.autenticado});
+                    usuario_logado:req.session.autenticado.autenticado});
             
         } catch (e) {
             console.log(e); 

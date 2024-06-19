@@ -153,6 +153,9 @@
 
     
     /* Login & Perfil - Inicio */
+    .link-login{
+      text-decoration: none;
+    }
     .login {
       margin-top: 1.5vh;
       align-items: center;
@@ -176,6 +179,10 @@
       display: none;  
     }
     #img-login{
+      max-width: 5.5vh;
+      display: inline-block;
+    }
+    #img-usuario{
       max-width: 5.5vh;
       display: inline-block;
     }

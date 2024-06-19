@@ -6,7 +6,7 @@ VerificarAutenticacao = (req, res, next) => { //verificar se o usuário está au
     if(req.session.autenticado){
         var autenticado = req.session.autenticado;
     }else{
-        var autenticado = null;
+        var autenticado = { autenticado: null, tipo: null };
     }
     req.session.autenticado = autenticado;
     next();
@@ -26,19 +26,16 @@ gravarUsuAutenticado = async (req, res, next) => { //verifica se o usuário exis
         };
         var results = await usuario.findUserEmail(dadosForm);
         var total = Object.keys(results).length; //retoma o numero de elemento do array (criado pelo Object.keys) results 
-        
         if (total == 1) { //verifica se há apenas um resultado
-            
             if (bcrypt.compareSync(dadosForm.senha, results[0].senha)) { //comparação da senha fornecida com a senha armazenada
-                var autenticado = results[0].Nickname;
-                
+                var autenticado = {autenticado: results[0].Nickname, tipo: results[0].Tipo_Cliente_idTipo_Cliente};
                 console.log("login feito");
             }
         } else {
-            var autenticado =  null;
+            var autenticado =  { autenticado: null, tipo: null };
         }
     } else {
-        var autenticado =  null;
+        var autenticado =  { autenticado: null, tipo: null };
         console.log("erros:" + erros);
     }
     console.log("autenticado: " + autenticado + ", total: " + total + " e resultados: " + results);
@@ -46,20 +43,20 @@ gravarUsuAutenticado = async (req, res, next) => { //verifica se o usuário exis
     next();
 }
 
-// verificarUsuAutorizado = (tipoPermitido, destinoFalha) => { //responsável por verificar se o usuário está autorizado a acessar um determinado recurso ou rota
-//     return (req, res, next) => {
-//         if (req.session.autenticado.autenticado != null &&
-//             tipoPermitido.find(function (element) { return element == req.session.autenticado.tipo }) != undefined) {
-//             next();
-//         } else {
-//             res.render(destinoFalha, req.session.autenticado);
-//         }
-//     };
-// }
+verificarUsuAutorizado = (tipoPermitido, destinoFalha) => { //responsável por verificar se o usuário está autorizado a acessar um determinado recurso ou rota
+    return (req, res, next) => {
+        if (req.session.autenticado.autenticado != null &&
+            tipoPermitido.find(function (element) { return element == req.session.autenticado.tipo }) != undefined) {
+            next();
+        } else {
+            res.redirect(destinoFalha);
+        }
+    };
+}
 
 module.exports = { //enviado para o router
     VerificarAutenticacao,
     limparSessao,
     gravarUsuAutenticado,
-    // verificarUsuAutorizado
+    verificarUsuAutorizado
 }
