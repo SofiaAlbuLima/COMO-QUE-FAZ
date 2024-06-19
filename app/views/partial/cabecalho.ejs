@@ -30,8 +30,7 @@
        <nav class="logos">  <!-- Usuário -->
          
             <% if (usuario_logado) { %>
-               <aside id="container" class="login">
-               <a href="/perfil">
+               <aside id="container" onmouseover="showDiv1()" onmouseout="hideDiv1()" onclick="ToggleMenu()" class="login">
                   <img id="img-login" src="imagens/user_icon.png" alt="Faça Login"> <!-- ícone usuário -->
 
                   <article id="hide-hover-span">
@@ -40,10 +39,24 @@
                   </article>
 
                   <figure class="cabecalho_seta_abrir_menu">
-                     <img src="imagens-svg/cabecalho-menu-seta.svg" alt="Abrir Menu" class="seta">
-                     <img src="imagens-svg/cabecalho-menu-seta-hover.svg" alt="Abrir Menu" class="seta_hover">
+                     <img src="imagens-svg/cabecalho-menu-seta.svg" alt="Abrir Menu" class="seta" id="seta">
+                     <img src="imagens-svg/cabecalho-menu-seta-hover.svg" alt="Abrir Menu" class="seta_hover" id="seta_hover">
                   </figure>
-               </a>  
+
+                  <ul class="menu_hamburguer_usuario" id="menu_hamburguer">
+                     <a href="/perfil">
+                        <li class="opcao_menu_hamburguer">Ver Perfil</li></a>
+                     <a href="/notificacoes">
+                        <li class="opcao_menu_hamburguer">Notificações</li></a>
+                     <a href="/favoritos">
+                        <li class="opcao_menu_hamburguer">Favoritos</li></a>
+                     <a href="/bigodes-de-ouro">
+                        <li class="opcao_menu_hamburguer">Bigodes de Ouro</li></a>
+                     <a href="/ajustes">
+                        <li class="opcao_menu_hamburguer">Ajustes</li></a>
+                     <a href="/sair"> 
+                        <li class="opcao_menu_hamburguer ultimo">Sair da Conta</li></a>
+                  </ul> 
             </aside>
             <% } else { %>
                <aside id="container" onmouseover="showDiv1()" onmouseout="hideDiv1()" class="login">

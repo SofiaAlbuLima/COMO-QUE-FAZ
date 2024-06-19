@@ -154,11 +154,21 @@
     
     /* Login & Perfil - Inicio */
     .login {
-      margin-top: 2vh;
+      margin-top: 1.5vh;
       align-items: center;
-      width: 30vh;
+      width: 29vh;
       height: 5.5vh;
       display: flex;
+      border-top-left-radius: 20px;
+      border-top-right-radius: 20px;
+      padding: 0.5vh;
+      cursor: pointer;
+    }
+    .login:hover{
+      background-color: #f5f0ff;
+    }
+    .login a{
+      height: 5.5vh;
     }
       #img-login_hover{
       position: absolute;
@@ -173,6 +183,8 @@
     #hide-hover-span {
       color: #474747;
       display: inline-block;
+      height: 4vh;
+      margin-left: 2vh;
     } 
     #hide-hover-span p{
       text-align: left;
@@ -180,20 +192,16 @@
     }
     
     .p-1{
-      font-size: 14px;
+      font-size: 1.5vh;
     }
     .p-2{
-      font-size: 18px;
+      font-size: 2vh;
     }
 
     .cabecalho_seta_abrir_menu{
-      display: inline;
-      border-radius: 100px;
       justify-content: center;
       display: inline-block;
-    }
-    .cabecalho_seta_abrir_menu:hover{
-      background-color: #f5f0ff;
+      margin-left: 3vh;
     }
     .seta{
       width: 2vh;
@@ -201,8 +209,14 @@
       display: inline-block;
     }
     .seta_hover{
+      width: 2vh;
+      height: 2vh;
+      display: inline-block;
       display: none;
     }
+    .seta_hover.rotated {
+      transform: rotate(180deg);
+  }
     /* Login & Perfil - Fim */
    
     
@@ -260,6 +274,38 @@
     }
     
   /* Categorias - Fim */
+
+  /* Menu Hamburguer - Inicio */
+  .menu_hamburguer_usuario{
+    display: none;
+    position: absolute;
+    margin-top: 40.7vh;
+    transform: translate(-0.5vh, 0);
+    background-color: #f5f0ff;
+    width: 30vh;
+    list-style-type: none;
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
+  }
+  .menu_hamburguer_usuario a{
+    text-decoration: none;
+  }
+  .opcao_menu_hamburguer{
+    padding: 1.5vh 5vh 2vh 5vh;
+    color: #9d21cb;
+  }
+  .opcao_menu_hamburguer:hover{
+    background-color: rgba(255, 214, 98, 1);
+  }
+  .opcao_menu_hamburguer.ultimo:hover{
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
+  }
+  .menu_hamburguer_usuario a:last-child {
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
+  }
+  /* Menu Hamburguer - Fim */
     
   /* FIM - HEADER DESKTOP - SEM LOGIN */
 }
