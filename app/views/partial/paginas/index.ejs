@@ -878,17 +878,17 @@
 
 
       <section class="conteudo-dispositivo desktop">
-         <% if(autenticado.autenticado !=null){
+        <% if( usuario_logado != null){
              if(login == 1){%>
             <script>
              notify("Login efetuado com sucesso",
             "Olá <%= autenticado.autenticado %>", "success", "center")
             </script>
             <% } %>
-            <span>Olá <%= autenticado.autenticado %>!</span><br>
+            <span>Olá <%= usuario_logado.autenticado %>!</span><br>
             <p><a href="/sair">sair</a></p>        
             <% }else{ %>             
-            <span>Olá visitante!</span>
+         
             <% } %>
 
          <section class="slider-D">
