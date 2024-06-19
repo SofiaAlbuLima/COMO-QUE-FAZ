@@ -65,19 +65,37 @@
 
           <%           
            let erroValidacao = {"input1": "", "input2": ""};
-          let msgErro = {"input1": "", "input2": ""}; 
+          let msgErro = ""
        if(listaErros) { 
             listaErros.errors.forEach(function(Itemerro){ 
                 if (Itemerro.path == "input1") { 
-                  erroValidacao.input1 = "erro" 
-                  msgErro.input1 = Itemerro.msg 
+                  erroValidacao.input1 = "erro";
+                  msgErro.input1 += '${Itemerro.msg} <br>
                 } 
                 if (Itemerro.path == "input2") { 
-                   erroValidacao.input2 = "erro" 
-                   msgErro.input2 = Itemerro.msg 
+                   erroValidacao.input2 = "erro"; 
+                   msgErro.input2 += '${Itemerro.msg} <br>
                } 
-            }) 
-          }; %> 
+            })
+            if(msgErro != "") {
+               %>
+               <script>
+                  let msgErro ="<%= msgErro %>"
+                  notify("Erro(s) no procedimento",
+                  "Verifique o(s) campo(s) <br>" + msgErro.replace(/&lt;/g,"<").replace(/&gt;/g,">")
+                  "error", "center", 5000)
+               </script>
+               %> 
+            }
+          }
+       if (dadosNotificacao){ %>
+          <script>
+                 notify ("<%= dadosNotificacao.titulo%>","<%= dadosNotificacao.mensagem%>", "<%= dadosNotificacao.tipo%>", "center" )
+                 if("<%= dadosNotficacao.tipo%>" == "succes"){
+                  setTimeout(function(){window.location="/"}, 3000)
+                 }
+         </script>
+      <% } %>
          <figure class="decoracao-frente">
             <img src="imagens/gatinho-laranja-decoracao.png" alt="">
             <figure class="circulo" id="cir1"></figure>
@@ -120,15 +138,16 @@
 
             <section id="Cadastro" class="tabcontent">
                <article class="cadastro-mob">
-                  <form action="/cadastro" method="post">
+                  <form action="/cadastro" method="post" onsubmit="return  verificaConfirmaSenha()">
                      <span class="texto1-cadastro">Ainda não tem conta?</span>
                      <p class="texto2-cadastro">SE CADASTRAR:</p>
                      <article class="caixa-mob2">
                         <input type="text" placeholder="NOME DE USUÁRIO" name="nomeusu_usu" required>
                         <input type="text" placeholder="EMAIL" name="email_usu" required>
-                        <input class="input-criarsenha" type="password" placeholder="SENHA" name="senha_usu" required>
-                        <input class="input-criarsenha" type="password" placeholder="CONFIRMAR SENHA" required>
+                        <input class="input-criarsenha" id="senha1" type="password" placeholder="SENHA" name="senha_usu" required>
+                        <input class="input-criarsenha" id="senha2" type="password" placeholder="CONFIRMAR SENHA" required>
                      </article>
+                     <p id="mensagem"></p>
                      <article class="lembrar-termos-mob">
                         <p><label><input type="checkbox" required> Li e concordo com os termos*</label></p>
                      </article>
