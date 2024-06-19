@@ -47,7 +47,7 @@ const tarefasController = {
                 return res.render("pages/template", {
                     pagina: {cabecalho: "cabecalho", conteudo: "Fazer-Login", rodape: "rodape"}, 
                     usuario_logado:req.session.autenticado,
-                    listaErros: erros});
+                    listaErros: erros, dadosNotificacao: null });
             }
             if (req.session.autenticado != null) { // verifica se o valor é diferente de null
                 res.redirect("/");
@@ -56,7 +56,8 @@ const tarefasController = {
                 res.render("pages/template", {
                     pagina: {cabecalho: "cabecalho", conteudo: "Fazer-Login", rodape: "rodape"}, 
                     usuario_logado:req.session.autenticado, 
-                    listaErros: erros});
+                    listaErros: erros,
+                dadosNotificacao: {titulo: "Falha ao logar!", mensagem:"Usuário e/ou senha inválidos", tipo:"error"}});
             }
         } catch (e) {
             console.log(e); 
