@@ -33,7 +33,9 @@ const { VerificarAutenticacao, limparSessao, gravarUsuAutenticado, verificarUsuA
     
     router.get("/bigodes-de-ouro", function (req, res) {
         res.render("pages/template", {
-            pagina: {cabecalho: "cabecalho", conteudo: "premium", rodape: "rodape"}, usuario_logado:req.session.autenticado});
+            pagina: {cabecalho: "cabecalho", conteudo: "premium", rodape: "rodape"}, 
+            usuario_logado:req.session.autenticado
+        });
     });
 
 // Links & Template - Parte Administrativa

@@ -878,11 +878,11 @@
 
 
       <section class="conteudo-dispositivo desktop">
-        <% if( usuario_logado != null){
+        <% if(usuario_logado && usuario_logado.autenticado){
              if(login == 1){%>
             <script>
              notify("Login efetuado com sucesso",
-            "Olá <%= autenticado.autenticado %>", "success", "center")
+            "Olá <%= usuario_logado.autenticado %>", "success", "center")
             </script>
             <% } %>
             <span>Olá <%= usuario_logado.autenticado %>!</span><br>

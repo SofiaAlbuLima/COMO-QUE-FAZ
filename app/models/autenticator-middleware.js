@@ -4,13 +4,11 @@ const bcrypt = require("bcryptjs");
 
 VerificarAutenticacao = (req, res, next) => { //verificar se o usuário está autenticado na sessão
     if(req.session.autenticado){
-        var autenticado = req.session.autenticado;
         req.session.logado = req.session.logado + 1;
     }else{
         var autenticado = { autenticado: null, tipo: null };
         req.session.logado = 0;
     }
-    req.session.autenticado = autenticado;
     next();
 }
 
@@ -20,7 +18,8 @@ limparSessao = (req, res, next) => {
 }
 
 gravarUsuAutenticado = async (req, res, next) => { //verifica se o usuário existe e compara a senha fornecida
-    erros = validationResult(req)
+    erros = validationResult(req);
+    var autenticado = { autenticado: null, tipo: null };
     if (erros.isEmpty()) {
         var dadosForm = {
             Nickname: req.body.input1,
@@ -28,7 +27,7 @@ gravarUsuAutenticado = async (req, res, next) => { //verifica se o usuário exis
         };
         var results = await usuario.findUserEmail(dadosForm);
         var total = Object.keys(results).length; //retoma o numero de elemento do array (criado pelo Object.keys) results 
-        if (total == 1) { //verifica se há apenas um resultado
+        if (total === 1) { //verifica se há apenas um resultado
             if (bcrypt.compareSync(dadosForm.senha, results[0].senha)) { //comparação da senha fornecida com a senha armazenada
                 var autenticado = {autenticado: results[0].Nickname, tipo: results[0].Tipo_Cliente_idTipo_Cliente};
                 console.log("login feito");
@@ -55,11 +54,11 @@ verificarUsuAutorizado = (tipoPermitido, destinoFalha) => { //responsável por v
             res.redirect(destinoFalha);
         }
     };
-}
+};
 
 module.exports = { //enviado para o router
     VerificarAutenticacao,
     limparSessao,
     gravarUsuAutenticado,
     verificarUsuAutorizado
-}
+};

@@ -29,13 +29,13 @@
     <section class="header-dispositivo-desktop">
        <nav class="logos">  <!-- Usuário -->
          
-            <% if (usuario_logado) { %>
+            <% if (usuario_logado && usuario_logado.autenticado) { %>
                <aside id="container" onmouseover="showDiv1()" onmouseout="hideDiv1()" onclick="ToggleMenu()" class="login">
                   <img id="img-usuario" src="imagens/user_icon.png" alt="Faça Login"> <!-- ícone usuário -->
 
                   <article id="hide-hover-span">
                      <p class="p-1" id="text-user-hover">Seja bem vindo(a)!</p>
-                     <p class="p-2" id="text-user-hover2"><%= usuario_logado %></p> 
+                     <p class="p-2" id="text-user-hover2"><%= usuario_logado.autenticado %></p> 
                   </article>
 
                   <figure class="cabecalho_seta_abrir_menu">

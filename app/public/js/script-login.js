@@ -13,23 +13,23 @@ function notify(titulo, texto, tipo, posicao,duracao=3000) {
         distance: 20,
         type: 1,
         position:posicao 
-    })
-}
+    });
+};
 function verificaConfirmaSenha() {
  
-    let campoSenha = document.getElementById('senha1')
-    let valorSenha = campoSenha.value 
+    let campoSenha = document.getElementById('senha1');
+    let valorSenha = campoSenha.value;
 
-    let campoConfirmaSenha = document. getElementById('senha2')
-    let valorConfirmaSenha = campoConfirmaSenha.value
+    let campoConfirmaSenha = document. getElementById('senha2');
+    let valorConfirmaSenha = campoConfirmaSenha.value;
      
      if(valorSenha == valorConfirmaSenha) {
-    return true
+    return true;
     } 
 
      else {
     document.getElementById("mensagem").innerHTML = "As senhas não são iguais";
-    return false
+    return false;
      
     }};
     verificaConfirmaSenha();  
