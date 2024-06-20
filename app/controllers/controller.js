@@ -11,10 +11,21 @@ const tarefasController = {
 
 
     regrasValidacaoLogin:[
-     body('input1').isEmail().
-         withMessage("Insira um email válido!"),
+     body('input1')
+        .custom(value => {
+            // Verifica se é um email válido
+            const isEmail = /^\S+@\S+\.\S+$/.test(value);
+            // Verifica se é um nome de usuário válido (por exemplo, apenas caracteres alfanuméricos)
+            const isUsername = /^[a-zA-Z0-9]+$/.test(value);
+
+            if (!isEmail && !isUsername) {
+                throw new Error('Insira um nome de usuário ou email válido!');
+            }
+            return true;
+        }),
+
      body('input2').isLength({ min: 6 , max: 60 }).
-            withMessage("A senha deve ter no minimo 8 caracteres")
+            withMessage("A senha deve ter no minimo 6 caracteres")
     ],
     regrasValidacaoCadastro:[
         body("nomeusu_usu")
@@ -38,29 +49,30 @@ const tarefasController = {
             .withMessage("A senha deve ter no mínimo 8 caracteres (mínimo 1 letra maiúscula, 1 caractere especial e 1 número)")
        
     ],
-    
     Login_formLogin: async (req, res) => {
-        res.locals.moment = moment;
         try {
             const erros = validationResult(req);
             if (!erros.isEmpty()) {
                 return res.render("pages/template", {
                     pagina: {cabecalho: "cabecalho", conteudo: "Fazer-Login", rodape: "rodape"}, 
                     usuario_logado:req.session.autenticado,
-                    listaErros: erros, dadosNotificacao: null });
+                    listaErros: erros, 
+                    dadosNotificacao: null 
+                });
             }
-            if (req.session.autenticado.autenticado != null) { // verifica se o valor é diferente de null
+            if (req.session.autenticado && req.session.autenticado.autenticado) {
                 res.redirect("/");
             }
             else {
                 res.render("pages/template", {
                     pagina: {cabecalho: "cabecalho", conteudo: "Fazer-Login", rodape: "rodape"}, 
                     usuario_logado:req.session.autenticado, 
-                    listaErros: erros,
-                    dadosNotificacao: {titulo:"Falha ao logar!", mensagem:"Usuário e/ou senha inválidos!", tipo: "error" }});
+                    listaErros: null,
+                    dadosNotificacao: {titulo:"Falha ao logar!", mensagem:"Usuário e/ou senha inválidos!", tipo: "error" }
+                });
             }
         } catch (e) {
-            console.log(e); 
+            console.error("Erro no login:", e);
         }
     },
     Login_formCadastro: async (req, res) => {
@@ -82,7 +94,11 @@ const tarefasController = {
                     return res.render("pages/template", {
                         pagina: {cabecalho: "cabecalho", conteudo: "Fazer-Login", rodape: "rodape"}, 
                         usuario_logado:req.session.autenticado, 
-                        listaErros: erros});
+                        listaErros: null,
+                        dadosNotificacao: {
+                            titulo: "Cadastro realizado!", mensagem: "Novo usuário criado com sucesso!", tipo: "success"
+                        }
+                    });
                 }
                 console.log("cadastro realizado!");
                 }
@@ -91,7 +107,11 @@ const tarefasController = {
             res.render("pages/template", {
                 pagina: {cabecalho: "cabecalho", conteudo: "Fazer-Login", rodape: "rodape"}, 
                 usuario_logado:req.session.autenticado, 
-                listaErros: erros});
+                listaErros: erros,
+                dadosNotificacao: {
+                    titulo: "Erro ao cadastrar!", mensagem: "Verifique os valores digitados!", tipo: "error"
+                }
+            });
             console.log("erro no cadastro!");
         }
     },

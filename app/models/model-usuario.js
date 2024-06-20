@@ -20,16 +20,16 @@ const usuarioModel = { //const que agrupa todas as funções de acesso e manipul
             console.log(erro);
         }   
     },
-    findUserEmail: async (camposForm) => { //usado para verificar se o usuário já existe (valores unicos) 
+    findUserEmail: async ({ Nickname, Email }) => { //usado para verificar se o usuário já existe (valores unicos) 
         try {
             const [resultados] = await pool.query(
-                "SELECT * FROM clientes WHERE Nickname = ? or Email = ?",
-                [camposForm.Nickname, camposForm.Email]
+                "SELECT * FROM clientes WHERE Nickname = ? OR Email = ?",
+                [Nickname, Email]
             )
             return resultados;
         } catch (error) {
-            console.log(error);
-            return error;
+            console.error("Erro ao buscar usuário por Nickname ou Email:", error);
+            throw error;
         }
     },
     create: async (camposForm) => { //usado para criar novo usuário na tabela clientes

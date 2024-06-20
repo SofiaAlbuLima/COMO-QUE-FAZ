@@ -63,39 +63,43 @@
 
       <section class="conteudo-dispositivo-desktop">
 
-          <%           
-           let erroValidacao = {"input1": "", "input2": ""};
-          let msgErro = ""
-            if(listaErros) { 
-            listaErros.errors.forEach(function(Itemerro){ 
-                if (Itemerro.path == "input1") { 
-                  erroValidacao.input1 = "erro";
-                  msgErro.input1 += '${Itemerro.msg} <br>
-                } 
-                if (Itemerro.path == "input2") { 
-                   erroValidacao.input2 = "erro"; 
-                   msgErro.input2 += '${Itemerro.msg} <br>
-               } 
-            })
-            if(msgErro != "") {
-               %>
-               <script>
-                  let msgErro ="<%= msgErro %>"
-                  notify("Erro(s) no procedimento",
-                  "Verifique o(s) campo(s) <br>" + msgErro.replace(/&lt;/g,"<").replace(/&gt;/g,">"),
-                  "error", "center", 5000)
-               </script>
-               %> 
-            }
-          }
-       if (dadosNotificacao){ %>
-          <script>
-                 notify ("<%= dadosNotificacao.titulo%>","<%= dadosNotificacao.mensagem%>", "<%= dadosNotificacao.tipo%>", "center" )
-                 if("<%= dadosNotficacao.tipo%>" == "succes"){
-                  setTimeout(function(){window.location="/"}, 3000)
+         <% 
+         let erroValidacao = { input1: "", input2: "" };
+         let msgErro = "";
+         if (listaErros) {
+             listaErros.errors.forEach(function(Itemerro) {
+                 if (Itemerro.path == "input1") {
+                     erroValidacao.input1 = "erro";
+                     msgErro += `${Itemerro.msg} <br>`;
                  }
-         </script>
-      <% } %>
+                 if (Itemerro.path == "input2") {
+                     erroValidacao.input2 = "erro";
+                     msgErro += `${Itemerro.msg} <br>`;
+                 }
+             });
+             if (msgErro !== "") {
+         %>
+             <script>
+                 let msgErro = "<%= msgErro %>";
+                 notify("Erro(s) no procedimento",
+                 "Verifique o(s) campo(s) <br>" + msgErro.replace(/&lt;/g, "<").replace(/&gt;/g, ">"),
+                 "error", "center", 5000);
+             </script>
+         <% 
+             }
+         }
+         if (dadosNotificacao) { 
+         %>
+             <script>
+                 notify("<%= dadosNotificacao.titulo %>", "<%= dadosNotificacao.mensagem %>", "<%= dadosNotificacao.tipo %>", "center");
+                 if ("<%= dadosNotificacao.tipo %>" === "success") {
+                     setTimeout(function() { window.location = "/"; }, 3000);
+                 }
+             </script>
+         <% 
+         } 
+         %>
+         
          <figure class="decoracao-frente">
             <img src="imagens/gatinho-laranja-decoracao.png" alt="">
             <figure class="circulo" id="cir1"></figure>

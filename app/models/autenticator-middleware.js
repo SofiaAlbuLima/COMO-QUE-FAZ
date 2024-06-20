@@ -4,6 +4,7 @@ const bcrypt = require("bcryptjs");
 
 VerificarAutenticacao = (req, res, next) => { //verificar se o usuário está autenticado na sessão
     if(req.session.autenticado){
+        var autenticado = autenticado;
         req.session.logado = req.session.logado + 1;
     }else{
         var autenticado = { autenticado: null, tipo: null };
@@ -18,31 +19,41 @@ limparSessao = (req, res, next) => {
 }
 
 gravarUsuAutenticado = async (req, res, next) => { //verifica se o usuário existe e compara a senha fornecida
-    erros = validationResult(req);
-    var autenticado = { autenticado: null, tipo: null };
-    if (erros.isEmpty()) {
-        var dadosForm = {
-            Nickname: req.body.input1,
-            senha: req.body.input2
-        };
-        var results = await usuario.findUserEmail(dadosForm);
-        var total = Object.keys(results).length; //retoma o numero de elemento do array (criado pelo Object.keys) results 
-        if (total === 1) { //verifica se há apenas um resultado
-            if (bcrypt.compareSync(dadosForm.senha, results[0].senha)) { //comparação da senha fornecida com a senha armazenada
-                var autenticado = {autenticado: results[0].Nickname, tipo: results[0].Tipo_Cliente_idTipo_Cliente};
-                console.log("login feito");
+    try {
+        erros = validationResult(req);
+        var autenticado = { autenticado: null, tipo: null };
+        let results = [];
+        if (erros.isEmpty()) {
+            var dadosForm = {
+                input1: req.body.input1,
+                senha: req.body.input2
+            };
+            results = await usuario.findUserEmail({ Nickname: dadosForm.input1, Email: dadosForm.input1 }); // Utilize a função findUserEmail para buscar tanto por Nickname quanto por Email
+            var total = results.length; //retoma o numero de elemento do array (criado pelo Object.keys) results 
+            if (total === 1) { //verifica se há apenas um resultado
+                if (bcrypt.compareSync(dadosForm.senha, results[0].senha)) { //comparação da senha fornecida com a senha armazenada
+                    autenticado = {
+                        autenticado: results[0].Nickname, 
+                        tipo: results[0].Tipo_Cliente_idTipo_Cliente
+                    };
+                    console.log("login feito");
+                }
+            } else {
+                autenticado =  { autenticado: null, tipo: null };
+                console.log("Nenhum usuário encontrado ou múltiplos usuários encontrados");
             }
         } else {
-            var autenticado =  { autenticado: null, tipo: null };
+            autenticado =  { autenticado: null, tipo: null };
+            console.log("erros:" + erros);
         }
-    } else {
-        var autenticado =  { autenticado: null, tipo: null };
-        console.log("erros:" + erros);
+        console.log("autenticado: " + autenticado + ", total: " + total + " e resultados: " + results);
+        req.session.autenticado = autenticado;
+        req.session.logado= 0;
+        next();
+    } catch (error) {
+        console.error("Erro ao autenticar usuário:", error);
+        next(error);
     }
-    console.log("autenticado: " + autenticado + ", total: " + total + " e resultados: " + results);
-    req.session.autenticado = autenticado;
-    req.session.logado= 0;
-    next();
 }
 
 verificarUsuAutorizado = (tipoPermitido, destinoFalha) => { //responsável por verificar se o usuário está autorizado a acessar um determinado recurso ou rota
