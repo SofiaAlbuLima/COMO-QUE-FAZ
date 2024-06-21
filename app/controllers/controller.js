@@ -50,67 +50,64 @@ const tarefasController = {
        
     ],
     Login_formLogin: async (req, res) => {
-        try {
             const erros = validationResult(req);
-            if (!erros.isEmpty()) {
+            if (!erros.isEmpty()) { //Verificação de Erros de Validação
                 return res.render("pages/template", {
                     pagina: {cabecalho: "cabecalho", conteudo: "Fazer-Login", rodape: "rodape"}, 
                     usuario_logado:req.session.autenticado,
                     listaErros: erros, 
-                    dadosNotificacao: null 
+                    dadosNotificacao: null //mensagem erro express validator
                 });
             }
             if (req.session.autenticado && req.session.autenticado.autenticado) {
                 res.redirect("/");
             }
             else {
-                res.render("pages/template", {
+                res.render("pages/template", { //Verificação de Erros de Login com banco
                     pagina: {cabecalho: "cabecalho", conteudo: "Fazer-Login", rodape: "rodape"}, 
                     usuario_logado:req.session.autenticado, 
                     listaErros: null,
                     dadosNotificacao: {titulo:"Falha ao logar!", mensagem:"Usuário e/ou senha inválidos!", tipo: "error" }
                 });
             }
-        } catch (e) {
-            console.error("Erro no login:", e);
-        }
     },
     Login_formCadastro: async (req, res) => {
         const erros = validationResult(req);
-        
         var dadosForm = { //dados que o usuário digita no formulário
             Nickname: req.body.nomeusu_usu,
             senha: bcrypt.hashSync(req.body.senha_usu, salt),
             Email: req.body.email_usu,
             Tipo_Cliente_idTipo_Cliente: 1
         };
+        if (!erros.isEmpty()) {
+            console.log(erros);
+            return res.render("pages/template", {
+                pagina: {cabecalho: "cabecalho", conteudo: "Fazer-Login", rodape: "rodape"}, 
+                listaErros: erros,
+                dadosNotificacao: null
+            });
+        }
+        try{
+            let create = usuarioModel.create(dadosForm);
+            console.log("cadastro realizado!");
 
-        try {    
-                let create = usuarioModel.create(dadosForm);
-
-                if (!erros.isEmpty()) {
-                    console.log(erros);
-                    return res.render("pages/template", {
-                        pagina: {cabecalho: "cabecalho", conteudo: "Fazer-Login", rodape: "rodape"}, 
-                        usuario_logado:req.session.autenticado, 
-                        listaErros: null,
-                        dadosNotificacao: {
-                            titulo: "Cadastro realizado!", mensagem: "Novo usuário criado com sucesso!", tipo: "success"
-                        }
-                    });
-                }
-                console.log("cadastro realizado!");
-                return res.redirect("/");
-                }
-        catch (e) {
+            req.session.notification = {
+                titulo: "Cadastro realizado!",
+                mensagem: "Novo usuário criado com sucesso!",
+                tipo: "success"
+            };
+            return res.redirect("/");
+        } catch(e) {
             console.log(e);
             res.render("pages/template", {
                 pagina: {cabecalho: "cabecalho", conteudo: "Fazer-Login", rodape: "rodape"}, 
                 usuario_logado:req.session.autenticado, 
-                listaErros: erros,
+                listaErros: erros, 
                 dadosNotificacao: {
-                    titulo: "Erro ao cadastrar!", mensagem: "Verifique os valores digitados!", tipo: "error"
-                }
+                    titulo: "Erro ao cadastrar!", 
+                    mensagem: "Verifique os valores digitados!", 
+                    tipo: "error"
+                },
             });
             console.log("erro no cadastro!");
         }
