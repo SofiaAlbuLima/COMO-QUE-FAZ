@@ -1,7 +1,0 @@
-BD_HOST = bzvqunvwgtfx7ejdxnse-mysql.services.clever-cloud.com
-BD_USER = uaa9j1yxsoe1dvng
-BD_PASSWORD = VmvoWpsnUZ21k87ebPj8
-BD_PASSWORDITB = @ITB123456
-BD_PORT = 3306
-
-APP_PORT = 3000
