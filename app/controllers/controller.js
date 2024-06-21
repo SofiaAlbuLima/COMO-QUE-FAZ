@@ -16,7 +16,7 @@ const tarefasController = {
             // Verifica se é um email válido
             const isEmail = /^\S+@\S+\.\S+$/.test(value);
             // Verifica se é um nome de usuário válido (por exemplo, apenas caracteres alfanuméricos)
-            const isUsername = /^[a-zA-Z0-9]+$/.test(value);
+            const isUsername = /^[a-zA-Z0-9_.\-\s]+$/.test(value)
 
             if (!isEmail && !isUsername) {
                 throw new Error('Insira um nome de usuário ou email válido!');
