@@ -265,7 +265,8 @@
 		outline: none;
 		border-radius: 10px;
 		border: 1px solid #eee;
-		padding: 2.5% 0% 2.5% 2.5%;
+		padding: 2.5vh 0% 2.5% 2.5%;
+		padding-top: 2.5vh;
 		margin-bottom: 3%;
 		font-family: Fira Sans;
 		font-weight: bold;

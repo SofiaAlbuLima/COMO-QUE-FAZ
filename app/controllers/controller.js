@@ -87,7 +87,6 @@ const tarefasController = {
 
         try {    
                 let create = usuarioModel.create(dadosForm);
-                res.redirect("/")
 
                 if (!erros.isEmpty()) {
                     console.log(erros);
@@ -101,6 +100,7 @@ const tarefasController = {
                     });
                 }
                 console.log("cadastro realizado!");
+                return res.redirect("/");
                 }
         catch (e) {
             console.log(e);
