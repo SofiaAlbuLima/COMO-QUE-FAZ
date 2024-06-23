@@ -262,7 +262,7 @@
 		color: #ffd662;
 		margin-bottom: 6%;
 	}
-	.input1, .input2{
+	#input1, #input2{
 		width: 70%;
 		outline: none;
 		border-radius: 10px;
@@ -272,12 +272,12 @@
 		font-family: Fira Sans;		
 		font-weight: 550;
 	}
-	.input2::placeholder {
+	#input2::placeholder {
 		font-family: Fira Sans;	
 		font-weight: 600;
 		color: #cb218c;
 	}
-	.input1::placeholder {
+	#input1::placeholder {
 		font-family: Fira Sans;	
 		font-weight: 600;
 		color: #cb218c;
@@ -286,7 +286,7 @@
 		color: #cb218d45;
 		transition: 0.3s;
 	  }
-	.input2{
+	#input2{
 		margin-bottom: 3%;
 	}	
 	.esqueceu-foi {
