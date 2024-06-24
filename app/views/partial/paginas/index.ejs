@@ -881,15 +881,13 @@
         <% if(usuario_logado && usuario_logado.autenticado){
              if(login == 1){%>
             <script>
-             notify("Login efetuado com sucesso",
-            "Olá <%= usuario_logado.autenticado %>", "success", "center")
+               notify("Login efetuado com sucesso",
+               "Olá <%= usuario_logado.autenticado %>", "success", "center");
+
+               console.log("notificacao");
             </script>
             <% } %>
-            <span>Olá <%= usuario_logado.autenticado %>!</span><br>
-            <p><a href="/sair">sair</a></p>        
-            <% }else{ %>             
-         
-            <% } %>
+         <% } %>
 
          <section class="slider-D">
             <article class="slides-D">

@@ -149,7 +149,7 @@ const tarefasController = {
             res.render("pages/template", {
                 pagina: {cabecalho: "cabecalho", conteudo: "index", rodape: "rodape"}, 
                 usuario_logado:req.session.autenticado,
-                login: req.session.logado,  
+                login: req.session.logado,
                 posts: postsConteudo, 
                 paginador: paginador
             });           

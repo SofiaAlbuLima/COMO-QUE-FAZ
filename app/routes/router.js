@@ -15,6 +15,22 @@ const { VerificarAutenticacao, limparSessao, gravarUsuAutenticado, verificarUsuA
         tarefasController.MostrarPosts(req, res);
     });
 
+    router.get("/culinaria", function(req, res) {
+        res.render("pages/template", {pagina: {cabecalho: "cabecalho", conteudo: "Categoria-Culinária", rodape: "rodape"}, 
+        usuario_logado:req.session.autenticado, 
+        });
+    });
+    router.get("/limpeza", function(req, res) {
+        res.render("pages/template", {pagina: {cabecalho: "cabecalho", conteudo: "Categoria-Limpeza", rodape: "rodape"}, 
+        usuario_logado:req.session.autenticado, 
+        });
+    });
+    router.get("/bem-estar", function(req, res) {
+        res.render("pages/template", {pagina: {cabecalho: "cabecalho", conteudo: "Categoria-Bem-Estar", rodape: "rodape"}, 
+        usuario_logado:req.session.autenticado, 
+        });
+    });
+
     router.get("/perfil", verificarUsuAutorizado([1, 2], "/"), function(req, res) {
         res.render("pages/template", {pagina: {cabecalho: "cabecalho", conteudo: "Meu-perfil", rodape: "rodape"}, 
         usuario_logado:req.session.autenticado, 
