@@ -6,19 +6,49 @@ const moment = require("moment");
 const tarefasController = require("../controllers/controller");
 const { VerificarAutenticacao, limparSessao, gravarUsuAutenticado, verificarUsuAutorizado } = require("../models/autenticator-middleware");
 
+    router.post("/login", tarefasController.regrasValidacaoLogin, gravarUsuAutenticado, tarefasController.Login_formLogin);
+    router.post("/cadastro", tarefasController.regrasValidacaoCadastro, tarefasController.Login_formCadastro);
+    router.post('/criar-dica', tarefasController.CriarDica);
+
 // Links & Template - Parte Publica
     router.get("/", VerificarAutenticacao, function (req, res) {
-        tarefasController.Index_mostrarPosts(req, res);
+        tarefasController.MostrarPosts(req, res);
+    });
+
+    router.get("/perfil", verificarUsuAutorizado([1, 2], "/"), function(req, res) {
+        res.render("pages/template", {pagina: {cabecalho: "cabecalho", conteudo: "Meu-perfil", rodape: "rodape"}, 
+        usuario_logado:req.session.autenticado, 
+        });
+    });
+    router.get("/notificacoes", verificarUsuAutorizado([1, 2], "/"), function(req, res) {
+        res.render("pages/template", {pagina: {cabecalho: "cabecalho", conteudo: "Minhas-Notificações", rodape: "rodape"}, 
+        usuario_logado:req.session.autenticado, 
+        });
+    });
+    router.get("/favoritos", verificarUsuAutorizado([1, 2], "/"), function(req, res) {
+        res.render("pages/template", {pagina: {cabecalho: "cabecalho", conteudo: "Meus-Favoritos", rodape: "rodape"}, 
+        usuario_logado:req.session.autenticado, 
+        });
     });
 
     router.get("/sair", function(req, res){
         res.render("pages/template", {pagina: {cabecalho: "none", conteudo: "sair", rodape: "none"}, 
             usuario_logado:req.session.autenticado, 
             });
-    })
-    
+    });
     router.get("/sair-da-conta", limparSessao, function (req, res) {
         res.redirect("/");
+    });
+
+    router.get("/criar-postagem", function(req, res){
+        res.render("pages/template", {pagina: {cabecalho: "none", conteudo: "sair", rodape: "none"}, 
+            usuario_logado:req.session.autenticado, 
+            });
+    });
+    router.get("/criar-pergunta", function(req, res){
+        res.render("pages/template", {pagina: {cabecalho: "none", conteudo: "sair", rodape: "none"}, 
+            usuario_logado:req.session.autenticado, 
+            });
     });
 
     router.get("/login", function (req, res) {
@@ -27,9 +57,6 @@ const { VerificarAutenticacao, limparSessao, gravarUsuAutenticado, verificarUsuA
             listaErros: null,
             dadosNotificacao:null});
     });
-
-    router.post("/login", tarefasController.regrasValidacaoLogin, gravarUsuAutenticado, tarefasController.Login_formLogin);
-    router.post("/cadastro", tarefasController.regrasValidacaoCadastro, tarefasController.Login_formCadastro);
     
     router.get("/bigodes-de-ouro", function (req, res) {
         res.render("pages/template", {
@@ -38,6 +65,7 @@ const { VerificarAutenticacao, limparSessao, gravarUsuAutenticado, verificarUsuA
         });
     });
 
+    
 // Links & Template - Parte Administrativa
     router.get("/adm", verificarUsuAutorizado([2], "/sair"), 
         function (req, res) {
