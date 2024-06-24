@@ -7,8 +7,8 @@
    <meta name="viewport" content="width=device-width, initial-scale=1.0">
    <link rel="shortcut icon" href="imagens/favcon-adm.png" type="image/x-icon" />
    
-   <link rel="stylesheet" href="../css/style-adm-paginas.css">
-   <link rel="stylesheet" href="../css/style-adm-denuncias.css">
+   <link rel="stylesheet" href="/css/style-adm-paginas.css">
+   <link rel="stylesheet" href="/css/style-adm-denuncias.css">
 
    <title>Admin | Denúncias</title>
 </head>
@@ -41,32 +41,32 @@
                   </article>
 
                   <select id="filtro-conteudo-denuncia" class="linha-2-filtros">
-                     <option value="" id="opcao-conteudo-denuncia">Comentário</option>
-                     <option value="" id="opcao-conteudo-denuncia">Postagem</option>
-                     <option value="" id="opcao-conteudo-denuncia">Perfil</option>
-                     <option value="" id="opcao-conteudo-denuncia">Pergunta</option>
+                     <option value="" id="opcao-conteudo-denuncia" class="opcao-denuncia-filtro">Comentário</option>
+                     <option value="" id="opcao-conteudo-denuncia" class="opcao-denuncia-filtro">Postagem</option>
+                     <option value="" id="opcao-conteudo-denuncia" class="opcao-denuncia-filtro">Perfil</option>
+                     <option value="" id="opcao-conteudo-denuncia" class="opcao-denuncia-filtro">Pergunta</option>
                   </select>
 
                   <select id="filtro-motivo-denuncia" class="linha-2-filtros">
-                     <option value="" id="opcao-motivo-denuncia">Conteúdo Inadequado</option>
-                     <option value="" id="opcao-motivo-denuncia">Spam</option>
-                     <option value="" id="opcao-motivo-denuncia">Violações dos termos de uso</option>
+                     <option value="" id="opcao-motivo-denuncia" class="opcao-denuncia-filtro">Violações dos termos de uso</option>
+                     <option value="" id="opcao-motivo-denuncia" class="opcao-denuncia-filtro">Conteúdo Inadequado</option>
+                     <option value="" id="opcao-motivo-denuncia" class="opcao-denuncia-filtro">Spam</option>
                   </select>
 
                   <select id="filtro-categoria-denuncia" class="linha-2-filtros">
-                     <option value="" id="opcao-categoria-denuncia">Bem-Estar</option>
-                     <option value="" id="opcao-categoria-denuncia">Culinária</option>
-                     <option value="" id="opcao-categoria-denuncia">Limpeza</option>
+                     <option value="" id="opcao-categoria-denuncia" class="opcao-denuncia-filtro">Bem-Estar</option>
+                     <option value="" id="opcao-categoria-denuncia" class="opcao-denuncia-filtro">Culinária</option>
+                     <option value="" id="opcao-categoria-denuncia" class="opcao-denuncia-filtro">Limpeza</option>
                   </select>
 
                   <select id="filtro-autor-denuncia" class="linha-2-filtros">
-                     <option value="" id="opcao-autor-denuncia">A-Z</option>
+                     <option value="" id="opcao-autor-denuncia" class="opcao-denuncia-filtro">A-Z</option>
                   </select>
 
                   <select id="filtro-status-denuncia" class="linha-2-filtros">
-                     <option value="" id="opcao-status-denuncia">Não Analisada</option>
-                     <option value="" id="opcao-status-denuncia">Analisada</option>
-                     <option value="" id="opcao-status-denuncia">Analisada e Avaliada</option>
+                     <option value="" id="opcao-status-denuncia" class="opcao-denuncia-filtro">Analisada e Avaliada</option>
+                     <option value="" id="opcao-status-denuncia" class="opcao-denuncia-filtro">Não Analisada</option>
+                     <option value="" id="opcao-status-denuncia" class="opcao-denuncia-filtro">Analisada</option>
                   </select>
                </section>
 
@@ -83,38 +83,35 @@
                      </tr>
 
                      <tr class="linhas"> <!-- Conteudo da tabela -->
-                        <img src="/imagens-svg/add-rosa.svg" alt="ver mais sobre denúncia" class="linha" id="ver-mais-denuncia">
+                        <td class="linha"> <img class="ver-detalhes-denuncia" src="/imagens-svg/add-rosa.svg" alt=""></td>
                         <td class="linha Coluna-conteudo">Perfil</td>
                         <td class="linha Coluna-motivo">Conteúdo Inadequado</td>
                         <td class="linha Coluna-categoria">Cúlinária</td>
-                        <img src="./imagens-svg/foto-perfil-autor.svg" alt="foto de perfil do autor" class="linha Coluna-autor">
                         <td class="linha Coluna-autor">User</td>
                         <td class="linha Coluna-status">Analisada e Avaliada</td>
                      </tr>
+
                      <tr class="linhas"> <!-- Conteudo da tabela -->
-                        <img src="/imagens-svg/add-rosa.svg" alt="ver mais sobre denúncia" class="linha" id="ver-mais-denuncia">
+                        <td class="linha"> <img class="ver-detalhes-denuncia" src="/imagens-svg/add-rosa.svg" alt=""></td>
                         <td class="linha Coluna-conteudo">Pergunta</td>
                         <td class="linha Coluna-motivo">Spam</td>
                         <td class="linha Coluna-categoria">Limpeza</td>
-                        <img src="./imagens-svg/foto-perfil-autor.svg" alt="foto de perfil do autor" class="linha Coluna-autor">
                         <td class="linha Coluna-autor">User2</td>
                         <td class="linha Coluna-status">Não Analisada</td>
                      </tr>
                      <tr class="linhas"> <!-- Conteudo da tabela -->
-                        <img src="/imagens-svg/add-rosa.svg" alt="ver mais sobre denúncia" class="linha" id="ver-mais-denuncia">
+                        <td class="linha"> <img class="ver-detalhes-denuncia" src="/imagens-svg/add-rosa.svg" alt=""></td>
                         <td class="linha Coluna-conteudo">Postagem</td>
                         <td class="linha Coluna-motivo">Violações dos termos de uso</td>
                         <td class="linha Coluna-categoria">Bem-Estar</td>
-                        <img src="./imagens-svg/foto-perfil-autor.svg" alt="foto de perfil do autor" class="linha Coluna-autor">
                         <td class="linha Coluna-autor">User3</td>
                         <td class="linha Coluna-status">Analisada</td>
                      </tr>
                      <tr class="linhas"> <!-- Conteudo da tabela -->
-                        <img src="/imagens-svg/add-rosa.svg" alt="ver mais sobre denúncia" class="linha" id="ver-mais-denuncia">
+                        <td class="linha"> <img class="ver-detalhes-denuncia" src="/imagens-svg/add-rosa.svg" alt=""></td>
                         <td class="linha Coluna-conteudo">Comentário</td>
                         <td class="linha Coluna-motivo">Violações dos termos de uso</td>
                         <td class="linha Coluna-categoria">Limpeza</td>
-                        <img src="./imagens-svg/foto-perfil-autor.svg" alt="foto de perfil do autor" class="linha Coluna-autor">
                         <td class="linha Coluna-autor">User4</td>
                         <td class="linha Coluna-status">Não Analisada</td>
                      </tr>
@@ -122,6 +119,7 @@
                </section>
             <!-- tabela Denúncias - Fim -->
          </section>
+
       </section>
    </main>
    <script src="/js/adm/script-adm-tabelas.js"></script>

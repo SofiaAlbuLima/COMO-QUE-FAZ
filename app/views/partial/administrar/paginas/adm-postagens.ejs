@@ -20,55 +20,104 @@
 
       <section class="conteudo-dispositivo desktop">
          <section class="titulo-linha-pagina">
-            <img src="imagens/iconRoxoPagina-postagens.png" alt="" class="imagem-pagina">
+            <img src="/imagens/iconRoxoPagina-postagens.png" alt="" class="imagem-pagina">
             <h1 class="titulo-pagina">POSTAGENS & PERGUNTAS</h1>
             <hr class="linha-pagina">
          </section>
    
          <section class="conteudo-pagina">
-            <section id="menu-filtros-denuncias" class="grid-menu-filtros-denuncias">
-               <figure id="titulo-conteudo-denuncia" class="linha-1-titulos">Conteúdo</figure>
-               <figure id="titulo-motivo-denuncia" class="linha-1-titulos">Motivo da Denúncia</figure>
-               <figure id="titulo-categoria-denuncia" class="linha-1-titulos">Categoria</figure>
-               <figure id="titulo-autor-denuncia" class="linha-1-titulos">Autor</figure>
-               <figure id="titulo-status-denuncia" class="linha-1-titulos">Status</figure>
-               
-               <article id="pesquisar" class="linha-1-titulos">
-                  <img class="icone-pesquisa" src="/imagens/pesquisa-cinza.png" alt="">
-                  <input class="pesquisa-input" type="text" id="myInput" onkeyup="myFunction()" placeholder="Pesquisar ID ou perfil..."> <!-- pesquisa (search) na tabala - onkeyup é quando um user digita -->
-               </article>
+            <!-- tabela Denúncias - Inicio -->
+               <section id="menu-filtros-denuncias" class="grid-menu-filtros-denuncias">
+                  <figure id="titulo-conteudo-denuncia" class="linha-1-titulos">Conteúdo</figure>
+                  <figure id="titulo-motivo-denuncia" class="linha-1-titulos">Motivo da Denúncia</figure>
+                  <figure id="titulo-categoria-denuncia" class="linha-1-titulos">Categoria</figure>
+                  <figure id="titulo-autor-denuncia" class="linha-1-titulos">Autor</figure>
+                  <figure id="titulo-status-denuncia" class="linha-1-titulos">Status</figure>
+                  
+                  <article id="pesquisar" class="linha-1-titulos">
+                     <img class="icone-pesquisa" src="/imagens/pesquisa-cinza.png" alt="">
+                     <input class="pesquisa-input" type="text" id="myInput" onkeyup="myFunction()" placeholder="Pesquisar ID ou perfil..."> <!-- pesquisa (search) na tabala - onkeyup é quando um user digita -->
+                  </article>
 
-               <select id="filtro-conteudo-denuncia" class="linha-2-filtros">
-                  <option value="" id="opcao-conteudo-denuncia">Comentário</option>
-                  <option value="" id="opcao-conteudo-denuncia">Postagem</option>
-                  <option value="" id="opcao-conteudo-denuncia">Perfil</option>
-                  <option value="" id="opcao-conteudo-denuncia">Pergunta</option>
-               </select>
+                  <select id="filtro-conteudo-denuncia" class="linha-2-filtros">
+                     <option value="" id="opcao-conteudo-denuncia">Comentário</option>
+                     <option value="" id="opcao-conteudo-denuncia">Postagem</option>
+                     <option value="" id="opcao-conteudo-denuncia">Perfil</option>
+                     <option value="" id="opcao-conteudo-denuncia">Pergunta</option>
+                  </select>
 
-               <select id="filtro-motivo-denuncia" class="linha-2-filtros">
-                  <option value="" id="opcao-motivo-denuncia">Conteúdo Inadequado</option>
-                  <option value="" id="opcao-motivo-denuncia">Spam</option>
-                  <option value="" id="opcao-motivo-denuncia">Violações dos termos de uso</option>
-               </select>
+                  <select id="filtro-motivo-denuncia" class="linha-2-filtros">
+                     <option value="" id="opcao-motivo-denuncia">Violações dos termos de uso</option>
+                     <option value="" id="opcao-motivo-denuncia">Conteúdo Inadequado</option>
+                     <option value="" id="opcao-motivo-denuncia">Spam</option>
+                  </select>
 
-               <select id="filtro-categoria-denuncia" class="linha-2-filtros">
-                  <option value="" id="opcao-categoria-denuncia">Bem-Estar</option>
-                  <option value="" id="opcao-categoria-denuncia">Culinária</option>
-                  <option value="" id="opcao-categoria-denuncia">Limpeza</option>
-               </select>
+                  <select id="filtro-categoria-denuncia" class="linha-2-filtros">
+                     <option value="" id="opcao-categoria-denuncia">Bem-Estar</option>
+                     <option value="" id="opcao-categoria-denuncia">Culinária</option>
+                     <option value="" id="opcao-categoria-denuncia">Limpeza</option>
+                  </select>
 
-               <select id="filtro-autor-denuncia" class="linha-2-filtros">
-                  <option value="" id="opcao-autor-denuncia">A-Z</option>
-               </select>
+                  <select id="filtro-autor-denuncia" class="linha-2-filtros">
+                     <option value="" id="opcao-autor-denuncia">A-Z</option>
+                  </select>
 
-               <select id="filtro-status-denuncia" class="linha-2-filtros">
-                  <option value="" id="opcao-status-denuncia">Não Analisada</option>
-                  <option value="" id="opcao-status-denuncia">Analisada</option>
-                  <option value="" id="opcao-status-denuncia">Analisada e Avaliada</option>
-               </select>
-            </section>
+                  <select id="filtro-status-denuncia" class="linha-2-filtros">
+                     <option value="" id="opcao-status-denuncia">Analisada e Avaliada</option>
+                     <option value="" id="opcao-status-denuncia">Não Analisada</option>
+                     <option value="" id="opcao-status-denuncia">Analisada</option>
+                  </select>
+               </section>
 
+               <section class="fundo-tabela">
+                  <table class="tabela" id="myTable">
+                     
+                     <tr class="cabeçalho-tabela">
+                        <th style="width: 11.17vh;" class="titulo-tabela"></th>
+                        <th style="width: 19.01vh;" class="titulo-tabela">Conteúdo</th>
+                        <th style="width: 24.39vh;" class="titulo-tabela">Motivo da Denúncia</th>
+                        <th style="width: 15.91vh;" class="titulo-tabela">Categoria</th>
+                        <th style="width: 23.25vh;" class="titulo-tabela">Autor da Denúncia</th>
+                        <th style="width: 31.11vh;" class="titulo-tabela">Status</th>
+                     </tr>
+
+                     <tr class="linhas"> <!-- Conteudo da tabela -->
+                        <td class="linha"> <img class="ver-detalhes-denuncia" src="/imagens-svg/add-rosa.svg" alt=""></td>
+                        <td class="linha Coluna-conteudo">Perfil</td>
+                        <td class="linha Coluna-motivo">Conteúdo Inadequado</td>
+                        <td class="linha Coluna-categoria">Cúlinária</td>
+                        <td class="linha Coluna-autor">User</td>
+                        <td class="linha Coluna-status">Analisada e Avaliada</td>
+                     </tr>
+                     <tr class="linhas"> <!-- Conteudo da tabela -->
+                        <td class="linha"> <img class="ver-detalhes-denuncia" src="/imagens-svg/add-rosa.svg" alt=""></td>
+                        <td class="linha Coluna-conteudo">Pergunta</td>
+                        <td class="linha Coluna-motivo">Spam</td>
+                        <td class="linha Coluna-categoria">Limpeza</td>
+                        <td class="linha Coluna-autor">User2</td>
+                        <td class="linha Coluna-status">Não Analisada</td>
+                     </tr>
+                     <tr class="linhas"> <!-- Conteudo da tabela -->
+                        <td class="linha"> <img class="ver-detalhes-denuncia" src="/imagens-svg/add-rosa.svg" alt=""></td>
+                        <td class="linha Coluna-conteudo">Postagem</td>
+                        <td class="linha Coluna-motivo">Violações dos termos de uso</td>
+                        <td class="linha Coluna-categoria">Bem-Estar</td>
+                        <td class="linha Coluna-autor">User3</td>
+                        <td class="linha Coluna-status">Analisada</td>
+                     </tr>
+                     <tr class="linhas"> <!-- Conteudo da tabela -->
+                        <td class="linha"> <img class="ver-detalhes-denuncia" src="/imagens-svg/add-rosa.svg" alt=""></td>
+                        <td class="linha Coluna-conteudo">Comentário</td>
+                        <td class="linha Coluna-motivo">Violações dos termos de uso</td>
+                        <td class="linha Coluna-categoria">Limpeza</td>
+                        <td class="linha Coluna-autor">User4</td>
+                        <td class="linha Coluna-status">Não Analisada</td>
+                     </tr>
+                  </table>
+               </section>
+            <!-- tabela Denúncias - Fim -->
          </section>
+
       </section>
    </main>
 </body>
