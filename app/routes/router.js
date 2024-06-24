@@ -15,6 +15,18 @@ const { VerificarAutenticacao, limparSessao, gravarUsuAutenticado, verificarUsuA
         tarefasController.MostrarPosts(req, res);
     });
 
+    router.get("/dica", function(req, res) {
+        res.render("pages/template", {pagina: {cabecalho: "cabecalho", conteudo: "Base-Dica", rodape: "rodape"}, 
+        usuario_logado:req.session.autenticado, 
+        });
+    });
+
+    router.get("/pergunta", function(req, res) {
+        res.render("pages/template", {pagina: {cabecalho: "cabecalho", conteudo: "Base-Pergunta", rodape: "rodape"}, 
+        usuario_logado:req.session.autenticado, 
+        });
+    });
+
     router.get("/culinaria", function(req, res) {
         res.render("pages/template", {pagina: {cabecalho: "cabecalho", conteudo: "Categoria-Culinária", rodape: "rodape"}, 
         usuario_logado:req.session.autenticado, 
