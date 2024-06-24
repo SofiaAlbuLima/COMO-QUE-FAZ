@@ -1,4 +1,4 @@
-2// Responsável por receber as entradas do usuário, interpretá-las e acionar ações adequadas no modelo e na visualização
+// Responsável por receber as entradas do usuário, interpretá-las e acionar ações adequadas no modelo e na visualização
 
 const usuarioModel = require("../models/model-usuario"); //Requisição do arquivo Model para executar ações no Banco de Dados
 const conteudoModel = require("../models/model-conteudo");
