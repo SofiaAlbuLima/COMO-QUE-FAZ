@@ -112,9 +112,7 @@
 }
 
 .p-conteudo{
-    position: absolute;
     z-index: 1;
-    transform: translate(1.5vh,-2vh);
     height: 2vh;
 }
 .Conteudo{
@@ -125,10 +123,8 @@
 }
 .figure-conteudo{
     background-color: #F1F1F1 ;
-    position: absolute;
     border-radius: 5px;
     z-index: 0;
-    transform: translate(0,-3vh);
     height: 4vh;
 }
 
