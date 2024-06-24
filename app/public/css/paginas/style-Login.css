@@ -1,5 +1,5 @@
 @media only screen and (max-width: 480px){
-	.conteudo-dispositivo-desktop{
+	.conteudo-dispositivo-desktop-login{
 		display: none;
 	}
 	#Cadastro{
@@ -201,8 +201,10 @@
 }
 
 @media only screen and (min-width: 480px) {
-    .main-login{
-        background-image: url(../imagens/fundogatos-desktop.png);
+    .conteudo-dispositivo-desktop-login{
+        background-image: url(/imagens/fundogatos-desktop.png);
+		padding-top: 1vh;
+		height: 75vh;
 	}
     *{
         font-family: Heavitas;
@@ -260,31 +262,31 @@
 		color: #ffd662;
 		margin-bottom: 6%;
 	}
-	.caixa-mob input{
+	#input1, #input2{
 		width: 70%;
 		outline: none;
 		border-radius: 10px;
 		border: 1px solid #eee;
-		padding: 2.5% 0% 2.5% 2.5%;
+		padding: 1.5vh 0vh 1.5vh 2.5vh;
 		margin-bottom: 3%;
-		font-family: Fira Sans;
-		font-weight: bold;
+		font-family: Fira Sans;		
+		font-weight: 550;
 	}
-	.input2::placeholder {
-		font-family: heavitas;
-		font-weight: 400;
+	#input2::placeholder {
+		font-family: Fira Sans;	
+		font-weight: 600;
 		color: #cb218c;
 	}
-	.input1::placeholder {
-		font-family: heavitas;
-		font-weight: 400;
+	#input1::placeholder {
+		font-family: Fira Sans;	
+		font-weight: 600;
 		color: #cb218c;
 	}
 	.caixa-mob input:focus::placeholder {
 		color: #cb218d45;
 		transition: 0.3s;
 	  }
-	.input2{
+	#input2{
 		margin-bottom: 3%;
 	}	
 	.esqueceu-foi {
@@ -399,7 +401,7 @@
 		transform: rotate(345deg);
 		position: absolute;
 		margin-left: 19.8%;
-		margin-top: 24.0%;
+		margin-top: 27.0%;
 		z-index: 4;
 	}
 	.circulo{
@@ -411,7 +413,7 @@
 		width: 75px;
 		background-color: #ffa462;
 		margin-left: 76.8%;
-		margin-top: 0.5%;
+		margin-top: 3%;
 	}
 	#cir2{
 		height: 75px;
