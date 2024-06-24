@@ -1,6 +1,6 @@
 .grid-menu-filtros-denuncias{
     display: grid;
-    grid-template-columns: 12.3% 22% 10% 7% 18% 95%;
+    grid-template-columns: 12.3% 22% 10% 7% 18% 30%;
     grid-template-rows: 27% 47%;
     grid-column-gap: 1%;
 }
@@ -38,6 +38,10 @@
      
 }
 
+#pesquisar{
+    margin-left: 13.7vh;
+}
+
 .icone-pesquisa{
     width: 2.2vh;
     position: absolute;
@@ -68,7 +72,8 @@
     padding-left: 4.5vh;
     padding-right: 4vh;
     padding-bottom: 2vh;
-    overflow: auto;
+    overflow-y: auto;
+    overflow-x: hidden;
 }
 
 .tabela{
@@ -98,12 +103,6 @@
 
 /* Classes das celulas dinâmicas - Inicio */
 /* Coluna Conteúdo - Inicio */
-.classe-padrao{
-    color: #333333;
-    font-family: Fira Sans;
-    font-size: 1.7vh;
-}
-
 .ver-detalhes-denuncia{
     margin-left: 2.4vh;
     border: 0.2vh solid #CB218C;
@@ -111,91 +110,44 @@
     padding: 1vh 1.4vh 1vh 1.4vh;
 }
 
-.p-conteudo{
-    z-index: 1;
-    height: 2vh;
-}
-.Conteudo{
+.Coluna-conteudo{
+    display: inline-block;
+    max-width: 13vh;
+    height: 2.3vh;
+    text-align: center;
     color: #5800AA;
     font-family: "Fira Sans", sans-serif;
     font-size: 1.8vh;
     font-weight: 700;
-}
-.figure-conteudo{
     background-color: #F1F1F1 ;
     border-radius: 5px;
-    z-index: 0;
-    height: 4vh;
-}
-
-.figure-perfil{
-    width: 7.5vh;
-}
-.p-perfil{
-    width: 4.5vh;
-}
-.figure-pergunta{
-    width: 10vh;
-}
-.p-pergunta{
-    width: 7vh;
-}
-.figure-postagem{
-    width: 11vh;
-}
-.p-postagem{
-    width: 8vh;
-}
-.figure-comentario{
-    width: 12vh;
-}
-.p-comentario{
-    width: 9vh;
+    padding: 1vh 2vh 1vh 2vh;
 }
 /* Coluna Conteúdo - Fim */
 
 /* Coluna Status - inicio */
-
-.Status{
+.Coluna-status{
+    display: inline-block;
+    height: 2.3vh;
+    text-align: center;
     color: white;
     font-family:  "Fira Sans Bold", "Fira Sans", sans-serif;
     font-size: 1.7vh;
     font-weight: 700;
-}
-.figure-status{
-    height: 4vh;
-    position: absolute;
     border-radius: 5px;
-    z-index: 0;
-    transform: translate(0,-3vh);
-}
-.p-status{
-    height: 2vh;
-    position: absolute;
-    z-index: 1;
-    transform: translate(3vh,-2vh);
+    padding: 1vh 2vh 1vh 2vh;
 }
 
-.figure-analisadaAvaliada{
-    width: 23vh;
+.analisadaAvaliada{
     background-color: #5800AA;
 }
-.p-analisadaAvaliada{
-    width: 16vh;
-}
-.figure-naoAnalisada{
-    width: 18vh;
+
+.naoAnalisada{
     background-color: #CB218C;
 }
-.p-naoAnalisada{
-    width: 12vh;
-}
-.figure-analisada{
-    width: 14vh;
+
+.analisada{
     background-color: #F0C75C;
-}
-.p-analisada{
-    width: 8vh;
 }
 /* Coluna Status - Fim */
 /* Classes das celulas dinâmicas - Fim */
