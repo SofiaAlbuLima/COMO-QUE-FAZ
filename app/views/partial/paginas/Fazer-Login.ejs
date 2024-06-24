@@ -64,41 +64,38 @@
       <section class="conteudo-dispositivo-desktop-login">
 
          <% 
-         let erroValidacao = { input1: "", input2: "" };
-         let msgErro = "";
-         if (listaErros) {
-             listaErros.errors.forEach(function(Itemerro) {
-                 if (Itemerro.path == "input1") {
-                     erroValidacao.input1 = "erro";
-                     msgErro += `${Itemerro.msg} <br>`;
+         let avisoErro = {"input1":"", "input2":""}
+         let msgErro = ""
+             if(listaErros){
+                 listaErros.errors.forEach(function(itemErro){
+                     if(itemErro.path == "input1"){
+                         avisoErro.input1 = "erro";
+                         msgErro += `* ${itemErro.msg} <br>`
+                     }
+                     if(itemErro.path == "input2"){
+                         avisoErro.input2 = "erro";
+                         msgErro += `* ${itemErro.msg} <br>`
+                     }
+                 })
+                 if(msgErro != ""){
+                 %>
+                     <script>
+                         let msgErro ="<%= msgErro %>"
+                         notify("Erro(s) no preenchimento", 
+                                "Verifique o(s) campo(s) <br> " + msgErro.replace(/&lt;/g,"<").replace(/&gt;/g,">"), 
+                                "error", "center", 5000)                        
+                     </script>
+                 <%
                  }
-                 if (Itemerro.path == "input2") {
-                     erroValidacao.input2 = "erro";
-                     msgErro += `${Itemerro.msg} <br>`;
-                 }
-             });
-             if (msgErro !== "") {
-         %>
-             <script>
-                 let msgErro = "<%= msgErro %>";
-                 notify("Erro(s) no procedimento",
-                 "Verifique o(s) campo(s) <br>" + msgErro.replace(/&lt;/g, "<").replace(/&gt;/g, ">"),
-                 "error", "center", 5000);
-             </script>
-         <% 
              }
-         }
-         if (dadosNotificacao) { 
-         %>
-             <script>
-                 notify("<%= dadosNotificacao.titulo %>", "<%= dadosNotificacao.mensagem %>", "<%= dadosNotificacao.tipo %>", "center");
-                 if ("<%= dadosNotificacao.tipo %>" === "success") {
-                     setTimeout(function() { window.location = "/"; }, 3000);
-                 }
-             </script>
-         <% 
-         } 
-         %>
+             if (dadosNotificacao) { %>
+                 <script>
+                         notify("<%= dadosNotificacao.titulo%>","<%= dadosNotificacao.mensagem%>", "<%= dadosNotificacao.tipo%>", "center")
+                         if("<%= dadosNotificacao.tipo %>" == "success"){
+                             setTimeout(function(){window.location="/"}, 3000)
+                         }                        
+                 </script>
+             <% } %>
          
          <figure class="decoracao-frente">
             <img src="imagens/gatinho-laranja-decoracao.png" alt="">
@@ -115,11 +112,10 @@
 
                         <p>Seja bem-vindo de volta!</p>
 
-                           <input class="input1" type="text" name="input1"  placeholder="E-MAIL / NOME DE USUÁRIO" required>
-                           <span><%= msgErro.input1%></span>
+                           <input class="<%= avisoErro.input1%>" type="text" id="input1"  placeholder="E-MAIL / NOME DE USUÁRIO" required>
                            
-                           <input class="input2" type="password" name="input2"  placeholder="SENHA" required>
-                           <span><%= msgErro.input2%></span>
+                           
+                           <input class="<%= avisoErro.input2%>" type="password" id="input2"  placeholder="SENHA" required>
                         
                         <article class="redes-login-mob">
                            <span class="esqueceu-foi">Esqueceu a senha? <a href="#">Recupere aqui</a></span>

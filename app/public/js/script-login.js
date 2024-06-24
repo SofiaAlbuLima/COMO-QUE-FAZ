@@ -2,7 +2,7 @@ function notify(titulo, texto, tipo, posicao,duracao=3000) {
     new Notify({
         status: tipo,
         title: titulo,
-        text:texto,
+        text:texto.replace(/&lt;/g,"<").replace(/&gt;/g,">"),
         effect: 'fade',
         speed: 500,
         showIcon: true,
@@ -13,7 +13,7 @@ function notify(titulo, texto, tipo, posicao,duracao=3000) {
         distance: 20,
         type: 1,
         position:posicao 
-    });
+    })
 };
 function verificaConfirmaSenha() {
  
