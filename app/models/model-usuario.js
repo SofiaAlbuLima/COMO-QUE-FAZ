@@ -26,7 +26,6 @@ const usuarioModel = { //const que agrupa todas as funções de acesso e manipul
                 "SELECT * FROM clientes WHERE Nickname = ? OR Email = ?",
                 [Nickname, Email]
             );
-            console.log("Resultados da consulta:", resultados);
             return resultados;
         } catch (error) {
             console.error("Erro ao buscar usuário por Nickname ou Email:", error);

@@ -2,6 +2,7 @@
 
 const usuarioModel = require("../models/model-usuario"); //Requisição do arquivo Model para executar ações no Banco de Dados
 const conteudoModel = require("../models/model-conteudo");
+const imagemModel = require("../models/model-midia");
 const moment = require("moment"); //datas e horas bonitinhas
 const {body, validationResult} = require("express-validator");
 const bcrypt = require("bcryptjs");
@@ -130,8 +131,9 @@ const tarefasController = {
                 nome: conteudo.Titulo,
                 descricao: conteudo.Descricao,
                 tempo: formatarTempo(conteudo.tempo),
-                porcoes: conteudo.porcoes
+                porcoes: conteudo.porcoes > 0 ? `${conteudo.porcoes} ${conteudo.porcoes > 1 ? 'Porções' : 'Porção'}` : null
             }));
+
             function formatarTempo(tempo) {
                 let duracao = moment.duration(tempo, 'HH:mm:ss');
                 let horas = duracao.hours();
@@ -139,9 +141,9 @@ const tarefasController = {
                 if (horas > 0 && minutos > 0) {
                     return `${horas}h${minutos}min`;
                 } else if (horas > 0 && minutos <= 0) {
-                    return `${horas} hora${horas > 1 ? 's' : ''}`;
+                    return `${horas}hora${horas > 1 ? 's' : ''}`;
                 } else if (horas <= 0 && minutos > 0) {
-                    return `${minutos} minuto${minutos > 1 ? 's' : ''}`;
+                    return `${minutos}min`;
                 } else {
                     return ''; 
                 }
@@ -168,6 +170,14 @@ const tarefasController = {
             porcoes: req.body.dica-porcoes
         };
         try{
+            const dadosImagem = {
+                nome: req.file.filename,
+                caminho: req.file.path
+            };
+            
+            let imagemCriada = await imagemModel.criarImagem(dadosImagem);
+            FormCriarDica.imagem_id = imagemCriada.insertId;
+
             let create = conteudoModel.CriarPostagem(FormCriarDica);
             console.log("postagem realizada!");
 
@@ -192,7 +202,6 @@ const tarefasController = {
             console.log("Erro ao realizar a postagem!");
         }
     }
-
     
 };
 

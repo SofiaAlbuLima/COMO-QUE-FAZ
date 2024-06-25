@@ -1304,10 +1304,12 @@
                                  <img src="imagens/estrela-cinza.svg" alt="estrela">
                                  <h3>5.0</h3>
                               </figure>
+                              <% if(post.porcoes != null){ %>
                               <figure class="legenda partes">
                                  <img src="imagens/partes-cinza.png" alt="partes">
-                                 <h3>8</h3>
+                                 <h3><%= post.porcoes %></h3>
                               </figure>
+                              <% } %>
                            </aside>
                            <aside class="hover-post" id="hover-post5-B">
                               <h3>essa dica não possui itens necessários</h3>
