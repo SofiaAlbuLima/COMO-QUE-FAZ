@@ -27,6 +27,15 @@ const conteudoModel = { //const que agrupa todas as funções de acesso e manipu
         } catch(erro){
             throw erro; 
         }
+    },
+
+    CriarPergunta: async(camposCriar)=>{
+        try{
+            const [resultados] = await pool.query( "insert into perguntas set ?", [camposCriar])
+            return resultados;
+        } catch(erro){
+            throw erro; 
+        }
     }
 }
 

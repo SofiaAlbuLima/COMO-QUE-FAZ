@@ -9,6 +9,8 @@ const { VerificarAutenticacao, limparSessao, gravarUsuAutenticado, verificarUsuA
     router.post("/login", tarefasController.regrasValidacaoLogin, gravarUsuAutenticado, tarefasController.Login_formLogin);
     router.post("/cadastro", tarefasController.regrasValidacaoCadastro, tarefasController.Login_formCadastro);
     router.post('/criar-dica', tarefasController.CriarDica);
+    router.post('/criar-pergunta', tarefasController.CriarPergunta);
+
 
 // Links & Template - Parte Publica
     router.get("/", VerificarAutenticacao, function (req, res) {

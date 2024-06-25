@@ -163,11 +163,11 @@ const tarefasController = {
     CriarDica: async (req, res) => {
         var FormCriarDica = { //dados que o usuário digita no formulário
             Clientes_idClientes: req.session.autenticado.id, 
-            Titulo: req.body.dica-titulo,
-            Categorias_idCategorias: req.body.dica-categoria,
-            tempo: `${req.body.dica-tempo-horas.padStart(2, '0')}:${req.body.dica-tempo-minutos.padStart(2, '0')}:00`, // Formatando horas e minutos
-            Descricao: req.body.dica-descricao,
-            porcoes: req.body.dica-porcoes
+            Titulo: req.body.dica_titulo,
+            Categorias_idCategorias: req.body.dica_categoria,
+            tempo: `${req.body.dica_tempo_horas.padStart(2, '0')}:${req.body.dica_tempo_minutos.padStart(2, '0')}:00`, // Formatando horas e minutos
+            Descricao: req.body.dica_descricao,
+            porcoes: req.body.dica_porcoes
         };
         try{
             const dadosImagem = {
@@ -200,9 +200,41 @@ const tarefasController = {
                 },
             });
             console.log("Erro ao realizar a postagem!");
+            console.log(FormCriarDica);
+        }
+    },
+    CriarPergunta: async (req, res) => {
+        var FormCriarPergunta = {
+            Clientes_idClientes: req.session.autenticado.id,
+            titulo: req.body.pergunta_titulo,
+            Categorias_idCategorias: req.body.pergunta_categoria
+        };
+        try{
+            let create = conteudoModel.CriarPergunta(FormCriarPergunta);
+            console.log("Pergunta realizada!");
+
+            req.session.notification = {
+                titulo: "Pergunta realizada!",
+                mensagem: "Sua pergunta foi publicada com sucesso!",
+                tipo: "success"
+            };
+            return res.redirect("/perfil");
+        } catch(e){
+            console.log(e);
+            res.render("pages/template", {
+                pagina: {cabecalho: "cabecalho", conteudo: "meu-perfil", rodape: "rodape"}, 
+                usuario_logado:req.session.autenticado, 
+                listaErros: erros, 
+                dadosNotificacao: {
+                    titulo: "Erro ao realizar a pergunta!", 
+                    mensagem: "Verifique os valores digitados em rascunhos!", 
+                    tipo: "error"
+                },
+            });
+            console.log("Erro ao realizar a pergunta!");
+            console.log(FormCriarPergunta);
         }
     }
-    
 };
 
 

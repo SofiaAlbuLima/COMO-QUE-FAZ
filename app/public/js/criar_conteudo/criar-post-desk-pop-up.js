@@ -48,8 +48,14 @@ document.addEventListener("DOMContentLoaded", function () {
         // Altera o nome do botão "Avançar" para "Criar Post" na Tarefa 3
         if (currentIndex === 2) {
             btnAvancar.innerText = "CRIAR DICA";
+            btnAvancar.type = "submit"; 
+            btnAvancar.classList.remove("Avancar"); 
+            btnAvancar.classList.add("submit-criar-conteudo"); 
         } else {
             btnAvancar.innerText = "PRÓXIMA ETAPA...";
+            btnAvancar.type = "button"; 
+            btnAvancar.classList.remove("submit-criar-conteudo"); 
+            btnAvancar.classList.add("Avancar"); 
         }
 
         // Mostrar ou ocultar o botão de voltar com base na posição atual
@@ -72,9 +78,10 @@ document.addEventListener("DOMContentLoaded", function () {
     }
 
     // Adiciona um ouvinte de evento de clique ao botão "Avançar"
-    btnAvancar.addEventListener("click", function () {
+    btnAvancar.addEventListener("click", function (e) {
         const nextIndex = currentIndex + 1;
         if (nextIndex < itens.length) {
+            e.preventDefault();
             handleItemClick({ target: itens[nextIndex] });
         }
     });

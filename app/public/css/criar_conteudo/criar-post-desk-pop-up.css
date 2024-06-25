@@ -1024,13 +1024,18 @@
         font-weight: 700;
         padding: 2px 2px 2px 2px;
         border-radius: 5px;
-        background-image: linear-gradient(89.99098801485042deg, #4d16bb 0%, #9d21cb 99.20266782940685%);
         color: #ffffff;
         text-align: center;
         border: none;
         margin-left: 47vw;
         position: relative;
         cursor: pointer;
+    }
+    .Avancar{
+        background-image: linear-gradient(89.99098801485042deg, #4d16bb 0%, #9d21cb 99.20266782940685%);
+    }
+    .submit-criar-conteudo{
+        background-image: linear-gradient(89.99264748999329deg, rgba(146, 31, 201, 1) -0%, rgba(203, 33, 140, 1) 99%);
     }
 
     #btnVoltar {
