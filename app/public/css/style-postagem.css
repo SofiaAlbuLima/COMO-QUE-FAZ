@@ -1,0 +1,1590 @@
+@media only screen and (max-width: 480px) {
+    .conteudo-dispositivo-desktop{
+        display: none;
+    }
+    .conteudo-dispositivo-mobile{
+        display: block;
+    }
+    .titulo-categoria{
+        line-height: normal;
+        width: 40%;
+        height: 3%;
+        padding: 2px 2px 2px 2px;
+        border-radius: 5px;
+        background-color: #cb1154;
+        box-sizing: border-box;
+        margin-left: 10%;
+        display: flex;
+        margin-top: 5%;
+    }
+    .icon-culinaria{
+        width: 20%;
+        margin-left: 2%;
+    }
+    .titulo-culinaria{
+        margin-left: 11%;
+        font-size: 80%;
+        color: white;
+        font-family: Heavitas;
+        font-weight: 400;
+        margin-top: 6%;
+    }
+    .titulos-post{
+        margin-left: 10%;
+        margin-top: 5%;
+        margin-right: 10%;
+    }
+    .titulo-user {
+        font-size: 15px;
+        font-family: Fira Sans;
+        display: inline;
+        color: #333333;
+    }
+    .titulo-principal{
+        font-size: 22px;
+        font-family: Heavitas;
+        color: #333333;
+        font-weight: 400;
+        margin-top: 3%;
+    }
+    .info-post{
+        margin-top: 3%;
+        margin-left: 11%;
+        margin-right: 11%;
+        justify-content: space-between;
+        display: flex;
+    }
+    .tempo{
+        display: inline;
+    }
+    .tempo-post{
+        height: 26px;
+    }
+    .avaliacao{
+        display: inline;
+    }
+    .avalia-post{
+        height: 26px;
+    }
+    .porcoe{
+        display: inline;
+        align-content: right;
+    }
+    .porcao-post{
+        height: 26px;
+    }
+    .texto-info{
+        display: inline;
+        font-size: 26px;
+        font-family: Fira Sans;
+        color: #333333;
+    }
+    .descricao-post{
+        margin-left: 10%;
+        margin-right: 10%;
+        font-size: 14px;
+    }
+    .descricao{
+        font-family: Fira Sans;
+        text-align: justify;
+        color: #333333;
+        margin-top: 3%;
+        line-height: 100%;
+    }
+    .hashtags{
+        margin-top: 5%;
+        font-family: Fira Sans Bold;
+        font-weight: 700;
+        padding: 4% 5% 4% 5%;
+        color: #cb1154;
+        background-color: #f2f2f2;
+        border-radius: 0 0 15px 0;
+    }
+    .hashtags-texto{
+        font-family: Fira Sans;
+        font-weight: 700;
+    }
+    .Itens-necessários{
+        background-color: #cb2154;
+        margin: 5% 10% 0 10%;
+        border-radius: 5px 5px 5px 5px;
+        padding: 5% 5% 5% 5%;
+    }
+    .itens-titulo{
+        color: white;
+        font-weight: 400;
+        font-size: 22px;
+    }
+    .lista-itens{
+        margin-top: 5%;
+        font-family: Fira Sans;
+        margin-left: 5%;
+    }
+    .item-1{
+        font-family: Fira Sans Bold;
+        font-weight: 500;
+        color: white;
+        background: none;
+        border: none;
+        text-decoration: none;
+        text-align: left;
+    }
+    .item-1:active{
+        transition: 1s;
+    }
+    .info-item{
+        background-color: #a20f45;
+        margin-left: -10%;
+        margin-top: -10%;
+        text-align: left;
+        width: 109%;
+        border-radius: 0 0 10px 10px;
+        height: 50px;
+        padding: 14% 3% 5% 2%;
+        display: flex;
+    }
+    .icon-colher{
+        width: 50px;
+        height: 50px;
+        display: block; 
+        margin-right: 3%;
+    }
+    .titulo-colher{
+        font-family: Fira Sans Bold;
+        height: 0;
+        font-size: 13px;
+        text-decoration: none;
+    }
+    .myDIV{
+        display: none;
+    }
+    .info-texto{
+        font-family: Fira Sans Bold;
+        font-size: 12px;
+        text-decoration: none;
+    }
+    .lista-info-1{
+        margin-top: 10%;
+        margin-left: 10%;
+        font-family: Fira Sans Bold;
+    }
+    .lista-info-2{
+        margin-left: 10%;
+        font-family: Fira Sans Bold;
+    }
+    .item-2{
+        font-family: Fira Sans Bold;
+        font-weight: 500;
+        color: white;
+        background: none;
+        border: none;
+        text-decoration: none;
+        margin-top: 4%;
+        text-align: left;
+    }
+    .myDIV2{
+        display: none;
+    }
+    .icon-xicara-cha{
+        width: 50px;
+        height: 50px;
+        display: block; 
+        margin-right: 2%;
+        margin-left: 2%;
+    }
+    .info-item2{
+    background-color: #a20f45;
+        margin-left: -10%;
+        margin-top: -10%;
+        text-align: left;
+        width: 109%;
+        border-radius: 0 0 10px 10px;
+        height: 50px;
+        padding: 14% 3% 5% 2%;
+        display: flex;
+    }
+    .myDIV3{
+        display: none;
+    }
+    .item-3{
+        font-family: Fira Sans Bold;
+        font-weight: 500;
+        color: white;
+        background: none;
+        border: none;
+        text-decoration: none;
+        margin-top: 4%;
+        text-align: left;
+    }
+    .info-item3{
+    background-color: #a20f45;
+        margin-left: -10%;
+        margin-top: -10%;
+        text-align: left;
+        width: 109%;
+        border-radius: 0 0 10px 10px;
+        height: 50px;
+        padding: 14% 3% 5% 2%;
+        display: flex;
+    }
+    .myDIV4{
+        display: none;
+    }
+    .item-4{
+        font-family: Fira Sans Bold;
+        font-weight: 500;
+        color: white;
+        background: none;
+        border: none;
+        text-decoration: none;
+        margin-top: 4%;
+        text-align: left;
+    }
+    .info-item4{
+    background-color: #a20f45;
+        margin-left: -10%;
+        margin-top: -10%;
+        text-align: left;
+        width: 109%;
+        border-radius: 0 0 10px 10px;
+        height: 50px;
+        padding: 14% 3% 5% 2%;
+        display: flex;
+    }
+    .myDIV5{
+        display: none;
+    }
+    .item-5{
+        font-family: Fira Sans Bold;
+        font-weight: 500;
+        color: white;
+        background: none;
+        border: none;
+        text-decoration: none;
+        margin-top: 4%;
+        text-align: left;
+    }
+    .info-item5{
+    background-color: #a20f45;
+        margin-left: -10%;
+        margin-top: -10%;
+        text-align: left;
+        width: 109%;
+        border-radius: 0 0 10px 10px;
+        height: 50px;
+        padding: 14% 3% 5% 2%;
+        display: flex;
+    }
+    .myDIV6{
+        display: none;
+    }
+    .item-6{
+        font-family: Fira Sans Bold;
+        font-weight: 500;
+        color: white;
+        background: none;
+        border: none;
+        text-decoration: none;
+        margin-top: 4%;
+        text-align: left;
+    }
+    .info-item6{
+    background-color: #a20f45;
+        margin-left: -10%;
+        margin-top: -10%;
+        text-align: left;
+        width: 109%;
+        border-radius: 0 0 10px 10px;
+        height: 50px;
+        padding: 14% 3% 5% 2%;
+        display: flex;
+    }
+    .myDIV7{
+        display: none;
+    }
+    .item-7{
+        font-family: Fira Sans Bold;
+        font-weight: 500;
+        color: white;
+        background: none;
+        border: none;
+        text-decoration: none;
+        margin-top: 4%;
+        text-align: left;
+    }
+    .info-item7{
+    background-color: #a20f45;
+        margin-left: -10%;
+        margin-top: -10%;
+        text-align: left;
+        width: 109%;
+        border-radius: 0 0 10px 10px;
+        height: 50px;
+        padding: 14% 3% 5% 2%;
+        display: flex;
+    }
+
+    .myDIV8{
+        display: none;
+    }
+    .item-8{
+        font-family: Fira Sans Bold;
+        font-weight: 500;
+        color: white;
+        background: none;
+        border: none;
+        text-decoration: none;
+        margin-top: 4%;
+        text-align: left;
+    }
+    .info-item8{
+    background-color: #a20f45;
+        margin-left: -10%;
+        margin-top: -10%;
+        text-align: left;
+        width: 109%;
+        border-radius: 0 0 10px 10px;
+        height: 50px;
+        padding: 14% 3% 5% 2%;
+        display: flex;
+    }
+    .myDIV9{
+        display: none;
+    }
+    .item-9{
+        font-family: Fira Sans Bold;
+        font-weight: 500;
+        color: white;
+        background: none;
+        border: none;
+        text-decoration: none;
+        margin-top: 4%;
+        text-align: left;
+    }
+    .info-item9{
+    background-color: #a20f45;
+        margin-left: -10%;
+        margin-top: -10%;
+        text-align: left;
+        width: 109%;
+        border-radius: 0 0 10px 10px;
+        height: 50px;
+        padding: 14% 3% 5% 2%;
+        display: flex;
+    }
+    .Modo-Preparo{
+        border-left: 5px solid #cb1154;
+        margin: 10% 10% 10% 10%;
+        padding-top: 5%;
+        padding-bottom: 1%;
+    }
+    .modo-titulo{
+        color: #333333;
+        font-weight: 400;
+        font-size: 22px;
+        text-align: left;
+        margin-left: 5%;
+    }
+    .lista-modo{
+        margin-left: 5%;
+        margin-top: 5%;
+    }
+    .modos{
+       background-image: linear-gradient(89.99311970570312deg, #ffffff 0%, #e9e9e9 95.48561645502186%); 
+       display: flex;
+       padding: 3% 3% 3% 0%;
+       margin-bottom: 3%;
+       border-radius: 0 0 5px 0;
+    }
+    .t-modo{
+        color: #333333;
+        font-size: 20px;
+        text-align: left;
+        display: grid;
+        align-items: center;
+        font-weight: 400;
+    }
+    .p-modo{
+        font-family: Fira Sans;
+        font-weight: 400;
+        color: #333333;
+        font-size: 15px;
+        margin-left: 5%;
+    }
+    .gostou{
+        font-size: 26px;
+        color: white;
+        font-weight: 400;
+    }
+    .estrelas{
+        padding: 4% 10% 3% 10%;
+        width: 80%;
+        background-color: #cb1154;
+        display: flex;
+    }
+    .p-aval{
+        font-size: 13px;
+        color: white;
+        font-weight: 400;
+        text-align: left;
+        margin-left: -131px;
+        margin-top: 30px;
+        margin-bottom: 1%;
+    }
+    .avalia-estrelas{
+        position: absolute;
+        margin-top: 3.5%;
+        margin-left: 43%;
+        transform:  rotateY(180deg);
+        align-items: center;
+    }
+    .avalia-estrelas input{
+        display: none;
+    }
+    .avalia-estrelas label{
+        width: 10px;
+        background: none;
+    }
+    .avalia-estrelas label:before{
+        content: '\f005';
+        font-family: fontAwesome;
+        position: relative;
+        font-size: 27px;
+        color: #711136;
+    }
+    .avalia-estrelas label:after{
+        content: '\f005';
+        font-family: fontAwesome;
+        position: absolute;
+        font-size: 27px;
+        color: #ffd662;
+        margin-left: -25px;
+        opacity: 0;
+        transition: 0.5s;
+        text-shadow: 0 2px 5px rgba(0, 0, 0, 0.5);
+    }
+    .avalia-estrelas label:hover:after,
+    .avalia-estrelas label:hover ~ label:after,
+    .avalia-estrelas input:checked ~ label:after{
+        opacity: 1;
+    }
+    .comentarios{
+        margin: 5% 10% 5% 10%;
+        display: flex;
+        justify-content: space-between;
+    }
+    .comem-titulo{
+        font-family: Fira Sans;
+        font-size: 23px;
+        color: #333333;
+    }
+    .filtro{
+        padding: 3% 5% 3% 5%;
+        background-color: #F2F2F2;
+        border-radius: 5px 5px 5px 5px;
+        display: flex;
+    }
+    .p-filtro{
+        font-family: Fira Sans Bold;
+        font-size: 15px;
+        color: #4D16BB;
+    }
+    .comentar{
+        margin: 5% 10% 5% 10%;
+        display: flex;
+        justify-content: space-between;
+    }
+    .inserir-comentario{
+        border-top: none;
+        border-left: none;
+        border-right: none;
+        border-bottom: 2px solid #4D16BB;
+        margin-left: 5%;
+        width: 100%;
+        height: 25px; 
+        font-family: Fira Sans Bold;
+        outline: none;
+    }
+    .botao-comentar{
+        background-color: #FFD662;
+        color: #4D16BB;
+        border-top: none;
+        border-left: none;
+        border-right: none;
+        border-bottom: none;
+        border-radius: 5px;
+        padding: 2% 3% 2% 3%;
+        margin-left: 3%;
+        width: 35%;
+    }
+    .botoes-comentar{
+        height: 35px;
+        margin-top: -30px;
+        align-items: right;
+        display: flex;
+        margin-bottom: 10%;
+    }
+    .cancelar{
+        font-size: 15px;
+        margin-top: 2%;
+        margin-left: 39%;
+        color: #333333;
+        height: 20px;
+        font-family: Fira Sans Bold;
+    }
+    input.inserir-comentario::placeholder {
+        opacity: 0.5;
+        color: #333333;
+        font-family: Fira Sans Bold;
+      }
+      .estrelas-taylor{
+        content: '\f005';
+        font-family: fontAwesome;
+        margin-left: 5%;
+        width: 100px;
+        color: #9e5fef;
+      }
+      .comentario{
+        margin: 5% 0% 5% 10%;
+        display: flex;
+      }
+      .comentario h1{
+        font-family: Fira Sans Bold;
+        font-size: 17px;
+        margin-left: 15px;
+        text-align: left;
+        color: #9e5fef;
+      }
+      .tres-pontinhos-comentario{
+        width: 3px;
+        height: 13px;
+        margin-right: 10%;
+      }
+      .texto-comentario-taylor{
+        color: #333333;
+        font-family: Fira Sans;
+      }
+      .foto-de-perfil-taylorfan{
+        width: 43px;
+        height: 43px;
+      }
+      .texto-coment-taylor{
+        text-align: left;
+        margin-left: 24%;
+        margin-top: -9%;
+        margin-right: 10%;
+        font-family: Fira Sans;
+        font-size: 15px;
+      }
+      .responder-coment{
+        font-size: 16px;
+        font-family: Fira Sans Bold;
+        color: #4d16bb;
+        margin-left: 5%;
+      }
+      .mostrar-mais{
+        height: 50px;
+      }
+      .mostrar-mais h1{
+        background-color: #f2f2f2;
+        color: #4d16bb;
+        border: #4d16bb solid 1px;
+        border-radius: 5px;
+        padding: 2% 3% 2% 3%;
+        height: 15px;
+        margin-left: 10%;
+        margin-right: 10%;
+        margin-top: 7%;
+        width: 73%;
+        font-size: 13px;
+        font-weight: 400;
+        text-align: center;
+      }
+      .Carrossel img{
+        width: 100%;
+        border-radius: 5px;
+      }
+      .Carrossel{
+        margin-top: 5%;
+        display: block;
+        overflow: hidden;
+        margin-left: 10%;
+        margin-right: 10%;
+      }
+      .previa{
+        display: flex;
+        margin-top: 2%;
+      }
+      .previa .imagem{
+        width: 120px;
+        border-radius: 5px;
+        transition: 0.2s;
+        margin-bottom: 5%;
+        margin-right: 2%;
+        align-items: center;
+        overflow: hidden;
+        opacity: 0.9;
+      }
+      .previa .imagem:hover{
+        filter: brightness(70%);
+        opacity: 1;
+      }
+      .heart-icon {
+        cursor: pointer;
+        transition: fill 0.3s ease-in-out;
+    }
+    img.azul{
+        content: url(https://files.axshare.com/gsc/V8CDR5/14/98/53/149853897c1d4acaafb2a9e4cf5619cd/images/perfil/u17.svg?pageId=3e54c061-96d3-4029-9a62-74e3821412f8)
+      }
+      img.vermelho{
+      content:url( https://files.axshare.com/gsc/V8CDR5/14/98/53/149853897c1d4acaafb2a9e4cf5619cd/images/perfil/u18.svg?pageId=3e54c061-96d3-4029-9a62-74e3821412f8)
+      }
+
+      
+    .opcoes{
+        position: absolute;
+        margin-top: -5%;
+        margin-left: 83.2%;
+        cursor: pointer;
+    }
+    .opcoes-comentario{
+        position: absolute;
+        margin-left: 73%;
+        cursor: pointer;
+    }
+    .ponto{
+        background: #cb2154;
+        width: 8px;
+        height: 8px;
+        margin-bottom: 3px;
+        border-radius: 3px;
+        margin-left: 20px;
+        margin-right: 20px;
+    }
+    .ponto-comentario{
+        background: #4d16bb;
+        width: 5px;
+        height: 5px;
+        margin-bottom: 3px;
+        border-radius: 3px;
+        margin-left: 20px;
+        margin-right: 4%;
+    }
+    #hide-opcoes{
+        z-index:1000;
+        margin-top: -5%;
+        margin-left: 28%;
+        display: inline;
+        height: 70px;
+        position: absolute;
+        background-color: white;
+        padding: 5% 5% 5% 5%;
+        border-radius: 5px;
+        box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.565);
+    }
+    #hide-opcoes-comentario{
+        z-index:1000;
+        margin-top: -10%;
+        margin-left: 10%;
+        display: inline;
+        height: 70px;
+        position: absolute;
+        background-color: white;
+        padding: 5% 5% 5% 5%;
+        border-radius: 5px;
+        box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.565);
+    }
+    #hide-opcoes img{
+        width: 20px;
+        height: 20px;
+    }
+    #hide-opcoes-comentario img{
+        width: 20px;
+        height: 20px;
+    }
+    #hide-opcoes p{
+        font-family: Fira Sans Bold;
+        margin-left: 15px;
+    }
+    #hide-opcoes-comentario p{
+        font-family: Fira Sans Bold;
+        margin-left: 15px;
+    }
+    .denunciar{
+        width: 150px;
+        display: flex;
+        margin-bottom: 20px;
+    }
+    .denunciar-comentario{
+        width: 200px;
+        display: flex;
+        margin-bottom: 20px;
+    }
+    .compartilhar{
+        width: 180px;
+        display: flex;
+    }
+    .compartilhar-comentario{
+        display: flex;
+    }
+    .compartilhar-comentario p{
+        width: 210px;
+    }
+    .coracao-vazado{
+      height: 18px;
+    }
+    .coracao-preenchido{
+      height: 22px;   
+      margin-left: 0.2;
+      margin-top: -6.0%;
+      position: absolute;
+      animation: heartBeat 0.5s ease-in-out;
+    }
+    
+  @keyframes heartBeat {
+      0% {
+        transform: scale(1);
+      }
+      50% {
+        transform: scale(1.2);
+      }
+      100% {
+        transform: scale(1);
+      }
+    }
+    .coracao-curtir{
+      cursor: pointer;
+      width: 22px;
+      height: 18px;
+    }
+    .curtir-responder{
+      display: flex;
+      width: 200px;
+      margin-left: 23%;
+      margin-top: 3%;
+    }
+    
+}
+
+@media only screen and (min-width: 480px){
+    .conteudo-dispositivo-desktop{
+        display: block;
+    }
+    .conteudo-dispositivo-mobile{
+        display: none;
+    }
+    .mapa-do-site{
+        display: flex;
+        margin-left: 16%;
+        margin-top: 2%;
+    }
+    .mapa-do-site p{
+        font-family: Fira Sans;
+    }
+    .mapa-1{
+        text-decoration: underline;
+        margin-right: 7px;
+    }
+    .mapa-2{
+        text-decoration: underline;
+        font-weight: Bold;
+        color: #9e5fef;
+        margin-left: 7px;
+    }
+    .seta-1{
+        margin-right: 7px;
+    }
+    
+    .imagemprincipal{
+        width: 45%;
+        border-radius: 5px;
+      }
+      .Carrossel{
+        margin-top: 1.5%; 
+        display: block;
+        overflow: hidden;
+        margin-right: 10%;
+        margin-left: 16%;
+        position: relative;
+      }
+      .previa{
+        display: flex;
+        margin-top: 1%;
+      }
+      .previa .imagem{
+        width: 140px;
+        border-radius: 5px;
+        transition: 0.2s;
+        margin-right: 2%;
+        align-items: center;
+        overflow: hidden;
+        opacity: 0.9;
+      }
+      .previa .imagem:hover{
+        filter: brightness(70%);
+        opacity: 1;
+      }
+      .imagem img{
+        width: 100%;
+        border-radius: 5px;
+      }
+      .titulo-categoria{
+        line-height: normal;
+        width: 12%;
+        height: 5%;
+        padding: 2px 2px 2px 2px;
+        border-radius: 5px;
+        background-color: #cb1154;
+        box-sizing: border-box;
+        margin-left: 53%;
+        display: flex;
+        margin-top: -30%;
+        position: absolute;
+    }
+    .icon-culinaria{
+        width: 20%;
+        margin-left: 2%;
+    }
+    .titulo-culinaria{
+        margin-left: 11%;
+        font-size: 100%;
+        color: white;
+        font-family: Heavitas;
+        font-weight: 400;
+        margin-top: 5%;
+    }
+    .titulos-post{
+        position: absolute;
+        margin-left: 53%;
+        margin-top: -26%;
+    }
+    .titulo-user {
+        font-size: 16px;
+        font-family: Fira Sans;
+        display: inline;
+        color: #333333;
+    }
+    .titulo-principal{
+        font-size: 28px;
+        font-family: Heavitas;
+        color: #333333;
+        font-weight: 400;
+        margin-top: 3%;
+    }
+    .opcoes{
+        position: absolute;
+        margin-top: -30%;
+        margin-left: 83.2%;
+        cursor: pointer;
+    }
+    .ponto{
+        background: #cb2154;
+        width: 8px;
+        height: 8px;
+        margin-bottom: 3px;
+        border-radius: 3px;
+        margin-left: 20px;
+        margin-right: 20px;
+    }
+    #hide-opcoes-Desktop{
+        z-index:1000;
+        margin-top: -29%;
+        margin-left: 72.2%;
+        display: inline;
+        max-width: 250px;
+        height: 50px;
+        position: absolute;
+        padding: 1% 1% 1% 1%;
+        border-radius: 5px;
+        box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.565);
+    }
+    #hide-opcoes-Desktop img{
+        width: 20px;
+        height: 20px;
+    }
+    #hide-opcoes-Desktop p{
+        font-family: Fira Sans Bold;
+        margin-left: 15px;
+    }
+    .denunciar{
+        width: 150px;
+        display: flex;
+        margin-bottom: 10px;
+    }
+    .compartilhar{
+        width: 180px;
+        display: flex;
+    }
+    .descricao{
+        position: absolute;
+        font-family: Fira Sans;
+        text-align: justify;
+        color: #333333;
+        width: 580px;
+        margin-top: -21.5%;
+        margin-left: 53%;
+        font-size: 17px;
+        line-height: 100%;
+    }
+    
+    .info-post{
+        margin-top: -17.5%;
+        margin-left: 53%;
+        margin-right: 23%;
+        justify-content: space-between;
+        display: flex;
+    }
+    .tempo{
+        display: flex;
+    }
+    .tempo-post{
+        height: 40px;
+        margin-right: 10px;
+    }
+    .avaliacao{
+        display: flex;
+    }
+    .avalia-post{
+        height: 40px;
+        margin-right: 10px;
+    }
+    .porcoe{
+        display: flex;
+        align-content: right;
+    }
+    .porcao-post{
+        height: 40px;
+        margin-right: 10px;
+    }
+    .texto-info{
+        display: flex;
+        font-size: 25px;
+        font-family: Fira Sans;
+        color: #333333;
+        margin-top: 10px;
+    }
+    
+    .hashtags{
+        position: absolute;
+        margin-top: 2%;
+        margin-left: 53%;
+        font-family: Fira Sans Bold;
+        font-weight: 700;
+        padding: 1% 3% 1% 3%;
+        color: #cb1154;
+        background-color: #f2f2f2;
+        border-radius: 0 0 15px 0;
+        width: 26%;
+    }
+    .hashtags-texto{
+        font-family: Fira Sans Bold;
+        font-weight: 700;
+        font-size: 17px;
+    }
+    
+    .gostou{
+        font-size: 40px;
+        color: white;
+        font-weight: 400;
+        margin-left: -40px;
+    }
+    .estrelas{
+        padding: 1.5% 5% 1.5% 5%;
+        width: 22%;
+        margin-left: 53%;
+        background-color: #cb1154;
+        display: flex;
+        margin-top: 7%;
+        border-radius: 0 20px 20px 0;
+    }
+    .p-aval{
+        font-size: 20px;
+        color: white;
+        font-weight: 400;
+        text-align: left;
+        margin-left: -205px;
+        margin-top: 40px;
+        margin-bottom: 1%;
+    }
+    .avalia-estrelas{
+        position: absolute;
+        margin-top: 0.8%;
+        margin-left: 12%;
+        transform:  rotateY(180deg);
+        align-items: center;
+    }
+    .avalia-estrelas input{
+        display: none;
+    }
+    .avalia-estrelas label{
+        width: 10px;
+        background: none;
+    }
+    .avalia-estrelas label:before{
+        content: '\f005';
+        font-family: fontAwesome;
+        position: relative;
+        font-size: 40px;
+        color: #711136;
+    }
+    .avalia-estrelas label:after{
+        content: '\f005';
+        font-family: fontAwesome;
+        position: absolute;
+        font-size: 40px;
+        color: #ffbb62;
+        margin-left: -37px;
+        opacity: 0;
+        transition: 0.5s;
+        text-shadow: 0 2px 5px rgba(0, 0, 0, 0.5);
+    }
+    .avalia-estrelas label:hover:after,
+    .avalia-estrelas label:hover ~ label:after,
+    .avalia-estrelas input:checked ~ label:after{
+        opacity: 1;
+    }
+
+    .Itens-necessários{
+        background-color: #cb2154;
+        margin: 5% 10% 0 16%;
+        border-radius: 5px 5px 5px 5px;
+        padding: 2% 2% 0% 2%;
+        width: 26%;
+        height: 600px;
+    }
+    .itens-titulo{
+        color: white;
+        font-weight: 400;
+        font-size: 30px;
+    }
+    .lista-itens{
+        margin-top: 5%;
+        font-family: Fira Sans;
+        margin-left: 5%;
+    }
+    .item-1{
+        font-family: Fira Sans;
+        font-weight: 500;
+        color: white;
+        background: none;
+        border: none;
+        text-decoration: none;
+        text-align: left;
+        font-size: 17px;
+        cursor: pointer;
+    }
+    .item-1:active{
+        transition: 1s;
+    }
+    .info-item{
+        background-color: #a20f45;
+        margin-left: -10%;
+        margin-top: -10%;
+        text-align: left;
+        width: 109%;
+        border-radius: 0 0 10px 10px;
+        height: 50px;
+        padding: 14% 3% 5% 2%;
+        display: flex;
+    }
+    .info-item img{
+        width: 50px;
+        height: 50px;
+        display: block; 
+        margin-right: 3%;
+        margin-left: 3%;
+    }
+    .titulo-colher{
+        font-family: Fira Sans;
+        height: 0;
+        font-weight: 400;
+        font-size: 13px;
+        text-decoration: none;
+    }
+    
+    .info-texto{
+        font-family: Fira Sans Bold;
+        font-size: 12px;
+        text-decoration: none;
+    }
+    .lista-info-1{
+        margin-top: 10%;
+        margin-left: 10%;
+        font-family: Fira Sans Bold;
+    }
+    .lista-info-2{
+        margin-left: 10%;
+        font-family: Fira Sans Bold;
+    }
+    .item-2{
+        font-family: Fira Sans;
+        font-weight: 500;
+        color: white;
+        background: none;
+        border: none;
+        text-decoration: none;
+        margin-top: 3%;
+        text-align: left;
+        font-size: 17px;
+        cursor: pointer;
+    }
+    .icon-xicara-cha{
+        width: 50px;
+        height: 50px;
+        display: block; 
+        margin-right: 2%;
+        margin-left: 2%;
+    }
+    .info-item2{
+    background-color: #a20f45;
+        margin-left: -10%;
+        margin-top: -10%;
+        text-align: left;
+        width: 109%;
+        border-radius: 0 0 10px 10px;
+        height: 50px;
+        padding: 14% 3% 5% 2%;
+        display: flex;
+    }
+    .item-3{
+        font-family: Fira Sans;
+        font-weight: 500;
+        color: white;
+        background: none;
+        border: none;
+        text-decoration: none;
+        margin-top: 3%;
+        text-align: left;
+        font-size: 17px;
+        cursor: pointer;
+    }
+    .info-item3{
+    background-color: #a20f45;
+        margin-left: -10%;
+        margin-top: -10%;
+        text-align: left;
+        width: 109%;
+        border-radius: 0 0 10px 10px;
+        height: 50px;
+        padding: 14% 3% 5% 2%;
+        display: flex;
+    }
+    .item-4{
+        font-family: Fira Sans;
+        font-weight: 500;
+        color: white;
+        background: none;
+        border: none;
+        text-decoration: none;
+        margin-top: 3%;
+        text-align: left;
+        font-size: 17px;
+        cursor: pointer;
+    }
+    .info-item4{
+    background-color: #a20f45;
+        margin-left: -10%;
+        margin-top: -10%;
+        text-align: left;
+        width: 109%;
+        border-radius: 0 0 10px 10px;
+        height: 50px;
+        padding: 14% 3% 5% 2%;
+        display: flex;
+    }
+    .item-5{
+        font-family: Fira Sans;
+        font-weight: 500;
+        color: white;
+        background: none;
+        border: none;
+        text-decoration: none;
+        margin-top: 3%;
+        text-align: left;
+        font-size: 17px;
+        cursor: pointer;
+    }
+    .info-item5{
+    background-color: #a20f45;
+        margin-left: -10%;
+        margin-top: -10%;
+        text-align: left;
+        width: 109%;
+        border-radius: 0 0 10px 10px;
+        height: 50px;
+        padding: 14% 3% 5% 2%;
+        display: flex;
+    }
+    .item-6{
+        font-family: Fira Sans;
+        font-weight: 500;
+        color: white;
+        background: none;
+        border: none;
+        text-decoration: none;
+        margin-top: 3%;
+        text-align: left;
+        font-size: 17px;
+        cursor: pointer;
+    }
+    .info-item6{
+    background-color: #a20f45;
+        margin-left: -10%;
+        margin-top: -10%;
+        text-align: left;
+        width: 109%;
+        border-radius: 0 0 10px 10px;
+        height: 50px;
+        padding: 14% 3% 5% 2%;
+        display: flex;
+    }
+    .item-7{
+        font-family: Fira Sans;
+        font-weight: 500;
+        color: white;
+        background: none;
+        border: none;
+        text-decoration: none;
+        margin-top: 3%;
+        text-align: left;
+        font-size: 17px;
+        cursor: pointer;
+    }
+    .info-item7{
+    background-color: #a20f45;
+        margin-left: -10%;
+        margin-top: -10%;
+        text-align: left;
+        width: 109%;
+        border-radius: 0 0 10px 10px;
+        height: 50px;
+        padding: 14% 3% 5% 2%;
+        display: flex;
+    }
+    .item-8{
+        font-family: Fira Sans;
+        font-weight: 500;
+        color: white;
+        background: none;
+        border: none;
+        text-decoration: none;
+        margin-top: 3%;
+        text-align: left;
+        font-size: 17px;
+        cursor: pointer;
+    }
+    .info-item8{
+    background-color: #a20f45;
+        margin-left: -10%;
+        margin-top: -10%;
+        text-align: left;
+        width: 109%;
+        border-radius: 0 0 10px 10px;
+        height: 50px;
+        padding: 14% 3% 5% 2%;
+        display: flex;
+    }
+    .item-9{
+        font-family: Fira Sans;
+        font-weight: 500;
+        color: white;
+        background: none;
+        border: none;
+        text-decoration: none;
+        margin-top: 3%;
+        text-align: left;
+        font-size: 17px;
+        cursor: pointer;
+    }
+    .info-item9{
+        background-color: #a20f45;
+        margin-left: -10%;
+        margin-top: -10%;
+        text-align: left;
+        width: 109%;
+        border-radius: 0 0 10px 10px;
+        height: 50px;
+        padding: 14% 3% 5% 2%;
+        display: flex;
+    }
+    
+    .Modo-Preparo{
+        border-left: 5px solid #cb1154;
+        margin: 5% 0% 0% 53%;
+        padding-top: 2%;
+        padding-bottom: 1%;
+        width: 30%;
+        position: absolute;
+    }
+    .modo-titulo{
+        color: #333333;
+        font-weight: 400;
+        font-size: 30px;
+        text-align: left;
+        margin-left: 5%;
+    }
+    .lista-modo{
+        margin-left: 5%;
+        margin-top: 2%;
+    }
+    .modos{
+       background-image: linear-gradient(89.99311970570312deg, #ffffff 0%, #e9e9e9 95.48561645502186%); 
+       display: flex;
+       padding: 3% 3% 3% 0%;
+       margin-bottom: 2%;
+       border-radius: 0 0 5px 0;
+    }
+    .t-modo{
+        color: #333333;
+        font-size: 28px;
+        text-align: left;
+        display: grid;
+        align-items: center;
+        font-weight: 400;
+    }
+    .p-modo{
+        font-family: Fira Sans;
+        font-weight: 400;
+        color: #333333;
+        font-size: 17px;
+        margin-left: 5%;
+    }
+    .itens-modos{
+        display: flex;
+    }
+    
+    .comentarios{
+        margin: 5% 0% 2% 16%;
+        display: flex;
+    }
+    .comem-titulo{
+        font-family: Fira Sans Bold;
+        font-size: 30px;
+        color: #333333;
+        margin-right: 2%;
+    }
+    .filtro{
+        padding: 0.8% 2% 0.8% 2%;
+        background-color: #F2F2F2;
+        border-radius: 5px 5px 5px 5px;
+        display: flex;
+    }
+    .p-filtro{
+        font-family: Fira Sans Bold;
+        font-size: 15px;
+        color: #4D16BB;
+    }
+    .comentar{
+        margin: 2% 0% 1% 16%;
+        display: flex;
+    }
+    .comentar img{
+        width: 70px;
+    }
+    .anuncio{
+        position: absolute;
+        width: 20%;
+        height: 35%;
+        background-color: #d7d7d7;
+        margin-left: 62.2%;
+        margin-top: 4.5%;
+    }
+    .inserir-comentario{
+        border: none;
+        border-bottom: 2px solid #4D16BB;
+        margin-left: 1.5%;
+        width: 40%;
+        height: 50px; 
+        font-family: Fira Sans;
+        outline: none;
+        font-size: 20px;
+    }
+    .botoes-comentar{
+        height: 35px;
+        align-items: right;
+        display: flex;
+        margin-bottom: 10%;
+    }
+    .botao-comentar{
+        height: 40px;
+        width: 190px;
+        border-radius: 6px;
+        font-family: Fira Sans Bold;
+        border: none;
+        margin-left: 2%;
+        background-color: #FFD662;
+        color: #4D16BB;
+        font-family: Fira Sans Bold;
+        font-size: 15px;
+    }
+    .cancelar-comentar{
+        height: 40px;
+        width: 190px;
+        border-radius: 6px;
+        font-family: Fira Sans Bold;
+        margin-left: 31.7%;
+        border: 1px solid;
+        border-style: fixed;
+        border-color: #4d16bb;
+        color: #4d16bb;
+        background-color: white;
+    }
+    input.inserir-comentario::placeholder {
+        opacity: 0.5;
+        color: #333333;
+        font-family: Fira Sans Bold;
+      }
+      .estrelas-taylor{
+        content: '\f005';
+        font-family: fontAwesome;
+        margin-left: 1%;
+        font-size: 25px;
+        width: 150px;
+        color: #9e5fef;
+      }
+      .comentario{
+        position: absolute;
+        margin: -7% 0% 5% 16%;
+        display: flex;
+        width: 950px;
+      }
+      .comentario h1{
+        font-family: Fira Sans Bold;
+        font-size: 18px;
+        margin-left: 8%;
+        text-align: left;
+        color: #9e5fef;
+        margin-top: 1.2%;
+      }
+      .nome-usuario-comt{
+        font-family: Fira Sans;
+        font-size: 17px;
+        width: 230px;
+        margin-left: 1%;
+        margin-top: 1.2%;
+      }
+      .nomes-comentario{
+        display: flex;
+      }
+      .tres-pontinhos-comentario{
+        width: 6px;
+        height: 26px;
+        margin-left: 22%;
+      }
+      .texto-comentario-taylor{
+        color: #333333;
+        font-family: Fira Sans;
+      }
+      .foto-de-perfil-taylorfan{
+        width: 70px;
+        height: 70px;
+      }
+      .texto-coment-taylor{
+        text-align: left;
+        margin-left: 21%;
+        margin-top: -5%;
+        margin-right: 10%;
+        font-family: Fira Sans Bold;
+        font-size: 17px;
+      }
+      .responder-coment{
+        font-size: 16px;
+        font-family: Fira Sans Bold;
+        color: #4d16bb;
+        margin-left: 8%;
+      }
+      .coracao-vazado{
+        height: 18px;
+      }
+      .coracao-preenchido{
+        height: 22px;   
+        margin-left: 0.2;
+        margin-top: -1.35%;
+        position: absolute;
+        animation: heartBeat 0.5s ease-in-out;
+      }
+      .ponto-comentario{
+          background: #4d16bb;
+          width: 5px;
+          height: 5px;
+          margin-bottom: 3px;
+          border-radius: 3px;
+          margin-left: 20px;
+          margin-right: 4%;
+      }
+      .opcoes-comentario{
+          position: absolute;
+          margin-left: 73%;
+          cursor: pointer;
+      }
+      #hide-opcoes-comentario-Desktop{
+          z-index:1000;
+          margin-top: -8%;
+          margin-left: 38%;
+          display: inline;
+          height: 70px;
+          position: absolute;
+          background-color: white;
+          padding: 1% 1% 1% 1%;
+          border-radius: 5px;
+          box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.565);
+      }
+      #hide-opcoes-comentario-Desktop img{
+          width: 20px;
+          height: 20px;
+      }
+      #hide-opcoes-comentario-Desktop p{
+          font-family: Fira Sans Bold;
+          margin-left: 15px;
+      }
+      .denunciar-comentario{
+          width: 200px;
+          display: flex;
+          margin-bottom: 20px;
+      }
+      .compartilhar-comentario{
+          display: flex;
+      }
+      .compartilhar-comentario p{
+          width: 210px;
+      }
+  
+      
+    @keyframes heartBeat {
+        0% {
+          transform: scale(1);
+        }
+        50% {
+          transform: scale(1.2);
+        }
+        100% {
+          transform: scale(1);
+        }
+      }
+      .coracao-curtir{
+        cursor: pointer;
+      }
+      .curtir-responder{
+        display: flex;
+        width: 150px;
+        margin-left: 21%;
+        margin-top: 1%;
+      }
+      .mostrar-mais{
+        height: 50px;
+      }
+      .mostrar-mais h1{
+        background-color: #f2f2f2;
+        color: #4d16bb;
+        border: #4d16bb solid 1px;
+        border-radius: 5px;    
+        padding: 0.5% 1% 1% 1%;
+        height: 10px;
+        margin-left: 16%;
+        margin-top: 3%;
+        width: 10%;
+        font-size: 13px;
+        font-weight: 400;
+        text-align: center;
+      }
+    }
