@@ -71,20 +71,18 @@ document.addEventListener("DOMContentLoaded", function() {
 //função da imagem "detalhes da denúncia" ---------------------------------------------------------------------------------------//
 
 document.addEventListener("DOMContentLoaded", function() {
-  // Seleciona todas as imagens com a classe 'ver-detalhes-denuncia'
   var imagensDetalhes = document.querySelectorAll('.ver-detalhes-denuncia');
 
-  // Itera sobre cada imagem para adicionar o evento de clique
   imagensDetalhes.forEach(function(img) {
     img.addEventListener('click', function() {
-      // Cria um novo aside
-      var aside = document.createElement('aside');
-      aside.classList.add('detalhes-denuncia');
-      aside.innerHTML = '<p>Detalhes da denúncia</p><p>Informações adicionais aqui...</p>';
+      var linha = this.closest('tr');
+      var aside = linha.querySelector('.asideDetalhes');
 
-      // Insere o aside após a linha da tabela atual (tr.linhas)
-      var linha = this.closest('tr.linhas');
-      linha.parentNode.insertBefore(aside, linha.nextSibling);
+      if (aside.style.display === 'none' || aside.style.display === '') {
+        aside.style.display = 'block';
+      } else {
+        aside.style.display = 'none';
+      }
     });
   });
 });

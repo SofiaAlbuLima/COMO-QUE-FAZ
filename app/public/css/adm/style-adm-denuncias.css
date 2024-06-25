@@ -79,11 +79,13 @@
 .tabela{
     border-collapse: collapse;
     width: 145vh;
+    padding-top: 20vh;
 }
 
 .cabeçalho-tabela{
     background-color: #EEE3FC;
     border: 2.6px solid #9d5fefea;
+    position: fixed;
 }
 
 .titulo-tabela{
