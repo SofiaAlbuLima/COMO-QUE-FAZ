@@ -98,6 +98,44 @@
              <% } %>
 
              
+             <% 
+             
+             let mensagemErro = ""
+             let avsErro = {"email_usu":"", "senha_usu":"", "conf_senha":""}
+                 if(listaErros){
+                     listaErros.errors.forEach(function(itemErro){
+                         if(itemErro.path == "email_usu"){
+                             avsErro.email_usu = "erro";
+                             mensagemErro += `* ${itemErro.msg} <br>`
+                         }
+                         if(itemErro.path == "senha_usu"){
+                             avsErro.senha_usu = "erro";
+                             mensagemErro += `* ${itemErro.msg} <br>`
+                         }
+                         if(itemErro.path == "conf_senha"){
+                           avsErro.conf_senha = "erro";
+                           mensagemErro += `* ${itemErro.msg} <br>`
+                       }
+                     })
+                     if(mensagemErro != ""){
+                     %>
+                         <script>
+                             let mensagemErro ="<%= mensagemErro %>"
+                             notify("Erro(s) no preenchimento", 
+                                    "Verifique o(s) campo(s) <br> " + msgErro.replace(/&lt;/g,"<").replace(/&gt;/g,">"), 
+                                    "error", "center", 5000)                        
+                         </script>
+                     <%
+                     }
+                 }
+                 if (dadosNotificacao) { %>
+                  <script>
+                          notify("<%= dadosNotificacao.titulo%>","<%= dadosNotificacao.mensagem%>", "<%= dadosNotificacao.tipo%>", "center")
+                          if("<%= dadosNotificacao.tipo %>" == "success"){
+                              setTimeout(function(){window.location="/"}, 3000)
+                          }                        
+                  </script>
+              <% } %>
          
          <figure class="decoracao-frente">
             <img src="imagens/gatinho-laranja-decoracao.png" alt="">
@@ -145,9 +183,9 @@
                      <p class="texto2-cadastro">SE CADASTRAR:</p>
                      <article class="caixa-mob2">
                         <input type="text" placeholder="NOME DE USUÁRIO" name="nomeusu_usu" required>
-                        <input type="text" placeholder="EMAIL" name="email_usu" required>
-                        <input class="input-criarsenha" id="senha1" type="password" placeholder="SENHA" name="senha_usu" required>
-                        <input class="input-criarsenha" id="senha2" type="password" placeholder="CONFIRMAR SENHA" required>
+                        <input class="<%= avsErro.email_usu>" type="text" placeholder="EMAIL" name="email_usu" required>
+                        <input class="<%= avsErro.senha_usu>"  id="senha1" type="password" placeholder="SENHA" name="senha_usu" required>
+                        <input class="<%= avsErro.confi_senha>"  id="senha2" type="password" placeholder="CONFIRMAR SENHA" name="confi_senha" required>
                      </article>
                      <p id="mensagem"></p>
                      <article class="lembrar-termos-mob">
