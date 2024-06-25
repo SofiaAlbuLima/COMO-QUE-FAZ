@@ -1,0 +1,243 @@
+@media only screen and (max-width: 480px) {
+    * {
+      margin: 0;
+      padding: 0;
+    }
+  
+    .conteudo-mobile {
+      display: block;
+      width: 100vw;
+    }
+  
+    .conteudo-desktop {
+      display: none;
+    }
+  
+    
+    a.mapculinaria {
+      text-align: center;
+      width: 54px;
+      height: 19px;
+      color: black;
+      font-weight: 700;
+      margin-left: 7%;
+    }
+  
+    .mapcu {
+      margin-top: 5%;
+    }
+  
+    img.imgcu {
+      width: 84px;
+      height: 84px;
+      margin-left: 4%;
+      transform: translate(0, 13px);
+    }
+  
+    h1.titulocu {
+      font-family: Heavitas;
+      color: #cb1154;
+      max-width: 150px;
+      font-size: 35px;
+      font-weight: 400;
+      transform: translate(110px, -70px);
+    }
+  
+    p.pcu {
+      text-align: left;
+      font-family: Fira Sans;
+      width: 65%;
+      font-size: 12px;
+      transform: translate(110px, -70px);
+    }
+  
+  
+    .fcutodas {
+      min-width: 35%;
+      height: 35px;
+      padding: 2px 2px 2px 2px;
+      border-radius: 5px;
+      background-color: #f2f2f2;
+      box-sizing: border-box;
+      font-family: "Fira Sans", sans-serif;
+      color: #333333;
+      text-align: center;
+      line-height: normal;
+      border: none;
+      gap: 100px;
+  
+    }
+  
+    .filtrocu {
+      display: flex;
+      gap: 10px;
+      overflow: scroll;
+      height: 100%;
+      margin-left: 7%;
+      margin-top: -50px;
+      min-width: 140px;
+      padding: 2px 2px 2px 2px;
+      border-radius: 5px;
+      box-sizing: border-box;
+      font-family: "Fira Sans", sans-serif;
+      color: #333333;
+      text-align: center;
+      line-height: normal;
+      border: none;
+      width: 86%;
+      overflow-x: auto; 
+    }
+  
+    .clicado {
+      background-color: #cb1154;
+      box-sizing: border-box;
+      font-family: "Fira Sans Bold", "Fira Sans", sans-serif;
+      font-weight: 700;
+      color: #ffffff;
+      min-width: 140px;
+      padding: 2px 2px 2px 2px;
+      gap: 10px;
+      border-radius: 5px;
+      border: none;
+    }
+  }
+
+  @media only screen and (min-width: 480px) {
+    * {
+      margin: 0;
+      padding: 0;
+    }
+  
+    .conteudo-desktop {
+      display: block;
+      width: 100vw;
+    }
+  
+    .conteudo-mobile {
+      display: none;
+    }
+  
+    * {
+      font-family: Heavitas;
+      padding: 0;
+      margin: 0;
+    }
+  
+    @font-face {
+      font-family: Heavitas;
+      src: url("../fonts/Heavitas.ttf");
+    }
+  
+    @font-face {
+      font-family: Fira Sans Bold;
+      src: url("../fonts/fira-sans.bold.ttf");
+    }
+  
+    @font-face {
+      font-family: Fira Sans;
+      src: url("../fonts/fira-sans.regular.ttf");
+    }
+ 
+    .mapculinaria {
+      margin-left: 18%;
+      font-family: Fira Sans;
+      color: black;
+    }
+    .mapculinaria2 {
+      font-family: Fira Sans Bold;
+      color: #9e5fef;
+    }
+  
+  
+    .imgcu {
+      height: 120px;
+      margin-left: 15vw;
+     margin-top: 4vw;
+     z-index: 100;
+    position: relative;
+    }
+  
+    .titulocu {
+      font-size: 45px;
+      color: #cb1154;
+      margin-left: 24vw;
+      margin-top: -9vw;
+      font-weight: 400 ;
+     position: relative;
+    }
+    .tituloli {
+        font-size: 45px;
+        color: #027de1;
+        margin-left: 24vw;
+        margin-top: -9vw;
+        font-weight: 400 ;
+       position: relative;
+      }
+      .titulobe {
+        font-size: 45px;
+        color: #00cd83;
+        margin-left: 24vw;
+        margin-top: -9vw;
+        font-weight: 400 ;
+       position: relative;
+      }
+    .pcu {
+      margin-left: 24vw;
+      width: 20%;
+      font-size: 15px;
+      font-family: Fira Sans;
+      position: relative;
+    }
+    .filtrocu {
+      display: flex;
+      gap: 15px;
+      overflow: auto;
+      height: 100%;
+      padding: 2px 2px 2px 2px;
+      border-radius: 5px;
+      box-sizing: border-box;
+      font-family: "Fira Sans", sans-serif;
+      color: #333333;
+      text-align: center;
+      line-height: normal;
+      border: none;
+      width: auto;
+      overflow: auto;
+      position: relative;
+    }
+  
+    .filtroantes{
+      overflow: hidden;
+      margin-left: 49%;
+      margin-top: -3%;
+      width: 50% ;
+  
+    }
+  
+  
+    .fcutodas {
+      min-width: 20%;
+      height: 55px;
+      padding: 2px 6px 2px 6px;
+      border-radius: 5px;
+      background-color: #f2f2f2;
+      box-sizing: border-box;
+      font-family: "Fira Sans", sans-serif;
+      font-size: 25px;
+      font-weight: 900;
+      color: #333333;
+      text-align: center;
+      line-height: normal;
+      border: none;
+      gap: 100px;
+    }
+  
+    .clicado {
+      background-color: #9e5fef;
+      box-sizing: border-box;
+      font-family: "Fira Sans Bold", "Fira Sans", sans-serif;
+      font-weight: 800;
+      color: #ffffff;
+    }
+  
+  }

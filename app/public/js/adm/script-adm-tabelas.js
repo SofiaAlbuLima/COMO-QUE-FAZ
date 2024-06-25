@@ -70,21 +70,18 @@ document.addEventListener("DOMContentLoaded", function() {
 
 //função da imagem "detalhes da denúncia" ---------------------------------------------------------------------------------------//
 
-document.addEventListener("DOMContentLoaded", function() {
-  // Seleciona todas as imagens com a classe 'ver-detalhes-denuncia'
-  var imagensDetalhes = document.querySelectorAll('.ver-detalhes-denuncia');
+// Seleciona a imagem e o aside pelo ID
+const imagem = document.getElementsByClassName('ver-detalhes-denuncia');
+const aside = document.getElementById('asideDetalhes');
 
-  // Itera sobre cada imagem para adicionar o evento de clique
-  imagensDetalhes.forEach(function(img) {
-    img.addEventListener('click', function() {
-      // Cria um novo aside
-      var aside = document.createElement('aside');
-      aside.classList.add('detalhes-denuncia');
-      aside.innerHTML = '<p>Detalhes da denúncia</p><p>Informações adicionais aqui...</p>';
-
-      // Insere o aside após a linha da tabela atual (tr.linhas)
-      var linha = this.closest('tr.linhas');
-      linha.parentNode.insertBefore(aside, linha.nextSibling);
-    });
-  });
+// Adiciona um event listener para o clique na imagem
+imagem.addEventListener('click', function() {
+  // Verifica se o aside está visível
+  if (aside.style.display === 'block') {
+    // Se estiver visível, oculta
+    aside.style.display = 'none';
+  } else {
+    // Se estiver oculto, exibe
+    aside.style.display = 'block';
+  }
 });
