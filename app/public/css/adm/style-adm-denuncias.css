@@ -18,28 +18,24 @@
     padding: 5px 10px 5px 15px;
     border-radius: 5px;
     color: #333333;
-    letter-spacing: 0.1vh;
+    letter-spacing: 0.06vh;
     border: none;
     font-family: "Fira Sans Bold", "Fira Sans", sans-serif;
     font-weight: 700;
-    font-size: 1.8vh;
+    font-size: 1.6vh;
     text-align: left;
     line-height: normal;
     appearance: none;
     background: url(/imagens/seta-para-baixo.svg) 96% / 15% no-repeat #d2d2d2;
-    background-size: 1vw;
+    background-size: 0.8vw;
 
     &:focus{
         outline: 0;
     }
 }
 
-.opcao-denuncia-filtro{
-     
-}
-
 #pesquisar{
-    margin-left: 13.7vh;
+    margin-left: 9.4vh;
 }
 
 .icone-pesquisa{
@@ -62,7 +58,7 @@
   }
   
 .fundo-tabela{
-    width: 145vh;
+    width: 140vh;
     height: 59.4vh;
     background-color: white;
     border-radius: 10px;
@@ -78,14 +74,13 @@
 
 .tabela{
     border-collapse: collapse;
-    width: 145vh;
+    width: 137vh;
     padding-top: 20vh;
 }
 
 .cabeçalho-tabela{
     background-color: #EEE3FC;
     border: 2.6px solid #9d5fefea;
-    position: fixed;
 }
 
 .titulo-tabela{
@@ -110,6 +105,7 @@
     border: 0.2vh solid #CB218C;
     border-radius: 0.7vh;
     padding: 1vh 1.4vh 1vh 1.4vh;
+    cursor: pointer;
 }
 
 .Coluna-conteudo{
