@@ -490,11 +490,13 @@
 
 @media only screen and (min-width: 481px) {
   .perfil-cima {
-    width: 937px;
-    height: 474px;
+    margin: auto;
+    width: 50vw;
+    height: 72vh;
     border-radius: 14px;
     background-color: #f9f9f9;
     box-sizing: border-box;
+    margin-top: 17vh;
   }
 
   img.fundo-foto-perfil {
@@ -663,9 +665,10 @@
   .tab-perfil {
     display: flex;
     overflow: hidden;
-    width: 927px;
-    height: 47px;
+    width: 50vw;
+    height: 6vh;
     background-color: #ffffff;
+    margin: auto;
   }
 
   .tab-perfil button {
@@ -769,11 +772,10 @@
 
   /*Postagens*/
   .postagens-esqueleto {
-    width: 926px;
-    height: 988px;
+    width: 50vw;
+    height: 50vh;
     padding: 2px 20px 2px 0px;
     box-sizing: border-box;
-
   }
 
   .filtro {
@@ -781,6 +783,9 @@
     margin-left: 33px;
     display: flex;
     gap: 10px;
+    margin: auto;
+    /* margin-top: auto; */
+    /* margin-bottom: auto; */
   }
 
   .filtroint {

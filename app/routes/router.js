@@ -46,17 +46,17 @@ const { VerificarAutenticacao, limparSessao, gravarUsuAutenticado, verificarUsuA
     });
 
     router.get("/perfil", verificarUsuAutorizado([1, 2], "/"), function(req, res) {
-        res.render("pages/template", {pagina: {cabecalho: "cabecalho", conteudo: "Meu-perfil", rodape: "rodape"}, 
+        res.render("pages/template", {pagina: {cabecalho: "cabecalho", conteudo: "Meu-perfil", rodape: "none"}, 
         usuario_logado:req.session.autenticado, 
         });
     });
     router.get("/notificacoes", verificarUsuAutorizado([1, 2], "/"), function(req, res) {
-        res.render("pages/template", {pagina: {cabecalho: "cabecalho", conteudo: "Minhas-Notificações", rodape: "rodape"}, 
+        res.render("pages/template", {pagina: {cabecalho: "cabecalho", conteudo: "Minhas-Notificações", rodape: "none"}, 
         usuario_logado:req.session.autenticado, 
         });
     });
     router.get("/favoritos", verificarUsuAutorizado([1, 2], "/"), function(req, res) {
-        res.render("pages/template", {pagina: {cabecalho: "cabecalho", conteudo: "Meus-Favoritos", rodape: "rodape"}, 
+        res.render("pages/template", {pagina: {cabecalho: "cabecalho", conteudo: "Meus-Favoritos", rodape: "none"}, 
         usuario_logado:req.session.autenticado, 
         });
     });
@@ -84,6 +84,7 @@ const { VerificarAutenticacao, limparSessao, gravarUsuAutenticado, verificarUsuA
     router.get("/login", function (req, res) {
         res.render("pages/template", {pagina: {cabecalho: "cabecalho", conteudo: "Fazer-Login", rodape: "rodape"}, 
             usuario_logado:req.session.autenticado, 
+            listaErroslog: null,
             listaErros: null,
             dadosNotificacao:null});
     });
