@@ -66,8 +66,8 @@
          <% 
          let avisoErro = {"input1":"", "input2":""}
          let msgErro = ""
-             if(listaErros){
-                 listaErros.errors.forEach(function(itemErro){
+             if(listaErroslog){
+                 listaErroslog.errors.forEach(function(itemErro){
                      if(itemErro.path == "input1"){
                          avisoErro.input1 = "erro";
                          msgErro += `* ${itemErro.msg} <br>`
@@ -122,7 +122,7 @@
                          <script>
                              let mensagemErro ="<%= mensagemErro %>"
                              notify("Erro(s) no preenchimento", 
-                                    "Verifique o(s) campo(s) <br> " + msgErro.replace(/&lt;/g,"<").replace(/&gt;/g,">"), 
+                                    "Verifique o(s) campo(s) <br> " + mensagemErro.replace(/&lt;/g,"<").replace(/&gt;/g,">"), 
                                     "error", "center", 5000)                        
                          </script>
                      <%
