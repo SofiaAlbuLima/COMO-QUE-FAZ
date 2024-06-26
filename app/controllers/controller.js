@@ -31,7 +31,7 @@ const tarefasController = {
     ],
     regrasValidacaoCadastro:[
         body("nomeusu_usu")
-            .isLength({ min: 6, max: 45 }).withMessage("Nome de usuário deve ter de 5 a 45 caracteres!")
+            .isLength({ min: 5, max: 45 }).withMessage("Nome de usuário deve ter de 5 a 45 caracteres!")
             .custom(async value => {
                 const nomeUsu = await usuarioModel.findUserEmail({Nickname:value});
                 if (nomeUsu > 0) {
