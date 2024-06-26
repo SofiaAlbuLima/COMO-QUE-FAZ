@@ -29,7 +29,7 @@
     <section class="header-dispositivo-desktop">
        <nav class="logos">  <!-- Usuário -->
          
-            <% if (usuario_logado && usuario_logado.autenticado) { %>
+            <% if (usuario_logado != null) { %>
                <aside id="container" onmouseover="showDiv1()" onmouseout="hideDiv1()" onclick="ToggleMenu()" class="login">
                   <img id="img-usuario" src="imagens-svg/1-cabeçalho/user_icon.svg" alt="Faça Login"> <!-- ícone usuário -->
 

@@ -84,6 +84,7 @@ const { VerificarAutenticacao, limparSessao, gravarUsuAutenticado, verificarUsuA
     router.get("/login", function (req, res) {
         res.render("pages/template", {pagina: {cabecalho: "cabecalho", conteudo: "Fazer-Login", rodape: "rodape"}, 
             usuario_logado:req.session.autenticado, 
+            listaErroslog: null,
             listaErros: null,
             dadosNotificacao:null});
     });
