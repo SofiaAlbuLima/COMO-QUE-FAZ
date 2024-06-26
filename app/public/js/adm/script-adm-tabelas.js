@@ -70,18 +70,26 @@ document.addEventListener("DOMContentLoaded", function() {
 
 //função da imagem "detalhes da denúncia" ---------------------------------------------------------------------------------------//
 
-// Seleciona a imagem e o aside pelo ID
-const imagem = document.getElementsByClassName('ver-detalhes-denuncia');
-const aside = document.getElementById('asideDetalhes');
+document.addEventListener("DOMContentLoaded", function() {
+  const verDetalhesImg = document.querySelector(".ver-detalhes-denuncia");
+  const asideDetalhesRow = document.getElementById("asideDetalhes");
 
-// Adiciona um event listener para o clique na imagem
-imagem.addEventListener('click', function() {
-  // Verifica se o aside está visível
-  if (aside.style.display === 'block') {
-    // Se estiver visível, oculta
-    aside.style.display = 'none';
-  } else {
-    // Se estiver oculto, exibe
-    aside.style.display = 'block';
-  }
+  verDetalhesImg.addEventListener("click", function() {
+    var display = asideDetalhesRow.style.display;
+
+      if (display == "none") {
+          asideDetalhesRow.style.display = 'block';
+      } else {
+          asideDetalhesRow.style.display = 'none';
+      }
+  });
 });
+
+function toggle(el) {
+  var display = document.getElementById(el).style.display;
+  if(display == "none") {
+    document.getElementById(el).style.display = 'block';
+  } else {
+    document.getElementById(el).style.display = 'none';
+  }
+}
