@@ -10,6 +10,7 @@
   /* Postagem individual - Início */
   .postagem{
     width: 41.5vh;
+    align-self: flex-start;
   }
   .postagem_info_primeiro_plano{
     z-index: 1;
@@ -100,6 +101,7 @@
   /* Pergunta individual - Inicio */
     .pergunta{
       width: 41.5vh;
+      align-self: flex-start;
     }
     .parte-cima-pergunta{
       padding-left: 2vh;
