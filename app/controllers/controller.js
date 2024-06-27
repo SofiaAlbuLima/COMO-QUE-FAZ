@@ -193,12 +193,12 @@ const tarefasController = {
             categoriaId = 3;
         }
 
-        const etapasModoPreparo = req.body.etapas_modo_preparo;
-        if (!Array.isArray(etapasModoPreparo)) {
-            console.log('etapas_modo_preparo não é um array:', etapasModoPreparo);
-            return res.status(400).send('Etapas do modo de preparo inválidas');
-        }
-        const etapasTexto = etapasModoPreparo.join('; ');
+        // const etapasModoPreparo = req.body.etapas_modo_preparo;
+        // if (!Array.isArray(etapasModoPreparo)) {
+        //     console.log('etapas_modo_preparo não é um array:', etapasModoPreparo);
+        //     return res.status(400).send('Etapas do modo de preparo inválidas');
+        // }
+        // const etapasTexto = etapasModoPreparo.join('; ');
 
         var FormCriarDica = { //dados que o usuário digita no formulário
             Clientes_idClientes: req.session.autenticado.id, 
@@ -207,18 +207,9 @@ const tarefasController = {
             tempo: `${req.body.dica_tempo_horas.padStart(2, '0')}:${req.body.dica_tempo_minutos.padStart(2, '0')}:00`, // Formatando horas e minutos
             Descricao: req.body.dica_descricao,
             porcoes: req.body.dica_porcoes,
-            Etapas_Modo_de_Preparo: etapasTexto 
+            Etapas_Modo_de_Preparo: "faça tudo" 
         };
-        const { ingredientes, quantidade_ingredientes, medida_ingredientes } = req.body;
-
-        if (!ingredientes || !quantidade_ingredientes || !medida_ingredientes) {
-            return res.status(400).send('Dados de ingredientes ausentes');
-        };
-
-        const ingredientesArray = Array.isArray(ingredientes) ? ingredientes : [ingredientes];
-        const quantidadeIngredientesArray = Array.isArray(quantidade_ingredientes) ? quantidade_ingredientes : [quantidade_ingredientes];
-        const medidaIngredientesArray = Array.isArray(medida_ingredientes) ? medida_ingredientes : [medida_ingredientes];
-
+        const { ingredientes, quantidade_ingredientes, medida_ingredientes } = "ingredientes";
 
         try{
             // const dadosImagem = {
@@ -233,15 +224,15 @@ const tarefasController = {
             const postagemId = create.insertId;
 
 
-            for (let i = 0; i < ingredientesArray.length; i++) {
-                let ingrediente = {
-                    quantidade_ingredientes: quantidadeIngredientesArray[i],
-                    ingredientes: ingredientesArray[i],
-                    medida_ingredientes: medidaIngredientesArray[i],
-                    postagem_id: postagemId
-                };
-                await ingredientesModel.criarIngrediente(ingrediente);
-            }
+            // for (let i = 0; i < ingredientesArray.length; i++) {
+            //     let ingrediente = {
+            //         quantidade_ingredientes: quantidadeIngredientesArray[i],
+            //         ingredientes: ingredientesArray[i],
+            //         medida_ingredientes: medidaIngredientesArray[i],
+            //         postagem_id: postagemId
+            //     };
+            //     await ingredientesModel.criarIngrediente(ingrediente);
+            // }
             console.log("Postagem realizada!");
 
             req.session.notification = {
