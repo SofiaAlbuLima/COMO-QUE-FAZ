@@ -30,66 +30,49 @@ function myFunction() {
 });
 
 function FuncaoCelulas() {
-  var table = document.getElementById("myTable"); // Obtém a tabela pelo seu ID
-  var tr = table.getElementsByTagName("tr"); // Obtém todas as linhas da tabela
+  var table = document.getElementById("myTable");
+  var tr = table.getElementsByTagName("tr");
 
   for (var i = 0; i < tr.length; i++) {
-    var cells = tr[i].getElementsByTagName("td"); // Obtém todas as células da linha
-    
-    // Coluna "Autor" é a quinta coluna (índice 4)
-    var autorCell = cells[4];
+    var cells = tr[i].getElementsByTagName("td");
+
+    // Verificar se a célula contém o atributo data-autor
+    var autorCell = Array.from(cells).find(cell => cell.hasAttribute('data-autor'));
     if (autorCell) {
-      var txtValue = autorCell.textContent || autorCell.innerText; // Obtém o texto da célula
-      
+      var txtValue = autorCell.textContent || autorCell.innerText;
+
       // Adicionar classe e imagem à célula "Autor" apenas uma vez
       if (!autorCell.classList.contains("img-added")) {
         autorCell.classList.add("Coluna-autor", "img-added");
 
         // Criar um elemento de imagem e adicioná-lo à célula
         var img = document.createElement("img");
-        img.src = "/imagens-svg/foto-perfil-autor.svg"; // Substitua pelo caminho da sua imagem
+        img.src = "/imagens-svg/foto-perfil-autor.svg";
         img.alt = "Autor";
         img.classList.add("img-autor");
         img.style.marginBottom = "-0.3vw";
         img.style.marginRight = "0.6vw";
-        
-        // Adicionar a imagem antes do texto do autor, para ficar ao lado esquerdo
+
+        // Adicionar a imagem antes do texto do autor
         autorCell.insertBefore(img, autorCell.firstChild);
       }
     }
-
-    for (var j = 0; j < cells.length; j++) { // Percorre todas as células da linha
-      var cell = cells[j];
-      txtValue = cell.textContent || cell.innerText;
-}}};
-
-
-document.addEventListener("DOMContentLoaded", function() {
-  FuncaoCelulas();
-});
-
-//função da imagem "detalhes da denúncia" ---------------------------------------------------------------------------------------//
-
-document.addEventListener("DOMContentLoaded", function() {
-  const verDetalhesImg = document.querySelector(".ver-detalhes-denuncia");
-  const asideDetalhesRow = document.getElementById("asideDetalhes");
-
-  verDetalhesImg.addEventListener("click", function() {
-    var display = asideDetalhesRow.style.display;
-
-      if (display == "none") {
-          asideDetalhesRow.style.display = 'block';
-      } else {
-          asideDetalhesRow.style.display = 'none';
-      }
-  });
-});
-
-function toggle(el) {
-  var display = document.getElementById(el).style.display;
-  if(display == "none") {
-    document.getElementById(el).style.display = 'block';
-  } else {
-    document.getElementById(el).style.display = 'none';
   }
 }
+
+//função da imagem "detalhes da denúncia"
+document.addEventListener("DOMContentLoaded", function() {
+  const verDetalhesImgs = document.querySelectorAll(".ver-detalhes-denuncia");
+  const asideDetalhesRows = document.querySelectorAll("#asideDetalhes");
+
+  verDetalhesImgs.forEach((img, index) => {
+    img.addEventListener("click", function() {
+      var asideDetalhesRow = asideDetalhesRows[index];
+      if (asideDetalhesRow.style.display === "none") {
+        asideDetalhesRow.style.display = "table-row";
+      } else {
+        asideDetalhesRow.style.display = "none";
+      }
+    });
+  });
+});

@@ -1,6 +1,6 @@
-.grid-menu-filtros-postagem{
+.grid-menu-filtros-usuario{
     display: grid;
-    grid-template-columns: 7% 10% 7% 7% 10% 30%;
+    grid-template-columns: 7% 7% 12% 12% 10% 30%;
     grid-template-rows: 27% 47%;
     grid-column-gap: 1%;
 }
@@ -34,8 +34,8 @@
     }
 }
 
-#pesquisar-postagem{
-    margin-left: 49.4vh;
+#pesquisar-usuario{
+    margin-left: 40.2vh;
 }
 
 .icone-pesquisa{
@@ -99,12 +99,36 @@
 }
 
 /* Classes das celulas dinâmicas - Inicio */
-/* Coluna Conteúdo - Inicio */
+
 .Coluna-id{
     padding-left: 3vh;
 }
 
-.Coluna-conteudo{
+.icon-rosa-linha {
+    max-width: 2.3vh;
+    height: 2.3vh;
+    padding: 1vh 1.4vh 1vh 1.4vh;
+    border-radius: 2px;
+    margin-right: 2vh;
+    border: 0.45vh solid #CB218C;
+    border-radius: 0.7vh;
+}
+
+.Coluna-premium{
+    display: inline-block;
+    max-width: 13vh;
+    height: 2.3vh;
+    text-align: center;
+    background-color: #5800AA;
+    font-family: "Fira Sans", sans-serif;
+    font-size: 1.8vh;
+    font-weight: 700;
+    color: #F1F1F1;
+    border-radius: 5px;
+    padding: 1vh 2vh 1vh 2vh;
+}
+
+.Coluna-comum{
     display: inline-block;
     max-width: 13vh;
     height: 2.3vh;
@@ -113,19 +137,7 @@
     font-family: "Fira Sans", sans-serif;
     font-size: 1.8vh;
     font-weight: 700;
-    background-color: #F1F1F1 ;
+    background-color: #F1F1F1;
     border-radius: 5px;
     padding: 1vh 2vh 1vh 2vh;
-}
-/* Coluna Conteúdo - Fim */
-/* Classes das celulas dinâmicas - Fim */
-
-.icon-rosa-linha {
-    max-width: 3vh;
-    height: 3vh;
-    padding: 1vh 1.4vh 1vh 1.4vh;
-    border-radius: 2px;
-    margin-right: 2vh;
-    border: 0.3vh solid #CB218C;
-    border-radius: 0.7vh;
 }
