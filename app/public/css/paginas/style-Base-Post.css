@@ -108,7 +108,7 @@
       padding-bottom: 2.5vh;
       justify-content: center;
       align-items: center;
-      background-color: #FFE6EF;
+      background-color: #e6e6e6;
       border-top-left-radius: 10px;
       border-top-right-radius: 10px;
     }
@@ -123,10 +123,19 @@
       height: 3vh;
       justify-content: center;
       align-items: center;
-      background-color: #CB1154;
       border-bottom-left-radius: 10px;
       border-bottom-right-radius: 10px;
       gap: 5vh;
+    }
+    
+    .figureCulinaria{
+      background-color: #CB1154;
+    }
+    .figureLimpeza{
+      background-color: #027de1;
+    }
+    .figureBemEstar{
+      background-color: #00cd83;
     }
     .pergunta-categoria, .patinhas{
       display: flex;
