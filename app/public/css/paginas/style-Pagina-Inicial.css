@@ -713,4 +713,9 @@
   margin-left: 2vw;
   margin-right: 2vw;
 }
+.Conteudo-EmAlta-Dkt{
+  justify-content: center;
+  display: flex;
+  width: 100%;
+}
 }

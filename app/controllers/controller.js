@@ -120,19 +120,15 @@ const tarefasController = {
         try {
             let pagina = req.query.pagina == undefined ? 1 : req.query.pagina;
             let regPagina = 12 //número de registros por página
-            let inicio = 0
-            let totReg = await conteudoModel.TotalReg(); //armazena o número total de registros
-            let totPaginas = Math.ceil(totReg[0].total / regPagina); //calcula o número total de páginas necessárias para exibir todos os registros
-            let results = await conteudoModel.FindPage(inicio, regPagina);
-            let paginador = totReg[0].total <= regPagina
-                ? null
-                : {"pagina_atual": pagina, "total_reg": totReg[0].total, "total_paginas": totPaginas};
-            let postsConteudo = results.map(conteudo => ({
-                nome: conteudo.Titulo,
-                descricao: conteudo.Descricao,
-                tempo: formatarTempo(conteudo.tempo),
-                porcoes: conteudo.porcoes > 0 ? `${conteudo.porcoes} ${conteudo.porcoes > 1 ? 'Porções' : 'Porção'}` : null
-            }));
+            let inicio = (pagina - 1) * regPagina;
+
+            let totRegDicas = await conteudoModel.TotalReg("dica");
+            let totRegPerguntas = await conteudoModel.TotalReg("pergunta");
+            let totReg = totRegDicas[0].total + totRegPerguntas[0].total;
+            let totPaginas = Math.ceil(totReg / regPagina); //calcula o número total de páginas necessárias para exibir todos os registros
+
+            let dicas = await conteudoModel.FindPage("dica", inicio, regPagina / 2); // busca registros do tipo dica
+            let perguntas = await conteudoModel.FindPage("pergunta", inicio, regPagina / 2);
 
             function formatarTempo(tempo) {
                 let duracao = moment.duration(tempo, 'HH:mm:ss');
@@ -147,11 +143,32 @@ const tarefasController = {
                 } else {
                     return ''; 
                 }
-            };            
+            };
+
+            let perguntasConteudo = perguntas.map(conteudo => ({
+                nome: conteudo.titulo,
+                categoria: conteudo.categorias_idCategorias
+            }));
+
+            let postsConteudo = dicas.map(conteudo => ({
+                nome: conteudo.Titulo,
+                descricao: conteudo.Descricao,
+                tempo: formatarTempo(conteudo.tempo),
+                porcoes: conteudo.porcoes > 0 ? `${conteudo.porcoes} ${conteudo.porcoes > 1 ? 'Porções' : 'Porção'}` : null,
+                categoria: conteudo.Categorias_idCategorias
+            }));
+
+            console.log("pagina_atual: " + pagina + " total_reg: " + totReg + " total_paginas: " + totPaginas + " Índice de início:" + inicio + " regPagina: " + regPagina);
+
+            let paginador = totReg <= regPagina
+                ? null
+                : {"pagina_atual": pagina, "total_reg": totReg, "total_paginas": totPaginas};
+
             res.render("pages/template", {
                 pagina: {cabecalho: "cabecalho", conteudo: "index", rodape: "rodape"}, 
                 usuario_logado:req.session.autenticado,
                 login: req.session.logado,
+                perguntas: perguntasConteudo, 
                 posts: postsConteudo, 
                 paginador: paginador
             });           
@@ -161,25 +178,66 @@ const tarefasController = {
         }
     },
     CriarDica: async (req, res) => {
+        var categoriaId;
+        var categoria = req.body.dica_categoria;
+        if (categoria === "Culinária") {
+            categoriaId = 1;
+        } else if (categoria === "Limpeza") {
+            categoriaId = 2;
+        } else if (categoria === "Bem Estar") {
+            categoriaId = 3;
+        }
+
+        const etapasModoPreparo = req.body.etapas_modo_preparo;
+        if (!Array.isArray(etapasModoPreparo)) {
+            console.log('etapas_modo_preparo não é um array:', etapasModoPreparo);
+            return res.status(400).send('Etapas do modo de preparo inválidas');
+        }
+        const etapasTexto = etapasModoPreparo.join('; ');
+
         var FormCriarDica = { //dados que o usuário digita no formulário
             Clientes_idClientes: req.session.autenticado.id, 
+            Categorias_idCategorias: categoriaId,
             Titulo: req.body.dica_titulo,
-            Categorias_idCategorias: req.body.dica_categoria,
             tempo: `${req.body.dica_tempo_horas.padStart(2, '0')}:${req.body.dica_tempo_minutos.padStart(2, '0')}:00`, // Formatando horas e minutos
             Descricao: req.body.dica_descricao,
-            porcoes: req.body.dica_porcoes
+            porcoes: req.body.dica_porcoes,
+            Etapas_Modo_de_Preparo: etapasTexto 
         };
+        const { ingredientes, quantidade_ingredientes, medida_ingredientes } = req.body;
+
+        if (!ingredientes || !quantidade_ingredientes || !medida_ingredientes) {
+            return res.status(400).send('Dados de ingredientes ausentes');
+        };
+
+        const ingredientesArray = Array.isArray(ingredientes) ? ingredientes : [ingredientes];
+        const quantidadeIngredientesArray = Array.isArray(quantidade_ingredientes) ? quantidade_ingredientes : [quantidade_ingredientes];
+        const medidaIngredientesArray = Array.isArray(medida_ingredientes) ? medida_ingredientes : [medida_ingredientes];
+
+
         try{
-            const dadosImagem = {
-                nome: req.file.filename,
-                caminho: req.file.path
-            };
+            // const dadosImagem = {
+            //     nome: req.file.filename,
+            //     caminho: req.file.path
+            // };
             
-            let imagemCriada = await imagemModel.criarImagem(dadosImagem);
-            FormCriarDica.imagem_id = imagemCriada.insertId;
+            // let imagemCriada = await imagemModel.criarImagem(dadosImagem);
+            // FormCriarDica.imagem_id = imagemCriada.insertId;
 
             let create = conteudoModel.CriarPostagem(FormCriarDica);
-            console.log("postagem realizada!");
+            const postagemId = create.insertId;
+
+
+            for (let i = 0; i < ingredientesArray.length; i++) {
+                let ingrediente = {
+                    quantidade_ingredientes: quantidadeIngredientesArray[i],
+                    ingredientes: ingredientesArray[i],
+                    medida_ingredientes: medidaIngredientesArray[i],
+                    postagem_id: postagemId
+                };
+                await ingredientesModel.criarIngrediente(ingrediente);
+            }
+            console.log("Postagem realizada!");
 
             req.session.notification = {
                 titulo: "Postagem realizada!",
@@ -204,11 +262,22 @@ const tarefasController = {
         }
     },
     CriarPergunta: async (req, res) => {
+        var categoriaId;
+        var categoria = req.body.pergunta_categoria;
+        if (categoria === "Culinária") {
+            categoriaId = 1;
+        } else if (categoria === "Limpeza") {
+            categoriaId = 2;
+        } else if (categoria === "Bem Estar") {
+            categoriaId = 3;
+        }
+
         var FormCriarPergunta = {
             Clientes_idClientes: req.session.autenticado.id,
             titulo: req.body.pergunta_titulo,
-            Categorias_idCategorias: req.body.pergunta_categoria
+            Categorias_idCategorias: categoriaId
         };
+
         try{
             let create = conteudoModel.CriarPergunta(FormCriarPergunta);
             console.log("Pergunta realizada!");

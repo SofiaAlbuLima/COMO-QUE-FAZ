@@ -89,12 +89,12 @@
                                     <div class="dropDown" id="dropdown">
                                        <div class="listDropDown">
                                           <div value="culinaria-categoria" class="item-select-detalhes texto"
-                                             id="item-select-detalhes-1" onmousedown="category(1)">1
+                                             id="item-select-detalhes-1" onmousedown="category(1)">Culinária
                                           </div>
                                           <div class="item-select-detalhes texto" id="item-select-detalhes-2"
-                                             onmousedown="category(2)">2</div>
+                                             onmousedown="category(2)">Limpeza</div>
                                           <div class="item-select-detalhes texto" id="item-select-detalhes-3"
-                                             onmousedown="category(3)">3</div>
+                                             onmousedown="category(3)">Bem Estar</div>
                                        </div>
                                     </div>
                                  </figure>
@@ -143,38 +143,38 @@
                                           <img id="botao-de-tirar-ingrediente" src="./imagens/tirar-ingrediente.svg"
                                              alt="excluir ingrediente" onclick="apagarDiv(this)">
                                           <h4 id="nome-do-ingrediente">Nome do ingrediente</h4>
-                                          <input type="text" id="input-nome-do-ingrediente" placeholder="FARINHA DE TRIGO">
+                                          <input type="text" id="input-nome-do-ingrediente" placeholder="FARINHA DE TRIGO" name="ingredientes">
                                           <div id="coiso-pra-deixar-certo">
                                              <section id="quantidade-elementos">
                                                 <h4 id="nome-do-ingrediente">Quantidade/Peso</h4>
-                                                <input type="text" id="input-quantidade-do-ingrediente" placeholder="01">
+                                                <input type="text" id="input-quantidade-do-ingrediente" placeholder="01" name="quantidade_ingredientes">
                                              </section>
                                              <section id="guardar-medidas-elementos">
                                                 <h4 id="nome-do-ingrediente">Medida</h4>
-                                                <select name="medidas-elementos" id="medidas-elementos">
+                                                <select name="medida_ingredientes" id="medidas-elementos">
                                                    <figure class="dropDown-medidas">
-                                                      <option value="item-de-modo-de-preparo" class="item-medidas">
+                                                      <option value="Xícara" class="item-medidas">
                                                          Xícara
                                                       </option>
-                                                      <option value="item-de-modo-de-preparo" class="item-medidas">
+                                                      <option value="Colher de sopa" class="item-medidas">
                                                          Colher de sopa
                                                       </option>
-                                                      <option value="item-de-modo-de-preparo" class="item-medidas">
+                                                      <option value="Colher de chá" class="item-medidas">
                                                          Colher de chá
                                                       </option>
-                                                      <option value="item-de-modo-de-preparo" class="item-medidas">
+                                                      <option value="Colher de café" class="item-medidas">
                                                          Colher de café
                                                       </option>
-                                                      <option value="item-de-modo-de-preparo" class="item-medidas">
+                                                      <option value="Colher de sobremesa" class="item-medidas">
                                                          Colher de sobremesa
                                                       </option>
-                                                      <option value="item-de-modo-de-preparo" class="item-medidas">
+                                                      <option value="Copo americano" class="item-medidas">
                                                          Copo americano
                                                       </option>
-                                                      <option value="item-de-modo-de-preparo" class="item-medidas">
+                                                      <option value="Gramas (gr)" class="item-medidas">
                                                          Gramas (gr)
                                                       </option>
-                                                      <option value="item-de-modo-de-preparo" class="item-medidas">
+                                                      <option value="Mililitros (ml)" class="item-medidas">
                                                          Mililitros (ml)
                                                       </option>
                                                    </figure>
@@ -205,7 +205,7 @@
                                              <h2 id="simbolo-do-numero">º</h2>
                                           </span>
                                           <input type="text" id="input-modo-de-preparo"
-                                             placeholder="Misture todos os ingredientes..." name="dica_modo_de_preparo">
+                                             placeholder="Misture todos os ingredientes..." name="etapas_modo_preparo">
                                           <button id="apagar-modo-de-preparo" onclick="apagarDivModo(this)">X</button>
                                        </div>
                                     </section>
@@ -263,11 +263,11 @@
                         <figure class="dropdown-perguntar-categoria" style="z-index: 1000;">
                            <figure class="listdropdown-perguntar-categoria">
                               <option value="categoria-culinaria" class="item-perguntar-categoria"
-                                 id="item-perguntar-categoria-1" onmousedown="perguntar(1)">1</option>
+                                 id="item-perguntar-categoria-1" onmousedown="perguntar(1)">Culinária</option>
                               <option value="categoria-limpeza" class="item-perguntar-categoria"
-                                 id="item-perguntar-categoria-2" onmousedown="perguntar(2)">2</option>
+                                 id="item-perguntar-categoria-2" onmousedown="perguntar(2)">Limpeza</option>
                               <option value="categoria-bemestar" class="item-perguntar-categoria"
-                                 id="item-perguntar-categoria-3" onmousedown="perguntar(3)">3</option>
+                                 id="item-perguntar-categoria-3" onmousedown="perguntar(3)">Bem Estar</option>
                            </figure>
                         </figure>
                      </section>
