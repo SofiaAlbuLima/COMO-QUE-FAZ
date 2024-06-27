@@ -31,7 +31,7 @@ const tarefasController = {
     ],
     regrasValidacaoCadastro:[
         body("nomeusu_usu")
-            .isLength({ min: 8, max: 45 }).withMessage("Nome de usuário deve ter de 8 a 45 caracteres!")
+            .isLength({ min: 5, max: 45 }).withMessage("Nome de usuário deve ter de 5 a 45 caracteres!")
             .custom(async value => {
                 const nomeUsu = await usuarioModel.findUserEmail({Nickname:value});
                 if (nomeUsu > 0) {
@@ -57,7 +57,8 @@ const tarefasController = {
                 return res.render("pages/template", {
                     pagina: {cabecalho: "cabecalho", conteudo: "Fazer-Login", rodape: "rodape"}, 
                     usuario_logado:req.session.autenticado,
-                    listaErros: erros, 
+                    listaErroslog: erros, 
+                    listaErros:null,
                     dadosNotificacao: null //mensagem erro express validator
                 });
             }
@@ -68,7 +69,8 @@ const tarefasController = {
                 res.render("pages/template", { //Verificação de Erros de Login com banco
                     pagina: {cabecalho: "cabecalho", conteudo: "Fazer-Login", rodape: "rodape"}, 
                     usuario_logado:req.session.autenticado, 
-                    listaErros: null,
+                    listaErroslog: null,
+                    listaErros:null,
                     dadosNotificacao: {titulo:"Falha ao logar!", mensagem:"Usuário e/ou senha inválidos!", tipo: "error" }
                 });
             }
@@ -85,7 +87,9 @@ const tarefasController = {
             console.log(erros);
             return res.render("pages/template", {
                 pagina: {cabecalho: "cabecalho", conteudo: "Fazer-Login", rodape: "rodape"}, 
+                usuario_logado:req.session.autenticado, 
                 listaErros: erros,
+                listaErroslog: null,
                 dadosNotificacao: null
             });
         }
@@ -104,10 +108,11 @@ const tarefasController = {
             res.render("pages/template", {
                 pagina: {cabecalho: "cabecalho", conteudo: "Fazer-Login", rodape: "rodape"}, 
                 usuario_logado:req.session.autenticado, 
-                listaErros: erros, 
+                listaErros: null, 
+                listaErroslog: null,
                 dadosNotificacao: {
                     titulo: "Erro ao cadastrar!", 
-                    mensagem: "Verifique os valores digitados!", 
+                    mensagem: "Tente novamente!", 
                     tipo: "error"
                 },
             });

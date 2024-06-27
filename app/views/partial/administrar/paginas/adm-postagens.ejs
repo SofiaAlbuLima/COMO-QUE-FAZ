@@ -27,45 +27,41 @@
    
          <section class="conteudo-pagina">
             <!-- tabela Denúncias - Inicio -->
-               <section id="menu-filtros-denuncias" class="grid-menu-filtros-denuncias">
-                  <figure id="titulo-conteudo-denuncia" class="linha-1-titulos">Conteúdo</figure>
-                  <figure id="titulo-motivo-denuncia" class="linha-1-titulos">Motivo da Denúncia</figure>
-                  <figure id="titulo-categoria-denuncia" class="linha-1-titulos">Categoria</figure>
-                  <figure id="titulo-autor-denuncia" class="linha-1-titulos">Autor</figure>
-                  <figure id="titulo-status-denuncia" class="linha-1-titulos">Status</figure>
+               <section id="menu-filtros-denuncias" class="grid-menu-filtros-postagem">
+                  <figure id="titulo-id-postagem" class="linha-1-titulos">ID</figure>
+                  <figure id="titulo-conteudo-postagem" class="linha-1-titulos">Conteúdo</figure>
+                  <figure id="titulo-titulo-postagem" class="linha-1-titulos">Título</figure>
+                  <figure id="titulo-autor-postagem" class="linha-1-titulos">Autor</figure>
+                  <figure id="titulo-categoria-postagem" class="linha-1-titulos">Categoria</figure>
                   
-                  <article id="pesquisar" class="linha-1-titulos">
+                  <article id="pesquisar-postagem" class="linha-1-titulos">
                      <img class="icone-pesquisa" src="/imagens-svg/5-adm/pesquisa-cinza.svg" alt="">
                      <input class="pesquisa-input" type="text" id="myInput" onkeyup="myFunction()" placeholder="Pesquisar ID ou perfil..."> <!-- pesquisa (search) na tabala - onkeyup é quando um user digita -->
                   </article>
 
                   <select id="filtro-conteudo-denuncia" class="linha-2-filtros">
-                     <option value="" id="opcao-conteudo-denuncia">Comentário</option>
-                     <option value="" id="opcao-conteudo-denuncia">Postagem</option>
-                     <option value="" id="opcao-conteudo-denuncia">Perfil</option>
-                     <option value="" id="opcao-conteudo-denuncia">Pergunta</option>
+                     <option value="" id="opcao-conteudo-denuncia" class="opcao-denuncia-filtro">123...</option>
+                     <option value="" id="opcao-conteudo-denuncia" class="opcao-denuncia-filtro">123...</option>
+                     <option value="" id="opcao-conteudo-denuncia" class="opcao-denuncia-filtro">123...</option>
                   </select>
 
                   <select id="filtro-motivo-denuncia" class="linha-2-filtros">
-                     <option value="" id="opcao-motivo-denuncia">Violações dos termos de uso</option>
-                     <option value="" id="opcao-motivo-denuncia">Conteúdo Inadequado</option>
-                     <option value="" id="opcao-motivo-denuncia">Spam</option>
+                     <option value="" id="opcao-motivo-denuncia" class="opcao-denuncia-filtro">Pergunta</option>
+                     <option value="" id="opcao-motivo-denuncia" class="opcao-denuncia-filtro">Postagem</option>
                   </select>
 
                   <select id="filtro-categoria-denuncia" class="linha-2-filtros">
-                     <option value="" id="opcao-categoria-denuncia">Bem-Estar</option>
-                     <option value="" id="opcao-categoria-denuncia">Culinária</option>
-                     <option value="" id="opcao-categoria-denuncia">Limpeza</option>
+                     <option value="" id="opcao-categoria-denuncia" class="opcao-denuncia-filtro">A-Z</option>
                   </select>
 
                   <select id="filtro-autor-denuncia" class="linha-2-filtros">
-                     <option value="" id="opcao-autor-denuncia">A-Z</option>
+                     <option value="" id="opcao-autor-denuncia" class="opcao-denuncia-filtro">A-Z</option>
                   </select>
 
                   <select id="filtro-status-denuncia" class="linha-2-filtros">
-                     <option value="" id="opcao-status-denuncia">Analisada e Avaliada</option>
-                     <option value="" id="opcao-status-denuncia">Não Analisada</option>
-                     <option value="" id="opcao-status-denuncia">Analisada</option>
+                     <option value="" id="opcao-status-denuncia" class="opcao-denuncia-filtro">Culinaria</option>
+                     <option value="" id="opcao-status-denuncia" class="opcao-denuncia-filtro">Limpeza</option>
+                     <option value="" id="opcao-status-denuncia" class="opcao-denuncia-filtro">Bem-estar</option>
                   </select>
                </section>
 
@@ -73,46 +69,81 @@
                   <table class="tabela" id="myTable">
                      
                      <tr class="cabeçalho-tabela">
-                        <th style="width: 11.17vh;" class="titulo-tabela"></th>
-                        <th style="width: 19.01vh;" class="titulo-tabela">Conteúdo</th>
-                        <th style="width: 24.39vh;" class="titulo-tabela">Motivo da Denúncia</th>
-                        <th style="width: 15.91vh;" class="titulo-tabela">Categoria</th>
-                        <th style="width: 23.25vh;" class="titulo-tabela">Autor da Denúncia</th>
-                        <th style="width: 31.11vh;" class="titulo-tabela">Status</th>
+                        <th style="width: 8vh; padding-left: 3vh;" class="titulo-tabela">ID</th>
+                        <th style="width: 15vh;" class="titulo-tabela">Conteúdo</th>
+                        <th style="width: 30vh;" class="titulo-tabela">Título da Publicação</th>
+                        <th style="width: 15vh;" class="titulo-tabela">Categoria</th>
+                        <th style="width: 23vh;" class="titulo-tabela">Autor da Publicação</th>
+                        <th style="width: 4vh;" class="titulo-tabela"></th>
+                        <th style="width: 4vh;" class="titulo-tabela"></th>
+                        <th style="width: 4vh;" class="titulo-tabela"></th>
                      </tr>
 
                      <tr class="linhas"> <!-- Conteudo da tabela -->
-                        <td class="linha"> <img class="ver-detalhes-denuncia" src="/imagens-svg/add-rosa.svg" alt=""></td>
-                        <td class="linha Coluna-conteudo">Perfil</td>
-                        <td class="linha Coluna-motivo">Conteúdo Inadequado</td>
+                        <td class="linha Coluna-id">#10.049</td>
+                        <td class="linha">
+                           <p class="Coluna-conteudo">Postagem</p>
+                        </td>
+                        <td class="linha Coluna-titulo">Receita de Lancheira Saudável para Crianças</td>
                         <td class="linha Coluna-categoria">Cúlinária</td>
-                        <td class="linha Coluna-autor">User</td>
-                        <td class="linha Coluna-status">Analisada e Avaliada</td>
+                        <td class="linha Coluna-autor" data-autor="true">User</td>
+                        <td class="linha"> <img class="icon-rosa-linha visualizar-icon-postagem" src="/imagens-svg/visualizar-icon-rosa.svg" alt=""></td>
+                        <td class="linha"> <img class="icon-rosa-linha bloquear-icon-postagem" src="/imagens-svg/bloquear-icon-rosa.svg" alt=""></td>
+                        <td class="linha"> <img class="icon-rosa-linha excluir-icon-postagem" src="/imagens-svg/excluir-icon-rosa.svg" alt=""></td>
                      </tr>
+
                      <tr class="linhas"> <!-- Conteudo da tabela -->
-                        <td class="linha"> <img class="ver-detalhes-denuncia" src="/imagens-svg/add-rosa.svg" alt=""></td>
-                        <td class="linha Coluna-conteudo">Pergunta</td>
-                        <td class="linha Coluna-motivo">Spam</td>
-                        <td class="linha Coluna-categoria">Limpeza</td>
-                        <td class="linha Coluna-autor">User2</td>
-                        <td class="linha Coluna-status">Não Analisada</td>
+                        <td class="linha Coluna-id">#10.049</td>
+                        <td class="linha">
+                           <p class="Coluna-conteudo">Postagem</p>
+                        </td>
+                        <td class="linha Coluna-titulo">Receita de Lancheira Saudável para Crianças</td>
+                        <td class="linha Coluna-categoria">Cúlinária</td>
+                        <td class="linha Coluna-autor" data-autor="true">User</td>
+                        <td class="linha"> <img class="icon-rosa-linha visualizar-icon-postagem" src="/imagens-svg/visualizar-icon-rosa.svg" alt=""></td>
+                        <td class="linha"> <img class="icon-rosa-linha bloquear-icon-postagem" src="/imagens-svg/bloquear-icon-rosa.svg" alt=""></td>
+                        <td class="linha"> <img class="icon-rosa-linha excluir-icon-postagem" src="/imagens-svg/excluir-icon-rosa.svg" alt=""></td>
                      </tr>
+
                      <tr class="linhas"> <!-- Conteudo da tabela -->
-                        <td class="linha"> <img class="ver-detalhes-denuncia" src="/imagens-svg/add-rosa.svg" alt=""></td>
-                        <td class="linha Coluna-conteudo">Postagem</td>
-                        <td class="linha Coluna-motivo">Violações dos termos de uso</td>
-                        <td class="linha Coluna-categoria">Bem-Estar</td>
-                        <td class="linha Coluna-autor">User3</td>
-                        <td class="linha Coluna-status">Analisada</td>
+                        <td class="linha Coluna-id">#10.049</td>
+                        <td class="linha">
+                           <p class="Coluna-conteudo">Postagem</p>
+                        </td>
+                        <td class="linha Coluna-titulo">Receita de Lancheira Saudável para Crianças</td>
+                        <td class="linha Coluna-categoria">Cúlinária</td>
+                        <td class="linha Coluna-autor" data-autor="true">User</td>
+                        <td class="linha"> <img class="icon-rosa-linha visualizar-icon-postagem" src="/imagens-svg/visualizar-icon-rosa.svg" alt=""></td>
+                        <td class="linha"> <img class="icon-rosa-linha bloquear-icon-postagem" src="/imagens-svg/bloquear-icon-rosa.svg" alt=""></td>
+                        <td class="linha"> <img class="icon-rosa-linha excluir-icon-postagem" src="/imagens-svg/excluir-icon-rosa.svg" alt=""></td>
                      </tr>
+                     
                      <tr class="linhas"> <!-- Conteudo da tabela -->
-                        <td class="linha"> <img class="ver-detalhes-denuncia" src="/imagens-svg/add-rosa.svg" alt=""></td>
-                        <td class="linha Coluna-conteudo">Comentário</td>
-                        <td class="linha Coluna-motivo">Violações dos termos de uso</td>
-                        <td class="linha Coluna-categoria">Limpeza</td>
-                        <td class="linha Coluna-autor">User4</td>
-                        <td class="linha Coluna-status">Não Analisada</td>
+                        <td class="linha Coluna-id">#10.049</td>
+                        <td class="linha">
+                           <p class="Coluna-conteudo">Postagem</p>
+                        </td>
+                        <td class="linha Coluna-titulo">Receita de Lancheira Saudável para Crianças</td>
+                        <td class="linha Coluna-categoria">Cúlinária</td>
+                        <td class="linha Coluna-autor" data-autor="true">User</td>
+                        <td class="linha"> <img class="icon-rosa-linha visualizar-icon-postagem" src="/imagens-svg/visualizar-icon-rosa.svg" alt=""></td>
+                        <td class="linha"> <img class="icon-rosa-linha bloquear-icon-postagem" src="/imagens-svg/bloquear-icon-rosa.svg" alt=""></td>
+                        <td class="linha"> <img class="icon-rosa-linha excluir-icon-postagem" src="/imagens-svg/excluir-icon-rosa.svg" alt=""></td>
                      </tr>
+                     
+                     <tr class="linhas"> <!-- Conteudo da tabela -->
+                        <td class="linha Coluna-id">#10.049</td>
+                        <td class="linha">
+                           <p class="Coluna-conteudo">Postagem</p>
+                        </td>
+                        <td class="linha Coluna-titulo">Receita de Lancheira Saudável para Crianças</td>
+                        <td class="linha Coluna-categoria">Cúlinária</td>
+                        <td class="linha Coluna-autor" data-autor="true">User</td>
+                        <td class="linha"> <img class="icon-rosa-linha visualizar-icon-postagem" src="/imagens-svg/visualizar-icon-rosa.svg" alt=""></td>
+                        <td class="linha"> <img class="icon-rosa-linha bloquear-icon-postagem" src="/imagens-svg/bloquear-icon-rosa.svg" alt=""></td>
+                        <td class="linha"> <img class="icon-rosa-linha excluir-icon-postagem" src="/imagens-svg/excluir-icon-rosa.svg" alt=""></td>
+                     </tr>                     
+                     
                   </table>
                </section>
             <!-- tabela Denúncias - Fim -->

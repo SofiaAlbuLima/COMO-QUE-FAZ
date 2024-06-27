@@ -1,0 +1,31 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.link-pg-premium{
+    position: absolute;
+    width:24vh;
+    border: 1px solid #9e5fef;
+    border-radius: 7px;
+    color: #9e5fef;
+    letter-spacing: 0.5px;
+    font-family: "Fira Sans", sans-serif;
+    text-decoration: underline;
+    font-size: 1.6vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 1.4vh;
+    margin-left: 124vh;
+    gap: 1vh;
+}
+
+.content{
+    display: none;
+}
+
+.content.show{
+    display: flex;
+}
