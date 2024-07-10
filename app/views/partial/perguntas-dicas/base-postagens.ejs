@@ -44,24 +44,40 @@
             <article class="parte-cima-pergunta">
                <h4 class="texto-pergunta"><%= pergunta.nome %></h4>
             </article>
-            <article class="parte-baixo-pergunta">
-               <figure class="pergunta-categoria">
                   <% if (pergunta.categoria === 1) { %>
-                     <img src="imagens/icon-culinaria-branco.png" alt="">
-                     <p>Culinária</p>
+                     <article class="parte-baixo-pergunta figureCulinaria">
+                        <figure class="pergunta-categoria">
+                           <img src="imagens/icon-culinaria-branco.png" alt="">
+                           <p>Culinária</p>
+                        </figure>
+                        <figure class="patinhas">
+                           <img src="imagens-svg/patinha-icon.svg" alt="ícone-patinhas">
+                           <p>5</p>
+                        </figure>
+                     </article>
                   <% } else if (pergunta.categoria === 2) { %>
-                     <img src="imagens/icon-limpeza-branco.png" alt="">
-                     <p>Limpeza</p>
+                     <article class="parte-baixo-pergunta figureLimpeza">
+                     <figure class="pergunta-categoria">
+                        <img src="imagens/icon-limpeza-branco.png" alt="">
+                        <p>Limpeza</p>
+                     </figure>
+                     <figure class="patinhas">
+                        <img src="imagens-svg/patinha-icon.svg" alt="ícone-patinhas">
+                        <p>5</p>
+                     </figure>
+                  </article>
                   <% } else if (pergunta.categoria === 3) { %>
-                     <img src="imagens/icon-bemestar-branco.png" alt="">
-                     <p>Bem Estar</p>
+                     <article class="parte-baixo-pergunta figureBemEstar">
+                     <figure class="pergunta-categoria">
+                        <img src="imagens/icon-bemestar-branco.png" alt="">
+                        <p>Bem Estar</p>
+                     </figure>
+                     <figure class="patinhas">
+                        <img src="imagens-svg/patinha-icon.svg" alt="ícone-patinhas">
+                        <p>5</p>
+                     </figure>
+                  </article>
                   <% } %>
-               </figure>
-               <figure class="patinhas">
-                  <img src="imagens-svg/patinha-icon.svg" alt="ícone-patinhas">
-                  <p>5</p>
-               </figure>
-            </article>
          </section>
       <% }); %>
    <% } %>
