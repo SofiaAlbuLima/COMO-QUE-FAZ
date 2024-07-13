@@ -479,18 +479,21 @@
   width: 7vh;
   background-color: #cb2154;
   position: absolute;
-}
-.quadrado-categoria-bemestar{
-  height: 100%;
-  width: 7vh;
-  background-color: #00cd83;
-  position: absolute;
+  box-shadow: 350px 100px 75px 350px rgba(0, 0, 0, 0.389);
 }
 .quadrado-categoria-limpeza{
   height: 100%;
   width: 7vh;
   background-color: #027de1;
   position: absolute;
+  box-shadow: 350px 100px 75px 350px rgba(0, 0, 0, 0.389);
+}
+.quadrado-categoria-bemestar{
+  height: 100%;
+  width: 7vh;
+  background-color: #00cd83;
+  position: absolute;
+  box-shadow: 350px 100px 75px 350px rgba(0, 0, 0, 0.389);
 }
 .primeiro{
   display: flex;
@@ -501,7 +504,7 @@
   height: 45px;
   border-radius: 10px;
   width: 25vh;
-  bottom: 5vh;
+  bottom: 10vh;
   background: none;
   border: white 2.5px solid;
   color: white;
