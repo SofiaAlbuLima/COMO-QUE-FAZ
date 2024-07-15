@@ -492,7 +492,7 @@
 @media only screen and (min-width: 481px) {
   .perfil-cima {
     margin: auto;
-    width: 67.5%;
+    width: 50.5%;
     border-radius: 14px;
     background-color: #f9f9f9;
     box-sizing: border-box;
@@ -665,7 +665,7 @@
   .tab-perfil {
     display: flex;
     overflow: hidden;
-    width: 67.5%;
+    width: 50.5%;
     background-color: #ffffff;
     margin: auto;
   }
@@ -699,6 +699,7 @@
 
   #Postagens {
     display: block;
+    width: 100%;
   }
 
   .tabcontent-perfil {
@@ -771,8 +772,6 @@
 
   /*Postagens*/
   .postagens-esqueleto {
-    width: 50vw;
-    height: 50vh;
     padding: 2px 20px 2px 0px;
     box-sizing: border-box;
   }
@@ -796,7 +795,7 @@
 
   button.botao-filtro {
     margin: 14px 7px 0px 0;
-    width: 139px;
+    width: 125px;
     height: 29px;
     padding: 2px 2px 2px 2px;
     border-radius: 7px;
@@ -809,10 +808,11 @@
     line-height: normal;
     border-style: none;
 
-    &:hover {
+    &:
+    hover {
       box-sizing: border-box;
-      opacity: 1;
-      background-color: #9d5fef3f;
+    opacity: 1;
+    background-color: #9d5fef3f;
     }
   }
 
@@ -1038,5 +1038,13 @@
     height: 45px;
     border: none;
     cursor: pointer;
+  }
+
+  .filtro-perfil {
+    justify-content: center;
+    padding: 0.8% 2% 0.8% 2%;
+    background-color: #F2F2F2;
+    border-radius: 5px 5px 5px 5px;
+    display: flex;
   }
 }

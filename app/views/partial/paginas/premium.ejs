@@ -7,7 +7,7 @@
             <hr class="Banner-linha-rosa">
 
             <p class="Banner-descricao-premium">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean euismod bibendum laoreet. Proin gravida dolor sit amet lacus accumsan et viverra justo commodo. Proin sodales pulvinar sic tempor. Sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Nam fermentum, nulla luctus pharetra vulputate, felis tellus mollis orci, sed rhoncus pronin sapien nunc accuan eget.</p>
-            <button class="Banner-botao-beneficios">Veja beneíficios do premium</button>
+            <button class="Banner-botao-beneficios" onclick="scrollToSection()">Veja beneíficios do premium</button>
             <div class="Banner-borda-botao"></div>
         </article>
 
@@ -16,7 +16,7 @@
         </figure>
     </section>
     
-    <section class="Secao-Beneficios-Premium">
+    <section class="Secao-Beneficios-Premium" id="target-section">
 
         <section class="figure-artigo-beneficios">
             <figure class="figure-titulo-beneficios">
@@ -167,3 +167,10 @@
         </section>
     </section>
 </main>
+
+<script>
+    function scrollToSection() {
+            const section = document.getElementById('target-section');
+            section.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }
+</script>

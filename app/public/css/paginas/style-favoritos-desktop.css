@@ -3,6 +3,10 @@
   #conteudo-dispositivo-mobile{
     display: none;
   }
+  #Notificacoes{
+    margin: auto;
+    width: 50.5%;
+  }
     .tab {
       float: left;
       transform: translate(267px, 150px);
@@ -53,11 +57,11 @@
       color: white;
     }
   
-  .mapa-do-site{
+  .mapa-do-sitefav{
     display: flex;
     margin-bottom: 2%;
   }
-  .mapa-do-site p{
+  .mapa-do-sitefav p{
     font-family: Fira Sans;
   }
   .mapa-1{
