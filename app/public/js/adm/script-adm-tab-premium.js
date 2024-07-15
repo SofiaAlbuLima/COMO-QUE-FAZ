@@ -1,9 +1,9 @@
-const tabs = document.querySelectorAll('.tab-btn');
+const tabs = document.querySelectorAll('.adm-tab-btn-premium');
 
 tabs.forEach(tab => tab.addEventListener('click', () => tabClicked(tab)));
 
 const tabClicked = (tab) => {
-    const contents = document.querySelectorAll('.content');
+    const contents = document.querySelectorAll('.adm-content-premium');
 
     contents.forEach(content => content.classList.remove('show'));
 

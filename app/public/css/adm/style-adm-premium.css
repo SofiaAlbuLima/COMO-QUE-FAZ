@@ -22,10 +22,10 @@
     gap: 1vh;
 }
 
-.content{
+.adm-content-premium{
     display: none;
 }
 
-.content.show{
+.adm-content-premium.show{
     display: flex;
 }
