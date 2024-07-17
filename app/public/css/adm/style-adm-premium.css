@@ -22,4 +22,152 @@
 
 .adm-content-premium.show{
     display: flex;
+    margin-top: 3vh;
+}
+
+.adm-tab-btn-premium{
+    width: 23vh;
+    height: 5vh;
+    margin-left: 0.2vh;
+    margin-right: 1.5vh;
+    font-size: 2vh;
+    font-family: "Fira Sans Bold", "Fira Sans", sans-serif;
+    font-weight: 700;;
+    letter-spacing: 0.5px;
+    border-radius: 0.5vh;
+    border: 0.4vh solid #797979;
+    background-color: rgba(0, 0, 0, 0.06);
+    cursor: pointer;
+    transition: background-color .4s ease;
+
+    &:hover{
+    color: #9e5fef;
+    border: 0.4vh solid #9e5fef;
+    background-color: #eee3fc;
+    }
+}
+
+.adm-tab-btn-premium.active-btn-premium{
+    color: #9e5fef;
+    border: 0.4vh solid #9e5fef;
+    background-color: #eee3fc;
+}
+
+/* conteudo das tabs ----------------------------------------------------------------------------------------------------*/
+#adm-imagens-premium{
+    display: flex;
+    justify-content: space-between;
+    width: 149vh;
+}
+
+.primeira-img-premium{
+    display: flex;
+    justify-content: space-between;
+    width: 64vh;
+    height: 19vh;
+    background-color: rgb(255, 255, 255);
+    padding: 5vh 5vh 5vh 5vh;
+    border-top-left-radius: 1vh;
+    border-bottom: 0.4vh solid #cccc;
+    border-right: 0.4vh solid #cccc;
+    box-shadow: 0px 0px 13px 0px rgba(0, 0, 0, 0.09);
+}
+
+.titulo-img-premium{
+    width: 34vh;
+    height: 5vh;
+    padding: 0.7vh 0.7vh 0.7vh 1vh;
+    border-top-right-radius: 2vh;
+    background-color: #9e5fef;
+    font-size: 2vh;
+    font-family: "Arial Bold", "Arial Normal", "Arial", sans-serif;
+    font-weight: 700;
+    color: #f2f2f2;
+}
+
+strong{
+    color: #000;
+}
+
+.texto-explicativo-img-premium{
+    width: 37vh;
+    font-family: "Arial Normal", "Arial", sans-serif;
+    font-size: 1.5vh;
+    color: #333333;
+    text-align: left;
+    line-height: normal;
+    margin-top: 2vh;
+}
+
+.texto-recomendativo-de-tamanho{
+  font-family: "Arial Bold", "Arial Normal", "Arial", sans-serif;
+  font-weight: 700;
+  font-size: 1.5vh;
+  color: #000;
+  text-align: left;
+  line-height: normal;
+  margin-top: 2vh;
+}
+
+.primeira-img-exposta{
+    width: 20vh;
+    height: 7vh;
+    padding: 5vh 2vh 5vh 2vh;
+    border: 0.4vh solid #cccc;
+    border-radius: 0.5vh;
+}
+
+/* ----------------------------------------------------------------------------------------------- */
+
+.segunda-img-premium{
+    width: 64vh;
+    height: 20vh;
+    display: flex;
+    justify-content: space-between;
+    padding: 5vh 5vh 5vh 5vh;
+    border-right: 0.4vh solid #cccc;
+    background-color: rgb(255, 255, 255);
+    box-shadow: 0px 0px 13px 0px rgba(0, 0, 0, 0.09);
+}
+
+/* ----------------------------------------------------------------------------------------------- */
+
+.terceira-img-premium{
+    width: 104vh;
+    height: 49.3vh;
+    padding: 5vh 5vh 5vh 5vh;
+    border-top-right-radius: 1vh;
+    background-color: rgb(255, 255, 255);
+    box-shadow: 0px 0px 13px 0px rgba(0, 0, 0, 0.09);
+}
+
+.titulo-terceira-img-premium{
+    width: 60vh;
+    height: 3vh;
+    padding: 0.7vh 0.7vh 0.7vh 1vh;
+    border-top-right-radius: 2vh;
+    background-color: #9e5fef;
+    font-size: 2vh;
+    font-family: "Arial Bold", "Arial Normal", "Arial", sans-serif;
+    font-weight: 700;
+    color: #f2f2f2;
+}
+
+.texto-explicativo-terceira-img-premium{
+    width: 64vh;
+    font-family: "Arial Normal", "Arial", sans-serif;
+    font-size: 1.5vh;
+    color: #333333;
+    text-align: left;
+    line-height: normal;
+    margin-top: 2vh;
+}
+
+.terceira-img-exposta{
+    width: 31vh;
+    height: 20vh;
+    padding: 2vh 15vh 2vh 15vh;
+    margin-top: 6vh;
+    border: 0.4vh solid #cccc;
+    border-radius: 0.5vh;
 }
