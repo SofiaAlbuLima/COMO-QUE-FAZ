@@ -76,9 +76,7 @@
     background-color: rgb(255, 255, 255);
     padding: 5vh 5vh 5vh 5vh;
     border-top-left-radius: 1vh;
-    border-bottom: 0.4vh solid #cccc;
-    border-right: 0.4vh solid #cccc;
-    box-shadow: 0px 0px 13px 0px rgba(0, 0, 0, 0.09);
+    box-shadow: 0px 0px 3px 0px rgba(0, 0, 0, 0.09);
 }
 
 .titulo-img-premium{
@@ -129,13 +127,12 @@ strong{
 
 .segunda-img-premium{
     width: 64vh;
-    height: 20vh;
+    height: 20.4vh;
     display: flex;
     justify-content: space-between;
     padding: 5vh 5vh 5vh 5vh;
-    border-right: 0.4vh solid #cccc;
     background-color: rgb(255, 255, 255);
-    box-shadow: 0px 0px 13px 0px rgba(0, 0, 0, 0.09);
+    box-shadow: 0px 0px 3px 0px rgba(0, 0, 0, 0.09);
 }
 
 /* ----------------------------------------------------------------------------------------------- */
@@ -147,7 +144,7 @@ strong{
     padding: 5vh 5vh 5vh 5vh;
     border-top-right-radius: 1vh;
     background-color: rgb(255, 255, 255);
-    box-shadow: 0px 0px 13px 0px rgba(0, 0, 0, 0.09);
+    box-shadow: 0px 0px 3px 0px rgba(0, 0, 0, 0.09);
 }
 
 .titulo-terceira-img-premium{
@@ -184,7 +181,7 @@ strong{
 /* ----------------------------------------------------------------------------------------------- */
 
 .footer-edicao-img{
-    order: 1; /* Define a ordem para que este item vá para baixo */
+    order: 1;
     flex: 1 1 100%;
     width: 149vh;
     height: 7vh;
@@ -288,3 +285,99 @@ strong{
     background-color: rgb(255, 255, 255);
     box-shadow: 0px 0px 3px 0px rgba(0, 0, 0, 0.09);
 }
+
+/* tab planos ----------------------------------------------------------------------------------------- */
+.planos-container-acesso-premium{
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    width: 149vh;
+}
+
+.adm-plano-semanal{
+    width: 40vh;
+    height: 40vh;
+    padding: 5vh 5vh 5vh 5vh;
+    border-top-left-radius: 1vh;
+    background-color: rgb(255, 255, 255);
+    box-shadow: 0px 0px 3px 0px rgba(0, 0, 0, 0.09);
+}
+
+.adm-titulo-plano-semanal{
+    width: 35vh;
+    height: 4vh;
+    padding: 1vh 0.7vh 0.7vh 1vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-top-right-radius: 2vh;
+    background-color: #9e5fef;
+    font-size: 2vh;
+    font-family: "Arial Bold", "Arial Normal", "Arial", sans-serif;
+    font-weight: 700;
+    color: #f2f2f2;
+}
+
+.adm-titulo-descricao-plano-semanal{
+    font-size: 1.7vh;
+    font-family: "Arial Bold", "Arial Normal", "Arial", sans-serif;
+    font-weight: 700;
+    color: #9e5fef;
+    margin-top: 2vh;
+}
+
+.adm-descricao-plano-semanal{
+    font-size: 1.7vh;
+    font-family: "Arial Normal", "Arial", sans-serif;
+    color: #333333;
+    margin-top: 2vh;
+}
+
+strong-roxo{
+    color: #9e5fef;
+}
+
+.adm-titulo-valor-plano-semanal{
+    font-size: 1.7vh;
+    font-family: "Arial Normal", "Arial", sans-serif;
+    color: #333333;
+    margin-top: 2vh;
+}
+
+.adm-titulo-quantidade-plano-semanal{
+    font-size: 1.7vh;
+    font-family: "Arial Normal", "Arial", sans-serif;
+    color: #333333;
+    margin-top: 2vh;
+}
+
+/* ----------------------------------------------------------------------------------------------------- */
+.adm-plano-mensal{
+    width: 40.1vh;
+    height: 40vh;
+    padding: 5vh 5vh 5vh 5vh;
+    background-color: rgb(255, 255, 255);
+    box-shadow: 0px 0px 3px 0px rgba(0, 0, 0, 0.09);
+}
+
+/* ----------------------------------------------------------------------------------------------------- */
+.adm-plano-semestral {
+    width: 40vh;
+    height: 40vh;
+    padding: 5vh 5vh 5vh 5vh;
+    border-top-right-radius: 1vh;
+    background-color: rgb(255, 255, 255);
+    box-shadow: 0px 0px 3px 0px rgba(0, 0, 0, 0.09);
+}
+
+/* ----------------------------------------------------------------------------------------------------- */
+.footer-edicao-plano{
+    grid-column: span 3;
+    width: 150vh;
+    height: 7vh;
+    padding-top: 2vh;
+    border-bottom-left-radius: 1vh;
+    border-bottom-right-radius: 1vh;
+    background-color: rgb(255, 255, 255);
+    box-shadow: 0px 0px 13px 0px rgba(0, 0, 0, 0.09);
+}
+
