@@ -119,21 +119,21 @@ const tarefasController = {
             console.log("erro no cadastro!");
         }
     },
-
     MostrarPosts: async (req, res) => {
         res.locals.moment = moment;
         try {
-            let pagina = req.query.pagina == undefined ? 1 : req.query.pagina;
-            let regPagina = 12 //número de registros por página
-            let inicio = (pagina - 1) * regPagina;
+            let pagina = req.query.pagina === undefined ? 1 : parseInt(req.query.pagina);
+        let regPagina = 12; // número de registros por página
+        let inicio = (pagina - 1) * regPagina;
+        
+        let totReg = await conteudoModel.TotalReg();
 
-            let totRegDicas = await conteudoModel.TotalReg("dica");
-            let totRegPerguntas = await conteudoModel.TotalReg("pergunta");
-            let totReg = totRegDicas[0].total + totRegPerguntas[0].total;
-            let totPaginas = Math.ceil(totReg / regPagina); //calcula o número total de páginas necessárias para exibir todos os registros
-
-            let dicas = await conteudoModel.FindPage("dica", inicio, regPagina / 2); // busca registros do tipo dica
-            let perguntas = await conteudoModel.FindPage("pergunta", inicio, regPagina / 2);
+        let totalRegistros = totReg[0].total;
+        let totPaginas = Math.ceil(totalRegistros / regPagina); // calcula o número total de páginas necessárias para exibir todos os registros
+        let results = await conteudoModel.FindPage(inicio, regPagina);
+            let paginador = totalRegistros <= 5
+                ? null
+                : {"pagina_atual": pagina, "total_reg": totalRegistros, "total_paginas": totPaginas};
 
             function formatarTempo(tempo) {
                 let duracao = moment.duration(tempo, 'HH:mm:ss');
@@ -150,33 +150,25 @@ const tarefasController = {
                 }
             };
 
-            let perguntasConteudo = perguntas.map(conteudo => ({
-                nome: conteudo.titulo,
-                categoria: conteudo.categorias_idCategorias
-            }));
-
-            let postsConteudo = dicas.map(conteudo => ({
+            // Exibição de Conteúdo
+            let combinedConteudo = results.map(conteudo => ({
                 nome: conteudo.Titulo,
-                descricao: conteudo.Descricao,
-                tempo: formatarTempo(conteudo.tempo),
+                usuario: conteudo.Clientes_idClientes,
+                categoria: conteudo.Categorias_idCategorias,
+                tempo: conteudo.tempo ? formatarTempo(conteudo.tempo) : null,
+                descricao: conteudo.Descricao || null,
+                etapas: conteudo.Etapas_Modo_de_Preparo,
                 porcoes: conteudo.porcoes > 0 ? `${conteudo.porcoes} ${conteudo.porcoes > 1 ? 'Porções' : 'Porção'}` : null,
-                categoria: conteudo.Categorias_idCategorias
+                tipo: conteudo.tipo
             }));
 
-            console.log("pagina_atual: " + pagina + " total_reg: " + totReg + " total_paginas: " + totPaginas + " Índice de início:" + inicio + " regPagina: " + regPagina);
-
-            let paginador = totReg <= regPagina
-                ? null
-                : {"pagina_atual": pagina, "total_reg": totReg, "total_paginas": totPaginas};
-
-            res.render("pages/template", {
-                pagina: {cabecalho: "cabecalho", conteudo: "index", rodape: "rodape"}, 
-                usuario_logado:req.session.autenticado,
-                login: req.session.logado,
-                perguntas: perguntasConteudo, 
-                posts: postsConteudo, 
-                paginador: paginador
-            });           
+                res.render("pages/template", {
+                    pagina: {cabecalho: "cabecalho", conteudo: "index", rodape: "rodape"}, 
+                    usuario_logado:req.session.autenticado,
+                    login: req.session.logado,
+                    postagens: combinedConteudo,
+                    paginador: paginador
+                });           
         } catch (e) {
             console.log(e); 
             res.json({erro: "Falha ao acessar dados"})

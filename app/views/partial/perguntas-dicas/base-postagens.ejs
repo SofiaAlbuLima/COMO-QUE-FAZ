@@ -1,86 +1,85 @@
 <section class="postagens">
-   <% if (posts.length > 0) { %>
-      <% posts.forEach(function(post) { %>
-         <section class="postagem">
-            <figure class="postagem_parte_de_cima">
-               <h1 id="texto-a   tras5-B" class="titulo_post postagem_info_primeiro_plano"><%= post.nome %></h1>
-               
-               <% if (post.categoria === 1) { %>
-                  <img id="icon-categoria-branco" src="imagens/icon-culinaria-branco.png" alt="" class="postagem_info_primeiro_plano">
-               <% } else if (post.categoria === 2) { %>
-                  <img id="icon-categoria-branco" src="imagens/icon-limpeza-branco.png" alt="" class="postagem_info_primeiro_plano">
-               <% } else if (post.categoria === 3) { %>
-                  <img id="icon-categoria-branco" src="imagens/icon-bemestar-branco.png" alt="" class="postagem_info_primeiro_plano">
-               <% } %>
-               <img src="imagens/post-organizacao-rotina.png" alt="foto-post5" class="imagem_postagem">
-            </figure>
-               <aside class="legenda">
-                  <figure class="legenda relogio">
-                     <img src="imagens/relogio-cinza.svg" alt="relogio">
-                     <h3><%= post.tempo %></h3>
-                  </figure>
-                  <figure class="legenda estrela">
-                     <img src="imagens/estrela-cinza.svg" alt="estrela">
-                     <h3>5.0</h3>
-                  </figure>
-                  <% if(post.porcoes != null){ %>
-                  <figure class="legenda partes">
-                     <img src="imagens/partes-cinza.png" alt="partes">
-                     <h3><%= post.porcoes %></h3>
-                  </figure>
+   <% if (postagens.length > 0) { %>
+      <% postagens.forEach(function(item) { %>
+         <% if (item.tipo === 'dica') { %>
+            <section class="postagem">
+               <figure class="postagem_parte_de_cima">
+                  <h1 id="texto-a   tras5-B" class="titulo_post postagem_info_primeiro_plano"><%= item.nome %></h1>
+                  
+                  <% if (item.categoria === 1) { %>
+                     <img id="icon-categoria-branco" src="imagens/icon-culinaria-branco.png" alt="" class="postagem_info_primeiro_plano">
+                  <% } else if (item.categoria === 2) { %>
+                     <img id="icon-categoria-branco" src="imagens/icon-limpeza-branco.png" alt="" class="postagem_info_primeiro_plano">
+                  <% } else if (item.categoria === 3) { %>
+                     <img id="icon-categoria-branco" src="imagens/icon-bemestar-branco.png" alt="" class="postagem_info_primeiro_plano">
                   <% } %>
-               </aside>
-               <aside class="hover-post" id="hover-post5-B">
-                  <h3>essa dica não possui itens necessários</h3>
-               </aside>
-      
-         </section>
-      <% }); %>
-   <% } %>
-
-   <% if (perguntas.length > 0) { %>
-      <% perguntas.forEach(function(pergunta) { %>
-         <section class="pergunta">
-            <article class="parte-cima-pergunta">
-               <h4 class="texto-pergunta"><%= pergunta.nome %></h4>
-            </article>
-                  <% if (pergunta.categoria === 1) { %>
-                     <article class="parte-baixo-pergunta figureCulinaria">
+                  <img src="imagens/post-organizacao-rotina.png" alt="foto-post5" class="imagem_postagem">
+               </figure>
+                  <aside class="legenda">
+                     <figure class="legenda relogio">
+                        <img src="imagens/relogio-cinza.svg" alt="relogio">
+                        <h3><%= item.tempo %></h3>
+                     </figure>
+                     <figure class="legenda estrela">
+                        <img src="imagens/estrela-cinza.svg" alt="estrela">
+                        <h3>5.0</h3>
+                     </figure>
+                     <% if(item.porcoes != null){ %>
+                     <figure class="legenda partes">
+                        <img src="imagens/partes-cinza.png" alt="partes">
+                        <h3><%= item.porcoes %></h3>
+                     </figure>
+                     <% } %>
+                  </aside>
+                  <aside class="hover-post" id="hover-post5-B">
+                     <h3>essa dica não possui itens necessários</h3>
+                  </aside>
+         
+            </section>
+         <% } else if (item.tipo === 'pergunta') { %>
+            <section class="pergunta">
+               <article class="parte-cima-pergunta">
+                  <h4 class="texto-pergunta"><%= item.nome %></h4>
+               </article>
+                     <% if (item.categoria === 1) { %>
+                        <article class="parte-baixo-pergunta figureCulinaria">
+                           <figure class="pergunta-categoria">
+                              <img src="imagens/icon-culinaria-branco.png" alt="">
+                              <p>Culinária</p>
+                           </figure>
+                           <figure class="patinhas">
+                              <img src="imagens-svg/patinha-icon.svg" alt="ícone-patinhas">
+                              <p>5</p>
+                           </figure>
+                        </article>
+                     <% } else if (item.categoria === 2) { %>
+                        <article class="parte-baixo-pergunta figureLimpeza">
                         <figure class="pergunta-categoria">
-                           <img src="imagens/icon-culinaria-branco.png" alt="">
-                           <p>Culinária</p>
+                           <img src="imagens/icon-limpeza-branco.png" alt="">
+                           <p>Limpeza</p>
                         </figure>
                         <figure class="patinhas">
                            <img src="imagens-svg/patinha-icon.svg" alt="ícone-patinhas">
                            <p>5</p>
                         </figure>
                      </article>
-                  <% } else if (pergunta.categoria === 2) { %>
-                     <article class="parte-baixo-pergunta figureLimpeza">
-                     <figure class="pergunta-categoria">
-                        <img src="imagens/icon-limpeza-branco.png" alt="">
-                        <p>Limpeza</p>
-                     </figure>
-                     <figure class="patinhas">
-                        <img src="imagens-svg/patinha-icon.svg" alt="ícone-patinhas">
-                        <p>5</p>
-                     </figure>
-                  </article>
-                  <% } else if (pergunta.categoria === 3) { %>
-                     <article class="parte-baixo-pergunta figureBemEstar">
-                     <figure class="pergunta-categoria">
-                        <img src="imagens/icon-bemestar-branco.png" alt="">
-                        <p>Bem Estar</p>
-                     </figure>
-                     <figure class="patinhas">
-                        <img src="imagens-svg/patinha-icon.svg" alt="ícone-patinhas">
-                        <p>5</p>
-                     </figure>
-                  </article>
-                  <% } %>
-         </section>
+                     <% } else if (item.categoria === 3) { %>
+                        <article class="parte-baixo-pergunta figureBemEstar">
+                        <figure class="pergunta-categoria">
+                           <img src="imagens/icon-bemestar-branco.png" alt="">
+                           <p>Bem Estar</p>
+                        </figure>
+                        <figure class="patinhas">
+                           <img src="imagens-svg/patinha-icon.svg" alt="ícone-patinhas">
+                           <p>5</p>
+                        </figure>
+                     </article>
+                     <% } %>
+            </section>
+         <% } %>
       <% }); %>
    <% } %>
+</section>
 
  </section>
     <% if (paginador) { %>

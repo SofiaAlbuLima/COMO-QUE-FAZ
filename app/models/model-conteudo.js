@@ -2,35 +2,31 @@ const pool = require("../../config/pool-conexoes");
 
 const conteudoModel = { //const que agrupa todas as funções de acesso e manipulação de dados
 
-    TotalReg: async(tipo)=>{ //contagem do total de registros da tabela tarefas, para definir o número de páginas necessárias para a paginação
+    TotalReg: async()=>{ //contagem do total de registros da tabela tarefas, para definir o número de páginas necessárias para a paginação
         try {
-            let query;
-            if (tipo === "dica") {
-                query = "SELECT count(*) as total FROM conteudo_postagem";
-            } else if (tipo === "pergunta") {
-                query = "SELECT count(*) as total FROM perguntas";
-            } else {
-                throw new Error("Tipo inválido");
-            }
-            const [linhas] = await pool.query(query);
-            return linhas;
+            const [dicasCount] = await pool.query("SELECT COUNT(*) as total FROM conteudo_postagem");
+            const [perguntasCount] = await pool.query("SELECT COUNT(*) as total FROM perguntas");
+            
+            const total = dicasCount[0].total + perguntasCount[0].total;
+
+            return [{ total }];
         } catch (erro) {
             throw erro;
         }
     },
 
-    FindPage: async(tipo, pagina, total)=>{ //executar o select com a cláusula LIMIT
+    FindPage: async(inicio, total)=>{ //executar o select com a cláusula LIMIT
         try {
-            let query;
-            let params = [pagina, total];
-            if (tipo === "dica") {
-                query = "SELECT * FROM conteudo_postagem LIMIT ?, ?";
-            } else if (tipo === "pergunta") {
-                query = "SELECT * FROM perguntas LIMIT ?, ?";
-            } else {
-                throw new Error("Tipo inválido");
-            }
-            const [linhas] = await pool.query(query, [pagina, total]);
+            const query = `
+                SELECT * FROM (
+                    SELECT ID_conteudo AS id, Clientes_idClientes, Categorias_idCategorias, Titulo, tempo, Descricao, Etapas_Modo_de_Preparo, porcoes, 'dica' AS tipo FROM conteudo_postagem
+                    UNION ALL
+                    SELECT ID_Pergunta AS id, Clientes_idClientes, categorias_idCategorias, titulo AS Titulo, NULL AS tempo, NULL AS Descricao, NULL AS Etapas_Modo_de_Preparo, NULL AS porcoes, 'pergunta' AS tipo FROM perguntas
+                ) AS combined
+                ORDER BY id DESC
+                LIMIT ?, ?
+            `;
+            const [linhas] = await pool.query(query, [inicio, total]);
             return linhas;
         } catch (erro) {
             throw erro;

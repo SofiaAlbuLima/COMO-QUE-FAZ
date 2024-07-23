@@ -607,4 +607,22 @@
   display: flex;
   width: 100%;
 }
+
+.notificador{
+  justify-content: center;
+  width: 100%;
+  margin: 7vh 0vh 0vh 0vh;
+}
+.notificador ul{
+  list-style-type: none;
+  justify-content: center;
+  display: flex;
+}
+.notificador li{
+  padding: 1vh 2vh 1vh 2vh;
+  background-color: #cb2154;
+  color: white;
+  border-radius: 5px;
+  text-decoration: none; 
+}
 }
