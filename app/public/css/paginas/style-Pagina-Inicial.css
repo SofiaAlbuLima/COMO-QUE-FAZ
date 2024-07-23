@@ -617,11 +617,22 @@
   list-style-type: none;
   justify-content: center;
   display: flex;
+  text-decoration: none; 
+  gap: 2vh;
 }
-.notificador li{
-  padding: 1vh 2vh 1vh 2vh;
-  background-color: #cb2154;
+.select a{
+	text-decoration: none;
   color: white;
+  padding: 1vh 2vh 1vh 2vh;
+  background-color: #4D16BB;
+  border-radius: 5px;
+  text-decoration: none; 
+}
+.not_select a{
+	text-decoration: none;
+  color: #4D16BB;
+  padding: 1vh 2vh 1vh 2vh;
+  background-color: #efefef;
   border-radius: 5px;
   text-decoration: none; 
 }
