@@ -381,3 +381,180 @@ strong-roxo{
     box-shadow: 0px 0px 13px 0px rgba(0, 0, 0, 0.09);
 }
 
+/* tab beneficios --------------------------------------------------------------------------------------- */
+#adm-beneficios-premium{
+    justify-content: space-between;
+    width: 149vh;
+    flex-wrap: wrap;
+}
+
+.juntar-titulo-e-texto-promocional{
+    flex: 1 1 30%; 
+}
+
+.titulo-beneficios-texto-promocional{
+    width: 42vh;
+    height: 20vh;
+    padding: 5vh 5vh 5vh 5vh;
+    border-top-left-radius: 2vh;
+    background-color: rgb(255, 255, 255);
+    box-shadow: 0px 0px 3px 0px rgba(0, 0, 0, 0.09);
+}
+
+.titulo-do-titulo-texto-promocional{
+    width: 40vh;
+    height: 3vh;
+    padding: 1vh 0.7vh 0.7vh 1vh;
+    border-top-right-radius: 2vh;
+    background-color: #9e5fef;
+    font-size: 2vh;
+    font-family: "Arial Bold", "Arial Normal", "Arial", sans-serif;
+    font-weight: 700;
+    color: #f2f2f2;
+}
+
+.descricao-titulo-beneficios-texto-promocional{
+    width: 42vh;
+    font-family: "Arial Normal", "Arial", sans-serif;
+    font-size: 1.5vh;
+    color: #333333;
+    text-align: left;
+    line-height: normal;
+    margin-top: 2vh;
+}
+
+.titulo-texto-promocional-exposto{
+    width: 40vh;
+    height: 5vh;
+    padding: 1vh 1vh 1vh 1vh;
+    margin-top: 2vh;
+    border: 0.4vh solid #cccc;
+    border-radius: 1vh;
+    opacity: 0.68;
+    background-color: rgba(255, 255, 255, 0);
+    box-sizing: border-box;
+    font-size: 1.5vh;
+    font-family: "Arial", sans-serif;
+    color: #333333;
+
+    &:focus{
+        outline: #6e00c4;
+    }
+}
+
+/* ----------------------------------------------------------------------------------------------------- */
+.tabela-linhas-beneficios{
+    width: 42vh;
+    height: 36vh;
+    padding: 5vh 5vh 5vh 5vh;
+    background-color: rgb(255, 255, 255);
+    box-shadow: 0px 0px 3px 0px rgba(0, 0, 0, 0.09);
+}
+
+.titulo-tabela-beneficios{
+    width: 40vh;
+    height: 3vh;
+    padding: 1vh 0.7vh 0.7vh 1vh;
+    border-top-right-radius: 2vh;
+    background-color: #9e5fef;
+    font-size: 2vh;
+    font-family: "Arial Bold", "Arial Normal", "Arial", sans-serif;
+    font-weight: 700;
+    color: #f2f2f2;
+}
+
+.descricao-tabela-beneficios{
+    width: 42vh;
+    font-family: "Arial Normal", "Arial", sans-serif;
+    font-size: 1.5vh;
+    color: #333333;
+    text-align: left;
+    line-height: normal;
+    margin-top: 2vh;
+}
+
+.lista-tabela-beneficios{
+    margin-top: 1vh;
+    font-size: 2vh;
+    font-family: "Arial Bold", "Arial Normal", "Arial", sans-serif;
+    font-weight: 700;
+    display: grid;
+    grid-template-columns: 8vh 20vh;
+    grid-template-rows: 3vh 3vh 3vh 3vh 3vh;
+    row-gap: 2vh;
+}
+
+.linha-beneficio-premium{
+    height: 7vh;    
+    list-style: none;
+    margin-top: 1vh;
+}
+
+.texto-linha-beneficio-premium{
+    width: 30vh;
+    height: 4vh;
+    padding: 1vh 1vh 1vh 1vh;
+    border: 0.4vh solid #cccc;
+    opacity: 0.68;
+    background-color: rgba(255, 255, 255, 0);
+    box-sizing: border-box;
+    font-size: 1.5vh;
+    font-family: "Arial", sans-serif;
+    color: #333333;
+
+    &:focus{
+        outline: #6e00c4;
+    }
+}
+
+/* ----------------------------------------------------------------------------------------------------- */
+.texto-promocional-beneficios{
+    flex: 1 1 30%; 
+    width: 94vh;
+    height: 66vh;
+    padding: 5vh 5vh 5vh 5vh;
+    border-top-right-radius: 2vh;
+    background-color: rgb(255, 255, 255);
+    box-shadow: 0px 0px 3px 0px rgba(0, 0, 0, 0.09);
+}
+
+.titulo-texto-promocional-premium{
+    width: 80vh;
+    height: 3vh;
+    padding: 1vh 0.7vh 0.7vh 1vh;
+    border-top-right-radius: 2vh;
+    background-color: #9e5fef;
+    font-size: 2vh;
+    font-family: "Arial Bold", "Arial Normal", "Arial", sans-serif;
+    font-weight: 700;
+    color: #f2f2f2;
+}
+
+.descricao-texto-promocional{
+    width: 80vh;
+    font-family: "Arial Normal", "Arial", sans-serif;
+    font-size: 1.5vh;
+    color: #333333;
+    text-align: left;
+    line-height: normal;
+    margin-top: 2vh;
+}
+
+.texto-promocional-exposto{
+    width: 80vh;
+    height: 41vh;
+    padding: 1vh 1vh 1vh 1vh;
+    margin-top: 2vh;
+    border: 0.4vh solid #cccc;
+    border-radius: 1vh;
+    opacity: 0.68;
+    background-color: rgba(255, 255, 255, 0);
+    box-sizing: border-box;
+    font-size: 1.5vh;
+    font-family: "Arial", sans-serif;
+    color: #333333;
+
+    &:focus{
+        outline: #6e00c4;
+    }
+}
