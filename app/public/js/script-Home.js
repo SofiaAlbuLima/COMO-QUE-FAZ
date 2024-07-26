@@ -76,7 +76,7 @@ function VisiRecente() {
     var emAltaButton = document.querySelector(".EmAlta");
 
     if (x.style.display === "none") {
-      x.style.display = "block";
+      x.style.display = "flex";
       y.style.display = "none";
       z.style.display = "none";
       emAltaButton.classList.remove("active");
@@ -94,7 +94,7 @@ function VisiEmAlta() {
 
     if (y.style.display === "none") {
         x.style.display = "none";
-        y.style.display = "block";
+        y.style.display = "flex";
         z.style.display = "none";
     }
 }
@@ -107,7 +107,7 @@ function VisiEmAlta() {
     if (z.style.display === "none") {
       x.style.display = "none";
       y.style.display = "none";
-      z.style.display = "block";
+      z.style.display = "flex";
       emAltaButton.classList.remove("active");
     }
   }
@@ -121,7 +121,7 @@ function VisiEmAlta() {
     var emAltaButton = document.querySelector(".EmAlta-Dkt");
 
     if (x.style.display === "none") {
-      x.style.display = "block";
+      x.style.display = "flex";
       y.style.display = "none";
       z.style.display = "none";
       emAltaButton.classList.remove("active");
@@ -139,7 +139,7 @@ function VisiEmAltaDkt() {
 
     if (y.style.display === "none") {
         x.style.display = "none";
-        y.style.display = "block";
+        y.style.display = "flex";
         z.style.display = "none";
     }
 }
@@ -152,7 +152,7 @@ function VisiEmAltaDkt() {
     if (z.style.display === "none") {
       x.style.display = "none";
       y.style.display = "none";
-      z.style.display = "block";
+      z.style.display = "flex";
       emAltaButton.classList.remove("active");
     }
   }
