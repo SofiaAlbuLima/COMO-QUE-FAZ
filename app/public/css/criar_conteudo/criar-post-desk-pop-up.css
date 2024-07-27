@@ -1140,7 +1140,23 @@
     .float-open .opt-media {
         transform: translate(0%, -250%);
     }
-
+    .descricao_criar{
+        display: none;
+        position: absolute;
+        padding: 1vh;
+        color: white;
+        font-family: Fira Sans;
+        background-color: #CB218C;
+        border-radius: 10px;
+        width: 18vh;
+        right: 13vh;
+        opacity: 0;
+        transition: opacity 2s ease-in-out;
+    }
+    .float-opt:hover + .descricao_criar{
+        display: flex;
+        opacity: 1;
+    }
 }
 
 @media only screen and (max-width: 480px){

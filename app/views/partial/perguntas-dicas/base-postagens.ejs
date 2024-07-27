@@ -78,27 +78,28 @@
             </section>
          <% } %>
       <% }); %>
+      <% if (paginador) { %>
+         <div class="notificador">
+            <ul>
+               <% for(var i=1; i <=paginador.total_paginas; i++){
+                  if(paginador.pagina_atual==i){
+               %>
+               <li class="select"><a class="pagina-atual" href="?pagina=<%= i %>">
+                     <%= i %>
+                  </a>
+               </li>
+               <% } else { %> 
+                  <li class="not_select"><a href="?pagina=<%= i %>">
+                        <%= i %>
+                     </a>
+                  </li>
+               <% }
+            } %> 
+            </ul>
+         </div>
+      <% }; %>
    <% } %>
 </section>
 
  </section>
-    <% if (paginador) { %>
-       <div class="notificador">
-          <ul>
-             <% for(var i=1; i <=paginador.total_paginas; i++){
-                if(paginador.pagina_atual==i){
-             %>
-             <li class="select"><a class="pagina-atual" href="?pagina=<%= i %>">
-                   <%= i %>
-                </a>
-             </li>
-             <% } else { %> 
-                <li class="not_select"><a href="?pagina=<%= i %>">
-                      <%= i %>
-                   </a>
-                </li>
-             <% }
-          } %> 
-          </ul>
-       </div>
-    <% }; %>
+    
