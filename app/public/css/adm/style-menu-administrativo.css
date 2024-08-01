@@ -133,12 +133,12 @@
 }
 .bemvindo{
     font-size: 1.5vh;
-    transform: translate(0px, -3.8vh);
+    transform: translate(0px, -2.5vh);
     font-weight: 300;
 }
 .Admin{
     font-size: 1.8vh;
-    transform: translate(5.3vh, -3.8vh);
+    transform: translate(5.3vh, -2.5vh);
 }
 .perfil-administrador{
     height: 5vh;
