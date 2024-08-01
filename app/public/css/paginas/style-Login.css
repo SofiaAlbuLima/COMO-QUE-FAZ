@@ -167,6 +167,7 @@
 	  }
       .caixa-mob2{
         margin-bottom: 6%;
+		padding: 15% 0 15% 0;
       }
       .lembrar-termos-mob label{
         color: #333333;
@@ -430,5 +431,15 @@
 		margin-left: 75%;
 		margin-top: -33%;
 		z-index: 13;
+	}
+	.regras_senha_criar{
+		font-family: "Fira Sans", sans-serif;
+		font-weight: 600;
+		color: #5417bd;
+		font-size: 13px;
+		display: none;
+	}
+	.senha1:focus ~ .regras_senha_criar{
+		display: block !important;
 	}
 }
