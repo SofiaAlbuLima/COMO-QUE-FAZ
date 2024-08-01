@@ -33,3 +33,19 @@ function verificaConfirmaSenha() {
      
     }};
     verificaConfirmaSenha();  
+
+    const togglePassword = document.getElementById('togglePassword');
+        const passwordInput = document.getElementById('senha1');
+
+        togglePassword.addEventListener('click', function () {
+            // Alterna o tipo do input entre 'password' e 'text'
+            const type = passwordInput.type === 'password' ? 'text' : 'password';
+            passwordInput.type = type;
+
+            // Alterna o ícone entre olho aberto e fechado
+            this.classList.toggle('fa-eye');
+            this.classList.toggle('fa-eye-slash');
+
+            this.classList.toggle('show');
+            this.classList.toggle('hide');
+        });

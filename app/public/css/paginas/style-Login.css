@@ -333,6 +333,7 @@
 		background-color: #cb218c;
 		color: white;
 		border: none;
+		cursor: pointer;
 	}
     .cadastro-mob{
 		background-color: white;
@@ -396,6 +397,12 @@
 		background-color: #ffd662;
 		color: #4d16bb;
 		border: none;
+		cursor: pointer;
+	}
+	input[type=checkbox]{
+		cursor: pointer;
+	}
+
 	}
 	.decoracao-frente img{
 		height: 75px;
@@ -442,4 +449,14 @@
 	.senha1:focus ~ .regras_senha_criar{
 		display: block !important;
 	}
-}
+	.toggle-password{
+		position: absolute;
+		right: 10px;
+		cursor: pointer;
+	}
+	.toggle-password.show {
+		color: #9e5fef; /* Cor do ícone quando a senha está visível */
+	}
+	.toggle-password.hide {
+		color: #9d5fef93; /* Cor do ícone quando a senha está oculta */
+	}

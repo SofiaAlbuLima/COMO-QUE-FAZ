@@ -183,9 +183,14 @@
                      <p class="texto2-cadastro">SE CADASTRAR:</p>
                      <article class="caixa-mob2">
                         <input type="text" placeholder="NOME DE USUÁRIO" name="nomeusu_usu" required>
+
                         <input class="<%= avsErro.email_usu%>" type="text" placeholder="EMAIL" name="email_usu" required>
-                        <input id="senha1" class="<%= avsErro.senha_usu %> senha1" type="password" placeholder="SENHA" name="senha_usu" required><br>
+
+                           <input id="senha1" class="<%= avsErro.senha_usu %> senha1" type="password" placeholder="SENHA" name="senha_usu" required>
+                           <i class="fas fa-eye toggle-password" id="togglePassword"></i>
+                        <br>
                         <span class="regras_senha_criar">8 caracteres (mínimo 1 letra maiúscula, 1 caractere especial e 1 número)</span>
+                        
                         <input  id="senha2"class="<%= avsErro.confi_senha%>"   type="password" placeholder="CONFIRMAR SENHA" name="confi_senha" required>
                      </article>
                      <p id="mensagem"></p>
