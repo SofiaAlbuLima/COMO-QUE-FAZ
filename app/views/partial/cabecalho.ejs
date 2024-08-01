@@ -54,6 +54,10 @@
                         <li class="opcao_menu_hamburguer">Bigodes de Ouro</li></a>
                      <a href="/ajustes">
                         <li class="opcao_menu_hamburguer">Ajustes</li></a>
+                     <% if (usuario_logado.tipo != 1) { %>
+                        <a href="/adm"> 
+                           <li class="opcao_menu_hamburguer ultimo">Dashboard ADM</li></a>
+                     <% } %>
                      <a href="/sair"> 
                         <li class="opcao_menu_hamburguer ultimo">Sair da Conta</li></a>
                   </ul> 
