@@ -46,6 +46,10 @@
                   <ul class="menu_hamburguer_usuario" id="menu_hamburguer">
                      <a href="/perfil">
                         <li class="opcao_menu_hamburguer">Ver Perfil</li></a>
+                        <% if (usuario_logado.tipo != 1) { %>
+                           <a href="/adm"> 
+                              <li class="opcao_menu_hamburguer">Dashboard ADM</li></a>
+                        <% } %>
                      <a href="/notificacoes">
                         <li class="opcao_menu_hamburguer">Notificações</li></a>
                      <a href="/favoritos">
@@ -54,10 +58,6 @@
                         <li class="opcao_menu_hamburguer">Bigodes de Ouro</li></a>
                      <a href="/ajustes">
                         <li class="opcao_menu_hamburguer">Ajustes</li></a>
-                     <% if (usuario_logado.tipo != 1) { %>
-                        <a href="/adm"> 
-                           <li class="opcao_menu_hamburguer ultimo">Dashboard ADM</li></a>
-                     <% } %>
                      <a href="/sair"> 
                         <li class="opcao_menu_hamburguer ultimo">Sair da Conta</li></a>
                   </ul> 

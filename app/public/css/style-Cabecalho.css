@@ -289,8 +289,9 @@
   .menu_hamburguer_usuario{
     display: none;
     position: absolute;
-    margin-top: 40.7vh;
+    margin-top: 8vh;
     transform: translate(-0.5vh, 0);
+    top: 0;
     background-color: #f5f0ff;
     width: 30vh;
     list-style-type: none;
