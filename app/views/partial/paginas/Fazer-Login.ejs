@@ -156,6 +156,7 @@
                            
                            
                            <input class="<%= avisoErro.input2%>" type="password" id="input2" name="input2"  placeholder="SENHA" required>
+                           <i class="fas fa-eye toggle-password senhalogin" data-target="input2"></i>
                         
                         <article class="redes-login-mob">
                            <span class="esqueceu-foi">Esqueceu a senha? <a href="#">Recupere aqui</a></span>
@@ -185,13 +186,16 @@
                         <input type="text" placeholder="NOME DE USUÁRIO" name="nomeusu_usu" required>
 
                         <input class="<%= avsErro.email_usu%>" type="text" placeholder="EMAIL" name="email_usu" required>
-
-                           <input id="senha1" class="<%= avsErro.senha_usu %> senha1" type="password" placeholder="SENHA" name="senha_usu" required>
-                           <i class="fas fa-eye toggle-password" id="togglePassword"></i>
-                        <br>
-                        <span class="regras_senha_criar">8 caracteres (mínimo 1 letra maiúscula, 1 caractere especial e 1 número)</span>
                         
-                        <input  id="senha2"class="<%= avsErro.confi_senha%>"   type="password" placeholder="CONFIRMAR SENHA" name="confi_senha" required>
+                        <article>
+                           <input id="senha1" class="<%= avsErro.senha_usu %> senha1" type="password" placeholder="SENHA" name="senha_usu" required>
+                           <i class="fas fa-eye toggle-password" data-target="senha1"></i>
+                        <br>
+                           <span class="regras_senha_criar">8 caracteres (mínimo 1 letra maiúscula, 1 caractere especial e 1 número)</span>
+                        </article>
+                        <input  id="senha2"class="<%= avsErro.confi_senha%> senha2"   type="password" placeholder="CONFIRMAR SENHA" name="confi_senha" required>
+                        <i class="fas fa-eye toggle-password" data-target="senha2"></i>
+                        <br>
                      </article>
                      <p id="mensagem"></p>
                      <article class="lembrar-termos-mob">

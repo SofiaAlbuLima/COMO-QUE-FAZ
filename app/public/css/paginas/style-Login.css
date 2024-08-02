@@ -356,8 +356,20 @@
 		color: #4d16bb;
 		margin-bottom: 6%;
 	}
-	.caixa-mob2 input {
+	.caixa-mob2 input:not(.senha1, .senha2) {
 		width: 70%;
+		outline: none;
+		border-bottom: 1.7px solid #9e5fef;
+		border-top: none;
+		border-left: none;
+		border-right: none;
+		padding: 2.5% 0% 2.5% 2.5%;
+		margin-bottom: 10px;
+		font-family: Fira Sans;
+		font-weight: bold;
+	}
+	.senha1, .senha2{
+		width: 65%;
 		outline: none;
 		border-bottom: 1.7px solid #9e5fef;
 		border-top: none;
@@ -450,13 +462,28 @@
 		display: block !important;
 	}
 	.toggle-password{
-		position: absolute;
 		right: 10px;
 		cursor: pointer;
+		color: #9e5fef;
+	}
+	.toggle-password.senhalogin{
+		position: absolute;
+		right: 9vh;
+		margin-top: 1.5vh;
 	}
 	.toggle-password.show {
 		color: #9e5fef; /* Cor do ícone quando a senha está visível */
 	}
 	.toggle-password.hide {
 		color: #9d5fef93; /* Cor do ícone quando a senha está oculta */
+	}
+	input[type="password"]::-ms-reveal {
+		display: none; /* Para Internet Explorer e Edge */
+	}
+	
+	input[type="password"]::-webkit-search-clear-button,
+	input[type="password"]::-webkit-search-decoration,
+	input[type="password"]::-webkit-search-results-button,
+	input[type="password"]::-webkit-search-results-decoration {
+		display: none; /* Para WebKit (Chrome, Safari) */
 	}
