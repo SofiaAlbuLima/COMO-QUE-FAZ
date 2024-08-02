@@ -232,21 +232,21 @@
         display: none;
     }
     .login-mob{
-        width: 525px;
+        width: 56vh;
 		background-image: linear-gradient(-118.74754247485888deg, #cb218c 0%, #7f1aa8 0%, #4d16bb 90.67401261808497%);
 		border-top: 3.5px solid #ffd662;
 		border-left: 3.5px solid #ffd662;
 		border-bottom: 3.5px solid #ffd662;
 		border-radius: 25px 0 0 25px;
 		text-align: center;
-		height: 490px;
+		height: 53vh;
 		padding: 8% 0 0 0;
 		position: relative;
 		z-index: 2;
     }
     .cadastro-mob{
         border: 2px solid black;
-        width: 525px;
+        width: 56vh;
     }
     .login-cadastro{
         margin: 3% 23% 3% 23%;
@@ -343,7 +343,7 @@
 		border-bottom: 3.5px solid #9e5fef;
 		border-radius: 0 25px 25px 0;
 		text-align: center;
-		height: 490px;
+		height: 53vh;
 		padding-top: 8%;
 		z-index: 3;
     }
@@ -416,8 +416,8 @@
 	}
 
 	}
-	.decoracao-frente img{
-		height: 75px;
+	.decoracao-frente img{ 
+		height: 8vh;
 		transform: rotate(345deg);
 		position: absolute;
 		margin-left: 19.8%;
@@ -429,23 +429,26 @@
 		position: absolute;
 	}
 	#cir1{
-		height: 75px;
-		width: 75px;
+		position: absolute;
+		height: 8vh;
+		width: 8vh;
 		background-color: #ffa462;
 		margin-left: 76.8%;
 		margin-top: 3%;
 	}
 	#cir2{
-		height: 75px;
-		width: 75px;
+		position: absolute;
+		height: 8vh;
+		width: 8vh;
 		background-color: #ffd662;
 		margin-left: 21%;
 		margin-top: -5.5%;
 		z-index: 1;
 	}
 	#cir3{
-		height: 75px;
-		width: 75px;
+		position: absolute;
+		height: 8vh;
+		width: 8vh;
 		background-color: #ffd662;
 		margin-left: 75%;
 		margin-top: -33%;
