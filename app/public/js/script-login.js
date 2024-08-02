@@ -34,18 +34,26 @@ function verificaConfirmaSenha() {
     }};
     verificaConfirmaSenha();  
 
-    const togglePassword = document.getElementById('togglePassword');
-        const passwordInput = document.getElementById('senha1');
-
-        togglePassword.addEventListener('click', function () {
-            // Alterna o tipo do input entre 'password' e 'text'
-            const type = passwordInput.type === 'password' ? 'text' : 'password';
-            passwordInput.type = type;
-
-            // Alterna o ícone entre olho aberto e fechado
-            this.classList.toggle('fa-eye');
-            this.classList.toggle('fa-eye-slash');
-
-            this.classList.toggle('show');
-            this.classList.toggle('hide');
+    
+    document.addEventListener('DOMContentLoaded', () => {
+        const togglePasswordIcons = document.querySelectorAll('.toggle-password');
+    
+        togglePasswordIcons.forEach(icon => {
+            icon.addEventListener('click', () => {
+                const targetId = icon.getAttribute('data-target');
+                const passwordInput = document.getElementById(targetId);
+    
+                // Alterna o tipo do input entre 'password' e 'text'
+                const isPassword = passwordInput.type === 'password';
+                passwordInput.type = isPassword ? 'text' : 'password';
+    
+                // Alterna o ícone entre olho aberto e fechado
+                icon.classList.toggle('fa-eye', isPassword);
+                icon.classList.toggle('fa-eye-slash', !isPassword);
+    
+                // Alterna a classe de visibilidade
+                icon.classList.toggle('show', isPassword);
+                icon.classList.toggle('hide', !isPassword);
+            });
         });
+    });
