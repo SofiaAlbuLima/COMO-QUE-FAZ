@@ -62,16 +62,38 @@ const tarefasController = {
                     dadosNotificacao: null //mensagem erro express validator
                 });
             }
-            if (req.session.autenticado && req.session.autenticado.autenticado) {
-                res.redirect("/");
-            }
-            else {
-                res.render("pages/template", { //Verificação de Erros de Login com banco
+            try {
+                const { input1, input2 } = req.body;
+                const user = await usuarioModel.findUserByLogin(input1);
+        
+                if (user && bcrypt.compareSync(input2, user.senha)) {
+                    // Usuário autenticado com sucesso
+                    req.session.autenticado = {
+                        id: user.id,
+                        autenticado: user.Nickname,
+                        email: user.Email,
+                        tipo: user.Tipo_Cliente_idTipo_Cliente
+                    };
+        
+                    return res.redirect("/");
+                } else {
+                    // Usuário ou senha inválidos
+                    res.render("pages/template", { 
+                        pagina: {cabecalho: "cabecalho", conteudo: "Fazer-Login", rodape: "rodape"}, 
+                        usuario_logado: null, // Certifique-se de que a sessão está limpa
+                        listaErroslog: null,
+                        listaErros: null,
+                        dadosNotificacao: {titulo: "Falha ao logar!", mensagem: "Usuário e/ou senha inválidos!", tipo: "error"}
+                    });
+                }
+            } catch (e) {
+                console.log(e);
+                res.render("pages/template", {
                     pagina: {cabecalho: "cabecalho", conteudo: "Fazer-Login", rodape: "rodape"}, 
-                    usuario_logado:req.session.autenticado, 
+                    usuario_logado: null,
                     listaErroslog: null,
-                    listaErros:null,
-                    dadosNotificacao: {titulo:"Falha ao logar!", mensagem:"Usuário e/ou senha inválidos!", tipo: "error" }
+                    listaErros: null,
+                    dadosNotificacao: {titulo: "Erro ao logar!", mensagem: "Tente novamente mais tarde!", tipo: "error"}
                 });
             }
     },
