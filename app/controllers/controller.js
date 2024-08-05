@@ -62,38 +62,35 @@ const tarefasController = {
                     dadosNotificacao: null //mensagem erro express validator
                 });
             }
+            const { input1, input2 } = req.body;
+            let user = null;
+
             try {
-                const { input1, input2 } = req.body;
-                const user = await usuarioModel.findUserByLogin(input1);
-        
-                if (user && bcrypt.compareSync(input2, user.senha)) {
-                    // Usuário autenticado com sucesso
-                    req.session.autenticado = {
-                        id: user.id,
-                        autenticado: user.Nickname,
-                        email: user.Email,
-                        tipo: user.Tipo_Cliente_idTipo_Cliente
-                    };
-        
-                    return res.redirect("/");
-                } else {
-                    // Usuário ou senha inválidos
-                    res.render("pages/template", { 
-                        pagina: {cabecalho: "cabecalho", conteudo: "Fazer-Login", rodape: "rodape"}, 
-                        usuario_logado: null, // Certifique-se de que a sessão está limpa
-                        listaErroslog: null,
-                        listaErros: null,
-                        dadosNotificacao: {titulo: "Falha ao logar!", mensagem: "Usuário e/ou senha inválidos!", tipo: "error"}
-                    });
+                const users = await usuarioModel.findUserEmail({ Nickname: input1, Email: input1 });
+                if (users.length > 0) {
+                    user = users[0];
                 }
-            } catch (e) {
-                console.log(e);
-                res.render("pages/template", {
-                    pagina: {cabecalho: "cabecalho", conteudo: "Fazer-Login", rodape: "rodape"}, 
+            } catch (error) {
+                console.log("Erro ao buscar usuário:", error);
+            }
+
+            if (user && bcrypt.compareSync(input2, user.senha)) {
+                // Se a senha estiver correta, autenticar usuário
+                req.session.autenticado = {
+                    id: user.id,
+                    autenticado: user.Nickname,
+                    email: user.Email,
+                    tipo: user.Tipo_Cliente_idTipo_Cliente
+                };
+                return res.redirect("/");
+            } else {
+                // Credenciais inválidas
+                return res.render("pages/template", {
+                    pagina: {cabecalho: "cabecalho", conteudo: "Fazer-Login", rodape: "rodape"},
                     usuario_logado: null,
                     listaErroslog: null,
                     listaErros: null,
-                    dadosNotificacao: {titulo: "Erro ao logar!", mensagem: "Tente novamente mais tarde!", tipo: "error"}
+                    dadosNotificacao: { titulo: "Falha ao logar!", mensagem: "Usuário e/ou senha inválidos!", tipo: "error" }
                 });
             }
     },
