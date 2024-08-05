@@ -151,23 +151,36 @@
 /* Coluna Status - Fim */
 /* Classes das celulas dinâmicas - Fim */
 
-#asideDetalhes{
-    padding-top: 0!important;
-    margin-bottom: -3vh !important; 
-}
-
 .asideDetalhes{
     border-bottom: 1px solid #33333364;
+    padding-bottom: 3vh;
 }
 
 .linha-detalhe-denuncia{
-    width: 50vh;
-    height: 10vh;
-    background-color: #cdcdcd;
+    height: 20vh;
+    width: 140vh;
+    padding: 2vh;
+    background-color: #ececec;
     border-bottom-left-radius: 1vh;
     border-bottom-right-radius: 1vh;
 }
 
 .conteudo-detalhe-denuncia{
-    border-left: #CB218C solid 0.5vh;
+    height: 15vh;
+    border-left: #CB218C solid 0.4vh;
+    padding: 2vh;
+}
+
+.grid-info-usuario{
+    display: grid;
+    grid: auto-flow / 18vh 23vh 20vh;
+}
+
+.titulo-detalhamento-denuncia{
+    font-family: "Fira Sans Bold", "Fira Sans", sans-serif;
+    font-weight: 700;
+    font-size: 1.6vh;
+    color: #cb218c;
+    line-height: normal;
+    letter-spacing: 0.5px;
 }
