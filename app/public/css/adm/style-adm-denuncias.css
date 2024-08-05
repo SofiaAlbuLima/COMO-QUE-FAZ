@@ -149,3 +149,24 @@
 }
 /* Coluna Status - Fim */
 /* Classes das celulas dinâmicas - Fim */
+
+#asideDetalhes{
+    padding-top: 0!important;
+    margin-bottom: -3vh !important; 
+}
+
+.asideDetalhes{
+    border-bottom: 1px solid #33333364;
+}
+
+.linha-detalhe-denuncia{
+    width: 50vh;
+    height: 10vh;
+    background-color: #cdcdcd;
+    border-bottom-left-radius: 1vh;
+    border-bottom-right-radius: 1vh;
+}
+
+.conteudo-detalhe-denuncia{
+    border-left: #CB218C solid 0.5vh;
+}

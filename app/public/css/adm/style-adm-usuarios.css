@@ -85,7 +85,7 @@
 
 .titulo-tabela{
     height: 8vh;
-    font-family: Fira Sans;
+    font-family: "Fira Sans Bold", "Fira Sans", sans-serif;
     font-size: 1.9vh;
     color: #333333;
     text-align: left;
@@ -95,7 +95,8 @@
 .linha{
     padding-bottom: 3vh;
     padding-top: 3vh;
-    border-bottom: 1px solid #33333364;
+    border-bottom: 1px solid #33333364;    
+    font-family: "Fira Sans Bold", "Fira Sans", sans-serif;
 }
 
 /* Classes das celulas dinâmicas - Inicio */
