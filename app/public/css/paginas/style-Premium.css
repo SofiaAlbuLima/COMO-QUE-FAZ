@@ -297,6 +297,113 @@
         display: flex;
         justify-content: space-around;
     }
+    .economiza_span{
+        color: #D53384;
+        font-family: "Fira-Sans", sans-serif;
+        font-size: 15px;
+        font-weight: 600;
+        margin-top: 1vh;
+    }
+}
+@media only screen and (max-width: 480px) {
+    .Conteudodesk{
+        display: none;
+    }
+    .Secao-Banner-principal{
+        padding: 5vh 2vh 10vh 2vh;
+    }
+    .Banner-bigodes-inteiro{
+        width: 50vh;
+    }
+    .Banner-titulo-premium{
+        font-size: 2vh;
+        width: 15vh;
+        font-family: Fira Sans;
+        font-weight: 400;
+        transform: translate(25vh, -3vh);
+    }
+    .Banner-linha-rosa{
+        border: solid #CB218C 1px;
+        margin-bottom: 4vh;
+    }
+    .Banner-descricao-premium{
+        font-size: 1.8vh;
+        font-family: Fira Sans;
+        font-weight: 300;
+        margin-bottom: 4vh;
+    }
+    .Banner-botao-beneficios{
+        width: 40vh;
+        height: 7vh;
+        background: linear-gradient(-90deg, rgba(159, 85, 255, 1) -111.00000000000001%, rgba(77, 22, 187, 1) 121%);
+        color: white;
+        border-radius: 13px;
+        font-size: 2vh;
+        font-family: Fira Sans;
+        font-weight: 600;
+        transform: translate(1.5vh, -1vh);
+        border: none;
+        position: absolute;
+        z-index: 2;
+        margin-left: 5vh;
+        margin-top: 3vh;
+    }
+    .Banner-borda-botao{
+        background: transparent;
+        border: 2px solid #FFD662;
+        width: 40vh;
+        height: 7vh;
+        border-radius: 13px;
+        display: inline-flex;
+        position: absolute;
+        z-index: -1;
+        margin-left: 5vh;
+        margin-top: 3vh;
+    }
+    .Banner-imagem-principal{
+        width: 50vh;
+    }
+    .Figure-Banner{
+      margin-top: 20vh;
+    }
+    .Secao-Beneficios-Premium{
+        background: linear-gradient(270deg, rgba(159, 85, 255, 1) -88%, rgba(77, 22, 187, 1) 100%);
+        padding: 7vh 0vh 5vh 20vh;
+        z-index: -2;
+        position: relative;
+    }
+    .figure-artigo-beneficios{
+        margin-top: 5vh;
+        width: 75vh;
+        display: inline-block;
+    }
+    .figure-titulo-beneficios{
+        width: 55vh;
+        display: inline-flex;
+    }
+    .estrelinha-titulo{
+        width: 5vh; 
+        height: 5vh;
+        margin-top: 2.5vh;
+        display: inline-flex;
+    }
+    .titulo-beneficios{
+        font-size: 4vh;
+        color: #FFD662;
+        font-weight: 400;
+        display: inline-flex;
+        margin-left: 5vh;
+        width: 45vh;
+        margin-bottom: 3vh;
+    }
+    .texto-beneficios{
+        font-family: Fira Sans;
+        font-size: 1.7vh;
+        color: white;
+        width: 60vh;
+        margin-top: 0.5vh;
+        margin-left: 10vh;
+    }
 }
 @media only screen and (max-width: 480px) {
     .Conteudodesk{

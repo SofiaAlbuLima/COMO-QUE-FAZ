@@ -144,7 +144,7 @@
         color: #5417bd;
         margin-bottom: 6%;
         }
-    .caixa-mob2 input{
+    .caixa-mob2 input:not(cadastros-place3){
         width: 94%;
         outline: none;
         border-bottom: 1.7px solid #9e5fef;
@@ -156,6 +156,19 @@
         font-family: Fira Sans;
         font-weight: bold;
     }
+	.caixa-mob2.cadastros-place3{
+        width: 80%;
+        outline: none;
+        border-bottom: 1.7px solid #9e5fef;
+        border-top: none;
+        border-left: none;
+        border-right: none;
+        padding: 4.5% 0% 4.5% 4.5%;
+        margin-bottom: 10px;
+		margin-right: 2vh;
+        font-family: Fira Sans;
+        font-weight: bold;
+	}
 	.cadastros-place::placeholder {
 		font-family: heavitas;
 		font-weight: 400;
@@ -199,6 +212,29 @@
         font-family: Heavitas;
         font-weight: 400;
       }
+	  .regras_senha_criar{
+		  font-family: "Fira Sans", sans-serif;
+		  font-weight: 600;
+		  color: #5417bd;
+		  font-size: 13px;
+		  display: none;
+		  position: absolute;
+		  background-color: #deceff;
+		  border-top-left-radius: 10px;
+		  border-top-right-radius: 10px;
+		  padding: 1vh 0 1vh 0;
+		  transform: translate(0.2vh, -13vh);
+		  width: 29.5vh;
+	  }
+	  .senha1:focus ~ .regras_senha_criar{
+		  display: block !important;
+	  }
+		.toggle-password{
+			right: 10px;
+			cursor: pointer;
+			color: #9e5fef;
+			top: 5px;
+		}
 }
 
 @media only screen and (min-width: 480px) {
