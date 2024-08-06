@@ -294,4 +294,11 @@
         display: flex;
         justify-content: space-around;
     }
+    .economiza_span{
+        color: #D53384;
+        font-family: "Fira-Sans", sans-serif;
+        font-size: 15px;
+        font-weight: 600;
+        margin-top: 1vh;
+    }
 }
