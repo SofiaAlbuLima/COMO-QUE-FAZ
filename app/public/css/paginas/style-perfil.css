@@ -492,7 +492,7 @@
 @media only screen and (min-width: 481px) {
   .perfil-cima {
     margin: auto;
-    width: 50.5%;
+    width: 50vw;
     border-radius: 14px;
     background-color: #f9f9f9;
     box-sizing: border-box;
@@ -1046,5 +1046,14 @@
     background-color: #F2F2F2;
     border-radius: 5px 5px 5px 5px;
     display: flex;
+  }
+
+  .gato-esticado {
+    width: 50vw;
+  }
+
+  .filtro-perfil {
+    margin: auto;
+    width: 50vw;
   }
 }
