@@ -406,7 +406,8 @@
     .quadro-beneficios{
         display: inline-block;
         margin-left: -14vh;
-        transform: translate(0, -4vh);
+        transform: translate(-4.5vh, 4vh);
+        width: 5vh;
     }
     .tabela-beneficios{
         border-collapse: collapse;
@@ -488,10 +489,12 @@
     }
     .borda1-quadro{
         border: #f2c86b solid 0.3vh;
-        transform: translate(-2vh, -52vh);
+        transform: translate(-1vh, -52vh);
+        width: 54vh;
     }
     .borda2-quadro{
         border: #f69d68 solid 0.3vh; 
         transform: translate(2vh, -46vh);
+        width: 53vh;
     }
 }
