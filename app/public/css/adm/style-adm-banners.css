@@ -1,0 +1,37 @@
+.banner-promocional-adm{
+    width: 136vh;
+    height: 40vh;
+    background-color: rgb(255, 255, 255);
+    padding: 5vh 5vh 5vh 5vh;
+    border-top-left-radius: 1vh;
+    border-top-right-radius: 1vh;
+    box-shadow: 0px 0px 3px 0px rgba(0, 0, 0, 0.09);
+}
+
+.titulo-banner-promocional{
+    font-family: "Fira Sans Bold", "Fira Sans", sans-serif;
+    font-weight: 700;
+    font-size: 2.4vh;
+    color: #9e5fef;
+}
+
+.dropdown-banner-promocional{
+    width: 35vh;
+    height: 4vh;
+    padding: 5px 10px 5px 15px;
+    margin-top: 2vh;
+    font-size: 1.7vh;;
+    font-family: "Fira Sans Bold", "Fira Sans", sans-serif;
+    font-weight: 700;
+    color: #333333;
+    border-radius: 0.5vh;
+    border: none;
+    letter-spacing: 0.5px;
+    appearance: none;
+    background: url(/imagens/seta-para-baixo.svg) 96% / 15% no-repeat #d2d2d2;
+    background-size: 0.8vw;
+
+    &:focus{
+        outline: none;
+    }
+}
