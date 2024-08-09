@@ -314,7 +314,7 @@
         padding: 5vh 2vh 10vh 2vh;
     }
     .Banner-bigodes-inteiro{
-        width: 50vh;
+        width: 45vh;
     }
     .Banner-titulo-premium{
         font-size: 2vh;
@@ -342,12 +342,12 @@
         font-size: 2vh;
         font-family: Fira Sans;
         font-weight: 600;
-        transform: translate(1.5vh, -1vh);
+        transform: translate(5vh, -1vh);
         border: none;
         position: absolute;
         z-index: 2;
-        margin-left: 5vh;
         margin-top: 3vh;
+        
     }
     .Banner-borda-botao{
         background: transparent;
@@ -358,18 +358,19 @@
         display: inline-flex;
         position: absolute;
         z-index: -1;
-        margin-left: 5vh;
         margin-top: 3vh;
+        margin-left: 5vh;
     }
     .Banner-imagem-principal{
-        width: 50vh;
+        width: 45vh;
     }
     .Figure-Banner{
       margin-top: 20vh;
+      padding: inherit;
     }
     .Secao-Beneficios-Premium{
         background: linear-gradient(270deg, rgba(159, 85, 255, 1) -88%, rgba(77, 22, 187, 1) 100%);
-        padding: 7vh 0vh 5vh 20vh;
+        padding: 7vh 5vh 10vh 22vh;
         z-index: -2;
         position: relative;
     }
@@ -406,7 +407,7 @@
     .quadro-beneficios{
         display: inline-block;
         margin-left: -14vh;
-        transform: translate(-4.5vh, 4vh);
+        transform: translate(0vh, 4vh);
         width: 5vh;
     }
     .tabela-beneficios{
@@ -415,7 +416,6 @@
         z-index: 1;
     }
     .cabeçalho-tabela-beneficios th{
-        font-size: 2.2vh;
         font-weight: 400;
         color: #FFD662;
         margin-left: 2vh;
@@ -441,7 +441,7 @@
     }
     .coluna-beneficios-texto{
         padding-left: 3vh;
-        padding-right: 10vh;
+        padding-right: 5vh;
         background-color: #5f25d1;
     }
     .coluna-beneficios-texto p{
@@ -450,8 +450,8 @@
         color: white;
     }
     .coluna-beneficios-free{
-        padding-left: 6vh;
-        padding-right: 6vh;
+        padding-left: 4.5vh;
+        padding-right: 5vh;
         background-color: #f4f4f4;
         border-right: #5f25d1 solid 0.4vh;
     }
@@ -463,8 +463,8 @@
         background-color: #e8e8e8;
     }
     .coluna-beneficios-premium{
-        padding-left: 5.5vh;
-        padding-right: 6.5vh;
+        padding-left: 4vh;
+        padding-right: 4vh;
         background-color: #F5F0FF;  
     }
     .coluna-beneficios-premium.radius_top{
@@ -490,11 +490,114 @@
     .borda1-quadro{
         border: #f2c86b solid 0.3vh;
         transform: translate(-1vh, -52vh);
-        width: 54vh;
+        width: 42.5vh;
     }
     .borda2-quadro{
         border: #f69d68 solid 0.3vh; 
         transform: translate(2vh, -46vh);
-        width: 53vh;
+        width: 41.5vh;
+    }
+    .Secao-Planos-Premium{
+        background-color: #f2f2f2;
+        padding: 10vh 0vh 10vh 0vh;
+        width: 100%;
+        justify-content: center;
+        overflow: auto;
+    }
+    .blocos_planos{
+        display: flex;
+        justify-content: space-around;
+        width: 155vh;
+       
+    }
+    .plano{
+        background-color: white;
+        border-radius: 20px;    
+        width: 40vh;
+        padding: 4vh 3vh 4vh 2vh;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        margin-left: 6vh;
+    }
+
+    .imagem_bigodes_de_ouro_moedinha{
+        width: 10vh;
+        height: 10vh;
+    }
+    .blocos_planos_subtitulo{
+        margin-top: 2vh;
+        font-size: 2.3vh;
+        text-align: center;
+    }
+    .blocos_planos_titulo_plano{
+        font-size: 3vh;
+        text-align: center;
+    }
+
+    .blocos_planos_subtitulo.um, .blocos_planos_titulo_plano.um{
+        color: #5F25D1;
+    }
+    .blocos_planos_subtitulo.dois, .blocos_planos_titulo_plano.dois{
+        color: #9C21C8;
+    }
+    .blocos_planos_subtitulo.tres, .blocos_planos_titulo_plano.tres{
+        color: #D53384;;
+    }
+
+    .blocos_planos_descricao{
+        margin-top: 3vh;
+        margin-bottom: 3vh;
+        font-size: 1.7vh;
+        font-family: Fira Sans;
+        text-align: center;
+        width: 32vh;
+    }
+    .blocos_planos_observacao{
+        font-family: Fira Sans;
+        text-align: center;
+        font-weight: 600;
+        font-size: 1.5vh;
+    }
+    .blocos_planos_botao{
+        margin-top: 1vh;
+        width: 32vh;
+        padding: 2vh 0vh 2vh 0;
+        text-align: center;
+        border-radius: 20px;
+        border: none;
+        color: white;
+        font-size: 2vh;
+    }
+    .blocos_planos_botao.um{
+        background: linear-gradient(270deg, rgba(159, 85, 255, 1) -59%, rgba(133, 65, 233, 1) -59%, rgba(77, 22, 187, 1) 100%);
+    }
+    .blocos_planos_botao.dois{
+        background: linear-gradient(270deg, rgba(203, 33, 140, 1) -18%, rgba(154, 33, 203, 1) 100%);
+    }
+    .blocos_planos_botao.tres{
+        background: linear-gradient(270deg, rgba(255, 131, 98, 1) -88%, rgba(203, 33, 140, 1) 100%);
+    }
+
+    .blocos_meios_de_pagamento{
+        display: flex;
+        justify-content: space-around;
+        background-color: #f2f2f2;
+    }
+    .meios_de_pagamento{
+        margin-top: 3vh;
+        width: 90vh;
+        padding: 3vh 3vh 3vh 3vh;
+        border-radius: 20px;
+        background-color:  #e8e8e8;
+        display: flex;
+        justify-content: space-around;
+    }
+    .economiza_span{
+        color: #D53384;
+        font-family: "Fira-Sans", sans-serif;
+        font-size: 15px;
+        font-weight: 600;
+        margin-top: 1vh;
     }
 }
