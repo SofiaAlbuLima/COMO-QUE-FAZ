@@ -57,7 +57,7 @@
     color: #a3a3a3; /* Cor desejada para o placeholder */
   }
   
-.fundo-tabela{
+.fundo-tabela-usuario{
     width: 140vh;
     height: 59.4vh;
     background-color: white;
@@ -72,37 +72,34 @@
     overflow-x: hidden;
 }
 
-.tabela{
+.tabela-usuario{
     border-collapse: collapse;
     width: 137vh;
     padding-top: 20vh;
 }
 
-.cabeçalho-tabela{
+.cabeçalho-tabela-usuario{
     background-color: #EEE3FC;
     border: 2.6px solid #9d5fefea;
 }
 
-.titulo-tabela{
+.titulo-tabela-usuario{
     height: 8vh;
-    font-family: Fira Sans;
+    font-family: "Fira Sans Bold", "Fira Sans", sans-serif;
     font-size: 1.9vh;
     color: #333333;
     text-align: left;
     padding-right: 2vh;
 }
 
-.linha{
+.linha-usuario{
     padding-bottom: 3vh;
     padding-top: 3vh;
     border-bottom: 1px solid #33333364;
+    font-family: "Fira Sans Bold", "Fira Sans", sans-serif;
 }
 
 /* Classes das celulas dinâmicas - Inicio */
-
-.Coluna-id{
-    padding-left: 3vh;
-}
 
 .icon-rosa-linha {
     max-width: 2.3vh;

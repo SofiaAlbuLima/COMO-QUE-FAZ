@@ -258,7 +258,8 @@
 	.text-email {
 		margin-left: 290px;
 		margin-top: -50px;
-		text-align: center;
+		text-align: left;
+		padding-left: 0.5vh;
 		height: 34px;
 		width: 55%;
 		border: 0px;
@@ -276,7 +277,7 @@
 	}
 
 	.submit-email {
-		margin-right: 2%;
+		margin-right: 1%;
 		height: 30px;
 		width: 170px;
 		background-color: #FFD662;
@@ -286,8 +287,12 @@
 		border: 0px;
 		border-radius: 10px;
 		position: absolute;
-		margin-top: -47px;
-		margin-left: 61.2%;
+		margin-top: -47.5px;
+		margin-left: 61.6%;
+		cursor: pointer;
+	}
+	.submit-email:hover {
+		background-color: #ecc865;
 	}
 
 	.cadastrese-newsletter {

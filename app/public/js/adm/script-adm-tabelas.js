@@ -61,18 +61,10 @@ function FuncaoCelulas() {
 }
 
 //função da imagem "detalhes da denúncia"
-document.addEventListener("DOMContentLoaded", function() {
-  const verDetalhesImgs = document.querySelectorAll(".ver-detalhes-denuncia");
-  const asideDetalhesRows = document.querySelectorAll("#asideDetalhes");
-
-  verDetalhesImgs.forEach((img, index) => {
-    img.addEventListener("click", function() {
-      var asideDetalhesRow = asideDetalhesRows[index];
-      if (asideDetalhesRow.style.display === "none") {
-        asideDetalhesRow.style.display = "table-row";
-      } else {
-        asideDetalhesRow.style.display = "none";
-      }
-    });
-  });
-});
+function clickMenu() {
+  if (asideDetalhes.style.display == 'block') {
+    asideDetalhes.style.display = 'none'
+  } else {
+    asideDetalhes.style.display = 'block'
+  }
+}

@@ -33,3 +33,27 @@ function verificaConfirmaSenha() {
      
     }};
     verificaConfirmaSenha();  
+
+    
+    document.addEventListener('DOMContentLoaded', () => {
+        const togglePasswordIcons = document.querySelectorAll('.toggle-password');
+    
+        togglePasswordIcons.forEach(icon => {
+            icon.addEventListener('click', () => {
+                const targetId = icon.getAttribute('data-target');
+                const passwordInput = document.getElementById(targetId);
+    
+                // Alterna o tipo do input entre 'password' e 'text'
+                const isPassword = passwordInput.type === 'password';
+                passwordInput.type = isPassword ? 'text' : 'password';
+    
+                // Alterna o ícone entre olho aberto e fechado
+                icon.classList.toggle('fa-eye', isPassword);
+                icon.classList.toggle('fa-eye-slash', !isPassword);
+    
+                // Alterna a classe de visibilidade
+                icon.classList.toggle('show', isPassword);
+                icon.classList.toggle('hide', !isPassword);
+            });
+        });
+    });

@@ -144,7 +144,7 @@
         color: #5417bd;
         margin-bottom: 6%;
         }
-    .caixa-mob2 input{
+    .caixa-mob2 input:not(cadastros-place3){
         width: 94%;
         outline: none;
         border-bottom: 1.7px solid #9e5fef;
@@ -156,6 +156,19 @@
         font-family: Fira Sans;
         font-weight: bold;
     }
+	.caixa-mob2.cadastros-place3{
+        width: 80%;
+        outline: none;
+        border-bottom: 1.7px solid #9e5fef;
+        border-top: none;
+        border-left: none;
+        border-right: none;
+        padding: 4.5% 0% 4.5% 4.5%;
+        margin-bottom: 10px;
+		margin-right: 2vh;
+        font-family: Fira Sans;
+        font-weight: bold;
+	}
 	.cadastros-place::placeholder {
 		font-family: heavitas;
 		font-weight: 400;
@@ -167,6 +180,7 @@
 	  }
       .caixa-mob2{
         margin-bottom: 6%;
+		padding: 15% 0 15% 0;
       }
       .lembrar-termos-mob label{
         color: #333333;
@@ -198,6 +212,29 @@
         font-family: Heavitas;
         font-weight: 400;
       }
+	  .regras_senha_criar{
+		  font-family: "Fira Sans", sans-serif;
+		  font-weight: 600;
+		  color: #5417bd;
+		  font-size: 13px;
+		  display: none;
+		  position: absolute;
+		  background-color: #deceff;
+		  border-top-left-radius: 10px;
+		  border-top-right-radius: 10px;
+		  padding: 1vh 0 1vh 0;
+		  transform: translate(0.2vh, -13vh);
+		  width: 29.5vh;
+	  }
+	  .senha1:focus ~ .regras_senha_criar{
+		  display: block !important;
+	  }
+		.toggle-password{
+			right: 10px;
+			cursor: pointer;
+			color: #9e5fef;
+			top: 5px;
+		}
 }
 
 @media only screen and (min-width: 480px) {
@@ -231,21 +268,21 @@
         display: none;
     }
     .login-mob{
-        width: 525px;
+        width: 56vh;
 		background-image: linear-gradient(-118.74754247485888deg, #cb218c 0%, #7f1aa8 0%, #4d16bb 90.67401261808497%);
 		border-top: 3.5px solid #ffd662;
 		border-left: 3.5px solid #ffd662;
 		border-bottom: 3.5px solid #ffd662;
 		border-radius: 25px 0 0 25px;
 		text-align: center;
-		height: 490px;
+		height: 53vh;
 		padding: 8% 0 0 0;
 		position: relative;
 		z-index: 2;
     }
     .cadastro-mob{
         border: 2px solid black;
-        width: 525px;
+        width: 56vh;
     }
     .login-cadastro{
         margin: 3% 23% 3% 23%;
@@ -332,6 +369,7 @@
 		background-color: #cb218c;
 		color: white;
 		border: none;
+		cursor: pointer;
 	}
     .cadastro-mob{
 		background-color: white;
@@ -341,7 +379,7 @@
 		border-bottom: 3.5px solid #9e5fef;
 		border-radius: 0 25px 25px 0;
 		text-align: center;
-		height: 490px;
+		height: 53vh;
 		padding-top: 8%;
 		z-index: 3;
     }
@@ -354,8 +392,20 @@
 		color: #4d16bb;
 		margin-bottom: 6%;
 	}
-	.caixa-mob2 input {
+	.caixa-mob2 input:not(.senha1, .senha2) {
 		width: 70%;
+		outline: none;
+		border-bottom: 1.7px solid #9e5fef;
+		border-top: none;
+		border-left: none;
+		border-right: none;
+		padding: 2.5% 0% 2.5% 2.5%;
+		margin-bottom: 10px;
+		font-family: Fira Sans;
+		font-weight: bold;
+	}
+	.senha1, .senha2{
+		width: 65%;
 		outline: none;
 		border-bottom: 1.7px solid #9e5fef;
 		border-top: none;
@@ -395,9 +445,15 @@
 		background-color: #ffd662;
 		color: #4d16bb;
 		border: none;
+		cursor: pointer;
 	}
-	.decoracao-frente img{
-		height: 75px;
+	input[type=checkbox]{
+		cursor: pointer;
+	}
+
+	}
+	.decoracao-frente img{ 
+		height: 8vh;
 		transform: rotate(345deg);
 		position: absolute;
 		margin-left: 19.8%;
@@ -409,26 +465,64 @@
 		position: absolute;
 	}
 	#cir1{
-		height: 75px;
-		width: 75px;
+		position: absolute;
+		height: 8vh;
+		width: 8vh;
 		background-color: #ffa462;
 		margin-left: 76.8%;
 		margin-top: 3%;
 	}
 	#cir2{
-		height: 75px;
-		width: 75px;
+		position: absolute;
+		height: 8vh;
+		width: 8vh;
 		background-color: #ffd662;
 		margin-left: 21%;
 		margin-top: -5.5%;
 		z-index: 1;
 	}
 	#cir3{
-		height: 75px;
-		width: 75px;
+		position: absolute;
+		height: 8vh;
+		width: 8vh;
 		background-color: #ffd662;
 		margin-left: 75%;
 		margin-top: -33%;
 		z-index: 13;
 	}
-}
+	.regras_senha_criar{
+		font-family: "Fira Sans", sans-serif;
+		font-weight: 600;
+		color: #5417bd;
+		font-size: 13px;
+		display: none;
+	}
+	.senha1:focus ~ .regras_senha_criar{
+		display: block !important;
+	}
+	.toggle-password{
+		right: 10px;
+		cursor: pointer;
+		color: #9e5fef;
+	}
+	.toggle-password.senhalogin{
+		position: absolute;
+		right: 9vh;
+		margin-top: 1.5vh;
+	}
+	.toggle-password.show {
+		color: #9e5fef; /* Cor do ícone quando a senha está visível */
+	}
+	.toggle-password.hide {
+		color: #9d5fef93; /* Cor do ícone quando a senha está oculta */
+	}
+	input[type="password"]::-ms-reveal {
+		display: none; /* Para Internet Explorer e Edge */
+	}
+	
+	input[type="password"]::-webkit-search-clear-button,
+	input[type="password"]::-webkit-search-decoration,
+	input[type="password"]::-webkit-search-results-button,
+	input[type="password"]::-webkit-search-results-decoration {
+		display: none; /* Para WebKit (Chrome, Safari) */
+	}

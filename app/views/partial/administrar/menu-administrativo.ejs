@@ -8,8 +8,8 @@
       <section class="Menu-Adminitrativo-Desktop">
          <article class="menu-fundo-roxo">
             <figure class="iconAdm-Divisor">
-               <img src="/imagens-svg/5-adm/Adm-icon-inteiro.png" alt="" class="Imagem-PaginaIncial">
-               <img src="/imagens-svg/5-adm/icone-adm-minimizado.png" alt="" class="ImagemMinimizada-PaginaIncial">
+               <a href="/adm"><img src="/imagens-svg/5-adm/Adm-icon-inteiro.png" alt="" class="Imagem-PaginaIncial"></a>
+               <a href="/adm"><img src="/imagens-svg/5-adm/icone-adm-minimizado.png" alt="" class="ImagemMinimizada-PaginaIncial"></a>
                <hr class="divisor-menuAdm">
             </figure>
 
@@ -61,13 +61,15 @@
                <figure class="perfil-administrador">
                   <img src="/imagens-svg/5-adm/perfil-adm.svg" alt="" class="Icon-Perfil-Adm">
                   <p class="perfilmADM bemvindo">Seja bem vindo!</p>
-                  <span class="perfilmADM Admin">Admin: Lais Miharu<br>Amano</span>
+                  <span class="perfilmADM Admin">Admin: <%= usuario_logado.autenticado %></span>
                </figure>
 
                <figure class="sair-da-conta">
+                  <a href="/">
                   <img src="/imagens-svg/5-adm/sair-adm.svg" alt="" class="icone-sair">
-                  <a href="/adm-login" class="link-sair">
-                     <p>sair da conta</p>
+                  </a>
+                  <a href="/" class="link-sair">
+                     <p>Voltar ao site</p>
                   </a>
                </figure>
             </article>

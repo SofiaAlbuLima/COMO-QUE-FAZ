@@ -85,7 +85,7 @@
 
 .titulo-tabela{
     height: 8vh;
-    font-family: Fira Sans;
+    font-family: "Fira Sans", sans-serif;
     font-size: 1.9vh;
     color: #333333;
     text-align: left;
@@ -96,6 +96,7 @@
     padding-bottom: 3vh;
     padding-top: 3vh;
     border-bottom: 1px solid #33333364;
+    font-family: "Fira Sans Bold", "Fira Sans", sans-serif;
 }
 
 /* Classes das celulas dinâmicas - Inicio */
@@ -149,3 +150,92 @@
 }
 /* Coluna Status - Fim */
 /* Classes das celulas dinâmicas - Fim */
+
+.linha-aside{
+    height: 18vh;
+    padding-bottom: 3vh;
+    border-bottom: 1px solid #33333364;
+    font-family: "Fira Sans Bold", "Fira Sans", sans-serif;
+}
+
+.asideDetalhes{
+    padding-bottom: 1vh;
+    position: absolute;
+    border-bottom: 1px solid #33333364;
+}
+
+.linha-detalhe-denuncia{
+    height: 18vh;
+    width: 133vh;
+    padding: 2vh;
+    margin-top: -10vh;
+    background-color: #ececec;
+    border-bottom-left-radius: 1vh;
+    border-bottom-right-radius: 1vh;
+}
+
+.conteudo-detalhe-denuncia{
+    height: 14vh;
+    border-left: #CB218C solid 0.4vh;
+    padding: 2vh;
+}
+
+.grid-info-usuario{
+    display: grid;
+    grid: auto-flow / 18vh 23vh 80vh;
+}
+
+.titulo-detalhamento-denuncia{
+    font-family: "Fira Sans Bold", "Fira Sans", sans-serif;
+    font-weight: 700;
+    font-size: 1.6vh;
+    margin-bottom: 1vh;
+    color: #cb218c;
+    line-height: normal;
+    letter-spacing: 0.5px;
+}
+
+.info-detalhe-denuncia{
+    display: flex;
+    align-items: center;
+    margin-bottom: 3.5vh;
+}
+
+.foto-usu-detalhe-denuncia{
+    margin-right: 1vh;
+}
+
+.grid-btn-detalhes-denuncia{
+    display: grid;
+    grid-template-columns: 29vh 28vh 25vh;
+    gap: 2vh;
+}
+
+.link-btn-detalhes-denuncia{
+    text-decoration: none;
+}
+
+.btn-detalhes-denuncia{
+    display: flex;
+    width: max-content;
+    padding: 0vh 1vh 0vh 1vh;
+    height: 4vh;
+    border: #cb218c solid 0.3vh;
+    border-radius: 0.5vh;
+    justify-content: center;
+    align-items: center;
+}
+
+.txt-btn-detalhes-denuncia{
+    font-family: "Fira Sans Bold", "Fira Sans", sans-serif;
+    font-weight: 700;
+    font-size: 1.4vh;
+    color: #cb218c;
+    text-align: center;
+    line-height: normal;
+    letter-spacing: 0.5px;
+}
+
+.img-btn-detalhes-denuncia{
+    margin-right: 1vh;
+}

@@ -62,16 +62,35 @@ const tarefasController = {
                     dadosNotificacao: null //mensagem erro express validator
                 });
             }
-            if (req.session.autenticado && req.session.autenticado.autenticado) {
-                res.redirect("/");
+            const { input1, input2 } = req.body;
+            let user = null;
+
+            try {
+                const users = await usuarioModel.findUserEmail({ Nickname: input1, Email: input1 });
+                if (users.length > 0) {
+                    user = users[0];
+                }
+            } catch (error) {
+                console.log("Erro ao buscar usuário:", error);
             }
-            else {
-                res.render("pages/template", { //Verificação de Erros de Login com banco
-                    pagina: {cabecalho: "cabecalho", conteudo: "Fazer-Login", rodape: "rodape"}, 
-                    usuario_logado:req.session.autenticado, 
+
+            if (user && bcrypt.compareSync(input2, user.senha)) {
+                // Se a senha estiver correta, autenticar usuário
+                req.session.autenticado = {
+                    id: user.id,
+                    autenticado: user.Nickname,
+                    email: user.Email,
+                    tipo: user.Tipo_Cliente_idTipo_Cliente
+                };
+                return res.redirect("/");
+            } else {
+                // Credenciais inválidas
+                return res.render("pages/template", {
+                    pagina: {cabecalho: "cabecalho", conteudo: "Fazer-Login", rodape: "rodape"},
+                    usuario_logado: null,
                     listaErroslog: null,
-                    listaErros:null,
-                    dadosNotificacao: {titulo:"Falha ao logar!", mensagem:"Usuário e/ou senha inválidos!", tipo: "error" }
+                    listaErros: null,
+                    dadosNotificacao: { titulo: "Falha ao logar!", mensagem: "Usuário e/ou senha inválidos!", tipo: "error" }
                 });
             }
     },
