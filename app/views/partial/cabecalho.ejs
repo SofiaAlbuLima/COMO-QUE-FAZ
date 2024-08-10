@@ -4,12 +4,22 @@
     <section class="header-dispositivo-mobile">
        <nav class="logos">
           <article class="login">
-             <a href="/login">
+            <% if (usuario_logado && usuario_logado.autenticado) { %>
+             <a href="">
                 <img src="imagens-svg/1-cabeçalho/user_icon.svg" alt="Faça Login">
              </a>
           </article>
+          
+            <% } else {%>
+            <a href="/login">
+               <img src="imagens-svg/1-cabeçalho/user_icon.svg" alt="Faça Login">
+            </a>
+         </article>
+         
+            <% } %>
+
           <article class="logo">
-             <a href="partial/index.ejs">
+             <a href="/">
                 <img src="imagens-svg/1-cabeçalho/ComoQueFaz_logo.svg" alt="Logo do ComoQueFaz">
              </a>
           </article>

@@ -3,31 +3,7 @@
          <article id="Login" class="tabcontent" style="display:block;">
             <figure class="background-gatin">
                <section class="login-mob">
-                  <form action="/login" method="post">
-                     <span class="fazer-login-mob">FAZER LOGIN:</span>
-                     <p>Seja bem-vindo de volta!</p>
-
-                     <figure class="caixa-mob">
-                        <input class="input1" type="text" id="input1" placeholder="E-MAIL / NOME DE USUÁRIO" name="input1" required>
-                        <input class="input2" type="password" id="input2" placeholder="SENHA" name="input2" required>
-                        <i class="fas fa-eye toggle-password senhalogin" data-target="input2"></i>
-                     </figure>
-
-                     <article class="redes-login-mob">
-                        <span class="esqueceu-foi">Esqueceu a senha? <a href="#">Recupere aqui</a></span>
-                        <figure class="redes-botoes-mob">
-                           <button><a href=""><img src="imagens/google_logo.svg" alt="login com google"></a></button>
-                           <button><a href=""><img src="imagens/facebook_logo.svg" alt="login com facebook"></a></button>
-                           <button><a href=""><img src="imagens/apple_logo.svg" alt="login com apple"></a></button>
-                        </figure>
-                     </article>
-
-                     <figure class="lembrar-senha-mob">
-                        <label><input type="checkbox"> Manter Login</label>
-                     </figure>
-
-                     <input type="submit" value="Login" class="login-submit">
-                  </form>
+                  <%- include("../cadastro-login/"+pagina.FormLogin) %>
                   <!-- TAB LINKS -->
                   <aside class="tab">
                      <button class="tablinks-login" onclick="openCity(event, 'Cadastro')">Criar Conta</button>
@@ -38,27 +14,7 @@
 
          <article id="Cadastro" class="tabcontent">
             <section class="cadastro-mob">
-               <form action="/cadastro" method="post" onsubmit="return  verificaConfirmaSenha()">
-                  <span class="texto1-cadastro">Ainda não tem conta?</span>
-                  <p class="texto2-cadastro">SE CADASTRAR:</p>
-                  <figure class="caixa-mob2">
-                     <input class="cadastros-place1" type="text" placeholder="NOME DE USUÁRIO" name="nomeusu_usu" required>
-                     <input class="cadastros-place2" type="text" placeholder="EMAIL" name="email_usu" required>
-                     
-                     <input class="cadastros-place3 senha1" id="senha1-mobile" type="password" placeholder="SENHA" name="senha_usu" required>
-                     <i class="fas fa-eye toggle-password" data-target="senha1-mobile"></i> <br>
-                     <span class="regras_senha_criar">8 caracteres (mínimo 1 letra maiúscula, 1 caractere especial e 1 número)</span>
-                     
-                    
-                     <input  id="senha2" class="cadastros-place3 senha2" type="password" placeholder="CONFIRMAR SENHA" name="confi_senha" required>
-                     <i class="fas fa-eye toggle-password" data-target="senha2"></i>
-                  </figure>
-
-                  <figure class="lembrar-termos-mob">
-                     <p><label><input type="checkbox"> Li e concordo com os termos*</label></p>
-                  </figure>
-                  <input type="submit" value="Cadastre-se" class="cadastro-submit-mob">
-               </form>
+               <%- include("../cadastro-login/"+pagina.FormCadastro) %>
                <!-- TAB LINKS -->
                <aside class="tab">
                   <button class="tablinks-cadastro" onclick="openCity(event, 'Login')">Voltar para o Login</button>
@@ -68,80 +24,6 @@
       </section>
 
       <section class="conteudo-dispositivo-desktop-login">
-
-         <% 
-         let avisoErro = {"input1":"", "input2":""}
-         let msgErro = ""
-             if(listaErroslog){
-                 listaErroslog.errors.forEach(function(itemErro){
-                     if(itemErro.path == "input1"){
-                         avisoErro.input1 = "erro";
-                         msgErro += `* ${itemErro.msg} <br>`
-                     }
-                     if(itemErro.path == "input2"){
-                         avisoErro.input2 = "erro";
-                         msgErro += `* ${itemErro.msg} <br>`
-                     }
-                 })
-                 if(msgErro != ""){
-                 %>
-                     <script>
-                         let msgErro ="<%= msgErro %>"
-                         notify("Erro(s) no preenchimento", 
-                                "Verifique o(s) campo(s) <br> " + msgErro.replace(/&lt;/g,"<").replace(/&gt;/g,">"), 
-                                "error", "center", 5000)                        
-                     </script>
-                 <%
-                 }
-             }
-             if (dadosNotificacao) { %>
-                 <script>
-                         notify("<%= dadosNotificacao.titulo%>","<%= dadosNotificacao.mensagem%>", "<%= dadosNotificacao.tipo%>", "center")
-                         if("<%= dadosNotificacao.tipo %>" == "success"){
-                             setTimeout(function(){window.location="/"}, 3000)
-                         }                        
-                 </script>
-             <% } %>
-
-             
-             <% 
-             
-             let mensagemErro = ""
-             let avsErro = {"email_usu":"", "senha_usu":"", "conf_senha":""}
-                 if(listaErros){
-                     listaErros.errors.forEach(function(itemErro){
-                         if(itemErro.path == "email_usu"){
-                             avsErro.email_usu = "erro";
-                             mensagemErro += `* ${itemErro.msg} <br>`
-                         }
-                         if(itemErro.path == "senha_usu"){
-                             avsErro.senha_usu = "erro";
-                             mensagemErro += `* ${itemErro.msg} <br>`
-                         }
-                         if(itemErro.path == "conf_senha"){
-                           avsErro.conf_senha = "erro";
-                           mensagemErro += `* ${itemErro.msg} <br>`
-                       }
-                     })
-                     if(mensagemErro != ""){
-                     %>
-                         <script>
-                             let mensagemErro ="<%= mensagemErro %>"
-                             notify("Erro(s) no preenchimento", 
-                                    "Verifique o(s) campo(s) <br> " + mensagemErro.replace(/&lt;/g,"<").replace(/&gt;/g,">"), 
-                                    "error", "center", 5000)                        
-                         </script>
-                     <%
-                     }
-                 }
-                 if (dadosNotificacao) { %>
-                  <script>
-                          notify("<%= dadosNotificacao.titulo%>","<%= dadosNotificacao.mensagem%>", "<%= dadosNotificacao.tipo%>", "center")
-                          if("<%= dadosNotificacao.tipo %>" == "success"){
-                              setTimeout(function(){window.location="/"}, 3000)
-                          }                        
-                  </script>
-              <% } %>
          
          <figure class="decoracao-frente">
             <img src="imagens/gatinho-laranja-decoracao.png" alt="">
@@ -152,59 +34,14 @@
             <section id="Login" class="tabcontent" style="display:block;">
                <figure class="background-gatin">
                   <section class="login-mob">
-                     <form action="/login" method="post">
-                        <span class="fazer-login-mob">FAZER LOGIN:</span>
-                        <p>Seja bem-vindo de volta!</p>
-
-                           <input class="<%= avisoErro.input1%>" type="text" id="input1" name="input1" placeholder="E-MAIL / NOME DE USUÁRIO" required>
-                           <input class="<%= avisoErro.input2%>" type="password" id="input2" name="input2"  placeholder="SENHA" required>
-                           <i class="fas fa-eye toggle-password senhalogin" data-target="input2"></i>
-                        
-                        <article class="redes-login-mob">
-                           <span class="esqueceu-foi">Esqueceu a senha? <a href="#">Recupere aqui</a></span>
-                           <figure class="redes-botoes-mob">
-                              <button><a href=""><img src="imagens/google_logo.svg" alt="login com google"></a></button>
-                              <button><a href=""><img src="imagens/facebook_logo.svg" alt="login com facebook"></a></button>
-                              <button><a href=""><img src="imagens/apple_logo.svg" alt="login com apple"></a></button>
-                           </figure>
-                        </article>
-
-                        <figure class="lembrar-senha-mob">
-                           <label><input type="checkbox"> Manter Login</label>
-                        </figure>
-                        <button type="submit" class="login-submit">Login</button>
-                     </form>
+                     <%- include("../cadastro-login/"+pagina.FormLogin) %>
                   </section>
                </figure>
             </section>
 
             <section id="Cadastro" class="tabcontent">
                <article class="cadastro-mob">
-                  <form action="/cadastro" method="post" onsubmit="return  verificaConfirmaSenha()">
-                     <span class="texto1-cadastro">Ainda não tem conta?</span>
-                     <p class="texto2-cadastro">SE CADASTRAR:</p>
-                     <article class="caixa-mob2">
-                        <input type="text" placeholder="NOME DE USUÁRIO" name="nomeusu_usu" required>
-
-                        <input class="<%= avsErro.email_usu%>" type="text" placeholder="EMAIL" name="email_usu" required>
-                        
-                        <article>
-                           <input id="senha1" class="<%= avsErro.senha_usu %> senha1" type="password" placeholder="SENHA" name="senha_usu" required>
-                           <i class="fas fa-eye toggle-password" data-target="senha1"></i>
-                        <br>
-                           <span class="regras_senha_criar">8 caracteres (mínimo 1 letra maiúscula, 1 caractere especial e 1 número)</span>
-                        </article>
-
-                        <input  id="senha2"class="<%= avsErro.confi_senha%> senha2"   type="password" placeholder="CONFIRMAR SENHA" name="confi_senha" required>
-                        <i class="fas fa-eye toggle-password" data-target="senha2"></i>
-                        <br>
-                     </article>
-                     <p id="mensagem"></p>
-                     <article class="lembrar-termos-mob">
-                        <p><label><input type="checkbox" required> Li e concordo com os termos*</label></p>
-                     </article>
-                     <input type="submit" value="Cadastre-se" class="cadastro-submit-mob">
-                  </form>
+                  <%- include("../cadastro-login/"+pagina.FormCadastro) %>
                </article>
             </section>
          </article>

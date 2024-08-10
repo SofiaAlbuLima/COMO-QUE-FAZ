@@ -54,6 +54,8 @@ function verificaConfirmaSenha() {
                 // Alterna a classe de visibilidade
                 icon.classList.toggle('show', isPassword);
                 icon.classList.toggle('hide', !isPassword);
+
+                console.log("oinho");
             });
         });
     });

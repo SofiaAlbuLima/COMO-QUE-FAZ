@@ -82,7 +82,7 @@ const { VerificarAutenticacao, limparSessao, gravarUsuAutenticado, verificarUsuA
     });
 
     router.get("/login", function (req, res) {
-        res.render("pages/template", {pagina: {cabecalho: "cabecalho", conteudo: "Fazer-Login", rodape: "rodape"}, 
+        res.render("pages/template", {pagina: {cabecalho: "cabecalho", FormCadastro: "template_cadastro", FormLogin: "template_login", conteudo: "Fazer-Login", rodape: "rodape"}, 
             usuario_logado:req.session.autenticado, 
             listaErroslog: null,
             listaErros: null,

@@ -55,7 +55,7 @@ const tarefasController = {
             const erros = validationResult(req);
             if (!erros.isEmpty()) { //Verificação de Erros de Validação
                 return res.render("pages/template", {
-                    pagina: {cabecalho: "cabecalho", conteudo: "Fazer-Login", rodape: "rodape"}, 
+                    pagina: {cabecalho: "cabecalho", conteudo: "Fazer-Login", FormCadastro: "template_cadastro", FormLogin: "template_login", rodape: "rodape"}, 
                     usuario_logado:req.session.autenticado,
                     listaErroslog: erros, 
                     listaErros:null,
@@ -86,7 +86,7 @@ const tarefasController = {
             } else {
                 // Credenciais inválidas
                 return res.render("pages/template", {
-                    pagina: {cabecalho: "cabecalho", conteudo: "Fazer-Login", rodape: "rodape"},
+                    pagina: {cabecalho: "cabecalho", conteudo: "Fazer-Login", FormCadastro: "template_cadastro", FormLogin: "template_login", rodape: "rodape"},
                     usuario_logado: null,
                     listaErroslog: null,
                     listaErros: null,
@@ -105,7 +105,7 @@ const tarefasController = {
         if (!erros.isEmpty()) {
             console.log(erros);
             return res.render("pages/template", {
-                pagina: {cabecalho: "cabecalho", conteudo: "Fazer-Login", rodape: "rodape"}, 
+                pagina: {cabecalho: "cabecalho", conteudo: "Fazer-Login", FormCadastro: "template_cadastro", FormLogin: "template_login", rodape: "rodape"}, 
                 usuario_logado:req.session.autenticado, 
                 listaErros: erros,
                 listaErroslog: null,
@@ -125,7 +125,7 @@ const tarefasController = {
         } catch(e) {
             console.log(e);
             res.render("pages/template", {
-                pagina: {cabecalho: "cabecalho", conteudo: "Fazer-Login", rodape: "rodape"}, 
+                pagina: {cabecalho: "cabecalho", conteudo: "Fazer-Login",  FormCadastro: "template_cadastro", FormLogin: "template_login", rodape: "rodape"}, 
                 usuario_logado:req.session.autenticado, 
                 listaErros: null, 
                 listaErroslog: null,
