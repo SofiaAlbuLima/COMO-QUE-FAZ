@@ -942,13 +942,19 @@
          </nav>
 
          <nav class="recente-emalta-rapidas-Dkt">
-            <button class="Recente-Dkt" onclick="Filtro('recente')">+RECENTE</button>
-            <button class="EmAlta-Dkt" onclick="Filtro('emlta')">EM ALTA</button>
-            <button class="Rapidas-Dkt" onclick="Filtro('rapidas')">+RÁPIDAS</button>
+            <button class="Recente-Dkt" onclick="VisiRecenteDkt()">+RECENTE</button>
+            <button class="EmAlta-Dkt" onclick="VisiEmAltaDkt()">EM ALTA</button>
+            <button class="Rapidas-Dkt" onclick="VisiRapidasDkt()">+RÁPIDAS</button>
          </nav>
 
          <section class="conteudo-recente-emalta-rapidas-Dkt">
-            <%- include("../perguntas-dicas/base-postagens") %>
+            <section class="Conteudo-Recente-Dkt" id="Conteudo-Recente-Dkt" style="display: none;">
+               <%- include("../perguntas-dicas/base-postagens") %>
+            </section>
+            <section class="Conteudo-EmAlta-Dkt" id="Conteudo-EmAlta-Dkt">
+            </section>
+            <section class="Conteudo-Rapidas-Dkt" id="Conteudo-Rapidas-Dkt" style="display: none;">
+            </section>
          </section>
 
       </section>
