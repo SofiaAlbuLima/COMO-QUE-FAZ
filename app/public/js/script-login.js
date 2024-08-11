@@ -41,11 +41,12 @@ function verificaConfirmaSenha() {
         togglePasswordIcons.forEach(icon => {
             icon.addEventListener('click', () => {
                 const targetId = icon.getAttribute('data-target');
-                const passwordInput = document.getElementById(targetId);
+                const passwordInput = document.getElementsByClassName(targetId);
     
+                for(let i = 0; i < passwordInput.length; i++){
                 // Alterna o tipo do input entre 'password' e 'text'
-                const isPassword = passwordInput.type === 'password';
-                passwordInput.type = isPassword ? 'text' : 'password';
+                const isPassword = passwordInput[i].type === 'password';
+                passwordInput[i].type = isPassword ? 'text' : 'password';
     
                 // Alterna o ícone entre olho aberto e fechado
                 icon.classList.toggle('fa-eye', isPassword);
@@ -56,6 +57,8 @@ function verificaConfirmaSenha() {
                 icon.classList.toggle('hide', !isPassword);
 
                 console.log("oinho");
+                }
+
             });
         });
     });
