@@ -1,0 +1,34 @@
+.sn-notifications-container {
+    /* colors */
+    --sn-success-color: rgb(111, 207, 151);
+    --sn-success-progress-color: rgb(84, 170, 120);
+    --sn-error-color: rgb(235, 87, 87);
+    --sn-error-progress-color: rgb(192, 69, 69);
+    --sn-warning-color: rgb(242, 201, 76);
+    --sn-warning-progress-color: rgb(196, 166, 79);
+    --sn-info-color: rgb(81, 205, 243);
+    --sn-info-progress-color: rgb(84, 169, 196);
+  
+    /* container */
+    --sn-notifications-gap: 20px; /* controlled by js */
+    --sn-notifications-padding: 20px; /* controlled by js */
+  
+    /* notify */
+    --sn-notify-width: 320px;
+    --sn-notify-radius: 6px;
+    --sn-notify-transition-timing-function: ease;
+    --sn-notify-transition-duration: 500ms; /* controlled by js */
+    --sn-notify-autoclose-timeout: 30000ms; /* controlled by js */
+    --sn-notify-padding: 0.75em;
+    --sn-notify-icon-size: 2em;
+    --sn-notify-close-icon-size: 1em;
+    --sn-notify-border-size: 1px;
+    --sn-notify-border-color: transparent;
+    --sn-notify-border-style: solid;
+    --sn-notify-progress-color: rgb(51, 51, 51);
+    --sn-notify-close-icon-color: rgb(51, 51, 51);
+    --sn-notify-title-color: rgb(51, 51, 51);
+    --sn-notify-text-color: rgb(77, 77, 77);
+    --sn-notify-shadow-color: transparent;
+    --sn-notify-progress-height: 5px;
+  }
