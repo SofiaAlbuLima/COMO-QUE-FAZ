@@ -9,8 +9,7 @@
         width: 55vh;
     }
     .Banner-titulo-premium{
-        font-size: 2vh;
-        width: 15vh;
+        font-size: 1.8em;
         font-family: Fira Sans;
         font-weight: 400;
         transform: translate(25vh, -3vh);
@@ -21,10 +20,11 @@
         margin-bottom: 4vh;
     }
     .Banner-descricao-premium{
-        font-size: 1.8vh;
+        font-size: 1.5em;
+        line-height: 1.5em;
         font-family: Fira Sans;
         font-weight: 300;
-        width: 60vh;
+        width: 70vh;
         margin-bottom: 4vh;
     }
     .Banner-botao-beneficios{
@@ -92,7 +92,8 @@
     }
     .texto-beneficios{
         font-family: Fira Sans;
-        font-size: 1.7vh;
+        font-size: 1.1em;
+        line-height: 1.5em;
         color: white;
         width: 60vh;
         margin-top: 0.5vh;
@@ -585,8 +586,8 @@
         background-color: #f2f2f2;
     }
     .meios_de_pagamento{
-        margin-top: 3vh;
-        width: 90vh;
+        margin-bottom: 3vh;
+        width: 45vh;
         padding: 3vh 3vh 3vh 3vh;
         border-radius: 20px;
         background-color:  #e8e8e8;
