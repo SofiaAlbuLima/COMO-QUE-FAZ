@@ -38,10 +38,11 @@
             </section>
          <% } else if (item.tipo === 'pergunta') { %>
             <section class="pergunta">
-               <article class="parte-cima-pergunta">
-                  <h4 class="texto-pergunta"><%= item.nome %></h4>
-               </article>
                      <% if (item.categoria === 1) { %>
+                        <article class="parte-cima-pergunta">
+                           <h4 class="nome-usuario-pergunta-culinaria">Nome Usuário</h4>
+                           <p class="texto-pergunta"><%= item.nome %></p>
+                        </article>
                         <article class="parte-baixo-pergunta figureCulinaria">
                            <figure class="pergunta-categoria">
                               <img src="imagens/icon-culinaria-branco.png" alt="">
@@ -53,6 +54,10 @@
                            </figure>
                         </article>
                      <% } else if (item.categoria === 2) { %>
+                        <article class="parte-cima-pergunta">
+                           <h4 class="nome-usuario-pergunta-limpeza">Nome Usuário</h4>
+                           <p class="texto-pergunta"><%= item.nome %></p>
+                        </article>
                         <article class="parte-baixo-pergunta figureLimpeza">
                         <figure class="pergunta-categoria">
                            <img src="imagens/icon-limpeza-branco.png" alt="">
@@ -64,6 +69,10 @@
                         </figure>
                      </article>
                      <% } else if (item.categoria === 3) { %>
+                        <article class="parte-cima-pergunta">
+                           <h4 class="nome-usuario-pergunta-bemestar">Nome Usuário</h4>
+                           <p class="texto-pergunta"><%= item.nome %></p>
+                        </article>
                         <article class="parte-baixo-pergunta figureBemEstar">
                         <figure class="pergunta-categoria">
                            <img src="imagens/icon-bemestar-branco.png" alt="">

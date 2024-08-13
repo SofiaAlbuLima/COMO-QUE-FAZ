@@ -31,7 +31,7 @@ const conteudoModel = { //const que agrupa todas as funções de acesso e manipu
     
             switch(ordem) {
                 case 'rapidos':
-                    query += ` ORDER BY tempo ASC`;
+                    query += ` ${categoria ? 'AND' : 'WHERE'} tipo = 'dica' ORDER BY tempo ASC`;
                     break;
                 case 'em_alta':
                     query += ` ORDER BY id DESC`;
