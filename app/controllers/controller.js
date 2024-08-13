@@ -142,7 +142,14 @@ const tarefasController = {
         res.locals.moment = moment;
         try {
             // Obtendo os parâmetros da query string
-            let categoria = req.query.categoria || null;
+            const categoriaMap = {
+                'culinaria': 1,
+                'limpeza': 2,
+                'bemestar': 3,
+                'semmarca': null
+            };
+                
+            let categoria = categoriaMap[req.query.categoria] || null;
             let filtro = req.query.filtro || 'recente';
             let pagina = req.query.pagina === undefined ? 1 : parseInt(req.query.pagina);
             let regPagina = 12;
@@ -152,17 +159,17 @@ const tarefasController = {
             const filtros = {
                 recente: 'recente',
                 'em-alta': 'em_alta',
-                rapidas: 'rapidos',
+                rapidos: 'rapidos',
             };
     
             // Executando a query
             let results = await conteudoModel.FindPage(categoria, filtros[filtro], inicio, regPagina);
-    
+
             // Paginação
             let totReg = await conteudoModel.TotalReg();
             let totalRegistros = totReg[0].total;
             let totPaginas = Math.ceil(totalRegistros / regPagina);
-            let paginador = totalRegistros <= 5 ? null : {
+            let paginador = totalRegistros <= 12 ? null : {
                 "pagina_atual": pagina,
                 "total_reg": totalRegistros,
                 "total_paginas": totPaginas
