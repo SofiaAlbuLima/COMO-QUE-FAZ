@@ -24,14 +24,14 @@ const conteudoModel = { //const que agrupa todas as funções de acesso e manipu
                     SELECT ID_Pergunta AS id, Clientes_idClientes, categorias_idCategorias, titulo AS Titulo, NULL AS tempo, NULL AS Descricao, NULL AS Etapas_Modo_de_Preparo, NULL AS porcoes, 'pergunta' AS tipo FROM perguntas
                 ) AS combined
             `;
-
+    
             if (categoria) {
                 query += ` WHERE Categorias_idCategorias = ${pool.escape(categoria)}`;
             }
-
+    
             switch(ordem) {
                 case 'rapidos':
-                    query += ` ORDER BY tempo ASC NULLS LAST`;
+                    query += ` ORDER BY tempo ASC`;
                     break;
                 case 'em_alta':
                     query += ` ORDER BY id DESC`;
@@ -40,7 +40,7 @@ const conteudoModel = { //const que agrupa todas as funções de acesso e manipu
                 default:
                     query += ` ORDER BY id DESC`;
             }
-
+    
             query += ` LIMIT ?, ?`;
             const [linhas] = await pool.query(query, [inicio, total]);
             return linhas;
