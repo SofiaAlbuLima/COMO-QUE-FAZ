@@ -2,7 +2,7 @@ const pool = require("../../config/pool-conexoes");
 
 const conteudoModel = { //const que agrupa todas as funções de acesso e manipulação de dados
 
-    TotalReg: async()=>{ //contagem do total de registros da tabela tarefas, para definir o número de páginas necessárias para a paginação
+    TotalReg: async() => { 
         try {
             const [dicasCount] = await pool.query("SELECT COUNT(*) as total FROM conteudo_postagem");
             const [perguntasCount] = await pool.query("SELECT COUNT(*) as total FROM perguntas");
@@ -15,17 +15,33 @@ const conteudoModel = { //const que agrupa todas as funções de acesso e manipu
         }
     },
 
-    FindPage: async(inicio, total)=>{ //executar o select com a cláusula LIMIT
+    FindPage: async(categoria, ordem, inicio, total) => { 
         try {
-            const query = `
+            let query = `
                 SELECT * FROM (
                     SELECT ID_conteudo AS id, Clientes_idClientes, Categorias_idCategorias, Titulo, tempo, Descricao, Etapas_Modo_de_Preparo, porcoes, 'dica' AS tipo FROM conteudo_postagem
                     UNION ALL
                     SELECT ID_Pergunta AS id, Clientes_idClientes, categorias_idCategorias, titulo AS Titulo, NULL AS tempo, NULL AS Descricao, NULL AS Etapas_Modo_de_Preparo, NULL AS porcoes, 'pergunta' AS tipo FROM perguntas
                 ) AS combined
-                ORDER BY id DESC
-                LIMIT ?, ?
             `;
+
+            if (categoria) {
+                query += ` WHERE Categorias_idCategorias = ${pool.escape(categoria)}`;
+            }
+
+            switch(ordem) {
+                case 'rapidos':
+                    query += ` ORDER BY tempo ASC NULLS LAST`;
+                    break;
+                case 'em_alta':
+                    query += ` ORDER BY id DESC`;
+                    break;
+                case 'recente':
+                default:
+                    query += ` ORDER BY id DESC`;
+            }
+
+            query += ` LIMIT ?, ?`;
             const [linhas] = await pool.query(query, [inicio, total]);
             return linhas;
         } catch (erro) {

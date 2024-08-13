@@ -141,19 +141,34 @@ const tarefasController = {
     MostrarPosts: async (req, res) => {
         res.locals.moment = moment;
         try {
+            // Obtendo os parâmetros da query string
+            let categoria = req.query.categoria || null;
+            let filtro = req.query.filtro || 'recente';
             let pagina = req.query.pagina === undefined ? 1 : parseInt(req.query.pagina);
-        let regPagina = 12; // número de registros por página
-        let inicio = (pagina - 1) * regPagina;
-        
-        let totReg = await conteudoModel.TotalReg();
-
-        let totalRegistros = totReg[0].total;
-        let totPaginas = Math.ceil(totalRegistros / regPagina); // calcula o número total de páginas necessárias para exibir todos os registros
-        let results = await conteudoModel.FindPage(inicio, regPagina);
-            let paginador = totalRegistros <= 5
-                ? null
-                : {"pagina_atual": pagina, "total_reg": totalRegistros, "total_paginas": totPaginas};
-
+            let regPagina = 12;
+            let inicio = (pagina - 1) * regPagina;
+    
+            // Definindo a ordenação com base no filtro
+            const filtros = {
+                recente: 'recente',
+                'em-alta': 'em_alta',
+                rapidas: 'rapidos',
+            };
+    
+            // Executando a query
+            let results = await conteudoModel.FindPage(categoria, filtros[filtro], inicio, regPagina);
+    
+            // Paginação
+            let totReg = await conteudoModel.TotalReg();
+            let totalRegistros = totReg[0].total;
+            let totPaginas = Math.ceil(totalRegistros / regPagina);
+            let paginador = totalRegistros <= 5 ? null : {
+                "pagina_atual": pagina,
+                "total_reg": totalRegistros,
+                "total_paginas": totPaginas
+            };
+    
+            // Formatação do tempo
             function formatarTempo(tempo) {
                 let duracao = moment.duration(tempo, 'HH:mm:ss');
                 let horas = duracao.hours();
@@ -165,11 +180,11 @@ const tarefasController = {
                 } else if (horas <= 0 && minutos > 0) {
                     return `${minutos}min`;
                 } else {
-                    return ''; 
+                    return '';
                 }
-            };
-
-            // Exibição de Conteúdo
+            }
+    
+            // Combinação e formatação do conteúdo para exibição
             let combinedConteudo = results.map(conteudo => ({
                 nome: conteudo.Titulo,
                 usuario: conteudo.Clientes_idClientes,
@@ -180,17 +195,19 @@ const tarefasController = {
                 porcoes: conteudo.porcoes > 0 ? `${conteudo.porcoes} ${conteudo.porcoes > 1 ? 'Porções' : 'Porção'}` : null,
                 tipo: conteudo.tipo
             }));
-
-                res.render("pages/template", {
-                    pagina: {cabecalho: "cabecalho", conteudo: "index", rodape: "rodape"}, 
-                    usuario_logado:req.session.autenticado,
-                    login: req.session.logado,
-                    postagens: combinedConteudo,
-                    paginador: paginador
-                });           
+    
+            // Renderização da página
+            res.render("pages/template", {
+                pagina: { cabecalho: "cabecalho", conteudo: "index", rodape: "rodape" },
+                usuario_logado: req.session.autenticado,
+                login: req.session.logado,
+                postagens: combinedConteudo,
+                paginador: paginador
+            });
+    
         } catch (e) {
-            console.log(e); 
-            res.json({erro: "Falha ao acessar dados"})
+            console.log(e);
+            res.json({ erro: "Falha ao acessar dados" });
         }
     },
     CriarDica: async (req, res) => {
