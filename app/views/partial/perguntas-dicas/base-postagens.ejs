@@ -93,7 +93,7 @@
                <% for(var i=1; i <=paginador.total_paginas; i++){
                   if(paginador.pagina_atual==i){
                %>
-               <li class="select"><a class="pagina-atual" href="?pagina=<%= i %>">
+               <li class="select"><a class="pagina-atual" href="/posts?categoria=${categoriaAtual}&filtro=${filtroAtual}&pagina=${proximaPagina}">
                      <%= i %>
                   </a>
                </li>

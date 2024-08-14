@@ -2,14 +2,28 @@ const pool = require("../../config/pool-conexoes");
 
 const conteudoModel = { //const que agrupa todas as funções de acesso e manipulação de dados
 
-    TotalReg: async() => { 
+    TotalReg: async(categoria, ordem) => { 
         try {
-            const [dicasCount] = await pool.query("SELECT COUNT(*) as total FROM conteudo_postagem");
-            const [perguntasCount] = await pool.query("SELECT COUNT(*) as total FROM perguntas");
+            let query = `
+            SELECT COUNT(*) as total FROM (
+                SELECT ID_conteudo AS id, Categorias_idCategorias, 'dica' as tipo FROM conteudo_postagem
+                UNION ALL
+                SELECT ID_Pergunta AS id, categorias_idCategorias, 'pergunta' as tipo FROM perguntas
+            ) AS combined 
+            `;
             
-            const total = dicasCount[0].total + perguntasCount[0].total;
-
-            return [{ total }];
+            if (categoria) {
+                query += ` WHERE Categorias_idCategorias = ${pool.escape(categoria)}`;
+            }
+            
+            switch(ordem) {
+                case 'rapidos':
+                    query += ` ${categoria ? 'AND' : 'WHERE'} tipo = 'dica'`;
+                    break;
+            }
+    
+            const [total] = await pool.query(query);
+            return total;
         } catch (erro) {
             throw erro;
         }
@@ -31,7 +45,7 @@ const conteudoModel = { //const que agrupa todas as funções de acesso e manipu
     
             switch(ordem) {
                 case 'rapidos':
-                    query += ` ${categoria ? 'AND' : 'WHERE'} tipo = 'dica' ORDER BY tempo ASC`;
+                    query += ` ${categoria ? 'AND' : 'WHERE'} tipo = 'pergunta' ORDER BY tempo ASC`;
                     break;
                 case 'em_alta':
                     query += ` ORDER BY id DESC`;

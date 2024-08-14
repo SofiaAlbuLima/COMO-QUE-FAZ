@@ -148,25 +148,24 @@ const tarefasController = {
                 'bemestar': 3,
                 'semmarca': null
             };
-                
-            let categoria = categoriaMap[req.query.categoria] || null;
-            let filtro = req.query.filtro || 'recente';
-            let pagina = req.query.pagina === undefined ? 1 : parseInt(req.query.pagina);
-            let regPagina = 12;
-            let inicio = (pagina - 1) * regPagina;
-    
-            // Definindo a ordenação com base no filtro
             const filtros = {
                 recente: 'recente',
                 'em-alta': 'em_alta',
                 rapidos: 'rapidos',
             };
-    
-            // Executando a query
+                
+            let categoria = categoriaMap[req.query.categoria] || null;
+            let filtro = req.query.filtro || 'recente';
+            let pagina = req.query.pagina || 1;
+            
+            let url = `/posts?categoria=${categoria}&filtro=${filtro}&pagina=${pagina}`;
+
+            let regPagina = 12;
+            let inicio = (pagina - 1) * regPagina;
+            
             let results = await conteudoModel.FindPage(categoria, filtros[filtro], inicio, regPagina);
 
-            // Paginação
-            let totReg = await conteudoModel.TotalReg();
+            let totReg = await conteudoModel.TotalReg(categoria, filtros[filtro]);
             let totalRegistros = totReg[0].total;
             let totPaginas = Math.ceil(totalRegistros / regPagina);
             let paginador = totalRegistros <= 12 ? null : {
