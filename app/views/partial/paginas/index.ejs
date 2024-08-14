@@ -45,7 +45,7 @@
          </nav>
 
          <nav class="recente-emalta-rapidas">
-            <button class="Recente" onclick="VisiRecente()">+RECENTE</button>
+            <button class="Recente" onclick="location.href='/posts?categoria=culinaria&filtro=recente'">+RECENTE</button>
             <button class="EmAlta" onclick="VisiEmAlta()">EM ALTA</button>
             <button class="Rapidas" onclick="VisiRapidas()">+RÁPIDAS</button>
          </nav>
@@ -942,19 +942,13 @@
          </nav>
 
          <nav class="recente-emalta-rapidas-Dkt">
-            <button class="Recente-Dkt" onclick="VisiRecenteDkt()">+RECENTE</button>
-            <button class="EmAlta-Dkt" onclick="VisiEmAltaDkt()">EM ALTA</button>
-            <button class="Rapidas-Dkt" onclick="VisiRapidasDkt()">+RÁPIDAS</button>
+            <button class="Recente-Dkt" onclick="location.href='/posts?categoria=todas&filtro=recente'">+RECENTE</button>
+            <button class="EmAlta-Dkt" onclick="location.href='/posts?categoria=todas&filtro=em-alta'">EM ALTA</button>
+            <button class="Rapidas-Dkt" onclick="location.href='/posts?categoria=todas&filtro=rapidos'">+RÁPIDAS</button>
          </nav>
 
          <section class="conteudo-recente-emalta-rapidas-Dkt">
-            <section class="Conteudo-Recente-Dkt" id="Conteudo-Recente-Dkt" style="display: none;">
                <%- include("../perguntas-dicas/base-postagens") %>
-            </section>
-            <section class="Conteudo-EmAlta-Dkt" id="Conteudo-EmAlta-Dkt">
-            </section>
-            <section class="Conteudo-Rapidas-Dkt" id="Conteudo-Rapidas-Dkt" style="display: none;">
-            </section>
          </section>
 
       </section>

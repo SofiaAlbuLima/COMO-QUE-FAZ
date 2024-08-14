@@ -106,7 +106,7 @@
     .parte-cima-pergunta{
       padding-left: 2vh;
       padding-right: 2vh;
-      padding-top: 3vh;
+      padding-top: 2vh;
       padding-bottom: 2.5vh;
       justify-content: center;
       align-items: center;
@@ -114,10 +114,26 @@
       border-top-left-radius: 10px;
       border-top-right-radius: 10px;
     }
+    .nome-usuario-pergunta-culinaria, .nome-usuario-pergunta-limpeza, .nome-usuario-pergunta-bemestar{
+      font-size: 1.7vh;
+      font-family: Fira Sans Bold;
+      margin-bottom: 0.5vh;
+    }
+    .nome-usuario-pergunta-culinaria{
+      color: #CB1154;
+    }
+    .nome-usuario-pergunta-limpeza{
+      color: #027de1;
+    }
+    .nome-usuario-pergunta-bemestar{
+      color: #00cd83;
+    }
+    
     .texto-pergunta{
       font-family: Fira Sans;
       color: #333333;
       font-size: 2vh;
+      font-weight: 600;
     }
     .parte-baixo-pergunta{
       display: flex;

@@ -17,6 +17,8 @@ const { VerificarAutenticacao, limparSessao, gravarUsuAutenticado, verificarUsuA
         tarefasController.MostrarPosts(req, res);
     });
 
+    router.get('/posts', tarefasController.MostrarPosts);
+
     router.get("/dica", function(req, res) {
         res.render("pages/template", {pagina: {cabecalho: "cabecalho", conteudo: "Base-Dica", rodape: "rodape"}, 
         usuario_logado:req.session.autenticado, 

@@ -936,7 +936,7 @@
   }
 
   .banner-editar {
-    width: 525px;
+    width: 30vw;
     margin-top: 20px;
     height: 95px;
   }
@@ -956,7 +956,7 @@
   }
 
   #camera1 {
-    transform: translate(450px, -90px);
+    transform: translate(26vw, -12vh);
   }
 
   #camera2 {
