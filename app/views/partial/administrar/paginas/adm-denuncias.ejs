@@ -1,6 +1,21 @@
 <!DOCTYPE html>
 <html lang="pt-br">
 
+<!-- CREATE TABLE `denuncia` (
+  `ID_denuncia` int NOT NULL AUTO_INCREMENT,
+  `denuncia` varchar(45) DEFAULT NULL,
+  `status` int DEFAULT NULL,
+  `conteudo_ID_conteudo` int NOT NULL,
+  PRIMARY KEY (`ID_denuncia`),
+  KEY `fk_denuncia_conteudo_idx` (`conteudo_ID_conteudo`),
+  CONSTRAINT `fk_denuncia_conteudo` FOREIGN KEY (`conteudo_ID_conteudo`) REFERENCES `conteudo_postagem` (`ID_conteudo`)
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+SELECT * FROM `bzvqunvwgtfx7ejdxnse`.conteudo_postagem t
+left join `bzvqunvwgtfx7ejdxnse`.denuncia d 
+on t.ID_conteudo = d.conteudo_ID_conteudo;-->
+
 <head>
    <meta charset="UTF-8">
    <meta http-equiv="X-UA-Compatible" content="IE=edge">
