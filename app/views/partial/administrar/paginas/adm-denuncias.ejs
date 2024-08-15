@@ -14,7 +14,12 @@
 
 SELECT * FROM `bzvqunvwgtfx7ejdxnse`.conteudo_postagem t
 left join `bzvqunvwgtfx7ejdxnse`.denuncia d 
-on t.ID_conteudo = d.conteudo_ID_conteudo;-->
+on t.ID_conteudo = d.conteudo_ID_conteudo;
+
+SELECT d.*, p.Titulo as conteudo_postagem
+FROM denuncia d
+JOIN conteudo_postagem p ON d.tipo_conteudo = 'postagem' AND d.conteudo_ID_conteudo = p.ID_conteudo;
+-->
 
 <head>
    <meta charset="UTF-8">
