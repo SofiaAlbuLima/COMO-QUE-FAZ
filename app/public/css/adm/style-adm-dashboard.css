@@ -39,7 +39,8 @@ main{
 .titulo-bloco{
     color: #9E5FEF;
     font-size: 2.5vh;
-	font-family: Fira Sans;
+    font-family: "Fira Sans Bold", "Fira Sans", sans-serif;
+    font-weight: 700;
     margin-bottom: 0vh;
 }
 .bloco-Premium h2{
@@ -143,7 +144,7 @@ main{
 }
 .titulo-banner{
     margin-top: 1vh;
-    font-family: Fira Sans;
+    font-family: "Fira Sans Bold", "Fira Sans", sans-serif;
     font-size: 2vh;
     font-weight: 700;
     color: #5e5e5e;

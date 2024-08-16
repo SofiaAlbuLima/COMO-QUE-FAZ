@@ -18,14 +18,14 @@ const usuarioModel = { //const que agrupa todas as funções de acesso e manipul
             return linhas;
         } catch(erro){
             console.log(erro);
-        }   
+        }
     },
     findUserEmail: async ({ Nickname, Email }) => { //usado para verificar se o usuário já existe (valores unicos) 
         try {
             const [resultados] = await pool.query(
                 "SELECT * FROM clientes WHERE Nickname = ? OR Email = ?",
                 [Nickname, Email]
-            )
+            );
             return resultados;
         } catch (error) {
             console.error("Erro ao buscar usuário por Nickname ou Email:", error);
@@ -36,7 +36,7 @@ const usuarioModel = { //const que agrupa todas as funções de acesso e manipul
         try {
             const [resultados] = await pool.query(
                 "insert into clientes set ?", [camposForm]
-            )
+            );
             return resultados;
         } catch (error) {
             console.log(error);

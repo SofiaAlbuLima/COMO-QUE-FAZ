@@ -1,0 +1,12 @@
+document.addEventListener('DOMContentLoaded', () => {
+    const dropdown = document.getElementsByClassName('dropdown-banner-promocional');
+    const customSection = document.getElementsByClassName('custom-section');
+
+    dropdown.addEventListener('change', () => {
+        if (dropdown.value === 'personalizado') {
+            customSection.style.display = 'block';
+        } else {
+            customSection.style.display = 'none';
+        }
+    });
+});

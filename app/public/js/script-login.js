@@ -2,7 +2,7 @@ function notify(titulo, texto, tipo, posicao,duracao=3000) {
     new Notify({
         status: tipo,
         title: titulo,
-        text:texto,
+        text:texto.replace(/&lt;/g,"<").replace(/&gt;/g,">"),
         effect: 'fade',
         speed: 500,
         showIcon: true,
@@ -13,7 +13,7 @@ function notify(titulo, texto, tipo, posicao,duracao=3000) {
         distance: 20,
         type: 1,
         position:posicao 
-    });
+    })
 };
 function verificaConfirmaSenha() {
  
@@ -33,3 +33,32 @@ function verificaConfirmaSenha() {
      
     }};
     verificaConfirmaSenha();  
+
+    
+    document.addEventListener('DOMContentLoaded', () => {
+        const togglePasswordIcons = document.querySelectorAll('.toggle-password');
+    
+        togglePasswordIcons.forEach(icon => {
+            icon.addEventListener('click', () => {
+                const targetId = icon.getAttribute('data-target');
+                const passwordInput = document.getElementsByClassName(targetId);
+    
+                for(let i = 0; i < passwordInput.length; i++){
+                // Alterna o tipo do input entre 'password' e 'text'
+                const isPassword = passwordInput[i].type === 'password';
+                passwordInput[i].type = isPassword ? 'text' : 'password';
+    
+                // Alterna o ícone entre olho aberto e fechado
+                icon.classList.toggle('fa-eye', isPassword);
+                icon.classList.toggle('fa-eye-slash', !isPassword);
+    
+                // Alterna a classe de visibilidade
+                icon.classList.toggle('show', isPassword);
+                icon.classList.toggle('hide', !isPassword);
+
+                console.log("oinho");
+                }
+
+            });
+        });
+    });

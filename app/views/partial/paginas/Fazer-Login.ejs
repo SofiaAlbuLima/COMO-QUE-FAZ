@@ -1,33 +1,9 @@
-   <main class="main-login">
+   <main>
       <section class="conteudo-dispositivo-mobile">
          <article id="Login" class="tabcontent" style="display:block;">
             <figure class="background-gatin">
                <section class="login-mob">
-                  <form action="https://grupo4-tca.github.io/Como-que-faz/Home-Com-Login">
-                     <span class="fazer-login-mob">FAZER LOGIN:</span>
-                     <p>Seja bem-vindo de volta!</p>
-
-                     <figure class="caixa-mob">
-                        <input class="input1" type="text" placeholder="E-MAIL / NOME DE USUÁRIO" required>
-                        <input class="input2" type="password" placeholder="SENHA" required>
-                     </figure>
-
-                     <article class="redes-login-mob">
-                        <span class="esqueceu-foi">Esqueceu a senha? <a href="#">Recupere aqui</a></span>
-                        <figure class="redes-botoes-mob">
-                           <button><a href=""><img src="imagens/google_logo.svg" alt="login com google"></a></button>
-                           <button><a href=""><img src="imagens/facebook_logo.svg"
-                                    alt="login com facebook"></a></button>
-                           <button><a href=""><img src="imagens/apple_logo.svg" alt="login com apple"></a></button>
-                        </figure>
-                     </article>
-
-                     <figure class="lembrar-senha-mob">
-                        <label><input type="checkbox"> Manter Login</label>
-                     </figure>
-
-                     <a href="#"><input type="submit" value="Login" class="login-submit"></a>
-                  </form>
+                  <%- include("../cadastro-login/"+pagina.FormLogin) %>
                   <!-- TAB LINKS -->
                   <aside class="tab">
                      <button class="tablinks-login" onclick="openCity(event, 'Cadastro')">Criar Conta</button>
@@ -38,21 +14,7 @@
 
          <article id="Cadastro" class="tabcontent">
             <section class="cadastro-mob">
-               <form action="https://grupo4-tca.github.io/Como-que-faz/Home-Com-Login">
-                  <span class="texto1-cadastro">Ainda não tem conta?</span>
-                  <p class="texto2-cadastro">SE CADASTRAR:</p>
-                  <figure class="caixa-mob2">
-                     <input class="cadastros-place1" type="text" placeholder="NOME DE USUÁRIO" required>
-                     <input class="cadastros-place2" type="text" placeholder="EMAIL" required>
-                     <input class="cadastros-place3" type="password" placeholder="SENHA" required>
-                  </figure>
-
-                  <figure class="lembrar-termos-mob">
-                     <label><input type="checkbox"> Manter Login</label>
-                     <p><label><input type="checkbox"> Li e concordo com os termos*</label></p>
-                  </figure>
-                  <a href="#"><input type="submit" value="Cadastre-se" class="cadastro-submit-mob"></a>
-               </form>
+               <%- include("../cadastro-login/"+pagina.FormCadastro) %>
                <!-- TAB LINKS -->
                <aside class="tab">
                   <button class="tablinks-cadastro" onclick="openCity(event, 'Login')">Voltar para o Login</button>
@@ -61,44 +23,7 @@
          </article>
       </section>
 
-      <section class="conteudo-dispositivo-desktop">
-
-         <% 
-         let erroValidacao = { input1: "", input2: "" };
-         let msgErro = "";
-         if (listaErros) {
-             listaErros.errors.forEach(function(Itemerro) {
-                 if (Itemerro.path == "input1") {
-                     erroValidacao.input1 = "erro";
-                     msgErro += `${Itemerro.msg} <br>`;
-                 }
-                 if (Itemerro.path == "input2") {
-                     erroValidacao.input2 = "erro";
-                     msgErro += `${Itemerro.msg} <br>`;
-                 }
-             });
-             if (msgErro !== "") {
-         %>
-             <script>
-                 let msgErro = "<%= msgErro %>";
-                 notify("Erro(s) no procedimento",
-                 "Verifique o(s) campo(s) <br>" + msgErro.replace(/&lt;/g, "<").replace(/&gt;/g, ">"),
-                 "error", "center", 5000);
-             </script>
-         <% 
-             }
-         }
-         if (dadosNotificacao) { 
-         %>
-             <script>
-                 notify("<%= dadosNotificacao.titulo %>", "<%= dadosNotificacao.mensagem %>", "<%= dadosNotificacao.tipo %>", "center");
-                 if ("<%= dadosNotificacao.tipo %>" === "success") {
-                     setTimeout(function() { window.location = "/"; }, 3000);
-                 }
-             </script>
-         <% 
-         } 
-         %>
+      <section class="conteudo-dispositivo-desktop-login">
          
          <figure class="decoracao-frente">
             <img src="imagens/gatinho-laranja-decoracao.png" alt="">
@@ -109,54 +34,14 @@
             <section id="Login" class="tabcontent" style="display:block;">
                <figure class="background-gatin">
                   <section class="login-mob">
-                     <form action="/login" method="post">
-
-                        <span class="fazer-login-mob">FAZER LOGIN:</span>
-
-                        <p>Seja bem-vindo de volta!</p>
-
-                           <input class="input1" type="text" name="input1"  placeholder="E-MAIL / NOME DE USUÁRIO" required>
-                           <span><%= msgErro.input1%></span>
-                           
-                           <input class="input2" type="password" name="input2"  placeholder="SENHA" required>
-                           <span><%= msgErro.input2%></span>
-                        
-                        <article class="redes-login-mob">
-                           <span class="esqueceu-foi">Esqueceu a senha? <a href="#">Recupere aqui</a></span>
-                           <figure class="redes-botoes-mob">
-                              <button><a href=""><img src="imagens/google_logo.svg" alt="login com google"></a></button>
-                              <button><a href=""><img src="imagens/facebook_logo.svg"
-                                       alt="login com facebook"></a></button>
-                              <button><a href=""><img src="imagens/apple_logo.svg" alt="login com apple"></a></button>
-                           </figure>
-                        </article>
-
-                        <figure class="lembrar-senha-mob">
-                           <label><input type="checkbox"> Manter Login</label>
-                        </figure>
-                        <button type="submit" class="login-submit">Login</button>
-                     </form>
+                     <%- include("../cadastro-login/"+pagina.FormLogin) %>
                   </section>
                </figure>
             </section>
 
             <section id="Cadastro" class="tabcontent">
                <article class="cadastro-mob">
-                  <form action="/cadastro" method="post" onsubmit="return  verificaConfirmaSenha()">
-                     <span class="texto1-cadastro">Ainda não tem conta?</span>
-                     <p class="texto2-cadastro">SE CADASTRAR:</p>
-                     <article class="caixa-mob2">
-                        <input type="text" placeholder="NOME DE USUÁRIO" name="nomeusu_usu" required>
-                        <input type="text" placeholder="EMAIL" name="email_usu" required>
-                        <input class="input-criarsenha" id="senha1" type="password" placeholder="SENHA" name="senha_usu" required>
-                        <input class="input-criarsenha" id="senha2" type="password" placeholder="CONFIRMAR SENHA" required>
-                     </article>
-                     <p id="mensagem"></p>
-                     <article class="lembrar-termos-mob">
-                        <p><label><input type="checkbox" required> Li e concordo com os termos*</label></p>
-                     </article>
-                     <a href="#"><input type="submit" value="Cadastre-se" class="cadastro-submit-mob"></a>
-                  </form>
+                  <%- include("../cadastro-login/"+pagina.FormCadastro) %>
                </article>
             </section>
          </article>

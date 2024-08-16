@@ -4,5 +4,6 @@
 node_modules/
 #arquivo de variáveis de ambiente
 .env
+env
  
  

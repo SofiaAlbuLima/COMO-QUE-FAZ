@@ -1,0 +1,99 @@
+<% 
+         let avisoErro = {"input1":"", "input2":""}
+         let msgErro = ""
+             if(listaErroslog){
+                 listaErroslog.errors.forEach(function(itemErro){
+                     if(itemErro.path == "input1"){
+                         avisoErro.input1 = "erro";
+                         msgErro += `* ${itemErro.msg} <br>`
+                     }
+                     if(itemErro.path == "input2"){
+                         avisoErro.input2 = "erro";
+                         msgErro += `* ${itemErro.msg} <br>`
+                     }
+                 })
+                 if(msgErro != ""){
+                 %>
+                     <script>
+                         let msgErro ="<%= msgErro %>"
+                         notify("Erro(s) no preenchimento", 
+                                "Verifique o(s) campo(s) <br> " + msgErro.replace(/&lt;/g,"<").replace(/&gt;/g,">"), 
+                                "error", "center", 5000)                        
+                     </script>
+                 <%
+                 }
+             }
+             if (dadosNotificacao) { %>
+                 <script>
+                         notify("<%= dadosNotificacao.titulo%>","<%= dadosNotificacao.mensagem%>", "<%= dadosNotificacao.tipo%>", "center")
+                         if("<%= dadosNotificacao.tipo %>" == "success"){
+                             setTimeout(function(){window.location="/"}, 3000)
+                         }                        
+                 </script>
+             <% } %>
+
+             
+             <% 
+             
+             let mensagemErro = ""
+             let avsErro = {"email_usu":"", "senha_usu":"", "conf_senha":""}
+                 if(listaErros){
+                     listaErros.errors.forEach(function(itemErro){
+                         if(itemErro.path == "email_usu"){
+                             avsErro.email_usu = "erro";
+                             mensagemErro += `* ${itemErro.msg} <br>`
+                         }
+                         if(itemErro.path == "senha_usu"){
+                             avsErro.senha_usu = "erro";
+                             mensagemErro += `* ${itemErro.msg} <br>`
+                         }
+                         if(itemErro.path == "conf_senha"){
+                           avsErro.conf_senha = "erro";
+                           mensagemErro += `* ${itemErro.msg} <br>`
+                       }
+                     })
+                     if(mensagemErro != ""){
+                     %>
+                         <script>
+                             let mensagemErro ="<%= mensagemErro %>"
+                             notify("Erro(s) no preenchimento", 
+                                    "Verifique o(s) campo(s) <br> " + mensagemErro.replace(/&lt;/g,"<").replace(/&gt;/g,">"), 
+                                    "error", "center", 5000)                        
+                         </script>
+                     <%
+                     }
+                 }
+                 if (dadosNotificacao) { %>
+                  <script>
+                          notify("<%= dadosNotificacao.titulo%>","<%= dadosNotificacao.mensagem%>", "<%= dadosNotificacao.tipo%>", "center")
+                          if("<%= dadosNotificacao.tipo %>" == "success"){
+                              setTimeout(function(){window.location="/"}, 3000)
+                          }                        
+                  </script>
+              <% } %>
+
+<form action="/login" method="post">
+    <span class="fazer-login-mob">FAZER LOGIN:</span>
+    <p>Seja bem-vindo de volta!</p>
+
+    <figure class="caixa-mob">
+       <input class="<%= avisoErro.input1%> input1" type="text" id="input1" placeholder="E-MAIL / NOME DE USUÁRIO" name="input1" required>
+       <input class="<%= avisoErro.input2%> input2" type="password" id="input2" placeholder="SENHA" name="input2" required>
+       <i class="fas fa-eye toggle-password senhalogin" data-target="input2"></i>
+    </figure>
+
+    <article class="redes-login-mob">
+       <span class="esqueceu-foi">Esqueceu a senha? <a href="#">Recupere aqui</a></span>
+       <figure class="redes-botoes-mob">
+          <button><a href=""><img src="imagens/google_logo.svg" alt="login com google"></a></button>
+          <button><a href=""><img src="imagens/facebook_logo.svg" alt="login com facebook"></a></button>
+          <button><a href=""><img src="imagens/apple_logo.svg" alt="login com apple"></a></button>
+       </figure>
+    </article>
+
+    <figure class="lembrar-senha-mob">
+       <label><input type="checkbox"> Manter Login</label>
+    </figure>
+
+    <input type="submit" value="Login" class="login-submit">
+ </form>

@@ -382,15 +382,17 @@
  .conteudo-dispositivo.mobile{
   display: none;
  }
+
+/* Banner - Inicio */
 .slider-D{
   margin: 0 auto;
   width: 100%;
-  height: 556px;
+  height: 60vh;
   overflow: hidden;
 }
 .slides-D{
   width: 300%;
-  height: 556px;
+  height: 60vh;
   display: flex;
 }
 .slides-D input{
@@ -413,7 +415,7 @@
 }
 .manual-btnD{
   background: white;
-  padding: 10px;
+  padding: 1vh;
   border-radius: 10px;
   cursor: pointer;
   transition: 0.5s;
@@ -433,126 +435,37 @@
 #radio3D:checked ~ .primeiro-D{
   margin-left: -66.66%;
 }
-.navigation-auto div{
-  padding: 7px;
-  border-radius: 10px;
-  cursor: pointer;
-  transition: 1s;
-}
-.navigation-auto{
-  position: absolute;
-  width: 100%;
-  margin-top: 420px;
-  display: flex;
-  justify-content: center;
-}
-.navigation-auto div:not(:last-child){
-  margin-right: 5%;
-}
-.icon-culinaria-banner1{
-  height: 70px;
-  background: none;
-  display: flex;
-}
+
 .imagem-categoriaD{
-  height: 14%;
-  min-width: 30px;
-  margin-left: 90%;
-  margin-top: -150px;
+  height: 8vh;
+  right: 7vh;
+  bottom: 5vh;
   position: absolute;
 }
-.texto-slide1{
+
+.textos-carrossel{
+  height: 100%;
+  position: absolute;
+  margin-left: 12vh;
+}
+.titulo-carrossel{
   font-size: 60px;
-  margin-top: 100px;
-  height: 10%;
-  max-width: 90%;
+  width: 70vh;
   font-weight: 400;
-  min-width: 30px;
-  margin-left: 10%;
-  position: absolute;
   color: white;
-}
-.texto-slide2{
-  font-size: 30px;
-  height: 10%;
-  max-width: 90%;
-  font-weight: 400;
-  min-width: 30px;
-  margin-top: -305px;
-  margin-left: 7%;
-  position: absolute;
-  color: white;
-  line-height: 30px;
-}
-.texto-slide3{
-  font-size: 30px;
-  height: 10%;
-  max-width: 90%;
-  font-weight: 400;
-  min-width: 30px;
-  margin-top: -285px;
-  margin-left: 7%;
-  position: absolute;
-  color: white;
-  line-height: 30px;
+  margin-top: 10vh;
 }
 .itens-necessarios{
   font-family: Fira Sans Bold;
   font-size: 22px;
-  width: 550px;
+  width: 70vh;
+  margin-top: 1vh;
   font-weight: 400;
-  margin-top: 200px;
-  margin-left: 10%;
-  margin-right: 7%;
-  position: absolute;
   color: white;
   border-left: white solid 6px;
-  height: 53px;
   padding-left: 2%;
 }
 
-.itens-necessarios-bemestar{
-  font-family: Fira Sans Bold;
-  font-size: 22px;
-  width: 550px;
-  font-weight: 400;
-  margin-top: 275px;
-  margin-left: 10%;
-  margin-right: 7%;
-  position: absolute;
-  color: white;
-  border-left: white solid 6px;
-  height: 26px;
-  padding-left: 2%;
-}
-.itens-necessarios-limpeza{
-  font-family: Fira Sans Bold;
-  font-size: 22px;
-  width: 550px;
-  font-weight: 400;
-  margin-top: 275px;
-  margin-left: 10%;
-  margin-right: 7%;
-  position: absolute;
-  color: white;
-  border-left: white solid 6px;
-  height: 53px;
-  padding-left: 2%;
-}
-.itens-necessarios3{
-  font-family: Fira Sans Bold;
-  font-size: 17px;
-  width: 83%;
-  font-weight: 400;
-  margin-top: -215px;
-  margin-left: 10%;
-  margin-right: 7%;
-  position: absolute;
-  color: white;
-  border-left: white solid;
-  height: 23px;
-  padding-left: 2%;
-}
 .manual-navigation-D{
   position: absolute;
   width: 100%;
@@ -560,67 +473,42 @@
   margin-top: -40px;
   justify-content: center;
 }
-.textos-carrossel{
-  display: inline;
-  position: absolute;
-  margin-left: 50px;
-}
 
 .quadrado-categoria-culinaria{
-  height: 556px;
-  width: 60px;
+  height: 100%;
+  width: 7vh;
   background-color: #cb2154;
   position: absolute;
-}
-.quadrado-categoria-bemestar{
-  height: 556px;
-  width: 60px;
-  background-color: #00cd83;
-  position: absolute;
+  box-shadow: 350px 100px 75px 350px rgba(0, 0, 0, 0.389);
 }
 .quadrado-categoria-limpeza{
-  height: 556px;
-  width: 60px;
+  height: 100%;
+  width: 7vh;
   background-color: #027de1;
   position: absolute;
+  box-shadow: 350px 100px 75px 350px rgba(0, 0, 0, 0.389);
+}
+.quadrado-categoria-bemestar{
+  height: 100%;
+  width: 7vh;
+  background-color: #00cd83;
+  position: absolute;
+  box-shadow: 350px 100px 75px 350px rgba(0, 0, 0, 0.389);
 }
 .primeiro{
   display: flex;
   position: relative;
 }
-.descricao-culinaria{
-  font-family: Fira Sans;
-  color: white;
-  margin-left: 10%;
-  font-size: 22px;
-  width: 650px;
-  margin-top: 280px;
-}
-.descricao-bemestar{
-  font-family: Fira Sans;
-  color: white;
-  margin-left: 10%;
-  font-size: 22px;
-  width: 650px;
-  margin-top: 320px;
-}
-.descricao-limpeza{
-  font-family: Fira Sans;
-  color: white;
-  margin-left: 10%;
-  font-size: 22px;
-  width: 650px;
-  margin-top: 360px;
-}
+
 .ver-dica{
   height: 45px;
   border-radius: 10px;
-  width: 200px;
-  margin-top: 7%;
-  margin-left: 10%;
+  width: 25vh;
+  bottom: 10vh;
   background: none;
   border: white 2.5px solid;
   color: white;
+  position: absolute;
 }
 .ver-dica:hover{
   transition: 0.3s;
@@ -628,6 +516,7 @@
   color: rgba(0, 0, 0, 0.734);
   cursor: pointer;
 }
+/* Banner - fim */
 
 
 
@@ -712,5 +601,39 @@
   flex-direction: column;
   margin-left: 2vw;
   margin-right: 2vw;
+}
+.conteudo-recente-emalta-rapidas-Dkt{
+  justify-content: center;
+  display: flex;
+  width: 100%;
+}
+
+.notificador{
+  justify-content: center;
+  width: 100%;
+  margin: 7vh 0vh 0vh 0vh;
+}
+.notificador ul{
+  list-style-type: none;
+  justify-content: center;
+  display: flex;
+  text-decoration: none; 
+  gap: 2vh;
+}
+.select a{
+	text-decoration: none;
+  color: white;
+  padding: 1vh 2vh 1vh 2vh;
+  background-color: #4D16BB;
+  border-radius: 5px;
+  text-decoration: none; 
+}
+.not_select a{
+	text-decoration: none;
+  color: #4D16BB;
+  padding: 1vh 2vh 1vh 2vh;
+  background-color: #efefef;
+  border-radius: 5px;
+  text-decoration: none; 
 }
 }

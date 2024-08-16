@@ -1,0 +1,140 @@
+.grid-menu-filtros-usuario{
+    display: grid;
+    grid-template-columns: 7% 7% 12% 12% 10% 30%;
+    grid-template-rows: 27% 47%;
+    grid-column-gap: 1%;
+}
+
+.linha-1-titulos{
+    display: inline;
+    margin-left: 10%;
+    font-family: "Fira Sans", sans-serif;
+    font-size: 1.6vh;
+    letter-spacing: 0.1vh;
+}
+
+.linha-2-filtros{
+    display: inline;
+    padding: 5px 10px 5px 15px;
+    border-radius: 5px;
+    color: #333333;
+    letter-spacing: 0.06vh;
+    border: none;
+    font-family: "Fira Sans Bold", "Fira Sans", sans-serif;
+    font-weight: 700;
+    font-size: 1.6vh;
+    text-align: left;
+    line-height: normal;
+    appearance: none;
+    background: url(/imagens/seta-para-baixo.svg) 96% / 15% no-repeat #d2d2d2;
+    background-size: 0.8vw;
+
+    &:focus{
+        outline: 0;
+    }
+}
+
+#pesquisar-usuario{
+    margin-left: 40.2vh;
+}
+
+.icone-pesquisa{
+    width: 2.2vh;
+    position: absolute;
+    margin: 1.8vh 0 0 2.8vh;
+}
+.pesquisa-input{
+    height: 6vh;
+    width: 25.5vh;
+    border-radius: 40px;
+    padding-left: 7vh;
+    font-size: 2vh;
+    font-family: "Fira Sans", sans-serif;
+    border: none;
+    box-shadow: 0px 5px 5px rgba(0, 0, 0, 0.11372549019607843);
+}
+.pesquisa-input::placeholder {
+    color: #a3a3a3; /* Cor desejada para o placeholder */
+  }
+  
+.fundo-tabela-usuario{
+    width: 140vh;
+    height: 59.4vh;
+    background-color: white;
+    border-radius: 10px;
+    margin-top: 0.5vh;
+    box-shadow: 0px 0px 13px rgba(0, 0, 0, 0.09019607843137255);
+    padding-top: 2.6vh;
+    padding-left: 4.5vh;
+    padding-right: 4vh;
+    padding-bottom: 2vh;
+    overflow-y: auto;
+    overflow-x: hidden;
+}
+
+.tabela-usuario{
+    border-collapse: collapse;
+    width: 137vh;
+    padding-top: 20vh;
+}
+
+.cabeçalho-tabela-usuario{
+    background-color: #EEE3FC;
+    border: 2.6px solid #9d5fefea;
+}
+
+.titulo-tabela-usuario{
+    height: 8vh;
+    font-family: "Fira Sans Bold", "Fira Sans", sans-serif;
+    font-size: 1.9vh;
+    color: #333333;
+    text-align: left;
+    padding-right: 2vh;
+}
+
+.linha-usuario{
+    padding-bottom: 3vh;
+    padding-top: 3vh;
+    border-bottom: 1px solid #33333364;
+    font-family: "Fira Sans Bold", "Fira Sans", sans-serif;
+}
+
+/* Classes das celulas dinâmicas - Inicio */
+
+.icon-rosa-linha {
+    max-width: 2.3vh;
+    height: 2.3vh;
+    padding: 1vh 1.4vh 1vh 1.4vh;
+    border-radius: 2px;
+    margin-right: 2vh;
+    border: 0.45vh solid #CB218C;
+    border-radius: 0.7vh;
+}
+
+.Coluna-premium{
+    display: inline-block;
+    max-width: 13vh;
+    height: 2.3vh;
+    text-align: center;
+    background-color: #5800AA;
+    font-family: "Fira Sans", sans-serif;
+    font-size: 1.8vh;
+    font-weight: 700;
+    color: #F1F1F1;
+    border-radius: 5px;
+    padding: 1vh 2vh 1vh 2vh;
+}
+
+.Coluna-comum{
+    display: inline-block;
+    max-width: 13vh;
+    height: 2.3vh;
+    text-align: center;
+    color: #5800AA;
+    font-family: "Fira Sans", sans-serif;
+    font-size: 1.8vh;
+    font-weight: 700;
+    background-color: #F1F1F1;
+    border-radius: 5px;
+    padding: 1vh 2vh 1vh 2vh;
+}

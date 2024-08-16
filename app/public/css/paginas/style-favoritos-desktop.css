@@ -1,0 +1,153 @@
+@media only screen and (min-width: 481px) {
+
+  #conteudo-dispositivo-mobile {
+    display: none;
+  }
+
+  #Notificacoes {
+    margin: auto;
+    width: 50.5%;
+  }
+
+  .tab {
+    float: left;
+    transform: translate(267px, 150px);
+    width: 284px;
+    height: 450px;
+    padding: 2px 2px 2px 2px;
+    background-color: rgba(255, 255, 255, 0);
+    box-sizing: border-box;
+    position: fixed;
+  }
+
+  .tab button {
+    display: block;
+    background-color: inherit;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    transition: 0.3s;
+    width: 300px;
+    height: 67px;
+    padding: 17px 17px 17px 17px;
+    color: gray;
+    box-sizing: border-box;
+    font-family: "Heavitas", sans-serif;
+    text-align: left;
+    line-height: normal;
+    margin-bottom: 28px;
+    border-radius: 5px;
+    font-size: 25px;
+  }
+
+  .tab button:hover {
+    color: grey;
+    background-color: rgba(24, 24, 24, 0.185);
+  }
+
+  .tab button.active {
+    width: 300px;
+    height: 67px;
+    padding: 17px 17px 17px 17px;
+    border-radius: 5px;
+    background-image: linear-gradient(89.99146929511329deg, #4d16bb 0%, #9d21cb 99.20305052121002%);
+    box-sizing: border-box;
+    border-style: none;
+    font-family: "Heavitas", sans-serif;
+    text-align: left;
+    line-height: normal;
+    color: white;
+  }
+
+  .mapa-do-sitefav {
+    display: flex;
+    margin-bottom: 2%;
+    margin-top: 15vh;
+  }
+
+  .mapa-do-sitefav p {
+    font-family: Fira Sans;
+  }
+
+  .mapa-1 {
+    text-decoration: underline;
+    margin-right: 7px;
+  }
+
+  .mapa-2 {
+    text-decoration: underline;
+    font-weight: Bold;
+    color: #9e5fef;
+    margin-left: 7px;
+  }
+
+  .seta-1 {
+    margin-right: 7px;
+  }
+
+  .headernot {
+    display: flex;
+    font-family: "Heavitas", "sans-serifHeavitas";
+    color: #9e5fef;
+    background-color: #ececec;
+    gap: 20px;
+    width: 96%;
+    height: 8vh;
+    align-items: center;
+    padding: 0 0 0 4%;
+    border-radius: 6px 6px 0px 0px;
+  }
+
+  .headernot h3 {
+    font-size: 23px;
+  }
+
+  .headernot img {
+    width: 40px;
+    height: 40px;
+    object-fit: contain;
+  }
+
+  .filtro-not {
+    font-size: medium;
+    color: #9e5fef;
+    margin-top: 30px;
+    margin-left: 35px;
+    font-weight: 600;
+    margin-bottom: 4vh;
+  }
+
+  .radio-container {
+    position: relative;
+    display: inline-block;
+    margin-right: 1%;
+    border: none;
+  }
+
+  .radio-container input[type="radio"] {
+    position: absolute;
+    opacity: 0;
+  }
+
+  .radio-container label {
+    font-family: Fira Sans;
+    position: relative;
+    padding: 7px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    background-color: #9d5fef28;
+  }
+
+  .radio-container input[type="radio"]:checked+label {
+    background-color: #9e5fef;
+    color: #f9f9f9;
+  }
+
+  .conteudo-fav {
+    background-color: #ececec;
+    width: 50vw;
+    height: 50vh;
+    border-radius: 10px;
+  }
+}

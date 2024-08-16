@@ -1,0 +1,522 @@
+@media only screen and (min-width: 481px) {
+    
+  a:link{
+      text-decoration: none;
+  }
+  .mapa-do-site{
+      display: flex;
+      margin-bottom: 2%;
+  }
+  .mapa-do-site p{
+      font-family: Fira Sans;
+  }
+  .mapa-1{
+      text-decoration: underline;
+      margin-right: 7px;
+  }
+  .mapa-2{
+      text-decoration: underline;
+      font-weight: Bold;
+      color: #9e5fef;
+      margin-left: 7px;
+  }
+  .seta-1{
+      margin-right: 7px;
+  }
+  
+  
+      @font-face {
+          font-family: Heavitas;
+          src: url("../fonts/Heavitas.ttf");
+      }
+  
+      @font-face {
+          font-family: Fira Sans Bold;
+          src: url("../fonts/fira-sans.bold.ttf");
+      }
+  
+      @font-face {
+          font-family: Fira Sans;
+          src: url("../fonts/fira-sans.regular.ttf");
+      }
+  
+      .header-dispositivo-mobile {
+          display: none;
+      }
+  
+      .header-dispositivo-desktop {
+          display: block;
+      }
+  
+      .conteudo-dispositivo-mobile {
+          display: none;
+      }
+  
+      .conteudo-dispositivo-desktop {
+          display: block;
+      }
+  
+      .headernot {
+          display: flex;
+          font-family: "Heavitas", "sans-serifHeavitas";
+          color: #9e5fef;
+          background-color: #ececec;
+          gap: 20px;
+          width: 96%;
+          height: 8vh;
+          align-items: center;
+          padding: 0 0 0 4%;
+          border-radius: 6px 6px 0px 0px;
+      }
+  
+      .headernot h3{
+          font-size: 23px;
+      }
+  
+      .headernot img {
+          width: 40px;
+          height: 40px;
+          object-fit: contain;
+      }
+  
+  
+  
+      article.backgroundcontnot {
+          margin-top: 30px;
+          margin-left: 7%;
+          background-color: #e4e4e4;
+          border-radius: 8px;
+          width: 85%;
+          height: 25%;
+          border-radius: 30px;
+      }
+  
+      .header-post {
+          width: 100%;
+          background-image: linear-gradient(89.99735799063006deg, #4d16bb 0%, #9d21cb 99.20603279446671%);
+          height: 70px;
+          display: flex;
+          align-items: center;
+          border-radius: 30px 30px 0px 0px;
+      }
+  
+      .header-post img.himiko {
+          width: 11%;
+          object-fit: contain;
+          border-radius: 50%;
+          border: 6px solid #4d16bb;
+          margin-bottom: -40px;
+          margin-left: 25px;
+          cursor: pointer;
+      }
+  
+      .header-post img.pontinho {
+          cursor: pointer;
+          object-fit: contain;
+       
+      }
+  
+      .header-post p {
+          font-family: "Heavitas", sans-serif;
+          color: #ffffff;
+          font-size: 20px;
+          margin-right: 150px;
+      }
+  
+      
+      span.nick {
+          color: #FFD662;
+          margin-right: 20px;
+      }
+  
+      .radio-container {
+          position: relative;
+          display: inline-block;
+          margin-right: 1%;
+      }
+  
+      .radio-container input[type="radio"] {
+          position: absolute;
+          opacity: 0;
+      }
+  
+      .radio-container label {
+          font-family: Fira Sans;
+          position: relative;
+          padding: 7px 20px;
+          border: none;
+          border-radius: 5px;
+          cursor: pointer;
+          background-color: #9d5fef28;
+      }
+      .contpostnot h3{
+          margin-top: 20px;
+          margin-left: 10px;
+          font-family: Fira Sans;
+      }
+      .radio-container input[type="radio"]:checked+label {
+          background-color: #9e5fef;
+          color: #f9f9f9;
+      }
+  
+      .contpostnot {
+          width: 1000px;
+          height: 26px;
+          display: flex;
+          text-align: left;
+          font-family: "Fira Sans", sans-serif;
+          margin-top: -1%;
+          margin-left: 15%;
+          color: #333333;
+      }
+  
+      .Notpostagem img {
+          border-radius: 20px;
+      }
+  
+  
+      .Notpostagem {
+          display: flex;
+          height: 30vh;
+          width: 35vh;
+          margin-top: 6%;
+          margin-left: 15%;
+          object-fit: contain;
+          gap: 15px;
+      }
+  
+      .cabecalhonot {
+          height: 15%;
+          width: 35%;
+          display: flex;
+          text-align: center;
+          object-fit: contain;
+          margin-left: 15%;
+          margin-top: -1%;
+          gap: 10px;
+          align-items: center;
+      }
+  
+      .cabecalhonot p {
+          margin-right: 70px;
+          font-family: "Fira Sans Medium", "Fira Sans", sans-serif;
+          font-size: 16px;
+      }
+      .comentario-interacoes {
+          width: 85%;
+          height: 8%;
+          background-color: #e4e4e4;
+          margin-top: 4%;
+          margin-left: 7%;
+          border-radius: 15px;
+        }
+      
+        .roxoresposta {
+          background-image: linear-gradient(89.99735799063006deg, #4d16bb 0%, #9d21cb 99.20603279446671%);
+          height: 70px;
+          border-top-left-radius: 20px;
+          border-top-right-radius: 20px;
+      
+        }
+        .pcoment{
+          margin-top: -10%;
+          margin-left: 15%;
+          font-family: "Heavitas", sans-serif;
+          color: #ffffff;
+          font-size: 20px;
+          margin-right: 150px;
+        }
+      
+        .comentall{
+          text-align: left;
+          margin-left: 15%;
+          margin-top: 3%;
+          color: #333333;
+        }
+   
+        .cometint{
+          font-size: 18px;
+          font-family: Fira sans;
+          width: 1000px;
+          height: 23px;
+        }
+      
+        .ygona {
+          width: 11%;
+          object-fit: contain;
+          border-radius: 50%;
+          margin-left: 2%; 
+          border-radius: 50%;
+          border: 6px solid #4d16bb;      
+        }
+      
+  .tab {
+      float: left;
+      transform: translate(267px, 150px);
+      width: 284px;
+      height: 450px;
+      padding: 2px 2px 2px 2px;
+      background-color: rgba(255, 255, 255, 0);
+      box-sizing: border-box;
+      position: fixed;
+    }
+    
+    .tab button {
+      display: block;
+      background-color: inherit;
+      border: none;
+      outline: none;
+      cursor: pointer;
+      transition: 0.3s;
+      width: 300px;
+      height: 67px;
+      padding: 17px 17px 17px 17px;
+      color: gray;
+      box-sizing: border-box;
+      font-family: "Heavitas", sans-serif;
+      text-align: left;
+      line-height: normal;
+      margin-bottom: 28px;
+      border-radius: 5px;
+      font-size:25px;
+    }
+    
+    .tab button:hover {
+      color: grey;
+      background-color: rgba(24, 24, 24, 0.185);
+    }
+    
+    .tab button.active {
+      width: 300px;
+      height: 67px;
+      padding: 17px 17px 17px 17px;
+      border-radius: 5px;
+      background-image: linear-gradient(89.99146929511329deg, #4d16bb 0%, #9d21cb 99.20305052121002%);
+      box-sizing: border-box;
+      border-style: none;
+      font-family: "Heavitas", sans-serif;
+      text-align: left;
+      line-height: normal;
+      color: white;
+    }
+  
+    .notificacoes-do-usuario {
+      background-color: #ececec;
+      width: 50vw;
+      height: 50vh;
+      border-radius: 10px;
+    }
+  }
+  @media only screen and (max-width: 480px) {
+      * {
+        font-family: Heavitas;
+        padding: 0;
+        margin: 0;
+      }
+    
+      @font-face {
+        font-family: Heavitas;
+        src: url("../fonts/Heavitas.ttf");
+      }
+    
+      @font-face {
+        font-family: Fira Sans Bold;
+        src: url("../fonts/fira-sans.bold.ttf");
+      }
+    
+      @font-face {
+        font-family: Fira Sans;
+        src: url("../fonts/fira-sans.regular.ttf");
+      }
+    
+      .conteudo-dispositivo-desktop{
+        display: none;
+      }
+      
+      .conteudo-dispositivo-mobile{
+        display: block;
+      }
+    
+      /*Notificações Mobile*/
+      .topi img {
+        height: 45px;
+        width: 45px;
+        margin-top: 10px;
+      }
+    
+      .mega-noiteficacao {
+        margin-top: 5%;
+      }
+    
+    
+      .just-notification svg {
+        color: #9e5fef;
+        rotate: -90deg;
+        margin-left: 7%;
+      }
+    
+      .just-notification {
+        display: flex;
+        justify-content: space-between;
+        margin-left: 7%;
+      }
+    
+      h2.notificacoes {
+        font-family: heavitas;
+        font-weight: 400;
+        color: #9e5fef;
+        margin-top: 2%;
+        font-size: 25px;
+        margin-top: 1%;
+        width: 85%;
+        font-weight: 400;
+      }
+    
+      .img-noti {
+        height: 10%;
+      }
+    
+      .sinim {
+        width: 50px;
+        object-fit: contain;
+        margin-bottom: 30px;
+      }
+    
+      .notificacao {
+        padding: 3% 4% 4% 3%;
+        margin-left: 7%;
+        display: flex;
+        background-color: rgb(197, 197, 197);
+        margin-top: 3%;
+        width: 85%;
+        height: 100%;
+        border-radius: 5px;
+        background-color: #ededed;
+        box-sizing: border-box;
+        justify-content: space-between;
+      }
+    
+      .icon-notifica {
+        height: 50px;
+        margin-top: 3%;
+        border-radius: 100px;
+      }
+    
+      .notificacao img.imagem-post:nth-of-type(1) {
+        padding: 15px;
+        object-fit: contain;
+        border-radius: 50px;
+      }
+    
+      .notificacao img.imagem-post:nth-of-type(2) {
+        object-fit: contain;
+        border-radius: 4px;
+        height: 50px;
+        align-self: center;
+      }
+    
+      .notificacao p.nick {
+        font-family: "Heavitas Bold", "Heavitas", sans-serif;
+        color: #4d16bb;
+        font-size: 15px;
+        margin-top: 4%;
+      }
+    
+      .icon-comentario {
+        height: 40px;
+        margin-top: 3%;
+      }
+    
+      .notificacao p {
+        align-self: center;
+        color: #333333;
+      }
+    
+      .notificacao p.tipo-noti {
+        font-family: Fira Sans Bold;
+        font-size: 14px;
+        width: 90%;
+      }
+    
+      .comentario {
+        margin-top: 2%;
+        font-family: Fira Sans;
+        font-size: 12px;
+      }
+    
+      .texto-notifica {
+        display: inline;
+        margin-left: 3%;
+        margin-right: 2%;
+        width: 60%;
+      }
+      
+      .hidden {
+        display: none;
+    }
+    
+      .radio-container {
+        position: relative;
+        font-weight: 400;
+        margin-top: 5%;
+        margin-bottom: 2%;
+        font-family: Fira Sans Bold;
+        display: inline-block;
+        padding-left: 5px;
+        /* Espaçamento à esquerda para o retângulo */
+        margin-right: 5px;
+        /* Espaçamento entre os elementos */
+        border: none;
+      }
+    
+      .radio-container input[type="radio"] {
+        position: absolute;
+        opacity: 0;
+        /* Ocultar o input radio padrão */
+      }
+    
+      .radio-container label {
+        position: relative;
+        padding: 7px 15px 7px 15px;
+        /* Tamanho do retângulo */
+        border: none;
+        /* Cor da borda do retângulo */
+        border-radius: 5px;
+        /* Borda arredondada */
+        cursor: pointer;
+        background-color: #9d5fef28;
+      }
+    
+      .radio-container input[type="radio"]:checked+label {
+        background-color: #9e5fef;
+        /* Cor de fundo quando selecionado */
+        color: #f9f9f9;
+        /* Cor do texto quando selecionado */
+      }
+    
+      div.filtro-not {
+        font-family: Fira Sans Bold;
+        margin-left: 5%;
+        font-size: small;
+        color: #9e5fef;
+        margin-top: 3%;
+        margin-right: 7%;
+        font-weight: 600;
+        margin-bottom: 7%;
+      }
+    
+      .vejamais-notificacoes button {
+        background-color: #FFD662;
+        width: 45%;
+        margin: 8% 0% 10% 27.5%;
+        padding: 2% 3% 2% 3%;
+        border-radius: 5px;
+        border: none;
+        font-size: 15px;
+        font-family: Fira Sans Bold;
+        text-align: center;
+        color: #4D16BB;
+      }
+    
+      /*Fim - Notificações Mobile*/
+    }

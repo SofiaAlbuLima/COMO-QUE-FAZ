@@ -1,0 +1,1059 @@
+@media only screen and (max-width: 480px) {
+  .conteudo-dispositivo.desktop {
+    display: none;
+  }
+
+  .conteudo-dispositivo.mobile {
+    display: block;
+    width: 100vw;
+  }
+
+  .gato-esticado {
+    margin-top: 2%;
+    margin-left: 1%;
+    margin-right: 1%;
+    width: 98%;
+  }
+
+  .imagem-perfil-mob {
+    width: 90px;
+    height: 90px;
+    margin-left: 7%;
+    margin-top: -10%;
+    border: 4px solid white;
+    border-radius: 100px;
+  }
+
+  h1.User1234 {
+    font-family: "Heavitas", sans-serif;
+    color: #cb218c;
+    font-size: 16px;
+    margin-top: -1%;
+    margin-left: 7%;
+    font-weight: 500;
+  }
+
+  h2.Nome1234 {
+    font-family: Fira Sans Bold;
+    font-weight: 600;
+    color: #333333;
+    font-size: 15px;
+    margin-left: 7%;
+    margin-top: -1%;
+  }
+
+  .segui-mob {
+    margin-top: 5%;
+    font-family: Fira Sans Bold;
+    color: #333333;
+    font-size: 16px;
+    display: flex;
+    justify-content: space-between;
+    margin-left: 7%;
+    margin-right: 15%;
+  }
+
+  .redes-sociais-perfil {
+    margin-top: 4%;
+    display: flex;
+  }
+
+  .rede {
+    width: 24px;
+    margin-right: 5%;
+  }
+
+  #vis-seguindo {
+    font-weight: 500;
+    font-size: 13px;
+    font-family: Fira Sans Bold;
+  }
+
+  #segui {
+    margin-bottom: -3px;
+    text-align: center;
+  }
+
+  .foto-editar {
+    justify-content: space-between;
+    display: flex;
+  }
+
+  button.editar-perfil {
+    width: 150px;
+    height: 30px;
+    margin-top: 2%;
+    margin-right: 7%;
+    margin-bottom: 7%;
+    padding: 2% 0 2px 30px;
+    border-radius: 10px;
+    border-style: none;
+    background-color: #4d16bb;
+    font-family: "Heavitas", sans-serif;
+    color: #ffffff;
+    text-align: center;
+    line-height: normal;
+    font-size: 12px;
+    display: flex;
+  }
+
+  #descrição-perfil {
+    margin-top: 3%;
+    margin-left: 7%;
+  }
+
+  h5.dicas-caseiras {
+    font-family: Fira Sans;
+    font-size: 15px;
+    font-weight: 400;
+  }
+
+  .descricao-pf {
+    font-size: 15px;
+    font-weight: 400;
+    font-family: Fira Sans;
+  }
+
+  #icon-link {
+    width: 14px;
+    height: 16px;
+    transform: translate(0px, 3px);
+  }
+
+  .perfil-baixo {
+    width: 410px;
+    height: 720px;
+    padding: 2px 2px 2px 2px;
+    background-color: #e8e8e8;
+    box-sizing: border-box;
+    transform: translate(-10px, -190px);
+  }
+
+  .headerfav {
+    box-sizing: border-box;
+    font-family: "Heavitas", sans-serif;
+    color: #9e5fef;
+    font-size: 20px;
+    display: flex;
+    justify-content: space-between;
+    margin-left: 7%;
+    margin-right: 7%;
+    margin-top: 5%;
+  }
+
+  .textfav {
+    font-size: 25px;
+    margin-top: 1%;
+    font-weight: 400;
+    width: 85%;
+  }
+
+  .filtro-icon {
+    height: 30px;
+    margin-top: 1%;
+  }
+
+  .fav {
+    height: 10%;
+  }
+
+  .pontilhado-mob {
+    width: 95vw;
+    height: 80vw;
+    padding: 2px 2px 2px 2px;
+    border-radius: 10px;
+    border: 6px dashed #bababa;
+    background-color: rgba(242, 242, 242, 0);
+    box-sizing: border-box;
+    transform: translate(-145px, 20px);
+  }
+
+  .gato-rasc {
+    width: 300px;
+    height: 310px;
+    margin-top: -900px;
+    margin-left: -80px;
+
+  }
+
+  .sem-rasc {
+    margin-top: -340px;
+    width: 80vw;
+    margin-left: -110px;
+    font-size: 20px;
+  }
+
+  .Comece-mob {
+    margin-top: 220px;
+    width: 200px;
+    height: 50px;
+    background-image: linear-gradient(89.99311970570312deg, #4d16bb 0%, #9d21cb 95.48561645502186%);
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-family: Fira Sans Bold;
+    font-weight: 700;
+    color: #ffffff;
+    text-align: center;
+    line-height: normal;
+    margin-left: -30px;
+  }
+
+  .postagens-rascunhos-interacoes {
+    margin-top: 5%;
+    display: flex;
+    justify-content: space-between;
+    background-color: #e0e0e0;
+    height: 9vw;
+  }
+
+  .postagens-rascunhos-interacoes button {
+    width: 50%;
+    border: none;
+    background-color: #e0e0e0;
+    color: #9e5fef;
+  }
+
+  .postagens:hover {
+    background-color: #9e5fef;
+    color: white;
+  }
+
+  .rascunhos:hover {
+    background-color: #9e5fef;
+    color: white;
+  }
+
+  .interacoes:hover {
+    background-color: #9e5fef;
+    color: white;
+  }
+
+  .sem-rescunhos {
+    margin-top: 25px;
+    width: 95%;
+    border-radius: 10px;
+    border: 4px dashed #bababa;
+    margin-left: -2.5%;
+    margin-bottom: 300px;
+  }
+
+  .sem-rescunhos img {
+    margin-left: 78px;
+    width: 60%;
+    opacity: 0.5;
+  }
+
+  .sem-rescunhos h3 {
+    color: #7a7a7a;
+    font-family: Fira Sans;
+    margin-left: 17.5%;
+    margin-top: -40px;
+    font-size: 90%;
+    width: 65%;
+  }
+
+  .sem-rescunhos h2 {
+    color: #9e5fef;
+    font-family: Fira Sans Bold;
+    margin-left: 27.5%;
+    width: 45%;
+    text-decoration: underline;
+    font-size: 100%;
+    margin-bottom: 50px;
+  }
+
+  /* interaÃ§Ãµes ----------------------------------------------------------------------- */
+  #base-not-interacoes {
+    width: 100vw;
+    height: 25vw;
+    background-color: aliceblue;
+    margin-left: -6.8vw;
+    padding-top: 7vw;
+    border: 0;
+    border-bottom: 1px solid #d7d7d7;
+  }
+
+  #foto-perfil-not {
+    width: 18vw;
+    height: 18vw;
+    border-radius: 10vw;
+    margin-left: 5vw;
+    display: inline-block;
+  }
+
+  #descri-interacao {
+    display: inline-block;
+    margin-left: 3vw;
+    margin-top: 4vw;
+    position: absolute;
+  }
+
+  #nome-do-user {
+    color: #333333;
+    font-family: Fira Sans, sans-serif;
+    font-size: 100%;
+    font-weight: 700;
+  }
+
+  #tipo-interacao {
+    color: #7e7e7e;
+    font-family: Fira Sans, sans-serif;
+    font-size: 80%;
+    font-weight: 500;
+  }
+
+  #ver-interacao {
+    width: 22vw;
+    height: 8vw;
+    border: none;
+    color: white;
+    background-color: #cb218c;
+    display: inline-block;
+    border-radius: 1vw;
+    font-weight: 600;
+    font-family: Fira Sans, sans-serif;
+    margin-left: 47vw;
+    position: absolute;
+    margin-top: 4vw;
+  }
+
+  /* FINAL interaÃ§Ãµes ----------------------------------------------------------------------- */
+
+  button.editar-perfil-mob {
+    width: 144px;
+    height: 36px;
+    padding: 1px 1px 1px 1px;
+    border-radius: 12px;
+    border-style: none;
+    background-color: #4d16bb;
+    box-sizing: border-box;
+    font-family: "Fira Sans Bold", "Fira Sans", sans-serif;
+    font-weight: 700;
+    font-size: 15px;
+    color: #ffffff;
+    text-align: center;
+    line-height: normal;
+    transform: translate(-30px, 10px);
+  }
+
+  #editar-perfil-popup-mob {
+    position: fixed;
+    padding: 1%;
+    border-radius: 10px;
+    z-index: 300;
+    width: 93%;
+    margin-top: 10%;
+    margin-left: 2.5%;
+    height: 555px;
+    background-color: #f9f9f9;
+  }
+
+  #fundo-editar-perfil-mob {
+    position: fixed;
+    background: #000000a3;
+    width: 100%;
+    height: 100%;
+    margin-top: -15%;
+    z-index: 299;
+  }
+
+  .xis-sair {
+    color: #4d16bb;
+    cursor: pointer;
+    margin-left: 20px;
+    margin-top: 10px;
+  }
+
+  .banner-editar {
+    width: 95%;
+    margin-left: 2.5%;
+    margin-top: 20px;
+  }
+
+  .foto-fundo-editar {
+    margin-left: 5%;
+    height: 0;
+  }
+
+  .foto-editar-perfil {
+    transform: translate(-80px, -65px);
+    height: 70px;
+  }
+
+  .fundo-foto-editar {
+    transform: translate(0px, -58px);
+    height: 80px;
+  }
+
+  .editar-foto-camera {
+    width: 35px;
+  }
+
+  #camera1 {
+    transform: translate(450px, -90px);
+  }
+
+  #camera2 {
+    transform: translate(-130px, -60px);
+  }
+
+
+  .tit-editar {
+    font-family: Heavitas;
+    font-weight: 400;
+    font-size: 15px;
+    margin-left: 25px;
+    color: #4d16bb;
+  }
+
+  .tit-editar1 {
+    font-family: Heavitas;
+    font-weight: 400;
+    font-size: 15px;
+    margin-left: 35px;
+    color: #4d16bb;
+    width: 120px;
+  }
+
+  .tit-duas {
+    display: flex;
+    justify-content: space-between;
+    margin-right: 70px;
+    margin-left: -10px;
+  }
+
+  .tex-editar {
+    margin-top: 10px;
+    margin-bottom: 20px;
+    margin-left: 25px;
+    border-top: none;
+    border-left: none;
+    border-right: none;
+    border-bottom: 1.5px solid #333333;
+    width: 83%;
+    background: none;
+    font-family: Fira Sans;
+    font-size: 16px;
+    outline: none;
+  }
+
+  .tex-editar::placeholder {
+    color: #333333;
+    font-family: Fira Sans;
+    outline: none;
+  }
+
+  .tex-duas {
+    display: flex;
+    justify-content: space-between;
+    margin-right: 45px;
+  }
+
+  .redes-editar img {
+    height: 30px;
+  }
+
+  .redes-editar {
+    width: 83%;
+    margin-left: 25px;
+    display: flex;
+    justify-content: space-between;
+  }
+
+  .rede-editar {
+    margin-top: 10px;
+    padding: 6% 0% 0% 10%;
+    width: 20%;
+    height: 50px;
+    border-radius: 5px;
+    background: #ffd662;
+  }
+
+  .salvar {
+    background: #4d16bb;
+    color: white;
+    border-radius: 5px;
+    margin-top: 10px;
+    margin-right: 10px;
+    width: 130px;
+    height: 30px;
+    border: none;
+    cursor: pointer;
+  }
+
+  .cima-editar {
+    justify-content: space-between;
+    display: flex;
+  }
+}
+
+
+@media only screen and (min-width: 481px) {
+  .perfil-cima {
+    margin: auto;
+    width: 50vw;
+    border-radius: 14px;
+    background-color: #f9f9f9;
+    box-sizing: border-box;
+    margin-top: 17vh;
+  }
+
+  img.fundo-foto-perfil {
+    transform: translate(37px, -68px);
+  }
+
+  img.foto-perfil {
+    transform: translate(-94px, -78px);
+  }
+
+  button.editar-perfil {
+    width: 144px;
+    height: 36px;
+    padding: 2px 2px 2px 2px;
+    border-radius: 12px;
+    border-style: none;
+    background-color: #4d16bb;
+    box-sizing: border-box;
+    font-family: "Fira Sans Bold", "Fira Sans", sans-serif;
+    font-weight: 700;
+    font-size: 18px;
+    color: #ffffff;
+    text-align: center;
+    line-height: normal;
+    transform: translate(490px, -100px);
+  }
+
+  .mapa-do-site {
+    display: flex;
+    margin-bottom: 2%;
+  }
+
+  .mapa-do-site p {
+    font-family: Fira Sans;
+  }
+
+  .mapa-1 {
+    text-decoration: underline;
+    margin-right: 7px;
+  }
+
+  .mapa-2 {
+    text-decoration: underline;
+    font-weight: Bold;
+    color: #9e5fef;
+    margin-left: 7px;
+  }
+
+  .seta-1 {
+    margin-right: 7px;
+  }
+
+  h1.User1234 {
+    font-family: "Heavitas", sans-serif;
+    color: #cb218c;
+    font-size: 22px;
+    transform: translate(57px, -70px);
+    font-weight: 500;
+  }
+
+  h2.Nome1234 {
+    font-family: Fira Sans;
+    font-weight: 700;
+    color: #333333;
+    font-size: 20px;
+    transform: translate(65px, -70px);
+  }
+
+  .nome-user {
+    display: flex;
+  }
+
+  h5.dicas-caseiras {
+    font-family: Fira Sans;
+    font-size: 16px;
+    transform: translate(57px, -65px);
+    font-weight: 500;
+  }
+
+  .descricao-pf {
+    font-size: 16px;
+    font-weight: 400;
+    font-family: Fira Sans;
+    transform: translate(60px, -60px);
+  }
+
+  img.tiktok-rosa {
+    width: 24px;
+    height: 24px;
+    box-sizing: border-box;
+    transform: translate(60px, -50px);
+  }
+
+  img.twitter-rosa {
+    width: 24px;
+    height: 24px;
+    box-sizing: border-box;
+    transform: translate(70px, -50px);
+  }
+
+  img.instagram-rosa {
+    width: 24px;
+    height: 24px;
+    box-sizing: border-box;
+    transform: translate(80px, -50px);
+  }
+
+  .vis-seguidores {
+    width: 166px;
+    height: 36px;
+    padding: 6px 2px 2px 2px;
+    border-radius: 12px;
+    background-color: #ffd662;
+    box-sizing: border-box;
+    font-family: "Fira Sans", sans-serif;
+    color: #4d16bb;
+    text-align: center;
+    font-size: 18px;
+    display: inline-block;
+    margin-right: 15px;
+    margin-top: 8px;
+    transform: translate(-30px, -10px);
+    font-weight: 700;
+  }
+
+  .vis-seguindo {
+    width: 166px;
+    height: 36px;
+    padding: 6px 2px 2px 2px;
+    border-radius: 12px;
+    background-color: #ffd662;
+    box-sizing: border-box;
+    font-family: "Fira Sans", sans-serif;
+    color: #4d16bb;
+    text-align: center;
+    font-size: 18px;
+    display: inline-block;
+    transform: translate(-20px, -10px);
+    margin-top: 8px;
+    font-weight: 700;
+  }
+
+  .vis-postagens {
+    width: 166px;
+    height: 36px;
+    padding: 6px 2px 2px 2px;
+    border-radius: 12px;
+    background-color: #ffd662;
+    box-sizing: border-box;
+    font-family: "Fira Sans", sans-serif;
+    color: #4d16bb;
+    text-align: center;
+    font-size: 18px;
+    display: inline-block;
+    transform: translate(5px, -10px);
+    margin-top: 8px;
+    font-weight: 700;
+  }
+
+
+  /*perfil parte de baixo*/
+  .perfil-baixo {
+    padding-top: 15px;
+  }
+
+  .tab-perfil {
+    display: flex;
+    overflow: hidden;
+    width: 50.5%;
+    background-color: #ffffff;
+    margin: auto;
+  }
+
+  .tab-perfil button {
+    background-color: inherit;
+    flex-grow: 1;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    width: 309px;
+    height: 47px;
+    padding: 2px 2px 2px 2px;
+    transition: 0.3s;
+    font-family: "Heavitas", sans-serif;
+    background-color: #e0e0e0;
+    color: #9e5fef;
+    font-size: 21px;
+    border-radius: 2px;
+    box-sizing: border-box;
+  }
+
+  .tab-perfil button:hover {
+    background-color: rgba(24, 24, 24, 0.185);
+  }
+
+  .tab-perfil button.active {
+    background-color: #9e5fef;
+    color: white;
+  }
+
+  #Postagens {
+    display: block;
+    width: 100%;
+  }
+
+  .tabcontent-perfil {
+    display: none;
+    width: 309px;
+    height: 47px;
+    padding: 2px 0px 0px 2px;
+    background-color: rgba(255, 255, 255, 0);
+    box-sizing: border-box;
+    border-top: none;
+  }
+
+  /*Rascunhos*/
+  .rascunhos-esqueleto {
+    width: 926px;
+    height: 586px;
+    padding: 2px 2px 2px 2px;
+    background-color: #f2f2f2;
+    box-sizing: border-box;
+  }
+
+  .pontilhado-em-volta {
+    width: 853px;
+    height: 360px;
+    padding: 2px 2px 2px 2px;
+    border-radius: 10px;
+    border: 6px dashed #bababa;
+    background-color: rgba(242, 242, 242, 0);
+    box-sizing: border-box;
+    transform: translate(36.5px, 25px);
+  }
+
+  img.gato-sem-rascunhos {
+    width: 272px;
+    height: 272px;
+    opacity: 0.59;
+    box-sizing: border-box;
+    transform: translate(327px, -300px);
+  }
+
+  h2.sem-rascunhos {
+    width: 355px;
+    height: 32px;
+    background-color: rgba(255, 255, 255, 0);
+    box-sizing: border-box;
+    font-family: "Fira Sans Bold", "Fira Sans", sans-serif;
+    font-weight: 700;
+    color: #8c8c8c;
+    text-align: center;
+    line-height: normal;
+    transform: translate(285.5px, -365px);
+  }
+
+  h2.Comece-por-aqui {
+    width: 191px;
+    height: 32px;
+    background-color: rgba(255, 255, 255, 0);
+    box-sizing: border-box;
+    font-family: "Fira Sans Bold", "Fira Sans", sans-serif;
+    font-weight: 700;
+    text-decoration: underline;
+    color: #9e5fef;
+    text-align: left;
+    line-height: normal;
+    transform: translate(377.5px, -370px);
+    cursor: pointer;
+  }
+
+  /*Fim de rascunhos*/
+
+  /*Postagens*/
+  .postagens-esqueleto {
+    padding: 2px 20px 2px 0px;
+    box-sizing: border-box;
+  }
+
+  .filtro {
+    margin-top: 25px;
+    margin-left: 33px;
+    display: flex;
+    gap: 10px;
+    margin: auto;
+    /* margin-top: auto; */
+    /* margin-bottom: auto; */
+  }
+
+  .filtroint {
+    margin-top: 25px;
+    margin-left: 160px;
+    display: flex;
+    gap: 10px;
+  }
+
+  button.botao-filtro {
+    margin: 14px 7px 0px 0;
+    width: 125px;
+    height: 29px;
+    padding: 2px 2px 2px 2px;
+    border-radius: 7px;
+    background-color: rgba(158, 95, 239, 0.13);
+    box-sizing: border-box;
+    font-family: "Fira Sans Bold", "Fira Sans", sans-serif;
+    font-weight: 700;
+    color: #9e5fef;
+    text-align: center;
+    line-height: normal;
+    border-style: none;
+
+    &:
+    hover {
+      box-sizing: border-box;
+    opacity: 1;
+    background-color: #9d5fef3f;
+    }
+  }
+
+  .botao-filtro.active {
+    background-color: #9e5fef;
+    box-sizing: border-box;
+    font-family: "Fira Sans Bold", "Fira Sans", sans-serif;
+    font-weight: 700;
+    color: #ffffff;
+  }
+
+  /*Fim postagens*/
+
+  /*InteraÃ§Ãµes*/
+  .interacoes-esqueleto {
+    width: 926px;
+    height: 586px;
+    padding: 2px 2px 2px 2px;
+    box-sizing: border-box;
+  }
+
+  .heart-icon {
+    cursor: pointer;
+    transition: fill 0.3s ease-in-out;
+  }
+
+  img.azul {
+    content: url(https://files.axshare.com/gsc/V8CDR5/14/98/53/149853897c1d4acaafb2a9e4cf5619cd/images/perfil/u17.svg?pageId=3e54c061-96d3-4029-9a62-74e3821412f8)
+  }
+
+  img.vermelho {
+    content: url(https://files.axshare.com/gsc/V8CDR5/14/98/53/149853897c1d4acaafb2a9e4cf5619cd/images/perfil/u18.svg?pageId=3e54c061-96d3-4029-9a62-74e3821412f8)
+  }
+
+  .comentario-interacoes {
+    width: 835px;
+    height: 150px;
+    background-color: #e4e4e4;
+    margin-top: 50px;
+    margin-left: 2vw;
+    border-radius: 15px;
+  }
+
+  .roxoresposta {
+    background-color: #9e5fef;
+    height: 30px;
+    border-top-left-radius: 20px;
+    border-top-right-radius: 20px;
+
+  }
+
+  .comentouint {
+    margin-left: 110px;
+    margin-top: -80px;
+  }
+
+  .cometint {
+
+    margin-left: 110px;
+    margin-top: 7px;
+    font-family: "Fira Sans", sans-serif;
+    font-size: 20px;
+  }
+
+  .userint {
+    font-family: "Fira Sans Bold", "Fira Sans", sans-serif;
+    font-size: 20px;
+    height: 20px;
+    margin-left: 40px;
+    margin-top: -20px;
+
+  }
+
+  .comentarioint {
+    margin-left: 42vw;
+  }
+
+  .respondeuint {
+    font-family: "Fira Sans Bold", "Fira Sans", sans-serif;
+    color: #ffd662;
+    font-size: 20px;
+    height: 20px;
+    margin-top: -20px;
+    margin-left: 220px;
+  }
+
+  .ygona {
+    border-radius: 200%;
+    width: 80px;
+    height: 80px;
+    margin-left: 10px;
+    margin-top: 10px;
+    border-color: #9e5fef;
+  }
+
+  /*Fim de interaÃ§Ãµes*/
+
+  #editar-perfil-popup {
+    position: fixed;
+    padding: 1%;
+    border-radius: 10px;
+    z-index: 300;
+    width: 30%;
+    margin-top: 2%;
+    margin-left: 35%;
+    height: 725px;
+    background-color: #f9f9f9;
+  }
+
+  #fundo-editar-perfil {
+    position: fixed;
+    background: #000000a3;
+    width: 1920px;
+    height: 1080px;
+    z-index: 299;
+  }
+
+  .xis-sair {
+    color: #4d16bb;
+    cursor: pointer;
+  }
+
+  .banner-editar {
+    width: 30vw;
+    margin-top: 20px;
+    height: 95px;
+  }
+
+  .foto-editar {
+    transform: translate(-100.5px, -63px);
+    height: 90px;
+  }
+
+  .fundo-foto-editar {
+    transform: translate(0px, -58px);
+    height: 100px;
+  }
+
+  .editar-foto-camera {
+    width: 35px;
+  }
+
+  #camera1 {
+    transform: translate(26vw, -12vh);
+  }
+
+  #camera2 {
+    transform: translate(-130px, -60px);
+  }
+
+  #tit1 {
+    margin-top: -40px;
+  }
+
+  .tit-editar {
+    font-family: Heavitas;
+    font-weight: 400;
+    font-size: 18px;
+    margin-left: 45px;
+    color: #4d16bb;
+  }
+
+  .tit-duas {
+    display: flex;
+    justify-content: space-between;
+    margin-right: 120px;
+  }
+
+  .tex-editar {
+    margin-top: 10px;
+    margin-bottom: 20px;
+    margin-left: 45px;
+    border-top: none;
+    border-left: none;
+    border-right: none;
+    border-bottom: 1.5px solid #333333;
+    width: 83%;
+    background: none;
+    font-family: Fira Sans;
+    font-size: 16px;
+    outline: none;
+  }
+
+  .tex-editar::placeholder {
+    color: #333333;
+    font-family: Fira Sans;
+    outline: none;
+  }
+
+  .tex-duas {
+    display: flex;
+    justify-content: space-between;
+    margin-right: 45px;
+  }
+
+  .redes-editar img {
+    height: 30px;
+  }
+
+  .redes-editar {
+    width: 83%;
+    margin-left: 45px;
+    display: flex;
+    justify-content: space-between;
+  }
+
+  .rede-editar {
+    margin-top: 10px;
+    padding: 2% 0% 0 12%;
+    width: 31%;
+    height: 50px;
+    border-radius: 5px;
+    background: #ffd662;
+  }
+
+  .salvar {
+    background: #4d16bb;
+    color: white;
+    border-radius: 5px;
+    margin-top: 100px;
+    margin-left: 300px;
+    width: 180px;
+    height: 45px;
+    border: none;
+    cursor: pointer;
+  }
+
+  .filtro-perfil {
+    justify-content: center;
+    padding: 0.8% 2% 0.8% 2%;
+    background-color: #F2F2F2;
+    border-radius: 5px 5px 5px 5px;
+    display: flex;
+  }
+
+  .gato-esticado {
+    width: 50vw;
+  }
+
+  .filtro-perfil {
+    margin: auto;
+    width: 50vw;
+  }
+}

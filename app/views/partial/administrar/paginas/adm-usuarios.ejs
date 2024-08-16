@@ -5,7 +5,7 @@
    <meta charset="UTF-8">
    <meta http-equiv="X-UA-Compatible" content="IE=edge">
    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-   <link rel="shortcut icon" href="imagens/favcon-adm.png" type="image/x-icon" />
+   <link rel="shortcut icon" href="imagens-svg/5-adm/favcon-adm.svg" type="image/x-icon" />
    
    <link rel="stylesheet" href="../css/style-adm-paginas.css">
 
@@ -20,14 +20,127 @@
 
       <section class="conteudo-dispositivo desktop">
          <section class="titulo-linha-pagina">
-            <img src="imagens/iconRoxoPagina-usuarios.png" alt="" class="imagem-pagina-usuarios">
+            <img src="/imagens-svg/5-adm/iconRoxoPagina-usuarios.svg" alt="" class="imagem-pagina-usuarios">
             <h1 class="titulo-pagina">USUÁRIOS</h1>
             <hr class="linha-pagina">
          </section>
    
          <section class="conteudo-pagina">
-            
+            <!-- tabela Denúncias - Inicio -->
+               <section id="menu-filtros-denuncias" class="grid-menu-filtros-usuario">
+                  <figure id="titulo-id-postagem" class="linha-1-titulos">ID</figure>
+                  <figure id="titulo-email-usuario" class="linha-1-titulos">Nome</figure>
+                  <figure id="titulo-nome-usuario" class="linha-1-titulos">E-mail</figure>
+                  <figure id="titulo-cadastro-usuario" class="linha-1-titulos">Cadastro</figure>
+                  <figure id="titulo-premium-usuario" class="linha-1-titulos">Premium</figure>
+                  
+                  <article id="pesquisar-usuario" class="linha-1-titulos">
+                     <img class="icone-pesquisa" src="/imagens-svg/5-adm/pesquisa-cinza.svg" alt="">
+                     <input class="pesquisa-input" type="text" id="myInput" onkeyup="myFunction()" placeholder="Pesquisar ID ou perfil..."> <!-- pesquisa (search) na tabala - onkeyup é quando um user digita -->
+                  </article>
+
+                  <select id="filtro-conteudo-denuncia" class="linha-2-filtros">
+                     <option value="" id="opcao-conteudo-denuncia" class="opcao-denuncia-filtro">123...</option>
+                     <option value="" id="opcao-conteudo-denuncia" class="opcao-denuncia-filtro">123...</option>
+                     <option value="" id="opcao-conteudo-denuncia" class="opcao-denuncia-filtro">123...</option>
+                  </select>
+
+                  <select id="filtro-motivo-denuncia" class="linha-2-filtros">
+                     <option value="" id="opcao-motivo-denuncia" class="opcao-denuncia-filtro">A-Z</option>
+                  </select>
+
+                  <select id="filtro-categoria-denuncia" class="linha-2-filtros">
+                     <option value="" id="opcao-categoria-denuncia" class="opcao-denuncia-filtro">abc@gmail...</option>
+                  </select>
+
+                  <select id="filtro-autor-denuncia" class="linha-2-filtros">
+                     <option value="" id="opcao-autor-denuncia" class="opcao-denuncia-filtro">dd/mm/aaaa</option>
+                  </select>
+
+                  <select id="filtro-status-denuncia" class="linha-2-filtros">
+                     <option value="" id="opcao-status-denuncia" class="opcao-denuncia-filtro">Premium</option>
+                     <option value="" id="opcao-status-denuncia" class="opcao-denuncia-filtro">Comum</option>
+                  </select>
+               </section>
+
+               <section class="fundo-tabela-usuario">
+                  <table class="tabela-usuario" id="myTable">
+                     
+                     <tr class="cabeçalho-tabela-usuario">
+                        <th style="width: 21vh; padding-left: 3vh;" class="titulo-tabela-usuario">ID</th>
+                        <th style="width: 40vh;" class="titulo-tabela">Nome</th>
+                        <th style="width: 50vh;" class="titulo-tabela">E-mail</th>
+                        <th style="width: 30vh;" class="titulo-tabela">Cadastro</th>
+                        <th style="width: 40vh;" class="titulo-tabela">Premium</th>
+                        <th style="width: 3vh;" class="titulo-tabela"></th>
+                        <th style="width: 3vh;" class="titulo-tabela"></th>
+                     </tr>
+
+                     <tr class="linhas"> <!-- Conteudo da tabela -->
+                        <td class="linha-usuario Coluna-id">#10.049</td>
+                        <td class="linha-usuario Coluna-autor" data-autor="true">Usuário</td>
+                        <td class="linha-usuario Coluna-email">emaildousuario@gmail.com</td>
+                        <td class="linha-usuario Coluna-cadastro">27/06/2024</td>
+                        <td class="linha-usuario">
+                           <p class="Coluna-comum">Comum</p>
+                        </td>
+                        <td class="linha-usuario"> <img class="icon-rosa-linha visualizar-icon-postagem" src="/imagens-svg/visualizar-icon-rosa.svg" alt=""></td>
+                        <td class="linha-usuario"> <img class="icon-rosa-linha excluir-icon-postagem" src="/imagens-svg/excluir-icon-rosa.svg" alt=""></td>
+                     </tr>
+
+                     <tr class="linhas"> <!-- Conteudo da tabela -->
+                        <td class="linha-usuario Coluna-id">#10.049</td>
+                        <td class="linha-usuario Coluna-autor" data-autor="true">Usuário</td>
+                        <td class="linha-usuario Coluna-email">emaildousuario@gmail.com</td>
+                        <td class="linha-usuario Coluna-cadastro">27/06/2024</td>
+                        <td class="linha-usuario">
+                           <p class="Coluna-comum">Comum</p>
+                        </td>
+                        <td class="linha-usuario"> <img class="icon-rosa-linha visualizar-icon-postagem" src="/imagens-svg/visualizar-icon-rosa.svg" alt=""></td>
+                        <td class="linha-usuario"> <img class="icon-rosa-linha excluir-icon-postagem" src="/imagens-svg/excluir-icon-rosa.svg" alt=""></td>
+                     </tr>
+
+                     <tr class="linhas"> <!-- Conteudo da tabela -->
+                        <td class="linha-usuario Coluna-id">#10.049</td>
+                        <td class="linha-usuario Coluna-autor" data-autor="true">Usuário</td>
+                        <td class="linha-usuario Coluna-email">emaildousuario@gmail.com</td>
+                        <td class="linha-usuario Coluna-cadastro">27/06/2024</td>
+                        <td class="linha-usuario">
+                           <p class="Coluna-premium">Premium</p>
+                        </td>
+                        <td class="linha-usuario"> <img class="icon-rosa-linha visualizar-icon-postagem" src="/imagens-svg/visualizar-icon-rosa.svg" alt=""></td>
+                        <td class="linha-usuario"> <img class="icon-rosa-linha excluir-icon-postagem" src="/imagens-svg/excluir-icon-rosa.svg" alt=""></td>
+                     </tr>
+
+                     <tr class="linhas"> <!-- Conteudo da tabela -->
+                        <td class="linha-usuario Coluna-id">#10.049</td>
+                        <td class="linha-usuario Coluna-autor" data-autor="true">Usuário</td>
+                        <td class="linha-usuario Coluna-email">emaildousuario@gmail.com</td>
+                        <td class="linha-usuario Coluna-cadastro">27/06/2024</td>
+                        <td class="linha-usuario">
+                           <p class="Coluna-comum">Comum</p>
+                        </td>
+                        <td class="linha-usuario"> <img class="icon-rosa-linha visualizar-icon-postagem" src="/imagens-svg/visualizar-icon-rosa.svg" alt=""></td>
+                        <td class="linha-usuario"> <img class="icon-rosa-linha excluir-icon-postagem" src="/imagens-svg/excluir-icon-rosa.svg" alt=""></td>
+                     </tr>
+                     
+                     <tr class="linhas"> <!-- Conteudo da tabela -->
+                        <td class="linha-usuario Coluna-id">#10.049</td>
+                        <td class="linha-usuario Coluna-autor" data-autor="true">Usuário</td>
+                        <td class="linha-usuario Coluna-email">emaildousuario@gmail.com</td>
+                        <td class="linha-usuario Coluna-cadastro">27/06/2024</td>
+                        <td class="linha-usuario">
+                           <p class="Coluna-premium">Premium</p>
+                        </td>
+                        <td class="linha-usuario"> <img class="icon-rosa-linha visualizar-icon-postagem" src="/imagens-svg/visualizar-icon-rosa.svg" alt=""></td>
+                        <td class="linha-usuario"> <img class="icon-rosa-linha excluir-icon-postagem" src="/imagens-svg/excluir-icon-rosa.svg" alt=""></td>
+                     </tr>       
+                     
+                  </table>
+               </section>
+            <!-- tabela Denúncias - Fim -->
          </section>
+
       </section>
    </main>
 </body>

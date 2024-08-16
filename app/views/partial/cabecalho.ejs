@@ -4,25 +4,35 @@
     <section class="header-dispositivo-mobile">
        <nav class="logos">
           <article class="login">
-             <a href="/login">
-                <img src="imagens/user_icon.png" alt="Faça Login">
+            <% if (usuario_logado && usuario_logado.autenticado) { %>
+             <a href="">
+                <img src="imagens-svg/1-cabeçalho/user_icon.svg" alt="Faça Login">
              </a>
           </article>
+          
+            <% } else {%>
+            <a href="/login">
+               <img src="imagens-svg/1-cabeçalho/user_icon.svg" alt="Faça Login">
+            </a>
+         </article>
+         
+            <% } %>
+
           <article class="logo">
-             <a href="partial/index.ejs">
-                <img src="imagens/ComoQueFaz_logo.png" alt="Logo do ComoQueFaz">
+             <a href="/">
+                <img src="imagens-svg/1-cabeçalho/ComoQueFaz_logo.svg" alt="Logo do ComoQueFaz">
              </a>
           </article>
           <article class="search">
              <a href="/">
-                <img src="imagens/search_icon.png" alt="Ícone de Pesquisa">
+                <img src="imagens-svg/1-cabeçalho/search_icon.svg" alt="Ícone de Pesquisa">
              </a>
           </article>
        </nav>
        <nav class="topcs">
-          <a class="culinaria" href="https://grupo4-tca.github.io/Como-que-faz/Categoria-Culinária">CULINÁRIA</a>
-          <a class="limpeza" href="https://grupo4-tca.github.io/Como-que-faz/Categoria-Limpeza">LIMPEZA</a>
-          <a class="bem-estar" href="https://grupo4-tca.github.io/Como-que-faz/Categoria-Bem-Estar">BEM-ESTAR</a>
+          <a class="culinaria" href="/culinaria">CULINÁRIA</a>
+          <a class="limpeza" href="/limpeza">LIMPEZA</a>
+          <a class="bem-estar" href="/bem-estar">BEM-ESTAR</a>
        </nav>
     </section>
 
@@ -31,7 +41,7 @@
          
             <% if (usuario_logado && usuario_logado.autenticado) { %>
                <aside id="container" onmouseover="showDiv1()" onmouseout="hideDiv1()" onclick="ToggleMenu()" class="login">
-                  <img id="img-usuario" src="imagens/user_icon.png" alt="Faça Login"> <!-- ícone usuário -->
+                  <img id="img-usuario" src="imagens-svg/1-cabeçalho/user_icon.svg" alt="Faça Login"> <!-- ícone usuário -->
 
                   <article id="hide-hover-span">
                      <p class="p-1" id="text-user-hover">Seja bem vindo(a)!</p>
@@ -46,6 +56,10 @@
                   <ul class="menu_hamburguer_usuario" id="menu_hamburguer">
                      <a href="/perfil">
                         <li class="opcao_menu_hamburguer">Ver Perfil</li></a>
+                        <% if (usuario_logado.tipo != 1) { %>
+                           <a href="/adm"> 
+                              <li class="opcao_menu_hamburguer">Dashboard ADM</li></a>
+                        <% } %>
                      <a href="/notificacoes">
                         <li class="opcao_menu_hamburguer">Notificações</li></a>
                      <a href="/favoritos">
@@ -62,7 +76,7 @@
             <a href="/login" class="link-login">
                <aside id="container" onmouseover="showDiv1()" onmouseout="hideDiv1()" class="login">
                   <img id="img-login_hover" src="imagens/user_icon_hover.svg" alt="Faça Login">
-                  <img id="img-login" src="imagens/user_icon.png" alt="Faça Login">
+                  <img id="img-login" src="imagens-svg/1-cabeçalho/user_icon.svg" alt="Faça Login">
 
                   <article id="hide-hover-span">
                      <p class="p-1" id="text-user-hover">Faça Login!</p>
@@ -76,7 +90,7 @@
 
           <article class="logo">  <!-- logomarca -->
              <a href="/">
-                <img src="imagens/ComoQueFaz_logo.png" alt="Logo do ComoQueFaz">
+                <img src="imagens-svg/1-cabeçalho/ComoQueFaz_logo.svg" alt="Logo do ComoQueFaz">
              </a>
           </article>
 
@@ -86,13 +100,13 @@
                <label id="inserir-pesquisa"></label>
             </article>
 
-             <img src="imagens/search_icon.png" alt="Ícone de Pesquisa">
+             <img src="imagens-svg/1-cabeçalho/search_icon.svg" alt="Ícone de Pesquisa">
           </aside>
        </nav>
        <nav id="categorias" class="topcs">
-          <a class="culinaria" href="https://grupo4-tca.github.io/Como-que-faz/Categoria-Culinária">CULINÁRIA</a>
-          <a class="limpeza" href="https://grupo4-tca.github.io/Como-que-faz/Categoria-Limpeza">LIMPEZA</a>
-          <a class="bem-estar" href="https://grupo4-tca.github.io/Como-que-faz/Categoria-Bem-Estar">BEM-ESTAR</a>
+          <a class="culinaria" href="/culinaria">CULINÁRIA</a>
+          <a class="limpeza" href="/limpeza">LIMPEZA</a>
+          <a class="bem-estar" href="/bem-estar">BEM-ESTAR</a>
        </nav>
     </section>
  </header>

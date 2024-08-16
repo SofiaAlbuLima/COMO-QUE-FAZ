@@ -11,6 +11,7 @@ function myFunction() {
     filter = input.value.toUpperCase();
     table = document.getElementById("myTable");
     tr = table.getElementsByTagName("tr");
+
     // Loop through all table rows, and hide those who don't match the search query
     for (i = 0; i < tr.length; i++) {
       td = tr[i].getElementsByTagName("td")[4];
@@ -29,112 +30,133 @@ function myFunction() {
     FuncaoCelulas();
 });
 
+
+
+
+
+//imagem na coluna autor
 function FuncaoCelulas() {
   var table = document.getElementById("myTable");
   var tr = table.getElementsByTagName("tr");
 
-  for (i = 0; i < tr.length; i++) {
-    var cells = tr[i].getElementsByTagName("td"); // Obtém todas as células da linha
-    
-    for (var j = 0; j < cells.length; j++) { // Percorre todas as células da linha
-        var cell = cells[j];
-        txtValue = cell.textContent || cell.innerText;
-        
-        // Exemplo de lógica para atribuir classes e IDs com base no conteúdo da célula
-        if (txtValue === "Perfil") {
-            cell.classList.add("Conteudo");
-            var texto = document.createElement("p");
-            var figure = document.createElement("figure");
+  for (var i = 0; i < tr.length; i++) {
+    var cells = tr[i].getElementsByTagName("td");
 
-            texto.innerHTML = "Perfil";
-            texto.classList.add("p-perfil", "p-conteudo");
-            cell.appendChild(texto);
+    // Verificar se a célula contém o atributo data-autor
+    var autorCell = Array.from(cells).find(cell => cell.hasAttribute('data-autor'));
+    if (autorCell) {
+      var txtValue = autorCell.textContent || autorCell.innerText;
 
-            figure.classList.add("figure-perfil", "figure-conteudo");
-            cell.appendChild(figure);
+      // Adicionar classe e imagem à célula "Autor" apenas uma vez
+      if (!autorCell.classList.contains("img-added")) {
+        autorCell.classList.add("Coluna-autor", "img-added");
 
-        } else if (txtValue === "Pergunta") {
-          cell.classList.add("Conteudo");
-          var texto = document.createElement("p");
-          var figure = document.createElement("figure");
+        // Criar um elemento de imagem e adicioná-lo à célula
+        var img = document.createElement("img");
+        img.src = "/imagens-svg/foto-perfil-autor.svg";
+        img.alt = "Autor";
+        img.classList.add("img-autor");
+        img.style.marginBottom = "-0.3vw";
+        img.style.marginRight = "0.6vw";
 
-          texto.innerHTML = "Pergunta";
-          texto.classList.add("p-pergunta", "p-conteudo");
-          cell.appendChild(texto);
-
-          figure.classList.add("figure-pergunta", "figure-conteudo");
-          cell.appendChild(figure);
-
-
-        } else if (txtValue === "Postagem") {
-          cell.classList.add("Conteudo");
-          var texto = document.createElement("p");
-          var figure = document.createElement("figure");
-
-          texto.innerHTML = "Postagem";
-          texto.classList.add("p-postagem", "p-conteudo");
-          cell.appendChild(texto);
-
-          figure.classList.add("figure-postagem", "figure-conteudo");
-          cell.appendChild(figure);
-
-
-        } else if (txtValue === "Comentário") {
-          cell.classList.add("Conteudo");
-          var texto = document.createElement("p");
-          var figure = document.createElement("figure");
-
-          texto.innerHTML = "Comentário";
-          texto.classList.add("p-conteudo", "p-comentario");
-          cell.appendChild(texto);
-
-          figure.classList.add("figure-conteudo", "figure-comentario");
-          cell.appendChild(figure);
-
-
-        } else if (txtValue === "Analisada e Avaliada") {
-              cell.classList.add("Status");
-              var texto = document.createElement("p");
-              var figure = document.createElement("figure");
-
-              texto.innerHTML = "Analisada e Avaliada";
-              texto.classList.add("p-analisadaAvaliada", "p-status");
-              cell.appendChild(texto);
-
-              figure.classList.add("figure-analisadaAvaliada", "figure-status");
-              cell.appendChild(figure);
-
-
-          } else if (txtValue === "Não Analisada") {
-            cell.classList.add("Status");
-            var texto = document.createElement("p");
-            var figure = document.createElement("figure");
-
-            texto.innerHTML = "Não Analisada";
-            texto.classList.add("p-naoAnalisada", "p-status");
-            cell.appendChild(texto);
-
-            figure.classList.add("figure-naoAnalisada", "figure-status");
-            cell.appendChild(figure);
-
-
-          } else if (txtValue === "Analisada") {
-            cell.classList.add("Status");
-            var texto = document.createElement("p");
-            var figure = document.createElement("figure");
-
-            texto.innerHTML = "Analisada";
-            texto.classList.add("p-analisada", "p-status");
-            cell.appendChild(texto);
-
-            figure.classList.add("figure-analisada", "figure-status");
-            cell.appendChild(figure);
-
-
-          } else {
-                // Caso padrão, se não corresponder a nenhum critério específico
-                cell.classList.add("classe-padrao");
-            }
+        // Adicionar a imagem antes do texto do autor
+        autorCell.insertBefore(img, autorCell.firstChild);
+      }
     }
+  }
 }
+
+
+
+
+
+
+// //função da imagem "detalhes da denúncia"
+function clickMenu() {
+  if (asideDetalhes.style.display == 'block') {
+    asideDetalhes.style.display = 'none'
+  } else {
+    asideDetalhes.style.display = 'block'
+  }
 }
+
+
+
+
+
+document.addEventListener('DOMContentLoaded', function() {
+            // Função para criar o <tr> com o conteúdo do <aside>
+            function criarLinhaAside() {
+                const tr = document.createElement('tr');
+                tr.className = 'linhas';
+                tr.id = 'asideDetalhes';
+                tr.style.display.add('none'); // Adiciona a classe hidden por padrão
+                tr.innerHTML = `
+                    <td class="linha-aside" style="border: none;">
+                        <aside class="asideDetalhes">
+                            <article class="linha-detalhe-denuncia">
+                                <section class="conteudo-detalhe-denuncia">
+                                    <section class="grid-info-usuario">
+                                        <h1 class="titulo-detalhamento-denuncia">ID da denúncia</h1>
+                                        <h1 class="titulo-detalhamento-denuncia">Usuário Denunciado</h1>
+                                        <h1 class="titulo-detalhamento-denuncia">Detalhamento</h1>
+                                        <figure class="info-detalhe-denuncia">#10.020</figure>
+                                        <figure class="info-detalhe-denuncia">
+                                            <img src="/imagens-svg/foto-perfil-autor.svg" alt="" class="foto-usu-detalhe-denuncia">
+                                            Perfil
+                                        </figure>
+                                        <figure class="info-detalhe-denuncia">
+                                            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean euismod bibendum laoreet. Proin gravida dolor sit amet lacus accumsan et viverra justo commodo.
+                                        </figure>
+                                    </section>
+                                    <section class="grid-btn-detalhes-denuncia">
+                                        <a class="link-btn-detalhes-denuncia" href="http://">
+                                            <section class="btn-detalhes-denuncia">
+                                                <img src="/imagens-svg/visualizar-icon-rosa.svg" alt="" class="img-btn-detalhes-denuncia">
+                                                <h1 class="txt-btn-detalhes-denuncia">Visualizar conteúdo denunciado</h1>
+                                            </section>
+                                        </a>
+                                        <a class="link-btn-detalhes-denuncia" href="http://">
+                                            <section class="btn-detalhes-denuncia">
+                                                <img src="/imagens-svg/bloquear-icon-rosa.svg" alt="" class="img-btn-detalhes-denuncia">
+                                                <h1 class="txt-btn-detalhes-denuncia">Suspender Usuário Denunciado</h1>
+                                            </section>
+                                        </a>
+                                        <a class="link-btn-detalhes-denuncia" href="http://">
+                                            <section class="btn-detalhes-denuncia">
+                                                <img src="/imagens-svg/excluir-icon-rosa.svg" alt="" class="img-btn-detalhes-denuncia">
+                                                <h1 class="txt-btn-detalhes-denuncia">Descartar Denúncia</h1>
+                                            </section>
+                                        </a>
+                                    </section>
+                                </section>
+                            </article>
+                        </aside>
+                    </td>
+                `;
+                return tr;
+            }
+
+            // Seleciona todas as linhas com a classe "linhas-denuncias"
+            const linhasDenuncias = document.querySelectorAll('.linhas-denuncias');
+
+            linhasDenuncias.forEach(linha => {
+                // Verifica se o <tr> com o id "asideDetalhes" já existe após a linha atual
+                if (!linha.nextElementSibling || !linha.nextElementSibling.classList.contains('linhas')) {
+                    const linhaAside = criarLinhaAside();
+                    linha.insertAdjacentElement('afterend', linhaAside);
+                }
+            });
+
+            // Função para alternar a visibilidade dos detalhes
+            function clickMenu() {
+              if (asideDetalhes.style.display == 'block') {
+                asideDetalhes.style.display = 'none'
+              } else {
+                asideDetalhes.style.display = 'block'
+              }
+            }
+
+            // Adiciona o evento de clique ao botão
+            document.getElementById('toggleButton').addEventListener('click', clickMenu);
+        });

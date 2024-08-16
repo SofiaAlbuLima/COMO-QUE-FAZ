@@ -31,8 +31,6 @@
     z-index: 2;  
 }
 
-
-
 /* Icone Adm e Divisão - Inicio */
 .Imagem-PaginaIncial{
     width: 16vh;
@@ -70,8 +68,8 @@
 }
 .opcao h3{
     display: inline-block;
-    font-family: Fira Sans;
-    font-weight: 500;
+    font-family: "Fira Sans Bold", "Fira Sans", sans-serif;
+    font-weight: 700;
     font-size: 1.8vh;
     color: white;
 }
@@ -130,17 +128,19 @@
 .perfilmADM{
     display: inline-flex;
     position: relative;
-    font-family: Fira Sans;
+    font-family: "Fira Sans Bold", "Fira Sans", sans-serif;
+    font-weight: 700;
     color: white;
 }
 .bemvindo{
     font-size: 1.5vh;
-    transform: translate(0px, -3.8vh);
-    font-weight: 300;
+    transform: translate(0px, -2.5vh);
+    font-family: "Fira Sans Bold", "Fira Sans", sans-serif;
+    font-weight: 700;
 }
 .Admin{
     font-size: 1.8vh;
-    transform: translate(5.3vh, -3.8vh);
+    transform: translate(5.3vh, -2.5vh);
 }
 .perfil-administrador{
     height: 5vh;
@@ -148,6 +148,8 @@
 .sair-da-conta{
     margin-top: 3vh;
     margin-left: 0.8vh;
+    font-family: "Fira Sans Bold", "Fira Sans", sans-serif;
+    font-weight: 700;
 }
 .icone-sair{
     width: 2vh;

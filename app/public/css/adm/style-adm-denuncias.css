@@ -1,34 +1,33 @@
 .grid-menu-filtros-denuncias{
     display: grid;
-    grid-template-columns: 10% 19% 10% 10% 15% 30%;
-    grid-template-rows: 40% 40%;
-    grid-column-gap: 2%;
+    grid-template-columns: 12.3% 22% 10% 7% 18% 30%;
+    grid-template-rows: 27% 47%;
+    grid-column-gap: 1%;
 }
 
 .linha-1-titulos{
     display: inline;
     margin-left: 10%;
     font-family: "Fira Sans", sans-serif;
+    font-size: 1.6vh;
+    letter-spacing: 0.1vh;
 }
 
 .linha-2-filtros{
     display: inline;
-    padding: 2px 2px 2px 2px;
+    padding: 5px 10px 5px 15px;
     border-radius: 5px;
-    margin-top: -0.6vw;
-    background-color: #d3d3d3;
     color: #333333;
+    letter-spacing: 0.06vh;
     border: none;
     font-family: "Fira Sans Bold", "Fira Sans", sans-serif;
     font-weight: 700;
+    font-size: 1.6vh;
     text-align: left;
     line-height: normal;
-    letter-spacing: 0.5px;
-    -webkit-appearance: none;
-    -moz-appearance: none;
     appearance: none;
-    background: url(/imagens/seta-para-baixo.svg) 96% / 15% no-repeat #ccc;
-    background-size: 1vw;
+    background: url(/imagens/seta-para-baixo.svg) 96% / 15% no-repeat #d2d2d2;
+    background-size: 0.8vw;
 
     &:focus{
         outline: 0;
@@ -36,50 +35,58 @@
 }
 
 #pesquisar{
-    margin-left: 55.6vw;
+    margin-left: 9.4vh;
 }
 
 .icone-pesquisa{
     width: 2.2vh;
     position: absolute;
-    margin: 1.8vh 0 0 2.2vh;
+    margin: 1.8vh 0 0 2.8vh;
 }
 .pesquisa-input{
     height: 6vh;
     width: 25.5vh;
     border-radius: 40px;
-    padding-left: 6vh;
-    font-size: 1.8vh;
+    padding-left: 7vh;
+    font-size: 2vh;
+    font-family: "Fira Sans", sans-serif;
     border: none;
     box-shadow: 0px 5px 5px rgba(0, 0, 0, 0.11372549019607843);
-    font-weight: 500;
 }
+.pesquisa-input::placeholder {
+    color: #a3a3a3; /* Cor desejada para o placeholder */
+  }
+  
 .fundo-tabela{
-    width: 135vh;
+    width: 140vh;
     height: 59.4vh;
     background-color: white;
     border-radius: 10px;
-    margin-top: 3vh;
+    margin-top: 0.5vh;
     box-shadow: 0px 0px 13px rgba(0, 0, 0, 0.09019607843137255);
     padding-top: 2.6vh;
-    padding-left: 4vh;
+    padding-left: 4.5vh;
     padding-right: 4vh;
     padding-bottom: 2vh;
+    overflow-y: auto;
+    overflow-x: hidden;
 }
+
 .tabela{
     border-collapse: collapse;
-    width: 135vh;
+    width: 137vh;
+    padding-top: 20vh;
 }
 
 .cabeçalho-tabela{
     background-color: #EEE3FC;
-    border: 2px solid #9E5FEF;
-    border-radius: 10px;
+    border: 2.6px solid #9d5fefea;
 }
+
 .titulo-tabela{
-    height: 7.5vh;
-    font-family: Fira Sans;
-    font-size: 1.7vh;
+    height: 8vh;
+    font-family: "Fira Sans", sans-serif;
+    font-size: 1.9vh;
     color: #333333;
     text-align: left;
     padding-right: 2vh;
@@ -89,104 +96,146 @@
     padding-bottom: 3vh;
     padding-top: 3vh;
     border-bottom: 1px solid #33333364;
+    font-family: "Fira Sans Bold", "Fira Sans", sans-serif;
 }
 
 /* Classes das celulas dinâmicas - Inicio */
 /* Coluna Conteúdo - Inicio */
-.classe-padrao{
-    color: #333333;
-    font-family: Fira Sans;
-    font-size: 1.7vh;
-}
-.p-conteudo{
-    position: absolute;
-    z-index: 1;
-    transform: translate(1.5vh,-2vh);
-    height: 2vh;
-}
-.Conteudo{
-    color: #5800AA;
-    font-family: Fira Sans;
-    font-size: 1.7vh;
-    font-weight: 800;
-}
-.figure-conteudo{
-    background-color: #F1F1F1 ;
-    position: absolute;
-    border-radius: 5px;
-    z-index: 0;
-    transform: translate(0,-3vh);
-    height: 4vh;
+.ver-detalhes-denuncia{
+    margin-left: 2.4vh;
+    border: 0.2vh solid #CB218C;
+    border-radius: 0.7vh;
+    padding: 1vh 1.4vh 1vh 1.4vh;
+    cursor: pointer;
 }
 
-.figure-perfil{
-    width: 7.5vh;
-}
-.p-perfil{
-    width: 4.5vh;
-}
-.figure-pergunta{
-    width: 10vh;
-}
-.p-pergunta{
-    width: 7vh;
-}
-.figure-postagem{
-    width: 11vh;
-}
-.p-postagem{
-    width: 8vh;
-}
-.figure-comentario{
-    width: 12vh;
-}
-.p-comentario{
-    width: 9vh;
+.Coluna-conteudo{
+    display: inline-block;
+    max-width: 13vh;
+    height: 2.3vh;
+    text-align: center;
+    color: #5800AA;
+    font-family: "Fira Sans", sans-serif;
+    font-size: 1.8vh;
+    font-weight: 700;
+    background-color: #F1F1F1 ;
+    border-radius: 5px;
+    padding: 1vh 2vh 1vh 2vh;
 }
 /* Coluna Conteúdo - Fim */
 
 /* Coluna Status - inicio */
-
-.Status{
+.Coluna-status{
+    display: inline-block;
+    height: 2.3vh;
+    text-align: center;
     color: white;
-    font-family: Fira Sans;
+    font-family:  "Fira Sans Bold", "Fira Sans", sans-serif;
     font-size: 1.7vh;
-    font-weight: 800;
-}
-.figure-status{
-    height: 4vh;
-    position: absolute;
+    font-weight: 700;
     border-radius: 5px;
-    z-index: 0;
-    transform: translate(0,-3vh);
-}
-.p-status{
-    height: 2vh;
-    position: absolute;
-    z-index: 1;
-    transform: translate(3vh,-2vh);
+    padding: 1vh 2vh 1vh 2vh;
 }
 
-.figure-analisadaAvaliada{
-    width: 23vh;
+.analisadaAvaliada{
     background-color: #5800AA;
 }
-.p-analisadaAvaliada{
-    width: 16vh;
-}
-.figure-naoAnalisada{
-    width: 18vh;
+
+.naoAnalisada{
     background-color: #CB218C;
 }
-.p-naoAnalisada{
-    width: 12vh;
-}
-.figure-analisada{
-    width: 14vh;
+
+.analisada{
     background-color: #F0C75C;
-}
-.p-analisada{
-    width: 8vh;
 }
 /* Coluna Status - Fim */
 /* Classes das celulas dinâmicas - Fim */
+
+.linha-aside{
+    height: 18vh;
+    padding-bottom: 3vh;
+    border-bottom: 1px solid #33333364;
+    font-family: "Fira Sans Bold", "Fira Sans", sans-serif;
+}
+
+.asideDetalhes{
+    padding-bottom: 1vh;
+    position: absolute;
+    border-bottom: 1px solid #33333364;
+}
+
+.linha-detalhe-denuncia{
+    height: 18vh;
+    width: 133vh;
+    padding: 2vh;
+    margin-top: -10vh;
+    background-color: #ececec;
+    border-bottom-left-radius: 1vh;
+    border-bottom-right-radius: 1vh;
+}
+
+.conteudo-detalhe-denuncia{
+    height: 14vh;
+    border-left: #CB218C solid 0.4vh;
+    padding: 2vh;
+}
+
+.grid-info-usuario{
+    display: grid;
+    grid: auto-flow / 18vh 23vh 80vh;
+}
+
+.titulo-detalhamento-denuncia{
+    font-family: "Fira Sans Bold", "Fira Sans", sans-serif;
+    font-weight: 700;
+    font-size: 1.6vh;
+    margin-bottom: 1vh;
+    color: #cb218c;
+    line-height: normal;
+    letter-spacing: 0.5px;
+}
+
+.info-detalhe-denuncia{
+    display: flex;
+    align-items: center;
+    margin-bottom: 3.5vh;
+}
+
+.foto-usu-detalhe-denuncia{
+    margin-right: 1vh;
+}
+
+.grid-btn-detalhes-denuncia{
+    display: grid;
+    grid-template-columns: 29vh 28vh 25vh;
+    gap: 2vh;
+}
+
+.link-btn-detalhes-denuncia{
+    text-decoration: none;
+}
+
+.btn-detalhes-denuncia{
+    display: flex;
+    width: max-content;
+    padding: 0vh 1vh 0vh 1vh;
+    height: 4vh;
+    border: #cb218c solid 0.3vh;
+    border-radius: 0.5vh;
+    justify-content: center;
+    align-items: center;
+}
+
+.txt-btn-detalhes-denuncia{
+    font-family: "Fira Sans Bold", "Fira Sans", sans-serif;
+    font-weight: 700;
+    font-size: 1.4vh;
+    color: #cb218c;
+    text-align: center;
+    line-height: normal;
+    letter-spacing: 0.5px;
+}
+
+.img-btn-detalhes-denuncia{
+    margin-right: 1vh;
+}
