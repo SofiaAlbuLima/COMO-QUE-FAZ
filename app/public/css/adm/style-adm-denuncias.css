@@ -149,18 +149,16 @@
     background-color: #F0C75C;
 }
 /* Coluna Status - Fim */
-/* Classes das celulas dinâmicas - Fim */
+/* Classes das celulas dinâmicas - Fim -----------------------------------------------------------*/
 
 .linha-aside{
     height: 18vh;
-    padding-bottom: 3vh;
     border-bottom: 1px solid #33333364;
     font-family: "Fira Sans Bold", "Fira Sans", sans-serif;
 }
 
 .asideDetalhes{
     padding-bottom: 1vh;
-    position: absolute;
     border-bottom: 1px solid #33333364;
 }
 
@@ -168,7 +166,6 @@
     height: 18vh;
     width: 133vh;
     padding: 2vh;
-    margin-top: -10vh;
     background-color: #ececec;
     border-bottom-left-radius: 1vh;
     border-bottom-right-radius: 1vh;

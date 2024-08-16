@@ -1,24 +1,9 @@
 <!DOCTYPE html>
 <html lang="pt-br">
 
-<!-- CREATE TABLE `denuncia` (
-  `ID_denuncia` int NOT NULL AUTO_INCREMENT,
-  `denuncia` varchar(45) DEFAULT NULL,
-  `status` int DEFAULT NULL,
-  `conteudo_ID_conteudo` int NOT NULL,
-  PRIMARY KEY (`ID_denuncia`),
-  KEY `fk_denuncia_conteudo_idx` (`conteudo_ID_conteudo`),
-  CONSTRAINT `fk_denuncia_conteudo` FOREIGN KEY (`conteudo_ID_conteudo`) REFERENCES `conteudo_postagem` (`ID_conteudo`)
-) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
-/*!40101 SET character_set_client = @saved_cs_client */;
-
-SELECT * FROM `bzvqunvwgtfx7ejdxnse`.conteudo_postagem t
-left join `bzvqunvwgtfx7ejdxnse`.denuncia d 
-on t.ID_conteudo = d.conteudo_ID_conteudo;
-
-SELECT d.*, p.Titulo as conteudo_postagem
+<!-- SELECT d.*, p.Titulo as conteudo_postagem
 FROM denuncia d
-JOIN conteudo_postagem p ON d.tipo_conteudo = 'postagem' AND d.conteudo_ID_conteudo = p.ID_conteudo;
+JOIN conteudo_postagem p ON d.conteudo_ID_conteudo = p.ID_conteudo;
 -->
 
 <head>
@@ -102,22 +87,30 @@ JOIN conteudo_postagem p ON d.tipo_conteudo = 'postagem' AND d.conteudo_ID_conte
                         <th style="width: 31.11vh;" class="titulo-tabela">Status</th>
                      </tr>
 
-                     <tr class="linhas-denuncias"> <!-- Conteudo da tabela -->
-                        <td class="linha"> <img class="ver-detalhes-denuncia" onclick="clickMenu()" src="/imagens-svg/add-rosa.svg" alt=""></td>
-                        <td class="linha">
-                           <p class="Coluna-conteudo">Perfil</p>
-                        </td>
-                        <td class="linha Coluna-motivo">Conteúdo Inadequado</td>
-                        <td class="linha Coluna-categoria">Cúlinária</td>
-                        <td class="linha Coluna-autor" data-autor="true">User</td>
-                        <td class="linha">
-                           <p class="Coluna-status analisadaAvaliada">Analisada e Avaliada</p>
-                        </td>
-                     </tr>
+
+
+                     <% let Conteudo=["Pergunta", "Postagem", "Comentario", "Perfil" ]
+                    model-denuncia.forEach(function(cada-denuncia){ %>
+                           <tr class="linhas-denuncias">
+                              <td class="linha"> <img class="ver-detalhes-denuncia" onclick="clickMenu()" src="/imagens-svg/add-rosa.svg" alt=""></td>
+                              <td class="linha">
+                                 <p class="Coluna-conteudo"> <%=denuncia.tipo_denuncia%> </p>
+                              </td>
+                              <td class="linha Coluna-motivo"><%=denuncia.motivo%></td>
+                              <td class="linha Coluna-categoria"><%=denuncia.idCategorias%></td>
+                              <td class="linha Coluna-autor" data-autor="true">User</td>
+                              <td class="linha">
+                                 <p class="Coluna-status analisadaAvaliada"><%=denuncia.status%></p>
+                              </td>
+                           </tr>
+                    <% }); %>
+
+
+
 
                      <tr class="linhas" id="asideDetalhes" style="display: none;" >
-                        <td class="linha-aside" style="border: none;">
-                           <aside class="asideDetalhes">
+                        <td class="linha-aside" colspan="6" style="border: none;">
+                           <asideclass="asideDetalhes">
                               <article class="linha-detalhe-denuncia">
                                  <section class="conteudo-detalhe-denuncia">
                                     <section class="grid-info-usuario">
