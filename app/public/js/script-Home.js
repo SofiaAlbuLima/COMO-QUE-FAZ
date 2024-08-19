@@ -21,14 +21,6 @@ function nextImage() {
     console.log("Next slide: " + count);
 }
 
-// Inicie o carrossel automaticamente após o carregamento da página
-// window.addEventListener("load", function () {
-//   console.log("Página carregada!"); // Adicione esta linha
-//   setInterval(nextImage, 3000);
-//   document.getElementById("radio1").checked = true;
-//   document.querySelector(".manual-btn1").style.background = "#cb218c";
-// });
-
 //------------------------------------------------------------------------------------
 
 let countD = 1;
@@ -65,4 +57,23 @@ window.addEventListener("load", function () {
   setInterval(nextImageD, 2500);
   document.getElementById("radio1D").checked = true;
   document.querySelector(".manual-btnD1-D").style.background = "#cb218c";
+});
+
+//------------------------------------------------------------------------------------
+
+document.addEventListener("DOMContentLoaded", function() {
+    // Obtém a URL atual
+    let currentUrl = window.location.href;
+
+    // Se você quiser estilizar com base em um parâmetro específico na URL:
+    let urlParams = new URLSearchParams(window.location.search);
+    let filtro = urlParams.get('filtro');
+
+    if (filtro === 'em_alta') {
+        document.querySelector('.EmAlta-Dkt').classList.add('filtro-selecionado');
+    }else if (filtro === 'recente') {
+        document.querySelector('.Recente-Dkt').classList.add('filtro-selecionado');
+    }else if (filtro === 'rapidos') {
+        document.querySelector('.Rapidas-Dkt').classList.add('filtro-selecionado');
+    }
 });

@@ -21,7 +21,6 @@ const conteudoModel = { //const que agrupa todas as funções de acesso e manipu
                     query += ` ${categoria ? 'AND' : 'WHERE'} tipo = 'dica'`;
                     break;
             }
-    
             const [total] = await pool.query(query);
             return total;
         } catch (erro) {
@@ -45,7 +44,7 @@ const conteudoModel = { //const que agrupa todas as funções de acesso e manipu
     
             switch(ordem) {
                 case 'rapidos':
-                    query += ` ${categoria ? 'AND' : 'WHERE'} tipo = 'pergunta' ORDER BY tempo ASC`;
+                    query += ` ${categoria ? 'AND' : 'WHERE'} tipo = 'dica' ORDER BY tempo ASC`;
                     break;
                 case 'em_alta':
                     query += ` ORDER BY id DESC`;

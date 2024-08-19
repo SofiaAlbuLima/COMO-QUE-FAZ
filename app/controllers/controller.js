@@ -141,7 +141,6 @@ const tarefasController = {
     MostrarPosts: async (req, res) => {
         res.locals.moment = moment;
         try {
-            // Obtendo os parâmetros da query string
             const categoriaMap = {
                 'culinaria': 1,
                 'limpeza': 2,
@@ -153,18 +152,12 @@ const tarefasController = {
                 'em-alta': 'em_alta',
                 rapidos: 'rapidos',
             };
-                
-            let categoria = categoriaMap[req.query.categoria] || null;
+            let categoria = categoriaMap[req.query.categoria] || null; //pega o valor da categoria na url da pá gina
             let filtro = req.query.filtro || 'recente';
             let pagina = req.query.pagina || 1;
-            
-            let url = `/posts?categoria=${categoria}&filtro=${filtro}&pagina=${pagina}`;
-
             let regPagina = 12;
             let inicio = (pagina - 1) * regPagina;
-            
             let results = await conteudoModel.FindPage(categoria, filtros[filtro], inicio, regPagina);
-
             let totReg = await conteudoModel.TotalReg(categoria, filtros[filtro]);
             let totalRegistros = totReg[0].total;
             let totPaginas = Math.ceil(totalRegistros / regPagina);
@@ -173,8 +166,6 @@ const tarefasController = {
                 "total_reg": totalRegistros,
                 "total_paginas": totPaginas
             };
-    
-            // Formatação do tempo
             function formatarTempo(tempo) {
                 let duracao = moment.duration(tempo, 'HH:mm:ss');
                 let horas = duracao.hours();
@@ -189,8 +180,6 @@ const tarefasController = {
                     return '';
                 }
             }
-    
-            // Combinação e formatação do conteúdo para exibição
             let combinedConteudo = results.map(conteudo => ({
                 nome: conteudo.Titulo,
                 usuario: conteudo.Clientes_idClientes,
@@ -201,15 +190,14 @@ const tarefasController = {
                 porcoes: conteudo.porcoes > 0 ? `${conteudo.porcoes} ${conteudo.porcoes > 1 ? 'Porções' : 'Porção'}` : null,
                 tipo: conteudo.tipo
             }));
-    
-            // Renderização da página
-            res.render("pages/template", {
-                pagina: { cabecalho: "cabecalho", conteudo: "index", rodape: "rodape" },
-                usuario_logado: req.session.autenticado,
+            return{
+                usuario_logado: req.session.autenticado, //indica se o usuário está logado
                 login: req.session.logado,
                 postagens: combinedConteudo,
-                paginador: paginador
-            });
+                paginador: paginador,
+                categoriaAtual: req.query.categoria || 'todas',
+                novoFiltro: req.query.filtro || 'em_alta'
+            };
     
         } catch (e) {
             console.log(e);

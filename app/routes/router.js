@@ -13,8 +13,16 @@ const { VerificarAutenticacao, limparSessao, gravarUsuAutenticado, verificarUsuA
 
 
 // Links & Template - Parte Publica
-    router.get("/", VerificarAutenticacao, function (req, res) {
-        tarefasController.MostrarPosts(req, res);
+    router.get("/", VerificarAutenticacao, async function (req, res) {
+        try {
+            const data = await tarefasController.MostrarPosts(req, res);
+            res.render("pages/template", 
+                {pagina: {cabecalho: "cabecalho", conteudo: "index", rodape: "rodape"}, 
+                ...data   
+            });
+        } catch (error) {
+            res.status(500).json({ erro: error.message });
+        }
     });
 
     router.get('/posts', tarefasController.MostrarPosts);

@@ -532,14 +532,23 @@
   border-radius: 100px 0 0 100px;
   color: #9e5fef;
   font-size: 25px;
+  text-decoration:none;
 }
 .Recente-Dkt:Hover{
   background-color: #ffd662;
   transition: 0.3s;
 }
-.Recente-Dkt:focus{
+.Recente-Dkt.filtro-selecionado{
   background-color: #cb218c;
-  color: white  ;
+  color: white;
+}
+.EmAlta-Dkt.filtro-selecionado{
+  background-color: #cb218c;
+  color: white;
+}
+.Rapidas-Dkt.filtro-selecionado{
+  background-color: #cb218c;
+  color: white;
 }
 .EmAlta-Dkt{
   padding: 0.8% 3% 0.8% 3%;
@@ -547,14 +556,11 @@
   background-color: #f0f0f0;
   color: #9e5fef;
   font-size: 25px;
+  text-decoration:none;
 }
 .EmAlta-Dkt:Hover{
   background-color: #ffd662;
   transition: 0.3s;
-}
-.EmAlta-Dkt:focus{
-  background-color: #cb218c;
-  color: white  ;
 }
 .Rapidas-Dkt{
   padding: 0.8% 3% 0.8% 3%;
@@ -563,14 +569,11 @@
   background-color: #f0f0f0;
   color: #9e5fef;
   font-size: 25px;
+  text-decoration:none;
 }
 .Rapidas-Dkt:Hover{
   background-color: #ffd662;
   transition: 0.3s;
-}
-.Rapidas-Dkt:focus{
-  background-color: #cb218c;
-  color: white  ;
 }
 .Recente:hover{
   background-color: #cb218c;
