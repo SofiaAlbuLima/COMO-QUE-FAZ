@@ -116,10 +116,16 @@ const { VerificarAutenticacao, limparSessao, gravarUsuAutenticado, verificarUsuA
         });
         
     router.get("/adm/denuncias", verificarUsuAutorizado([2], "/sair"), 
-        function (req, res) {
-            res.render("pages/template-adm",
-            {pagina: {cabecalho: "administrar/menu-administrativo", conteudo: "administrar/paginas/adm-denuncias"}, 
-            usuario_logado:req.session.autenticado});
+        async function (req, res) {
+            try {
+                const data = await tarefasController.listarDenuncias(req, res);
+                res.render("pages/template-adm",
+                    {pagina: {cabecalho: "administrar/menu-administrativo", conteudo: "administrar/paginas/adm-denuncias"}, 
+                    ...data
+                });
+            } catch (error) {
+                res.status(500).json({ erro: error.message });
+            }
     });
     router.get("/adm/postagens-perguntas", verificarUsuAutorizado([2], "/sair"), 
         function (req, res) {
@@ -145,11 +151,6 @@ const { VerificarAutenticacao, limparSessao, gravarUsuAutenticado, verificarUsuA
             {pagina: {cabecalho: "administrar/menu-administrativo", conteudo: "administrar/paginas/adm-banners"}, 
             usuario_logado:req.session.autenticado});
     });
-
-    //denuncias adm - listar elas
-    router.get("/denuncia-lista", function (req, res) {
-        tarefasController.listarDenuncias(req, res);
-      });
 
 
 module.exports = router;

@@ -331,7 +331,10 @@ const tarefasController = {
         res.locals.moment = moment;
         try {
           results = await denunciaModel.acharDenuncia();
-          res.render("pages/index", { denunciasNoControl: results });
+          return { 
+            denunciasNoControl: results,
+            usuario_logado:req.session.autenticado
+          };
         } catch (e) {
           console.log(e); // exibir os erros no console do vs code
           res.json({ erro: "Falha ao acessar dados" });
