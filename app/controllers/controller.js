@@ -3,6 +3,7 @@
 const usuarioModel = require("../models/model-usuario"); //Requisição do arquivo Model para executar ações no Banco de Dados
 const conteudoModel = require("../models/model-conteudo");
 const imagemModel = require("../models/model-midia");
+const denunciaModel = require("../models/model-denuncias");
 const moment = require("moment"); //datas e horas bonitinhas
 const {body, validationResult} = require("express-validator");
 const bcrypt = require("bcryptjs");
@@ -10,7 +11,6 @@ var salt = bcrypt.genSaltSync(12);
 
 
 const tarefasController = {
-
 
     regrasValidacaoLogin:[
      body('input1')
@@ -29,6 +29,7 @@ const tarefasController = {
      body('input2').isLength({ min: 6 , max: 60 }).
             withMessage("A senha deve ter no minimo 6 caracteres")
     ],
+
     regrasValidacaoCadastro:[
         body("nomeusu_usu")
             .isLength({ min: 5, max: 45 }).withMessage("Nome de usuário deve ter de 5 a 45 caracteres!")
@@ -51,6 +52,7 @@ const tarefasController = {
             .withMessage("A senha deve ter no mínimo 8 caracteres (mínimo 1 letra maiúscula, 1 caractere especial e 1 número)")
        
     ],
+
     Login_formLogin: async (req, res) => {
             const erros = validationResult(req);
             if (!erros.isEmpty()) { //Verificação de Erros de Validação
@@ -94,6 +96,7 @@ const tarefasController = {
                 });
             }
     },
+
     Login_formCadastro: async (req, res) => {
         const erros = validationResult(req);
         var dadosForm = { //dados que o usuário digita no formulário
@@ -138,6 +141,7 @@ const tarefasController = {
             console.log("erro no cadastro!");
         }
     },
+
     MostrarPosts: async (req, res) => {
         res.locals.moment = moment;
         try {
@@ -333,7 +337,19 @@ const tarefasController = {
             console.log("Erro ao realizar a pergunta!");
             console.log(FormCriarPergunta);
         }
+    },
+
+    listarDenuncias: async (req, res) => {
+        res.locals.moment = moment;
+        try {
+          results = await denunciaModel.acharDenuncia();
+          res.render("pages/index", { denunciasNoControl: results });
+        } catch (e) {
+          console.log(e); // exibir os erros no console do vs code
+          res.json({ erro: "Falha ao acessar dados" });
+        }
     }
+
 };
 
 
