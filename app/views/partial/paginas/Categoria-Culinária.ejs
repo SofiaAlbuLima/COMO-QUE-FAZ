@@ -3,27 +3,26 @@
     <section class="conteudo-desktop">
       <br>
       <br>
-      <section class="mapCU">
-        <a class="mapculinaria" href="partial/index.ejs">
-          Home ></a> <a class="mapculinaria2" href="/culinaria">
-          Culinária </a>
+      <section>
+        <a class="mapa_do_site-link" href="/">
+          Home</a> <a class="mapa_do_site-atual"> > Culinária </a>
       </section>
-      <section class="categocu">
-        <img class="imgcu" src="imagens-svg/2-body/categoculinaria.svg" alt="icon culinaria">
-        <h1 class="titulocu">CULINÁRIA</h1>
-        <p class="pcu">Explore um mundo de sabores e técnicas culinárias com dicas e tutoriais detalhados.</p>
+      <section class="cabecalho_categoria">
+        <article class="categoria_textos">
+          <img class="imagem_pagina_categoria" src="imagens-svg/2-body/categoculinaria.svg" alt="icon culinaria">
+          <article class="titulo-descricao-categoria">
+            <h1 class="titulo_pagina_categoria Cateculinaria">CULINÁRIA</h1>
+            <p class="descricao_pagina_categoria">Explore um mundo de sabores e técnicas culinárias com dicas e tutoriais detalhados.</p>
+          </article>
+        </article>
+
+          <nav class="filtros_categoria">
+            <button class="filtro_cate">TODAS</button>
+            <button class="filtro_cate">+ RECENTES</button>
+            <button class="filtro_cate">EM ALTA</button>
+          </nav>
       </section>
     
-      <section class="filtroantes">
-        <nav class="filtrocu">
-          <button class="fcutodas">TODAS</button>
-          <button class="fcutodas">+ RECENTES</button>
-          <button class="fcutodas">EM ALTA</button>
-        </nav>
-      </section>
-      <br>
-      <br>
-      <br>
       <section class="postagens">
         <%- include("../perguntas-dicas/base-postagens") %>
       </section>

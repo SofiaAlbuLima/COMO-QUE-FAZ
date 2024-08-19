@@ -138,106 +138,66 @@
       src: url("../fonts/fira-sans.regular.ttf");
     }
  
-    .mapculinaria {
-      margin-left: 18%;
+    .mapa_do_site-link {
+      margin-left: 35vh;
       font-family: Fira Sans;
       color: black;
     }
-    .mapculinaria2 {
+    .mapa_do_site-atual {
       font-family: Fira Sans Bold;
       color: #9e5fef;
     }
-  
-  
-    .imgcu {
+    .cabecalho_categoria{
+      margin-top: 2vh;
+      display: flex;
+      justify-content: space-between;
+      padding-left: 33vh;
+      padding-right: 33vh;
+    }
+    .categoria_textos{
+      display: flex;
+    }
+    .imagem_pagina_categoria {
       height: 120px;
-      margin-left: 15vw;
-     margin-top: 4vw;
-     z-index: 100;
-    position: relative;
     }
-  
-    .titulocu {
+    .titulo-descricao-categoria{
+      display: inline;
+      margin-left: 2vh;
+    }
+    .titulo_pagina_categoria{
+      margin-top: 1vh;
       font-size: 45px;
-      color: #cb1154;
-      margin-left: 24vw;
-      margin-top: -9vw;
       font-weight: 400 ;
-     position: relative;
     }
-    .tituloli {
-        font-size: 45px;
+    .Cateculinaria{
+      color: #cb1154;
+    }
+    .Catelimpeza {
         color: #027de1;
-        margin-left: 24vw;
-        margin-top: -9vw;
-        font-weight: 400 ;
-       position: relative;
       }
-      .titulobe {
-        font-size: 45px;
+    .Catebemestar {
         color: #00cd83;
-        margin-left: 24vw;
-        margin-top: -9vw;
-        font-weight: 400 ;
-       position: relative;
-      }
-    .pcu {
-      margin-left: 24vw;
-      width: 20%;
+    }
+    .descricao_pagina_categoria {
+      width: 35vh;
       font-size: 15px;
       font-family: Fira Sans;
-      position: relative;
     }
-    .filtrocu {
+    .filtros_categoria {
       display: flex;
-      gap: 15px;
-      overflow: auto;
-      height: 100%;
-      padding: 2px 2px 2px 2px;
-      border-radius: 5px;
-      box-sizing: border-box;
-      font-family: "Fira Sans", sans-serif;
-      color: #333333;
-      text-align: center;
-      line-height: normal;
-      border: none;
-      width: auto;
-      overflow: auto;
-      position: relative;
+      gap: 2vh;
+      margin-top: 5vh;
     }
-  
-    .filtroantes{
-      overflow: hidden;
-      margin-left: 49%;
-      margin-top: -3%;
-      width: 50% ;
-  
-    }
-  
-  
-    .fcutodas {
-      min-width: 20%;
-      height: 55px;
-      padding: 2px 6px 2px 6px;
-      border-radius: 5px;
+    .filtro_cate {
+      height: 6vh;
+      padding: 0.2vh 3vh 0.2vh 3vh;
+      border-radius: 20px;
       background-color: #f2f2f2;
-      box-sizing: border-box;
       font-family: "Fira Sans", sans-serif;
       font-size: 25px;
       font-weight: 900;
       color: #333333;
       text-align: center;
-      line-height: normal;
       border: none;
-      gap: 100px;
     }
-  
-    .clicado {
-      background-color: #9e5fef;
-      box-sizing: border-box;
-      font-family: "Fira Sans Bold", "Fira Sans", sans-serif;
-      font-weight: 800;
-      color: #ffffff;
-    }
-  
   }
