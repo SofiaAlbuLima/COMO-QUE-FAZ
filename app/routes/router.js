@@ -146,5 +146,10 @@ const { VerificarAutenticacao, limparSessao, gravarUsuAutenticado, verificarUsuA
             usuario_logado:req.session.autenticado});
     });
 
+    //denuncias adm - listar elas
+    router.get("/denuncia-lista", function (req, res) {
+        tarefasController.listarDenuncias(req, res);
+      });
+
 
 module.exports = router;

@@ -14,6 +14,18 @@
 --          resposta_dica
 --          temas_tags
 
+Denúncia:
+CREATE TABLE `denuncia` (
+  `ID_denuncia` int NOT NULL AUTO_INCREMENT,
+  `motivo` varchar(45) DEFAULT NULL,
+  `status` int DEFAULT NULL,
+  `conteudo_ID_conteudo` int NOT NULL,
+  PRIMARY KEY (`ID_denuncia`),
+  KEY `fk_denuncia_conteudo_idx` (`conteudo_ID_conteudo`),
+  CONSTRAINT `fk_denuncia_conteudo` FOREIGN KEY (`conteudo_ID_conteudo`) REFERENCES `conteudo_postagem` (`ID_conteudo`)
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
 Avaliação:
 CREATE TABLE `avaliação` (
     `idAvaliação` int NOT NULL,
