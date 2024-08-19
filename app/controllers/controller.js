@@ -142,7 +142,7 @@ const tarefasController = {
         }
     },
 
-    MostrarPosts: async (req, res) => {
+    MostrarPosts: async (req, res, categoriaId = null) => {
         res.locals.moment = moment;
         try {
             const categoriaMap = {
@@ -156,7 +156,7 @@ const tarefasController = {
                 'em-alta': 'em_alta',
                 rapidos: 'rapidos',
             };
-            let categoria = categoriaMap[req.query.categoria] || null; //pega o valor da categoria na url da pá gina
+            let categoria = categoriaId || categoriaMap[req.query.categoria] || null;
             let filtro = req.query.filtro || 'recente';
             let pagina = req.query.pagina || 1;
             let regPagina = 12;
@@ -199,8 +199,8 @@ const tarefasController = {
                 login: req.session.logado,
                 postagens: combinedConteudo,
                 paginador: paginador,
-                categoriaAtual: req.query.categoria || 'todas',
-                novoFiltro: req.query.filtro || 'em_alta'
+                categoriaAtual: categoria || 'todas',
+                novoFiltro: filtro || 'em_alta'
             };
     
         } catch (e) {

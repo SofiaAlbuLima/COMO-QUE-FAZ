@@ -25,8 +25,6 @@ const { VerificarAutenticacao, limparSessao, gravarUsuAutenticado, verificarUsuA
         }
     });
 
-    router.get('/posts', tarefasController.MostrarPosts);
-
     router.get("/dica", function(req, res) {
         res.render("pages/template", {pagina: {cabecalho: "cabecalho", conteudo: "Base-Dica", rodape: "rodape"}, 
         usuario_logado:req.session.autenticado, 
@@ -39,20 +37,41 @@ const { VerificarAutenticacao, limparSessao, gravarUsuAutenticado, verificarUsuA
         });
     });
 
-    router.get("/culinaria", function(req, res) {
-        res.render("pages/template", {pagina: {cabecalho: "cabecalho", conteudo: "Categoria-Culinária", rodape: "rodape"}, 
-        usuario_logado:req.session.autenticado, 
-        });
+    router.get("/culinaria", async function(req, res) {
+        try {
+            const categoriaId = 1; 
+            const data = await tarefasController.MostrarPosts(req, res, categoriaId);
+            res.render("pages/template", 
+                {pagina: {cabecalho: "cabecalho", conteudo: "Categoria-Culinária", rodape: "rodape"}, 
+                ...data   
+            });
+        } catch (error) {
+            res.status(500).json({ erro: error.message });
+        }
     });
-    router.get("/limpeza", function(req, res) {
-        res.render("pages/template", {pagina: {cabecalho: "cabecalho", conteudo: "Categoria-Limpeza", rodape: "rodape"}, 
-        usuario_logado:req.session.autenticado, 
-        });
+    router.get("/limpeza", async function(req, res) {
+        try {
+            const categoriaId = 2; 
+            const data = await tarefasController.MostrarPosts(req, res, categoriaId);
+            res.render("pages/template", 
+                {pagina: {cabecalho: "cabecalho", conteudo: "Categoria-Limpeza", rodape: "rodape"}, 
+                ...data   
+            });
+        } catch (error) {
+            res.status(500).json({ erro: error.message });
+        }
     });
-    router.get("/bem-estar", function(req, res) {
-        res.render("pages/template", {pagina: {cabecalho: "cabecalho", conteudo: "Categoria-Bem-Estar", rodape: "rodape"}, 
-        usuario_logado:req.session.autenticado, 
-        });
+    router.get("/bem-estar", async function(req, res) {
+        try {
+            const categoriaId = 3; 
+            const data = await tarefasController.MostrarPosts(req, res, categoriaId);
+            res.render("pages/template", 
+                {pagina: {cabecalho: "cabecalho", conteudo: "Categoria-Bem-Estar", rodape: "rodape"}, 
+                ...data   
+            });
+        } catch (error) {
+            res.status(500).json({ erro: error.message });
+        }
     });
 
     router.get("/perfil", verificarUsuAutorizado([1, 2], "/"), function(req, res) {
