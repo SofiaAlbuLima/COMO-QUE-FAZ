@@ -1,9 +1,16 @@
 <!DOCTYPE html>
 <html lang="pt-br">
 
-<!-- SELECT d.*, p.Titulo as conteudo_postagem
+<!-- 
+-----PEGAR O ID DO CONTEUDO DENUNCIADO ---------------------------------
+SELECT d.*, p.Titulo as conteudo_postagem
 FROM denuncia d
 JOIN conteudo_postagem p ON d.conteudo_ID_conteudo = p.ID_conteudo;
+
+-----PEGAR O NOME DO USUARIO DENUNCIADO --------------------------------
+SELECT c.Nome AS nome, d.usuario_denunciado AS usuario
+FROM clientes c
+JOIN denuncia d ON c.Nome = d.usuario_denunciado;
 -->
 
 <head>
@@ -97,57 +104,55 @@ JOIN conteudo_postagem p ON d.conteudo_ID_conteudo = p.ID_conteudo;
                               </td>
                               <td class="linha Coluna-motivo"><%=denuncia.motivo%></td>
                               <td class="linha Coluna-categoria"><%=denuncia.idCategorias%></td>
-                              <td class="linha Coluna-autor" data-autor="true">User</td>
+                              <td class="linha Coluna-autor" data-autor="true"><%=denuncia.autor_denuncia%></td>
                               <td class="linha">
                                  <p class="Coluna-status analisadaAvaliada"><%=denuncia.status%></p>
                               </td>
                            </tr>
+                           
+                           <tr class="linhas-detalhes" id="asideDetalhes" style="display: none;" >
+                              <td class="linha-aside" colspan="6" style="border: none;">
+                                 <aside class="asideDetalhes">
+                                    <article class="linha-detalhe-denuncia">
+                                       <section class="conteudo-detalhe-denuncia">
+                                          <section class="grid-info-usuario">
+                                             <h1 class="titulo-detalhamento-denuncia">ID da denúncia</h1>
+                                             <h1 class="titulo-detalhamento-denuncia">Usuário Denunciado</h1>
+                                             <h1 class="titulo-detalhamento-denuncia">Detalhamento</h1>
+      
+                                             <figure class="info-detalhe-denuncia">#<%=denuncia.ID_denuncia%></figure>
+                                             <figure class="info-detalhe-denuncia"><img src="/imagens-svg/foto-perfil-autor.svg" alt="" class="foto-usu-detalhe-denuncia"><%=denuncia.usuario_denunciado%></figure>
+                                             <figure class="info-detalhe-denuncia"><%=denuncia.detalhamento_denuncia%></figure>
+                                          </section>
+      
+                                          <section class="grid-btn-detalhes-denuncia">
+                                             <a class="link-btn-detalhes-denuncia" href="http://">
+                                                <section class="btn-detalhes-denuncia">
+                                                   <img src="/imagens-svg/visualizar-icon-rosa.svg" alt="" class="img-btn-detalhes-denuncia">
+                                                   <h1 class="txt-btn-detalhes-denuncia">Visualizar conteúdo denunciado</h1>
+                                                </section>
+                                             </a>
+         
+                                             <a class="link-btn-detalhes-denuncia" href="http://">
+                                                <section class="btn-detalhes-denuncia">
+                                                   <img src="/imagens-svg/bloquear-icon-rosa.svg" alt="" class="img-btn-detalhes-denuncia">
+                                                   <h1 class="txt-btn-detalhes-denuncia">Suspender Usuário Denúnciado</h1>
+                                                </section>
+                                             </a>
+                                             
+                                             <a class="link-btn-detalhes-denuncia" href="http://">
+                                                <section class="btn-detalhes-denuncia">
+                                                   <img src="/imagens-svg/excluir-icon-rosa.svg" alt="" class="img-btn-detalhes-denuncia">
+                                                   <h1 class="txt-btn-detalhes-denuncia">Descartar Denúncia</h1>
+                                                </section>
+                                             </a>
+                                          </section>
+                                       </section>
+                                    </article>
+                                 </aside>
+                              </td>
+                           </tr>
                     <% }); %>
-
-
-
-                     <tr class="linhas" id="asideDetalhes" style="display: none;" >
-                        <td class="linha-aside" colspan="6" style="border: none;">
-                           <asideclass="asideDetalhes">
-                              <article class="linha-detalhe-denuncia">
-                                 <section class="conteudo-detalhe-denuncia">
-                                    <section class="grid-info-usuario">
-                                       <h1 class="titulo-detalhamento-denuncia">ID da denúncia</h1>
-                                       <h1 class="titulo-detalhamento-denuncia">Usuário Denunciado</h1>
-                                       <h1 class="titulo-detalhamento-denuncia">Detalhamento</h1>
-
-                                       <figure class="info-detalhe-denuncia">#10.020</figure>
-                                       <figure class="info-detalhe-denuncia"><img src="/imagens-svg/foto-perfil-autor.svg" alt="" class="foto-usu-detalhe-denuncia">Perfil</figure>
-                                       <figure class="info-detalhe-denuncia">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean euismod bibendum laoreet. Proin gravida dolor sit amet lacus accumsan et viverra justo commodo.</figure>
-                                    </section>
-
-                                    <section class="grid-btn-detalhes-denuncia">
-                                       <a class="link-btn-detalhes-denuncia" href="http://">
-                                          <section class="btn-detalhes-denuncia">
-                                             <img src="/imagens-svg/visualizar-icon-rosa.svg" alt="" class="img-btn-detalhes-denuncia">
-                                             <h1 class="txt-btn-detalhes-denuncia">Visualizar conteúdo denunciado</h1>
-                                          </section>
-                                       </a>
-   
-                                       <a class="link-btn-detalhes-denuncia" href="http://">
-                                          <section class="btn-detalhes-denuncia">
-                                             <img src="/imagens-svg/bloquear-icon-rosa.svg" alt="" class="img-btn-detalhes-denuncia">
-                                             <h1 class="txt-btn-detalhes-denuncia">Suspender Usuário Denúnciado</h1>
-                                          </section>
-                                       </a>
-                                       
-                                       <a class="link-btn-detalhes-denuncia" href="http://">
-                                          <section class="btn-detalhes-denuncia">
-                                             <img src="/imagens-svg/excluir-icon-rosa.svg" alt="" class="img-btn-detalhes-denuncia">
-                                             <h1 class="txt-btn-detalhes-denuncia">Descartar Denúncia</h1>
-                                          </section>
-                                       </a>
-                                    </section>
-                                 </section>
-                              </article>
-                           </aside>
-                        </td>
-                     </tr>
 
                      <tr class="linhas-denuncias"> <!-- Conteudo da tabela -->
                         <td class="linha"> <img class="ver-detalhes-denuncia" src="/imagens-svg/add-rosa.svg" alt=""></td>
