@@ -179,17 +179,18 @@
         color: #00cd83;
     }
     .descricao_pagina_categoria {
-      width: 35vh;
+      width: 45vh;
       font-size: 15px;
       font-family: Fira Sans;
     }
     .filtros_categoria_Culinaria, .filtros_categoria_BemEstar, .filtros_categoria_Limpeza {
       display: flex;
       gap: 2vh;
-      margin-top: 7vh;
+      margin-top: 5vh;
     }
     .filtro_cate {
-      padding: 1.8vh 3vh 0.2vh 3vh;
+      padding: 1.8vh 3vh 0vh 3vh;
+      height: 4vh;
       border-radius: 20px;
       background-color: #f2f2f2;
       font-family: "Fira Sans", sans-serif;
