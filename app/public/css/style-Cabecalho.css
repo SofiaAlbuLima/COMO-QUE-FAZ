@@ -138,7 +138,6 @@
       position: relative;
     }
     .topcs {
-      background: linear-gradient(to right, #5417bd, #9d21cb);
       display: flex;
       justify-content: space-around;
       height: 4.5vh;
@@ -146,8 +145,20 @@
       z-index: 99;
       transition: transform 0.2s ease-in-out;
       }
+      .cor_cabecalho{
+        background: linear-gradient(to right, #5417bd, #9d21cb);
+      }
     .topcs.hide{
       transform: translateY(-100%);
+    }
+    .cabecalho_limpeza{
+      background: #027de1;
+    }
+    .cabecalho_culinaria{
+      background: #cb1154;
+    }
+    .cabecalho_bemestar{
+      background: #00cd83;
     }
     /* Header inteiro - Fim */
 

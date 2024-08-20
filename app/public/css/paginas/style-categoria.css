@@ -194,14 +194,28 @@
       border-radius: 20px;
       background-color: #f2f2f2;
       font-family: "Fira Sans", sans-serif;
-      font-size: 25px;
+      font-size: 18px;
       font-weight: 900;
       color: #333333;
       text-align: center;
       border: none;
     }
+    .linha_separadora_categorias{
+      width: 132.5vh;
+      margin-left: 37vh;
+      margin-top: 2vh;
+    }
+    .linha_culinaria{
+      border: 1px solid #cb1154;
+    }
+    .linha_limpeza{
+      border: 1px solid #027de1;
+    }
+    .linha_bemestar{
+      border: 1px solid #00cd83;
+    }
     .postagens_categoria{
-      margin-top: 3vh;
+      margin-top: 3.5vh;
       justify-content: center;
       display: flex;
       width: 100%;

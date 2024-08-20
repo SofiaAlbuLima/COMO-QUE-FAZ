@@ -1,0 +1,112 @@
+
+
+<header>
+    <section class="header-dispositivo-mobile">
+       <nav class="logos">
+          <article class="login">
+            <% if (usuario_logado && usuario_logado.autenticado) { %>
+             <a href="">
+                <img src="imagens-svg/1-cabeçalho/user_icon.svg" alt="Faça Login">
+             </a>
+          </article>
+          
+            <% } else {%>
+            <a href="/login">
+               <img src="imagens-svg/1-cabeçalho/user_icon.svg" alt="Faça Login">
+            </a>
+         </article>
+         
+            <% } %>
+
+          <article class="logo">
+             <a href="/">
+                <img src="imagens-svg/1-cabeçalho/ComoQueFaz_logo.svg" alt="Logo do ComoQueFaz">
+             </a>
+          </article>
+          <article class="search">
+             <a href="/">
+                <img src="imagens-svg/1-cabeçalho/search_icon.svg" alt="Ícone de Pesquisa">
+             </a>
+          </article>
+       </nav>
+       <nav class="topcs">
+          <a class="culinaria" href="/culinaria">CULINÁRIA</a>
+          <a class="limpeza" href="/limpeza">LIMPEZA</a>
+          <a class="bem-estar" href="/bem-estar">BEM-ESTAR</a>
+       </nav>
+    </section>
+
+    <section class="header-dispositivo-desktop">
+       <nav class="logos">  <!-- Usuário -->
+         
+            <% if (usuario_logado && usuario_logado.autenticado) { %>
+               <aside id="container" onmouseover="showDiv1()" onmouseout="hideDiv1()" onclick="ToggleMenu()" class="login">
+                  <img id="img-usuario" src="imagens-svg/1-cabeçalho/user_icon.svg" alt="Faça Login"> <!-- ícone usuário -->
+
+                  <article id="hide-hover-span">
+                     <p class="p-1" id="text-user-hover">Seja bem vindo(a)!</p>
+                     <p class="p-2" id="text-user-hover2"><%= usuario_logado.autenticado %></p> 
+                  </article>
+
+                  <figure class="cabecalho_seta_abrir_menu">
+                     <img src="imagens-svg/cabecalho-menu-seta.svg" alt="Abrir Menu" class="seta" id="seta">
+                     <img src="imagens-svg/cabecalho-menu-seta-hover.svg" alt="Abrir Menu" class="seta_hover" id="seta_hover">
+                  </figure>
+
+                  <ul class="menu_hamburguer_usuario" id="menu_hamburguer">
+                     <a href="/perfil">
+                        <li class="opcao_menu_hamburguer">Ver Perfil</li></a>
+                        <% if (usuario_logado.tipo != 1) { %>
+                           <a href="/adm"> 
+                              <li class="opcao_menu_hamburguer">Dashboard ADM</li></a>
+                        <% } %>
+                     <a href="/notificacoes">
+                        <li class="opcao_menu_hamburguer">Notificações</li></a>
+                     <a href="/favoritos">
+                        <li class="opcao_menu_hamburguer">Favoritos</li></a>
+                     <a href="/bigodes-de-ouro">
+                        <li class="opcao_menu_hamburguer">Bigodes de Ouro</li></a>
+                     <a href="/ajustes">
+                        <li class="opcao_menu_hamburguer">Ajustes</li></a>
+                     <a href="/sair"> 
+                        <li class="opcao_menu_hamburguer ultimo">Sair da Conta</li></a>
+                  </ul> 
+               </aside>
+            <% } else { %>
+            <a href="/login" class="link-login">
+               <aside id="container" onmouseover="showDiv1()" onmouseout="hideDiv1()" class="login">
+                  <img id="img-login_hover" src="imagens/user_icon_hover.svg" alt="Faça Login">
+                  <img id="img-login" src="imagens-svg/1-cabeçalho/user_icon.svg" alt="Faça Login">
+
+                  <article id="hide-hover-span">
+                     <p class="p-1" id="text-user-hover">Faça Login!</p>
+                     <p class="p-2" id="text-user-hover2">ENTRAR / CADASTRAR</p> 
+                  </article>
+               </aside>    
+            </a> 
+            <% } %>
+
+         </aside>
+
+          <article class="logo">  <!-- logomarca -->
+             <a href="/">
+                <img src="imagens-svg/1-cabeçalho/LogoGato_Como_que_Faz_vermelho.svg" alt="Logo do ComoQueFaz">
+             </a>
+          </article>
+
+          <aside id="container2" class="search">  <!-- Pesquisa -->
+            <article id="hide-hover-search">
+               <input class="texto-search" type="text" name="inserir-pesquisa" placeholder="Pesquisar...">
+               <label id="inserir-pesquisa"></label>
+            </article>
+
+             <img src="imagens-svg/1-cabeçalho/search_icon.svg" alt="Ícone de Pesquisa">
+          </aside>
+       </nav>
+       <nav id="categorias" class="topcs cabecalho_culinaria">
+          <a class="culinaria" href="/culinaria">CULINÁRIA</a>
+          <a class="limpeza" href="/limpeza">LIMPEZA</a>
+          <a class="bem-estar" href="/bem-estar">BEM-ESTAR</a>
+       </nav>
+    </section>
+ </header>

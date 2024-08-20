@@ -42,7 +42,7 @@ const { VerificarAutenticacao, limparSessao, gravarUsuAutenticado, verificarUsuA
             const categoriaId = 1; 
             const data = await tarefasController.MostrarPosts(req, res, categoriaId);
             res.render("pages/template", 
-                {pagina: {cabecalho: "cabecalho", conteudo: "Categoria-Culinária", rodape: "rodape"}, 
+                {pagina: {cabecalho: "cabecalho-culinaria", conteudo: "Categoria-Culinária", rodape: "rodape"}, 
                 ...data   
             });
         } catch (error) {
@@ -54,7 +54,7 @@ const { VerificarAutenticacao, limparSessao, gravarUsuAutenticado, verificarUsuA
             const categoriaId = 2; 
             const data = await tarefasController.MostrarPosts(req, res, categoriaId);
             res.render("pages/template", 
-                {pagina: {cabecalho: "cabecalho", conteudo: "Categoria-Limpeza", rodape: "rodape"}, 
+                {pagina: {cabecalho: "cabecalho-limpeza", conteudo: "Categoria-Limpeza", rodape: "rodape"}, 
                 ...data   
             });
         } catch (error) {
@@ -66,7 +66,7 @@ const { VerificarAutenticacao, limparSessao, gravarUsuAutenticado, verificarUsuA
             const categoriaId = 3; 
             const data = await tarefasController.MostrarPosts(req, res, categoriaId);
             res.render("pages/template", 
-                {pagina: {cabecalho: "cabecalho", conteudo: "Categoria-Bem-Estar", rodape: "rodape"}, 
+                {pagina: {cabecalho: "cabecalho-bemestar", conteudo: "Categoria-Bem-Estar", rodape: "rodape"}, 
                 ...data   
             });
         } catch (error) {

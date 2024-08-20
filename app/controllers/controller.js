@@ -157,7 +157,7 @@ const tarefasController = {
                 rapidos: 'rapidos',
             };
             let categoria = categoriaId || categoriaMap[req.query.categoria] || null;
-            let filtro = req.query.filtro || 'recente';
+            let filtro = req.query.filtro || 'em_alta';
             let pagina = req.query.pagina || 1;
             let regPagina = 12;
             let inicio = (pagina - 1) * regPagina;
