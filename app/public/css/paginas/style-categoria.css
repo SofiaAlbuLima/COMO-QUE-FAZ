@@ -183,22 +183,21 @@
       font-size: 15px;
       font-family: Fira Sans;
     }
-    .filtros_categoria {
+    .filtros_categoria_Culinaria, .filtros_categoria_BemEstar, .filtros_categoria_Limpeza {
       display: flex;
       gap: 2vh;
-      margin-top: 5vh;
+      margin-top: 7vh;
     }
     .filtro_cate {
-      height: 6vh;
-      padding: 0.2vh 3vh 0.2vh 3vh;
+      padding: 1.8vh 3vh 0.2vh 3vh;
       border-radius: 20px;
       background-color: #f2f2f2;
       font-family: "Fira Sans", sans-serif;
       font-size: 18px;
       font-weight: 900;
       color: #333333;
-      text-align: center;
       border: none;
+      text-decoration: none;
     }
     .linha_separadora_categorias{
       width: 132.5vh;
@@ -213,6 +212,18 @@
     }
     .linha_bemestar{
       border: 1px solid #00cd83;
+    }
+    .filtros_categoria_Culinaria > .filtro-selecionado{
+      background-color: #cb1154;
+      color: white;
+    }
+    .filtros_categoria_BemEstar > .filtro-selecionado{
+      background-color: #00cd83;
+      color: white;
+    }
+    .filtros_categoria_Limpeza > .filtro-selecionado{
+      background-color: #027de1;
+      color: white;
     }
     .postagens_categoria{
       margin-top: 3.5vh;

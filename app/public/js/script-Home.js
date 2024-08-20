@@ -70,10 +70,10 @@ document.addEventListener("DOMContentLoaded", function() {
     let filtro = urlParams.get('filtro');
 
     if (filtro === 'em_alta') {
-        document.querySelector('.EmAlta-Dkt').classList.add('filtro-selecionado');
+        document.querySelector('.Filtro-emAlta').classList.add('filtro-selecionado');
     }else if (filtro === 'recente') {
-        document.querySelector('.Recente-Dkt').classList.add('filtro-selecionado');
+        document.querySelector('.Filtro-recente').classList.add('filtro-selecionado');
     }else if (filtro === 'rapidos') {
-        document.querySelector('.Rapidas-Dkt').classList.add('filtro-selecionado');
+        document.querySelector('.Filtro-rapidas').classList.add('filtro-selecionado');
     }
 });
