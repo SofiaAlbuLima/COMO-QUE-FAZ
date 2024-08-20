@@ -72,10 +72,13 @@ function FuncaoCelulas() {
 
 
 //função da imagem "detalhes da denúncia"
-function clickMenu() {
-  if (asideDetalhes.style.display == '') {
-    asideDetalhes.style.display = 'none'
+function clickMenu(elemento) {
+
+  const compStyles = window.getComputedStyle(document.getElementById(elemento));
+  
+  if (compStyles.getPropertyValue("display") == 'table-row') {
+    document.getElementById(elemento).style.display = 'none'
   } else {
-    asideDetalhes.style.display = ''
+    document.getElementById(elemento).style.display = 'table-row'
   }
 }

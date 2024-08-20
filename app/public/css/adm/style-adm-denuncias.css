@@ -236,3 +236,7 @@
 .img-btn-detalhes-denuncia{
     margin-right: 1vh;
 }
+
+.linhas-detalhes{
+    display: none;
+}

@@ -96,9 +96,11 @@ JOIN denuncia d ON c.Nome = d.usuario_denunciado;
 
 
 
-                     <% denunciasNoControl.forEach(function(denuncia){ %>
+                     <% 
+                     var count = 1;
+                     denunciasNoControl.forEach(function(denuncia){ %>
                            <tr class="linhas-denuncias">
-                              <td class="linha"> <img class="ver-detalhes-denuncia" onclick="clickMenu()" src="/imagens-svg/add-rosa.svg" alt=""></td>
+                              <td class="linha"> <img class="ver-detalhes-denuncia" onclick='clickMenu("asideDetalhes<%=count%>")' src="/imagens-svg/add-rosa.svg" alt=""></td>
                               <td class="linha">
                                  <p class="Coluna-conteudo"><%=denuncia.tipo_conteudo%></p>
                               </td>
@@ -110,7 +112,7 @@ JOIN denuncia d ON c.Nome = d.usuario_denunciado;
                               </td>
                            </tr>
                            
-                           <tr class="linhas-detalhes" id="asideDetalhes" style="display: none;" >
+                           <tr class="linhas-detalhes" id="asideDetalhes<%=count%>"  >
                               <td class="linha-aside" colspan="6" style="border: none;">
                                  <aside class="asideDetalhes">
                                     <article class="linha-detalhe-denuncia">
@@ -152,72 +154,10 @@ JOIN denuncia d ON c.Nome = d.usuario_denunciado;
                                  </aside>
                               </td>
                            </tr>
-                    <% }); %>
+                    <% 
+                  count++}); %>
 
-                     <tr class="linhas-denuncias"> <!-- Conteudo da tabela -->
-                        <td class="linha"> <img class="ver-detalhes-denuncia" src="/imagens-svg/add-rosa.svg" alt=""></td>
-                        <td class="linha">
-                           <p class="Coluna-conteudo">Pergunta</p>
-                        </td>
-                        <td class="linha Coluna-motivo">Spam</td>
-                        <td class="linha Coluna-categoria">Limpeza</td>
-                        <td class="linha Coluna-autor" data-autor="true">User2</td>
-                        <td class="linha">
-                           <p class="Coluna-status naoAnalisada">Não Analisada</p>
-                        </td>
-                     </tr>
-
-                     <tr class="linhas-denuncias"> <!-- Conteudo da tabela -->
-                        <td class="linha"> <img class="ver-detalhes-denuncia" src="/imagens-svg/add-rosa.svg" alt=""></td>
-                        <td class="linha">
-                           <p class="Coluna-conteudo">Postagem</p>
-                        </td>
-                        <td class="linha Coluna-motivo">Violações dos termos de uso</td>
-                        <td class="linha Coluna-categoria">Bem-Estar</td>
-                        <td class="linha Coluna-autor" data-autor="true">User3</td>
-                        <td class="linha">
-                           <p class="Coluna-status analisada">Analisada</p>
-                        </td>
-                     </tr>
-
-                     <tr class="linhas-denuncias"> <!-- Conteudo da tabela -->
-                        <td class="linha"> <img class="ver-detalhes-denuncia" src="/imagens-svg/add-rosa.svg" alt=""></td>
-                        <td class="linha">
-                           <p class="Coluna-conteudo">Comentário</p>
-                        </td>
-                        <td class="linha Coluna-motivo">Violações dos termos de uso</td>
-                        <td class="linha Coluna-categoria">Limpeza</td>
-                        <td class="linha Coluna-autor" data-autor="true">User4</td>
-                        <td class="linha">
-                           <p class="Coluna-status naoAnalisada">Não Analisada</p>
-                        </td>
-                     </tr>
-
-                     <tr class="linhas-denuncias"> <!-- Conteudo da tabela -->
-                        <td class="linha"> <img class="ver-detalhes-denuncia" src="/imagens-svg/add-rosa.svg" alt=""></td>
-                        <td class="linha">
-                           <p class="Coluna-conteudo">Comentário</p>
-                        </td>
-                        <td class="linha Coluna-motivo">Violações dos termos de uso</td>
-                        <td class="linha Coluna-categoria">Limpeza</td>
-                        <td class="linha Coluna-autor" data-autor="true">User4</td>
-                        <td class="linha">
-                           <p class="Coluna-status naoAnalisada">Não Analisada</p>
-                        </td>
-                     </tr>
                      
-                     <tr class="linhas-denuncias"> <!-- Conteudo da tabela -->
-                        <td class="linha"> <img class="ver-detalhes-denuncia" src="/imagens-svg/add-rosa.svg" alt=""></td>
-                        <td class="linha">
-                           <p class="Coluna-conteudo">Comentário</p>
-                        </td>
-                        <td class="linha Coluna-motivo">Violações dos termos de uso</td>
-                        <td class="linha Coluna-categoria">Limpeza</td>
-                        <td class="linha Coluna-autor" data-autor="true">User4</td>
-                        <td class="linha">
-                           <p class="Coluna-status naoAnalisada">Não Analisada</p>
-                        </td>
-                     </tr>
                   </table>
                </section>
             <!-- tabela Denúncias - Fim -->
@@ -229,3 +169,68 @@ JOIN denuncia d ON c.Nome = d.usuario_denunciado;
 </body>
 
 </html>
+<!-- 
+<tr class="linhas-denuncias"> 
+   <td class="linha"> <img class="ver-detalhes-denuncia" src="/imagens-svg/add-rosa.svg" alt=""></td>
+   <td class="linha">
+      <p class="Coluna-conteudo">Pergunta</p>
+   </td>
+   <td class="linha Coluna-motivo">Spam</td>
+   <td class="linha Coluna-categoria">Limpeza</td>
+   <td class="linha Coluna-autor" data-autor="true">User2</td>
+   <td class="linha">
+      <p class="Coluna-status naoAnalisada">Não Analisada</p>
+   </td>
+</tr>
+
+<tr class="linhas-denuncias"> 
+   <td class="linha"> <img class="ver-detalhes-denuncia" src="/imagens-svg/add-rosa.svg" alt=""></td>
+   <td class="linha">
+      <p class="Coluna-conteudo">Postagem</p>
+   </td>
+   <td class="linha Coluna-motivo">Violações dos termos de uso</td>
+   <td class="linha Coluna-categoria">Bem-Estar</td>
+   <td class="linha Coluna-autor" data-autor="true">User3</td>
+   <td class="linha">
+      <p class="Coluna-status analisada">Analisada</p>
+   </td>
+</tr>
+
+<tr class="linhas-denuncias"> 
+   <td class="linha"> <img class="ver-detalhes-denuncia" src="/imagens-svg/add-rosa.svg" alt=""></td>
+   <td class="linha">
+      <p class="Coluna-conteudo">Comentário</p>
+   </td>
+   <td class="linha Coluna-motivo">Violações dos termos de uso</td>
+   <td class="linha Coluna-categoria">Limpeza</td>
+   <td class="linha Coluna-autor" data-autor="true">User4</td>
+   <td class="linha">
+      <p class="Coluna-status naoAnalisada">Não Analisada</p>
+   </td>
+</tr>
+
+<tr class="linhas-denuncias"> 
+   <td class="linha"> <img class="ver-detalhes-denuncia" src="/imagens-svg/add-rosa.svg" alt=""></td>
+   <td class="linha">
+      <p class="Coluna-conteudo">Comentário</p>
+   </td>
+   <td class="linha Coluna-motivo">Violações dos termos de uso</td>
+   <td class="linha Coluna-categoria">Limpeza</td>
+   <td class="linha Coluna-autor" data-autor="true">User4</td>
+   <td class="linha">
+      <p class="Coluna-status naoAnalisada">Não Analisada</p>
+   </td>
+</tr>
+
+<tr class="linhas-denuncias"> 
+   <td class="linha"> <img class="ver-detalhes-denuncia" src="/imagens-svg/add-rosa.svg" alt=""></td>
+   <td class="linha">
+      <p class="Coluna-conteudo">Comentário</p>
+   </td>
+   <td class="linha Coluna-motivo">Violações dos termos de uso</td>
+   <td class="linha Coluna-categoria">Limpeza</td>
+   <td class="linha Coluna-autor" data-autor="true">User4</td>
+   <td class="linha">
+      <p class="Coluna-status naoAnalisada">Não Analisada</p>
+   </td>
+</tr> -->
