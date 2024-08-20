@@ -89,21 +89,20 @@ JOIN conteudo_postagem p ON d.conteudo_ID_conteudo = p.ID_conteudo;
 
 
 
-                     <% denunciasNoControl.forEach(function(cadadenuncia){ %>
+                     <% denunciasNoControl.forEach(function(denuncia){ %>
                            <tr class="linhas-denuncias">
                               <td class="linha"> <img class="ver-detalhes-denuncia" onclick="clickMenu()" src="/imagens-svg/add-rosa.svg" alt=""></td>
                               <td class="linha">
-                                 <p class="Coluna-conteudo"> <%=cadadenuncia.tipo_denuncia%> </p>
+                                 <p class="Coluna-conteudo"><%=denuncia.tipo_conteudo%></p>
                               </td>
-                              <td class="linha Coluna-motivo"><%=cadadenuncia.motivo%></td>
-                              <td class="linha Coluna-categoria"><%=cadadenuncia.idCategorias%></td>
+                              <td class="linha Coluna-motivo"><%=denuncia.motivo%></td>
+                              <td class="linha Coluna-categoria"><%=denuncia.idCategorias%></td>
                               <td class="linha Coluna-autor" data-autor="true">User</td>
                               <td class="linha">
-                                 <p class="Coluna-status analisadaAvaliada"><%=cadadenuncia.status%></p>
+                                 <p class="Coluna-status analisadaAvaliada"><%=denuncia.status%></p>
                               </td>
                            </tr>
                     <% }); %>
-
 
 
 
