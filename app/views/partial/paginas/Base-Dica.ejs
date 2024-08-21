@@ -349,97 +349,102 @@
    </section>
 
    <section class="conteudo-dispositivo-desktop">
-      <article class="mapa-do-site">
+      <article class="mapa_dica">
          <p class="mapa-1">Home</p>
          <p class="seta-1"> > </p>
          <p class="mapa-1">Culinária</p>
-         <p class="seta"> > </p>
+         <p class="seta-1"> > </p>
          <p class="mapa-2">Arroz de Forno Colorido</p>
       </article>
 
-      <article class="Carrossel">
-         <img class="imagemprincipalDesktop" src="./imagens/imagem-1-post.png" alt="imagem1">
-         <section class="previa">
-            <figure class="imagem">
-               <img onclick="switchImageDesktop('./imagens/imagem-1-post.png')" src="./imagens/imagem-1-post.png"
-                  alt="">
-            </figure>
-            <figure class="imagem">
-               <img onclick="switchImageDesktop('./imagens/imagem-2-post.png')" src="./imagens/imagem-2-post.png"
-                  alt="">
-            </figure>
-         </section>
-      </article>
-
-      <figure class="titulo-categoria">
-         <img src="./imagens/2-body/culinária-icon-categoria.svg" alt="icon-categoria" class="icon-culinaria">
-         <h1 class="titulo-culinaria">CULINÁRIA</h1>
-      </figure>
-
-      <aside id="opcoes" class="opcoes" onclick="AbrirOpcoesDesktop()">
-         <figure class="ponto"></figure>
-         <figure class="ponto"></figure>
-         <figure class="ponto"></figure>
-      </aside>
-
-      <aside id="hide-opcoes-Desktop" style="display: none;">
-         <section class="denunciar">
-            <img src="imagens/2-body/denunciar-cor-preta.svg" alt="denunciar">
-            <p>Denunciar dica</p>
-         </section>
-         <section class="compartilhar">
-            <img src="imagens/2-body/compartilhar-cor-preta.svg" alt="compartilhar">
-            <p>Compartilhar dica</p>
-         </section>
-      </aside>
-
-      <figure class="titulos-post">
-         <h3 class="titulo-user" style="color: #9e5fef;">NandãoDoAçaí </h3>
-         <h3 class="titulo-user">| Nanda da Silva</h3>
-         <h1 class="titulo-principal">ARROZ DE FORNO COLORIDO</h1>
-      </figure>
-
-      <p class="descricao">O arroz de forno é um prato versátil e reconfortante que combina ingredientes como arroz,
-         queijo, legumes, e carnes em uma preparação assada no forno.</p>
-
-      <aside class="info-post">
-         <section class="tempo">
-            <img src="./imagens/2-body/tempo.svg" alt="tempo" class="tempo-post">
-            <h3 class="texto-info">1 Hora</h3>
-         </section>
-         <section class="avaliacao">
-            <img src="./imagens/2-body/avalia.svg" alt="avaliacao" class="avalia-post">
-            <h3 class="texto-info">4.9</h3>
-         </section>
-         <section class="porcoe">
-            <img src="./imagens/2-body/porcao.svg" alt="porcao" class="porcao-post">
-            <h3 class="texto-info">5</h3>
-         </section>
-      </aside>
-
-      <section class="descricao-post">
-         <figure class="hashtags">
-            <p class="hashtags-texto">#ALMOÇO #ARROZ #FAMILIA #SALGADO #SÓFORNO #PRÁTICO #RÁPIDO</p>
-         </figure>
-      </section>
-
-      <aside class="estrelas">
-         <h1 class="gostou">GOSTOU?</h1>
-         <br>
-         <p class="p-aval">Avalie essa dica!</p>
-         <article class="avalia-estrelas">
-            <input type="radio" name="estrela" id="estrela1">
-            <label for="estrela1"></label>
-            <input type="radio" name="estrela" id="estrela2">
-            <label for="estrela2"></label>
-            <input type="radio" name="estrela" id="estrela3">
-            <label for="estrela3"></label>
-            <input type="radio" name="estrela" id="estrela4">
-            <label for="estrela4"></label>
-            <input type="radio" name="estrela" id="estrela5">
-            <label for="estrela5"></label>
+      <section class="carrossel_informacoes_post">
+         <article class="Carrossel">
+            <img class="imagemprincipal" src="./imagens/imagem-1-post.png" alt="imagem1">
+            <section class="previa">
+               <figure class="imagem">
+                  <img onclick="switchImageDesktop('./imagens/imagem-1-post.png')" src="./imagens/imagem-1-post.png"
+                     alt="">
+               </figure>
+               <figure class="imagem">
+                  <img onclick="switchImageDesktop('./imagens/imagem-2-post.png')" src="./imagens/imagem-2-post.png"
+                     alt="">
+               </figure>
+            </section>
          </article>
-      </aside>
+
+         <section class="informacoes_post">
+            <article class="categoria_opcoes">
+               <figure class="titulo-icon-categoria">
+                  <img src="imagens/icon-culinaria-branco.png" alt="icon-categoria" class="icon-categoria">
+                  <h1 class="titulo-categoria">CULINÁRIA</h1>
+               </figure>
+
+               <aside id="opcoes" class="opcoes_dica" onclick="AbrirOpcoesDesktop()">
+                  <figure class="ponto_dica"></figure>
+                  <figure class="ponto_dica"></figure>
+                  <figure class="ponto_dica"></figure>
+               </aside>
+            </article>
+
+            <aside id="hide-opcoes-Desktop" style="display: none;">
+               <section class="denunciar">
+                  <img src="imagens/2-body/denunciar-cor-preta.svg" alt="denunciar">
+                  <p>Denunciar dica</p>
+               </section>
+               <section class="compartilhar">
+                  <img src="imagens/2-body/compartilhar-cor-preta.svg" alt="compartilhar">
+                  <p>Compartilhar dica</p>
+               </section>
+            </aside>
+
+            <figure class="titulos-post">
+               <h3 class="titulo-user" style="color: #9e5fef;">NandãoDoAçaí </h3>
+               <h3 class="titulo-user">| Nanda da Silva</h3>
+               <h1 class="titulo-principal">ARROZ DE FORNO COLORIDO</h1>
+            </figure>
+
+            <p class="descricao">O arroz de forno é um prato versátil e reconfortante que combina ingredientes como arroz,
+               queijo, legumes, e carnes em uma preparação assada no forno.</p>
+
+            <aside class="tempo-avaliacao-porcoes">
+               <section class="tempo">
+                  <img src="./imagens-svg/2-body/tempo.svg" alt="tempo" class="icone-info-dica">
+                  <h3 class="texto-info">24 Horas</h3>
+               </section>
+               <section class="avaliacao">
+                  <img src="./imagens-svg/2-body/avalia.svg" alt="avaliacao" class="icone-info-dica">
+                  <h3 class="texto-info">5.0</h3>
+               </section>
+               <section class="porcoe">
+                  <img src="./imagens-svg/2-body/porcao.svg" alt="porcao" class="icone-info-dica">
+                  <h3 class="texto-info">100 Porções</h3>
+               </section>
+            </aside>
+
+               <figure class="hashtags">
+                  <p class="hashtags-texto">#ALMOÇO #ARROZ #FAMILIA #SALGADO #SÓFORNO #PRÁTICO #RÁPIDO</p>
+               </figure>
+
+            <aside class="estrelas">
+               <article class="avalie">
+                  <h1 class="gostou">GOSTOU?</h1>
+                  <h2 class="p-aval">Avalie essa dica!</h2>
+               </article>
+               <article class="avalia-estrelas">
+                  <input type="radio" name="estrela" id="estrela1">
+                  <label for="estrela1"></label>
+                  <input type="radio" name="estrela" id="estrela2">
+                  <label for="estrela2"></label>
+                  <input type="radio" name="estrela" id="estrela3">
+                  <label for="estrela3"></label>
+                  <input type="radio" name="estrela" id="estrela4">
+                  <label for="estrela4"></label>
+                  <input type="radio" name="estrela" id="estrela5">
+                  <label for="estrela5"></label>
+               </article>
+            </aside>
+         </section>
+      </section>
 
       <article class="itens-modos">
          <section class="Itens-necessários">
