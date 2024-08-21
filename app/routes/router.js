@@ -8,8 +8,8 @@ const { VerificarAutenticacao, limparSessao, gravarUsuAutenticado, verificarUsuA
 
     router.post("/login", tarefasController.regrasValidacaoLogin, gravarUsuAutenticado, tarefasController.Login_formLogin);
     router.post("/cadastro", tarefasController.regrasValidacaoCadastro, tarefasController.Login_formCadastro);
-    router.post('/criar-dica', tarefasController.CriarDica);
-    router.post('/criar-pergunta', tarefasController.CriarPergunta);
+    router.post('/criar-dica', VerificarAutenticacao, tarefasController.CriarDica);
+    router.post('/criar-pergunta', VerificarAutenticacao, tarefasController.CriarPergunta);
 
 
 // Links & Template - Parte Publica
@@ -74,7 +74,7 @@ const { VerificarAutenticacao, limparSessao, gravarUsuAutenticado, verificarUsuA
         }
     });
 
-    router.get("/perfil", verificarUsuAutorizado([1, 2], "/"), function(req, res) {
+    router.get("/perfil", VerificarAutenticacao, verificarUsuAutorizado([1, 2], "/"), function(req, res) {
         res.render("pages/template", {pagina: {cabecalho: "cabecalho", conteudo: "Meu-perfil", rodape: "none"}, 
         usuario_logado:req.session.autenticado, 
         });
@@ -99,12 +99,12 @@ const { VerificarAutenticacao, limparSessao, gravarUsuAutenticado, verificarUsuA
         res.redirect("/");
     });
 
-    router.get("/criar-postagem", function(req, res){
+    router.get("/criar-postagem", VerificarAutenticacao, function(req, res){
         res.render("pages/template", {pagina: {cabecalho: "none", conteudo: "sair", rodape: "none"}, 
             usuario_logado:req.session.autenticado, 
             });
     });
-    router.get("/criar-pergunta", function(req, res){
+    router.get("/criar-pergunta", VerificarAutenticacao, function(req, res){
         res.render("pages/template", {pagina: {cabecalho: "none", conteudo: "sair", rodape: "none"}, 
             usuario_logado:req.session.autenticado, 
             });
