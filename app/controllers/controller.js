@@ -187,6 +187,7 @@ const tarefasController = {
             let combinedConteudo = results.map(conteudo => ({
                 nome: conteudo.Titulo,
                 usuario: conteudo.Clientes_idClientes,
+                nome_usuario: conteudo.nome_usuario,
                 categoria: conteudo.Categorias_idCategorias,
                 tempo: conteudo.tempo ? formatarTempo(conteudo.tempo) : null,
                 descricao: conteudo.Descricao || null,
