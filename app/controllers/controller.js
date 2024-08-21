@@ -75,7 +75,7 @@ const tarefasController = {
             usuario_logado: null,
             listaErroslog: null,
             listaErros: null,
-            dadosNotificacao: null
+            dadosNotificacao: { titulo: "Falha ao logar!", mensagem: "Usuário e/ou senha inválidos!", tipo: "error" }
         });
     },
     Login_formCadastro: async (req, res) => {
