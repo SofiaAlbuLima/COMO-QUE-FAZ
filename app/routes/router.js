@@ -146,6 +146,7 @@ const { VerificarAutenticacao, limparSessao, gravarUsuAutenticado, verificarUsuA
                 res.status(500).json({ erro: error.message });
             }
     });
+    
     router.get("/adm/postagens-perguntas", verificarUsuAutorizado([2], "/sair"), 
         function (req, res) {
             res.render("pages/template-adm", 
