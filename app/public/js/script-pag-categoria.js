@@ -1,5 +1,8 @@
 const fcutodasElList = document.querySelectorAll('.filtrocu button');
 
+const filtro = urlParams.get('filtro') || 'em_alta'; // Define 'em_alta' como padrão
+
+
 fcutodasElList.forEach(Option => {
     Option.addEventListener('click', () => {
         limpar();
