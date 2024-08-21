@@ -24,9 +24,13 @@ acharConteudo: async (categoria) => {
                     SELECT ID_Pergunta AS id, Clientes_idClientes, categorias_idCategorias, titulo AS Titulo, NULL AS tempo, NULL AS Descricao, NULL AS Etapas_Modo_de_Preparo, NULL AS porcoes, 'pergunta' AS tipo FROM perguntas
                 ) AS combined
             `;
+
             if (categoria) {
                 query += ` WHERE Categorias_idCategorias = ${pool.escape(categoria)}`;
             }
+
+            const [total] = await pool.query(query);
+            return total;
             
     }catch (erro) {
         throw erro;

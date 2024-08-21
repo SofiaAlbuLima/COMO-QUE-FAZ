@@ -330,11 +330,24 @@ const tarefasController = {
     listarDenuncias: async (req, res) => {
         res.locals.moment = moment;
         try {
+
+          if (categoriaId = 1) {
+              categoriaa === "Culinária";
+          } else if (categoriaId = 2) {
+              categoriaa === "Limpeza";
+          } else if (categoriaId = 3) {
+              categoriaa === "Bem Estar";
+          }
+
           results = await admModel.acharDenuncia();
+          resultsconteudo = await admModel.acharConteudo(categoria);
+
           return { 
-            denunciasNoControl: results,
+            denunciasNoControl: results, resultsconteudo, categoriaId,
             usuario_logado:req.session.autenticado
           };
+
+
         } catch (e) {
           console.log(e); // exibir os erros no console do vs code
           res.json({ erro: "Falha ao acessar dados" });
