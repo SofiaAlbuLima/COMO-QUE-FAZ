@@ -3,7 +3,7 @@
 const usuarioModel = require("../models/model-usuario"); //Requisição do arquivo Model para executar ações no Banco de Dados
 const conteudoModel = require("../models/model-conteudo");
 const imagemModel = require("../models/model-midia");
-const denunciaModel = require("../models/model-denuncias");
+const admModel = require("../models/model-adm");
 const moment = require("moment"); //datas e horas bonitinhas
 const {body, validationResult} = require("express-validator");
 const bcrypt = require("bcryptjs");
@@ -330,7 +330,7 @@ const tarefasController = {
     listarDenuncias: async (req, res) => {
         res.locals.moment = moment;
         try {
-          results = await denunciaModel.acharDenuncia();
+          results = await admModel.acharDenuncia();
           return { 
             denunciasNoControl: results,
             usuario_logado:req.session.autenticado
