@@ -1,4 +1,3 @@
-
     function toggleLike(button) {
       const heart = document.getElementById('coracao-preenchido');
 

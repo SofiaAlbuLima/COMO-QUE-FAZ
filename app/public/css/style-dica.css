@@ -992,7 +992,6 @@
     .estrelas{
         margin-top: 3vh;
         padding: 2vh 4vh 2vh 4vh;
-        width: 65vh;
         background-color: #cb1154;
         display: flex;
         border-radius: 0 20px 20px 0;
@@ -1013,36 +1012,58 @@
         font-weight: 400;
         text-align: left;
     }
-    .avalia-estrelas{
-        transform:  rotateY(180deg);
+    /* estrelas de avaliacao */
+    .rate {
+        display: flex;
+        direction: rtl; /* Inverte a ordem das estrelas */
+        justify-content: center;
         align-items: center;
+        font-size: 40px;
+        gap: 1vh;
+        font-family: 'FontAwesome'; /* Usa a fonte FontAwesome para as estrelas */
     }
-    .avalia-estrelas input{
+    
+    /* Ocultar inputs */
+    .rate input {
         display: none;
     }
-    .avalia-estrelas label{
-        width: 10px;
-        background: none;
+    
+    /* Estrelas */
+    .rate label {
+        color: #711136;; /* Cor padrão das estrelas */
+        cursor: pointer;
+        transition: color 0.2s;
     }
-    .avalia-estrelas label:before{
-        content: '\f005';
-        font-family: fontAwesome;
-        font-size: 40px;
-        color: #711136;
+    
+    /* Estrela preenchida ao selecionar */
+    .rate input:checked ~ label {
+        color: #ffc700; /* Cor das estrelas selecionadas */
     }
-    .avalia-estrelas label:after{
-        content: '\f005';
-        font-family: fontAwesome;
-        font-size: 40px;
+    
+    /* Efeito hover */
+    .rate label:hover,
+    .rate label:hover ~ label {
+        color: #deb217; /* Cor ao passar o mouse */
+    }
+    
+    /* Estrela preenchida ao clicar e manter o hover */
+    .rate input:checked + label:hover,
+    .rate input:checked + label:hover ~ label,
+    .rate input:checked ~ label:hover,
+    .rate input:checked ~ label:hover ~ label,
+    .rate label:hover ~ input:checked ~ label {
+        color: #c59b08; /* Cor das estrelas ao clicar e passar o mouse */
+    }
+    
+    /* Usando FontAwesome para estrelas */
+    .rate label:before {
+        content: '\f005'; /* Código para estrela cheia no FontAwesome */
+        font-family: 'FontAwesome'; /* Usando FontAwesome para estrelas */
+    }
+    
+    /* Estrelas marcadas */
+    .avalia-estrelas .checked ~ label:before {
         color: #ffbb62;
-        opacity: 0;
-        transition: 0.5s;
-        text-shadow: 0 2px 5px rgba(0, 0, 0, 0.5);
-    }
-    .avalia-estrelas label:hover:after,
-    .avalia-estrelas label:hover ~ label:after,
-    .avalia-estrelas input:checked ~ label:after{
-        opacity: 1;
     }
 
     .Itens-necessários{
