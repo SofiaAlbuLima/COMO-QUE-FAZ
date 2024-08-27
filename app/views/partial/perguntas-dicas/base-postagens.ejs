@@ -40,7 +40,7 @@
             <section class="pergunta">
                      <% if (item.categoria === 1) { %>
                         <article class="parte-cima-pergunta">
-                           <h4 class="nome-usuario-pergunta-culinaria">Nome Usuário</h4>
+                           <h4 class="nome-usuario-pergunta-culinaria"><%= item.nome_usuario %></h4>
                            <p class="texto-pergunta"><%= item.nome %></p>
                         </article>
                         <article class="parte-baixo-pergunta figureCulinaria">
@@ -55,7 +55,7 @@
                         </article>
                      <% } else if (item.categoria === 2) { %>
                         <article class="parte-cima-pergunta">
-                           <h4 class="nome-usuario-pergunta-limpeza">Nome Usuário</h4>
+                           <h4 class="nome-usuario-pergunta-limpeza"><%= item.nome_usuario %></h4>
                            <p class="texto-pergunta"><%= item.nome %></p>
                         </article>
                         <article class="parte-baixo-pergunta figureLimpeza">
@@ -70,7 +70,7 @@
                      </article>
                      <% } else if (item.categoria === 3) { %>
                         <article class="parte-cima-pergunta">
-                           <h4 class="nome-usuario-pergunta-bemestar">Nome Usuário</h4>
+                           <h4 class="nome-usuario-pergunta-bemestar"><%= item.nome_usuario %></h4>
                            <p class="texto-pergunta"><%= item.nome %></p>
                         </article>
                         <article class="parte-baixo-pergunta figureBemEstar">

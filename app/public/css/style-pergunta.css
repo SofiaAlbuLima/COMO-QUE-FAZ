@@ -642,11 +642,11 @@
         box-sizing: border-box;
         margin-left: 22%;
         display: flex;
-        margin-top: 5%;
+        margin-top: 20vh;
         margin-bottom: 1%;
     }
     
-    .icon-categoria {
+    .icon-categoperg {
         width: 3.5vh;
         height: 3.5vh;
         margin-left: 1vh;
@@ -730,7 +730,7 @@
         color: #9e5fef;
     }
     
-    .conteudo {
+    .conteudoperg {
         font-family: Fira Sans Bold;
         margin-left: 22%;
         margin-right: 25%;
@@ -764,8 +764,8 @@
         justify-content: center;
         align-items: center;
         gap: 20px;
-        width: 140px;
-        height: 41px;
+        width: 3vh;
+        height: 3vh;
         padding: 2px 2px 2px 2px;
         border-radius: 4px;
         background-color: #cb218c;
@@ -774,6 +774,10 @@
         color: white;
         font-family: "Fira Sans Bold", "Fira Sans", sans-serif;
         text-transform: uppercase;
+    }
+    .mao{
+        width: 3vh;
+        height: 3vh;
     }
     
     .filtrar {
@@ -899,14 +903,7 @@
         display: flex;
     }
     
-    .respostas-pergunta {
-        content: '\f005';
-        font-family: fontAwesome;
-        margin-left: 5%;
-        width: 100px;
-        color: #9e5fef;
-        font-size: 16px;
-    }
+
     
     .opcoes {
         position: absolute;
@@ -999,10 +996,9 @@
     .respostas h1 {
         font-family: Fira Sans Bold;
         font-size: 17px;
-        margin-right: 10%;
-        margin-left: -8%;
+        margin-left: -15vh;
+      
         text-align: left;
-        color: #9e5fef;
         margin-bottom: -24%;
     }
     
