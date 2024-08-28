@@ -106,7 +106,6 @@
     }
     .Itens-necessários{
         background-color: #cb2154;
-        margin: 5% 10% 0 10%;
         border-radius: 5px 5px 5px 5px;
         padding: 5% 5% 5% 5%;
     }
@@ -374,7 +373,6 @@
     }
     .Modo-Preparo{
         border-left: 5px solid #cb1154;
-        margin: 10% 10% 10% 10%;
         padding-top: 5%;
         padding-bottom: 1%;
     }
@@ -801,6 +799,7 @@
         justify-content: space-between;
         display: flex;
         margin-left: 33vh;
+        gap: 5vh;
         margin-right: 33vh;
     }
       .Carrossel{
@@ -1015,73 +1014,75 @@
     /* estrelas de avaliacao */
     .rate {
         display: flex;
-        direction: rtl; /* Inverte a ordem das estrelas */
+        direction: rtl;
         justify-content: center;
         align-items: center;
         font-size: 40px;
         gap: 1vh;
-        font-family: 'FontAwesome'; /* Usa a fonte FontAwesome para as estrelas */
+        font-family: 'FontAwesome'; 
     }
     
-    /* Ocultar inputs */
     .rate input {
         display: none;
     }
     
-    /* Estrelas */
     .rate label {
         color: #711136;; /* Cor padrão das estrelas */
         cursor: pointer;
         transition: color 0.2s;
     }
     
-    /* Estrela preenchida ao selecionar */
     .rate input:checked ~ label {
-        color: #ffc700; /* Cor das estrelas selecionadas */
+        color: #ffc700;
     }
     
-    /* Efeito hover */
     .rate label:hover,
     .rate label:hover ~ label {
-        color: #deb217; /* Cor ao passar o mouse */
+        color: #deb217;
     }
     
-    /* Estrela preenchida ao clicar e manter o hover */
     .rate input:checked + label:hover,
     .rate input:checked + label:hover ~ label,
     .rate input:checked ~ label:hover,
     .rate input:checked ~ label:hover ~ label,
     .rate label:hover ~ input:checked ~ label {
-        color: #c59b08; /* Cor das estrelas ao clicar e passar o mouse */
+        color: #c59b08;
     }
     
-    /* Usando FontAwesome para estrelas */
     .rate label:before {
-        content: '\f005'; /* Código para estrela cheia no FontAwesome */
-        font-family: 'FontAwesome'; /* Usando FontAwesome para estrelas */
+        content: '\f005';
+        font-family: 'FontAwesome';
     }
     
-    /* Estrelas marcadas */
     .avalia-estrelas .checked ~ label:before {
         color: #ffbb62;
     }
-
+    /* itens Necessários & Modo de Preparo */
+    .itens-modos{
+        justify-content: space-between;
+        display: flex;
+        margin-top: 5vh;
+        margin-left: 33vh;
+        margin-right: 33vh;
+        gap: 5vh;
+    }
+    
+    /* itens Necessários*/
     .Itens-necessários{
         background-color: #cb2154;
-        border-radius: 5px 5px 5px 5px;
-        padding: 2% 2% 0% 2%;
-        width: 26%;
-        height: 600px;
+        border-radius: 10px;
+        padding: 4vh;
+        width: 55vh;
     }
     .itens-titulo{
         color: white;
         font-weight: 400;
-        font-size: 30px;
+        font-size: 3.5vh;
     }
     .lista-itens{
         font-family: Fira Sans;
     }
-    .item-1{
+    .ingreditente_dica{
         font-family: Fira Sans;
         font-weight: 500;
         color: white;
@@ -1092,7 +1093,7 @@
         font-size: 17px;
         cursor: pointer;
     }
-    .item-1:active{
+    .ingreditente_dica:active{
         transition: 1s;
     }
     .info-item{
@@ -1128,188 +1129,19 @@
     .lista-info-2{
         font-family: Fira Sans Bold;
     }
-    .item-2{
-        font-family: Fira Sans;
-        font-weight: 500;
-        color: white;
-        background: none;
-        border: none;
-        text-decoration: none;
-        text-align: left;
-        font-size: 17px;
-        cursor: pointer;
-    }
-    .icon-xicara-cha{
-        width: 50px;
-        height: 50px;
-        display: block; 
-    }
-    .info-item2{
-    background-color: #a20f45;
-        text-align: left;
-        width: 109%;
-        border-radius: 0 0 10px 10px;
-        height: 50px;
-        padding: 14% 3% 5% 2%;
-        display: flex;
-    }
-    .item-3{
-        font-family: Fira Sans;
-        font-weight: 500;
-        color: white;
-        background: none;
-        border: none;
-        text-decoration: none;
-        text-align: left;
-        font-size: 17px;
-        cursor: pointer;
-    }
-    .info-item3{
-    background-color: #a20f45;
-        text-align: left;
-        width: 109%;
-        border-radius: 0 0 10px 10px;
-        height: 50px;
-        padding: 14% 3% 5% 2%;
-        display: flex;
-    }
-    .item-4{
-        font-family: Fira Sans;
-        font-weight: 500;
-        color: white;
-        background: none;
-        border: none;
-        text-decoration: none;
-        text-align: left;
-        font-size: 17px;
-        cursor: pointer;
-    }
-    .info-item4{
-    background-color: #a20f45;
-        text-align: left;
-        width: 109%;
-        border-radius: 0 0 10px 10px;
-        height: 50px;
-        padding: 14% 3% 5% 2%;
-        display: flex;
-    }
-    .item-5{
-        font-family: Fira Sans;
-        font-weight: 500;
-        color: white;
-        background: none;
-        border: none;
-        text-decoration: none;
-        text-align: left;
-        font-size: 17px;
-        cursor: pointer;
-    }
-    .info-item5{
-    background-color: #a20f45;
-        text-align: left;
-        width: 109%;
-        border-radius: 0 0 10px 10px;
-        height: 50px;
-        padding: 14% 3% 5% 2%;
-        display: flex;
-    }
-    .item-6{
-        font-family: Fira Sans;
-        font-weight: 500;
-        color: white;
-        background: none;
-        border: none;
-        text-decoration: none;
-        text-align: left;
-        font-size: 17px;
-        cursor: pointer;
-    }
-    .info-item6{
-    background-color: #a20f45;
-        text-align: left;
-        width: 109%;
-        border-radius: 0 0 10px 10px;
-        height: 50px;
-        padding: 14% 3% 5% 2%;
-        display: flex;
-    }
-    .item-7{
-        font-family: Fira Sans;
-        font-weight: 500;
-        color: white;
-        background: none;
-        border: none;
-        text-decoration: none;
-        text-align: left;
-        font-size: 17px;
-        cursor: pointer;
-    }
-    .info-item7{
-    background-color: #a20f45;
-        text-align: left;
-        width: 109%;
-        border-radius: 0 0 10px 10px;
-        height: 50px;
-        padding: 14% 3% 5% 2%;
-        display: flex;
-    }
-    .item-8{
-        font-family: Fira Sans;
-        font-weight: 500;
-        color: white;
-        background: none;
-        border: none;
-        text-decoration: none;
-        text-align: left;
-        font-size: 17px;
-        cursor: pointer;
-    }
-    .info-item8{
-    background-color: #a20f45;
-        text-align: left;
-        width: 109%;
-        border-radius: 0 0 10px 10px;
-        height: 50px;
-        padding: 14% 3% 5% 2%;
-        display: flex;
-    }
-    .item-9{
-        font-family: Fira Sans;
-        font-weight: 500;
-        color: white;
-        background: none;
-        border: none;
-        text-decoration: none;
-        text-align: left;
-        font-size: 17px;
-        cursor: pointer;
-    }
-    .info-item9{
-        background-color: #a20f45;
-        text-align: left;
-        width: 109%;
-        border-radius: 0 0 10px 10px;
-        height: 50px;
-        padding: 14% 3% 5% 2%;
-        display: flex;
-    }
-    
+    /*  Modo de Preparo  */
     .Modo-Preparo{
-        border-left: 5px solid #cb1154;
-        padding-top: 2%;
-        padding-bottom: 1%;
-        width: 30%;
-        position: absolute;
+        border-left: 1vh solid #cb1154;
+        padding-top: 4vh;
+        padding-left: 3vh;
+        padding-bottom: 4vh;
+        width: 55vh;
     }
     .modo-titulo{
         color: #333333;
         font-weight: 400;
-        font-size: 30px;
+        font-size: 3.5vh;
         text-align: left;
-    }
-    .lista-modo{
-        margin-left: 5%;
-        margin-top: 2%;
     }
     .modos{
        background-image: linear-gradient(89.99311970570312deg, #ffffff 0%, #e9e9e9 95.48561645502186%); 
@@ -1332,10 +1164,7 @@
         font-size: 17px;
         margin-left: 5%;
     }
-    .itens-modos{
-        display: flex;
-    }
-    
+    /* Comentarios e Anuncio */
     .comentarios{
         margin: 5% 0% 2% 16%;
         display: flex;
