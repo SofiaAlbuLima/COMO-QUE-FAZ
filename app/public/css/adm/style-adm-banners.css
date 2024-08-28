@@ -30,8 +30,33 @@
     appearance: none;
     background: url(/imagens/seta-para-baixo.svg) 96% / 15% no-repeat #d2d2d2;
     background-size: 0.8vw;
-
     &:focus{
         outline: none;
+    }
+}
+
+.custom-section-banner{
+    display: grid;
+    grid-column: 10vh 10vh;
+    grid-row: 10vh 10vh 10vh;
+}
+
+.titulo-banner-personalizado{
+    color: #9e5fef;
+    font-size: 1.8vh;
+    font-family: 'Fira Sans', sans-serif;
+    font-weight: 700;
+}
+
+.personalizacao-banner-personalizado{
+    width: 10vh;
+    height: 4vh;
+    border: solid 0.4vh #9e5fef;
+    &:focus{
+        outline: none;
+        border: solid 0.4vh #5800AA;
+    }
+    &:hover{
+        border: solid 0.4vh #5800AA;
     }
 }
