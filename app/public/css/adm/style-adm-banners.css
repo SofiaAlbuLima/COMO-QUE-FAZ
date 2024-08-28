@@ -36,9 +36,9 @@
 }
 
 .custom-section-banner{
-    display: grid;
-    grid-column: 10vh 10vh;
-    grid-row: 10vh 10vh 10vh;
+    display: none;
+    grid-template-columns: 10vh 30vh;
+    grid-template-rows: 5vh 5vh 5vh;
 }
 
 .titulo-banner-personalizado{
@@ -49,14 +49,15 @@
 }
 
 .personalizacao-banner-personalizado{
-    width: 10vh;
-    height: 4vh;
-    border: solid 0.4vh #9e5fef;
+    width: 30vh;
+    height: 2.4vh;
+    border: solid 0.33vh #cccc;
+    resize: none;
     &:focus{
         outline: none;
-        border: solid 0.4vh #5800AA;
+        border: solid 0.4vh rgb(173, 173, 173);
     }
     &:hover{
-        border: solid 0.4vh #5800AA;
+        border: solid 0.4vh rgb(173, 173, 173);
     }
 }
