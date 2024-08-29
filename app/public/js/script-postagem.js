@@ -75,6 +75,7 @@ function AbrirOpcoesComentarioDesktop() {
 }
 
 
+
 function visibility1() {
   var x = document.getElementById("myDIV");
   if (x.style.display === "none") {

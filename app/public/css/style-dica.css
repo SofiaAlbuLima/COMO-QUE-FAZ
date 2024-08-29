@@ -1092,70 +1092,96 @@
     .Itens-necessários{
         background-color: #cb2154;
         border-radius: 10px;
-        padding: 4vh;
+        padding-top: 3vh;
+        padding-left: 4vh;
+        padding-right: 4vh;
+        padding-bottom: 2vh;
         width: 55vh;
     }
     .itens-titulo{
         color: white;
         font-weight: 400;
         font-size: 3.5vh;
+        margin-bottom: 2vh;
     }
     .lista-itens{
         font-family: Fira Sans;
+        color: white;
     }
     .ingreditente_dica{
-        font-family: Fira Sans;
-        font-weight: 500;
-        color: white;
+        list-style-type: none;
+    }
+    .ingreditente_dica_button{
         background: none;
         border: none;
-        text-decoration: none;
         text-align: left;
-        font-size: 17px;
         cursor: pointer;
+        display: flex;
+        padding: 1vh;
+        width: 100%;
     }
-    .ingreditente_dica:active{
-        transition: 1s;
+    .ingreditente_dica_button:hover{
+        background-color: #a20f45;
+        border-radius: 10px;
     }
+    .ingreditente_dica_button p{
+        color: white;
+        font-size: 2.2vh;
+    }
+    .ingreditente_button_medida_quantidade{
+        font-family: Fira Sans Bold;
+        font-weight: 800;
+        text-decoration: underline;
+    }
+    .ingreditente_button_ingrediente{
+        font-family: Fira Sans;
+    }
+    .ingreditente_button_medida_quantidade, .pontinho{
+        font-family: Fira Sans;
+        margin-right: 0.5vh;
+    }
+    /* informação da medida */
     .info-item{
         background-color: #a20f45;
-        text-align: left;
-        width: 109%;
         border-radius: 0 0 10px 10px;
-        height: 50px;
-        padding: 14% 3% 5% 2%;
+        transform: translate(0, -1vh);
+        padding-top: 2vh;
+        padding-left: 1.5vh;
+        padding-right: 2vh;
+        padding-bottom: 2vh;
+        justify-content: left;
+        text-align: left;
         display: flex;
     }
     .info-item img{
-        width: 50px;
-        height: 50px;
+        width: 6vh;
         display: block; 
     }
-    .titulo-colher{
+    .titulo-medida{
         font-family: Fira Sans;
-        height: 0;
         font-weight: 400;
-        font-size: 13px;
-        text-decoration: none;
-    }
-    
-    .info-texto{
-        font-family: Fira Sans Bold;
-        font-size: 12px;
+        font-size: 1.8vh;
         text-decoration: none;
     }
     .lista-info-1{
         font-family: Fira Sans Bold;
+        list-style-type: none;
     }
     .lista-info-2{
         font-family: Fira Sans Bold;
+        list-style-type: none;
+    }
+    .info-texto{
+        font-family: Fira Sans Bold;
+        font-size: 1.7vh;
+        text-decoration: none;
     }
     /*  Modo de Preparo  */
     .Modo-Preparo{
         border-left: 1vh solid #cb1154;
-        padding-top: 4vh;
+        padding-top: 3vh;
         padding-left: 3vh;
-        padding-bottom: 4vh;
+        padding-bottom: 2vh;
         width: 55vh;
     }
     .modo-titulo{
@@ -1163,12 +1189,14 @@
         font-weight: 400;
         font-size: 3.5vh;
         text-align: left;
+        margin-bottom: 2vh;
     }
     .modos{
        background-image: linear-gradient(89.99311970570312deg, #ffffff 0%, #e9e9e9 95.48561645502186%); 
        display: flex;
        padding: 3% 3% 3% 0%;
        border-radius: 0 0 5px 0;
+       margin-bottom: 1vh;
     }
     .t-modo{
         color: #333333;

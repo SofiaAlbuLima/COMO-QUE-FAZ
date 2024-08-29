@@ -451,23 +451,28 @@
             <h1 class="itens-titulo">ITENS NECESSÁRIOS</h1>
             <ul class="lista-itens">
                <li class="ingreditente_dica">
-                  <button class="item-1" onmouseover="visibility1D()" onmouseout="Hidden1D()">1 COLHER DE SOPA | Óleo
-                     de Soja</button>
-                  <section class="myDIV" id="myDIVD" style="display: none;">
-                     <article class="info-item">
-                        <img src="./imagens/2-body/colher-icon.svg" alt="colher" class="icon-colher">
-                        <ul>
-                           <h3 class="titulo-colher">A COLHER DE SOPA É IGUAL À:</h3>
-                           <li class="lista-info-1">
-                              <p class="info-texto">12 GRAMAS (gr)</p>
-                           </li>
-                           <li class="lista-info-2">
-                              <p class="info-texto">12 MILILITROS (ml)</p>
-                           </li>
-                        </ul>
-                     </article>
-                  </section>
+                  <button class="ingreditente_dica_button" onclick="visibility1D()" onclick="Hidden1D()">
+                     <p class="pontinho">•</p>
+                     <p class="ingreditente_button_medida_quantidade">1 COLHER DE SOPA</p>
+                     <p class="ingreditente_button_ingrediente">| Óleo de Soja</p>
+                  </button>
                </li>
+               <section class="myDIV" id="myDIVD" style="display: none;">
+                  <article class="info-item">
+                     <figure>
+                        <img src="./imagens-svg/2-body/colher-icon.svg" alt="colher" class="icon-colher">
+                     </figure>
+                     <article>
+                        <h3 class="titulo-medida">A COLHER DE SOPA É IGUAL À:</h3>
+                        <li class="lista-info-1">
+                           <p class="info-texto">• 12 GRAMAS (gr)</p>
+                        </li>
+                        <li class="lista-info-2">
+                           <p class="info-texto">• 12 MILILITROS (ml)</p>
+                        </li>
+                     </article>
+                  </article>
+               </section>
             </ul>
          </section>
 
