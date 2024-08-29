@@ -1,10 +1,10 @@
 document.addEventListener('DOMContentLoaded', () => {
-    const dropdown = document.getElementsByClassName('dropdown-banner-promocional');
-    const customSection = document.getElementsByClassName('custom-section');
+    const dropdown = document.getElementsByClassName('dropdown-banner-promocional.opcao-dropdown-banners');
+    const customSection = document.getElementsByClassName('custom-section-banner');
 
     dropdown.addEventListener('change', () => {
         if (dropdown.value === 'personalizado') {
-            customSection.style.display = 'block';
+            customSection.style.display = 'grid';
         } else {
             customSection.style.display = 'none';
         }
