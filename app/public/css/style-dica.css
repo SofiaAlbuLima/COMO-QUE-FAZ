@@ -782,6 +782,7 @@
     }
     .mapa_dica p{
         font-family: Fira Sans;
+        font-size: 1.8vh;
     }
     .mapa-1{
         text-decoration: underline;
@@ -875,9 +876,11 @@
         cursor: pointer;
         padding: 0.8vh;
         border-radius: 10px;
+        border: none;
+        background-color: white;
     }
     .opcoes_dica:hover{
-        background-color: #e8407225;
+        background: #e8407225;
     }
     .ponto_dica{
         background: #cb2154;
@@ -888,28 +891,46 @@
     }
     /* opcoes tres pontinhos escondido */
     #hide-opcoes-Desktop{
+        position: absolute;
         z-index:1000;
-        display: inline;
-        max-width: 250px;
-        height: 50px;
-        padding: 1% 1% 1% 1%;
-        border-radius: 5px;
+        border-top-right-radius: 0px;
+        border-top-left-radius: 20px;
+        border-bottom-right-radius: 20px;
+        border-bottom-left-radius: 20px;
+        background: white;
         box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.565);
+        right: 36vh;
+        transform: translate(0, -5vh);
     }
     #hide-opcoes-Desktop img{
-        width: 20px;
-        height: 20px;
+        width: 2vh;
+        height: 2vh;
+        margin-right: 2vh;
     }
     #hide-opcoes-Desktop p{
         font-family: Fira Sans Bold;
+        font-size: 1.8vh;
+    }
+    .compartilhar,.denunciar{
+        padding-left: 2vh;
+        padding-right: 2vh;
+        width: 20vh;
+        display: flex;
+        cursor: pointer;
     }
     .denunciar{
-        width: 150px;
-        display: flex;
+        padding-top: 2vh;
+        padding-bottom: 1.5vh;
+        border-top-left-radius: 20px;
     }
     .compartilhar{
-        width: 180px;
-        display: flex;
+        padding-top: 1.5vh;
+        padding-bottom: 2vh;
+        border-bottom-right-radius: 20px;
+        border-bottom-left-radius: 20px;
+    }
+    .denunciar:hover, .compartilhar:hover{
+        background: rgb(237, 237, 237);
     }
     /* titulo descricao da postagem */
     .titulos-post{
@@ -1018,7 +1039,7 @@
         direction: rtl; /* Inverte a ordem das estrelas */
         justify-content: center;
         align-items: center;
-        font-size: 40px;
+        font-size: 4.3vh;
         gap: 1vh;
         font-family: 'FontAwesome'; /* Usa a fonte FontAwesome para as estrelas */
     }

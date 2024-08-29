@@ -35,17 +35,36 @@ function AbrirOpcoesComentario() {
     x.style.display = "none";
   }
 }
-
-function AbrirOpcoesDesktop() {
+function AbrirOpcoesDesktop(event) {
+  event.stopPropagation();  // Impede que o clique propague para o document
   var x = document.getElementById("hide-opcoes-Desktop");
-  if (x.style.display === "none") {
+
+  if (x.style.display === "none" || x.style.display === "") {
     x.style.display = "block";
+    
+    // Adiciona o evento para fechar ao clicar fora
+    document.addEventListener("click", fecharOpcoesAoClicarFora);
   } else {
     x.style.display = "none";
+    document.removeEventListener("click", fecharOpcoesAoClicarFora);
   }
 }
 
+function fecharOpcoesAoClicarFora(event) {
+  var x = document.getElementById("hide-opcoes-Desktop");
+  var tres_pontinhos = document.getElementById("opcoes");
 
+  // Verifica se o clique foi fora do menu de opções e do botão de opções
+  if (!x.contains(event.target) && !tres_pontinhos.contains(event.target)) {
+    x.style.display = "none";
+    document.removeEventListener("click", fecharOpcoesAoClicarFora);
+  }
+}
+
+// Garante que o clique no botão não feche imediatamente as opções
+document.getElementById("opcoes").addEventListener("click", function(event) {
+  event.stopPropagation();
+});
 function AbrirOpcoesComentarioDesktop() {
   var x = document.getElementById("hide-opcoes-comentario-Desktop");
   if (x.style.display === "none") {
