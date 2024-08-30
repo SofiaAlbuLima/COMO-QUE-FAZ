@@ -5,7 +5,7 @@
    <meta charset="UTF-8">
    <meta http-equiv="X-UA-Compatible" content="IE=edge">
    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-   
+
    <link rel="stylesheet" href="/css/style-Cabecalho.css">
    <link rel="stylesheet" href="/css/style-Rodape.css">
    <link rel="stylesheet" href="/css/criar_conteudo/criar-post-desk-pop-up.css">
@@ -21,7 +21,7 @@
    <link rel="stylesheet" href="/css/paginas/style-categoria.css">
    <link rel="stylesheet" href="/css/style-dica.css">
    <link rel="stylesheet" href="/css/style-pergunta.css">
-  
+
 
    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/simple-notify@1.0.4/dist/simple-notify.css">
@@ -33,11 +33,11 @@
 
    <link rel="preconnect" href="https://fonts.googleapis.com">
    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-   
+
    <link rel="shortcut icon" href="imagens/favicon.png" type="image/x-icon" />
 
    <title>Como que Faz?</title>
-   
+
 </head>
 
 <body>
@@ -48,9 +48,9 @@
    <main>
       <%- include("../partial/paginas/"+pagina.conteudo) %>
 
-      <% if (usuario_logado && usuario_logado.autenticado) { %>
-         <%- include("../partial/popup_criacao_conteudo") %>
-      <%}%>
+         <% if (usuario_logado && usuario_logado.autenticado) { %>
+            <%- include("../partial/popup_criacao_conteudo") %>
+               <%}%>
    </main>
 
    <footer>
@@ -59,7 +59,7 @@
 
    <script src="../js/script-header.js"></script>
    <script src="../js/script-template.js"></script>
-  
+
 
    <script src="../js/script-base-post-desk.js"></script>
    <script src="../js/script-Home.js"></script>

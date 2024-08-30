@@ -3,9 +3,9 @@ const usuario = require("./model-usuario.js");
 const bcrypt = require("bcryptjs");
 
 VerificarAutenticacao = (req, res, next) => { //verificar se o usuário está autenticado na sessão
-    if(req.session.autenticado){
+    if (req.session.autenticado) {
         req.session.logado = (req.session.logado || 0) + 1; // Incrementa logins válidos
-    }else{
+    } else {
         req.session.autenticado = { autenticado: null, tipo: null, id: null };
         req.session.logado = 0;
     }
@@ -24,10 +24,10 @@ gravarUsuAutenticado = async (req, res, next) => { //verifica se o usuário exis
         if (erros.isEmpty()) {
             const { input1, input2 } = req.body;
             const users = await usuario.findUserEmail({ Nickname: input1, Email: input1 });
-            
+
             if (users.length === 1 && bcrypt.compareSync(input2, users[0].senha)) {
                 autenticado = {
-                    autenticado: users[0].Nickname, 
+                    autenticado: users[0].Nickname,
                     tipo: users[0].Tipo_Cliente_idTipo_Cliente,
                     id: users[0].idClientes
                 };
@@ -38,7 +38,7 @@ gravarUsuAutenticado = async (req, res, next) => { //verifica se o usuário exis
         } else {
             console.log("Erros de validação:", erros.array());
         }
-        
+
         req.session.autenticado = autenticado;
         req.session.logado = 0;
         next();

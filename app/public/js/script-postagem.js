@@ -1,21 +1,21 @@
-    function toggleLike(button) {
-      const heart = document.getElementById('coracao-preenchido');
+function toggleLike(button) {
+  const heart = document.getElementById('coracao-preenchido');
 
-      if (heart.style.display === 'block') {
-        heart.style.display = 'none';
-      } else {
-        heart.style.display = 'block';
-      }
-    }
-    function toggleLike1(button) {
-      const heart = document.getElementById('coracao-preenchido1');
+  if (heart.style.display === 'block') {
+    heart.style.display = 'none';
+  } else {
+    heart.style.display = 'block';
+  }
+}
+function toggleLike1(button) {
+  const heart = document.getElementById('coracao-preenchido1');
 
-      if (heart.style.display === 'block') {
-        heart.style.display = 'none';
-      } else {
-        heart.style.display = 'block';
-      }
-    }
+  if (heart.style.display === 'block') {
+    heart.style.display = 'none';
+  } else {
+    heart.style.display = 'block';
+  }
+}
 
 
 function AbrirOpcoes() {
@@ -41,7 +41,7 @@ function AbrirOpcoesDesktop(event) {
 
   if (x.style.display === "none" || x.style.display === "") {
     x.style.display = "block";
-    
+
     // Adiciona o evento para fechar ao clicar fora
     document.addEventListener("click", fecharOpcoesAoClicarFora);
   } else {
@@ -62,7 +62,7 @@ function fecharOpcoesAoClicarFora(event) {
 }
 
 // Garante que o clique no botão não feche imediatamente as opções
-document.getElementById("opcoes").addEventListener("click", function(event) {
+document.getElementById("opcoes").addEventListener("click", function (event) {
   event.stopPropagation();
 });
 function AbrirOpcoesComentarioDesktop() {
@@ -157,23 +157,23 @@ function visibility9() {
   }
 }
 
-function switchImage(source){
+function switchImage(source) {
   document.querySelector(".imagemprincipal").src = source;
 }
-function switchImageDesktop(source){
+function switchImageDesktop(source) {
   document.querySelector(".imagemprincipalDesktop").src = source;
 }
 
- //icon-heart-interações
- function mudarcor(e){
-  if(e.className == "azul"){
-  e.className = "vermelho";
-  }else{
-  e.className = "azul";
+//icon-heart-interações
+function mudarcor(e) {
+  if (e.className == "azul") {
+    e.className = "vermelho";
+  } else {
+    e.className = "azul";
   }
-  }
+}
 
-  
+
 function visibility1D() {
   var x = document.getElementById("myDIVD");
   if (x.style.display === "none") {

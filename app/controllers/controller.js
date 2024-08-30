@@ -5,51 +5,51 @@ const conteudoModel = require("../models/model-conteudo");
 const imagemModel = require("../models/model-midia");
 const admModel = require("../models/model-adm");
 const moment = require("moment"); //datas e horas bonitinhas
-const {body, validationResult} = require("express-validator");
+const { body, validationResult } = require("express-validator");
 const bcrypt = require("bcryptjs");
 var salt = bcrypt.genSaltSync(12);
 
 
 const tarefasController = {
 
-    regrasValidacaoLogin:[
-     body('input1')
-        .custom(value => {
-            // Verifica se é um email válido
-            const isEmail = /^\S+@\S+\.\S+$/.test(value);
-            // Verifica se é um nome de usuário válido (por exemplo, apenas caracteres alfanuméricos)
-            const isUsername = /^[a-zA-Z0-9_.\-\s]+$/.test(value)
+    regrasValidacaoLogin: [
+        body('input1')
+            .custom(value => {
+                // Verifica se é um email válido
+                const isEmail = /^\S+@\S+\.\S+$/.test(value);
+                // Verifica se é um nome de usuário válido (por exemplo, apenas caracteres alfanuméricos)
+                const isUsername = /^[a-zA-Z0-9_.\-\s]+$/.test(value)
 
-            if (!isEmail && !isUsername) {
-                throw new Error('Insira um nome de usuário ou email válido!');
-            }
-            return true;
-        }),
+                if (!isEmail && !isUsername) {
+                    throw new Error('Insira um nome de usuário ou email válido!');
+                }
+                return true;
+            }),
 
-     body('input2').isLength({ min: 6 , max: 60 }).
+        body('input2').isLength({ min: 6, max: 60 }).
             withMessage("A senha deve ter no minimo 6 caracteres")
     ],
-    regrasValidacaoCadastro:[
+    regrasValidacaoCadastro: [
         body("nomeusu_usu")
             .isLength({ min: 5, max: 45 }).withMessage("Nome de usuário deve ter de 5 a 45 caracteres!")
             .custom(async value => {
-                const nomeUsu = await usuarioModel.findUserEmail({Nickname:value});
+                const nomeUsu = await usuarioModel.findUserEmail({ Nickname: value });
                 if (nomeUsu > 0) {
-                  throw new Error('Nome de usuário em uso!');
+                    throw new Error('Nome de usuário em uso!');
                 }
-              }),  
+            }),
         body("email_usu")
-           .isEmail().withMessage("Digite um e-mail válido!")
-           .custom(async value => {
-               const nomeUsu = await usuarioModel.findUserEmail({Email:value});
-               if (nomeUsu > 0) {
-                 throw new Error('E-mail em uso!');
-               }
-             }), 
+            .isEmail().withMessage("Digite um e-mail válido!")
+            .custom(async value => {
+                const nomeUsu = await usuarioModel.findUserEmail({ Email: value });
+                if (nomeUsu > 0) {
+                    throw new Error('E-mail em uso!');
+                }
+            }),
         body("senha_usu")
             .isStrongPassword()
             .withMessage("A senha deve ter no mínimo 8 caracteres (mínimo 1 letra maiúscula, 1 caractere especial e 1 número)")
-       
+
     ],
     Login_formLogin: async (req, res) => {
         // Verificação de Erros de Validação
@@ -63,12 +63,12 @@ const tarefasController = {
                 dadosNotificacao: null
             });
         }
-    
+
         // Verificar se o usuário está autenticado
         if (req.session.autenticado && req.session.autenticado.autenticado) {
             return res.redirect("/"); // Redireciona se o usuário já estiver autenticado
         }
-    
+
         // Renderizar a página de login se não houver erros e o usuário não estiver autenticado
         res.render("pages/template", {
             pagina: { cabecalho: "cabecalho", conteudo: "Fazer-Login", FormCadastro: "template_cadastro", FormLogin: "template_login", rodape: "rodape" },
@@ -89,14 +89,14 @@ const tarefasController = {
         if (!erros.isEmpty()) {
             console.log(erros);
             return res.render("pages/template", {
-                pagina: {cabecalho: "cabecalho", conteudo: "Fazer-Login", FormCadastro: "template_cadastro", FormLogin: "template_login", rodape: "rodape"}, 
-                usuario_logado:req.session.autenticado, 
+                pagina: { cabecalho: "cabecalho", conteudo: "Fazer-Login", FormCadastro: "template_cadastro", FormLogin: "template_login", rodape: "rodape" },
+                usuario_logado: req.session.autenticado,
                 listaErros: erros,
                 listaErroslog: null,
                 dadosNotificacao: null
             });
         }
-        try{
+        try {
             let create = usuarioModel.create(dadosForm);
             console.log("cadastro realizado!");
 
@@ -106,16 +106,16 @@ const tarefasController = {
                 tipo: "success"
             };
             return res.redirect("/");
-        } catch(e) {
+        } catch (e) {
             console.log(e);
             res.render("pages/template", {
-                pagina: {cabecalho: "cabecalho", conteudo: "Fazer-Login",  FormCadastro: "template_cadastro", FormLogin: "template_login", rodape: "rodape"}, 
-                usuario_logado:req.session.autenticado, 
-                listaErros: null, 
+                pagina: { cabecalho: "cabecalho", conteudo: "Fazer-Login", FormCadastro: "template_cadastro", FormLogin: "template_login", rodape: "rodape" },
+                usuario_logado: req.session.autenticado,
+                listaErros: null,
                 listaErroslog: null,
                 dadosNotificacao: {
-                    titulo: "Erro ao cadastrar!", 
-                    mensagem: "Tente novamente!", 
+                    titulo: "Erro ao cadastrar!",
+                    mensagem: "Tente novamente!",
                     tipo: "error"
                 },
             });
@@ -175,7 +175,7 @@ const tarefasController = {
                 porcoes: conteudo.porcoes > 0 ? `${conteudo.porcoes} ${conteudo.porcoes > 1 ? 'Porções' : 'Porção'}` : null,
                 tipo: conteudo.tipo
             }));
-            return{
+            return {
                 usuario_logado: req.session.autenticado, //indica se o usuário está logado
                 login: req.session.logado,
                 postagens: combinedConteudo,
@@ -183,7 +183,7 @@ const tarefasController = {
                 categoriaAtual: categoria || 'todas',
                 novoFiltro: filtro || 'em_alta'
             };
-    
+
         } catch (e) {
             console.log(e);
             res.json({ erro: "Falha ao acessar dados" });
@@ -208,22 +208,22 @@ const tarefasController = {
         // const etapasTexto = etapasModoPreparo.join('; ');
 
         var FormCriarDica = { //dados que o usuário digita no formulário
-            Clientes_idClientes: req.session.autenticado.id, 
+            Clientes_idClientes: req.session.autenticado.id,
             Categorias_idCategorias: categoriaId,
             Titulo: req.body.dica_titulo,
             tempo: `${req.body.dica_tempo_horas.padStart(2, '0')}:${req.body.dica_tempo_minutos.padStart(2, '0')}:00`, // Formatando horas e minutos
             Descricao: req.body.dica_descricao,
             porcoes: req.body.dica_porcoes,
-            Etapas_Modo_de_Preparo: "faça tudo" 
+            Etapas_Modo_de_Preparo: "faça tudo"
         };
         const { ingredientes, quantidade_ingredientes, medida_ingredientes } = "ingredientes";
 
-        try{
+        try {
             // const dadosImagem = {
             //     nome: req.file.filename,
             //     caminho: req.file.path
             // };
-            
+
             // let imagemCriada = await imagemModel.criarImagem(dadosImagem);
             // FormCriarDica.imagem_id = imagemCriada.insertId;
 
@@ -248,15 +248,15 @@ const tarefasController = {
                 tipo: "success"
             };
             return res.redirect("/perfil");
-        } catch(e) {
+        } catch (e) {
             console.log(e);
             res.render("pages/template", {
-                pagina: {cabecalho: "cabecalho", conteudo: "meu-perfil", rodape: "rodape"}, 
-                usuario_logado:req.session.autenticado, 
-                listaErros: erros, 
+                pagina: { cabecalho: "cabecalho", conteudo: "meu-perfil", rodape: "rodape" },
+                usuario_logado: req.session.autenticado,
+                listaErros: erros,
                 dadosNotificacao: {
-                    titulo: "Erro ao realizar a postagem!", 
-                    mensagem: "Verifique os valores digitados em rascunhos!", 
+                    titulo: "Erro ao realizar a postagem!",
+                    mensagem: "Verifique os valores digitados em rascunhos!",
                     tipo: "error"
                 },
             });
@@ -280,7 +280,7 @@ const tarefasController = {
             categorias_idCategorias: categoriaId
         };
 
-        try{
+        try {
             let create = conteudoModel.CriarPergunta(FormCriarPergunta);
             console.log("Pergunta realizada!");
 
@@ -290,7 +290,7 @@ const tarefasController = {
                 tipo: "success"
             };
             return res.redirect("/perfil");
-        } catch(error){
+        } catch (error) {
             console.error('Erro ao criar pergunta:', error);
             res.redirect('/');
         }
@@ -300,26 +300,26 @@ const tarefasController = {
         res.locals.moment = moment;
         try {
 
-          if (categoriaId = 1) {
-              categoriaa === "Culinária";
-          } else if (categoriaId = 2) {
-              categoriaa === "Limpeza";
-          } else if (categoriaId = 3) {
-              categoriaa === "Bem Estar";
-          }
+            if (categoriaId = 1) {
+                categoriaa === "Culinária";
+            } else if (categoriaId = 2) {
+                categoriaa === "Limpeza";
+            } else if (categoriaId = 3) {
+                categoriaa === "Bem Estar";
+            }
 
-          results = await admModel.acharDenuncia();
-          resultsconteudo = await admModel.acharConteudo(categoria);
+            results = await admModel.acharDenuncia();
+            resultsconteudo = await admModel.acharConteudo(categoria);
 
-          return { 
-            denunciasNoControl: results, resultsconteudo, categoriaId,
-            usuario_logado:req.session.autenticado
-          };
+            return {
+                denunciasNoControl: results, resultsconteudo, categoriaId,
+                usuario_logado: req.session.autenticado
+            };
 
 
         } catch (e) {
-          console.log(e); // exibir os erros no console do vs code
-          res.json({ erro: "Falha ao acessar dados" });
+            console.log(e); // exibir os erros no console do vs code
+            res.json({ erro: "Falha ao acessar dados" });
         }
     }
 
