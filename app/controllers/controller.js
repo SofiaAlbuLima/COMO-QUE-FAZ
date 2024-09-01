@@ -193,13 +193,9 @@ const tarefasController = {
     BuscarPostagemPorId: async (req, res) => {
         res.locals.moment = moment;
         try {
-            // Pegue o ID da postagem da requisição
             const postagemId = req.params.id;
-    
-            // Buscar a postagem no banco de dados
             const postagem = await conteudoModel.BuscarPostagemPorId(postagemId);
     
-            // Verifica se a postagem foi encontrada
             if (!postagem) {
                 return res.status(404).render("pages/erro", { mensagem: "Postagem não encontrada" });
             }
@@ -217,22 +213,19 @@ const tarefasController = {
                     return '';
                 }
             }
-            // Mapeia a postagem para o formato desejado
             let postagemFormatada = {
                 titulo: postagem.Titulo,
                 usuario: postagem.Clientes_idClientes,
                 nome_usuario: postagem.nome_usuario,
                 id: postagem.id,
                 categoria: postagem.Categorias_idCategorias,
-                nomeCategoria: '', // Inicialmente vazio, será preenchido depois
+                nomeCategoria: '',
                 tempo: postagem.tempo ? formatarTempo(postagem.tempo) : null,
                 descricao: postagem.Descricao || null,
                 etapas: postagem.Etapas_Modo_de_Preparo,
                 porcoes: postagem.porcoes > 0 ? `${postagem.porcoes} ${postagem.porcoes > 1 ? 'Porções' : 'Porção'}` : null,
                 tipo: postagem.tipo
             };
-    
-            // Atribui o nome da categoria com base no ID
             switch (postagem.Categorias_idCategorias) {
                 case 1:
                     postagemFormatada.nomeCategoria = 'Culinária';
@@ -247,15 +240,20 @@ const tarefasController = {
                     postagemFormatada.nomeCategoria = 'Outra categoria';
                     break;
             }
-    
-            // Renderize a página com a postagem formatada
-            res.render("pages/template", {
-                pagina: { cabecalho: "cabecalho", conteudo: "Base-Dica", rodape: "rodape" },
-                postagem: postagemFormatada,
-                usuario_logado: req.session.autenticado
-            });
+            if (postagem.tipo === 'dica') {
+                res.render("pages/template", {
+                    pagina: { cabecalho: "cabecalho", conteudo: "Base-Dica", rodape: "rodape" },
+                    postagem: postagemFormatada,
+                    usuario_logado: req.session.autenticado
+                });
+            } else if (postagem.tipo === 'pergunta') {
+                res.render("pages/template", {
+                    pagina: { cabecalho: "cabecalho", conteudo: "Base-Pergunta", rodape: "rodape" },
+                    postagem: postagemFormatada,
+                    usuario_logado: req.session.autenticado
+                });
+            }
         } catch (erro) {
-            // Em caso de erro, retorna uma mensagem de erro
             res.status(500).json({ erro: erro.message });
         }
     },
@@ -365,7 +363,6 @@ const tarefasController = {
             res.redirect('/');
         }
     },
-
     listarDenuncias: async (req, res) => {
         res.locals.moment = moment;
         try {

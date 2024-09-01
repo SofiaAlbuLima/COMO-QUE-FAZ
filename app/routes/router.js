@@ -117,6 +117,9 @@ router.get("/criar-pergunta", VerificarAutenticacao, function (req, res) {
 router.get("/dica/:id", async function (req, res) {
     await tarefasController.BuscarPostagemPorId(req, res);
 });
+router.get("/pergunta/:id", async function (req, res) {
+    await tarefasController.BuscarPostagemPorId(req, res);
+});
 router.get("/login", function (req, res) {
     res.render("pages/template", {
         pagina: { cabecalho: "cabecalho", FormCadastro: "template_cadastro", FormLogin: "template_login", conteudo: "Fazer-Login", rodape: "rodape" },

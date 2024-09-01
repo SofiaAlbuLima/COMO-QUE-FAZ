@@ -67,20 +67,32 @@
 
     <section id="conteudo-dispositivo-desktop">
         <section class="alinhamento-pergunta-desktop">
-            <header class="categoria-pergunta-desktop">
-                <img src="imagens/icon-culinaria-branco.png" alt="icon-categoria-culinaria"
-                    class="icon-categoperg">
-                <h1 class="titulo-categoria-pergunta">CULINÁRIA</h1>
-            </header>
+            <% if (postagem.categoria === 1) { %>
+                <figure class="categoria-pergunta-desktop_culinaria">
+                   <img src="/imagens/icon-culinaria-branco.png" alt="icon-categoria" class="icon-categoria">
+                   <h1 class="titulo-categoria"><%= postagem.nomeCategoria %></h1>
+                </figure>
+             <% } else if (postagem.categoria === 2) { %>
+                <figure class="categoria-pergunta-desktop_limpeza">
+                   <img src="/imagens/icon-limpeza-branco.png" alt="icon-categoria" class="icon-categoria">
+                   <h1 class="titulo-categoria"><%= postagem.nomeCategoria %></h1>
+                </figure>
+             <% } else if (postagem.categoria === 3) { %>
+                <figure class="categoria-pergunta-desktop_bemestar">
+                   <img src="/imagens/icon-bemestar-branco.png" alt="icon-categoria" class="icon-categoria">
+                   <h1 class="titulo-categoria"><%= postagem.nomeCategoria %></h1>
+                </figure>
+             <% } %>
+             
             <img class="perg-pontinho1" src="" alt="">
             <span class="usuario-pergunta">
-                <h3><span class="nick2">NandãoDoAçaí</span> | Nanda da Silva</h3>
+                <h3><span class="nick2"> <%= postagem.nome_usuario %> </span> | Nanda da Silva</h3>
             </span>
-            <p class="conteudoperg">Gente, eu comi um bolo de pão de mel em uma festa... queria fazer também </p>
+            <p class="conteudoperg"> <%= postagem.titulo %> </p>
             <nav class="opcoes-ajuda-desktop">
                 <button class="ajuda">Patinhas</button>
 
-                <button class="ajudar "> <img class="mao" src="imagens-svg/patinha-icon.svg"
+                <button class="ajudar "> <img class="mao" src="/imagens-svg/patinha-icon.svg"
                         alt="mão botão ajudar">Dar a pata</button>
 
             </nav>

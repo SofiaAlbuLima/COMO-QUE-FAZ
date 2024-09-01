@@ -37,7 +37,7 @@
          
             </section>
          <% } else if (item.tipo === 'pergunta') { %>
-            <section class="pergunta">
+            <section class="pergunta" onclick="window.location.href='/pergunta/<%= item.id %>';">
                      <% if (item.categoria === 1) { %>
                         <article class="parte-cima-pergunta">
                            <h4 class="nome-usuario-pergunta-culinaria"><%= item.nome_usuario %></h4>

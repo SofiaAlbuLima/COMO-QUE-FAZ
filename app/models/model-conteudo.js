@@ -106,7 +106,7 @@ const conteudoModel = { //const que agrupa todas as funções de acesso e manipu
             WHERE p.ID_Pergunta = ?`;
 
             const [resultados] = await pool.query(query, [id, id]);
-            return resultados[0]; // Retorna a primeira (e única) linha encontrada
+            return resultados[0];
         } catch (erro) {
             throw erro;
         }
