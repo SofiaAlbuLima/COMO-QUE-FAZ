@@ -26,13 +26,6 @@ router.get("/", VerificarAutenticacao, async function (req, res) {
     }
 });
 
-router.get("/dica", function (req, res) {
-    res.render("pages/template", {
-        pagina: { cabecalho: "cabecalho", conteudo: "Base-Dica", rodape: "rodape" },
-        usuario_logado: req.session.autenticado,
-    });
-});
-
 router.get("/pergunta", function (req, res) {
     res.render("pages/template", {
         pagina: { cabecalho: "cabecalho", conteudo: "Base-Pergunta", rodape: "rodape" },
@@ -121,7 +114,9 @@ router.get("/criar-pergunta", VerificarAutenticacao, function (req, res) {
         usuario_logado: req.session.autenticado,
     });
 });
-
+router.get("/dica/:id", async function (req, res) {
+    await tarefasController.BuscarPostagemPorId(req, res);
+});
 router.get("/login", function (req, res) {
     res.render("pages/template", {
         pagina: { cabecalho: "cabecalho", FormCadastro: "template_cadastro", FormLogin: "template_login", conteudo: "Fazer-Login", rodape: "rodape" },

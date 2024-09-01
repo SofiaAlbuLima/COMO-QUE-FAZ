@@ -91,6 +91,25 @@ const conteudoModel = { //const que agrupa todas as funções de acesso e manipu
         } catch(erro){
             throw erro; 
         }
+    },
+    BuscarPostagemPorId: async (id) => {
+        try {
+            const query = `
+            SELECT c.ID_conteudo AS id, c.Clientes_idClientes, c.Categorias_idCategorias, c.Titulo, c.tempo, c.Descricao, c.Etapas_Modo_de_Preparo, c.porcoes, 'dica' AS tipo, cl.Nickname AS nome_usuario
+            FROM conteudo_postagem AS c
+            JOIN clientes AS cl ON c.Clientes_idClientes = cl.idClientes
+            WHERE c.ID_conteudo = ?
+            UNION ALL
+            SELECT p.ID_Pergunta AS id, p.Clientes_idClientes, p.categorias_idCategorias, p.titulo AS Titulo, NULL AS tempo, NULL AS Descricao, NULL AS Etapas_Modo_de_Preparo, NULL AS porcoes, 'pergunta' AS tipo, cl.Nickname AS nome_usuario
+            FROM perguntas AS p
+            JOIN clientes AS cl ON p.Clientes_idClientes = cl.idClientes
+            WHERE p.ID_Pergunta = ?`;
+
+            const [resultados] = await pool.query(query, [id, id]);
+            return resultados[0]; // Retorna a primeira (e única) linha encontrada
+        } catch (erro) {
+            throw erro;
+        }
     }
 }
 

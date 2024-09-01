@@ -168,6 +168,7 @@ const tarefasController = {
                 nome: conteudo.Titulo,
                 usuario: conteudo.Clientes_idClientes,
                 nome_usuario: conteudo.nome_usuario,
+                id: conteudo.id,
                 categoria: conteudo.Categorias_idCategorias,
                 tempo: conteudo.tempo ? formatarTempo(conteudo.tempo) : null,
                 descricao: conteudo.Descricao || null,
@@ -187,6 +188,75 @@ const tarefasController = {
         } catch (e) {
             console.log(e);
             res.json({ erro: "Falha ao acessar dados" });
+        }
+    },
+    BuscarPostagemPorId: async (req, res) => {
+        res.locals.moment = moment;
+        try {
+            // Pegue o ID da postagem da requisição
+            const postagemId = req.params.id;
+    
+            // Buscar a postagem no banco de dados
+            const postagem = await conteudoModel.BuscarPostagemPorId(postagemId);
+    
+            // Verifica se a postagem foi encontrada
+            if (!postagem) {
+                return res.status(404).render("pages/erro", { mensagem: "Postagem não encontrada" });
+            }
+            function formatarTempo(tempo) {
+                let duracao = moment.duration(tempo, 'HH:mm:ss');
+                let horas = duracao.hours();
+                let minutos = duracao.minutes();
+                if (horas > 0 && minutos > 0) {
+                    return `${horas}h${minutos}min`;
+                } else if (horas > 0 && minutos <= 0) {
+                    return `${horas}hora${horas > 1 ? 's' : ''}`;
+                } else if (horas <= 0 && minutos > 0) {
+                    return `${minutos}min`;
+                } else {
+                    return '';
+                }
+            }
+            // Mapeia a postagem para o formato desejado
+            let postagemFormatada = {
+                titulo: postagem.Titulo,
+                usuario: postagem.Clientes_idClientes,
+                nome_usuario: postagem.nome_usuario,
+                id: postagem.id,
+                categoria: postagem.Categorias_idCategorias,
+                nomeCategoria: '', // Inicialmente vazio, será preenchido depois
+                tempo: postagem.tempo ? formatarTempo(postagem.tempo) : null,
+                descricao: postagem.Descricao || null,
+                etapas: postagem.Etapas_Modo_de_Preparo,
+                porcoes: postagem.porcoes > 0 ? `${postagem.porcoes} ${postagem.porcoes > 1 ? 'Porções' : 'Porção'}` : null,
+                tipo: postagem.tipo
+            };
+    
+            // Atribui o nome da categoria com base no ID
+            switch (postagem.Categorias_idCategorias) {
+                case 1:
+                    postagemFormatada.nomeCategoria = 'Culinária';
+                    break;
+                case 2:
+                    postagemFormatada.nomeCategoria = 'Limpeza';
+                    break;
+                case 3:
+                    postagemFormatada.nomeCategoria = 'Bem-estar';
+                    break;
+                default:
+                    postagemFormatada.nomeCategoria = 'Outra categoria';
+                    break;
+            }
+    
+            // Renderize a página com a postagem formatada
+            res.render("pages/template", {
+                pagina: { cabecalho: "cabecalho", conteudo: "Base-Dica", rodape: "rodape" },
+                postagem: postagemFormatada,
+                usuario_logado: req.session.autenticado
+            });
+        } catch (erro) {
+            // Em caso de erro, retorna uma mensagem de erro
+            res.status(500).json({ erro: erro.message });
         }
     },
     CriarDica: async (req, res) => {
