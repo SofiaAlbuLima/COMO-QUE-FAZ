@@ -11,6 +11,7 @@
   .postagem{
     width: 41.5vh;
     align-self: flex-start;
+    cursor: pointer;
   }
   .postagem_info_primeiro_plano{
     z-index: 1;
@@ -102,6 +103,14 @@
     .pergunta{
       width: 41.5vh;
       align-self: flex-start;
+      cursor: pointer;
+      transition: font-size 0.3s ease-in-out;
+    }
+    .pergunta:hover .parte-cima-pergunta{
+      background-color: #d9d9d9;
+    }
+    .pergunta:hover .texto-pergunta{
+      font-size: 2.1vh;
     }
     .parte-cima-pergunta{
       padding-left: 2vh;
@@ -135,6 +144,7 @@
       color: #333333;
       font-size: 2vh;
       font-weight: 600;
+      transition: font-size 0.3s ease-in-out;
     }
     .parte-baixo-pergunta{
       display: flex;

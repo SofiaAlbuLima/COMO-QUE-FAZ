@@ -632,20 +632,27 @@
     .titulos-post {
     }
     
-    .categoria-pergunta-desktop {
+    .categoria-pergunta-desktop_culinaria, .categoria-pergunta-desktop_limpeza, .categoria-pergunta-desktop_bemestar {
         line-height: normal;
-        width: 20%;
-        height: 5%;
-        padding: 2px 2px 2px 2px;
+        width: 22vh;
+        height: 5vh;
+        padding: 0.3vh 0.3vh 0.3vh 0.3vh;
         border-radius: 5px;
-        background-color: #cb1154;
         box-sizing: border-box;
-        margin-left: 22%;
         display: flex;
+        margin-left: 25vh;
         margin-top: 20vh;
-        margin-bottom: 1%;
+        margin-bottom: 2vh;
     }
-    
+    .categoria-pergunta-desktop_culinaria{
+        background-color: #cb1154;
+    }
+    .categoria-pergunta-desktop_limpeza{
+        background-color: #027de1;
+    }
+    .categoria-pergunta-desktop_bemestar{
+        background-color: #00cd83;
+    }    
     .icon-categoperg {
         width: 3.5vh;
         height: 3.5vh;

@@ -2,7 +2,7 @@
    <% if (postagens.length > 0) { %>
       <% postagens.forEach(function(item) { %>
          <% if (item.tipo === 'dica') { %>
-            <section class="postagem">
+            <section class="postagem" onclick="window.location.href='/dica/<%= item.id %>';">
                <figure class="postagem_parte_de_cima">
                   <h1 id="texto-a   tras5-B" class="titulo_post postagem_info_primeiro_plano"><%= item.nome %></h1>
                   
@@ -24,7 +24,7 @@
                         <img src="imagens/estrela-cinza.svg" alt="estrela">
                         <h3>5.0</h3>
                      </figure>
-                     <% if(item.porcoes != null){ %>
+                     <% if(item.categoria === 1){ %>
                      <figure class="legenda partes">
                         <img src="imagens/partes-cinza.png" alt="partes">
                         <h3><%= item.porcoes %></h3>
@@ -37,7 +37,7 @@
          
             </section>
          <% } else if (item.tipo === 'pergunta') { %>
-            <section class="pergunta">
+            <section class="pergunta" onclick="window.location.href='/pergunta/<%= item.id %>';">
                      <% if (item.categoria === 1) { %>
                         <article class="parte-cima-pergunta">
                            <h4 class="nome-usuario-pergunta-culinaria"><%= item.nome_usuario %></h4>

@@ -892,11 +892,14 @@
     }
 
     /* mapa do site */
+    a p {
+        text-decoration: none;
+        color: #333333;
+    }
     .mapa_dica {
         display: flex;
         margin-left: 33vh;
         margin-top: 17vh;
-        width: 50vh;
     }
 
     .mapa_dica p {
@@ -980,15 +983,23 @@
         display: flex;
     }
 
-    .titulo-icon-categoria {
+    .titulo-icon-culinaria, .titulo-icon-limpeza, .titulo-icon-bemestar {
         line-height: normal;
         width: 22vh;
         height: 5vh;
         padding: 0.3vh 0.3vh 0.3vh 0.3vh;
         border-radius: 5px;
-        background-color: #cb1154;
         box-sizing: border-box;
         display: flex;
+    }
+    .titulo-icon-culinaria, .estrelas_culinaria{
+        background-color: #cb1154;
+    }
+    .titulo-icon-limpeza, .estrelas_limpeza{
+        background-color: #027de1;
+    }
+    .titulo-icon-bemestar, .estrelas_bemestar{
+        background-color: #00cd83;
     }
 
     .icon-categoria {
@@ -1008,7 +1019,7 @@
         font-size: 2vh;
     }
 
-    .opcoes_dica {
+    .opcoes_dica_culinaria, .opcoes_dica_limpeza, .opcoes_dica_bemestar {
         cursor: pointer;
         padding: 0.8vh;
         border-radius: 10px;
@@ -1016,16 +1027,30 @@
         background-color: white;
     }
 
-    .opcoes_dica:hover {
+    .opcoes_dica_culinaria:hover {
         background: #e8407225;
+    }
+    .opcoes_dica_limpeza:hover {
+        background: #027de12c;
+    }
+    .opcoes_dica_bemestar:hover {
+        background: #00cd823c;
     }
 
     .ponto_dica {
-        background: #cb2154;
         width: 8px;
         height: 8px;
         margin-bottom: 3px;
         border-radius: 3px;
+    }
+    .opcoes_dica_culinaria .ponto_dica {
+        background: #cb2154;
+    }
+    .opcoes_dica_limpeza .ponto_dica {
+        background: #027de1;
+    }
+    .opcoes_dica_bemestar .ponto_dica {
+        background: #00cd83;
     }
 
     /* opcoes tres pontinhos escondido */
@@ -1112,7 +1137,7 @@
 
     /* tempo - avaliação - porcoes da postagem */
     .tempo-avaliacao-porcoes {
-        justify-content: space-between;
+        justify-content:left;
         display: flex;
         margin-top: 2.5vh;
         padding-right: 4vh;
@@ -1157,26 +1182,31 @@
     /* hashtags */
     .hashtags {
         margin-top: 3vh;
-        font-family: Fira Sans Bold;
-        font-weight: 700;
         padding: 2vh 4vh 2vh 4vh;
-        color: #cb1154;
         background-color: #f2f2f2;
         border-radius: 0 0 15px 0;
         width: 57vh;
     }
 
-    .hashtags-texto {
+    .hashtags-texto-culinaria, .hashtags-texto-limpeza, .hashtags-texto-bemestar {
         font-family: Fira Sans Bold;
         font-weight: 500;
         font-size: 1.8vh;
     }
+    .hashtags-texto-culinaria{
+        color: #cb1154;
+    }
+    .hashtags-texto-limpeza{
+        color: #027de1;
+    }
+    .hashtags-texto-bemestar{
+        color: #00cd83;
+    }
 
     /* avaliar */
-    .estrelas {
+    .estrelas_culinaria, .estrelas_limpeza, .estrelas_bemestar {
         margin-top: 3vh;
         padding: 2vh 4vh 2vh 4vh;
-        background-color: #cb1154;
         display: flex;
         border-radius: 0 20px 20px 0;
         justify-content: space-between;
@@ -1215,12 +1245,18 @@
         display: none;
     }
 
-    .rate label {
-        color: #711136;
-        ;
-        /* Cor padrão das estrelas */
+    .rate .label_culinaria, .label_limpeza, .label_bemestar {
         cursor: pointer;
         transition: color 0.2s;
+    }
+    .label_culinaria{
+        color: #711136;
+    }
+    .label_limpeza{
+        color: #124773;
+    }
+    .label_bemestar{
+        color: #126c4b;
     }
 
     .rate input:checked~label {
@@ -1260,14 +1296,22 @@
     }
 
     /* itens Necessários*/
-    .Itens-necessários {
-        background-color: #cb2154;
+    .Itens-necessários_culinaria, .Itens-necessários_limpeza, .Itens-necessários_bemestar {
         border-radius: 10px;
         padding-top: 3vh;
         padding-left: 4vh;
         padding-right: 4vh;
         padding-bottom: 2vh;
         width: 55vh;
+    }
+    .Itens-necessários_culinaria{
+        background-color: #cb2154;
+    }
+    .Itens-necessários_limpeza{
+        background-color: #027de1;
+    }
+    .Itens-necessários_bemestar{
+        background-color: #00cd83;
     }
 
     .itens-titulo {
@@ -1297,7 +1341,7 @@
     }
 
     .ingreditente_dica_button:hover {
-        background-color: #a20f45;
+        background-color: rgba(0, 0, 0, 0.14);
         border-radius: 10px;
     }
 
@@ -1323,8 +1367,7 @@
     }
 
     /* informação da medida */
-    .info-item {
-        background-color: #a20f45;
+    .info-item_culinaria, .info-item_limpeza, .info-item_bemestar {
         border-radius: 0 0 10px 10px;
         transform: translate(0, -1vh);
         padding-top: 2vh;
@@ -1335,8 +1378,17 @@
         text-align: left;
         display: flex;
     }
+    .info-item_culinaria{
+        background-color: #ae1c48;
+    }
+    .info-item_limpeza{
+        background-color: #026bc1;
+    }
+    .info-item_bemestar{
+        background-color: rgba(0, 0, 0, 0.14);
+    }
 
-    .info-item img {
+    .info-item_culinaria img, .info-item_limpeza img, .info-item_bemestar img{
         width: 6vh;
         display: block;
     }
@@ -1365,12 +1417,20 @@
     }
 
     /*  Modo de Preparo  */
-    .Modo-Preparo {
-        border-left: 1vh solid #cb1154;
+    .Modo-Preparo-culiaria, .Modo-Preparo-limpeza, .Modo-Preparo-bemestar {
         padding-top: 3vh;
         padding-left: 3vh;
         padding-bottom: 2vh;
         width: 55vh;
+    }
+    .Modo-Preparo-culiaria{
+        border-left: 1vh solid #cb1154;
+    }
+    .Modo-Preparo-limpeza{
+        border-left: 1vh solid #027de1;
+    }
+    .Modo-Preparo-bemestar{
+        border-left: 1vh solid #00cd83;
     }
 
     .modo-titulo {
