@@ -15,7 +15,7 @@
     color: #9e5fef;
 }
 
-.dropdown-banner-promocional{
+#dropdown-banner-promocional{
     width: 35vh;
     height: 4vh;
     padding: 5px 10px 5px 15px;
@@ -37,8 +37,12 @@
 
 .custom-section-banner{
     display: none;
-    grid-template-columns: 10vh 30vh;
-    grid-template-rows: 5vh 5vh 5vh;
+}
+
+.add-grid-na-pg{
+    display: grid;
+    grid-template-columns: 12vh 30vh;
+    grid-template-rows: 5vh 5vh 5vh 5vh;
 }
 
 .titulo-banner-personalizado{
