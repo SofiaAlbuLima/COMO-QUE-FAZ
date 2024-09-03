@@ -326,3 +326,15 @@ function mostrarElementoCulinaria() {
         elemento.style.display = "none"; // Esconde o elemento se nenhuma opção estiver selecionada
     }
 }
+
+document.addEventListener('DOMContentLoaded', function() {
+    const textInput = document.getElementById('a');
+    const charCount = document.getElementById('b');
+    const maxLength = textInput.maxLength;
+    console.log("seilar ner");
+
+    textInput.addEventListener('input', function() {
+        const remaining = maxLength - textInput.value.length;
+        charCount.textContent = `${remaining}/300`;
+    });
+});

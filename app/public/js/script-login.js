@@ -15,6 +15,16 @@ function notify(titulo, texto, tipo, posicao,duracao=3000) {
         position:posicao 
     })
 };
+
+document.addEventListener('DOMContentLoaded', function() {
+    const urlAtual = window.location.href;
+    const linkEspecifico = '/login';
+
+    if (urlAtual === linkEspecifico) {
+        verificaConfirmaSenha();
+    }
+});
+
 function verificaConfirmaSenha() {
  
     let campoSenha = document.getElementById('senha1');
@@ -32,7 +42,6 @@ function verificaConfirmaSenha() {
     return false;
      
     }};
-    verificaConfirmaSenha();  
 
     
     document.addEventListener('DOMContentLoaded', () => {
