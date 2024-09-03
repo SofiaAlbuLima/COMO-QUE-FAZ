@@ -109,7 +109,7 @@
 
     .linha-baixo {
         width: 60.31vw;
-        height: 0.677vw;
+        height: 2vh;
         background-image: linear-gradient(89.9984726943774deg, #ffa462 0%, #9d21cb 48.6110592628467%, #4d16bb 99.2062434669349%);
         box-sizing: border-box;
         position: relative;
@@ -130,16 +130,14 @@
     /* Estilos para a lista de tarefas */
     .lista-tarefas {
         display: flex;
-        margin-bottom: 20px;
-        margin-top: 1vw;
+        margin-top: 2vh;
+        padding-left: 15vh;
+        padding-right: 15vh;
     }
 
     /* Estilos para as tarefas */
     .tarefa {
-        font-size: 80%;
-        font-weight: 600;
         border: none;
-        margin-top: 0.6vw;
     }
 
     #agrupamento-conteudo {
@@ -166,81 +164,61 @@
         position: absolute;
     }
 
-    #bolinhas-atras {
-        /* width: 20.5vw; */
-        color: #d6d6d6;
-        font-weight: 700;
-        font-size: 80%;
-        position: absolute;
-        left: 20.5vw;
-        padding-top: 1.1vw;
+    .bolinhas-atras {
+        border: none; 
+        border-top: dotted #d6d6d6 0.8vh;
+        margin-top: 1.6vh;
+        width: 20vh;
+        margin-left: 1.8vh;
+        margin-right: 1.8vh;
     }
 
     #numero-do-elemento {
-        width: 1.92vw;
-        height: 1.3vw;
+        width: 2vw;
+        height: 1.5vw;
         border-radius: 5.20vw;
         font-family: "Fira Sans Bold", "Fira Sans", sans-serif;
         font-weight: 700;
-        text-align: center;
-        padding-top: 0.5vw;
+        padding-top: 0.4vw;
         margin-right: 0.5vw;
         display: inline-block;
+        color: white;
+        font-size: 2vh;
     }
 
     .detalhes-numero {
         background-color: #4d16bb;
-        color: white;
     }
 
     .elementos-numero {
         background-color: #921FC9;
-        color: white;
     }
 
     .midias-numero {
         background-color: #CB218C;
-        color: white;
     }
-
-    #detalhes {
+    #detalhes, #elementos, #midias{
         background-color: #f2f2f2;
-        height: 2vw;
         box-sizing: border-box;
-        font-family: "Heavitas", sans-serif;
+        display: flex;
+    }
+    #detalhes {
         color: #4d16bb;
-        text-align: left;
-        line-height: normal;
-        margin-left: 11.5vw;
-        font-size: 100%;
     }
 
     #elementos {
-        padding-left: 0.3vw;
-        background-color: #f2f2f2;
-        /* width: 10vw; */
-        height: 2vw;
-        box-sizing: border-box;
-        font-family: "Heavitas", sans-serif;
         color: #921FC9;
-        text-align: left;
-        line-height: normal;
-        margin-left: 7%;
-        z-index: 2;
-        font-size: 100%;
     }
 
     #midias {
-        background-color: #f2f2f2;
-        width: 9vw;
-        height: 2vw;
-        box-sizing: border-box;
-        font-family: "Heavitas", sans-serif;
         color: #CB218C;
+    }
+
+    #detalhes p, #elementos p, #midias p{
+        font-family: "Heavitas", sans-serif;
         text-align: left;
-        line-height: normal;
-        margin-left: 7%;
-        font-size: 100%;
+        font-size: 2vh;
+        margin-top: 0.8vh;
     }
 
     .conteudo {
@@ -251,24 +229,35 @@
         transition: transform 0.5s ease-in-out;
     }
 
-    #titulo-detalhes {
+    #titulo-detalhes, #titulo-elementos, #titulo-midias {
         font-family: "Heavitas", sans-serif;
         font-weight: 700;
-        color: #777;
-        font-size: 120%;
+        font-size: 2.5vh;
+        margin-top: 4vh;
+    }
+    #titulo-detalhes{
+        color: #4d16bb;
+    }
+    #titulo-elementos {
+        color: #921FC9;
+    }
+    #titulo-midias{
+        color: #CB218C;
+
     }
 
     #input-titulo-da-postagem {
-        width: 45.52vw;
+        width: 94.5vh;
         height: 3.02vw;
         padding: 0.53vw 0.53vw 0.53vw 0.53vw;
         border-radius: 0.26vw;
         border: 0.09vw solid #797979;
         background-color: #f2f2f2;
         box-sizing: border-box;
-        margin-top: 0.88vw;
+        margin-top: 2vh;
         font-family: "Fira Sans", sans-serif;
         font-weight: 700;
+        font-size: 1.8vh;
         color: #555;
 
         &:focus {
@@ -830,13 +819,6 @@
         font-weight: 700;
         color: #333333;
         text-align: left;
-    }
-
-    #titulo-elementos {
-        font-family: "Heavitas", sans-serif;
-        font-weight: 700;
-        color: #777;
-        font-size: 120%;
     }
 
     #tudo-dos-clones {

@@ -122,10 +122,10 @@ router.get("/criar-pergunta", VerificarAutenticacao, function (req, res) {
     });
 });
 router.get("/dica/:id", async function (req, res) {
-    await tarefasController.BuscarPostagemPorId(req, res);
+    await tarefasController.AbrirPostagem(req, res);
 });
 router.get("/pergunta/:id", async function (req, res) {
-    await tarefasController.BuscarPostagemPorId(req, res);
+    await tarefasController.AbrirPostagem(req, res);
 });
 router.get("/login", function (req, res) {
     res.render("pages/template", {

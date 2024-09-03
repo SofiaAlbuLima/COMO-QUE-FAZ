@@ -190,7 +190,7 @@ const tarefasController = {
             res.json({ erro: "Falha ao acessar dados" });
         }
     },
-    BuscarPostagemPorId: async (req, res) => {
+    AbrirPostagem: async (req, res) => {
         res.locals.moment = moment;
         try {
             const postagemId = req.params.id;
