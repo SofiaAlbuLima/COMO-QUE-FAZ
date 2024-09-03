@@ -1479,7 +1479,7 @@
         margin-right: 2%;
     }
 
-    .filtro {
+    .filtrod {
         padding: 0.8% 2% 0.8% 2%;
         background-color: #F2F2F2;
         border-radius: 5px 5px 5px 5px;
@@ -1510,7 +1510,7 @@
         margin-top: 4.5%;
     }
 
-    .inserir-comentario {
+    .inserir-comentariod {
         border: none;
         border-bottom: 2px solid #4D16BB;
         margin-left: 1.5%;
@@ -1521,14 +1521,15 @@
         font-size: 20px;
     }
 
-    .botoes-comentar {
+    .botoes-comentard {
         height: 35px;
         align-items: right;
         display: flex;
-        margin-bottom: 10%;
+        margin-bottom: 0%;
+      
     }
 
-    .botao-comentar {
+    .botao-comentard {
         height: 40px;
         width: 190px;
         border-radius: 6px;
@@ -1539,6 +1540,7 @@
         color: #4D16BB;
         font-family: Fira Sans Bold;
         font-size: 15px;
+        cursor: pointer;
     }
 
     .cancelar-comentar {
@@ -1571,7 +1573,7 @@
 
     .comentario {
         position: absolute;
-        margin: -7% 0% 5% 16%;
+        margin: 5% 0% 5% 16%;
         display: flex;
         width: 950px;
     }
@@ -1615,30 +1617,34 @@
 
     .texto-coment-taylor {
         text-align: left;
-        margin-left: 21%;
-        margin-top: -5%;
-        margin-right: 10%;
+        margin-left: -64vh;
+        margin-top: 1vh;
         font-family: Fira Sans Bold;
         font-size: 17px;
     }
 
-    .responder-coment {
+    .responder-comentd {
         font-size: 16px;
         font-family: Fira Sans Bold;
         color: #4d16bb;
-        margin-left: 8%;
+
     }
 
     .coracao-vazado {
         height: 18px;
+        position: absolute;
     }
 
-    .coracao-preenchido {
+    .coracao-preenchidod {
         height: 22px;
-        margin-left: 0.2;
-        margin-top: -1.35%;
         position: absolute;
         animation: heartBeat 0.5s ease-in-out;
+    }
+    .numero-curtida{
+        font-size: 16px;
+        font-family: Fira Sans Bold;
+        color: #4d16bb; 
+        margin-left: 3vh;
     }
 
     .ponto-comentario {
@@ -1709,19 +1715,21 @@
         }
     }
 
-    .coracao-curtir {
+    .coracao-curtird {
         cursor: pointer;
     }
 
-    .curtir-responder {
+    .curtir-responderd {
         display: flex;
         width: 150px;
         margin-left: 21%;
-        margin-top: 1%;
+        transform: translate(3vh, 17vh);
     }
 
     .mostrar-mais {
         height: 50px;
+        margin-left: 15vh;
+        margin-top: 20vh;
     }
 
     .mostrar-mais h1 {
