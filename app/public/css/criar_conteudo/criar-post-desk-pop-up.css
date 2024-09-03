@@ -505,6 +505,7 @@
     }
 
     #descricao-detalhes {
+        resize: none;
         width: 22.08vw;
         height: 6.2vw;
         margin-top: 0.88vw;
