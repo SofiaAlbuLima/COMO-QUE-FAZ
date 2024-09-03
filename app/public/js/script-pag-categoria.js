@@ -1,5 +1,18 @@
-const fcutodasElList = document.querySelectorAll('.filtrocu button');
+document.addEventListener('DOMContentLoaded', function() {
+    const urlAtual = window.location.href;
+    const linkEspecifico = [
+        '/culinaria',
+        '/limpeza',
+        '/bem-estar'
+    ];
+    if (urlAtual === linkEspecifico) {
+        filtrosCategoria();
+        configureLongPress('post-dispensa-fileira2', 'longpress-post-dispensa-fileira2', 'descri-post-dispensa-fileira2');
+    }
+});
 
+function filtrosCategoria() {
+const fcutodasElList = document.querySelectorAll('.filtrocu button');
 const filtro = urlParams.get('filtro') || 'em_alta'; // Define 'em_alta' como padrão
 
 
@@ -14,6 +27,7 @@ limpar = () => {
     fcutodasElList.forEach(Option => {
         Option.classList.remove('clicado');
     })
+}
 }
 
 //longpress-------------------------------------------------------------------------------------//
@@ -308,7 +322,6 @@ function configureLongPress(divId, longPressDivId, descriptionId) {
 
     longPressDiv.style.display = "none";
 }
-configureLongPress('post-dispensa-fileira2', 'longpress-post-dispensa-fileira2', 'descri-post-dispensa-fileira2');
 // FINAL 4 POST BOLIN - FILEIRA 2
 // FINAL longpress-------------------------------------------------------------------------------------//
 

@@ -87,7 +87,7 @@
                                     <input class="dialogoselect" id="dialogoselect" type="text" name="dica_categoria"
                                        onfocus="dropdown(0)" onblur="dropdown(1)" placeholder="CATEGORIA DA POSTAGEM"
                                        readonly="readonly" />
-                                    <div class="dropDown" id="dropdown">
+                                    <div class="dropDown" id="dropdown" style="z-index: 1000; display: none;">
                                        <div class="listDropDown">
                                           <div value="culinaria-categoria" class="item-select-detalhes texto"
                                              id="item-select-detalhes-1" onmousedown="category(1)">Culinária
@@ -117,7 +117,9 @@
                               <section id="descricao-subcategorias">
                                  <figure id="descricao-detalhes-total">
                                     <h3 id="titulo-descricao-detalhes">DESCRIÇÃO</h3>
-                                    <textarea name="dica_descricao" id="descricao-detalhes" cols="30" rows="10"></textarea>
+                                    <label for="a">Digite seu texto:</label><br>
+                                    <textarea name="dica_descricao" id="a" cols="30" rows="10" maxlength="300"></textarea>
+                                    <span id="b">200</span>
                                  </figure>
                                  <!-- <section id="subcategoria-detalhes-total">
                                     <h3 id="titulo-subcategoria-detalhes">SUBCATEGORIAS</h3>
