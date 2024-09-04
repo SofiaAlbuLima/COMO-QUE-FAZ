@@ -275,34 +275,43 @@ function atualizarNumeracaoIngredientes() {
     });
 }
 
-//botoes de criar e tirar modo de preparo
-
-document.getElementById("botao-de-add-modo").addEventListener("click", function () {
-    duplicarDivModo();
-});
 
 document.getElementById("botao-de-tirar-modo").addEventListener("click", function () {
     var element = this.parentNode;
     apagarDivModo(element);
 });
 
-var contadorDivsModo = 0;
+document.getElementById("botao-de-tirar-modo").addEventListener("click", function () {
+    var element = this.parentNode;
+    apagarDivModo(element);
+});
+    
+let etapaCount = 0; // Declaração global
 
-function duplicarDivModo() {
-    var divOriginal = document.getElementById('modo-de-preparo');
-    var clone = divOriginal.cloneNode(true);
-    contadorDivsModo++;
-    clone.id = "modo-de-preparo-" + contadorDivsModo;
-    document.getElementById('tudo-dos-clones').appendChild(clone);
-    atualizarNumeracao();
+function adicionarEtapa() {
+    etapaCount++;
+    const modoDePreparoDiv = document.getElementById('modo-de-preparo');
+    const etapaDiv = document.createElement('article');
+    etapaDiv.classList.add('etapa-' + etapaCount);
+    etapaDiv.innerHTML = `
+        <span id="arruma-numero-simbolo">
+            <input type="text" id="numero-do-modo-de-preparo-${etapaCount}" placeholder="${etapaCount}" disabled="disabled">
+            <h2 id="simbolo-do-numero">º</h2>
+        </span>
+        <input type="text" id="input-modo-de-preparo-${etapaCount}" placeholder="Descrição da etapa ${etapaCount}" name="etapas_modo_preparo[]">
+        <button type="button" onclick="apagarEtapa(this)">X</button>
+    `;
+    modoDePreparoDiv.appendChild(etapaDiv);
 }
 
-function apagarDivModo(element) {
-    var parent = element.parentNode;
-    if (parent.id !== 'modo-de-preparo') {
-        parent.parentNode.removeChild(parent);
-        atualizarNumeracao();
-    }
+function apagarEtapa(button) {
+    const etapaDiv = button.parentElement;
+    etapaDiv.remove();
+}
+
+function apagarEtapa(button) {
+    const etapaDiv = button.parentElement;
+    etapaDiv.remove();
 }
 
 function atualizarNumeracao() {

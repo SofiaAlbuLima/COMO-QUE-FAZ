@@ -259,10 +259,11 @@ const tarefasController = {
     },
     CriarDica: async (req, res) => {
         var categoriaId;
-        var porcoes = req.body.dica_descricao;
+        var porcoes;
         var categoria = req.body.dica_categoria;
         if (categoria === "Culinária") {
             categoriaId = 1;
+            var porcoes = req.body.dica_porcoes;
         } else if (categoria === "Limpeza") {
             categoriaId = 2;
             porcoes = null;
@@ -313,11 +314,11 @@ const tarefasController = {
             // }
             console.log("Postagem realizada!");
 
-            req.session.notification = {
-                titulo: "Postagem realizada!",
-                mensagem: "Sua dica foi publicada com sucesso!",
-                tipo: "success"
-            };
+            // req.session.notification = {
+            //     titulo: "Postagem realizada!",
+            //     mensagem: "Sua dica foi publicada com sucesso!",
+            //     tipo: "success"
+            // };
             return res.redirect("/perfil");
         } catch (e) {
             console.log(e);
