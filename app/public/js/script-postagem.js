@@ -310,3 +310,17 @@ function Hidden9D() {
     x.style.display = "none";
   }
 }
+
+// denuncia ------------------------------------------------------------
+
+function AbrirDenunciar() {  
+  var popup = document.getElementById("hide-denuncia-Desktop");  
+  
+  if (popup.style.display === "block") {  
+   popup.style.display = "none";  
+  } else {  
+   popup.style.display = "block";  
+  }  
+}
+
+document.getElementById("fechar-pop-up-denuncia").addEventListener("click", AbrirDenunciar);
