@@ -1,5 +1,5 @@
 document.addEventListener('DOMContentLoaded', function() {
-    const textarea = document.getElementById('a');
+    const textarea = document.getElementById('descricao-detalhes');
     const charCount = document.getElementById('b');
     const maxLength = textarea.getAttribute('maxlength');
 
@@ -313,11 +313,6 @@ function adicionarEtapa() {
         <button type="button" onclick="apagarEtapa(this)">X</button>
     `;
     modoDePreparoDiv.appendChild(etapaDiv);
-}
-
-function apagarEtapa(button) {
-    const etapaDiv = button.parentElement;
-    etapaDiv.remove();
 }
 
 function apagarEtapa(button) {

@@ -482,23 +482,23 @@
         display: inline-block;
         margin-top: 5vw;
     }
-
     #titulo-descricao-detalhes {
         font-family: "Fira Sans Bold", "Fira Sans", sans-serif;
         font-weight: 700;
         color: #333333;
         font-size: 100%;
     }
-    #b{
-        position: absolute;
-        color: #CB218C;
-        margin-left: 10vh;
+    #b{ 
+        display: flex;
+        color: #333333;
+        margin-left: 40vh;
+        margin-top: 0.5vh;
     }
 
     #descricao-detalhes {
         resize: none;
         width: 22.08vw;
-        height: 6.2vw;
+        height: 7.2vw;
         margin-top: 0.88vw;
         padding: 2px 2px 2px 2px;
         border-radius: 0.26vw;
@@ -527,6 +527,9 @@
 
             ;
         }
+    }
+    #descricao-detalhes:focus + #b {
+        color: #CB218C;
     }
 
     #subcategoria-detalhes-total {
@@ -983,10 +986,9 @@
     /* botoes criar post */
     #botoes-criar-post {
         background-color: #f2f2f2;
-        margin-top: 26.7vw;
+        margin-top: 27.7vw;
         padding-top: 1vw;
         width: 63.12vw;
-        height: 5vw;
         box-shadow: 0 -4px 6px -3px rgba(0, 0, 0, 0.3);
     }
 
