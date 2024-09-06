@@ -488,6 +488,11 @@
         color: #333333;
         font-size: 100%;
     }
+    #b{
+        position: absolute;
+        color: #CB218C;
+        margin-left: 10vh;
+    }
 
     #descricao-detalhes {
         resize: none;

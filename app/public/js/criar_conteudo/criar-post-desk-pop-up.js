@@ -1,3 +1,14 @@
+document.addEventListener('DOMContentLoaded', function() {
+    const textarea = document.getElementById('a');
+    const charCount = document.getElementById('b');
+    const maxLength = textarea.getAttribute('maxlength');
+
+    textarea.addEventListener('input', function() {
+        const currentLength = textarea.value.length;
+        charCount.textContent = `${currentLength}/${maxLength}`;
+    });
+});
+
 function setupModal() {
     const openModalButton = document.querySelector("#open-modal");
     const closeModalButton = document.querySelector("#close-modal-criar-post");
@@ -326,15 +337,3 @@ function mostrarElementoCulinaria() {
         elemento.style.display = "none"; // Esconde o elemento se nenhuma opção estiver selecionada
     }
 }
-
-document.addEventListener('DOMContentLoaded', function() {
-    const textInput = document.getElementById('a');
-    const charCount = document.getElementById('b');
-    const maxLength = textInput.maxLength;
-    console.log("seilar ner");
-
-    textInput.addEventListener('input', function() {
-        const remaining = maxLength - textInput.value.length;
-        charCount.textContent = `${remaining}/300`;
-    });
-});
