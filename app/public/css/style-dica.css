@@ -1747,9 +1747,10 @@
         text-align: center;
     }
 
+    /* denuncia --------------------------------------------------------------------------------------------------------------- */
     #hide-denuncia-Desktop{
         width: 60.31vw;
-        height: 40.14vw;
+        height: 34vw;
         border-radius: 0.3vw;
         background-color: #f2f2f2;
         position: fixed;
@@ -1760,11 +1761,113 @@
         overflow: hidden;
     }
 
+    /* header denuncia ------------------------ */
+
     .header-popup-denunciar{
         display: flex;
         justify-content: space-between;
         padding-top: 2vh;
         padding-left: 2vh;
         padding-right: 2vh;
+    }
+
+    .popup-header-figure{
+        display: flex;
+    }
+
+    .gato-popup-header {
+        width: 1.92vw;
+        height: 1.92vw;
+        margin-left: 4%;
+        margin-top: 0.5%;
+    }
+
+    #titulo-do-pop-up{
+        font-size: 2.8vh;
+        width: 40vh;
+        margin-left: 2vh;
+        font-family: "Heavitas", sans-serif;
+        color: #4d16bb;
+        text-align: left;
+        margin-top: 5px;
+    }
+
+    #fechar-pop-up-denuncia{
+        margin-left: 58%;
+        font-size: 140%;
+        font-family: "Heavitas", sans-serif;
+        color: #4d16bb;
+        cursor: pointer;
+        margin-right: 2vh;
+        margin-top: 0.5vh;
+    }
+
+    /* body denuncia ------------------------ */
+
+    .body-popup-denuncia{
+        font-family: 'Fira Sans', sans-serif;
+        background-color: #f0f0f0;
+        padding: 2.5vh 0.8vh 2.5vh;
+        border-radius: 1vh;
+        max-width: 100vh;
+        margin-left: 12vh;
+        margin-right: 12vh;
+        margin-top: 5vh;
+    }
+
+    .denuncia-titulo {
+        font-family: 'Fira Sans', sans-serif;
+        color: #333;
+        font-size: 2.5vh;
+        margin-bottom: 2vh;
+    }
+
+    .denuncia-form {
+        font-family: 'Fira Sans', sans-serif;
+        display: flex;
+        flex-direction: column;
+    }
+
+    .denuncia-label {
+        font-family: 'Fira Sans', sans-serif;
+        margin-top: 1.5vh;
+        font-weight: bold;
+        color: #555;
+        font-size: 1.8vh;
+    }
+
+    .denuncia-input,
+    .denuncia-textarea,
+    .denuncia-select {
+        font-family: 'Fira Sans', sans-serif;
+        padding: 1vh;
+        margin-top: 0.7vh;
+        border: 0.1vh solid #ccc;
+        border-radius: 0.5vh;
+        font-size: 1.8vh;
+        resize: none;
+    }
+
+    .denuncia-textarea {
+        font-family: 'Fira Sans', sans-serif;
+        height: 15vh;
+        resize: none;
+    }
+
+    .denuncia-submit {
+        font-family: 'Fira Sans', 'Fira Sans Bold', sans-serif;
+        font-weight: 800;
+        background-color: #CB218C;
+        color: white;
+        border: none;
+        padding: 1.5vh 2vh;
+        margin-top: 2vh;
+        border-radius: 0.5vh;
+        cursor: pointer;
+        font-size: 2.5vh;
+    }
+
+    .denuncia-submit:hover {
+        background-color: #941b68;
     }
 }

@@ -1,5 +1,5 @@
 .banner-promocional-adm{
-    width: 136vh;
+    width: 140vh;
     height: 40vh;
     background-color: rgb(255, 255, 255);
     padding: 5vh 5vh 5vh 5vh;
@@ -13,10 +13,11 @@
     font-weight: 700;
     font-size: 2.4vh;
     color: #9e5fef;
+    margin-bottom: 2vh;
 }
 
 #dropdown-banner-promocional{
-    width: 35vh;
+    width: 45vh;
     height: 4vh;
     padding: 5px 10px 5px 15px;
     margin-top: 2vh;
@@ -37,12 +38,14 @@
 
 .custom-section-banner{
     display: none;
+    margin-top: 3vh;
 }
 
 .add-grid-na-pg{
     display: grid;
-    grid-template-columns: 12vh 30vh;
+    grid-template-columns: 12vh 30vh 1vh;
     grid-template-rows: 5vh 5vh 5vh 5vh;
+    column-gap: 2vh;
 }
 
 .titulo-banner-personalizado{
@@ -57,6 +60,7 @@
     height: 2.4vh;
     border: solid 0.33vh #cccc;
     resize: none;
+    overflow: hidden;
     &:focus{
         outline: none;
         border: solid 0.4vh rgb(173, 173, 173);
@@ -64,4 +68,91 @@
     &:hover{
         border: solid 0.4vh rgb(173, 173, 173);
     }
+}
+
+.add-image-section{
+    border-radius: 2vh;
+    width: 90vh;
+    height: 23vh;
+    margin-top: -6vh;
+    grid-row: 1 / 4; 
+    grid-column: 3;
+    clip-path: inset(0 0 0 0);
+    overflow: hidden;
+}
+
+.add-image-button{
+    position: relative;
+    margin-left: 8vh;
+    padding: 7.5vh 35vh 7.5vh 35vh;
+    border-radius: 2vh;
+    border: solid 0.4vh #797979;
+}
+
+.image-preview{
+    display: none;
+}
+
+.image-preview.show{
+    position: absolute;
+    display: block;
+    max-width: 38.5vw;
+    object-fit: cover;
+    margin-left: 8vh;
+    border-radius: 2vh;
+}
+
+.aviso-banner-personalizado{
+    color: #333333;
+    font-size: 1.8vh;
+    font-weight: 500;
+    font-family: 'Fira Sans', sans-serif;
+    letter-spacing: 0.5px;
+    margin-top: 2vh;
+}
+
+/* ---------------------------------------------------------------------------------- */
+
+.footer-edicao-img-terceiro{
+    order: 1;  
+    flex: 1 1 100%;  
+    width: 100%; /* changed from 149vh to 100% */  
+    height: 7vh;  
+    padding-top: 2vh;  
+    border-bottom-left-radius: 1vh;  
+    border-bottom-right-radius: 1vh;  
+    background-color: rgb(255, 255, 255);  
+    box-shadow: 0px 0px 13px 0px rgba(0, 0, 0, 0.09);  
+    margin-top: auto; /* added this rule */  
+}
+
+.btn-editar-img-terceiro{
+    width: 26vh;
+    height: 5vh;
+    padding: 1vh 4vh 1vh 1vh;
+    margin-left: 119vh;
+    background-image: linear-gradient(90deg, #6e00c4 0%, #cb218c 200%);
+    font-family: "Fira Sans Bold", "Fira Sans", sans-serif;
+    font-weight: 700;
+    font-size: 1.7vh;
+    color: rgba(255, 255, 255, 0.99);
+    text-align: right;
+    line-height: normal;
+    letter-spacing: 0.5px;
+    border: none;
+    border-radius: 0.7vh;
+}
+
+.icon-editar-img-terceiro{
+    width: 3vh;
+    height: 2.5vh;
+    position: absolute;
+    margin-top: 1vh;
+    margin-left: 122vh;
+}
+
+.adm-content-premium.show{
+    display: flex;
+    margin-top: 3vh;
+    flex-direction: column;
 }

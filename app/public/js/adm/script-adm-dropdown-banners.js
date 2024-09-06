@@ -19,28 +19,33 @@ updateCustomSection();
 
 //--------------------------------------------------------------------------------------------------------------
 
-const addImageButton = document.querySelector('.add-image-button');  
-const imageInput = document.querySelector('#image-input');  
-const imagePreview = document.querySelector('#image-preview');  
-
-addImageButton.addEventListener('click', () => {  
-  imageInput.click();  
+const addImageButtons = document.querySelectorAll('.add-image-button');  
+const imageInputs = document.querySelectorAll('.image-input');  
+const imagePreviews = document.querySelectorAll('.image-preview');  
+  
+addImageButtons.forEach((button) => {  
+  button.addEventListener('click', () => {  
+   const imageInput = button.parentNode.querySelector('.image-input');  
+   imageInput.click();  
+  });  
 });  
   
-imageInput.addEventListener('change', (e) => {  
-  const file = e.target.files[0];  
-  const reader = new FileReader();  
+imageInputs.forEach((input) => {  
+  input.addEventListener('change', (e) => {  
+   const file = e.target.files[0];  
+   const reader = new FileReader();  
   
-  // Verifica se o arquivo é uma imagem  
-  if (file.type.startsWith('image/')) {  
-
-   reader.onload = () => {  
-    imagePreview.src = reader.result;  
-   };  
-
-   reader.readAsDataURL(file);  
-  } else {  
-   console.error('O arquivo selecionado não é uma imagem.');  
-  }  
+   // Verifica se o arquivo é uma imagem  
+   if (file.type.startsWith('image/')) {  
+    reader.onload = () => {  
+      const imagePreview = input.parentNode.querySelector('.image-preview');  
+      imagePreview.src = reader.result;  
+      imagePreview.classList.add('show');  
+    };  
+  
+    reader.readAsDataURL(file);  
+   } else {  
+    console.error('O arquivo selecionado não é uma imagem.');  
+   }  
+  });  
 });
-
