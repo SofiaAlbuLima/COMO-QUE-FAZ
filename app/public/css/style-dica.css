@@ -1746,4 +1746,25 @@
         font-weight: 400;
         text-align: center;
     }
+
+    #hide-denuncia-Desktop{
+        width: 60.31vw;
+        height: 40.14vw;
+        border-radius: 0.3vw;
+        background-color: #f2f2f2;
+        position: fixed;
+        left: 50%;
+        top: 50%;
+        transform: translate(-50%, -50%);
+        z-index: 1001;
+        overflow: hidden;
+    }
+
+    .header-popup-denunciar{
+        display: flex;
+        justify-content: space-between;
+        padding-top: 2vh;
+        padding-left: 2vh;
+        padding-right: 2vh;
+    }
 }
