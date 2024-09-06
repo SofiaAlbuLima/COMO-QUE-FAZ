@@ -190,7 +190,7 @@ const tarefasController = {
             res.json({ erro: "Falha ao acessar dados" });
         }
     },
-    BuscarPostagemPorId: async (req, res) => {
+    AbrirPostagem: async (req, res) => {
         res.locals.moment = moment;
         try {
             const postagemId = req.params.id;
@@ -259,29 +259,33 @@ const tarefasController = {
     },
     CriarDica: async (req, res) => {
         var categoriaId;
+        var porcoes;
         var categoria = req.body.dica_categoria;
         if (categoria === "Culinária") {
             categoriaId = 1;
+            var porcoes = req.body.dica_porcoes;
         } else if (categoria === "Limpeza") {
             categoriaId = 2;
+            porcoes = null;
         } else if (categoria === "Bem Estar") {
             categoriaId = 3;
+            porcoes = null;
         }
 
-        // const etapasModoPreparo = req.body.etapas_modo_preparo;
-        // if (!Array.isArray(etapasModoPreparo)) {
-        //     console.log('etapas_modo_preparo não é um array:', etapasModoPreparo);
-        //     return res.status(400).send('Etapas do modo de preparo inválidas');
-        // }
-        // const etapasTexto = etapasModoPreparo.join('; ');
+        const etapasModoPreparo = req.body.etapas_modo_preparo;
+        if (!Array.isArray(etapasModoPreparo)) {
+            console.log('etapas_modo_preparo não é um array:', etapasModoPreparo);
+            return res.status(400).send('Etapas do modo de preparo inválidas');
+        }
+        const etapasTexto = etapasModoPreparo.join('; ');
 
         var FormCriarDica = { //dados que o usuário digita no formulário
             Clientes_idClientes: req.session.autenticado.id,
-            Categorias_idCategorias: categoriaId,
             Titulo: req.body.dica_titulo,
+            Categorias_idCategorias: categoriaId,
             tempo: `${req.body.dica_tempo_horas.padStart(2, '0')}:${req.body.dica_tempo_minutos.padStart(2, '0')}:00`, // Formatando horas e minutos
+            porcoes: porcoes,
             Descricao: req.body.dica_descricao,
-            porcoes: req.body.dica_porcoes,
             Etapas_Modo_de_Preparo: "faça tudo"
         };
         const { ingredientes, quantidade_ingredientes, medida_ingredientes } = "ingredientes";
@@ -310,11 +314,11 @@ const tarefasController = {
             // }
             console.log("Postagem realizada!");
 
-            req.session.notification = {
-                titulo: "Postagem realizada!",
-                mensagem: "Sua dica foi publicada com sucesso!",
-                tipo: "success"
-            };
+            // req.session.notification = {
+            //     titulo: "Postagem realizada!",
+            //     mensagem: "Sua dica foi publicada com sucesso!",
+            //     tipo: "success"
+            // };
             return res.redirect("/perfil");
         } catch (e) {
             console.log(e);

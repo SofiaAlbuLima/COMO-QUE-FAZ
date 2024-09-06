@@ -18,7 +18,6 @@ function nextImage() {
             otherBtn.style.background = "white";
         }
     }
-    console.log("Next slide: " + count);
 }
 
 //------------------------------------------------------------------------------------
@@ -43,12 +42,10 @@ function nextImageD() {
             otherBtn.style.background = "white";
         }
     }
-    console.log("Next slide: " + countD);
 }
 
 // Inicie o carrossel automaticamente após o carregamento da página
 window.addEventListener("load", function () {
-  console.log("Página carregada!"); // Adicione esta linha
 
   setInterval(nextImage, 2500);
   document.getElementById("radio1").checked = true;

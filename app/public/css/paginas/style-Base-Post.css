@@ -13,6 +13,12 @@
     align-self: flex-start;
     cursor: pointer;
   }
+  .postagem, .pergunta{
+    transition: transform 0.3s ease;
+  }
+  .postagem:hover, .pergunta:hover{
+    transform: translateY(-5px);
+  }
   .postagem_info_primeiro_plano{
     z-index: 1;
   }

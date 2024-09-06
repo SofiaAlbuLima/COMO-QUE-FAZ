@@ -48,7 +48,7 @@
             <article id="modal-criar-post" class="hidden">
                <section class="modal-header">
                   <figure class="modal-header-figure">
-                     <img src="./imagens-svg/4-PopUp/gato-preenchido-roxo.svg" alt="icon gato criar dica" id="gato-criar-post">
+                     <img src="/imagens-svg/4-PopUp/gato-preenchido-roxo.svg" alt="icon gato criar dica" id="gato-criar-post">
                      <h2 id="criar-post-titulo">CRIAR DICA</h2>
                   </figure>
                   <figure id="close-modal-criar-post">X</figure>
@@ -62,20 +62,19 @@
                      </aside>
 
                      <aside class="lista-tarefas">
-                        <h2 id="bolinhas-atras">. . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
-                           . . . . . . . . . .
-                        </h2>
                         <button class="tarefa ativo" id="detalhes">
                            <figure id="numero-do-elemento" class="detalhes-numero">1</figure>
-                           Detalhes
+                           <p>Detalhes</p>
                         </button>
+                        <hr class="bolinhas-atras">
                         <button class="tarefa" id="elementos">
                            <figure id="numero-do-elemento" class="elementos-numero">2</figure>
-                           Elementos
+                           <p>Elementos</p>
                         </button>
+                        <hr class="bolinhas-atras">
                         <button class="tarefa" id="midias">
                            <figure id="numero-do-elemento" class="midias-numero">3</figure>
-                           Mídias
+                           <p>Mídias</p>
                         </button>
                      </aside>
 
@@ -88,7 +87,7 @@
                                     <input class="dialogoselect" id="dialogoselect" type="text" name="dica_categoria"
                                        onfocus="dropdown(0)" onblur="dropdown(1)" placeholder="CATEGORIA DA POSTAGEM"
                                        readonly="readonly" />
-                                    <div class="dropDown" id="dropdown">
+                                    <div class="dropDown" id="dropdown" style="z-index: 1000; display: none;">
                                        <div class="listDropDown">
                                           <div value="culinaria-categoria" class="item-select-detalhes texto"
                                              id="item-select-detalhes-1" onmousedown="category(1)">Culinária
@@ -118,8 +117,9 @@
                               <section id="descricao-subcategorias">
                                  <figure id="descricao-detalhes-total">
                                     <h3 id="titulo-descricao-detalhes">DESCRIÇÃO</h3>
-                                    <textarea name="dica_descricao" id="descricao-detalhes" cols="30" rows="10"></textarea>
-                                 </figure>
+                                    <span id="b">0/300</span>
+                                    <textarea id="descricao-detalhes" name="dica_descricao" id="a" cols="30" rows="10" maxlength="300"></textarea>
+                                </figure>
                                  <!-- <section id="subcategoria-detalhes-total">
                                     <h3 id="titulo-subcategoria-detalhes">SUBCATEGORIAS</h3>
                                     <figure class="input-container">
@@ -154,7 +154,7 @@
                                              <section id="guardar-medidas-elementos">
                                                 <h4 id="nome-do-ingrediente">Medida</h4>
                                                 <select name="medida_ingredientes" id="medidas-elementos">
-                                                   <figure class="dropDown-medidas">
+                                                   <optgroup class="dropDown-medidas">
                                                       <option value="Xícara" class="item-medidas">
                                                          Xícara
                                                       </option>
@@ -179,7 +179,7 @@
                                                       <option value="Mililitros (ml)" class="item-medidas">
                                                          Mililitros (ml)
                                                       </option>
-                                                   </figure>
+                                                   </optgroup>
                                                 </select>
                                              </section>
                                           </div>
@@ -197,18 +197,10 @@
                                           <h4 id="passo-a-passo-modo">Passo a passo</h4>
                                        </div>
                                        <div id="botoes-de-tirar-colocar">
-                                          <img id="botao-de-add-modo" src="./imagens/adicionar-ingrediente.svg"
-                                             onclick="duplicarDivModo()">
+                                          <button type="button" onclick="adicionarEtapa()">Adicionar Etapa</button>
                                        </div>
                                        <div id="modo-de-preparo">
-                                          <span id="arruma-numero-simbolo">
-                                             <input type="text" id="numero-do-modo-de-preparo" placeholder="1"
-                                                disabled="disabled">
-                                             <h2 id="simbolo-do-numero">º</h2>
-                                          </span>
-                                          <input type="text" id="input-modo-de-preparo"
-                                             placeholder="Misture todos os ingredientes..." name="etapas_modo_preparo">
-                                          <button id="apagar-modo-de-preparo" onclick="apagarDivModo(this)">X</button>
+                                          <!-- etapas modo de preparo - criadas pelo js -->
                                        </div>
                                     </section>
                                  </section>
@@ -216,7 +208,7 @@
                            </section>
 
                            <section class="conteudo conteudo3" id="conteudoTarefa3">
-                              <h2 id="titulo-elementos">MÍDIAS</h2>
+                              <h2 id="titulo-midias">MÍDIAS</h2>
                               <input type="file" id="files" accept="image/*" multiple style="display: none;">
                               <figure id="esqueleto-midias">
                                  <h1 id="adicione-midias">ADICIONE IMAGENS E VÍDEOS À SUA POSTAGEM!</h1>
