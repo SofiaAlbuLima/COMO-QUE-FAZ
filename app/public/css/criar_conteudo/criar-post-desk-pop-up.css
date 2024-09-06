@@ -64,7 +64,7 @@
 
     #criar-post-titulo {
         font-size: 2.8vh;
-        width: 20vh;
+        width: 40vh;
         margin-left: 2vh;
         font-family: "Heavitas", sans-serif;
         color: #4d16bb;
@@ -80,7 +80,7 @@
     }
 
     #close-modal-criar-post {
-        margin-left: 65%;
+        margin-left: 58%;
         font-size: 140%;
         font-family: "Heavitas", sans-serif;
         color: #4d16bb;

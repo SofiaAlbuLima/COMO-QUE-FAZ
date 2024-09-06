@@ -440,14 +440,33 @@
 
             <aside id="hide-denuncia-Desktop" style="display: none;">
                <section class="header-popup-denunciar">
-                  <img src="/imagens-svg/4-PopUp/gato-preenchido-roxo.svg" alt="icon gato criar dica" id="gato-criar-post">
-                     <h2 id="titulo-do-pop-up">Faça sua denúncia!</h2>
+                  <figure class="popup-header-figure">
+                  <img src="/imagens-svg/4-PopUp/gato-preenchido-roxo.svg" alt="icon gato criar dica" class="gato-popup-header">
+                  <h2 id="titulo-do-pop-up">Faça sua denúncia!</h2>
                   </figure>
+
                   <figure id="fechar-pop-up-denuncia">X</figure>
                </section>
 
-
-            </aside>
+               <section class="body-popup-denuncia">
+                  <h2 class="denuncia-titulo">Nos conte sobre sua denúncia:</h2>
+   
+                  <form class="denuncia-form">
+                        <label for="denuncia-tipo" class="denuncia-label">Tipo de Denúncia:</label>
+                        <select id="denuncia-tipo" class="denuncia-select" required>
+                           <option value="">Selecione o tipo</option>
+                           <option value="spam">Spam</option>
+                           <option value="conteudo-inadequado">Conteúdo Inadequado</option>
+                           <option value="violencia">Violações dos termos de uso</option>
+                        </select>
+   
+                        <label for="denuncia-descricao" class="denuncia-label">Descrição:</label>
+                        <textarea id="denuncia-descricao" class="denuncia-textarea" required placeholder="Descreva o motivo da denúncia..."></textarea>
+   
+                        <button type="submit" class="denuncia-submit">Enviar Denúncia</button>
+                  </form>
+               </section>
+            </aside>          
 
             <figure class="titulos-post">
                <h3 class="titulo-user" style="color: #9e5fef;"> <%= postagem.nome_usuario %> </h3>
