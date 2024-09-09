@@ -195,7 +195,7 @@ const tarefasController = {
         try {
             const postagemId = req.params.id;
             const postagem = await conteudoModel.BuscarPostagemPorId(postagemId);
-    
+
             if (!postagem) {
                 return res.status(404).render("pages/erro", { mensagem: "Postagem não encontrada" });
             }
@@ -222,7 +222,7 @@ const tarefasController = {
                 nomeCategoria: '',
                 tempo: postagem.tempo ? formatarTempo(postagem.tempo) : null,
                 descricao: postagem.Descricao || null,
-                etapas: postagem.Etapas_Modo_de_Preparo,
+                etapas: postagem.Etapas_Modo_de_Preparo ? postagem.Etapas_Modo_de_Preparo.split('; ') : [], // Dividindo as etapas
                 porcoes: postagem.porcoes > 0 ? `${postagem.porcoes} ${postagem.porcoes > 1 ? 'Porções' : 'Porção'}` : null,
                 tipo: postagem.tipo
             };
@@ -258,67 +258,68 @@ const tarefasController = {
         }
     },
     CriarDica: async (req, res) => {
-        var categoriaId;
-        var porcoes;
-        var categoria = req.body.dica_categoria;
-        if (categoria === "Culinária") {
-            categoriaId = 1;
-            var porcoes = req.body.dica_porcoes;
-        } else if (categoria === "Limpeza") {
-            categoriaId = 2;
-            porcoes = null;
-        } else if (categoria === "Bem Estar") {
-            categoriaId = 3;
-            porcoes = null;
-        }
-
-        const etapasModoPreparo = req.body.etapas_modo_preparo;
-        if (!Array.isArray(etapasModoPreparo)) {
-            console.log('etapas_modo_preparo não é um array:', etapasModoPreparo);
-            return res.status(400).send('Etapas do modo de preparo inválidas');
-        }
-        const etapasTexto = etapasModoPreparo.join('; ');
-
-        var FormCriarDica = { //dados que o usuário digita no formulário
-            Clientes_idClientes: req.session.autenticado.id,
-            Titulo: req.body.dica_titulo,
-            Categorias_idCategorias: categoriaId,
-            tempo: `${req.body.dica_tempo_horas.padStart(2, '0')}:${req.body.dica_tempo_minutos.padStart(2, '0')}:00`, // Formatando horas e minutos
-            porcoes: porcoes,
-            Descricao: req.body.dica_descricao,
-            Etapas_Modo_de_Preparo: "faça tudo"
-        };
-        const { ingredientes, quantidade_ingredientes, medida_ingredientes } = "ingredientes";
-
         try {
-            // const dadosImagem = {
-            //     nome: req.file.filename,
-            //     caminho: req.file.path
-            // };
+            var categoriaId;
+            var porcoes;
+            var categoria = req.body.dica_categoria;
+            if (categoria === "Culinária") {
+                categoriaId = 1;
+                var porcoes = req.body.dica_porcoes;
+            } else if (categoria === "Limpeza") {
+                categoriaId = 2;
+                porcoes = null;
+            } else if (categoria === "Bem Estar") {
+                categoriaId = 3;
+                porcoes = null;
+            }
 
-            // let imagemCriada = await imagemModel.criarImagem(dadosImagem);
-            // FormCriarDica.imagem_id = imagemCriada.insertId;
+            const etapasModoPreparo = req.body.etapas_modo_preparo;
+            if (!Array.isArray(etapasModoPreparo)) {
+                console.log('etapas_modo_preparo não é um array:', etapasModoPreparo);
+                return res.status(400).send('Etapas do modo de preparo inválidas');
+            }
+            const etapasTexto = etapasModoPreparo.join('; ');
 
-            let create = conteudoModel.CriarPostagem(FormCriarDica);
-            const postagemId = create.insertId;
+            var FormCriarDica = {
+                Clientes_idClientes: req.session.autenticado.id,
+                Titulo: req.body.dica_titulo,
+                Categorias_idCategorias: categoriaId,
+                tempo: `${req.body.dica_tempo_horas.padStart(2, '0')}:${req.body.dica_tempo_minutos.padStart(2, '0')}:00`, // Formatando horas e minutos
+                porcoes: porcoes,
+                Descricao: req.body.dica_descricao,
+                Etapas_Modo_de_Preparo: etapasTexto // Aqui você usa a string
+            };
 
+            const createPostagem = await conteudoModel.CriarPostagem(FormCriarDica);
+            const postagemId = createPostagem.insertId; // Obtém o ID da postagem criada
 
-            // for (let i = 0; i < ingredientesArray.length; i++) {
-            //     let ingrediente = {
-            //         quantidade_ingredientes: quantidadeIngredientesArray[i],
-            //         ingredientes: ingredientesArray[i],
-            //         medida_ingredientes: medidaIngredientesArray[i],
-            //         postagem_id: postagemId
-            //     };
-            //     await ingredientesModel.criarIngrediente(ingrediente);
-            // }
-            console.log("Postagem realizada!");
+            // Insere os ingredientes
+            const ingredientesArray = req.body.ingredientes || [];
+            const quantidadeIngredientesArray = req.body.quantidade_ingredientes || [];
+            const medidaIngredientesArray = req.body.medida_ingredientes || [];
+            if (req.body.ingredientes && Array.isArray(req.body.ingredientes)) {
+                for (let i = 0; i < req.body.ingredientes.length; i++) {
+                    let ingrediente = {
+                        quantidade_ingredientes: req.body.quantidade_ingredientes[i] || null,
+                        ingredientes: req.body.ingredientes[i] || null,
+                        medida_ingredientes: req.body.medida_ingredientes[i] || null,
+                        conteúdo_postagem_ID_conteúdo: postagemId,
+                        conteúdo_postagem_Clientes_idClientes: req.session.autenticado.id,
+                        conteúdo_postagem_Categorias_idCategorias: categoriaId
+                    };
+                    await conteudoModel.CriarIngrediente(ingrediente);
+                }
+            }else{
+                console.log("sem ingredientes :)");
+            }
 
-            // req.session.notification = {
-            //     titulo: "Postagem realizada!",
-            //     mensagem: "Sua dica foi publicada com sucesso!",
-            //     tipo: "success"
-            // };
+            console.log("Postagem e ingredientes realizados com sucesso!");
+
+            req.session.notification = {
+                titulo: "Postagem realizada!",
+                mensagem: "Sua dica foi publicada com sucesso!",
+                tipo: "success"
+            };
             return res.redirect("/perfil");
         } catch (e) {
             console.log(e);
@@ -333,7 +334,6 @@ const tarefasController = {
                 },
             });
             console.log("Erro ao realizar a postagem!");
-            console.log(FormCriarDica);
         }
     },
     CriarPergunta: async (req, res) => {

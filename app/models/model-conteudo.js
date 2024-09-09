@@ -74,10 +74,23 @@ const conteudoModel = { //const que agrupa todas as funções de acesso e manipu
             throw erro; 
         }
     },
-    criarIngrediente: (ingrediente) => {
+
+    CriarIngrediente: (ingrediente) => {
         return new Promise((resolve, reject) => {
-            const query = 'INSERT INTO ingredientes (quantidade_ingredientes, ingredientes, medida_ingredientes, postagem_id) VALUES (?, ?, ?, ?)';
-            pool.query(query, [ingrediente.quantidade_ingredientes, ingrediente.ingredientes, ingrediente.medida_ingredientes, ingrediente.postagem_id], (err, result) => {
+            // Atualize a consulta SQL para corresponder à nova estrutura da tabela
+            const query = `
+                INSERT INTO ingredientes 
+                (quantidade_ingredientes, ingredientes, medida_ingredientes, conteúdo_postagem_ID_conteúdo, conteúdo_postagem_Clientes_idClientes, conteúdo_postagem_Categorias_idCategorias) 
+                VALUES (?, ?, ?, ?, ?, ?)
+            `;
+            pool.query(query, [
+                ingrediente.quantidade_ingredientes,
+                ingrediente.ingredientes,
+                ingrediente.medida_ingredientes,
+                ingrediente.conteúdo_postagem_ID_conteúdo,
+                ingrediente.conteúdo_postagem_Clientes_idClientes,
+                ingrediente.conteúdo_postagem_Categorias_idCategorias
+            ], (err, result) => {
                 if (err) return reject(err);
                 resolve(result);
             });
@@ -92,6 +105,7 @@ const conteudoModel = { //const que agrupa todas as funções de acesso e manipu
             throw erro; 
         }
     },
+
     BuscarPostagemPorId: async (id) => {
         try {
             const query = `
