@@ -1,13 +1,115 @@
-document.addEventListener('DOMContentLoaded', function() {
-    const textarea = document.getElementById('a');
-    const charCount = document.getElementById('b');
-    const maxLength = textarea.getAttribute('maxlength');
+document.addEventListener('DOMContentLoaded', function () {
+    function updateCharCount(inputElement, counterElement) {
+        const maxLength = inputElement.getAttribute('maxlength');
+        inputElement.addEventListener('input', function () {
+            const currentLength = inputElement.value.length;
+            counterElement.textContent = `${currentLength}/${maxLength}`;
+        });
+    }
 
-    textarea.addEventListener('input', function() {
-        const currentLength = textarea.value.length;
-        charCount.textContent = `${currentLength}/${maxLength}`;
-    });
+    const descricaoDetalhes = document.getElementById('descricao-detalhes');
+    const descricaoCharCount = document.getElementById('b-descricao-detalhes');
+    updateCharCount(descricaoDetalhes, descricaoCharCount);
+
+    const tituloPostagem = document.getElementById('input-titulo-da-postagem');
+    const tituloCharCount = document.getElementById('b-titulo-da-postagem');
+    updateCharCount(tituloPostagem, tituloCharCount);
 });
+
+let etapaCount = 0;
+function adicionarEtapa() {
+    etapaCount++;
+    const modoDePreparoDiv = document.getElementById('modo-de-preparo');
+    const etapaDiv = document.createElement('article');
+    etapaDiv.classList.add('etapa-' + etapaCount);
+    etapaDiv.innerHTML = `
+        <span id="arruma-numero-simbolo">
+            <input type="text" id="numero-do-modo-de-preparo" placeholder="${etapaCount}" disabled="disabled">
+            <h2 id="simbolo-do-numero">º</h2>
+        </span>
+        <input type="text" id="input-modo-de-preparo" placeholder="Descrição da etapa" name="etapas_modo_preparo">
+        <button type="button" onclick="apagarEtapa(this)">X</button>
+    `;
+    modoDePreparoDiv.appendChild(etapaDiv);
+}
+
+function apagarEtapa(button) {
+    const etapaDiv = button.parentElement;
+    etapaDiv.remove();
+}
+
+function toggleIngredientes() {
+    var checkbox = document.getElementById("toggle-ingredientes");
+    var ingredientesContainer = document.getElementById("ingredientes-div");
+
+    if (checkbox.checked) {
+        ingredientesContainer.style.display = "block";
+    } else {
+        ingredientesContainer.style.display = "none";
+    }
+}
+
+function adicionarIngrediente() {
+    const container = document.getElementById('ingredientes-div');
+    const numeroIngrediente = container.querySelectorAll('.ingrediente-article').length + 1;
+
+    // Cria o artigo que conterá os ingredientes
+    const novoIngrediente = document.createElement('article');
+    novoIngrediente.className = 'ingrediente-article';
+
+    // Cria a estrutura do HTML para os ingredientes
+    novoIngrediente.innerHTML = `
+        <section id="sem-a-linha-rosa">
+            <h4 id="nome-do-ingrediente">Nome do ingrediente</h4>
+            <input type="text" id="input-nome-do-ingrediente" placeholder="FARINHA DE TRIGO" name="ingredientes">
+            <div id="coiso-pra-deixar-certo">
+                <section id="quantidade-elementos">
+                    <h4 id="nome-do-ingrediente">Quantidade/Peso</h4>
+                    <input type="text" id="input-quantidade-do-ingrediente" placeholder="01" name="quantidade_ingredientes">
+                </section>
+                <section id="guardar-medidas-elementos">
+                    <h4 id="nome-do-ingrediente">Medida</h4>
+                    <select name="medida_ingredientes" id="medidas-elementos">
+                        <optgroup class="dropDown-medidas">
+                            <option value="Xícara" class="item-medidas">Xícara</option>
+                            <option value="Colher de sopa" class="item-medidas">Colher de sopa</option>
+                            <option value="Colher de chá" class="item-medidas">Colher de chá</option>
+                            <option value="Colher de café" class="item-medidas">Colher de café</option>
+                            <option value="Colher de sobremesa" class="item-medidas">Colher de sobremesa</option>
+                            <option value="Copo americano" class="item-medidas">Copo americano</option>
+                            <option value="Gramas (gr)" class="item-medidas">Gramas (gr)</option>
+                            <option value="Mililitros (ml)" class="item-medidas">Mililitros (ml)</option>
+                            <option value="Unidade" class="item-medidas">Unidade</option>
+                        </optgroup>
+                    </select>
+                </section>
+            </div>
+            <img id="botao-de-tirar-ingrediente" src="/imagens/tirar-ingrediente.svg" alt="excluir ingrediente" onclick="removerIngrediente(this)">
+        </section>
+        <figure id="linha-rosa-ingredientes">
+            <h2 id="numero-do-ingrediente">${numeroIngrediente}</h2>
+        </figure>
+    `;
+
+    // Adiciona o novo ingrediente ao container
+    container.appendChild(novoIngrediente);
+}
+
+function removerIngrediente(element) {
+    const container = document.getElementById('ingredientes-div');
+    const sections = container.querySelectorAll('.ingrediente-article');
+
+    // Se houver mais de um ingrediente, permite remover
+    if (sections.length > 1) {
+        element.closest('.ingrediente-article').remove();
+
+        // Reajusta os números dos ingredientes
+        const remainingSections = container.querySelectorAll('.ingrediente-article');
+        remainingSections.forEach((section, index) => {
+            section.querySelector('#numero-do-ingrediente').textContent = index + 1;
+        });
+    }
+}
 
 function setupModal() {
     const openModalButton = document.querySelector("#open-modal");
@@ -59,14 +161,14 @@ document.addEventListener("DOMContentLoaded", function () {
         // Altera o nome do botão "Avançar" para "Criar Post" na Tarefa 3
         if (currentIndex === 2) {
             btnAvancar.innerText = "CRIAR DICA";
-            btnAvancar.type = "submit"; 
-            btnAvancar.classList.remove("Avancar"); 
-            btnAvancar.classList.add("submit-criar-conteudo"); 
+            btnAvancar.type = "submit";
+            btnAvancar.classList.remove("Avancar");
+            btnAvancar.classList.add("submit-criar-conteudo");
         } else {
             btnAvancar.innerText = "PRÓXIMA ETAPA...";
-            btnAvancar.type = "button"; 
-            btnAvancar.classList.remove("submit-criar-conteudo"); 
-            btnAvancar.classList.add("Avancar"); 
+            btnAvancar.type = "button";
+            btnAvancar.classList.remove("submit-criar-conteudo");
+            btnAvancar.classList.add("Avancar");
         }
 
         // Mostrar ou ocultar o botão de voltar com base na posição atual
@@ -162,12 +264,12 @@ function adicionarMensagem() {
 
         // Limpar o valor do input
         inputText.value = '';
-        
+
         messageDiv.addEventListener("click", function () {
-        messageDiv.remove();
-    })
+            messageDiv.remove();
+        })
     }
-    
+
 }
 
 window.onload = function () {
@@ -226,18 +328,6 @@ window.onload = function () {
     }
 }
 
-//botoes de criar e tirar ingredientes
-
-document.getElementById("botao-de-add-ingrediente").addEventListener("click", function () {
-    duplicarDiv();
-});
-
-document.getElementById("botao-de-tirar-ingrediente").addEventListener("click", function () {
-    var element = this.parentNode;
-    apagarDiv(element);
-});
-
-
 function dropdownmedidas(p) {
     var dropdownElement = document.querySelector('.dropDown-medidas');
     dropdownElement.style.display = p === 0 ? 'block' : 'none';
@@ -254,85 +344,6 @@ medidasElemento.addEventListener('blur', function () {
 function qmedidas(pega) {
     var oitemedidas = document.getElementById('itemedidas-' + pega).innerText;
     document.getElementById('medidas-elementos').value = oitemedidas;
-}
-
-var contadorDivs = 0;
-
-function duplicarDiv() {
-    var divOriginal = document.getElementById('ingredientes-elementos');
-    var clone = divOriginal.cloneNode(true);
-    contadorDivs++;
-    clone.id = "ingredientes-elementos-" + contadorDivs;
-    document.getElementById('clonados-ou-nao').appendChild(clone);
-    atualizarNumeracaoIngredientes()
-
-}
-
-function apagarDiv(element) {
-    var parent = element.parentNode;
-    if (parent.id !== 'ingredientes-elementos') {
-        parent.parentNode.removeChild(parent);
-        atualizarNumeracaoIngredientes()
-    }
-}
-
-function atualizarNumeracaoIngredientes() {
-    var divs = document.querySelectorAll('[id^="ingredientes-"]');
-    divs.forEach(function (div, index) {
-        var numeroDoIngrediente = div.querySelector("#numero-do-ingrediente");
-        if (numeroDoIngrediente) {
-            numeroDoIngrediente.innerText = index + 1;
-        }
-    });
-}
-
-
-document.getElementById("botao-de-tirar-modo").addEventListener("click", function () {
-    var element = this.parentNode;
-    apagarDivModo(element);
-});
-
-document.getElementById("botao-de-tirar-modo").addEventListener("click", function () {
-    var element = this.parentNode;
-    apagarDivModo(element);
-});
-    
-let etapaCount = 0; // Declaração global
-
-function adicionarEtapa() {
-    etapaCount++;
-    const modoDePreparoDiv = document.getElementById('modo-de-preparo');
-    const etapaDiv = document.createElement('article');
-    etapaDiv.classList.add('etapa-' + etapaCount);
-    etapaDiv.innerHTML = `
-        <span id="arruma-numero-simbolo">
-            <input type="text" id="numero-do-modo-de-preparo-${etapaCount}" placeholder="${etapaCount}" disabled="disabled">
-            <h2 id="simbolo-do-numero">º</h2>
-        </span>
-        <input type="text" id="input-modo-de-preparo-${etapaCount}" placeholder="Descrição da etapa ${etapaCount}" name="etapas_modo_preparo[]">
-        <button type="button" onclick="apagarEtapa(this)">X</button>
-    `;
-    modoDePreparoDiv.appendChild(etapaDiv);
-}
-
-function apagarEtapa(button) {
-    const etapaDiv = button.parentElement;
-    etapaDiv.remove();
-}
-
-function apagarEtapa(button) {
-    const etapaDiv = button.parentElement;
-    etapaDiv.remove();
-}
-
-function atualizarNumeracao() {
-    var divs = document.querySelectorAll('[id^="modo-de-preparo-"]');
-    divs.forEach(function (div, index) {
-        var numeroDoModo = div.querySelector("#numero-do-modo-de-preparo");
-        if (numeroDoModo) {
-            numeroDoModo.value = index + 1;
-        }
-    });
 }
 
 function mostrarElementoCulinaria() {
