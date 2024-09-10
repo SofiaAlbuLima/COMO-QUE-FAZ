@@ -1846,12 +1846,28 @@
         border-radius: 0.5vh;
         font-size: 1.8vh;
         resize: none;
+        &:hover {
+            background-color: #4d16bb3f;
+        }
+    }
+
+    .denuncia-select:focus {
+        outline: none;
+    }
+
+    .opcao-select-popup{
+        font-size: 1.8vh;
+        font-weight: 600;
+        font-family: 'Fira Sans', sans-serif;
     }
 
     .denuncia-textarea {
         font-family: 'Fira Sans', sans-serif;
         height: 15vh;
         resize: none;
+        &:focus{
+            outline: none;
+        }
     }
 
     .denuncia-submit {
