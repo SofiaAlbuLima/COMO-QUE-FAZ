@@ -145,6 +145,18 @@ router.get("/bigodes-de-ouro", function (req, res) {
 });
 
 
+
+
+
+
+router.post("/denunciar", async (req, res) => {
+    await tarefasController.armazenarDenuncia(req, res);
+});
+
+
+
+
+
 // Links & Template - Parte Administrativa
 router.get("/adm", verificarUsuAutorizado([2], "/sair"),
     function (req, res) {
@@ -185,6 +197,7 @@ router.get("/adm/usuarios", verificarUsuAutorizado([2], "/sair"),
                 usuario_logado: req.session.autenticado
             });
     });
+
 router.get("/adm/acesso-premium", verificarUsuAutorizado([2], "/sair"),
     function (req, res) {
         res.render("pages/template-adm",
@@ -193,6 +206,7 @@ router.get("/adm/acesso-premium", verificarUsuAutorizado([2], "/sair"),
                 usuario_logado: req.session.autenticado
             });
     });
+
 router.get("/adm/marketing-banners", verificarUsuAutorizado([2], "/sair"),
     function (req, res) {
         res.render("pages/template-adm",
@@ -201,6 +215,7 @@ router.get("/adm/marketing-banners", verificarUsuAutorizado([2], "/sair"),
                 usuario_logado: req.session.autenticado
             });
     });
+
 
 
 module.exports = router;

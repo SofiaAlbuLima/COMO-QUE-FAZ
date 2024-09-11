@@ -388,33 +388,40 @@ const tarefasController = {
             res.redirect('/');
         }
     },
+
     listarDenuncias: async (req, res) => {
         res.locals.moment = moment;
         try {
-
-            if (categoriaId = 1) {
-                categoriaa === "Culinária";
-            } else if (categoriaId = 2) {
-                categoriaa === "Limpeza";
-            } else if (categoriaId = 3) {
-                categoriaa === "Bem Estar";
-            }
-
-            results = await admModel.acharDenuncia();
-            resultsconteudo = await admModel.acharConteudo(categoria);
+            let categoria = req.query.categoria || null;
+            let results = await admModel.acharDenuncia();
+            let resultsconteudo = await admModel.acharConteudo(categoria);
 
             return {
-                denunciasNoControl: results, resultsconteudo, categoriaId,
+                denunciasNoControl: results,
+                resultsconteudo,
                 usuario_logado: req.session.autenticado
             };
-
-
         } catch (e) {
-            console.log(e); // exibir os erros no console do vs code
+            console.log(e);
             res.json({ erro: "Falha ao acessar dados" });
         }
-    }
+    },
 
+    armazenarDenuncia: async (req, res) => {
+        try {
+            const { detalhamento, motivo } = req.body;
+            const results = await admModel.armazenarResposta(detalhamento, motivo);
+
+            return {
+                mensagem: "Resposta armazenada com sucesso!",
+                results,
+                usuario_logado: req.session.autenticado
+            };
+        } catch (e) {
+            console.log(e);
+            res.json({ erro: "Falha ao armazenar resposta" });
+        }
+    }
 };
 
 

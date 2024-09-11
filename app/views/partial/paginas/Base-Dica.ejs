@@ -351,218 +351,242 @@
 
    <section class="conteudo-dispositivo-desktop">
       <% if (postagem) { %>
-      <article class="mapa_dica">
-         <a href="/"><p class="mapa-1">Home</p></a>
-         <p class="seta-1"> > </p>
-            <% if (postagem.categoria === 1) { %>
+         <article class="mapa_dica">
+            <a href="/">
+               <p class="mapa-1">Home</p>
+            </a>
+            <p class="seta-1"> > </p>
+            <% if (postagem.categoria===1) { %>
                <a href="/culinaria">
                   <p class="mapa-1">Culinária</p>
                </a>
-            <% } else if (postagem.categoria === 2) { %>
-               <a href="/limpeza">
-                  <p class="mapa-1">Limpeza</p>
-               </a>
-            <% } else if (postagem.categoria === 3) { %>
-               <a href="/bem-estar">
-                  <p class="mapa-1- limpe">Bem Estar</p>
-               </a>
-            <% } %>
-         <p class="seta-1"> > </p>
-         <p class="mapa-2"><%= postagem.titulo %></p>
-      </article>
-
-      <section class="carrossel_informacoes_post">
-         <article class="Carrossel">
-            <img class="imagemprincipal" src="/imagens/imagem-1-post.png" alt="imagem1">
-            <section class="previa">
-               <figure class="imagem">
-                  <img onclick="switchImageDesktop('/imagens/imagem-1-post.png')" src="/imagens/imagem-1-post.png"
-                     alt="">
-               </figure>
-               <figure class="imagem">
-                  <img onclick="switchImageDesktop('/imagens/imagem-2-post.png')" src="/imagens/imagem-2-post.png"
-                     alt="">
-               </figure>
-            </section>
+               <% } else if (postagem.categoria===2) { %>
+                  <a href="/limpeza">
+                     <p class="mapa-1">Limpeza</p>
+                  </a>
+                  <% } else if (postagem.categoria===2) { %>
+                     <a href="/bem-estar">
+                        <p class="mapa-1- limpe">Bem Estar</p>
+                     </a>
+                     <% } %>
+                        <p class="seta-1"> > </p>
+                        <p class="mapa-2">
+                           <%= postagem.titulo %>
+                        </p>
          </article>
 
-         <section class="informacoes_post">
-            <article class="categoria_opcoes">
-               <% if (postagem.categoria === 1) { %>
-                  <figure class="titulo-icon-culinaria">
-                     <img src="/imagens/icon-culinaria-branco.png" alt="icon-categoria" class="icon-categoria">
-                     <h1 class="titulo-categoria"><%= postagem.nomeCategoria %></h1>
+         <section class="carrossel_informacoes_post">
+            <article class="Carrossel">
+               <img class="imagemprincipal" src="/imagens/imagem-1-post.png" alt="imagem1">
+               <section class="previa">
+                  <figure class="imagem">
+                     <img onclick="switchImageDesktop('/imagens/imagem-1-post.png')" src="/imagens/imagem-1-post.png"
+                        alt="">
                   </figure>
-               <% } else if (postagem.categoria === 2) { %>
-                  <figure class="titulo-icon-limpeza">
-                     <img src="/imagens/icon-limpeza-branco.png" alt="icon-categoria" class="icon-categoria">
-                     <h1 class="titulo-categoria"><%= postagem.nomeCategoria %></h1>
+                  <figure class="imagem">
+                     <img onclick="switchImageDesktop('/imagens/imagem-2-post.png')" src="/imagens/imagem-2-post.png"
+                        alt="">
                   </figure>
-               <% } else if (postagem.categoria === 3) { %>
-                  <figure class="titulo-icon-bemestar">
-                     <img src="/imagens/icon-bemestar-branco.png" alt="icon-categoria" class="icon-categoria">
-                     <h1 class="titulo-categoria"><%= postagem.nomeCategoria %></h1>
-                  </figure>
-               <% } %>
-               
-               
-               <% if (postagem.categoria === 1) { %>
-                  <button id="opcoes" class="opcoes_dica_culinaria" onclick="AbrirOpcoesDesktop(event)">
-                     <figure class="ponto_dica"></figure>
-                     <figure class="ponto_dica"></figure>
-                     <figure class="ponto_dica"></figure>
-                  </button>
-               <% } else if (postagem.categoria === 2) { %>
-                  <button id="opcoes" class="opcoes_dica_limpeza" onclick="AbrirOpcoesDesktop(event)">
-                     <figure class="ponto_dica"></figure>
-                     <figure class="ponto_dica"></figure>
-                     <figure class="ponto_dica"></figure>
-                  </button>
-               <% } else if (postagem.categoria === 3) { %>
-                  <button id="opcoes" class="opcoes_dica_bemestar" onclick="AbrirOpcoesDesktop(event)">
-                     <figure class="ponto_dica"></figure>
-                     <figure class="ponto_dica"></figure>
-                     <figure class="ponto_dica"></figure>
-                  </button>
-               <% } %>
+               </section>
             </article>
 
-            <aside id="hide-opcoes-Desktop" style="display: none;">
-               <section class="denunciar" id="denunciar" onclick="AbrirDenunciar()">
-                  <img src="/imagens-svg/2-body/denunciar-cor-preta.svg" alt="denunciar">
-                  <p>Denunciar dica</p>
-               </section>
-               <section class="compartilhar">
-                  <img src="/imagens-svg/2-body/compartilhar-cor-preta.svg" alt="compartilhar">
-                  <p>Compartilhar dica</p>
-               </section>
-            </aside>
+            <section class="informacoes_post">
+               <article class="categoria_opcoes">
+                  <% if (postagem.categoria===1) { %>
+                     <figure class="titulo-icon-culinaria">
+                        <img src="/imagens/icon-culinaria-branco.png" alt="icon-categoria" class="icon-categoria">
+                        <h1 class="titulo-categoria">
+                           <%= postagem.nomeCategoria %>
+                        </h1>
+                     </figure>
+                     <% } else if (postagem.categoria===2) { %>
+                        <figure class="titulo-icon-limpeza">
+                           <img src="/imagens/icon-limpeza-branco.png" alt="icon-categoria" class="icon-categoria">
+                           <h1 class="titulo-categoria">
+                              <%= postagem.nomeCategoria %>
+                           </h1>
+                        </figure>
+                        <% } else if (postagem.categoria===3) { %>
+                           <figure class="titulo-icon-bemestar">
+                              <img src="/imagens/icon-bemestar-branco.png" alt="icon-categoria" class="icon-categoria">
+                              <h1 class="titulo-categoria">
+                                 <%= postagem.nomeCategoria %>
+                              </h1>
+                           </figure>
+                           <% } %>
 
-            <aside id="hide-denuncia-Desktop" style="display: none;">
-               <section class="header-popup-denunciar">
-                  <figure class="popup-header-figure">
-                  <img src="/imagens-svg/4-PopUp/gato-preenchido-roxo.svg" alt="icon gato criar dica" class="gato-popup-header">
-                  <h2 id="titulo-do-pop-up">Faça sua denúncia!</h2>
-                  </figure>
 
-                  <figure id="fechar-pop-up-denuncia">X</figure>
-               </section>
+                              <% if (postagem.categoria===1) { %>
+                                 <button id="opcoes" class="opcoes_dica_culinaria" onclick="AbrirOpcoesDesktop(event)">
+                                    <figure class="ponto_dica"></figure>
+                                    <figure class="ponto_dica"></figure>
+                                    <figure class="ponto_dica"></figure>
+                                 </button>
+                                 <% } else if (postagem.categoria===2) { %>
+                                    <button id="opcoes" class="opcoes_dica_limpeza" onclick="AbrirOpcoesDesktop(event)">
+                                       <figure class="ponto_dica"></figure>
+                                       <figure class="ponto_dica"></figure>
+                                       <figure class="ponto_dica"></figure>
+                                    </button>
+                                    <% } else if (postagem.categoria===3) { %>
+                                       <button id="opcoes" class="opcoes_dica_bemestar"
+                                          onclick="AbrirOpcoesDesktop(event)">
+                                          <figure class="ponto_dica"></figure>
+                                          <figure class="ponto_dica"></figure>
+                                          <figure class="ponto_dica"></figure>
+                                       </button>
+                                       <% } %>
+               </article>
 
-               <section class="body-popup-denuncia">
-                  <h2 class="denuncia-titulo">Nos conte sobre sua denúncia:</h2>
-   
-                  <form class="denuncia-form">
-                        <label for="denuncia-tipo" class="denuncia-label">Tipo de Denúncia:</label>
-                        <select id="denuncia-tipo" class="denuncia-select" required>
-                           <option value="">Selecione o tipo</option>
-                           <option value="spam">Spam</option>
-                           <option value="conteudo-inadequado">Conteúdo Inadequado</option>
-                           <option value="violencia">Violações dos termos de uso</option>
+               <aside id="hide-opcoes-Desktop" style="display: none;">
+                  <section class="denunciar" id="denunciar" onclick="AbrirDenunciar()">
+                     <img src="/imagens-svg/2-body/denunciar-cor-preta.svg" alt="denunciar">
+                     <p>Denunciar dica</p>
+                  </section>
+                  <section class="compartilhar">
+                     <img src="/imagens-svg/2-body/compartilhar-cor-preta.svg" alt="compartilhar">
+                     <p>Compartilhar dica</p>
+                  </section>
+               </aside>
+
+               <aside id="hide-denuncia-Desktop" style="display: none;">
+                  <section class="header-popup-denunciar">
+                     <figure class="popup-header-figure">
+                        <img src="/imagens-svg/4-PopUp/gato-preenchido-roxo.svg" alt="icon gato criar dica"
+                           class="gato-popup-header">
+                        <h2 id="titulo-do-pop-up">Faça sua denúncia!</h2>
+                     </figure>
+
+                     <figure id="fechar-pop-up-denuncia">X</figure>
+                  </section>
+
+                  <section class="body-popup-denuncia">
+                     <h2 class="denuncia-titulo">Nos conte sobre sua denúncia:</h2>
+
+                     <form class="denuncia-form" action="/denunciar" method="POST">
+                        <label for="denuncia-tipo" class="denuncia-label">Motivo da Denúncia:</label>
+                        <select id="denuncia-tipo" name="motivo" class="denuncia-select" required>
+                           <option class="opcao-select-popup" value="">Selecione o motivo</option>
+                           <option class="opcao-select-popup" value="spam">Spam</option>
+                           <option class="opcao-select-popup" value="conteudo-inadequado">Conteúdo Inadequado</option>
+                           <option class="opcao-select-popup" value="violencia">Violações dos termos de uso</option>
                         </select>
-   
+
                         <label for="denuncia-descricao" class="denuncia-label">Descrição:</label>
-                        <textarea id="denuncia-descricao" class="denuncia-textarea" required placeholder="Descreva o motivo da denúncia..."></textarea>
-   
+                        <textarea id="denuncia-descricao" name="descricao" class="denuncia-textarea" required
+                           placeholder="Detalhe o motivo da denúncia..."></textarea>
+
                         <button type="submit" class="denuncia-submit">Enviar Denúncia</button>
-                  </form>
-               </section>
-            </aside>          
-
-            <figure class="titulos-post">
-               <h3 class="titulo-user" style="color: #9e5fef;"> <%= postagem.nome_usuario %> </h3>
-               <h3 class="titulo-user">| Nanda da Silva</h3>
-               <h1 class="titulo-principal"><%= postagem.titulo %></h1>
-            </figure>
-
-            <p class="descricao"><%= postagem.descricao %></p>
-
-            <aside class="tempo-avaliacao-porcoes">
-               <section class="tempo">
-                  <img src="/imagens-svg/2-body/tempo.svg" alt="tempo" class="icone-info-dica">
-                  <h3 class="texto-info"><%= postagem.tempo %></h3>
-               </section>
-               <section class="avaliacao">
-                  <img src="/imagens-svg/2-body/avalia.svg" alt="avaliacao" class="icone-info-dica">
-                  <h3 class="texto-info">5.0</h3>
-               </section>
-               <% if (postagem.categoria === 1) { %>
-               <section class="porcoe">
-                  <img src="/imagens-svg/2-body/porcao.svg" alt="porcao" class="icone-info-dica">
-                  <h3 class="texto-info"><%= postagem.porcoes %></h3>
-               </section>
-               <% } %>
-            </aside>
-
-            
-            <% if (postagem.categoria === 1) { %>
-               <figure class="hashtags">
-                  <p class="hashtags-texto-culinaria">#ALMOÇO #ARROZ #FAMILIA #SALGADO #SÓFORNO #PRÁTICO #RÁPIDO</p>
-               </figure>
-               <aside class="estrelas_culinaria">
-                  <article class="avalie">
-                     <h1 class="gostou">GOSTOU?</h1>
-                     <h2 class="p-aval">Avalie essa dica!</h2>
-                  </article>
-                  <div class="rate">
-                     <input type="radio" id="star5" name="rate" value="5" />
-                     <label class="label_culinaria" for="star5" title="5 stars"></label>
-                     <input type="radio" id="star4" name="rate" value="4" />
-                     <label class="label_culinaria" for="star4" title="4 stars"></label>
-                     <input type="radio" id="star3" name="rate" value="3" />
-                     <label class="label_culinaria" for="star3" title="3 stars"></label>
-                     <input type="radio" id="star2" name="rate" value="2" />
-                     <label class="label_culinaria" for="star2" title="2 stars"></label>
-                     <input type="radio" id="star1" name="rate" value="1" />
-                     <label class="label_culinaria" for="star1" title="1 star"></label>
-                  </div>
-               </aside>            
-            <% } else if (postagem.categoria === 2) { %>
-               <figure class="hashtags">
-                  <p class="hashtags-texto-limpeza">#ALMOÇO #ARROZ #FAMILIA #SALGADO #SÓFORNO #PRÁTICO #RÁPIDO</p>
-               </figure>
-               <aside class="estrelas_limpeza">
-                  <article class="avalie">
-                     <h1 class="gostou">GOSTOU?</h1>
-                     <h2 class="p-aval">Avalie essa dica!</h2>
-                  </article>
-                  <div class="rate">
-                     <input type="radio" id="star5" name="rate" value="5" />
-                     <label class="label_limpeza" for="star5" title="5 stars"></label>
-                     <input type="radio" id="star4" name="rate" value="4" />
-                     <label class="label_limpeza" for="star4" title="4 stars"></label>
-                     <input type="radio" id="star3" name="rate" value="3" />
-                     <label class="label_limpeza" for="star3" title="3 stars"></label>
-                     <input type="radio" id="star2" name="rate" value="2" />
-                     <label class="label_limpeza" for="star2" title="2 stars"></label>
-                     <input type="radio" id="star1" name="rate" value="1" />
-                     <label class="label_limpeza" for="star1" title="1 star"></label>
-                  </div>
+                     </form>
+                  </section>
                </aside>
-            <% } else if (postagem.categoria === 3) { %>
-               <figure class="hashtags">
-                  <p class="hashtags-texto-bemestar">#ALMOÇO #ARROZ #FAMILIA #SALGADO #SÓFORNO #PRÁTICO #RÁPIDO</p>
+
+               <figure class="titulos-post">
+                  <h3 class="titulo-user" style="color: #9e5fef;">
+                     <%= postagem.nome_usuario %>
+                  </h3>
+                  <h3 class="titulo-user">| Nanda da Silva</h3>
+                  <h1 class="titulo-principal">
+                     <%= postagem.titulo %>
+                  </h1>
                </figure>
-               <aside class="estrelas_bemestar">
-                  <article class="avalie">
-                     <h1 class="gostou">GOSTOU?</h1>
-                     <h2 class="p-aval">Avalie essa dica!</h2>
-                  </article>
-                  <div class="rate">
-                     <input type="radio" id="star5" name="rate" value="5" />
-                     <label class="label_bemestar" for="star5" title="5 stars"></label>
-                     <input type="radio" id="star4" name="rate" value="4" />
-                     <label class="label_bemestar" for="star4" title="4 stars"></label>
-                     <input type="radio" id="star3" name="rate" value="3" />
-                     <label class="label_bemestar" for="star3" title="3 stars"></label>
-                     <input type="radio" id="star2" name="rate" value="2" />
-                     <label class="label_bemestar" for="star2" title="2 stars"></label>
-                     <input type="radio" id="star1" name="rate" value="1" />
-                     <label class="label_bemestar" for="star1" title="1 star"></label>
-                  </div>
+
+               <p class="descricao">
+                  <%= postagem.descricao %>
+               </p>
+
+               <aside class="tempo-avaliacao-porcoes">
+                  <section class="tempo">
+                     <img src="/imagens-svg/2-body/tempo.svg" alt="tempo" class="icone-info-dica">
+                     <h3 class="texto-info">
+                        <%= postagem.tempo %>
+                     </h3>
+                  </section>
+                  <section class="avaliacao">
+                     <img src="/imagens-svg/2-body/avalia.svg" alt="avaliacao" class="icone-info-dica">
+                     <h3 class="texto-info">5.0</h3>
+                  </section>
+                  <% if (postagem.categoria===1) { %>
+                     <section class="porcoe">
+                        <img src="/imagens-svg/2-body/porcao.svg" alt="porcao" class="icone-info-dica">
+                        <h3 class="texto-info">
+                           <%= postagem.porcoes %>
+                        </h3>
+                     </section>
+                     <% } %>
                </aside>
-               <% } %>
+
+
+               <% if (postagem.categoria===1) { %>
+                  <figure class="hashtags">
+                     <p class="hashtags-texto-culinaria">#ALMOÇO #ARROZ #FAMILIA #SALGADO #SÓFORNO #PRÁTICO #RÁPIDO</p>
+                  </figure>
+                  <aside class="estrelas_culinaria">
+                     <article class="avalie">
+                        <h1 class="gostou">GOSTOU?</h1>
+                        <h2 class="p-aval">Avalie essa dica!</h2>
+                     </article>
+                     <div class="rate">
+                        <input type="radio" id="star5" name="rate" value="5" />
+                        <label class="label_culinaria" for="star5" title="5 stars"></label>
+                        <input type="radio" id="star4" name="rate" value="4" />
+                        <label class="label_culinaria" for="star4" title="4 stars"></label>
+                        <input type="radio" id="star3" name="rate" value="3" />
+                        <label class="label_culinaria" for="star3" title="3 stars"></label>
+                        <input type="radio" id="star2" name="rate" value="2" />
+                        <label class="label_culinaria" for="star2" title="2 stars"></label>
+                        <input type="radio" id="star1" name="rate" value="1" />
+                        <label class="label_culinaria" for="star1" title="1 star"></label>
+                     </div>
+                  </aside>
+                  <% } else if (postagem.categoria===2) { %>
+                     <figure class="hashtags">
+                        <p class="hashtags-texto-limpeza">#ALMOÇO #ARROZ #FAMILIA #SALGADO #SÓFORNO #PRÁTICO #RÁPIDO</p>
+                     </figure>
+                     <aside class="estrelas_limpeza">
+                        <article class="avalie">
+                           <h1 class="gostou">GOSTOU?</h1>
+                           <h2 class="p-aval">Avalie essa dica!</h2>
+                        </article>
+                        <div class="rate">
+                           <input type="radio" id="star5" name="rate" value="5" />
+                           <label class="label_limpeza" for="star5" title="5 stars"></label>
+                           <input type="radio" id="star4" name="rate" value="4" />
+                           <label class="label_limpeza" for="star4" title="4 stars"></label>
+                           <input type="radio" id="star3" name="rate" value="3" />
+                           <label class="label_limpeza" for="star3" title="3 stars"></label>
+                           <input type="radio" id="star2" name="rate" value="2" />
+                           <label class="label_limpeza" for="star2" title="2 stars"></label>
+                           <input type="radio" id="star1" name="rate" value="1" />
+                           <label class="label_limpeza" for="star1" title="1 star"></label>
+                        </div>
+                     </aside>
+                     <% } else if (postagem.categoria===3) { %>
+                        <figure class="hashtags">
+                           <p class="hashtags-texto-bemestar">#ALMOÇO #ARROZ #FAMILIA #SALGADO #SÓFORNO #PRÁTICO #RÁPIDO
+                           </p>
+                        </figure>
+                        <aside class="estrelas_bemestar">
+                           <article class="avalie">
+                              <h1 class="gostou">GOSTOU?</h1>
+                              <h2 class="p-aval">Avalie essa dica!</h2>
+                           </article>
+                           <div class="rate">
+                              <input type="radio" id="star5" name="rate" value="5" />
+                              <label class="label_bemestar" for="star5" title="5 stars"></label>
+                              <input type="radio" id="star4" name="rate" value="4" />
+                              <label class="label_bemestar" for="star4" title="4 stars"></label>
+                              <input type="radio" id="star3" name="rate" value="3" />
+                              <label class="label_bemestar" for="star3" title="3 stars"></label>
+                              <input type="radio" id="star2" name="rate" value="2" />
+                              <label class="label_bemestar" for="star2" title="2 stars"></label>
+                              <input type="radio" id="star1" name="rate" value="1" />
+                              <label class="label_bemestar" for="star1" title="1 star"></label>
+                           </div>
+                        </aside>
+                        <% } %>
+            </section>
          </section>
-      </section>
 
       <article class="itens-modos">
          <% if (postagem.categoria === 1) { %>
@@ -699,71 +723,71 @@
          <% } %>
       </article>
 
-      
-      <article class="comentarios">
-         <h1 class="comem-titulo">13 Comentários</h1>
-         <aside class="filtrod">
-            <img src="/imagens-svg/2-body/filtro-icon-roxoescuro.svg " alt="filtro">
-            <p class="p-filtro">Filtrar</p>
-         </aside>
-      </article>
 
-      <section class="comentar">
-         <img src="/imagens-svg/2-body/imagem-foto-de-perfil-fofa.svg" alt="foto-de-perfil">
-         <input class="inserir-comentariod" type="text" name="inserir-comentario" id="inserir-comentario"
-            placeholder="Digite seu comentário...">
-         <label for="inserir-comentario"></label>
-      </section>
+         <article class="comentarios">
+            <h1 class="comem-titulo">13 Comentários</h1>
+            <aside class="filtrod">
+               <img src="/imagens-svg/2-body/filtro-icon-roxoescuro.svg " alt="filtro">
+               <p class="p-filtro">Filtrar</p>
+            </aside>
+         </article>
 
-      <section class="botoes-comentard">
-         <button class="cancelar-comentar">Cancelar</button>
-         <button class="botao-comentard" type="submit" value="Comentar">Comentar</button>
-      </section>
-
-      <article id="hide-opcoes-comentario-Desktop" style="display: none;">
-         <section class="denunciar-comentario">
-            <img src="/imagens/denunciar-cor-preta.svg" alt="denunciar">
-            <p>Denunciar comentário</p>
+         <section class="comentar">
+            <img src="/imagens-svg/2-body/imagem-foto-de-perfil-fofa.svg" alt="foto-de-perfil">
+            <input class="inserir-comentariod" type="text" name="inserir-comentario" id="inserir-comentario"
+               placeholder="Digite seu comentário...">
+            <label for="inserir-comentario"></label>
          </section>
-         <section class="compartilhar-comentario">
-            <img src="/imagens/compartilhar-cor-preta.svg" alt="compartilhar">
-            <p>Compartilhar comentário</p>
-         </section>
-      </article>
 
-      <article class="comentario">
-         <img class="foto-de-perfil-taylorfan" src="/imagens-svg/2-body/icon-garota-taylorfan.svg"
-            alt="foto-de-perfil-taylorfan">
-         <figure class="nomes-comentario">
-            <h1>TaylorFan</h1>
-            <p class="nome-usuario-comt">| Maria Fernanda da Silva</p>
+         <section class="botoes-comentard">
+            <button class="cancelar-comentar">Cancelar</button>
+            <button class="botao-comentard" type="submit" value="Comentar">Comentar</button>
+         </section>
+
+         <article id="hide-opcoes-comentario-Desktop" style="display: none;">
+            <section class="denunciar-comentario">
+               <img src="/imagens/denunciar-cor-preta.svg" alt="denunciar">
+               <p>Denunciar comentário</p>
+            </section>
+            <section class="compartilhar-comentario">
+               <img src="/imagens/compartilhar-cor-preta.svg" alt="compartilhar">
+               <p>Compartilhar comentário</p>
+            </section>
+         </article>
+
+         <article class="comentario">
+            <img class="foto-de-perfil-taylorfan" src="/imagens-svg/2-body/icon-garota-taylorfan.svg"
+               alt="foto-de-perfil-taylorfan">
+            <figure class="nomes-comentario">
+               <h1>TaylorFan</h1>
+               <p class="nome-usuario-comt">| Maria Fernanda da Silva</p>
+            </figure>
+            <section id="opcoes-comentario" class="opcoes-comentario" onclick="AbrirOpcoesComentarioDesktop()">
+               <figure class="ponto-comentario"></figure>
+               <figure class="ponto-comentario"></figure>
+               <figure class="ponto-comentario"></figure>
+
+               <p class="texto-coment-taylor">to me babando todo 🤤
+                  Ate babei
+               </p>
+            </section>
+         </article>
+
+         <section class="curtir-responderd">
+            <figure class="coracao-curtird" onclick="toggleLike1(this)">
+               <img class="coracao-vazado" src="/imagens/coracaovazio.svg" alt="coracação-vazado">
+               <img id="coracao-preenchido1" class="coracao-preenchidod" src="/imagens/coracao-rosa.png"
+                  alt="coracação-preenchido" style="display: none;">
+            </figure>
+            <p class="numero-curtida">15</p>
+            <h3 class="responder-comentd">| Responder</h3>
+         </section>
+
+         <figure class="mostrar-mais">
+            <h1>MOSTRAR MAIS</h1>
          </figure>
-         <section id="opcoes-comentario" class="opcoes-comentario" onclick="AbrirOpcoesComentarioDesktop()">
-            <figure class="ponto-comentario"></figure>
-            <figure class="ponto-comentario"></figure>
-            <figure class="ponto-comentario"></figure>
-            
-      <p class="texto-coment-taylor">to me babando todo 🤤
-         Ate babei
-      </p>
-         </section>
-      </article>
-
-      <section class="curtir-responderd">
-         <figure class="coracao-curtird" onclick="toggleLike1(this)">
-            <img class="coracao-vazado" src="/imagens/coracaovazio.svg" alt="coracação-vazado">
-            <img id="coracao-preenchido1" class="coracao-preenchidod" src="/imagens/coracao-rosa.png"
-               alt="coracação-preenchido" style="display: none;">
-         </figure>
-         <p class="numero-curtida">15</p>
-         <h3 class="responder-comentd">| Responder</h3>
-      </section>
-
-      <figure class="mostrar-mais">
-         <h1>MOSTRAR MAIS</h1>
-      </figure>
-      <% } else { %>
-         <p>Postagem não encontrada.</p>
-     <% } %>
+         <% } else { %>
+            <p>Postagem não encontrada.</p>
+            <% } %>
    </section>
 </main>
