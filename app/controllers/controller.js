@@ -299,22 +299,15 @@ const tarefasController = {
             const createPostagem = await conteudoModel.CriarPostagem(FormCriarDica);
             const postagemId = createPostagem.insertId; // Obtém o ID da postagem criada
     
-            console.log('Postagem criada com sucesso, ID:', postagemId);
-    
             // Verifique se os arrays de ingredientes estão corretos
             const ingredientesArray = req.body.ingredientes || [];
             const quantidadeIngredientesArray = req.body.quantidade_ingredientes || [];
             const medidaIngredientesArray = req.body.medida_ingredientes || [];
-            console.log('Ingredientes recebidos:', ingredientesArray);
-            console.log('Quantidades recebidas:', quantidadeIngredientesArray);
-            console.log('Medidas recebidas:', medidaIngredientesArray);
     
             if (ingredientesArray.length > 0 && 
                 quantidadeIngredientesArray.length > 0 && 
                 medidaIngredientesArray.length > 0) {
-                    console.log('antes do looping!');
                     for (let i = 0; i < ingredientesArray.length; i++) {
-                        console.log(`Processando ingrediente ${i + 1} de ${ingredientesArray.length}`);
                         let ingrediente = {
                             quantidade_ingredientes: quantidadeIngredientesArray[i] || null,
                             ingredientes: ingredientesArray[i] || null,
@@ -323,24 +316,21 @@ const tarefasController = {
                             conteúdo_postagem_Clientes_idClientes: req.session.autenticado.id,
                             conteúdo_postagem_Categorias_idCategorias: categoriaId
                         };
-                        console.log('Ingrediente:', ingrediente);
                         try {
                             await conteudoModel.CriarIngrediente(ingrediente);
-                            console.log(`Ingrediente ${i + 1} inserido com sucesso`);
                         } catch (error) {
                             console.error(`Erro ao inserir o ingrediente ${i + 1}:`, error);
                         }
                     }
             }
     
-            console.log("Postagem e ingredientes realizados com sucesso!");
+            console.log("Postagem e ingredientes realizados com sucesso!", postagemId);
     
             req.session.notification = {
                 titulo: "Postagem realizada!",
                 mensagem: "Sua dica foi publicada com sucesso!",
                 tipo: "success"
             };
-            console.log('Redirecionando para /perfil');
             return res.redirect("/perfil");
         } catch (e) {
             console.log(e);
