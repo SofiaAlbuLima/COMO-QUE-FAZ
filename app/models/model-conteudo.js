@@ -75,26 +75,39 @@ const conteudoModel = { //const que agrupa todas as funções de acesso e manipu
         }
     },
 
-    CriarIngrediente: (ingrediente) => {
-        return new Promise((resolve, reject) => {
-            // Atualize a consulta SQL para corresponder à nova estrutura da tabela
+    CriarIngrediente: async (ingrediente) => {
+        try {
             const query = `
                 INSERT INTO ingredientes 
                 (quantidade_ingredientes, ingredientes, medida_ingredientes, conteúdo_postagem_ID_conteúdo, conteúdo_postagem_Clientes_idClientes, conteúdo_postagem_Categorias_idCategorias) 
                 VALUES (?, ?, ?, ?, ?, ?)
             `;
-            pool.query(query, [
+            const [result] = await pool.query(query, [
                 ingrediente.quantidade_ingredientes,
                 ingrediente.ingredientes,
                 ingrediente.medida_ingredientes,
                 ingrediente.conteúdo_postagem_ID_conteúdo,
                 ingrediente.conteúdo_postagem_Clientes_idClientes,
                 ingrediente.conteúdo_postagem_Categorias_idCategorias
-            ], (err, result) => {
-                if (err) return reject(err);
-                resolve(result);
-            });
-        });
+            ]);
+            return result;
+        } catch (err) {
+            console.error('Erro ao executar query:', err); // Adicionando um log de erro
+            throw err;
+        }
+    },
+
+    BuscarIngredientesPorPostagemId: async (postagemId) => {
+        try {
+            const query = `
+                SELECT quantidade_ingredientes, ingredientes, medida_ingredientes
+                FROM ingredientes
+                WHERE conteúdo_postagem_ID_conteúdo = ?`;
+            const [resultados] = await pool.query(query, [postagemId]);
+            return resultados;
+        } catch (erro) {
+            throw erro;
+        }
     },
 
     CriarPergunta: async(camposCriar)=>{

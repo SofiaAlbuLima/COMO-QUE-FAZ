@@ -570,11 +570,13 @@
                <h1 class="itens-titulo">ITENS NECESSÁRIOS</h1>
                <ul class="lista-itens">
                   <li class="ingreditente_dica">
+                     <% postagem.ingredientes.forEach(ingrediente => { %>
                      <button class="ingreditente_dica_button" onclick="visibility1D()" onclick="Hidden1D()">
                         <p class="pontinho">•</p>
-                        <p class="ingreditente_button_medida_quantidade">1 COLHER DE SOPA</p>
-                        <p class="ingreditente_button_ingrediente">| Óleo de Soja</p>
+                        <p class="ingreditente_button_medida_quantidade"><%= ingrediente.quantidade_ingredientes %> <%= ingrediente.medida_ingredientes %></p>
+                        <p class="ingreditente_button_ingrediente">| <%= ingrediente.ingredientes %></p>
                      </button>
+                    <% }) %>
                   </li>
                   <section class="myDIV" id="myDIVD" style="display: none;">
                      <article class="info-item_culinaria">
@@ -611,11 +613,13 @@
                <h1 class="itens-titulo">ITENS NECESSÁRIOS</h1>
                <ul class="lista-itens">
                   <li class="ingreditente_dica">
+                     <% postagem.ingredientes.forEach(ingrediente => { %>
                      <button class="ingreditente_dica_button" onclick="visibility1D()" onclick="Hidden1D()">
                         <p class="pontinho">•</p>
-                        <p class="ingreditente_button_medida_quantidade">1 COLHER DE SOPA</p>
-                        <p class="ingreditente_button_ingrediente">| Óleo de Soja</p>
+                        <p class="ingreditente_button_medida_quantidade"><%= ingrediente.quantidade_ingredientes %> <%= ingrediente.medida_ingredientes %></p>
+                        <p class="ingreditente_button_ingrediente">| <%= ingrediente.ingredientes %></p>
                      </button>
+                    <% }) %>
                   </li>
                   <section class="myDIV" id="myDIVD" style="display: none;">
                      <article class="info-item_limpeza">
@@ -639,101 +643,59 @@
             <section class="Modo-Preparo-limpeza">
                <h1 class="modo-titulo">MODO DE PREPARO</h1>
                <ul class="lista-modo">
-                  <ol class="modos">
-                     <h1 class="t-modo">1</h1>
-                     <p class="p-modo">Em uma panela, aqueça o óleo e refogue o arroz até que ele fique brilhante.</p>
-                  </ol>
-                  <ol class="modos">
-                     <h1 class="t-modo">2</h1>
-                     <p class="p-modo">Junte a água fervente e o MAGGI Meu Segredo 7 Vegetais e misture até dissolvê-lo.
-                     </p>
-                  </ol>
-                  <ol class="modos">
-                     <h1 class="t-modo">3</h1>
-                     <p class="p-modo">Cozinhe em fogo baixo, com a panela semitampada, por cerca de 15 minutos ou até a
-                        água secar.</p>
-                  </ol>
-                  <ol class="modos">
-                     <h1 class="t-modo">4</h1>
-                     <p class="p-modo">Desligue o fogo e deixe a panela tampada por cerca de 5 minutos para que o arroz
-                        termine o cozimento em seu próprio vapor</p>
-                  </ol>
-                  <ol class="modos">
-                     <h1 class="t-modo">5</h1>
-                     <p class="p-modo">Em um recipiente refratário, misture o presunto, o queijo mozarela, a ervilha, a
-                        cenoura, a salsa e o arroz cozido.</p>
-                  </ol>
-                  <ol class="modos">
-                     <h1 class="t-modo">6</h1>
-                     <p class="p-modo">Polvilhe com queijo parmesão ralado e leve ao forno médio (180°C), preaquecido,
-                        por cerca de 30 minutos. Sirva.</p>
-                  </ol>
-               </ul>
+                  <% postagem.etapas.forEach(function(etapa, index) { %>
+                      <ol class="modos">
+                          <h1 class="t-modo"><%= index + 1 %></h1>
+                          <p class="p-modo"><%= etapa %></p>
+                      </ol>
+                  <% }) %>
+              </ul>
             </section>
          <% } else if (postagem.categoria === 3) { %>
             <section class="Itens-necessários_bemestar">
-               <h1 class="itens-titulo">ITENS NECESSÁRIOS</h1>
-               <ul class="lista-itens">
-                  <li class="ingreditente_dica">
-                     <button class="ingreditente_dica_button" onclick="visibility1D()" onclick="Hidden1D()">
-                        <p class="pontinho">•</p>
-                        <p class="ingreditente_button_medida_quantidade">1 COLHER DE SOPA</p>
-                        <p class="ingreditente_button_ingrediente">| Óleo de Soja</p>
-                     </button>
-                  </li>
-                  <section class="myDIV" id="myDIVD" style="display: none;">
-                     <article class="info-item_bemestar">
-                        <figure>
-                           <img src="/imagens-svg/2-body/colher-icon.svg" alt="colher" class="icon-colher">
-                        </figure>
-                        <article>
-                           <h3 class="titulo-medida">A COLHER DE SOPA É IGUAL À:</h3>
-                           <li class="lista-info-1">
-                              <p class="info-texto">• 12 GRAMAS (gr)</p>
-                           </li>
-                           <li class="lista-info-2">
-                              <p class="info-texto">• 12 MILILITROS (ml)</p>
-                           </li>
-                        </article>
-                     </article>
-                  </section>
-               </ul>
-            </section>
-   
-            <section class="Modo-Preparo-bemestar">
-               <h1 class="modo-titulo">MODO DE PREPARO</h1>
-               <ul class="lista-modo">
-                  <ol class="modos">
-                     <h1 class="t-modo">1</h1>
-                     <p class="p-modo">Em uma panela, aqueça o óleo e refogue o arroz até que ele fique brilhante.</p>
-                  </ol>
-                  <ol class="modos">
-                     <h1 class="t-modo">2</h1>
-                     <p class="p-modo">Junte a água fervente e o MAGGI Meu Segredo 7 Vegetais e misture até dissolvê-lo.
+            <h1 class="itens-titulo">ITENS NECESSÁRIOS</h1>
+            <ul class="lista-itens">
+               <% postagem.ingredientes.forEach(ingrediente => { %>
+               <li class="ingreditente_dica">
+                  <button class="ingreditente_dica_button" onclick="visibility1D()" onclick="Hidden1D()">
+                     <p class="pontinho">•</p>
+                     <p class="ingreditente_button_medida_quantidade">
+                         <%= ingrediente.quantidade_ingredientes %> <%= ingrediente.medida_ingredientes %>
                      </p>
-                  </ol>
-                  <ol class="modos">
-                     <h1 class="t-modo">3</h1>
-                     <p class="p-modo">Cozinhe em fogo baixo, com a panela semitampada, por cerca de 15 minutos ou até a
-                        água secar.</p>
-                  </ol>
-                  <ol class="modos">
-                     <h1 class="t-modo">4</h1>
-                     <p class="p-modo">Desligue o fogo e deixe a panela tampada por cerca de 5 minutos para que o arroz
-                        termine o cozimento em seu próprio vapor</p>
-                  </ol>
-                  <ol class="modos">
-                     <h1 class="t-modo">5</h1>
-                     <p class="p-modo">Em um recipiente refratário, misture o presunto, o queijo mozarela, a ervilha, a
-                        cenoura, a salsa e o arroz cozido.</p>
-                  </ol>
-                  <ol class="modos">
-                     <h1 class="t-modo">6</h1>
-                     <p class="p-modo">Polvilhe com queijo parmesão ralado e leve ao forno médio (180°C), preaquecido,
-                        por cerca de 30 minutos. Sirva.</p>
-                  </ol>
-               </ul>
+                     <p class="ingreditente_button_ingrediente">| <%= ingrediente.ingredientes %></p>
+                  </button>
+               </li>
+               <% }) %>
+            </ul>
+            <section class="myDIV" id="myDIVD" style="display: none;">
+               <article class="info-item_bemestar">
+                  <figure>
+                     <img src="/imagens-svg/2-body/colher-icon.svg" alt="colher" class="icon-colher">
+                  </figure>
+                  <article>
+                     <h3 class="titulo-medida">A COLHER DE SOPA É IGUAL À:</h3>
+                     <li class="lista-info-1">
+                        <p class="info-texto">• 12 GRAMAS (gr)</p>
+                     </li>
+                     <li class="lista-info-2">
+                        <p class="info-texto">• 12 MILILITROS (ml)</p>
+                     </li>
+                  </article>
+               </article>
             </section>
+         </section>
+         
+         <section class="Modo-Preparo-bemestar">
+            <h1 class="modo-titulo">MODO DE PREPARO</h1>
+            <ul class="lista-modo">
+               <% postagem.etapas.forEach(function(etapa, index) { %>
+                   <ol class="modos">
+                       <h1 class="t-modo"><%= index + 1 %></h1>
+                       <p class="p-modo"><%= etapa %></p>
+                   </ol>
+               <% }) %>
+           </ul>
+         </section>
          <% } %>
       </article>
 
