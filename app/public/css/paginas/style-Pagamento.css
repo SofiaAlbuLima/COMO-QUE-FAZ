@@ -1,0 +1,37 @@
+
+.mapa-do-site-pagamento{
+    display: flex;
+    margin-top: 18vh;
+}
+.mapa_do_site-link2{
+    font-family: Fira Sans;
+    color: black;
+    margin-right: 0.5vh;
+}
+.seta-mapa{
+    font-family: Fira Sans;
+    color: black;
+    margin-left: 0.5vh;
+    margin-right: 0.5vh;
+}
+
+.sections-pagamento-grupo{
+    justify-content: center;
+    display: flex;
+    gap: 4vh;
+    width: 100%;
+}
+.section-pagamento{
+    display: flex;
+    border: solid 2px #8541e9;
+    background-color: #ececec;
+    width: 41vh;
+    border-radius: 20px;
+}
+.titulo-section-pagamento{
+    display: flex;
+    padding: 2vh;
+}
+.imagem-titulo-pagamento{
+    width: 5vh;
+}

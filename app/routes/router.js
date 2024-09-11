@@ -143,6 +143,12 @@ router.get("/bigodes-de-ouro", function (req, res) {
         usuario_logado: req.session.autenticado
     });
 });
+router.get("/pagamento", function (req, res) {
+    res.render("pages/template", {
+        pagina: { cabecalho: "cabecalho", conteudo: "pagamento", rodape: "none" },
+        usuario_logado: req.session.autenticado
+    });
+});
 
 
 
