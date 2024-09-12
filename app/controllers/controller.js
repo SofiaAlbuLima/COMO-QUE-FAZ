@@ -278,14 +278,14 @@ const tarefasController = {
                 categoriaId = 3;
                 porcoes = null;
             }
-    
+
             const etapasModoPreparo = req.body.etapas_modo_preparo;
             if (!Array.isArray(etapasModoPreparo)) {
                 console.log('etapas_modo_preparo não é um array:', etapasModoPreparo);
                 return res.status(400).send('Etapas do modo de preparo inválidas');
             }
             const etapasTexto = etapasModoPreparo.join('; ');
-    
+
             var FormCriarDica = {
                 Clientes_idClientes: req.session.autenticado.id,
                 Titulo: req.body.dica_titulo,
@@ -295,37 +295,37 @@ const tarefasController = {
                 Descricao: req.body.dica_descricao,
                 Etapas_Modo_de_Preparo: etapasTexto // Aqui você usa a string
             };
-    
+
             const createPostagem = await conteudoModel.CriarPostagem(FormCriarDica);
             const postagemId = createPostagem.insertId; // Obtém o ID da postagem criada
-    
+
             // Verifique se os arrays de ingredientes estão corretos
             const ingredientesArray = req.body.ingredientes || [];
             const quantidadeIngredientesArray = req.body.quantidade_ingredientes || [];
             const medidaIngredientesArray = req.body.medida_ingredientes || [];
-    
-            if (ingredientesArray.length > 0 && 
-                quantidadeIngredientesArray.length > 0 && 
+
+            if (ingredientesArray.length > 0 &&
+                quantidadeIngredientesArray.length > 0 &&
                 medidaIngredientesArray.length > 0) {
-                    for (let i = 0; i < ingredientesArray.length; i++) {
-                        let ingrediente = {
-                            quantidade_ingredientes: quantidadeIngredientesArray[i] || null,
-                            ingredientes: ingredientesArray[i] || null,
-                            medida_ingredientes: medidaIngredientesArray[i] || null,
-                            conteúdo_postagem_ID_conteúdo: postagemId,
-                            conteúdo_postagem_Clientes_idClientes: req.session.autenticado.id,
-                            conteúdo_postagem_Categorias_idCategorias: categoriaId
-                        };
-                        try {
-                            await conteudoModel.CriarIngrediente(ingrediente);
-                        } catch (error) {
-                            console.error(`Erro ao inserir o ingrediente ${i + 1}:`, error);
-                        }
+                for (let i = 0; i < ingredientesArray.length; i++) {
+                    let ingrediente = {
+                        quantidade_ingredientes: quantidadeIngredientesArray[i] || null,
+                        ingredientes: ingredientesArray[i] || null,
+                        medida_ingredientes: medidaIngredientesArray[i] || null,
+                        conteúdo_postagem_ID_conteúdo: postagemId,
+                        conteúdo_postagem_Clientes_idClientes: req.session.autenticado.id,
+                        conteúdo_postagem_Categorias_idCategorias: categoriaId
+                    };
+                    try {
+                        await conteudoModel.CriarIngrediente(ingrediente);
+                    } catch (error) {
+                        console.error(`Erro ao inserir o ingrediente ${i + 1}:`, error);
                     }
+                }
             }
-    
+
             console.log("Postagem e ingredientes realizados com sucesso!", postagemId);
-    
+
             req.session.notification = {
                 titulo: "Postagem realizada!",
                 mensagem: "Sua dica foi publicada com sucesso!",
@@ -399,13 +399,13 @@ const tarefasController = {
 
     armazenarDenuncia: async (req, res) => {
         try {
-            const { detalhamento, motivo } = req.body;
+            const { detalhamento } = req.body.descricao;
+            const { motivo } = req.body.motivo;
             const results = await admModel.armazenarResposta(detalhamento, motivo);
 
             return {
                 mensagem: "Resposta armazenada com sucesso!",
-                results,
-                usuario_logado: req.session.autenticado
+                results
             };
         } catch (e) {
             console.log(e);

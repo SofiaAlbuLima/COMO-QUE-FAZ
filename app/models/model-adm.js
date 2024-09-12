@@ -33,23 +33,20 @@ const admModel = {
             const [total] = await pool.query(query);
             return total;
 
-        } catch (erro) {
-            throw erro;
+        } catch (error) {
+            return error;
         }
     },
 
     armazenarResposta: async (detalhamento, motivo) => {
         try {
-            const query = `  
-      INSERT INTO denuncia (detalhamento_denuncia, motivo)  
-      VALUES (?, ?)  
-     `;
-
-            const [result] = await pool.query(query, [detalhamento, motivo]);
-            return result;
-
-        } catch (erro) {
-            throw erro;
+            const [linhas] = await pool.query(`  
+        INSERT INTO denuncia (detalhamento_denuncia, motivo)  
+        VALUES (?, ?)  
+        `, [detalhamento, motivo]);
+            return linhas;
+        } catch (error) {
+            return error;
         }
     }
 
