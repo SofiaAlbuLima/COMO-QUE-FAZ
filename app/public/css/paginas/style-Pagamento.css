@@ -18,20 +18,91 @@
 .sections-pagamento-grupo{
     justify-content: center;
     display: flex;
-    gap: 4vh;
+    gap: 2.5vh;
     width: 100%;
+    margin-top: 3vh;
+    align-items: flex-start;
 }
 .section-pagamento{
     display: flex;
     border: solid 2px #8541e9;
-    background-color: #ececec;
-    width: 41vh;
+    background-color: #f2f2f2;
+    width: 43vh;
     border-radius: 20px;
+    flex-direction: column;
 }
 .titulo-section-pagamento{
     display: flex;
-    padding: 2vh;
+    padding: 2.5vh;
+    width: 87.5%;
+    justify-content: left;
+    gap: 2.5vh;
+    background-color: #e6e6e6;
+    border-top-left-radius: 20px;
+    border-top-right-radius: 20px;
 }
 .imagem-titulo-pagamento{
     width: 5vh;
+    display: flex;
 }
+.h1-titulo-pagamento, .p-valorTotal{
+    font-family: Fira Sans;
+    font-weight: 600;
+    font-size: 2vh;
+    display: flex;
+    color: #333333;
+    align-items: center;
+}
+.conteudo-section-pagamento{
+    display: flex;
+    font-family: Fira Sans;
+    font-weight: 600;
+    font-size: 2vh;
+    color: #333333;
+    padding-top: 3vh;
+    padding-left: 2.5vh;
+    padding-right: 2.5vh;
+    padding-bottom: 3vh;
+}
+
+/* CONTEUDO */
+.valorTotal-produtos-pagamento{
+    display: flex;
+    padding: 2.5vh;
+    width: 87.5%;
+    justify-content: space-between;
+    background-color: #e6e6e6;
+    border-bottom-left-radius: 20px;
+    border-bottom-right-radius: 20px;
+}
+
+/* DADOS CADASTRAIS */
+.dadosCadastrais-pagamento{
+    background-color: #e6e6e6;
+    border-radius: 20px;
+    padding: 2vh;
+    width: 100%;
+}
+.button-dadosCadastrais{
+    border: none;
+    background-color: none;
+    font-family: Fira Sans;
+    font-weight: 400;
+    font-size: 1.8vh;
+    text-decoration: underline;
+    color: #333333;
+    margin-bottom: 2vh;
+}
+.h3-dadosCadastrais, .p-dadosCadastrais{
+    font-family: Fira Sans;
+    font-size: 2vh;
+    color: #333333;
+}
+.h3-dadosCadastrais{
+    font-weight: 700;
+}
+.p-dadosCadastrais{
+    font-weight: 500;
+}
+
+/* METODOS DE PAGAMENTO */
