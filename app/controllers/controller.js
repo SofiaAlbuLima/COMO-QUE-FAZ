@@ -380,17 +380,17 @@ const tarefasController = {
     },
 
     listarDenuncias: async (req, res) => {
-        res.locals.moment = moment;
         try {
-            let categoria = req.query.categoria || null;
-            let results = await admModel.acharDenuncia();
-            let resultsconteudo = await admModel.acharConteudo(categoria);
+            categoria = req.query.categoria || null;
+            results = await admModel.acharDenuncia();
+            resultsconteudo = await admModel.acharConteudo(categoria);
 
             return {
                 denunciasNoControl: results,
                 resultsconteudo,
                 usuario_logado: req.session.autenticado
             };
+            
         } catch (e) {
             console.log(e);
             res.json({ erro: "Falha ao acessar dados" });
@@ -399,17 +399,23 @@ const tarefasController = {
 
     armazenarDenuncia: async (req, res) => {
         try {
-            const { detalhamento } = req.body.descricao;
-            const { motivo } = req.body.motivo;
-            const results = await admModel.armazenarResposta(detalhamento, motivo);
-
-            return {
-                mensagem: "Resposta armazenada com sucesso!",
-                results
+            // Extrair dados do corpo da requisição
+            const dadosForm = {
+                motivo: req.body.motivo,
+                descricao: req.body.descricao
             };
-        } catch (e) {
-            console.log(e);
-            res.json({ erro: "Falha ao armazenar resposta" });
+    
+            // Inserir os dados no banco de dados
+            const resultado = await denunciaModel.criarDenuncia(dadosForm);
+    
+            if (resultado) {
+                res.status(200).send('Denúncia recebida com sucesso!');
+            } else {
+                res.status(500).send('Erro ao enviar denúncia');
+            }
+        } catch (error) {
+            console.error('Erro ao armazenar denúncia:', error);
+            res.status(500).send('Erro ao enviar denúncia');
         }
     }
 };

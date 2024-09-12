@@ -38,13 +38,11 @@ const admModel = {
         }
     },
 
-    armazenarResposta: async (detalhamento, motivo) => {
+    criarDenuncia : async (dadosForm) => {
         try {
-            const [linhas] = await pool.query(`  
-        INSERT INTO denuncia (detalhamento_denuncia, motivo)  
-        VALUES (?, ?)  
-        `, [detalhamento, motivo]);
+            const [linhas, campos] = await pool.query('INSERT INTO denuncias SET ?', [dadosForm]);
             return linhas;
+
         } catch (error) {
             return error;
         }
