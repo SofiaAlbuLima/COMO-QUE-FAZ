@@ -53,7 +53,7 @@
     color: #333333;
     align-items: center;
 }
-.conteudo-section-pagamento{
+.conteudo-article-pagamento{
     display: flex;
     font-family: Fira Sans;
     font-weight: 600;
@@ -106,27 +106,62 @@
 }
 
 /* METODOS DE PAGAMENTO */
-.conteudo-section-pagamento{
+.conteudo-article-pagamento{
     display: flex;
     flex-direction: column;
     gap: 2vh;
 }
 .radio-label-pagamentos{
-    width: 100%;
+    width: 88%;
     height: 3vh;
     background-color: #f2f2f2;
     cursor: pointer;
-    color: #8541e9;
-    border: 2px solid black;
-    border-radius: 10px;
+    border: 2px solid #d5d5d5;
+    border-radius: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
     padding: 2vh;
 }
-.radio-input-pagamentos{
-    display: none; /* Oculta o botão de rádio padrão */
+.article-label-pagamento{
+    display: flex;
 }
-.radio-input-pagamentos:checked + .radio-label-pagamentos {
-    background-color: #ff0000;
-    color: #ffffff;
+.img-metodo-pagamento{
+    width: 4vh;
+    display: flex;
+    opacity: 50%;
+}
+.p-metodo-pagamento{
+    font-family: Fira Sans;
+    font-size: 2vh;
+    font-weight: 500;
+    color: #333333;
+    display: flex;
+    align-items: center;
+    margin-left: 1vh;
+}
+.figure-input-label-pagamento{
+    padding-top: 3vh;
+    padding-bottom: 3vh;
+    padding-left: 2vh;
+    padding-right: 2vh;
+    background-color: #d5d5d5;
+    border-top-right-radius: 30px;
+    border-bottom-right-radius: 30px;
+    transform: translate(2.1vh, 0vh);
+}
+.radio-input-pagamentos{
+    display: flex;
+}
+.selected {
+    border-color: #8541e9;
+}
+
+.selected .figure-input-label-pagamento {
+    background-color: #8541e9;
+}
+.selected .figure-input-label-pagamento img{
+    opacity: 100%;
 }
 
 /* BOTOES CANCELAR / PROSSEGUIR PAGAMENTO */
@@ -141,6 +176,26 @@
     display: flex;
     background-color: #f2f2f2;
     width: 135vh;
-    height: 5vh;
     border-radius: 20px;
+    padding: 2vh;
+    justify-content: space-between;
+}
+.article-botoes-pagamento button{
+    height: 6vh;
+    width: 35vh;
+    font-family: Fira Sans;
+    font-size: 2vh;
+    font-weight: 500;
+    cursor: pointer;
+    border: none;
+}
+.button-cancelar-pagamento{
+    border-radius: 10px;
+    background-color: #9b9b9b;
+    color: white;
+}
+.button-prosseguir-pagamento{
+    border-radius: 20px;
+    background-color: #8541e9;
+    color: white;
 }
