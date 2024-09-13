@@ -120,22 +120,21 @@
 
                      <section id="descricao-subcategorias">
                         <figure id="descricao-detalhes-total">
-                           <h3 id="titulo-descricao-detalhes">DESCRIÇÃO</h3>
-                           <textarea id="descricao-detalhes" name="dica_descricao" cols="30" rows="10"
-                              maxlength="300"></textarea>
-                           <span id="b-descricao-detalhes">0/300</span>
+                            <h3 id="titulo-descricao-detalhes">DESCRIÇÃO</h3>
+                            <textarea id="descricao-detalhes" name="dica_descricao" cols="30" rows="10" maxlength="300"></textarea>
+                            <span id="b-descricao-detalhes">0/300</span>
                         </figure>
-                        <!-- <section id="subcategoria-detalhes-total">
-                                    <h3 id="titulo-subcategoria-detalhes">SUBCATEGORIAS</h3>
-                                    <figure class="input-container">
-                                       <input type="text" id="input-text-subcategoria" name="dica_subcategorias">
-                                       <img src="/imagens/adicionar-etiqueta.svg" id="icon" onclick="adicionarMensagem()"
-                                          alt="adicionar uma Subcategoria">
-                                    </figure>
-                                    <figure id="messageList" class="message-list">
-                                    </figure>
-                                 </section> -->
-                     </section>
+                        <section id="subcategoria-detalhes-total">
+                            <h3 id="titulo-subcategoria-detalhes">SUBCATEGORIAS</h3>
+                            <figure class="input-container">
+                                <input type="text" id="input-text-subcategoria" name="dica_subcategorias_input">
+                                <img src="/imagens/adicionar-etiqueta.svg" id="icon" onclick="adicionarMensagem()" alt="adicionar uma Subcategoria">
+                            </figure>
+                            <figure id="messageList" class="message-list"></figure>
+                            <!-- Campo oculto para enviar as subcategorias como uma lista separada por vírgulas -->
+                            <input type="hidden" id="dica_subcategorias" name="dica_subcategorias">
+                        </section>
+                    </section>
                   </section>
 
                   <section class="conteudo conteudo2" id="conteudoTarefa2">

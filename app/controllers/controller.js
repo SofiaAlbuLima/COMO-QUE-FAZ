@@ -265,45 +265,48 @@ const tarefasController = {
     },
     CriarDica: async (req, res) => {
         try {
-            var categoriaId;
-            var porcoes;
-            var categoria = req.body.dica_categoria;
+            let categoriaId;
+            let porcoes = null;
+            const categoria = req.body.dica_categoria;
+    
             if (categoria === "Culinária") {
                 categoriaId = 1;
                 porcoes = req.body.dica_porcoes;
             } else if (categoria === "Limpeza") {
                 categoriaId = 2;
-                porcoes = null;
             } else if (categoria === "Bem Estar") {
                 categoriaId = 3;
-                porcoes = null;
             }
-
+    
             const etapasModoPreparo = req.body.etapas_modo_preparo;
             if (!Array.isArray(etapasModoPreparo)) {
                 console.log('etapas_modo_preparo não é um array:', etapasModoPreparo);
                 return res.status(400).send('Etapas do modo de preparo inválidas');
             }
             const etapasTexto = etapasModoPreparo.join('; ');
-
-            var FormCriarDica = {
+    
+            const subcategoriasTexto = req.body.dica_subcategorias || '';
+    
+            const FormCriarDica = {
                 Clientes_idClientes: req.session.autenticado.id,
                 Titulo: req.body.dica_titulo,
                 Categorias_idCategorias: categoriaId,
-                tempo: `${req.body.dica_tempo_horas.padStart(2, '0')}:${req.body.dica_tempo_minutos.padStart(2, '0')}:00`, // Formatando horas e minutos
+                tempo: `${req.body.dica_tempo_horas.padStart(2, '0')}:${req.body.dica_tempo_minutos.padStart(2, '0')}:00`,
                 porcoes: porcoes,
                 Descricao: req.body.dica_descricao,
-                Etapas_Modo_de_Preparo: etapasTexto // Aqui você usa a string
+                Etapas_Modo_de_Preparo: etapasTexto,
+                subcategorias: subcategoriasTexto
             };
-
+    
+            console.log('FormCriarDica:', FormCriarDica); // Debugging
+    
             const createPostagem = await conteudoModel.CriarPostagem(FormCriarDica);
-            const postagemId = createPostagem.insertId; // Obtém o ID da postagem criada
-
-            // Verifique se os arrays de ingredientes estão corretos
+            const postagemId = createPostagem.insertId;
+    
             const ingredientesArray = req.body.ingredientes || [];
             const quantidadeIngredientesArray = req.body.quantidade_ingredientes || [];
             const medidaIngredientesArray = req.body.medida_ingredientes || [];
-
+    
             if (ingredientesArray.length > 0 &&
                 quantidadeIngredientesArray.length > 0 &&
                 medidaIngredientesArray.length > 0) {
@@ -323,9 +326,9 @@ const tarefasController = {
                     }
                 }
             }
-
+    
             console.log("Postagem e ingredientes realizados com sucesso!", postagemId);
-
+    
             req.session.notification = {
                 titulo: "Postagem realizada!",
                 mensagem: "Sua dica foi publicada com sucesso!",
@@ -337,7 +340,7 @@ const tarefasController = {
             res.render("pages/template", {
                 pagina: { cabecalho: "cabecalho", conteudo: "meu-perfil", rodape: "rodape" },
                 usuario_logado: req.session.autenticado,
-                listaErros: erros,
+                listaErros: e,
                 dadosNotificacao: {
                     titulo: "Erro ao realizar a postagem!",
                     mensagem: "Verifique os valores digitados em rascunhos!",
@@ -390,7 +393,7 @@ const tarefasController = {
                 resultsconteudo,
                 usuario_logado: req.session.autenticado
             };
-            
+
         } catch (e) {
             console.log(e);
             res.json({ erro: "Falha ao acessar dados" });
@@ -404,10 +407,10 @@ const tarefasController = {
                 motivo: req.body.motivo,
                 descricao: req.body.descricao
             };
-    
+
             // Inserir os dados no banco de dados
             const resultado = await denunciaModel.criarDenuncia(dadosForm);
-    
+
             if (resultado) {
                 res.status(200).send('Denúncia recebida com sucesso!');
             } else {

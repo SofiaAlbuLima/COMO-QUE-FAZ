@@ -130,7 +130,7 @@
         position: absolute;
         overflow: auto;
         width: 110vh;
-        height: 100%;
+        height: 55vh;
         padding-left: 15vh;
     }
 
@@ -496,8 +496,9 @@
         resize: none;
         width: 44.5vh;
         height: 20vh;
-        margin-top: 0.88vw;
-        padding: 2px 2px 2px 2px;
+        margin-top: 0.5vw;
+        padding: 0.5vh;
+        padding-bottom: 2vh;
         border-radius: 0.26vw;
         border: 0;
         border: 1px solid #797979;
@@ -506,7 +507,7 @@
         font-family: "Fira Sans", sans-serif;
         color: #000000;
         text-align: left;
-        font-size: 2vh;
+        font-size: 1.8vh;
 
         &:focus {
             border: none;
@@ -526,8 +527,16 @@
             ;
         }
     }
-    #descricao-detalhes:focus + #b {
+    #descricao-detalhes:focus + #b-descricao-detalhes {
         color: #CB218C;
+    }
+    #b-descricao-detalhes{
+        transform: translate(-7vh, 18.5vh);
+        align-items: right;
+        position: absolute;
+        font-size: 1.8vh;
+        font-weight: 600;
+        font-family: "Fira Sans", sans-serif;
     }
 
     #subcategoria-detalhes-total {
@@ -549,16 +558,17 @@
     }
 
     #input-text-subcategoria {
-        margin-top: 0.88vw;
+        margin-top: 0.5vw;
         width: 22.08vw;
         height: 3vw;
         display: inline-block;
-        padding: 2px 2px 2px 2px;
+        padding: 2vh;
+        font-size: 2vh;
+        font-family: Fira Sans;
         border-radius: 5px;
         border: 1px solid #797979;
         background-color: #f2f2f2;
         box-sizing: border-box;
-        font-family: "Fira Sans", sans-serif;
 
         &:focus {
             border: none;
@@ -572,21 +582,25 @@
         width: 2vw;
         height: 2vw;
         margin-left: -2.6vw;
-        margin-bottom: -0.8vw;
+        margin-bottom: -0.7vw;
     }
 
     .message-list {
         width: 22.06vw;
-        height: 3vw;
-        max-height: 200px;
-        overflow-y: auto;
+        height: 13.5vh;
+        max-height: 13.5vh;
         border-radius: 5px;
         background-color: #e0e0e0;
         display: flex;
+        flex-wrap: wrap;
+        gap: 0.5vh;
+        box-sizing: border-box;
+        align-items: flex-start;
+        padding: 1vh;
+        overflow: auto;
     }
 
     #div-etiqueta-subcategoria {
-        height: 1.7vw;
         border-radius: 50px;
         background-color: #cb218c;
         box-sizing: border-box;
@@ -594,8 +608,9 @@
         color: white;
         text-align: center;
         line-height: normal;
-        margin: 5px 1% 0px 1%;
-        padding: 7px 15px 1px 15px;
+        padding: 1vh 2vh;
+        display: inline-flex;
+        align-items: center;
     }
 
     #descricao-subcategorias {

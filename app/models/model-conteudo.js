@@ -2,7 +2,7 @@ const pool = require("../../config/pool-conexoes");
 
 const conteudoModel = { //const que agrupa todas as funções de acesso e manipulação de dados
 
-    TotalReg: async(categoria, ordem) => { 
+    TotalReg: async (categoria, ordem) => {
         try {
             let query = `
             SELECT COUNT(*) as total FROM (
@@ -11,12 +11,12 @@ const conteudoModel = { //const que agrupa todas as funções de acesso e manipu
                 SELECT ID_Pergunta AS id, categorias_idCategorias, 'pergunta' as tipo FROM perguntas
             ) AS combined 
             `;
-            
+
             if (categoria) {
                 query += ` WHERE Categorias_idCategorias = ${pool.escape(categoria)}`;
             }
-            
-            switch(ordem) {
+
+            switch (ordem) {
                 case 'rapidos':
                     query += ` ${categoria ? 'AND' : 'WHERE'} tipo = 'dica'`;
                     break;
@@ -28,7 +28,7 @@ const conteudoModel = { //const que agrupa todas as funções de acesso e manipu
         }
     },
 
-    FindPage: async(categoria, ordem, inicio, total) => { 
+    FindPage: async (categoria, ordem, inicio, total) => {
         try {
             let query = `
             SELECT * FROM (
@@ -41,12 +41,12 @@ const conteudoModel = { //const que agrupa todas as funções de acesso e manipu
                 JOIN clientes AS cl ON p.Clientes_idClientes = cl.idClientes
             ) AS combined
         `;
-    
+
             if (categoria) {
                 query += ` WHERE Categorias_idCategorias = ${pool.escape(categoria)}`;
             }
-    
-            switch(ordem) {
+
+            switch (ordem) {
                 case 'rapidos':
                     query += ` ${categoria ? 'AND' : 'WHERE'} tipo = 'dica' ORDER BY tempo ASC`;
                     break;
@@ -57,7 +57,7 @@ const conteudoModel = { //const que agrupa todas as funções de acesso e manipu
                 default:
                     query += ` ORDER BY id DESC`;
             }
-    
+
             query += ` LIMIT ?, ?`;
             const [linhas] = await pool.query(query, [inicio, total]);
             return linhas;
@@ -66,12 +66,12 @@ const conteudoModel = { //const que agrupa todas as funções de acesso e manipu
         }
     },
 
-    CriarPostagem: async(camposCriar)=>{
-        try{
-            const [resultados] = await pool.query( "insert into conteudo_postagem set ?", [camposCriar])
+    CriarPostagem: async (camposCriar) => {
+        try {
+            const [resultados] = await pool.query("INSERT INTO conteudo_postagem SET ?", [camposCriar]);
             return resultados;
-        } catch(erro){
-            throw erro; 
+        } catch (erro) {
+            throw erro;
         }
     },
 
@@ -110,12 +110,12 @@ const conteudoModel = { //const que agrupa todas as funções de acesso e manipu
         }
     },
 
-    CriarPergunta: async(camposCriar)=>{
-        try{
-            const [resultados] = await pool.query( "insert into perguntas set ?", [camposCriar])
+    CriarPergunta: async (camposCriar) => {
+        try {
+            const [resultados] = await pool.query("insert into perguntas set ?", [camposCriar])
             return resultados;
-        } catch(erro){
-            throw erro; 
+        } catch (erro) {
+            throw erro;
         }
     },
 

@@ -519,7 +519,14 @@
 
                <% if (postagem.categoria===1) { %>
                   <figure class="hashtags">
-                     <p class="hashtags-texto-culinaria">#ALMOÇO #ARROZ #FAMILIA #SALGADO #SÓFORNO #PRÁTICO #RÁPIDO</p>
+                     <% if (postagem.subcategorias) { %>
+                         <% postagem.subcategorias.split(', ').forEach(subcategoria => { %>
+                             <span class="subcategoria"><%= subcategoria %></span>
+                         <% }) %>
+                     <% } else { %>
+                         <span>Nenhuma subcategoria disponível.</span>
+                     <% } %>
+                     </p>
                   </figure>
                   <aside class="estrelas_culinaria">
                      <article class="avalie">
@@ -588,140 +595,162 @@
             </section>
          </section>
 
-      <article class="itens-modos">
-         <% if (postagem.categoria === 1) { %>
-            <section class="Itens-necessários_culinaria">
-               <h1 class="itens-titulo">ITENS NECESSÁRIOS</h1>
-               <ul class="lista-itens">
-                  <li class="ingreditente_dica">
-                     <% postagem.ingredientes.forEach(ingrediente => { %>
-                     <button class="ingreditente_dica_button" onclick="visibility1D()" onclick="Hidden1D()">
-                        <p class="pontinho">•</p>
-                        <p class="ingreditente_button_medida_quantidade"><%= ingrediente.quantidade_ingredientes %> <%= ingrediente.medida_ingredientes %></p>
-                        <p class="ingreditente_button_ingrediente">| <%= ingrediente.ingredientes %></p>
-                     </button>
-                    <% }) %>
-                  </li>
-                  <section class="myDIV" id="myDIVD" style="display: none;">
-                     <article class="info-item_culinaria">
-                        <figure>
-                           <img src="/imagens-svg/2-body/colher-icon.svg" alt="colher" class="icon-colher">
-                        </figure>
-                        <article>
-                           <h3 class="titulo-medida">A COLHER DE SOPA É IGUAL À:</h3>
-                           <li class="lista-info-1">
-                              <p class="info-texto">• 12 GRAMAS (gr)</p>
-                           </li>
-                           <li class="lista-info-2">
-                              <p class="info-texto">• 12 MILILITROS (ml)</p>
-                           </li>
-                        </article>
-                     </article>
-                  </section>
-               </ul>
-            </section>
-   
-            <section class="Modo-Preparo-culiaria">
-               <h1 class="modo-titulo">MODO DE PREPARO</h1>
-               <ul class="lista-modo">
-                  <% postagem.etapas.forEach(function(etapa, index) { %>
-                      <ol class="modos">
-                          <h1 class="t-modo"><%= index + 1 %></h1>
-                          <p class="p-modo"><%= etapa %></p>
-                      </ol>
-                  <% }) %>
-              </ul>
-            </section>
-         <% } else if (postagem.categoria === 2) { %>
-            <section class="Itens-necessários_limpeza">
-               <h1 class="itens-titulo">ITENS NECESSÁRIOS</h1>
-               <ul class="lista-itens">
-                  <li class="ingreditente_dica">
-                     <% postagem.ingredientes.forEach(ingrediente => { %>
-                     <button class="ingreditente_dica_button" onclick="visibility1D()" onclick="Hidden1D()">
-                        <p class="pontinho">•</p>
-                        <p class="ingreditente_button_medida_quantidade"><%= ingrediente.quantidade_ingredientes %> <%= ingrediente.medida_ingredientes %></p>
-                        <p class="ingreditente_button_ingrediente">| <%= ingrediente.ingredientes %></p>
-                     </button>
-                    <% }) %>
-                  </li>
-                  <section class="myDIV" id="myDIVD" style="display: none;">
-                     <article class="info-item_limpeza">
-                        <figure>
-                           <img src="/imagens-svg/2-body/colher-icon.svg" alt="colher" class="icon-colher">
-                        </figure>
-                        <article>
-                           <h3 class="titulo-medida">A COLHER DE SOPA É IGUAL À:</h3>
-                           <li class="lista-info-1">
-                              <p class="info-texto">• 12 GRAMAS (gr)</p>
-                           </li>
-                           <li class="lista-info-2">
-                              <p class="info-texto">• 12 MILILITROS (ml)</p>
-                           </li>
-                        </article>
-                     </article>
-                  </section>
-               </ul>
-            </section>
-   
-            <section class="Modo-Preparo-limpeza">
-               <h1 class="modo-titulo">MODO DE PREPARO</h1>
-               <ul class="lista-modo">
-                  <% postagem.etapas.forEach(function(etapa, index) { %>
-                      <ol class="modos">
-                          <h1 class="t-modo"><%= index + 1 %></h1>
-                          <p class="p-modo"><%= etapa %></p>
-                      </ol>
-                  <% }) %>
-              </ul>
-            </section>
-         <% } else if (postagem.categoria === 3) { %>
-            <section class="Itens-necessários_bemestar">
-            <h1 class="itens-titulo">ITENS NECESSÁRIOS</h1>
-            <ul class="lista-itens">
-               <% postagem.ingredientes.forEach(ingrediente => { %>
-               <li class="ingreditente_dica">
-                  <button class="ingreditente_dica_button" onclick="visibility1D()" onclick="Hidden1D()">
-                     <p class="pontinho">•</p>
-                     <p class="ingreditente_button_medida_quantidade">
-                         <%= ingrediente.quantidade_ingredientes %> <%= ingrediente.medida_ingredientes %>
-                     </p>
-                     <p class="ingreditente_button_ingrediente">| <%= ingrediente.ingredientes %></p>
-                  </button>
-               </li>
-               <% }) %>
-            </ul>
-            <section class="myDIV" id="myDIVD" style="display: none;">
-               <article class="info-item_bemestar">
-                  <figure>
-                     <img src="/imagens-svg/2-body/colher-icon.svg" alt="colher" class="icon-colher">
-                  </figure>
-                  <article>
-                     <h3 class="titulo-medida">A COLHER DE SOPA É IGUAL À:</h3>
-                     <li class="lista-info-1">
-                        <p class="info-texto">• 12 GRAMAS (gr)</p>
+         <article class="itens-modos">
+            <% if (postagem.categoria===1) { %>
+               <section class="Itens-necessários_culinaria">
+                  <h1 class="itens-titulo">ITENS NECESSÁRIOS</h1>
+                  <ul class="lista-itens">
+                     <li class="ingreditente_dica">
+                        <% postagem.ingredientes.forEach(ingrediente=> { %>
+                           <button class="ingreditente_dica_button" onclick="visibility1D()" onclick="Hidden1D()">
+                              <p class="pontinho">•</p>
+                              <p class="ingreditente_button_medida_quantidade">
+                                 <%= ingrediente.quantidade_ingredientes %>
+                                    <%= ingrediente.medida_ingredientes %>
+                              </p>
+                              <p class="ingreditente_button_ingrediente">| <%= ingrediente.ingredientes %>
+                              </p>
+                           </button>
+                           <% }) %>
                      </li>
-                     <li class="lista-info-2">
-                        <p class="info-texto">• 12 MILILITROS (ml)</p>
-                     </li>
-                  </article>
-               </article>
-            </section>
-         </section>
-         
-         <section class="Modo-Preparo-bemestar">
-            <h1 class="modo-titulo">MODO DE PREPARO</h1>
-            <ul class="lista-modo">
-               <% postagem.etapas.forEach(function(etapa, index) { %>
-                   <ol class="modos">
-                       <h1 class="t-modo"><%= index + 1 %></h1>
-                       <p class="p-modo"><%= etapa %></p>
-                   </ol>
-               <% }) %>
-           </ul>
-         </section>
-         <% } %>
-      </article>
+                     <section class="myDIV" id="myDIVD" style="display: none;">
+                        <article class="info-item_culinaria">
+                           <figure>
+                              <img src="/imagens-svg/2-body/colher-icon.svg" alt="colher" class="icon-colher">
+                           </figure>
+                           <article>
+                              <h3 class="titulo-medida">A COLHER DE SOPA É IGUAL À:</h3>
+                              <li class="lista-info-1">
+                                 <p class="info-texto">• 12 GRAMAS (gr)</p>
+                              </li>
+                              <li class="lista-info-2">
+                                 <p class="info-texto">• 12 MILILITROS (ml)</p>
+                              </li>
+                           </article>
+                        </article>
+                     </section>
+                  </ul>
+               </section>
+
+               <section class="Modo-Preparo-culiaria">
+                  <h1 class="modo-titulo">MODO DE PREPARO</h1>
+                  <ul class="lista-modo">
+                     <% postagem.etapas.forEach(function(etapa, index) { %>
+                        <ol class="modos">
+                           <h1 class="t-modo">
+                              <%= index + 1 %>
+                           </h1>
+                           <p class="p-modo">
+                              <%= etapa %>
+                           </p>
+                        </ol>
+                        <% }) %>
+                  </ul>
+               </section>
+               <% } else if (postagem.categoria===2) { %>
+                  <section class="Itens-necessários_limpeza">
+                     <h1 class="itens-titulo">ITENS NECESSÁRIOS</h1>
+                     <ul class="lista-itens">
+                        <li class="ingreditente_dica">
+                           <% postagem.ingredientes.forEach(ingrediente=> { %>
+                              <button class="ingreditente_dica_button" onclick="visibility1D()" onclick="Hidden1D()">
+                                 <p class="pontinho">•</p>
+                                 <p class="ingreditente_button_medida_quantidade">
+                                    <%= ingrediente.quantidade_ingredientes %>
+                                       <%= ingrediente.medida_ingredientes %>
+                                 </p>
+                                 <p class="ingreditente_button_ingrediente">| <%= ingrediente.ingredientes %>
+                                 </p>
+                              </button>
+                              <% }) %>
+                        </li>
+                        <section class="myDIV" id="myDIVD" style="display: none;">
+                           <article class="info-item_limpeza">
+                              <figure>
+                                 <img src="/imagens-svg/2-body/colher-icon.svg" alt="colher" class="icon-colher">
+                              </figure>
+                              <article>
+                                 <h3 class="titulo-medida">A COLHER DE SOPA É IGUAL À:</h3>
+                                 <li class="lista-info-1">
+                                    <p class="info-texto">• 12 GRAMAS (gr)</p>
+                                 </li>
+                                 <li class="lista-info-2">
+                                    <p class="info-texto">• 12 MILILITROS (ml)</p>
+                                 </li>
+                              </article>
+                           </article>
+                        </section>
+                     </ul>
+                  </section>
+
+                  <section class="Modo-Preparo-limpeza">
+                     <h1 class="modo-titulo">MODO DE PREPARO</h1>
+                     <ul class="lista-modo">
+                        <% postagem.etapas.forEach(function(etapa, index) { %>
+                           <ol class="modos">
+                              <h1 class="t-modo">
+                                 <%= index + 1 %>
+                              </h1>
+                              <p class="p-modo">
+                                 <%= etapa %>
+                              </p>
+                           </ol>
+                           <% }) %>
+                     </ul>
+                  </section>
+                  <% } else if (postagem.categoria===3) { %>
+                     <section class="Itens-necessários_bemestar">
+                        <h1 class="itens-titulo">ITENS NECESSÁRIOS</h1>
+                        <ul class="lista-itens">
+                           <% postagem.ingredientes.forEach(ingrediente=> { %>
+                              <li class="ingreditente_dica">
+                                 <button class="ingreditente_dica_button" onclick="visibility1D()" onclick="Hidden1D()">
+                                    <p class="pontinho">•</p>
+                                    <p class="ingreditente_button_medida_quantidade">
+                                       <%= ingrediente.quantidade_ingredientes %>
+                                          <%= ingrediente.medida_ingredientes %>
+                                    </p>
+                                    <p class="ingreditente_button_ingrediente">| <%= ingrediente.ingredientes %>
+                                    </p>
+                                 </button>
+                              </li>
+                              <% }) %>
+                        </ul>
+                        <section class="myDIV" id="myDIVD" style="display: none;">
+                           <article class="info-item_bemestar">
+                              <figure>
+                                 <img src="/imagens-svg/2-body/colher-icon.svg" alt="colher" class="icon-colher">
+                              </figure>
+                              <article>
+                                 <h3 class="titulo-medida">A COLHER DE SOPA É IGUAL À:</h3>
+                                 <li class="lista-info-1">
+                                    <p class="info-texto">• 12 GRAMAS (gr)</p>
+                                 </li>
+                                 <li class="lista-info-2">
+                                    <p class="info-texto">• 12 MILILITROS (ml)</p>
+                                 </li>
+                              </article>
+                           </article>
+                        </section>
+                     </section>
+
+                     <section class="Modo-Preparo-bemestar">
+                        <h1 class="modo-titulo">MODO DE PREPARO</h1>
+                        <ul class="lista-modo">
+                           <% postagem.etapas.forEach(function(etapa, index) { %>
+                              <ol class="modos">
+                                 <h1 class="t-modo">
+                                    <%= index + 1 %>
+                                 </h1>
+                                 <p class="p-modo">
+                                    <%= etapa %>
+                                 </p>
+                              </ol>
+                              <% }) %>
+                        </ul>
+                     </section>
+                     <% } %>
+         </article>
 
 
          <article class="comentarios">
