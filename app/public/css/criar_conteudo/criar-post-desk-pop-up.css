@@ -130,6 +130,7 @@
         position: absolute;
         overflow: auto;
         width: 110vh;
+        height: 100%;
         padding-left: 15vh;
     }
 
@@ -238,9 +239,6 @@
             outline: 2px solid #CB218C;
             border: none;
         }
-        &:valid {
-            border: 2px solid #4d16bb; /* Estilo para quando o input tem um valor válido */
-        }
     }
     #b-titulo-da-postagem{
         transform: translate(-50px, 80px);
@@ -271,7 +269,7 @@
     }
 
     #dialogoselect {
-        width: 36.2vh;
+        width: 44.5vh;
         height: 6vh;
         background-image: url(../imagens/seta-select.png);
         background-position-x: 96%;
@@ -496,8 +494,8 @@
 
     #descricao-detalhes {
         resize: none;
-        width: 22.08vw;
-        height: 7.2vw;
+        width: 44.5vh;
+        height: 20vh;
         margin-top: 0.88vw;
         padding: 2px 2px 2px 2px;
         border-radius: 0.26vw;
@@ -508,6 +506,7 @@
         font-family: "Fira Sans", sans-serif;
         color: #000000;
         text-align: left;
+        font-size: 2vh;
 
         &:focus {
             border: none;
