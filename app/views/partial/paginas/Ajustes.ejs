@@ -1,0 +1,138 @@
+<body>
+    <main>
+        <section class="ajustments">
+            <section class="colu-1">
+                <h2 class="titulo-secoes">CONFIGURAÇÕES</h2>
+                <aside class="ajustbuttons">
+                    <button class="ajusttab" onclick="openContent(event, 'preferencies')" id="defaultOpen">Preferências
+                        e
+                        Notificações</button>
+                    <button class="ajusttab" onclick="openContent(event, 'account')">Conta e Segurança</button>
+                    <button class="ajusttab" onclick="openContent(event, 'mustaches')">Bigodes de Ouro e
+                        Pagamentos</button>
+                </aside>
+                <button class="sair-conta">Sair da Conta</button>
+            </section>
+            <section class="colu-2">
+                <section id="preferencies" class="ajustcontent">
+                    <article class="preferencies-notifications">
+                        <h2 class="title-aside">Preferencias e Notificações</h2>
+                        <article class="content-ajustments">
+                            <aside class="part-one">
+                                <h3>Idioma & Exibição</h3>
+                                <section class="languages">
+                                    <span>Idioma</span>
+                                    <select id="Idioma">
+                                        <option value="Portugues">Português</option>
+                                    </select>
+                                </section>
+                                <span>Modo escuro</span>
+                            </aside>
+                            <aside class="part-two">
+                                <h3>Notificações & Newsletter</h3>
+                                <h4>Filtros de Notificação/Newsletter</h4>
+                                <input type="checkbox" id="vehicle1" name="vehicle1" value="Bike">
+                                <label for="vehicle1"> I have a bike</label><br>
+                                <input type="checkbox" id="vehicle2" name="vehicle2" value="Car">
+                                <label for="vehicle2"> I have a car</label><br>
+                                <input type="checkbox" id="vehicle3" name="vehicle3" value="Boat">
+                                <label for="vehicle3"> I have a boat</label><br>
+                                <h4>Preferencia de Notificação</h4>
+                                <input type="checkbox" id="vehicle1" name="vehicle1" value="Bike">
+                                <label for="vehicle1"> I have a bike</label><br>
+                                <input type="checkbox" id="vehicle2" name="vehicle2" value="Car">
+                                <label for="vehicle2"> I have a car</label><br>
+                            </aside>
+                        </article>
+                    </article>
+                </section>
+                <section id="account" class="ajustcontent">
+                    <article class="account-safety">
+                        <h2 class="title-aside">Conta e Segurança</h2>
+                        <article class="content-ajustments">
+                            <aside class="part-one">
+                                <span>Informações da Conta</span>
+                                <figure></figure>
+                                <form action="">
+                                    <label for="uname">Nome de Usuário</label>
+                                    <input type="text" id="uname" name="uname"><br><br>
+                                    <label for="pnumber">Celular</label>
+                                    <input type="number" id="pnumber" name="pnumber"><br><br>
+                                    <label for="email">Endereço de E-mail</label>
+                                    <input type="email" id="email" name="email"><br><br>
+                                    <label for="corigin">Pais de Origem</label>
+                                    <input type="text" id="corigin" name="corigin"><br><br>
+                                    <label for="pssword">Senha</label>
+                                    <input type="password" id="pssword" name="pssword"><br><br>
+                                </form>
+                            </aside>
+                            <aside>
+                                <span>Autenticação em Dois Fatores</span>
+                                <button>Ativado</button>
+                                <button>Desativado</button>
+                                <span>Gerenciar Conta</span>
+                                <a href="#">Gerenciar sessões da conta</a>
+                                <a href="#">Gerenciar contas conectadas</a>
+                                <span>Desativar a Conta</span>
+                                <button>Desativar</button>
+                                <span>Você pode recupera-lá dentro de um prazo de 30 dias</span>
+                            </aside>
+                        </article>
+                    </article>
+                </section>
+                <section id="mustaches" class="ajustcontent">
+                    <article class="golden-mustaches-payment">
+                        <h2 class="title-aside">Bigodes de Ouro e Pagamentos</h2>
+                        <article class="content-ajustments">
+                            <aside class="part-one">
+                                <span>Plano Atual</span>
+                                <span>Plano Semanal R$ 6,90</span>
+                                <a href="#">Cancelar</a>
+                                <span>Forma de Pagamento</span>
+                                <span>Cobrança Automática</span>
+                                <figure></figure>
+                                <button>Alterar Forma de Pagamento</button>
+                            </aside>
+                            <aside>
+                                <span>Histórico de Pagamentos</span>
+                                <figure>
+                                    <span>Ativo Plano Semanal R$ 6,99</span>
+                                    <span>De 26/08/24 até 02/09/2024</span>
+                                </figure>
+                                <figure>
+                                    <span>Ativo Plano Semanal R$ 6,99</span>
+                                    <span>De 26/08/24 até 02/09/2024</span>
+                                </figure>
+                                <figure>
+                                    <span>Ativo Plano Semanal R$ 6,99</span>
+                                    <span>De 26/08/24 até 02/09/2024</span>
+                                </figure>
+                            </aside>
+                        </article>
+                    </article>
+                    <article class="mustaches-payment-offlog">
+                        <aside>
+                            <span>Plano Atual</span>
+                            <span>Você não possui nenhuma assinatura ativa</span>
+                            <span>Forma de Pagamento</span>
+                            <span>Cobrança Automática</span>
+                            <figure>Não</figure>
+                            <button>Editar Forma de Pagamento</button>
+                        </aside>
+                        <aside>
+                            <span>Histórico de Pagamentos</span>
+                            <figure>
+                                <span>Inativo Plano Mensal R$27,99</span>
+                                <p><span>De 26/07/24 até 25/08/2024</span></p>
+                            </figure>
+                            <figure>
+                                <span>Inativo Plano Mensal R$27,99</span>
+                                <p><span>De 26/07/24 até 25/08/2024</span></p>
+                            </figure>
+                        </aside>
+                    </article>
+                </section>
+            </section>
+        </section>
+    </main>
+</body>

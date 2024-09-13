@@ -1,0 +1,113 @@
+* {
+    margin: 0;
+    padding: 0;
+    font-family: Heavitas;
+}
+
+@font-face {
+    font-family: Heavitas;
+    src: url("../fonts/Heavitas.ttf");
+}
+
+@font-face {
+    font-family: Fira Sans Bold;
+    src: url("../fonts/fira-sans.bold.ttf");
+}
+
+@font-face {
+    font-family: Fira Sans;
+    src: url("../fonts/fira-sans.regular.ttf");
+}
+
+.ajustments {
+    display: flex;
+    padding: 50px;
+    justify-content: space-evenly;
+}
+
+.titulo-secoes {
+    color: rgba(158, 95, 239, 1);
+}
+
+.colu-1 {
+    width: 25vw;
+    height: 50vh;
+}
+
+.ajustbuttons {
+    display: grid;
+    background-color: #f2f2f2;
+    width: 25vw;
+    border-radius: 10px;
+    height: 25vh;
+    margin: 10px;
+    margin-left: 0;
+}
+
+.ajustbuttons button {
+    line-height: 7vh;
+    font-size: 18px;
+    font-family: "Fira Sans Bold", "Fira Sans", sans-serif;
+    text-align: left;
+    border: none;
+}
+
+.sair-conta {
+    width: 15vw;
+    height: 7vh;
+    border: none;
+    border-radius: 10px;
+    background-color: rgba(158, 95, 239, 1);
+    color: white;
+    padding: 6px;
+    margin-top: 5vh;
+}
+
+.colu-2 {
+    width: 40vw;
+    height: 65vh;
+    border: solid 2px #9E5FEF;
+    border-radius: 10px;
+    padding: 20px;
+}
+
+.preferencies-notifications {
+    display: block !important;
+}
+
+
+.preferencies-notifications span {
+    font-family: "Fira Sans Bold", "Fira Sans", sans-serif;
+}
+
+.title-aside {
+    color: #9E5FEF;
+    border-bottom: solid 1px #9E5FEF;
+    font-family: Heavitas;
+}
+
+.content-ajustments {
+    display: flex;
+    margin: auto;
+    justify-content: space-around;
+}
+
+.part-one {
+    border-right: solid 1px;
+    width: 20vw;
+}
+
+.ajusttab.active {
+    background-color: rgba(245, 240, 255, 1);
+    border: solid 2px;
+    border-radius: 8px;
+    border-color: rgba(158, 95, 239, 1);
+}
+
+.ajustbuttons button {
+    padding: 10px;
+}
+
+.mustaches-payment-offlog {
+    display: none;
+}
