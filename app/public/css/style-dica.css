@@ -1338,6 +1338,8 @@
         display: flex;
         padding: 1vh;
         width: 100%;
+        flex-wrap: wrap;
+        align-items: flex-start;
     }
 
     .ingreditente_dica_button:hover {

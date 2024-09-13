@@ -174,7 +174,8 @@ const tarefasController = {
                 descricao: conteudo.Descricao || null,
                 etapas: conteudo.Etapas_Modo_de_Preparo,
                 porcoes: conteudo.porcoes > 0 ? `${conteudo.porcoes} ${conteudo.porcoes > 1 ? 'Porções' : 'Porção'}` : null,
-                tipo: conteudo.tipo
+                tipo: conteudo.tipo,
+                subcategorias: conteudo.subcategorias
             }));
             return {
                 usuario_logado: req.session.autenticado, //indica se o usuário está logado
@@ -228,7 +229,8 @@ const tarefasController = {
                 etapas: postagem.Etapas_Modo_de_Preparo ? postagem.Etapas_Modo_de_Preparo.split('; ') : [], // Dividindo as etapas
                 porcoes: postagem.porcoes > 0 ? `${postagem.porcoes} ${postagem.porcoes > 1 ? 'Porções' : 'Porção'}` : null,
                 tipo: postagem.tipo,
-                ingredientes: ingredientes // Adiciona os ingredientes formatados
+                ingredientes: ingredientes,
+                subcategorias: postagem.subcategorias
             };
 
             switch (postagem.Categorias_idCategorias) {

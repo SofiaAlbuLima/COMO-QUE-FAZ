@@ -519,13 +519,8 @@
 
                <% if (postagem.categoria===1) { %>
                   <figure class="hashtags">
-                     <% if (postagem.subcategorias) { %>
-                         <% postagem.subcategorias.split(', ').forEach(subcategoria => { %>
-                             <span class="subcategoria"><%= subcategoria %></span>
-                         <% }) %>
-                     <% } else { %>
-                         <span>Nenhuma subcategoria disponível.</span>
-                     <% } %>
+                     <p class="hashtags-texto-culinaria">
+                        <%= postagem.subcategorias.replace(/,\s*/g, ' - ' ) %>
                      </p>
                   </figure>
                   <aside class="estrelas_culinaria">
@@ -548,7 +543,9 @@
                   </aside>
                   <% } else if (postagem.categoria===2) { %>
                      <figure class="hashtags">
-                        <p class="hashtags-texto-limpeza">#ALMOÇO #ARROZ #FAMILIA #SALGADO #SÓFORNO #PRÁTICO #RÁPIDO</p>
+                        <p class="hashtags-texto-limpeza">
+                           <%= postagem.subcategorias.replace(/,\s*/g, ' - ' ) %>
+                        </p>
                      </figure>
                      <aside class="estrelas_limpeza">
                         <article class="avalie">
@@ -570,7 +567,8 @@
                      </aside>
                      <% } else if (postagem.categoria===3) { %>
                         <figure class="hashtags">
-                           <p class="hashtags-texto-bemestar">#ALMOÇO #ARROZ #FAMILIA #SALGADO #SÓFORNO #PRÁTICO #RÁPIDO
+                           <p class="hashtags-texto-bemestar">
+                              <%= postagem.subcategorias.replace(/,\s*/g, ' - ' ) %>
                            </p>
                         </figure>
                         <aside class="estrelas_bemestar">
