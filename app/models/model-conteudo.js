@@ -2,7 +2,7 @@ const pool = require("../../config/pool-conexoes");
 
 const conteudoModel = { //const que agrupa todas as funções de acesso e manipulação de dados
 
-    TotalReg: async(categoria, ordem) => { 
+    TotalReg: async (categoria, ordem) => {
         try {
             let query = `
             SELECT COUNT(*) as total FROM (
@@ -11,12 +11,12 @@ const conteudoModel = { //const que agrupa todas as funções de acesso e manipu
                 SELECT ID_Pergunta AS id, categorias_idCategorias, 'pergunta' as tipo FROM perguntas
             ) AS combined 
             `;
-            
+
             if (categoria) {
                 query += ` WHERE Categorias_idCategorias = ${pool.escape(categoria)}`;
             }
-            
-            switch(ordem) {
+
+            switch (ordem) {
                 case 'rapidos':
                     query += ` ${categoria ? 'AND' : 'WHERE'} tipo = 'dica'`;
                     break;
@@ -28,7 +28,7 @@ const conteudoModel = { //const que agrupa todas as funções de acesso e manipu
         }
     },
 
-    FindPage: async(categoria, ordem, inicio, total) => { 
+    FindPage: async (categoria, ordem, inicio, total) => {
         try {
             let query = `
             SELECT * FROM (
@@ -41,12 +41,12 @@ const conteudoModel = { //const que agrupa todas as funções de acesso e manipu
                 JOIN clientes AS cl ON p.Clientes_idClientes = cl.idClientes
             ) AS combined
         `;
-    
+
             if (categoria) {
                 query += ` WHERE Categorias_idCategorias = ${pool.escape(categoria)}`;
             }
-    
-            switch(ordem) {
+
+            switch (ordem) {
                 case 'rapidos':
                     query += ` ${categoria ? 'AND' : 'WHERE'} tipo = 'dica' ORDER BY tempo ASC`;
                     break;
@@ -57,7 +57,7 @@ const conteudoModel = { //const que agrupa todas as funções de acesso e manipu
                 default:
                     query += ` ORDER BY id DESC`;
             }
-    
+
             query += ` LIMIT ?, ?`;
             const [linhas] = await pool.query(query, [inicio, total]);
             return linhas;
@@ -66,12 +66,12 @@ const conteudoModel = { //const que agrupa todas as funções de acesso e manipu
         }
     },
 
-    CriarPostagem: async(camposCriar)=>{
-        try{
-            const [resultados] = await pool.query( "insert into conteudo_postagem set ?", [camposCriar])
+    CriarPostagem: async (camposCriar) => {
+        try {
+            const [resultados] = await pool.query("insert into conteudo_postagem set ?", [camposCriar])
             return resultados;
-        } catch(erro){
-            throw erro; 
+        } catch (erro) {
+            throw erro;
         }
     },
 
@@ -110,24 +110,46 @@ const conteudoModel = { //const que agrupa todas as funções de acesso e manipu
         }
     },
 
-    CriarPergunta: async(camposCriar)=>{
-        try{
-            const [resultados] = await pool.query( "insert into perguntas set ?", [camposCriar])
+    CriarPergunta: async (camposCriar) => {
+        try {
+            const [resultados] = await pool.query("insert into perguntas set ?", [camposCriar])
             return resultados;
-        } catch(erro){
-            throw erro; 
+        } catch (erro) {
+            throw erro;
         }
     },
 
     BuscarPostagemPorId: async (id) => {
         try {
             const query = `
-            SELECT c.ID_conteudo AS id, c.Clientes_idClientes, c.Categorias_idCategorias, c.Titulo, c.tempo, c.Descricao, c.Etapas_Modo_de_Preparo, c.porcoes, 'dica' AS tipo, cl.Nickname AS nome_usuario
+            SELECT c.ID_conteudo AS id, 
+                   c.Clientes_idClientes, 
+                   c.Categorias_idCategorias, 
+                   c.Titulo, 
+                   c.tempo, 
+                   c.Descricao, 
+                   c.Etapas_Modo_de_Preparo, 
+                   c.porcoes, 
+                   c.subcategorias,  -- Incluindo a coluna subcategorias
+                   'dica' AS tipo, 
+                   cl.Nickname AS nome_usuario
             FROM conteudo_postagem AS c
             JOIN clientes AS cl ON c.Clientes_idClientes = cl.idClientes
             WHERE c.ID_conteudo = ?
+            
             UNION ALL
-            SELECT p.ID_Pergunta AS id, p.Clientes_idClientes, p.categorias_idCategorias, p.titulo AS Titulo, NULL AS tempo, NULL AS Descricao, NULL AS Etapas_Modo_de_Preparo, NULL AS porcoes, 'pergunta' AS tipo, cl.Nickname AS nome_usuario
+            
+            SELECT p.ID_Pergunta AS id, 
+                   p.Clientes_idClientes, 
+                   p.categorias_idCategorias, 
+                   p.titulo AS Titulo, 
+                   NULL AS tempo, 
+                   NULL AS Descricao, 
+                   NULL AS Etapas_Modo_de_Preparo, 
+                   NULL AS porcoes, 
+                   NULL AS subcategorias,  -- Adicionando NULL para subcategorias na tabela de perguntas
+                   'pergunta' AS tipo, 
+                   cl.Nickname AS nome_usuario
             FROM perguntas AS p
             JOIN clientes AS cl ON p.Clientes_idClientes = cl.idClientes
             WHERE p.ID_Pergunta = ?`;

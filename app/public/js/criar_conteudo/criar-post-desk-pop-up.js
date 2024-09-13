@@ -246,6 +246,7 @@ function dropdown(action) {
 function adicionarMensagem() {
     const inputText = document.getElementById('input-text-subcategoria');
     const messageList = document.getElementById('messageList');
+    const hiddenInput = document.getElementById('dica_subcategorias');
 
     // Obter o valor do input
     const inputValue = inputText.value.trim();
@@ -254,10 +255,8 @@ function adicionarMensagem() {
     if (inputValue !== '') {
         // Criar um novo elemento de div para exibir a mensagem
         const messageDiv = document.createElement('div');
-        messageDiv.id = 'div-etiqueta-subcategoria';
+        messageDiv.className = 'div-etiqueta-subcategoria';
         messageDiv.textContent = inputValue;
-        messageDiv.style.paddingLeft = '3%';
-        messageDiv.style.paddingRight = '3%';
 
         // Adicionar a div à lista de mensagens
         messageList.appendChild(messageDiv);
@@ -265,11 +264,27 @@ function adicionarMensagem() {
         // Limpar o valor do input
         inputText.value = '';
 
+        // Atualizar o campo oculto
+        atualizarCampoOculto();
+
+        // Adicionar evento de clique para remover a subcategoria
         messageDiv.addEventListener("click", function () {
             messageDiv.remove();
-        })
+            atualizarCampoOculto();
+        });
     }
+}
 
+function atualizarCampoOculto() {
+    const messageList = document.getElementById('messageList');
+    const hiddenInput = document.getElementById('dica_subcategorias');
+
+    // Obter todas as subcategorias da lista
+    const subcategorias = Array.from(messageList.getElementsByClassName('div-etiqueta-subcategoria'))
+                               .map(div => div.textContent.trim());
+    
+    // Atualizar o valor do campo oculto
+    hiddenInput.value = subcategorias.join(', ');
 }
 
 window.onload = function () {
