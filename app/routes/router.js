@@ -155,7 +155,7 @@ router.get("/pagamento", function (req, res) {
 
 
 
-router.post("/denunciar", async (req, res) => {
+router.post("/denunciar/:id_conteudo", async (req, res) => {
     await tarefasController.armazenarDenuncia(req, res);
 });
 

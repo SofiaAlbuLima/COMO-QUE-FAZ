@@ -1848,9 +1848,6 @@
         border-radius: 0.5vh;
         font-size: 1.8vh;
         resize: none;
-        &:hover {
-            background-color: #4d16bb3f;
-        }
     }
 
     .denuncia-select:focus {
@@ -1885,7 +1882,4 @@
         font-size: 2.5vh;
     }
 
-    .denuncia-submit:hover {
-        background-color: #941b68;
-    }
 }

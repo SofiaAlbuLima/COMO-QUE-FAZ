@@ -404,16 +404,29 @@ const tarefasController = {
 
     armazenarDenuncia: async (req, res) => {
         try {
-            // Extrair dados do corpo da requisição
+            // Captura o ID do conteúdo da URL
+            const idConteudo = req.params.id_conteudo;
+    
+            console.log('ID do conteúdo denunciado:', idConteudo);
+    
+            // Buscar o ID do cliente associado ao conteúdo
+            const dadosCliente = await admModel.acharClienteCriadorDenuncia(idConteudo);
+    
+            if (!dadosCliente) {
+                return res.status(404).send('Não foi possível encontrar o criador do conteúdo.');
+            }
+    
+            // Preparar os dados do formulário
             const dadosForm = {
                 motivo: req.body.motivo,
-                descricao: req.body.descricao
+                detalhamento_denuncia: req.body.detalhamento_denuncia,
+                usuario_denunciado: dadosCliente.Nome // Usa o Nome do cliente como o denunciado
             };
-
-            // Inserir os dados no banco de dados
-            const resultado = await denunciaModel.criarDenuncia(dadosForm);
-
-            if (resultado) {
+    
+            // Chama o modelo para criar a denúncia no banco de dados
+            const resultadoDenuncia = await admModel.criarDenuncia(dadosForm);
+    
+            if (resultadoDenuncia) {
                 res.status(200).send('Denúncia recebida com sucesso!');
             } else {
                 res.status(500).send('Erro ao enviar denúncia');
@@ -423,6 +436,7 @@ const tarefasController = {
             res.status(500).send('Erro ao enviar denúncia');
         }
     }
+    
 };
 
 
