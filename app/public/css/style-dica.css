@@ -1449,6 +1449,7 @@
         padding: 3% 3% 3% 0%;
         border-radius: 0 0 5px 0;
         margin-bottom: 1vh;
+        align-items: center;
     }
 
     .t-modo {

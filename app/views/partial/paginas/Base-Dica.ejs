@@ -526,7 +526,7 @@
                <% if (postagem.categoria===1) { %>
                   <figure class="hashtags">
                      <p class="hashtags-texto-culinaria">
-                        <%= postagem.subcategorias.replace(/,\s*/g, ' - ' ) %>
+                        <%= postagem.subcategorias ? postagem.subcategorias.replace(/,\s*/g, ' - ') : 'Nenhuma subcategoria indicada' %>
                      </p>
                   </figure>
                   <aside class="estrelas_culinaria">
@@ -550,7 +550,7 @@
                   <% } else if (postagem.categoria===2) { %>
                      <figure class="hashtags">
                         <p class="hashtags-texto-limpeza">
-                           <%= postagem.subcategorias.replace(/,\s*/g, ' - ' ) %>
+                           <%= postagem.subcategorias ? postagem.subcategorias.replace(/,\s*/g, ' - ') : 'Nenhuma subcategoria indicada' %>
                         </p>
                      </figure>
                      <aside class="estrelas_limpeza">
@@ -574,7 +574,7 @@
                      <% } else if (postagem.categoria===3) { %>
                         <figure class="hashtags">
                            <p class="hashtags-texto-bemestar">
-                              <%= postagem.subcategorias.replace(/,\s*/g, ' - ' ) %>
+                              <%= postagem.subcategorias ? postagem.subcategorias.replace(/,\s*/g, ' - ') : 'Nenhuma subcategoria indicada' %>
                            </p>
                         </figure>
                         <aside class="estrelas_bemestar">
