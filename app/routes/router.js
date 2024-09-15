@@ -33,6 +33,20 @@ router.get("/pergunta", function (req, res) {
     });
 });
 
+router.get("/pesquisa", async (req, res) => {
+    try {
+        const categoriaId = null;
+        const data = await tarefasController.PesquisarPosts(req, res, categoriaId);
+
+        res.render("pages/template", {
+            pagina: { cabecalho: "cabecalho", conteudo: "pesquisa", rodape: "rodape" },
+            ...data
+        });
+    } catch (error) {
+        res.status(500).json({ erro: error.message });
+    }
+});
+
 router.get("/culinaria", async function (req, res) {
     try {
         const categoriaId = 1;

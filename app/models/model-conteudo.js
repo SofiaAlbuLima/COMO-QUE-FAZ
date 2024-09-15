@@ -1,7 +1,84 @@
 const pool = require("../../config/pool-conexoes");
 
-const conteudoModel = { //const que agrupa todas as funções de acesso e manipulação de dados
-
+const conteudoModel = {
+    TotalRegPorTitulo: async (termoPesquisa, filtroTipo = 'todas', filtroCategoria = null) => {
+        try {
+            const tipoCondicao = filtroTipo !== 'todas' ? `AND tipo = ?` : '';
+            const categoriaCondicao = filtroCategoria ? `AND Categorias_idCategorias = ?` : '';
+    
+            const query = `
+            SELECT COUNT(*) as total FROM (
+                SELECT ID_conteudo AS id, 'dica' as tipo, Titulo, Categorias_idCategorias FROM conteudo_postagem
+                UNION ALL
+                SELECT ID_Pergunta AS id, 'pergunta' as tipo, titulo AS Titulo, NULL AS Categorias_idCategorias FROM perguntas
+            ) AS combined
+            WHERE Titulo LIKE ? 
+            ${tipoCondicao}
+            ${categoriaCondicao}`;
+    
+            const params = [`%${termoPesquisa}%`];
+            if (filtroTipo !== 'todas') params.push(filtroTipo);
+            if (filtroCategoria) params.push(filtroCategoria);
+    
+            const [result] = await pool.query(query, params);
+            return result;
+        } catch (erro) {
+            throw erro;
+        }
+    },
+    PesquisarPorTitulo: async (termoPesquisa, filtroTipo = 'todas', filtroCategoria = null, inicio, total) => {
+        try {
+            const tipoCondicao = filtroTipo !== 'todas' ? `AND tipo = ?` : '';
+    
+            const query = `
+            SELECT * FROM (
+                SELECT 
+                    c.ID_conteudo AS id, 
+                    c.Titulo, 
+                    'dica' AS tipo, 
+                    cl.Nickname AS nome_usuario, 
+                    c.tempo, 
+                    c.Clientes_idClientes, 
+                    c.Categorias_idCategorias, 
+                    c.Descricao, 
+                    c.Etapas_Modo_de_Preparo, 
+                    c.porcoes, 
+                    c.subcategorias
+                FROM conteudo_postagem AS c
+                JOIN clientes AS cl ON c.Clientes_idClientes = cl.idClientes
+                WHERE ${filtroCategoria ? 'c.Categorias_idCategorias = ?' : 'c.Categorias_idCategorias IN (1, 2, 3)'}
+                UNION ALL
+                SELECT 
+                    p.ID_Pergunta AS id, 
+                    p.titulo AS Titulo, 
+                    'pergunta' AS tipo, 
+                    cl.Nickname AS nome_usuario, 
+                    NULL AS tempo, 
+                    p.Clientes_idClientes, 
+                    p.Categorias_idCategorias, 
+                    NULL AS Descricao, 
+                    NULL AS Etapas_Modo_de_Preparo, 
+                    NULL AS porcoes, 
+                    NULL AS subcategorias
+                FROM perguntas AS p
+                JOIN clientes AS cl ON p.Clientes_idClientes = cl.idClientes
+                WHERE ${filtroCategoria ? 'p.categorias_idCategorias = ?' : 'p.categorias_idCategorias IN (1, 2, 3)'}
+            ) AS combined
+            WHERE Titulo LIKE ? 
+            ${tipoCondicao}
+            ORDER BY id DESC
+            LIMIT ${inicio}, ${total}`;
+    
+            const params = [`%${termoPesquisa}%`, inicio, total];
+            if (filtroTipo !== 'todas') params.splice(1, 0, filtroTipo);
+            if (filtroCategoria) params.splice(2, 0, filtroCategoria);
+    
+            const [linhas] = await pool.query(query, params);
+            return linhas;
+        } catch (erro) {
+            throw erro;
+        }
+    },
     TotalReg: async (categoria, ordem) => {
         try {
             let query = `
@@ -161,6 +238,7 @@ const conteudoModel = { //const que agrupa todas as funções de acesso e manipu
         }
     }
 }
+
 
 
 module.exports = conteudoModel

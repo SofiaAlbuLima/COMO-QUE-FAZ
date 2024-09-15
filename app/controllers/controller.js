@@ -178,7 +178,7 @@ const tarefasController = {
                 subcategorias: conteudo.subcategorias
             }));
             return {
-                usuario_logado: req.session.autenticado, //indica se o usuário está logado
+                usuario_logado: req.session.autenticado,
                 login: req.session.logado,
                 postagens: combinedConteudo,
                 paginador: paginador,
@@ -189,6 +189,86 @@ const tarefasController = {
         } catch (e) {
             console.log(e);
             res.json({ erro: "Falha ao acessar dados" });
+        }
+    },
+    PesquisarPosts: async (req, res, categoriaId = null) => {
+        try {
+            const termoPesquisa = req.query.pesquisa_form || "";
+            const filtroTipo = req.query.filtro_tipo || 'todas';
+            const filtroCategoria = req.query.filtro_categoria || null;
+            const filtroClassificacao = req.query.filtro_classificacao || 'todas';
+
+            const categoriaMap = {
+                'culinaria': 1,
+                'limpeza': 2,
+                'bemestar': 3
+            };
+
+            let categoria = categoriaId || categoriaMap[req.query.filtro_categoria] || null;
+            let filtro = filtroClassificacao || 'todas';
+
+            let pagina = parseInt(req.query.pagina) || 1;;
+            let regPagina = 18;
+            let inicio = (pagina - 1) * regPagina;
+
+            const data = await conteudoModel.PesquisarPorTitulo(termoPesquisa, filtroTipo, categoria, inicio, regPagina);
+
+            let totReg = await conteudoModel.TotalRegPorTitulo(termoPesquisa, filtroTipo, categoria);
+            let totalRegistros = totReg[0].total;
+            let totalPaginas = Math.ceil(totalRegistros / regPagina);
+
+            let paginador = totalRegistros <= 18 ? null : {
+                paginaAtual: pagina,
+                totalRegistros: totalRegistros,
+                totalPaginas: totalPaginas
+            };
+
+            function formatarTempo(tempo) {
+                let duracao = moment.duration(tempo, 'HH:mm:ss');
+                let horas = duracao.hours();
+                let minutos = duracao.minutes();
+                if (horas > 0 && minutos > 0) {
+                    return `${horas}h${minutos}min`;
+                } else if (horas > 0 && minutos <= 0) {
+                    return `${horas}hora${horas > 1 ? 's' : ''}`;
+                } else if (horas <= 0 && minutos > 0) {
+                    return `${minutos}min`;
+                } else {
+                    return '';
+                }
+            }
+
+            if (!data) {
+                return res.status(404).json({ erro: "Nenhum resultado encontrado" });
+            }
+
+            let combinedConteudo = data.map(conteudo => ({
+                nome: conteudo.Titulo,
+                usuario: conteudo.Clientes_idClientes,
+                nome_usuario: conteudo.nome_usuario,
+                id: conteudo.id,
+                categoria: conteudo.Categorias_idCategorias,
+                tempo: conteudo.tempo ? formatarTempo(conteudo.tempo) : null,
+                descricao: conteudo.Descricao || null,
+                etapas: conteudo.Etapas_Modo_de_Preparo,
+                porcoes: conteudo.porcoes > 0 ? `${conteudo.porcoes} ${conteudo.porcoes > 1 ? 'Porções' : 'Porção'}` : null,
+                tipo: conteudo.tipo,
+                subcategorias: conteudo.subcategorias
+            }));
+            return {
+                termoPesquisa,
+                aviso: data.length === 0 ? "Não há postagens disponíveis para esta pesquisa." : null,
+                usuario_logado: req.session.autenticado,
+                postagens: combinedConteudo,
+                filtro: filtro,
+                paginaAtual: pagina,
+                totalPaginas: totalPaginas,
+                paginador: paginador,
+                categoriaAtual: categoria || 'todas',
+                novoFiltro: filtro || 'recente',
+            };
+        } catch (error) {
+            res.status(500).json({ erro: error.message });
         }
     },
     AbrirPostagem: async (req, res) => {
@@ -270,7 +350,7 @@ const tarefasController = {
             let categoriaId;
             let porcoes = null;
             const categoria = req.body.dica_categoria;
-    
+
             if (categoria === "Culinária") {
                 categoriaId = 1;
                 porcoes = req.body.dica_porcoes;
@@ -279,16 +359,16 @@ const tarefasController = {
             } else if (categoria === "Bem Estar") {
                 categoriaId = 3;
             }
-    
+
             const etapasModoPreparo = req.body.etapas_modo_preparo;
             if (!Array.isArray(etapasModoPreparo)) {
                 console.log('etapas_modo_preparo não é um array:', etapasModoPreparo);
                 return res.status(400).send('Etapas do modo de preparo inválidas');
             }
             const etapasTexto = etapasModoPreparo.join('; ');
-    
+
             const subcategoriasTexto = req.body.dica_subcategorias || '';
-    
+
             const FormCriarDica = {
                 Clientes_idClientes: req.session.autenticado.id,
                 Titulo: req.body.dica_titulo,
@@ -299,16 +379,16 @@ const tarefasController = {
                 Etapas_Modo_de_Preparo: etapasTexto,
                 subcategorias: subcategoriasTexto
             };
-    
+
             console.log('FormCriarDica:', FormCriarDica); // Debugging
-    
+
             const createPostagem = await conteudoModel.CriarPostagem(FormCriarDica);
             const postagemId = createPostagem.insertId;
-    
+
             const ingredientesArray = req.body.ingredientes || [];
             const quantidadeIngredientesArray = req.body.quantidade_ingredientes || [];
             const medidaIngredientesArray = req.body.medida_ingredientes || [];
-    
+
             if (ingredientesArray.length > 0 &&
                 quantidadeIngredientesArray.length > 0 &&
                 medidaIngredientesArray.length > 0) {
@@ -328,9 +408,9 @@ const tarefasController = {
                     }
                 }
             }
-    
+
             console.log("Postagem e ingredientes realizados com sucesso!", postagemId);
-    
+
             req.session.notification = {
                 titulo: "Postagem realizada!",
                 mensagem: "Sua dica foi publicada com sucesso!",
