@@ -44,31 +44,37 @@ const admModel = {
                 INSERT INTO denuncia (motivo, detalhamento_denuncia, usuario_denunciado)
                 VALUES (?, ?, ?)
             `;
-    
+
             const [resultado] = await pool.query(query, [
                 dadosForm.motivo,
                 dadosForm.detalhamento_denuncia,
                 dadosForm.usuario_denunciado // Usa o nome do cliente como usuario_denunciado
             ]);
-    
+
             return resultado;
         } catch (erro) {
             throw erro;
         }
     },
-    
+
 
     acharClienteCriadorDenuncia: async (id) => {
         try {
             const query = `
-                SELECT c.Nome
-                FROM conteudo_postagem cp
-                JOIN clientes c ON cp.Clientes_idClientes = c.idClientes
+                SELECT c.Nickname
+                FROM clientes c
+                JOIN conteudo_postagem cp ON cp.Clientes_idClientes = c.idClientes
                 WHERE cp.ID_conteudo = ?;
             `;
-    
+            
             const [resultados] = await pool.query(query, [id]);
-            return resultados[0]; // Aqui ele retorna o primeiro resultado com o Nome do cliente
+            
+            // Verifique se há um resultado e se contém o 'Nickname'
+            if (resultados.length > 0) {
+                return resultados[0];
+            } else {
+                return null; // Retorna null se não encontrar o criador
+            }
         } catch (erro) {
             throw erro;
         }

@@ -466,7 +466,7 @@
 
 
 
-                     <form class="denuncia-form" action="/denunciar" method="POST">
+                     <form class="denuncia-form" action="/denunciar/<%= postagem.id %>" method="POST">
                         <label for="denuncia-tipo" class="denuncia-label">Motivo da Denúncia:</label>
                         <select id="denuncia-tipo" name="motivo" class="denuncia-select" required>
                             <option class="opcao-select-popup" value="">Selecione o motivo</option>
