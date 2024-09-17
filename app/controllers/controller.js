@@ -211,7 +211,7 @@ const tarefasController = {
                 'bemestar': 3
             };
 
-            let categoria = categoriaId || categoriaMap[req.query.filtro_categoria] || null;
+            let categoria = categoriaId || categoriaMap[filtroCategoria] || null;
             let filtro = filtroClassificacao || 'todas';
 
             let pagina = parseInt(req.query.pagina) || 1;;
@@ -488,7 +488,6 @@ const tarefasController = {
             res.json({ erro: "Falha ao acessar dados" });
         }
     },
-
     armazenarDenuncia: async (req, res) => {
         try {
             const dadosForm = {

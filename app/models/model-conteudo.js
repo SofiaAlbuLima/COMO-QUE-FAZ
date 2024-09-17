@@ -29,6 +29,7 @@ const conteudoModel = {
     PesquisarPorTitulo: async (termoPesquisa, filtroTipo = 'todas', filtroCategoria = null, inicio, total) => {
         try {
             const tipoCondicao = filtroTipo !== 'todas' ? `AND tipo = ?` : '';
+            const categoriaCondicao = filtroCategoria ? `AND Categorias_idCategorias = ?` : '';
     
             const query = `
             SELECT * FROM (
