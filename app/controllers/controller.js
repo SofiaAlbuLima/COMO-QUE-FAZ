@@ -491,15 +491,27 @@ const tarefasController = {
 
     armazenarDenuncia: async (req, res) => {
         try {
-            // Extrair dados do corpo da requisição
             const dadosForm = {
                 motivo: req.body.motivo,
-                descricao: req.body.descricao
+                detalhamento_denuncia: req.body.detalhamento_denuncia,
             };
+    
+            const postagemId = req.params.id;
+            const postagem = await conteudoModel.BuscarPostagemPorId(postagemId);
+    
+            if (!postagem) {
+                return res.status(404).render("pages/erro", { mensagem: "Postagem não encontrada" });
+            }
+    
+            // Buscar o criador do conteúdo
+            const criador = await admModel.acharClienteCriadorDenuncia(postagemId);
+    
+            // Adiciona o nickname do criador ao dadosForm
+            dadosForm.usuario_denunciado = criador.Nickname;
 
-            // Inserir os dados no banco de dados
-            const resultado = await denunciaModel.criarDenuncia(dadosForm);
-
+            // Continuar o processo de criação da denúncia
+            const resultado = await admModel.criarDenuncia(dadosForm);
+    
             if (resultado) {
                 res.status(200).send('Denúncia recebida com sucesso!');
             } else {
@@ -510,6 +522,10 @@ const tarefasController = {
             res.status(500).send('Erro ao enviar denúncia');
         }
     }
+    
+    
+
+
 };
 
 

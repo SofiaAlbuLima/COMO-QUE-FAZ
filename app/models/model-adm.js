@@ -38,15 +38,48 @@ const admModel = {
         }
     },
 
-    criarDenuncia : async (dadosForm) => {
+    criarDenuncia: async (dadosForm) => {
         try {
-            const [linhas, campos] = await pool.query('INSERT INTO denuncias SET ?', [dadosForm]);
-            return linhas;
+            const query = `
+                INSERT INTO denuncia (motivo, detalhamento_denuncia, usuario_denunciado)
+                VALUES (?, ?, ?)
+            `;
 
-        } catch (error) {
-            return error;
+            const [resultado] = await pool.query(query, [
+                dadosForm.motivo,
+                dadosForm.detalhamento_denuncia,
+                dadosForm.usuario_denunciado // Usa o nome do cliente como usuario_denunciado
+            ]);
+
+            return resultado;
+        } catch (erro) {
+            throw erro;
+        }
+    },
+
+
+    acharClienteCriadorDenuncia: async (id) => {
+        try {
+            const query = `
+                SELECT c.Nickname
+                FROM clientes c
+                JOIN conteudo_postagem cp ON cp.Clientes_idClientes = c.idClientes
+                WHERE cp.ID_conteudo = ?;
+            `;
+            
+            const [resultados] = await pool.query(query, [id]);
+            
+            // Verifique se há um resultado e se contém o 'Nickname'
+            if (resultados.length > 0) {
+                return resultados[0];
+            } else {
+                return null; // Retorna null se não encontrar o criador
+            }
+        } catch (erro) {
+            throw erro;
         }
     }
+    
 
 }
 

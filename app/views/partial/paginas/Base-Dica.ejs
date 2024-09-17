@@ -463,21 +463,27 @@
                   <section class="body-popup-denuncia">
                      <h2 class="denuncia-titulo">Nos conte sobre sua denúncia:</h2>
 
-                     <form class="denuncia-form" action="/denunciar" method="POST">
+
+
+
+                     <form class="denuncia-form" action="/denunciar/<%= postagem.id %>" method="POST">
                         <label for="denuncia-tipo" class="denuncia-label">Motivo da Denúncia:</label>
                         <select id="denuncia-tipo" name="motivo" class="denuncia-select" required>
-                           <option class="opcao-select-popup" value="">Selecione o motivo</option>
-                           <option class="opcao-select-popup" value="spam">Spam</option>
-                           <option class="opcao-select-popup" value="conteudo-inadequado">Conteúdo Inadequado</option>
-                           <option class="opcao-select-popup" value="violencia">Violações dos termos de uso</option>
+                            <option class="opcao-select-popup" value="">Selecione o motivo</option>
+                            <option class="opcao-select-popup" value="spam">Spam</option>
+                            <option class="opcao-select-popup" value="conteudo-inadequado">Conteúdo Inadequado</option>
+                            <option class="opcao-select-popup" value="violencia">Violações dos termos de uso</option>
                         </select>
-
+                    
                         <label for="denuncia-descricao" class="denuncia-label">Descrição:</label>
-                        <textarea id="denuncia-descricao" name="descricao" class="denuncia-textarea" required
-                           placeholder="Detalhe o motivo da denúncia..."></textarea>
-
+                        <textarea id="denuncia-descricao" name="detalhamento_denuncia" class="denuncia-textarea" required
+                            placeholder="Detalhe o motivo da denúncia..."></textarea>
+                    
                         <button type="submit" class="denuncia-submit">Enviar Denúncia</button>
-                     </form>
+                    </form>
+
+                     
+
                   </section>
                </aside>
 
