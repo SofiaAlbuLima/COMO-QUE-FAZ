@@ -503,13 +503,11 @@ const tarefasController = {
                 return res.status(404).render("pages/erro", { mensagem: "Postagem não encontrada" });
             }
     
-            // Buscar o criador do conteúdo
             const criador = await admModel.acharClienteCriadorDenuncia(postagemId);
     
-            // Adiciona o nickname do criador ao dadosForm
             dadosForm.usuario_denunciado = criador.Nickname;
+            dadosForm.categoria = categoria.categoria;
 
-            // Continuar o processo de criação da denúncia
             const resultado = await admModel.criarDenuncia(dadosForm);
     
             if (resultado) {
