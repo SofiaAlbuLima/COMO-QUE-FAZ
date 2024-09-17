@@ -35,18 +35,17 @@
 .grupo_filtro_pesquisa{
     padding-top: 2vh;
     padding-bottom: 2vh;
-    margin-bottom: 2vh;  
+    margin-bottom: 2vh; 
+    width: 100%; 
 }
 .label_filtro_pesquisa{
     font-family: Fira Sans Bold;
     color: #4D16BB;
     font-size: 2vh;
-    padding: 1vh;
+    padding: 1vh 2vh;
     background-color: white;
     cursor: pointer;
     border-radius: 10px;
-    padding-left: 2vh;
-    padding-right: 2vh;
     transition: background-color 0.3s, color 0.3s;
 }
 .input_filtro_pesquisa:checked + .label_filtro_pesquisa {
