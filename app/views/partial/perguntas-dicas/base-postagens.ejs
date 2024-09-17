@@ -3,66 +3,65 @@
       <% postagens.forEach(function(item) { %>
          <% if (item.tipo==='dica' ) { %>
             <section class="postagem" onclick="window.location.href='/dica/<%= item.id %>';">
-               <% if (item.categoria===1) { %>
-                  <figure class="hover_ingredientes_basePost-culinaria">
-                     <h3 class="ingredientes_basePost">
-                        <%= item.ingredientes ? item.ingredientes.replace(/,\s*/g, ' - ' )
-                           : 'Essa dica não contém itens necessários' %>
-                     </h3>
-                  </figure>
-               <% } else if (item.categoria===2) { %>
-                  <figure class="hover_ingredientes_basePost-limpeza">
-                     <h3 class="ingredientes_basePost">
-                        <%= item.ingredientes ? item.ingredientes.replace(/,\s*/g, ' - ' )
-                           : 'Essa dica não contém itens necessários' %>
-                     </h3>
-                  </figure>
-               <% } else if (item.categoria===3) { %>
-                     <figure class="hover_ingredientes_basePost-bemEstar">
+               <figure class="postagem_parte_de_cima">
+                  <% if (item.categoria===1) { %>
+                     <figure class="hover_ingredientes_basePost-culinaria">
                         <h3 class="ingredientes_basePost">
                            <%= item.ingredientes ? item.ingredientes.replace(/,\s*/g, ' - ' )
                               : 'Essa dica não contém itens necessários' %>
                         </h3>
                      </figure>
-               <% } %>
-                           <figure class="postagem_parte_de_cima">
-                              <h1 id="texto-a   tras5-B" class="titulo_post postagem_info_primeiro_plano">
-                                 <%= item.nome %>
-                              </h1>
-
-                              <% if (item.categoria===1) { %>
-                                 <img id="icon-categoria-branco" src="imagens/icon-culinaria-branco.png" alt=""
-                                    class="postagem_info_primeiro_plano">
-                                 <% } else if (item.categoria===2) { %>
-                                    <img id="icon-categoria-branco" src="imagens/icon-limpeza-branco.png" alt=""
-                                       class="postagem_info_primeiro_plano">
-                                    <% } else if (item.categoria===3) { %>
-                                       <img id="icon-categoria-branco" src="imagens/icon-bemestar-branco.png" alt=""
-                                          class="postagem_info_primeiro_plano">
-                                       <% } %>
-                                          <img src="imagens/post-organizacao-rotina.png" alt="foto-post5"
-                                             class="imagem_postagem">
+                     <% } else if (item.categoria===2) { %>
+                        <figure class="hover_ingredientes_basePost-limpeza">
+                           <h3 class="ingredientes_basePost">
+                              <%= item.ingredientes ? item.ingredientes.replace(/,\s*/g, ' - ' )
+                                 : 'Essa dica não contém itens necessários' %>
+                           </h3>
+                        </figure>
+                        <% } else if (item.categoria===3) { %>
+                           <figure class="hover_ingredientes_basePost-bemEstar">
+                              <h3 class="ingredientes_basePost">
+                                 <%= item.ingredientes ? item.ingredientes.replace(/,\s*/g, ' - ' )
+                                    : 'Essa dica não contém itens necessários' %>
+                              </h3>
                            </figure>
-                           <aside class="legenda">
-                              <figure class="legenda_relogio">
-                                 <img src="imagens/relogio-cinza.svg" alt="relogio">
-                                 <h3>
-                                    <%= item.tempo %>
-                                 </h3>
-                              </figure>
-                              <figure class="legenda_estrela">
-                                 <img src="imagens/estrela-cinza.svg" alt="estrela">
-                                 <h3>5.0</h3>
-                              </figure>
-                              <% if(item.categoria===1){ %>
-                                 <figure class="legenda_partes">
-                                    <img src="imagens/partes-cinza.png" alt="partes">
-                                    <h3>
-                                       <%= item.porcoes %>
-                                    </h3>
-                                 </figure>
-                                 <% } %>
-                           </aside>
+                           <% } %>
+                  <h1 id="texto-a   tras5-B" class="titulo_post postagem_info_primeiro_plano">
+                     <%= item.nome %>
+                  </h1>
+
+                  <% if (item.categoria===1) { %>
+                     <img id="icon-categoria-branco" src="imagens/icon-culinaria-branco.png" alt=""
+                        class="postagem_info_primeiro_plano">
+                     <% } else if (item.categoria===2) { %>
+                        <img id="icon-categoria-branco" src="imagens/icon-limpeza-branco.png" alt=""
+                           class="postagem_info_primeiro_plano">
+                        <% } else if (item.categoria===3) { %>
+                           <img id="icon-categoria-branco" src="imagens/icon-bemestar-branco.png" alt=""
+                              class="postagem_info_primeiro_plano">
+                           <% } %>
+                              <img src="imagens/post-organizacao-rotina.png" alt="foto-post5" class="imagem_postagem">
+               </figure>
+               <aside class="legenda">
+                  <figure class="legenda_relogio">
+                     <img src="imagens/relogio-cinza.svg" alt="relogio">
+                     <h3>
+                        <%= item.tempo %>
+                     </h3>
+                  </figure>
+                  <figure class="legenda_estrela">
+                     <img src="imagens/estrela-cinza.svg" alt="estrela">
+                     <h3>5.0</h3>
+                  </figure>
+                  <% if(item.categoria===1){ %>
+                     <figure class="legenda_partes">
+                        <img src="imagens/partes-cinza.png" alt="partes">
+                        <h3>
+                           <%= item.porcoes %>
+                        </h3>
+                     </figure>
+                     <% } %>
+               </aside>
 
             </section>
             <% } else if (item.tipo==='pergunta' ) { %>

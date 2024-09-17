@@ -125,7 +125,7 @@ const tarefasController = {
     MostrarPosts: async (req, res, categoriaId = null) => {
         res.locals.moment = moment;
         try {
-            
+
             const postagemId = req.params.id;
             const categoriaMap = {
                 'culinaria': 1,
@@ -180,10 +180,10 @@ const tarefasController = {
                     porcoes: conteudo.porcoes > 0 ? `${conteudo.porcoes} ${conteudo.porcoes > 1 ? 'Porções' : 'Porção'}` : null,
                     tipo: conteudo.tipo,
                     subcategorias: conteudo.subcategorias,
-                    ingredientes: ingredientes.length ? ingredientes.map(i => `${i.quantidade_ingredientes} ${i.medida_ingredientes} de ${i.ingredientes}`).join(', ') : null
+                    ingredientes: ingredientes.length ? ingredientes.map(i => i.ingredientes).join(', ') : null
                 };
             }));
-    
+
             return {
                 usuario_logado: req.session.autenticado,
                 login: req.session.logado,
@@ -495,10 +495,10 @@ const tarefasController = {
                 motivo: req.body.motivo,
                 detalhamento_denuncia: req.body.detalhamento_denuncia,
             };
-    
+
             const postagemId = req.params.id;
             const postagem = await conteudoModel.BuscarPostagemPorId(postagemId);
-    
+
             if (!postagem) {
                 return res.status(404).render("pages/erro", { mensagem: "Postagem não encontrada" });
             }
@@ -509,7 +509,7 @@ const tarefasController = {
             dadosForm.categoria = categoria.categoria;
 
             const resultado = await admModel.criarDenuncia(dadosForm);
-    
+
             if (resultado) {
                 res.status(200).send('Denúncia recebida com sucesso!');
             } else {
@@ -520,8 +520,8 @@ const tarefasController = {
             res.status(500).send('Erro ao enviar denúncia');
         }
     }
-    
-    
+
+
 
 
 };
