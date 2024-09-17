@@ -70,12 +70,12 @@ const admModel = {
 
             const [resultados] = await pool.query(query, [id]);
 
-            // Verifique se há um resultado e se contém o 'Nickname'
             if (resultados.length > 0) {
                 return resultados[0];
             } else {
-                return null; // Retorna null se não encontrar o criador
+                return null;
             }
+
         } catch (erro) {
             throw erro;
         }
@@ -83,26 +83,20 @@ const admModel = {
 
     categoriaDenuncia: async (id, categoria) => {
         try {
-            // Começa a construir a consulta SQL
             let query = `
             UPDATE denuncia d
             JOIN conteudo_postagem c ON d.ID_conteudo = c.ID_conteudo
-            SET d.Categorias_idCategorias = c.Categorias_idCategorias
+            SET d.Categorias_idCategorias = ?
             WHERE c.ID_conteudo = ?
             `;
-    
-            // Se uma categoria for fornecida, adiciona uma cláusula WHERE adicional para garantir que a categoria na tabela `denuncia` seja atualizada
-            if (categoria) {
-                query += ` AND c.Categorias_idCategorias = ${pool.escape(categoria)}`;
-            }
-    
-            // Executa a consulta e aguarda o resultado
-            const [result] = await pool.query(query, [id]);
+
+            const values = [categoria, id];
+            const [result] = await pool.query(query, values);
             return result;
         } catch (erro) {
             throw erro;
         }
-    }    
+    }
 
 }
 
