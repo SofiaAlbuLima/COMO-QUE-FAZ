@@ -289,9 +289,11 @@
     .blocos_meios_de_pagamento{
         display: flex;
         justify-content: space-around;
+        background-color: #f2f2f2;
     }
     .meios_de_pagamento{
-        margin-top: 7vh;
+
+        margin-bottom: 1vh;
         width: 90vh;
         padding: 3vh 3vh 3vh 3vh;
         border-radius: 20px;
@@ -446,6 +448,7 @@
         padding-right: 5vh;
         background-color: #5f25d1;
     }
+    
     .coluna-beneficios-texto p{
         font-family: Fira Sans;
         font-size: 1.8vh;
@@ -602,4 +605,7 @@
         font-weight: 600;
         margin-top: 1vh;
     }
+    .pontilhado-beneficios{
+        width: 100%;
+}
 }
