@@ -211,7 +211,7 @@ const tarefasController = {
                 'bemestar': 3
             };
 
-            let categoria = categoriaId || categoriaMap[req.query.filtro_categoria] || null;
+            let categoria = categoriaId || categoriaMap[filtroCategoria] || null;
             let filtro = filtroClassificacao || 'todas';
 
             let pagina = parseInt(req.query.pagina) || 1;;
@@ -488,17 +488,17 @@ const tarefasController = {
             res.json({ erro: "Falha ao acessar dados" });
         }
     },
-
     armazenarDenuncia: async (req, res) => {
         try {
             const dadosForm = {
                 motivo: req.body.motivo,
                 detalhamento_denuncia: req.body.detalhamento_denuncia,
             };
-
+    
             const postagemId = req.params.id;
+    
             const postagem = await conteudoModel.BuscarPostagemPorId(postagemId);
-
+    
             if (!postagem) {
                 return res.status(404).render("pages/erro", { mensagem: "Postagem não encontrada" });
             }
@@ -506,11 +506,15 @@ const tarefasController = {
             const criador = await admModel.acharClienteCriadorDenuncia(postagemId);
     
             dadosForm.usuario_denunciado = criador.Nickname;
-            dadosForm.categoria = categoria.categoria;
-
-            const resultado = await admModel.criarDenuncia(dadosForm);
-
-            if (resultado) {
+    
+            const categoria = postagem.Categorias_idCategorias;
+    
+            dadosForm.categoria = categoria;
+    
+            const resultadoDenuncia = await admModel.criarDenuncia(dadosForm);
+    
+            if (resultadoDenuncia) {
+                await admModel.categoriaDenuncia(postagemId, categoria);
                 res.status(200).send('Denúncia recebida com sucesso!');
             } else {
                 res.status(500).send('Erro ao enviar denúncia');
@@ -520,10 +524,6 @@ const tarefasController = {
             res.status(500).send('Erro ao enviar denúncia');
         }
     }
-
-
-
-
 };
 
 
