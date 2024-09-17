@@ -125,6 +125,8 @@ const tarefasController = {
     MostrarPosts: async (req, res, categoriaId = null) => {
         res.locals.moment = moment;
         try {
+            
+            const postagemId = req.params.id;
             const categoriaMap = {
                 'culinaria': 1,
                 'limpeza': 2,
@@ -164,19 +166,24 @@ const tarefasController = {
                     return '';
                 }
             }
-            let combinedConteudo = results.map(conteudo => ({
-                nome: conteudo.Titulo,
-                usuario: conteudo.Clientes_idClientes,
-                nome_usuario: conteudo.nome_usuario,
-                id: conteudo.id,
-                categoria: conteudo.Categorias_idCategorias,
-                tempo: conteudo.tempo ? formatarTempo(conteudo.tempo) : null,
-                descricao: conteudo.Descricao || null,
-                etapas: conteudo.Etapas_Modo_de_Preparo,
-                porcoes: conteudo.porcoes > 0 ? `${conteudo.porcoes} ${conteudo.porcoes > 1 ? 'Porções' : 'Porção'}` : null,
-                tipo: conteudo.tipo,
-                subcategorias: conteudo.subcategorias
+            let combinedConteudo = await Promise.all(results.map(async (conteudo) => {
+                let ingredientes = await conteudoModel.BuscarIngredientesPorPostagemId(conteudo.id);
+                return {
+                    nome: conteudo.Titulo,
+                    usuario: conteudo.Clientes_idClientes,
+                    nome_usuario: conteudo.nome_usuario,
+                    id: conteudo.id,
+                    categoria: conteudo.Categorias_idCategorias,
+                    tempo: conteudo.tempo ? formatarTempo(conteudo.tempo) : null,
+                    descricao: conteudo.Descricao || null,
+                    etapas: conteudo.Etapas_Modo_de_Preparo,
+                    porcoes: conteudo.porcoes > 0 ? `${conteudo.porcoes} ${conteudo.porcoes > 1 ? 'Porções' : 'Porção'}` : null,
+                    tipo: conteudo.tipo,
+                    subcategorias: conteudo.subcategorias,
+                    ingredientes: ingredientes.length ? ingredientes.map(i => `${i.quantidade_ingredientes} ${i.medida_ingredientes} de ${i.ingredientes}`).join(', ') : null
+                };
             }));
+    
             return {
                 usuario_logado: req.session.autenticado,
                 login: req.session.logado,

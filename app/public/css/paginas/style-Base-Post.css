@@ -29,7 +29,7 @@
     margin-bottom: 1vh;
   }
   .titulo_post{
-    margin-right: 9vh;
+    margin-right: 10vh;
     font-size: 2.3vh;
     width: 30vh;
     font-family: Fira Sans;
@@ -48,21 +48,40 @@
     z-index: 0;
     border-radius: 10px 10px 0 0;
     display: block;
+    width: 100%;
   }
   
+  .hover_ingredientes_basePost-culinaria{
+    background-color: #CB1154;
+  }
+  .hover_ingredientes_basePost-limpeza{
+    background-color: #027de1;
+  }
+  .hover_ingredientes_basePost-bemEstar{
+    background-color: #00cd83;
+  }
+  .ingredientes_basePost{
+    color: #000000;
+  }
   
   .legenda{
     display: flex;
     align-items: center;
-    justify-content: space-around;
+    justify-content: space-between;
+    width: 100%;
+  }
+  .legenda_relogio, .legenda_estrela, .legenda_partes{
+    display: flex;
+    align-items: center;
+    gap: 1.5vh;
   }
   .legenda img{
-    height: 30px;
+    height: 3.5vh;
   }
   .legenda h3{
     font-family: Fira Sans;
     font-size: 20px;
-    color: #333333;
+    color: #333333ef;
   }
   .relogio h3{
     margin-left: 10px;

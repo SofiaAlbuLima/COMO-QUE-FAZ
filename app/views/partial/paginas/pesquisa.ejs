@@ -54,20 +54,24 @@
             <section class="conteudo_pesquisa">
                 <section>
                     <a class="mapa_do_site-link_pesquisa" href="/"> Home</a>
-                    <a class="mapa_do_site-atual">> "BOLO DE LARANJA"</a>
+                    <a class="mapa_do_site-atual">> '<%= termoPesquisa %>'</a>
                 </section>
                 <section class="cabecalho_pesquisa">
                     <article class="pesquisa_textos">
                         <article class="titulo-descricao-pesquisa">
-                            <h1 class="titulo_pagina_pesquisa">BOLO DE LARANJA</h1>
-                            <p class="descricao_pagina_pesquisa">Consulte aqui seus resultados sobre "BOLO DE LARANJA"
+                            <h1 class="titulo_pagina_pesquisa">Pesquisa: <%= termoPesquisa %></h1>
+                            <p class="descricao_pagina_pesquisa">Consulte aqui seus resultados sobre '<%= termoPesquisa %>'
                             </p>
                         </article>
                     </article>
                 </section>
                 <hr class="linha_separadora_pesquisa">
                 <section class="postagens_pesquisa">
+                    <% if(!aviso){%>
                     <%- include("../perguntas-dicas/base-postagens") %>
+                    <% } else{%>
+                        <p>nenhuma postagem encontrada</p>
+                    <% } %>
                 </section>
             </section>
         </section>
