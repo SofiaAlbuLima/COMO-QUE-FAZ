@@ -41,14 +41,15 @@ const admModel = {
     criarDenuncia: async (dadosForm) => {
         try {
             const query = `
-                INSERT INTO denuncia (motivo, detalhamento_denuncia, usuario_denunciado)
-                VALUES (?, ?, ?)
+                INSERT INTO denuncia (motivo, detalhamento_denuncia, usuario_denunciado, Categorias_idCategorias)
+                VALUES (?, ?, ?, ?)
             `;
 
             const [resultado] = await pool.query(query, [
                 dadosForm.motivo,
                 dadosForm.detalhamento_denuncia,
-                dadosForm.usuario_denunciado // Usa o nome do cliente como usuario_denunciado
+                dadosForm.usuario_denunciado,
+                dadosForm.Categorias_idCategorias
             ]);
 
             return resultado;
@@ -66,20 +67,36 @@ const admModel = {
                 JOIN conteudo_postagem cp ON cp.Clientes_idClientes = c.idClientes
                 WHERE cp.ID_conteudo = ?;
             `;
-            
+
             const [resultados] = await pool.query(query, [id]);
-            
-            // Verifique se há um resultado e se contém o 'Nickname'
+
             if (resultados.length > 0) {
                 return resultados[0];
             } else {
-                return null; // Retorna null se não encontrar o criador
+                return null;
             }
+
+        } catch (erro) {
+            throw erro;
+        }
+    },
+
+    categoriaDenuncia: async (id, categoria) => {
+        try {
+            let query = `
+            UPDATE denuncia d
+            JOIN conteudo_postagem c ON d.ID_conteudo = c.ID_conteudo
+            SET d.Categorias_idCategorias = ?
+            WHERE c.ID_conteudo = ?
+            `;
+
+            const values = [categoria, id];
+            const [result] = await pool.query(query, values);
+            return result;
         } catch (erro) {
             throw erro;
         }
     }
-    
 
 }
 
