@@ -47,7 +47,7 @@ const conteudoModel = {
                     c.subcategorias
                 FROM conteudo_postagem AS c
                 JOIN clientes AS cl ON c.Clientes_idClientes = cl.idClientes
-                WHERE ${filtroCategoria ? 'c.Categorias_idCategorias = ?' : 'c.Categorias_idCategorias IN (1, 2, 3)'}
+                WHERE ${categoriaCondicao ? 'c.Categorias_idCategorias = ?' : 'c.Categorias_idCategorias IN (1, 2, 3)'}
                 UNION ALL
                 SELECT 
                     p.ID_Pergunta AS id, 
@@ -63,12 +63,12 @@ const conteudoModel = {
                     NULL AS subcategorias
                 FROM perguntas AS p
                 JOIN clientes AS cl ON p.Clientes_idClientes = cl.idClientes
-                WHERE ${filtroCategoria ? 'p.categorias_idCategorias = ?' : 'p.categorias_idCategorias IN (1, 2, 3)'}
+                WHERE ${categoriaCondicao ? 'p.Categorias_idCategorias = ?' : 'p.Categorias_idCategorias IN (1, 2, 3)'}
             ) AS combined
             WHERE Titulo LIKE ? 
             ${tipoCondicao}
             ORDER BY id DESC
-            LIMIT ${inicio}, ${total}`;
+            LIMIT ?, ?`;
     
             const params = [`%${termoPesquisa}%`, inicio, total];
             if (filtroTipo !== 'todas') params.splice(1, 0, filtroTipo);
