@@ -26,12 +26,13 @@ const conteudoModel = {
             throw erro;
         }
     },
-    PesquisarPorTitulo: async (termoPesquisa, filtroTipo = 'todas', filtroCategoria, inicio, total) => {
+    PesquisarPorTitulo: async (termoPesquisa, filtroTipo, filtroCategoria, inicio, total, filtroClassificacao = 'em-alta') => {
         try {
             let tipoCondicao = filtroTipo !== 'todas' ? `AND tipo = ?` : '';
             let categoriaCondicao = filtroCategoria ? `WHERE Categorias_idCategorias = ${filtroCategoria}` : '';
-            console.log(categoriaCondicao);
-            console.log(filtroTipo);
+            console.log("Categoria: " + categoriaCondicao);
+            console.log("Tipo Postagem: " + filtroTipo);
+            console.log("Filtro Classificacao: " + filtroClassificacao);
 
             const query = `
             SELECT * FROM (
@@ -49,7 +50,6 @@ const conteudoModel = {
                     c.subcategorias
                 FROM conteudo_postagem AS c
                 JOIN clientes AS cl ON c.Clientes_idClientes = cl.idClientes
-                ${categoriaCondicao}
                 UNION ALL
                 SELECT 
                     p.ID_Pergunta AS id, 
@@ -65,12 +65,24 @@ const conteudoModel = {
                     NULL AS subcategorias
                 FROM perguntas AS p
                 JOIN clientes AS cl ON p.Clientes_idClientes = cl.idClientes
-                ${categoriaCondicao}
             ) AS combined
             WHERE Titulo LIKE ? 
-            ${tipoCondicao}
-            ORDER BY id DESC
-            LIMIT ${inicio}, ${total}`;
+            ${categoriaCondicao}
+            ${tipoCondicao}`
+
+            switch (filtroClassificacao) {
+                case 'mais-rapidas':
+                    query += ` ORDER BY tempo ASC`;
+                    break;
+                case 'em-alta':
+                    query += ` ORDER BY id DESC`;
+                    break;
+                case 'recentes':
+                default:
+                    query += ` ORDER BY id DESC`;
+            }
+
+            query += ` LIMIT ${inicio}, ${total}`;
 
             console.log(query);
 

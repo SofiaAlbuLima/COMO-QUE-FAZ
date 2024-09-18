@@ -201,9 +201,9 @@ const tarefasController = {
     PesquisarPosts: async (req, res, categoriaId = null) => {
         try {
             const termoPesquisa = req.query.pesquisa_form || "";
-            const filtroTipo = req.query.filtro_tipo || 'todas';
-            const filtroCategoria = req.query.filtro_categoria || null;
-            const filtroClassificacao = req.query.filtro_classificacao || 'todas';
+            const filtroTipo = req.query.filtro_tipo || null;
+            let filtroCategoria = req.query.filtro_categoria || null;
+            const filtroClassificacao = req.query.filtro_classificacao || 'em-alta';
 
             const categoriaMap = {
                 'culinaria': 1,
@@ -212,13 +212,14 @@ const tarefasController = {
             };
 
             let categoria = categoriaId || categoriaMap[filtroCategoria] || null;
-            let filtro = filtroClassificacao || 'todas';
+            let filtro = filtroClassificacao || null;
 
             let pagina = parseInt(req.query.pagina) || 1;;
             let regPagina = 18;
             let inicio = (pagina - 1) * regPagina;
 
-            const data = await conteudoModel.PesquisarPorTitulo(termoPesquisa, filtroTipo, categoria, inicio, regPagina);
+            const data = await conteudoModel.PesquisarPorTitulo(termoPesquisa, filtroTipo, categoria, inicio, regPagina, filtroClassificacao);
+            console.log(data);
 
             let totReg = await conteudoModel.TotalRegPorTitulo(termoPesquisa, filtroTipo, categoria);
             let totalRegistros = totReg[0].total;
