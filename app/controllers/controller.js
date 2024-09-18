@@ -475,13 +475,10 @@ const tarefasController = {
 
     listarDenuncias: async (req, res) => {
         try {
-            categoria = req.query.categoria || null;
-            results = await admModel.acharDenuncia();
-            resultsconteudo = await admModel.acharConteudo(categoria);
+            results = await admModel.criarDenuncia(dadosForm);
 
             return {
                 denunciasNoControl: results,
-                resultsconteudo,
                 usuario_logado: req.session.autenticado
             };
 
@@ -499,30 +496,23 @@ const tarefasController = {
             };
     
             const postagemId = req.params.id;
-    
-            // Buscar os dados da postagem
             const postagem = await conteudoModel.BuscarPostagemPorId(postagemId);
     
             if (!postagem) {
                 return res.status(404).render("pages/erro", { mensagem: "Postagem não encontrada" });
             }
     
-            // Buscar o criador da postagem
             const criador = await admModel.acharClienteCriadorDenuncia(postagemId);
             dadosForm.usuario_denunciado = criador.Nickname;
     
-            // Buscar a categoria da postagem
             const [categoriaResult] = await admModel.categoriaDenuncia(postagemId);
             
-            // Verifica se a categoria foi encontrada
             if (!categoriaResult) {
                 return res.status(500).send('Erro ao buscar a categoria do conteúdo.');
             }
     
-            // Atribuir a categoria ao formulário
             dadosForm.categoria = categoriaResult.Categorias_idCategorias;
     
-            // Criar a denúncia com os dados do formulário
             const resultadoDenuncia = await admModel.criarDenuncia(dadosForm);
     
             if (resultadoDenuncia) {
@@ -535,6 +525,14 @@ const tarefasController = {
             res.status(500).send('Erro ao enviar denúncia');
         }
     }
+
+    // listarUsuario: async (req, res) => {
+    //     try{
+    //         const result = await 
+    //     }catch(error){
+    //         console.error('Erro ao armazenar denúncia:', error);
+    //     }
+    // }
     
     
 };
