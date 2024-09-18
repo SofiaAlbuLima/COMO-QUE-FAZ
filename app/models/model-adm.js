@@ -44,20 +44,19 @@ const admModel = {
                 INSERT INTO denuncia (motivo, detalhamento_denuncia, usuario_denunciado, Categorias_idCategorias)
                 VALUES (?, ?, ?, ?)
             `;
-
+    
             const [resultado] = await pool.query(query, [
                 dadosForm.motivo,
                 dadosForm.detalhamento_denuncia,
-                dadosForm.usuario_denunciado,
-                dadosForm.Categorias_idCategorias
+                dadosForm.usuario_denunciado, // Nome do criador do conteúdo
+                dadosForm.categoria // Categoria da postagem
             ]);
-
+    
             return resultado;
         } catch (erro) {
             throw erro;
         }
     },
-
 
     acharClienteCriadorDenuncia: async (id) => {
         try {
@@ -81,16 +80,15 @@ const admModel = {
         }
     },
 
-    categoriaDenuncia: async (id, categoria) => {
+    categoriaDenuncia: async (postagemId) => {
         try {
             let query = `
-            UPDATE denuncia d
-            JOIN conteudo_postagem c ON d.ID_conteudo = c.ID_conteudo
-            SET d.Categorias_idCategorias = ?
-            WHERE c.ID_conteudo = ?
+            SELECT Categorias_idCategorias
+            FROM conteudo_postagem
+            WHERE ID_conteudo = ?;
             `;
 
-            const values = [categoria, id];
+            const values = [postagemId];
             const [result] = await pool.query(query, values);
             return result;
         } catch (erro) {
