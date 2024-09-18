@@ -5,32 +5,34 @@ const conteudoModel = {
         try {
             const tipoCondicao = filtroTipo !== 'todas' ? `AND tipo = ?` : '';
             const categoriaCondicao = filtroCategoria ? `AND Categorias_idCategorias = ?` : '';
-    
+
             const query = `
             SELECT COUNT(*) as total FROM (
                 SELECT ID_conteudo AS id, 'dica' as tipo, Titulo, Categorias_idCategorias FROM conteudo_postagem
                 UNION ALL
-                SELECT ID_Pergunta AS id, 'pergunta' as tipo, titulo AS Titulo, NULL AS Categorias_idCategorias FROM perguntas
+                SELECT ID_Pergunta AS id, 'pergunta' as tipo, titulo AS Titulo, categorias_idCategorias AS Categorias_idCategorias FROM perguntas
             ) AS combined
             WHERE Titulo LIKE ? 
             ${tipoCondicao}
             ${categoriaCondicao}`;
-    
+
             const params = [`%${termoPesquisa}%`];
             if (filtroTipo !== 'todas') params.push(filtroTipo);
             if (filtroCategoria) params.push(filtroCategoria);
-    
+
             const [result] = await pool.query(query, params);
             return result;
         } catch (erro) {
             throw erro;
         }
     },
-    PesquisarPorTitulo: async (termoPesquisa, filtroTipo = 'todas', filtroCategoria = null, inicio, total) => {
+    PesquisarPorTitulo: async (termoPesquisa, filtroTipo = 'todas', filtroCategoria, inicio, total) => {
         try {
-            const tipoCondicao = filtroTipo !== 'todas' ? `AND tipo = ?` : '';
-            const categoriaCondicao = filtroCategoria ? `AND Categorias_idCategorias = ?` : '';
-    
+            let tipoCondicao = filtroTipo !== 'todas' ? `AND tipo = ?` : '';
+            let categoriaCondicao = filtroCategoria ? `WHERE Categorias_idCategorias = ${filtroCategoria}` : '';
+            console.log(categoriaCondicao);
+            console.log(filtroTipo);
+
             const query = `
             SELECT * FROM (
                 SELECT 
@@ -47,7 +49,7 @@ const conteudoModel = {
                     c.subcategorias
                 FROM conteudo_postagem AS c
                 JOIN clientes AS cl ON c.Clientes_idClientes = cl.idClientes
-                WHERE ${categoriaCondicao ? 'c.Categorias_idCategorias = ?' : 'c.Categorias_idCategorias IN (1, 2, 3)'}
+                ${categoriaCondicao}
                 UNION ALL
                 SELECT 
                     p.ID_Pergunta AS id, 
@@ -56,24 +58,26 @@ const conteudoModel = {
                     cl.Nickname AS nome_usuario, 
                     NULL AS tempo, 
                     p.Clientes_idClientes, 
-                    p.Categorias_idCategorias, 
+                    p.categorias_idCategorias AS Categorias_idCategorias, 
                     NULL AS Descricao, 
                     NULL AS Etapas_Modo_de_Preparo, 
                     NULL AS porcoes, 
                     NULL AS subcategorias
                 FROM perguntas AS p
                 JOIN clientes AS cl ON p.Clientes_idClientes = cl.idClientes
-                WHERE ${categoriaCondicao ? 'p.Categorias_idCategorias = ?' : 'p.Categorias_idCategorias IN (1, 2, 3)'}
+                ${categoriaCondicao}
             ) AS combined
             WHERE Titulo LIKE ? 
             ${tipoCondicao}
             ORDER BY id DESC
-            LIMIT ?, ?`;
-    
+            LIMIT ${inicio}, ${total}`;
+
+            console.log(query);
+
             const params = [`%${termoPesquisa}%`, inicio, total];
             if (filtroTipo !== 'todas') params.splice(1, 0, filtroTipo);
-            if (filtroCategoria) params.splice(2, 0, filtroCategoria);
-    
+            if (filtroCategoria) params.splice(1, 0, filtroCategoria);
+
             const [linhas] = await pool.query(query, params);
             return linhas;
         } catch (erro) {

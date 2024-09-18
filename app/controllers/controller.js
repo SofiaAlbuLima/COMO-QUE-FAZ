@@ -262,8 +262,10 @@ const tarefasController = {
                 tipo: conteudo.tipo,
                 subcategorias: conteudo.subcategorias
             }));
+            console.log(filtroTipo);
             return {
                 termoPesquisa,
+                filtroTipo,
                 aviso: data.length === 0 ? "Não há postagens disponíveis para esta pesquisa." : null,
                 usuario_logado: req.session.autenticado,
                 postagens: combinedConteudo,

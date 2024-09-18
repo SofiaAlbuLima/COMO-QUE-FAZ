@@ -5,25 +5,50 @@
                 <h1 class="titulo_filtros">Filtros de pesquisa</h1>
                 <hr class="linha_filtros_pesquisa">
                 <form action="/pesquisa" method="get">
-                        <h2 class="titulo_filtro_pesquisa">Filtrar por Tipo</h2>
-                        <figure class="grupo_filtro_pesquisa">
+                    <input type="hidden" name="pesquisa_form" value="<%= termoPesquisa %>">
+                    <h2 class="titulo_filtro_pesquisa">Filtrar por Tipo</h2>
+                    <figure class="grupo_filtro_pesquisa">
+                        <% if (filtroTipo=='dica' ) { %>
                             <input type="radio" id="filtro_todasTipo_pesquisa" name="filtro_tipo" value="todas"
-                                class="input_filtro_pesquisa" checked>
+                                class="input_filtro_pesquisa">
                             <label for="filtro_todasTipo_pesquisa" class="label_filtro_pesquisa">Todas</label>
                             <input type="radio" id="filtro_dicas_pesquisa" name="filtro_tipo"
-                                class="input_filtro_pesquisa" value="dica">
+                                class="input_filtro_pesquisa" value="dica" checked>
                             <label for="filtro_dicas_pesquisa" class="label_filtro_pesquisa">Dicas</label>
                             <input type="radio" id="filtro_perguntas_pesquisa" name="filtro_tipo" value="pergunta"
                                 class="input_filtro_pesquisa">
                             <label for="filtro_perguntas_pesquisa" class="label_filtro_pesquisa">Perguntas</label>
-                        </figure>
-                        <h2 class="titulo_filtro_pesquisa">Filtrar por Categoria</h2>
-                        <figure class="grupo_filtro_pesquisa">
+                            <% } else if (filtroTipo=='pergunta' ) { %>
+                                <input type="radio" id="filtro_todasTipo_pesquisa" name="filtro_tipo" value="todas"
+                                    class="input_filtro_pesquisa">
+                                <label for="filtro_todasTipo_pesquisa" class="label_filtro_pesquisa">Todas</label>
+                                <input type="radio" id="filtro_dicas_pesquisa" name="filtro_tipo"
+                                    class="input_filtro_pesquisa" value="dica">
+                                <label for="filtro_dicas_pesquisa" class="label_filtro_pesquisa">Dicas</label>
+                                <input type="radio" id="filtro_perguntas_pesquisa" name="filtro_tipo" value="pergunta"
+                                    class="input_filtro_pesquisa" checked>
+                                <label for="filtro_perguntas_pesquisa" class="label_filtro_pesquisa">Perguntas</label>
+                                <% }else{ %>
+                                    <input type="radio" id="filtro_todasTipo_pesquisa" name="filtro_tipo" value="todas"
+                                        class="input_filtro_pesquisa" checked>
+                                    <label for="filtro_todasTipo_pesquisa" class="label_filtro_pesquisa">Todas</label>
+                                    <input type="radio" id="filtro_dicas_pesquisa" name="filtro_tipo"
+                                        class="input_filtro_pesquisa" value="dica">
+                                    <label for="filtro_dicas_pesquisa" class="label_filtro_pesquisa">Dicas</label>
+                                    <input type="radio" id="filtro_perguntas_pesquisa" name="filtro_tipo"
+                                        value="pergunta" class="input_filtro_pesquisa">
+                                    <label for="filtro_perguntas_pesquisa"
+                                        class="label_filtro_pesquisa">Perguntas</label>
+                                    <% } %>
+                    </figure>
+                    <h2 class="titulo_filtro_pesquisa">Filtrar por Categoria</h2>
+                    <figure class="grupo_filtro_pesquisa">
+                        <% if (categoriaAtual===1) { %>
                             <input type="radio" id="filtro_todasCateg_pesquisa" name="filtro_categoria" value="todas"
-                                class="input_filtro_pesquisa" checked>
+                                class="input_filtro_pesquisa">
                             <label for="filtro_todasCateg_pesquisa" class="label_filtro_pesquisa">Todas</label>
                             <input type="radio" id="filtro_culinaria_pesquisa" name="filtro_categoria" value="culinaria"
-                                class="input_filtro_pesquisa">
+                                class="input_filtro_pesquisa" checked>
                             <label for="filtro_culinaria_pesquisa" class="label_filtro_pesquisa">Culinária</label>
                             <input type="radio" id="filtro_limpeza_pesquisa" name="filtro_categoria" value="limpeza"
                                 class="input_filtro_pesquisa">
@@ -31,19 +56,68 @@
                             <input type="radio" id="filtro_bemEstar_pesquisa" name="filtro_categoria" value="bemestar"
                                 class="input_filtro_pesquisa">
                             <label for="filtro_bemEstar_pesquisa" class="label_filtro_pesquisa">Bem Estar</label>
-                        </figure>
-                        <h2 class="titulo_filtro_pesquisa">Filtrar por Classificação</h2>
-                        <figure class="grupo_filtro_pesquisa">
-                            <input type="radio" id="filtro_todasClassif_pesquisa" name="filtro_classificacao"
-                                value="todas" class="input_filtro_pesquisa" checked>
-                            <label for="filtro_todasClassif_pesquisa" class="label_filtro_pesquisa">Todas</label>
-                            <input type="radio" id="filtro_recentes_pesquisa" name="filtro_classificacao"
-                                value="recentes" class="input_filtro_pesquisa">
-                            <label for="filtro_recentes_pesquisa" class="label_filtro_pesquisa">Mais Recentes</label>
-                            <input type="radio" id="filtro_emAlta_pesquisa" name="filtro_classificacao" value="em-alta"
-                                class="input_filtro_pesquisa">
-                            <label for="filtro_emAlta_pesquisa" class="label_filtro_pesquisa">Em Alta</label>
-                        </figure>
+                            <% } else if (categoriaAtual===2) { %>
+                                <input type="radio" id="filtro_todasCateg_pesquisa" name="filtro_categoria"
+                                    value="todas" class="input_filtro_pesquisa" checked>
+                                <label for="filtro_todasCateg_pesquisa" class="label_filtro_pesquisa">Todas</label>
+                                <input type="radio" id="filtro_culinaria_pesquisa" name="filtro_categoria"
+                                    value="culinaria" class="input_filtro_pesquisa">
+                                <label for="filtro_culinaria_pesquisa" class="label_filtro_pesquisa">Culinária</label>
+                                <input type="radio" id="filtro_limpeza_pesquisa" name="filtro_categoria" value="limpeza"
+                                    class="input_filtro_pesquisa" checked>
+                                <label for="filtro_limpeza_pesquisa" class="label_filtro_pesquisa">Limpeza</label>
+                                <input type="radio" id="filtro_bemEstar_pesquisa" name="filtro_categoria"
+                                    value="bemestar" class="input_filtro_pesquisa">
+                                <label for="filtro_bemEstar_pesquisa" class="label_filtro_pesquisa">Bem Estar</label>
+                                <% } else if (categoriaAtual===3) { %>
+                                    <input type="radio" id="filtro_todasCateg_pesquisa" name="filtro_categoria"
+                                        value="todas" class="input_filtro_pesquisa" checked>
+                                    <label for="filtro_todasCateg_pesquisa" class="label_filtro_pesquisa">Todas</label>
+                                    <input type="radio" id="filtro_culinaria_pesquisa" name="filtro_categoria"
+                                        value="culinaria" class="input_filtro_pesquisa">
+                                    <label for="filtro_culinaria_pesquisa"
+                                        class="label_filtro_pesquisa">Culinária</label>
+                                    <input type="radio" id="filtro_limpeza_pesquisa" name="filtro_categoria"
+                                        value="limpeza" class="input_filtro_pesquisa">
+                                    <label for="filtro_limpeza_pesquisa" class="label_filtro_pesquisa">Limpeza</label>
+                                    <input type="radio" id="filtro_bemEstar_pesquisa" name="filtro_categoria"
+                                        value="bemestar" class="input_filtro_pesquisa" checked>
+                                    <label for="filtro_bemEstar_pesquisa" class="label_filtro_pesquisa">Bem
+                                        Estar</label>
+                                    <% } else { %>
+                                        <input type="radio" id="filtro_todasCateg_pesquisa" name="filtro_categoria"
+                                            value="todas" class="input_filtro_pesquisa" checked>
+                                        <label for="filtro_todasCateg_pesquisa"
+                                            class="label_filtro_pesquisa">Todas</label>
+                                        <input type="radio" id="filtro_culinaria_pesquisa" name="filtro_categoria"
+                                            value="culinaria" class="input_filtro_pesquisa">
+                                        <label for="filtro_culinaria_pesquisa"
+                                            class="label_filtro_pesquisa">Culinária</label>
+                                        <input type="radio" id="filtro_limpeza_pesquisa" name="filtro_categoria"
+                                            value="limpeza" class="input_filtro_pesquisa">
+                                        <label for="filtro_limpeza_pesquisa"
+                                            class="label_filtro_pesquisa">Limpeza</label>
+                                        <input type="radio" id="filtro_bemEstar_pesquisa" name="filtro_categoria"
+                                            value="bemestar" class="input_filtro_pesquisa">
+                                        <label for="filtro_bemEstar_pesquisa" class="label_filtro_pesquisa">Bem
+                                            Estar</label>
+                                        <% } %>
+                    </figure>
+                    <h2 class="titulo_filtro_pesquisa">Filtrar por Classificação</h2>
+                    <figure class="grupo_filtro_pesquisa">
+                        <input type="radio" id="filtro_todasClassif_pesquisa" name="filtro_classificacao" value="todas"
+                            class="input_filtro_pesquisa" checked>
+                        <label for="filtro_todasClassif_pesquisa" class="label_filtro_pesquisa">Todas</label>
+                        <input type="radio" id="filtro_recentes_pesquisa" name="filtro_classificacao" value="recentes"
+                            class="input_filtro_pesquisa">
+                        <label for="filtro_recentes_pesquisa" class="label_filtro_pesquisa">Mais Recentes</label>
+                        <input type="radio" id="filtro_emAlta_pesquisa" name="filtro_classificacao" value="em-alta"
+                            class="input_filtro_pesquisa">
+                        <label for="filtro_emAlta_pesquisa" class="label_filtro_pesquisa">Em Alta</label>
+                        <input type="radio" id="filtro_maisRapidas_pesquisa" name="filtro_classificacao" value="mais-rapidas"
+                            class="input_filtro_pesquisa">
+                        <label for="filtro_maisRapidas_pesquisa" class="label_filtro_pesquisa">Mais Rápidas</label>
+                    </figure>
                     <button type="submit" class="submit-filtros-pesquisa">Filtrar</button>
                 </form>
                 <div id="resultado-pesquisa"></div>
@@ -52,13 +126,14 @@
             <section class="conteudo_pesquisa">
                 <section>
                     <a class="mapa_do_site-link_pesquisa" href="/"> Home</a>
-                    <a class="mapa_do_site-atual">'<%= termoPesquisa %>'</a>
+                    <a class="mapa_do_site-atual">> '<%= termoPesquisa %>'</a>
                 </section>
                 <section class="cabecalho_pesquisa">
                     <article class="pesquisa_textos">
                         <article class="titulo-descricao-pesquisa">
-                            <h1 class="titulo_pagina_pesquisa">Pesquisa: <%= termoPesquisa %></h1>
-                            <p class="descricao_pagina_pesquisa">Consulte aqui seus resultados sobre '<%= termoPesquisa %>'
+                            <h1 class="titulo_pagina_pesquisa">Pesquisa: "<%= termoPesquisa %>"</h1>
+                            <p class="descricao_pagina_pesquisa">Consulte aqui seus resultados sobre '<%= termoPesquisa
+                                    %>'
                             </p>
                         </article>
                     </article>
@@ -66,10 +141,10 @@
                 <hr class="linha_separadora_pesquisa">
                 <section class="postagens_pesquisa">
                     <% if(!aviso){%>
-                    <%- include("../perguntas-dicas/base-postagens") %>
-                    <% } else{%>
-                        <p>nenhuma postagem encontrada</p>
-                    <% } %>
+                        <%- include("../perguntas-dicas/base-postagens") %>
+                            <% } else{%>
+                                <p>nenhuma postagem encontrada</p>
+                                <% } %>
                 </section>
             </section>
         </section>
