@@ -2,20 +2,31 @@ const pool = require("../../config/pool-conexoes");
 
 const admModel = {
 
+    mostrarDenuncias: async () => {
+        try {
+            const query = `SELECT * FROM denuncia`;
+            const [resultado] = await pool.query(query);
+            return resultado;
+
+        } catch (erro) {
+            throw erro;
+        }
+    },
+
     criarDenuncia: async (dadosForm) => {
         try {
             const query = `
                 INSERT INTO denuncia (motivo, detalhamento_denuncia, usuario_denunciado, Categorias_idCategorias)
                 VALUES (?, ?, ?, ?)
             `;
-    
+
             const [resultado] = await pool.query(query, [
                 dadosForm.motivo,
                 dadosForm.detalhamento_denuncia,
-                dadosForm.usuario_denunciado, // Nome do criador do conteúdo
-                dadosForm.categoria // Categoria da postagem
+                dadosForm.usuario_denunciado,
+                dadosForm.categoria
             ]);
-    
+
             return resultado;
         } catch (erro) {
             throw erro;

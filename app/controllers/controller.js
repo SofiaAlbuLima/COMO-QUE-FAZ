@@ -474,7 +474,7 @@ const tarefasController = {
 
     listarDenuncias: async (req, res) => {
         try {
-            results = await admModel.criarDenuncia(dadosForm);
+            results = await admModel.mostrarDenuncias();
 
             return {
                 denunciasNoControl: results,
