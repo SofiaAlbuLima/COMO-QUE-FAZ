@@ -55,6 +55,22 @@ const admModel = {
         }
     },
 
+    AutorDenuncia: async () => {
+        try {
+            query = `
+            SELECT cl.nickname
+            FROM denuncia AS c
+            JOIN clientes AS cl ON c.clientes_idClientes = cl.idClientes;
+            `
+            const [resultado] = await pool.query(query);
+            return resultado;
+
+        } catch (erro) {
+            throw erro;
+        }
+    },
+
+
     categoriaDenuncia: async (postagemId) => {
         try {
             let query = `
