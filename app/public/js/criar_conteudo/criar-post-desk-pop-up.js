@@ -38,16 +38,6 @@ function apagarEtapa(button) {
     etapaDiv.remove();
 }
 
-function toggleIngredientes() {
-    var checkbox = document.getElementById("toggle-ingredientes");
-    var ingredientesContainer = document.getElementById("ingredientes-div");
-
-    if (checkbox.checked) {
-        ingredientesContainer.style.display = "block";
-    } else {
-        ingredientesContainer.style.display = "none";
-    }
-}
 
 function adicionarIngrediente() {
     const container = document.getElementById('ingredientes-div');

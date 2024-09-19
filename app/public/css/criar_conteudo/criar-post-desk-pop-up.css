@@ -128,10 +128,27 @@
     #conteudoTarefa2 {
         left: 0;
         position: absolute;
-        overflow: auto;
+        overflow-y: scroll;
+        overflow-x: hidden;
         width: 110vh;
         height: 55vh;
         padding-left: 15vh;
+    }
+    .conteudo-elementos-passoapasso{
+        display: flex;
+        justify-content: left;
+        gap: 3vh;
+        width: 100%;
+        margin-top: 2vh;
+    }
+    .esqueleto-elementos, .tudo-dos-clones{
+        display: flex;
+    }
+    .pergunta-incluir{
+        align-items: center;
+        display: flex;
+        padding: 2vh;
+        gap: 1vh;
     }
 
     #conteudoTarefa3 {
@@ -209,6 +226,7 @@
         font-weight: 700;
         font-size: 2.5vh;
         margin-top: 4vh;
+        width: 100%;
     }
     #titulo-detalhes{
         color: #4d16bb;
@@ -617,11 +635,6 @@
         display: inline-block;
     }
 
-    #clonados-ou-nao {
-        margin-top: 1vw;
-        position: absolute;
-    }
-
     #linha-rosa-ingredientes {
         width: 0.26vw;
         height: 10vw;
@@ -643,13 +656,39 @@
         position: relative;
         margin-top: 5vw;
     }
-
+    .conteudo-ingriedente{
+        width: 100%;
+    }
+    .titulo-itens-adicionar{
+        display: flex;
+        justify-content: space-between;
+        width: 41vh;
+        background-color: #cb218d1c;
+        border-radius: 10px;
+        padding: 2vh;
+        align-items: center;
+    }
+    .ingredientes-e-botao{
+        display: flex;  
+    }
+    .button-add-ingrediente{
+        padding: 0.75vh  1.5vh;
+        background-color: #cb218c;
+        color: white;
+        font-family: Heavitas;
+        border: none;
+        cursor: pointer;
+        border-radius: 100px;
+        font-size: 2vh;
+        font-weight: 400;
+        display: flex;
+        align-items: center;
+    }
     #titulo-ingredientes-elementos {
         font-family: "Fira Sans Bold", "Fira Sans", sans-serif;
         font-weight: 700;
         color: #cb218c;
         text-align: left;
-        margin-bottom: -6vw;
         font-size: 2.5vh;
         border: 0;
     }
@@ -828,12 +867,9 @@
         color: #333333;
         text-align: left;
     }
-
-    #tudo-dos-clones {
-        width: 25vw;
-        margin-left: 25vw;
-        margin-top: 1vw;
-        position: absolute;
+    #tudo-dos-clones, #clonados-ou-nao{
+        width: 45vh;
+        display: flex;
     }
 
     #numero-do-modo-de-preparo {
@@ -862,10 +898,18 @@
         font-family: "Fira Sans Bold", "Fira Sans", sans-serif;
         font-weight: 700;
         color: #9e5fef;
-        text-align: left;
-        margin-left: 1.5vw;
         font-size: 2.5vh;
         border: 0;
+        display: flex;
+    }
+    .titulo-passoapasso-adicionar{
+        border-radius: 10px;
+        background-color: #9d5fef1c;
+        align-items: center;
+        justify-content: space-between;
+        display: flex;
+        padding: 2vh;
+        width: 41vh;
     }
 
     #modo-de-preparo-NaN {
@@ -888,13 +932,18 @@
         font-size: 80%;
     }
 
-    #botoes-de-tirar-colocar {
-        margin-left: 18vw;
-        margin-top: -1vw;
-    }
-
-    #linhas-roxa-conteudo {
-        border-left: 0.31vw #9e5fef solid;
+    #botoes-de-tirar-colocar button{
+        display: flex;
+        padding: 0.75vh 1.5vh;
+        background-color: #9e5fef;
+        color: white;
+        font-family: Heavitas;
+        border: none;
+        cursor: pointer;
+        border-radius: 100px;
+        font-size: 2vh;
+        font-weight: 400;
+        align-items: center;
     }
 
     #input-modo-de-preparo {
