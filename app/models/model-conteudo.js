@@ -5,7 +5,7 @@ const conteudoModel = {
         try {
             const tipoCondicao = filtroTipo !== 'todas' ? `AND tipo = ?` : '';
             const categoriaCondicao = filtroCategoria ? `AND Categorias_idCategorias = ?` : '';
-
+    
             const query = `
             SELECT COUNT(*) as total FROM (
                 SELECT ID_conteudo AS id, 'dica' as tipo, Titulo, Categorias_idCategorias FROM conteudo_postagem
@@ -15,11 +15,11 @@ const conteudoModel = {
             WHERE Titulo LIKE ? 
             ${tipoCondicao}
             ${categoriaCondicao}`;
-
+    
             const params = [`%${termoPesquisa}%`];
             if (filtroTipo !== 'todas') params.push(filtroTipo);
             if (filtroCategoria) params.push(filtroCategoria);
-
+    
             const [result] = await pool.query(query, params);
             return result;
         } catch (erro) {
@@ -28,13 +28,17 @@ const conteudoModel = {
     },
     PesquisarPorTitulo: async (termoPesquisa, filtroTipo, filtroCategoria, inicio, total, filtroClassificacao = 'em-alta') => {
         try {
-            let tipoCondicao = filtroTipo !== 'todas' ? `AND tipo = ?` : '';
-            let categoriaCondicao = filtroCategoria ? `WHERE Categorias_idCategorias = ${filtroCategoria}` : '';
-            console.log("Categoria: " + categoriaCondicao);
-            console.log("Tipo Postagem: " + filtroTipo);
-            console.log("Filtro Classificacao: " + filtroClassificacao);
+            const tipoCondicao = filtroTipo !== null && filtroTipo !== 'todas' ? `AND tipo = ?` : '';
+            const categoriaCondicao = filtroCategoria ? `AND Categorias_idCategorias = ?` : '';
 
-            const query = `
+            console.log("Termo Pesquisado: " + termoPesquisa);
+            console.log("Tipo de Postagem: " + filtroTipo);
+            console.log("Categoria: " + filtroCategoria);
+            console.log("Inicio: " + inicio);
+            console.log("Total: " + total);
+            console.log("Classificação: " + filtroClassificacao);
+    
+            let query = `
             SELECT * FROM (
                 SELECT 
                     c.ID_conteudo AS id, 
@@ -67,30 +71,31 @@ const conteudoModel = {
                 JOIN clientes AS cl ON p.Clientes_idClientes = cl.idClientes
             ) AS combined
             WHERE Titulo LIKE ? 
-            ${categoriaCondicao}
-            ${tipoCondicao}`
-
+            ${tipoCondicao}
+            ${categoriaCondicao}`;
+    
             switch (filtroClassificacao) {
                 case 'mais-rapidas':
                     query += ` ORDER BY tempo ASC`;
                     break;
                 case 'em-alta':
-                    query += ` ORDER BY id DESC`;
-                    break;
                 case 'recentes':
                 default:
                     query += ` ORDER BY id DESC`;
             }
-
-            query += ` LIMIT ${inicio}, ${total}`;
+    
+            query += ` LIMIT ?, ?`;
 
             console.log(query);
+    
+            const params = [`%${termoPesquisa}%`];
+            if (filtroTipo !== null && filtroTipo !== 'todas') params.push(filtroTipo);
+            if (filtroCategoria) params.push(filtroCategoria);
+            params.push(inicio, total);
 
-            const params = [`%${termoPesquisa}%`, inicio, total];
-            if (filtroTipo !== 'todas') params.splice(1, 0, filtroTipo);
-            if (filtroCategoria) params.splice(1, 0, filtroCategoria);
-
-            const [linhas] = await pool.query(query, params);
+            let resposta = await pool.query(query, params);
+            const [linhas] = resposta;
+            console.log(resposta);
             return linhas;
         } catch (erro) {
             throw erro;

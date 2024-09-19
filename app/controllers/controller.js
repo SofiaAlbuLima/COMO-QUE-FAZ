@@ -201,7 +201,7 @@ const tarefasController = {
     PesquisarPosts: async (req, res, categoriaId = null) => {
         try {
             const termoPesquisa = req.query.pesquisa_form || "";
-            const filtroTipo = req.query.filtro_tipo || null;
+            const filtroTipo = req.query.filtro_tipo || null;   
             let filtroCategoria = req.query.filtro_categoria || null;
             const filtroClassificacao = req.query.filtro_classificacao || 'em-alta';
 
@@ -219,7 +219,6 @@ const tarefasController = {
             let inicio = (pagina - 1) * regPagina;
 
             const data = await conteudoModel.PesquisarPorTitulo(termoPesquisa, filtroTipo, categoria, inicio, regPagina, filtroClassificacao);
-            console.log(data);
 
             let totReg = await conteudoModel.TotalRegPorTitulo(termoPesquisa, filtroTipo, categoria);
             let totalRegistros = totReg[0].total;
@@ -263,7 +262,6 @@ const tarefasController = {
                 tipo: conteudo.tipo,
                 subcategorias: conteudo.subcategorias
             }));
-            console.log(filtroTipo);
             return {
                 termoPesquisa,
                 filtroTipo,
