@@ -492,6 +492,7 @@ const tarefasController = {
             const dadosForm = {
                 motivo: req.body.motivo,
                 detalhamento_denuncia: req.body.detalhamento_denuncia,
+                id_denunciador: req.session.autenticado.id
             };
     
             const postagemId = req.params.id;

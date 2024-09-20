@@ -55,20 +55,22 @@ const admModel = {
         }
     },
 
-    AutorDenuncia: async () => {
-        try {
-            query = `
-            SELECT cl.nickname
-            FROM denuncia AS c
-            JOIN clientes AS cl ON c.clientes_idClientes = cl.idClientes;
-            `
-            const [resultado] = await pool.query(query);
-            return resultado;
+    // tirar isso, pq já coloquei no controller, pelo re.session.auteticado.id ------ colocar o id da postagem na tabela denuncia, pq se nn vai ocorrer a repetição de informações (ex: nome de quem criou a denuncia)
+    // AutorDenuncia: async () => {
+    //     try {
+    //         query = `
+    //         SELECT c.Nickname AS criador_denuncia
+    //         FROM denuncia d
+    //         JOIN clientes c ON d.Clientes_idClientes = c.idClientes
+    //         WHERE d.ID_denuncia = ?;
+    //         `
+    //         const [resultado] = await pool.query(query);
+    //         return resultado;
 
-        } catch (erro) {
-            throw erro;
-        }
-    },
+    //     } catch (erro) {
+    //         throw erro;
+    //     }
+    // },
 
 
     categoriaDenuncia: async (postagemId) => {
