@@ -50,6 +50,11 @@ function adicionarIngrediente() {
     // Cria a estrutura do HTML para os ingredientes
     novoIngrediente.innerHTML = `
         <section id="sem-a-linha-rosa">
+            <article class="item-excluir">
+                <h2 id="numero-do-ingrediente">${numeroIngrediente}º Item</h2>
+                <img id="botao-de-tirar-ingrediente" src="/imagens/tirar-ingrediente.svg"
+                alt="excluir ingrediente" onclick="removerIngrediente(this)">
+            </article>
             <h4 id="nome-do-ingrediente">Nome do ingrediente</h4>
             <input type="text" id="input-nome-do-ingrediente" placeholder="FARINHA DE TRIGO" name="ingredientes">
             <div id="coiso-pra-deixar-certo">
@@ -74,11 +79,7 @@ function adicionarIngrediente() {
                     </select>
                 </section>
             </div>
-            <img id="botao-de-tirar-ingrediente" src="/imagens/tirar-ingrediente.svg" alt="excluir ingrediente" onclick="removerIngrediente(this)">
         </section>
-        <figure id="linha-rosa-ingredientes">
-            <h2 id="numero-do-ingrediente">${numeroIngrediente}</h2>
-        </figure>
     `;
 
     // Adiciona o novo ingrediente ao container
@@ -87,17 +88,22 @@ function adicionarIngrediente() {
 
 function removerIngrediente(element) {
     const container = document.getElementById('ingredientes-div');
-    const sections = container.querySelectorAll('.ingrediente-article');
 
-    // Se houver mais de um ingrediente, permite remover
-    if (sections.length > 1) {
-        element.closest('.ingrediente-article').remove();
+    // Remove o ingrediente clicado, incluindo "sem-a-linha-rosa" que está dentro do 'ingrediente-article'
+    const articleToRemove = element.closest('.ingrediente-article');
+    if (articleToRemove) {
+        articleToRemove.remove();
+    }
 
-        // Reajusta os números dos ingredientes
-        const remainingSections = container.querySelectorAll('.ingrediente-article');
-        remainingSections.forEach((section, index) => {
-            section.querySelector('#numero-do-ingrediente').textContent = index + 1;
-        });
+    // Reajusta os números dos ingredientes restantes
+    const remainingSections = container.querySelectorAll('.ingrediente-article');
+    remainingSections.forEach((section, index) => {
+        section.querySelector('#numero-do-ingrediente').textContent = (index + 1) + "º Item";
+    });
+
+    // Verifica se não há mais ingredientes e, se necessário, adiciona um novo
+    if (remainingSections.length === 0) {
+        adicionarIngrediente();
     }
 }
 
@@ -271,8 +277,8 @@ function atualizarCampoOculto() {
 
     // Obter todas as subcategorias da lista
     const subcategorias = Array.from(messageList.getElementsByClassName('div-etiqueta-subcategoria'))
-                               .map(div => div.textContent.trim());
-    
+        .map(div => div.textContent.trim());
+
     // Atualizar o valor do campo oculto
     hiddenInput.value = subcategorias.join(', ');
 }
