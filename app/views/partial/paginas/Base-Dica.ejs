@@ -528,12 +528,12 @@
                            : 'Nenhuma subcategoria indicada' %>
                      </p>
                   </figure>
-                  <aside class="estrelas_culinaria">
+                  <aside class="estrelas_culinaria" data-user-id="<%= usuario_logado %>" data-conteudo-id="<%= postagem.id %>" data-categorias-id="<%= postagem.categoria %>">
                      <article class="avalie">
                         <h1 class="gostou">GOSTOU?</h1>
                         <h2 class="p-aval">Avalie essa dica!</h2>
                      </article>
-                     <div class="rate">
+                     <div class="rate" id="rating-container">
                         <input type="radio" id="star5" name="rate" value="5" />
                         <label class="label_culinaria" for="star5" title="5 stars"></label>
                         <input type="radio" id="star4" name="rate" value="4" />
@@ -558,7 +558,7 @@
                            <h1 class="gostou">GOSTOU?</h1>
                            <h2 class="p-aval">Avalie essa dica!</h2>
                         </article>
-                        <div class="rate">
+                        <div class="rate" id="rating-container" data-conteudo-id="<% postagem.id %>">
                            <input type="radio" id="star5" name="rate" value="5" />
                            <label class="label_limpeza" for="star5" title="5 stars"></label>
                            <input type="radio" id="star4" name="rate" value="4" />

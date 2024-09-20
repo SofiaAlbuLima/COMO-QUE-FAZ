@@ -5,7 +5,7 @@ const conteudoModel = {
         try {
             const tipoCondicao = filtroTipo !== 'todas' ? `AND tipo = ?` : '';
             const categoriaCondicao = filtroCategoria ? `AND Categorias_idCategorias = ?` : '';
-    
+
             const query = `
             SELECT COUNT(*) as total FROM (
                 SELECT ID_conteudo AS id, 'dica' as tipo, Titulo, Categorias_idCategorias FROM conteudo_postagem
@@ -15,11 +15,11 @@ const conteudoModel = {
             WHERE Titulo LIKE ? 
             ${tipoCondicao}
             ${categoriaCondicao}`;
-    
+
             const params = [`%${termoPesquisa}%`];
             if (filtroTipo !== 'todas') params.push(filtroTipo);
             if (filtroCategoria) params.push(filtroCategoria);
-    
+
             const [result] = await pool.query(query, params);
             return result;
         } catch (erro) {
@@ -37,7 +37,7 @@ const conteudoModel = {
             console.log("Inicio: " + inicio);
             console.log("Total: " + total);
             console.log("Classificação: " + filtroClassificacao);
-    
+
             let query = `
             SELECT * FROM (
                 SELECT 
@@ -73,7 +73,7 @@ const conteudoModel = {
             WHERE Titulo LIKE ? 
             ${tipoCondicao}
             ${categoriaCondicao}`;
-    
+
             switch (filtroClassificacao) {
                 case 'mais-rapidas':
                     query += ` ORDER BY tempo ASC`;
@@ -83,11 +83,11 @@ const conteudoModel = {
                 default:
                     query += ` ORDER BY id DESC`;
             }
-    
+
             query += ` LIMIT ?, ?`;
 
             console.log(query);
-    
+
             const params = [`%${termoPesquisa}%`];
             if (filtroTipo !== null && filtroTipo !== 'todas') params.push(filtroTipo);
             if (filtroCategoria) params.push(filtroCategoria);
@@ -126,7 +126,40 @@ const conteudoModel = {
             throw erro;
         }
     },
-
+    Avaliacao: async ({ clientes_id, nota, conteudo_id, categorias_id }) => {
+        try {
+            const query = `
+                INSERT INTO avaliacao (Data, Nota, Clientes_idClientes, conteudo_postagem_ID_conteudo, conteudo_postagem_Categorias_idCategorias)
+                VALUES (NOW(), ?, ?, ?, ?)`;
+            await pool.query(query, [nota, clientes_id, conteudo_id, categorias_id]);
+        } catch (erro) {
+            throw erro;
+        }
+    },
+    AvaliacaoMediaPorConteudo: async (conteudo_id) => {
+        try {
+            const query = `
+                SELECT AVG(nota) as media
+                FROM avaliacao
+                WHERE conteudo_id = ?`;
+            const [result] = await pool.query(query, [conteudo_id]);
+            return result;
+        } catch (erro) {
+            throw erro;
+        }
+    },
+    TotalAvaliacoes: async (conteudo_id) => {
+        try {
+            const query = `
+                SELECT COUNT(*) as total
+                FROM avaliacao
+                WHERE conteudo_id = ?`;
+            const [result] = await pool.query(query, [conteudo_id]);
+            return result.total;
+        } catch (erro) {
+            throw erro;
+        }
+    },
     FindPage: async (categoria, ordem, inicio, total) => {
         try {
             let query = `

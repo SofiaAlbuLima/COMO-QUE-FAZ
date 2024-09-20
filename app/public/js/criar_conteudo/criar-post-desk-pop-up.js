@@ -23,12 +23,16 @@ function adicionarEtapa() {
     const etapaDiv = document.createElement('article');
     etapaDiv.classList.add('etapa-' + etapaCount);
     etapaDiv.innerHTML = `
-        <span id="arruma-numero-simbolo">
-            <input type="text" id="numero-do-modo-de-preparo" placeholder="${etapaCount}" disabled="disabled">
-            <h2 id="simbolo-do-numero">º</h2>
-        </span>
-        <input type="text" id="input-modo-de-preparo" placeholder="Descrição da etapa" name="etapas_modo_preparo">
-        <button type="button" onclick="apagarEtapa(this)">X</button>
+        <article class="step-passoApasso">
+            <span id="arruma-numero-simbolo">
+                <input type="text" id="numero-do-modo-de-preparo" placeholder="${etapaCount}"
+                disabled="disabled">
+                <h2 id="simbolo-do-numero">º</h2>
+            </span>
+            <input type="text" id="input-modo-de-preparo" placeholder="Descrição da etapa"
+            name="etapas_modo_preparo">
+            <button class="button-etapas" type="button" onclick="apagarEtapa(this)">X</button>
+        </article>
     `;
     modoDePreparoDiv.appendChild(etapaDiv);
 }
