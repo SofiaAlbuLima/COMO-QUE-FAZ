@@ -343,7 +343,7 @@
         box-sizing: border-box;
         border-radius: 0.26vw;
         background-color: #e2e2e2;
-        font-family: "Arial Bold", "Arial Normal", "Arial", sans-serif;
+        font-family: Fira Sans;
         font-weight: 700;
         font-size: 1.8vh;
         border: 2px #cb218c solid;
@@ -365,7 +365,7 @@
         width: 21vw;
         height: 2vw;
         background-color: #e2e2e2;
-        font-family: "Arial Bold", "Arial Normal", "Arial", sans-serif;
+        font-family: Fira Sans;
         font-size: 100%;
         color: #333333;
         cursor: pointer;
@@ -455,7 +455,7 @@
         border: 1px solid #797979;
         background-color: #f2f2f2;
         box-sizing: border-box;
-        font-family: "Arial", sans-serif;
+        font-family: Fira Sans;
         font-size: 130%;
         color: #555;
         font-weight: 600;
@@ -697,6 +697,7 @@
 
     #botao-de-tirar-ingrediente {
         display: flex;
+        cursor: pointer;
     }
     .item-excluir{
         justify-content: space-between;
@@ -867,7 +868,9 @@
     }
 
     #numero-do-modo-de-preparo {
-        width: 2vh;
+        width: 3vh;
+        text-align: right;
+        display: flex;
         border: 0;
         background-color: rgba(255, 0, 0, 0);
         outline: none;
@@ -940,26 +943,29 @@
         justify-content: center;
         display: flex;
         gap: 2vh;
+        margin-top: 2vh;
     }
     #arruma-numero-simbolo{
         display: flex;
     }
     #input-modo-de-preparo {
-        width: 16vw;
-        height: 2vw;
-        padding: 2px 2px 2px 2px;
-        font-size: 90%;
+        width: 37vh;
+        height: 4vh;
+        padding: 2px 4vh 2px 2px;
+        font-size: 1.8vh;
+        resize: none;
+        overflow: hidden;
         border: 0;
         border-bottom: 1px solid #727272;
         border-right: 1px solid #727272;
         background-color: rgba(255, 0, 0, 0);
         box-sizing: border-box;
-        font-family: "Arial", sans-serif;
-        padding-left: 1%;
-        padding-bottom: 0.2vw;
+        font-family: Fira Sans;
         color: #333333;
         text-align: left;
         display: flex;
+        flex-wrap: wrap;
+        align-items: flex-start;
         border-bottom-right-radius: 5px;
 
         &::-webkit-input-placeholder {
@@ -979,10 +985,19 @@
             border-bottom: 2px #9e5fef solid;
             border-right: 2px #9e5fef solid;
         }
+        &:focus + .button-etapas{
+            color: #9e5fef;
+        }
     }
     .button-etapas{
         display: flex;
         position: absolute;
+        transform: translate(19vh, 0.8vh);
+        color: #727272;
+        background-color: none;
+        border: none;
+        font-size: 2vh;
+        cursor: pointer;
     }
 
     #apagar-modo-de-preparo {
