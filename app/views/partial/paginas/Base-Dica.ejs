@@ -364,7 +364,7 @@
                   <a href="/limpeza">
                      <p class="mapa-1">Limpeza</p>
                   </a>
-                  <% } else if (postagem.categoria===2) { %>
+                  <% } else if (postagem.categoria===3) { %>
                      <a href="/bem-estar">
                         <p class="mapa-1- limpe">Bem Estar</p>
                      </a>
@@ -414,8 +414,6 @@
                               </h1>
                            </figure>
                            <% } %>
-
-
                               <% if (postagem.categoria===1) { %>
                                  <button id="opcoes" class="opcoes_dica_culinaria" onclick="AbrirOpcoesDesktop(event)">
                                     <figure class="ponto_dica"></figure>
@@ -469,20 +467,20 @@
                      <form class="denuncia-form" action="/denunciar/<%= postagem.id %>" method="POST">
                         <label for="denuncia-tipo" class="denuncia-label">Motivo da Denúncia:</label>
                         <select id="denuncia-tipo" name="motivo" class="denuncia-select" required>
-                            <option class="opcao-select-popup" value="">Selecione o motivo</option>
-                            <option class="opcao-select-popup" value="spam">Spam</option>
-                            <option class="opcao-select-popup" value="conteudo-inadequado">Conteúdo Inadequado</option>
-                            <option class="opcao-select-popup" value="violencia">Violações dos termos de uso</option>
+                           <option class="opcao-select-popup" value="">Selecione o motivo</option>
+                           <option class="opcao-select-popup" value="spam">Spam</option>
+                           <option class="opcao-select-popup" value="conteudo-inadequado">Conteúdo Inadequado</option>
+                           <option class="opcao-select-popup" value="violencia">Violações dos termos de uso</option>
                         </select>
-                    
-                        <label for="denuncia-descricao" class="denuncia-label">Descrição:</label>
-                        <textarea id="denuncia-descricao" name="detalhamento_denuncia" class="denuncia-textarea" required
-                            placeholder="Detalhe o motivo da denúncia..."></textarea>
-                    
-                        <button type="submit" class="denuncia-submit">Enviar Denúncia</button>
-                    </form>
 
-                     
+                        <label for="denuncia-descricao" class="denuncia-label">Descrição:</label>
+                        <textarea id="denuncia-descricao" name="detalhamento_denuncia" class="denuncia-textarea"
+                           required placeholder="Detalhe o motivo da denúncia..."></textarea>
+
+                        <button type="submit" class="denuncia-submit">Enviar Denúncia</button>
+                     </form>
+
+
 
                   </section>
                </aside>
@@ -526,15 +524,16 @@
                <% if (postagem.categoria===1) { %>
                   <figure class="hashtags">
                      <p class="hashtags-texto-culinaria">
-                        <%= postagem.subcategorias ? postagem.subcategorias.replace(/,\s*/g, ' - ') : 'Nenhuma subcategoria indicada' %>
+                        <%= postagem.subcategorias ? postagem.subcategorias.replace(/,\s*/g, ' - ' )
+                           : 'Nenhuma subcategoria indicada' %>
                      </p>
                   </figure>
-                  <aside class="estrelas_culinaria">
+                  <aside class="estrelas_culinaria" data-user-id="<%= usuario_logado %>" data-conteudo-id="<%= postagem.id %>" data-categorias-id="<%= postagem.categoria %>">
                      <article class="avalie">
                         <h1 class="gostou">GOSTOU?</h1>
                         <h2 class="p-aval">Avalie essa dica!</h2>
                      </article>
-                     <div class="rate">
+                     <div class="rate" id="rating-container">
                         <input type="radio" id="star5" name="rate" value="5" />
                         <label class="label_culinaria" for="star5" title="5 stars"></label>
                         <input type="radio" id="star4" name="rate" value="4" />
@@ -550,7 +549,8 @@
                   <% } else if (postagem.categoria===2) { %>
                      <figure class="hashtags">
                         <p class="hashtags-texto-limpeza">
-                           <%= postagem.subcategorias ? postagem.subcategorias.replace(/,\s*/g, ' - ') : 'Nenhuma subcategoria indicada' %>
+                           <%= postagem.subcategorias ? postagem.subcategorias.replace(/,\s*/g, ' - ' )
+                              : 'Nenhuma subcategoria indicada' %>
                         </p>
                      </figure>
                      <aside class="estrelas_limpeza">
@@ -558,7 +558,7 @@
                            <h1 class="gostou">GOSTOU?</h1>
                            <h2 class="p-aval">Avalie essa dica!</h2>
                         </article>
-                        <div class="rate">
+                        <div class="rate" id="rating-container" data-conteudo-id="<% postagem.id %>">
                            <input type="radio" id="star5" name="rate" value="5" />
                            <label class="label_limpeza" for="star5" title="5 stars"></label>
                            <input type="radio" id="star4" name="rate" value="4" />
@@ -574,7 +574,8 @@
                      <% } else if (postagem.categoria===3) { %>
                         <figure class="hashtags">
                            <p class="hashtags-texto-bemestar">
-                              <%= postagem.subcategorias ? postagem.subcategorias.replace(/,\s*/g, ' - ') : 'Nenhuma subcategoria indicada' %>
+                              <%= postagem.subcategorias ? postagem.subcategorias.replace(/,\s*/g, ' - ' )
+                                 : 'Nenhuma subcategoria indicada' %>
                            </p>
                         </figure>
                         <aside class="estrelas_bemestar">
@@ -612,7 +613,7 @@
                                  <%= ingrediente.quantidade_ingredientes %>
                                     <%= ingrediente.medida_ingredientes %>
                               </p>
-                              <p class="ingreditente_button_ingrediente">| <%= ingrediente.ingredientes %>
+                              <p class="ingreditente_button_ingrediente">| <%= ingrediente.ingredientes ? ingrediente.ingredientes : 'Essa dica não contém itens necessários' %>
                               </p>
                            </button>
                            <% }) %>

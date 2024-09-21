@@ -5,32 +5,40 @@ const conteudoModel = {
         try {
             const tipoCondicao = filtroTipo !== 'todas' ? `AND tipo = ?` : '';
             const categoriaCondicao = filtroCategoria ? `AND Categorias_idCategorias = ?` : '';
-    
+
             const query = `
             SELECT COUNT(*) as total FROM (
                 SELECT ID_conteudo AS id, 'dica' as tipo, Titulo, Categorias_idCategorias FROM conteudo_postagem
                 UNION ALL
-                SELECT ID_Pergunta AS id, 'pergunta' as tipo, titulo AS Titulo, NULL AS Categorias_idCategorias FROM perguntas
+                SELECT ID_Pergunta AS id, 'pergunta' as tipo, titulo AS Titulo, categorias_idCategorias AS Categorias_idCategorias FROM perguntas
             ) AS combined
             WHERE Titulo LIKE ? 
             ${tipoCondicao}
             ${categoriaCondicao}`;
-    
+
             const params = [`%${termoPesquisa}%`];
             if (filtroTipo !== 'todas') params.push(filtroTipo);
             if (filtroCategoria) params.push(filtroCategoria);
-    
+
             const [result] = await pool.query(query, params);
             return result;
         } catch (erro) {
             throw erro;
         }
     },
-    PesquisarPorTitulo: async (termoPesquisa, filtroTipo = 'todas', filtroCategoria = null, inicio, total) => {
+    PesquisarPorTitulo: async (termoPesquisa, filtroTipo, filtroCategoria, inicio, total, filtroClassificacao = 'em-alta') => {
         try {
-            const tipoCondicao = filtroTipo !== 'todas' ? `AND tipo = ?` : '';
-    
-            const query = `
+            const tipoCondicao = filtroTipo !== null && filtroTipo !== 'todas' ? `AND tipo = ?` : '';
+            const categoriaCondicao = filtroCategoria ? `AND Categorias_idCategorias = ?` : '';
+
+            console.log("Termo Pesquisado: " + termoPesquisa);
+            console.log("Tipo de Postagem: " + filtroTipo);
+            console.log("Categoria: " + filtroCategoria);
+            console.log("Inicio: " + inicio);
+            console.log("Total: " + total);
+            console.log("Classificação: " + filtroClassificacao);
+
+            let query = `
             SELECT * FROM (
                 SELECT 
                     c.ID_conteudo AS id, 
@@ -46,7 +54,6 @@ const conteudoModel = {
                     c.subcategorias
                 FROM conteudo_postagem AS c
                 JOIN clientes AS cl ON c.Clientes_idClientes = cl.idClientes
-                WHERE ${filtroCategoria ? 'c.Categorias_idCategorias = ?' : 'c.Categorias_idCategorias IN (1, 2, 3)'}
                 UNION ALL
                 SELECT 
                     p.ID_Pergunta AS id, 
@@ -55,25 +62,40 @@ const conteudoModel = {
                     cl.Nickname AS nome_usuario, 
                     NULL AS tempo, 
                     p.Clientes_idClientes, 
-                    p.Categorias_idCategorias, 
+                    p.categorias_idCategorias AS Categorias_idCategorias, 
                     NULL AS Descricao, 
                     NULL AS Etapas_Modo_de_Preparo, 
                     NULL AS porcoes, 
                     NULL AS subcategorias
                 FROM perguntas AS p
                 JOIN clientes AS cl ON p.Clientes_idClientes = cl.idClientes
-                WHERE ${filtroCategoria ? 'p.categorias_idCategorias = ?' : 'p.categorias_idCategorias IN (1, 2, 3)'}
             ) AS combined
             WHERE Titulo LIKE ? 
             ${tipoCondicao}
-            ORDER BY id DESC
-            LIMIT ${inicio}, ${total}`;
-    
-            const params = [`%${termoPesquisa}%`, inicio, total];
-            if (filtroTipo !== 'todas') params.splice(1, 0, filtroTipo);
-            if (filtroCategoria) params.splice(2, 0, filtroCategoria);
-    
-            const [linhas] = await pool.query(query, params);
+            ${categoriaCondicao}`;
+
+            switch (filtroClassificacao) {
+                case 'mais-rapidas':
+                    query += ` ORDER BY tempo ASC`;
+                    break;
+                case 'em-alta':
+                case 'recentes':
+                default:
+                    query += ` ORDER BY id DESC`;
+            }
+
+            query += ` LIMIT ?, ?`;
+
+            console.log(query);
+
+            const params = [`%${termoPesquisa}%`];
+            if (filtroTipo !== null && filtroTipo !== 'todas') params.push(filtroTipo);
+            if (filtroCategoria) params.push(filtroCategoria);
+            params.push(inicio, total);
+
+            let resposta = await pool.query(query, params);
+            const [linhas] = resposta;
+            console.log(resposta);
             return linhas;
         } catch (erro) {
             throw erro;
@@ -104,7 +126,40 @@ const conteudoModel = {
             throw erro;
         }
     },
-
+    Avaliacao: async ({ clientes_id, nota, conteudo_id, categorias_id }) => {
+        try {
+            const query = `
+                INSERT INTO avaliacao (Data, Nota, Clientes_idClientes, conteudo_postagem_ID_conteudo, conteudo_postagem_Categorias_idCategorias)
+                VALUES (NOW(), ?, ?, ?, ?)`;
+            await pool.query(query, [nota, clientes_id, conteudo_id, categorias_id]);
+        } catch (erro) {
+            throw erro;
+        }
+    },
+    AvaliacaoMediaPorConteudo: async (conteudo_id) => {
+        try {
+            const query = `
+                SELECT AVG(nota) as media
+                FROM avaliacao
+                WHERE conteudo_id = ?`;
+            const [result] = await pool.query(query, [conteudo_id]);
+            return result;
+        } catch (erro) {
+            throw erro;
+        }
+    },
+    TotalAvaliacoes: async (conteudo_id) => {
+        try {
+            const query = `
+                SELECT COUNT(*) as total
+                FROM avaliacao
+                WHERE conteudo_id = ?`;
+            const [result] = await pool.query(query, [conteudo_id]);
+            return result.total;
+        } catch (erro) {
+            throw erro;
+        }
+    },
     FindPage: async (categoria, ordem, inicio, total) => {
         try {
             let query = `

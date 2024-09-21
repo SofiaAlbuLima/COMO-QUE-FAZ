@@ -235,6 +235,11 @@
 			color: #9e5fef;
 			top: 5px;
 		}
+		.toggle-password.senhalogin{
+			transform: translate(12vh, -5vh);
+
+			
+		}
 }
 
 @media only screen and (min-width: 480px) {
@@ -451,7 +456,7 @@
 		cursor: pointer;
 	}
 
-	}
+	
 	.decoracao-frente img{ 
 		height: 8vh;
 		transform: rotate(345deg);
@@ -526,3 +531,4 @@
 	input[type="password"]::-webkit-search-results-decoration {
 		display: none; /* Para WebKit (Chrome, Safari) */
 	}
+}

@@ -114,7 +114,13 @@ JOIN denuncia d ON c.Nome = d.usuario_denunciado;
                            <%=denuncia.motivo%>
                         </td>
                         <td class="linha Coluna-categoria">
-                           <%=denuncia.categorias_idCategorias%>
+                           <% if (denuncia.Categorias_idCategorias === 1) { %>
+                              Culinária
+                          <% } else if (denuncia.Categorias_idCategorias === 2) { %>
+                              Limpeza
+                          <% } else if (denuncia.Categorias_idCategorias === 3) { %>
+                              Bem-estar
+                          <% } %>                          
                         </td>
                         <td class="linha Coluna-autor" data-autor="true">
                            <%=denuncia.autor_denuncia%>

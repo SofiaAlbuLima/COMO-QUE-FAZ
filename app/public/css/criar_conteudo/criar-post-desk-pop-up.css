@@ -128,10 +128,27 @@
     #conteudoTarefa2 {
         left: 0;
         position: absolute;
-        overflow: auto;
+        overflow-y: scroll;
+        overflow-x: hidden;
         width: 110vh;
         height: 55vh;
         padding-left: 15vh;
+    }
+    .conteudo-elementos-passoapasso{
+        display: flex;
+        justify-content: left;
+        gap: 3vh;
+        width: 100%;
+        margin-top: 2vh;
+    }
+    .esqueleto-elementos, .tudo-dos-clones{
+        display: flex;
+    }
+    .pergunta-incluir{
+        align-items: center;
+        display: flex;
+        padding: 2vh;
+        gap: 1vh;
     }
 
     #conteudoTarefa3 {
@@ -209,6 +226,7 @@
         font-weight: 700;
         font-size: 2.5vh;
         margin-top: 4vh;
+        width: 100%;
     }
     #titulo-detalhes{
         color: #4d16bb;
@@ -325,7 +343,7 @@
         box-sizing: border-box;
         border-radius: 0.26vw;
         background-color: #e2e2e2;
-        font-family: "Arial Bold", "Arial Normal", "Arial", sans-serif;
+        font-family: Fira Sans;
         font-weight: 700;
         font-size: 1.8vh;
         border: 2px #cb218c solid;
@@ -347,7 +365,7 @@
         width: 21vw;
         height: 2vw;
         background-color: #e2e2e2;
-        font-family: "Arial Bold", "Arial Normal", "Arial", sans-serif;
+        font-family: Fira Sans;
         font-size: 100%;
         color: #333333;
         cursor: pointer;
@@ -437,7 +455,7 @@
         border: 1px solid #797979;
         background-color: #f2f2f2;
         box-sizing: border-box;
-        font-family: "Arial", sans-serif;
+        font-family: Fira Sans;
         font-size: 130%;
         color: #555;
         font-weight: 600;
@@ -579,10 +597,10 @@
 
     #icon {
         display: inline-block;
-        width: 2vw;
-        height: 2vw;
-        margin-left: -2.6vw;
-        margin-bottom: -0.7vw;
+        width: 4.5vh;
+        height: 4.5vh;
+        position: absolute;
+        transform: translate(-5.5vh, 2vh );
     }
 
     .message-list {
@@ -600,15 +618,16 @@
         overflow: auto;
     }
 
-    #div-etiqueta-subcategoria {
+    .div-etiqueta-subcategoria {
         border-radius: 50px;
         background-color: #cb218c;
         box-sizing: border-box;
         font-family: "Fira Sans", sans-serif;
         color: white;
+        font-weight: 600;
         text-align: center;
         line-height: normal;
-        padding: 1vh 2vh;
+        padding: 0.75vh 2vh;
         display: inline-flex;
         align-items: center;
     }
@@ -617,40 +636,57 @@
         display: inline-block;
     }
 
-    #clonados-ou-nao {
-        margin-top: 1vw;
-        position: absolute;
-    }
-
-    #linha-rosa-ingredientes {
-        width: 0.26vw;
-        height: 10vw;
-        padding: 2px 2px 2px 2px;
-        background-color: #cb218c;
-        box-sizing: border-box;
-        position: absolute;
-        margin-top: -4.1vw;
-        margin-left: -2vw;
-    }
-
     #ingredientes-elementos-NaN {
         width: 23vw;
         margin-top: 5.8vw;
     }
 
     #sem-a-linha-rosa {
-        width: 23vw;
-        position: relative;
-        margin-top: 5vw;
+        margin-bottom: 2vh;
+        width: 41vh;
+        border: none;
+        border-left: 0.75vh #cb218c solid;
+        padding: 1vh 2vh;
     }
-
+    .conteudo-ingriedente{
+        width: 100%;
+    }
+    .titulo-itens-adicionar{
+        display: flex;
+        justify-content: space-between;
+        width: 41vh;
+        background-color: #cb218d1c;
+        border-radius: 10px;
+        padding: 2vh;
+        align-items: center;
+        margin-bottom: 2vh;
+    }
+    .ingredientes-e-botao{
+        display: flex;  
+        width: 100%;
+    }
+    #ingredientes-div{
+        width: 100%;
+    }
+    .button-add-ingrediente{
+        padding: 0.75vh  1.5vh;
+        background-color: #cb218c;
+        color: white;
+        font-family: Heavitas;
+        border: none;
+        cursor: pointer;
+        border-radius: 100px;
+        font-size: 2vh;
+        font-weight: 400;
+        display: flex;
+        align-items: center;
+    }
     #titulo-ingredientes-elementos {
         font-family: "Fira Sans Bold", "Fira Sans", sans-serif;
         font-weight: 700;
         color: #cb218c;
         text-align: left;
-        margin-bottom: -6vw;
-        font-size: 110%;
+        font-size: 2.5vh;
         border: 0;
     }
 
@@ -660,21 +696,23 @@
     }
 
     #botao-de-tirar-ingrediente {
-        margin-bottom: -1vw;
+        display: flex;
+        cursor: pointer;
+    }
+    .item-excluir{
+        justify-content: space-between;
+        display: flex;
     }
 
     #numero-do-ingrediente {
-        width: 1.5vw;
-        margin-top: 2vw;
-        margin-left: -1vw;
-        padding-left: 0.6vw;
         border: 0;
         background-color: #f2f2f2;
         outline: none;
         font-family: "Fira Sans", sans-serif;
-        font-size: 120%;
         font-weight: 700;
         color: #cb218c;
+        font-size: 2vh;
+        display: flex;
 
         &::-webkit-input-placeholder {
             color: #909090;
@@ -692,24 +730,23 @@
     #nome-do-ingrediente {
         font-family: "Fira Sans Bold", "Fira Sans", sans-serif;
         font-weight: 500;
-        font-size: 80%;
+        font-size: 1.7vh;
+        margin-top: 0.5vh;
         color: #333333;
         text-align: left;
     }
 
     #input-nome-do-ingrediente {
-        width: 22.06vw;
-        height: 2vw;
-        font-size: 90%;
+        font-size: 1.7vh;
         border: 0;
         border-bottom: 1px solid #727272;
         background-color: rgba(255, 0, 0, 0);
         box-sizing: border-box;
-        font-family: "Arial", sans-serif;
-        padding-left: 1%;
+        font-family: Fira Sans;
         color: #333333;
         text-align: left;
-        margin-right: 1.2vw;
+        width: 100%;
+        height: 4vh;
 
         &::-webkit-input-placeholder {
             color: #adadad;
@@ -731,28 +768,25 @@
 
     #coiso-pra-deixar-certo {
         display: flex;
-        position: absolute;
-        margin-top: 1vw;
+        margin-top: 2vh;
     }
-
-    #quantidade-elementos {
-        margin-right: 1.4vw;
+    #guardar-medidas-elementos{
+        margin-left: 4vh;
     }
 
     #input-quantidade-do-ingrediente {
-        width: 3.5vw;
-        height: 2vw;
-        margin-top: 0.6vw;
-        font-size: 100%;
+        width: 5vh;
+        height: 4vh;
+        align-items: center;
+        font-size: 1.7vh;
         border: 0;
-        padding-left: 1vw;
         border-bottom: 1px solid #727272;
-        margin-left: 1vw;
         background-color: #f2f2f2;
         box-sizing: border-box;
-        font-family: "Arial", sans-serif;
+        font-family: Fira Sans;
         color: #333333;
         text-align: left;
+        display: flex;
 
         &::-webkit-input-placeholder {
             color: #adadad;
@@ -774,9 +808,9 @@
 
     #medidas-elementos {
         width: 11vw;
-        height: 2.5vw;
-        margin-top: 0.6vw;
+        height: 4vh;
         padding-left: 0.6vw;
+        align-items: center;
         border-radius: 5px;
         border: 1px solid #727272;
         background-color: #f2f2f2;
@@ -784,7 +818,7 @@
         outline: none;
         color: #333333;
         font-size: 90%;
-        font-family: "Arial", sans-serif;
+        font-family: Fira Sans;
         appearance: none;
 
         &::-webkit-input-placeholder {
@@ -809,7 +843,7 @@
         width: 22.06vw;
         height: 3vw;
         background-color: #f2f2f2;
-        font-family: "Arial Bold", "Arial Normal", "Arial", sans-serif;
+        font-family: Fira Sans;
         font-weight: 700;
 
         &:focus {
@@ -828,44 +862,48 @@
         color: #333333;
         text-align: left;
     }
-
-    #tudo-dos-clones {
-        width: 25vw;
-        margin-left: 25vw;
-        margin-top: 1vw;
-        position: absolute;
+    #tudo-dos-clones, #clonados-ou-nao{
+        width: 45vh;
+        display: flex;
     }
 
     #numero-do-modo-de-preparo {
-        width: 4vw;
-        margin-left: 1.6vw;
+        width: 3vh;
+        text-align: right;
+        display: flex;
         border: 0;
         background-color: rgba(255, 0, 0, 0);
         outline: none;
         font-family: "Fira Sans", sans-serif;
-        font-size: 130%;
+        font-size: 2.3vh;
         font-weight: 700;
         color: #333;
-        position: absolute;
     }
 
     #simbolo-do-numero {
         display: inline-block;
         font-family: "Fira Sans", sans-serif;
-        font-size: 90%;
+        font-size: 1.8vh;
         color: #333;
         box-sizing: border-box;
-        margin-left: 3vw;
     }
 
     #modo-de-preparo-titulo {
         font-family: "Fira Sans Bold", "Fira Sans", sans-serif;
         font-weight: 700;
         color: #9e5fef;
-        text-align: left;
-        margin-left: 1.5vw;
-        font-size: 110%;
+        font-size: 2.5vh;
         border: 0;
+        display: flex;
+    }
+    .titulo-passoapasso-adicionar{
+        border-radius: 10px;
+        background-color: #9d5fef1c;
+        align-items: center;
+        justify-content: space-between;
+        display: flex;
+        padding: 2vh;
+        width: 41vh;
     }
 
     #modo-de-preparo-NaN {
@@ -888,29 +926,47 @@
         font-size: 80%;
     }
 
-    #botoes-de-tirar-colocar {
-        margin-left: 18vw;
-        margin-top: -1vw;
+    #botoes-de-tirar-colocar button{
+        display: flex;
+        padding: 0.75vh 1.5vh;
+        background-color: #9e5fef;
+        color: white;
+        font-family: Heavitas;
+        border: none;
+        cursor: pointer;
+        border-radius: 100px;
+        font-size: 2vh;
+        font-weight: 400;
+        align-items: center;
     }
-
-    #linhas-roxa-conteudo {
-        border-left: 0.31vw #9e5fef solid;
+    .step-passoApasso{
+        justify-content: center;
+        display: flex;
+        gap: 2vh;
+        margin-top: 2vh;
     }
-
+    #arruma-numero-simbolo{
+        display: flex;
+    }
     #input-modo-de-preparo {
-        width: 16vw;
-        height: 2vw;
-        padding: 2px 2px 2px 2px;
-        font-size: 90%;
+        width: 37vh;
+        height: 4vh;
+        padding: 2px 4vh 2px 2px;
+        font-size: 1.8vh;
+        resize: none;
+        overflow: hidden;
         border: 0;
         border-bottom: 1px solid #727272;
+        border-right: 1px solid #727272;
         background-color: rgba(255, 0, 0, 0);
         box-sizing: border-box;
-        font-family: "Arial", sans-serif;
-        padding-left: 1%;
-        padding-bottom: 0.2vw;
+        font-family: Fira Sans;
         color: #333333;
         text-align: left;
+        display: flex;
+        flex-wrap: wrap;
+        align-items: flex-start;
+        border-bottom-right-radius: 5px;
 
         &::-webkit-input-placeholder {
             color: #adadad;
@@ -927,7 +983,21 @@
         &:focus {
             outline: 0;
             border-bottom: 2px #9e5fef solid;
+            border-right: 2px #9e5fef solid;
         }
+        &:focus + .button-etapas{
+            color: #9e5fef;
+        }
+    }
+    .button-etapas{
+        display: flex;
+        position: absolute;
+        transform: translate(19vh, 0.8vh);
+        color: #727272;
+        background-color: none;
+        border: none;
+        font-size: 2vh;
+        cursor: pointer;
     }
 
     #apagar-modo-de-preparo {

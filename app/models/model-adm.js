@@ -2,53 +2,29 @@ const pool = require("../../config/pool-conexoes");
 
 const admModel = {
 
-
-    acharDenuncia: async () => {
+    mostrarDenuncias: async () => {
         try {
-            const [linhas, campos] = await pool.query('SELECT d.*, p.Titulo as conteudo_postagem ' +
-                'FROM denuncia d ' +
-                'JOIN conteudo_postagem p ON d.conteudo_ID_conteudo = p.ID_conteudo;')
-            console.log(linhas);
-            console.log(campos);
-            return linhas;
-        } catch (error) {
-            return error;
-        }
-    },
+            const query = `SELECT * FROM denuncia`;
+            const [resultado] = await pool.query(query);
+            return resultado;
 
-    acharConteudo: async (categoria) => {
-        try {
-            let query = `
-                SELECT * FROM (
-                    SELECT ID_conteudo AS id, Clientes_idClientes, Categorias_idCategorias, Titulo, tempo, Descricao, Etapas_Modo_de_Preparo, porcoes, 'dica' AS tipo FROM conteudo_postagem
-                    UNION ALL
-                    SELECT ID_Pergunta AS id, Clientes_idClientes, categorias_idCategorias, titulo AS Titulo, NULL AS tempo, NULL AS Descricao, NULL AS Etapas_Modo_de_Preparo, NULL AS porcoes, 'pergunta' AS tipo FROM perguntas
-                ) AS combined
-            `;
-
-            if (categoria) {
-                query += ` WHERE Categorias_idCategorias = ${pool.escape(categoria)}`;
-            }
-
-            const [total] = await pool.query(query);
-            return total;
-
-        } catch (error) {
-            return error;
+        } catch (erro) {
+            throw erro;
         }
     },
 
     criarDenuncia: async (dadosForm) => {
         try {
             const query = `
-                INSERT INTO denuncia (motivo, detalhamento_denuncia, usuario_denunciado)
-                VALUES (?, ?, ?)
+                INSERT INTO denuncia (motivo, detalhamento_denuncia, usuario_denunciado, Categorias_idCategorias)
+                VALUES (?, ?, ?, ?)
             `;
 
             const [resultado] = await pool.query(query, [
                 dadosForm.motivo,
                 dadosForm.detalhamento_denuncia,
-                dadosForm.usuario_denunciado // Usa o nome do cliente como usuario_denunciado
+                dadosForm.usuario_denunciado,
+                dadosForm.categoria
             ]);
 
             return resultado;
@@ -56,7 +32,6 @@ const admModel = {
             throw erro;
         }
     },
-
 
     acharClienteCriadorDenuncia: async (id) => {
         try {
@@ -66,20 +41,53 @@ const admModel = {
                 JOIN conteudo_postagem cp ON cp.Clientes_idClientes = c.idClientes
                 WHERE cp.ID_conteudo = ?;
             `;
-            
+
             const [resultados] = await pool.query(query, [id]);
-            
-            // Verifique se há um resultado e se contém o 'Nickname'
+
             if (resultados.length > 0) {
                 return resultados[0];
             } else {
-                return null; // Retorna null se não encontrar o criador
+                return null;
             }
+
+        } catch (erro) {
+            throw erro;
+        }
+    },
+
+    // tirar isso, pq já coloquei no controller, pelo re.session.auteticado.id ------ colocar o id da postagem na tabela denuncia, pq se nn vai ocorrer a repetição de informações (ex: nome de quem criou a denuncia)
+    // AutorDenuncia: async () => {
+    //     try {
+    //         query = `
+    //         SELECT c.Nickname AS criador_denuncia
+    //         FROM denuncia d
+    //         JOIN clientes c ON d.Clientes_idClientes = c.idClientes
+    //         WHERE d.ID_denuncia = ?;
+    //         `
+    //         const [resultado] = await pool.query(query);
+    //         return resultado;
+
+    //     } catch (erro) {
+    //         throw erro;
+    //     }
+    // },
+
+
+    categoriaDenuncia: async (postagemId) => {
+        try {
+            let query = `
+            SELECT Categorias_idCategorias
+            FROM conteudo_postagem
+            WHERE ID_conteudo = ?;
+            `;
+
+            const values = [postagemId];
+            const [result] = await pool.query(query, values);
+            return result;
         } catch (erro) {
             throw erro;
         }
     }
-    
 
 }
 

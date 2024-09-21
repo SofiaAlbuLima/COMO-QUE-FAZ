@@ -125,7 +125,7 @@ const tarefasController = {
     MostrarPosts: async (req, res, categoriaId = null) => {
         res.locals.moment = moment;
         try {
-            
+
             const postagemId = req.params.id;
             const categoriaMap = {
                 'culinaria': 1,
@@ -180,10 +180,10 @@ const tarefasController = {
                     porcoes: conteudo.porcoes > 0 ? `${conteudo.porcoes} ${conteudo.porcoes > 1 ? 'Porções' : 'Porção'}` : null,
                     tipo: conteudo.tipo,
                     subcategorias: conteudo.subcategorias,
-                    ingredientes: ingredientes.length ? ingredientes.map(i => `${i.quantidade_ingredientes} ${i.medida_ingredientes} de ${i.ingredientes}`).join(', ') : null
+                    ingredientes: ingredientes.length ? ingredientes.map(i => i.ingredientes).join(', ') : null
                 };
             }));
-    
+
             return {
                 usuario_logado: req.session.autenticado,
                 login: req.session.logado,
@@ -201,9 +201,9 @@ const tarefasController = {
     PesquisarPosts: async (req, res, categoriaId = null) => {
         try {
             const termoPesquisa = req.query.pesquisa_form || "";
-            const filtroTipo = req.query.filtro_tipo || 'todas';
-            const filtroCategoria = req.query.filtro_categoria || null;
-            const filtroClassificacao = req.query.filtro_classificacao || 'todas';
+            const filtroTipo = req.query.filtro_tipo || null;
+            let filtroCategoria = req.query.filtro_categoria || null;
+            const filtroClassificacao = req.query.filtro_classificacao || 'em-alta';
 
             const categoriaMap = {
                 'culinaria': 1,
@@ -211,14 +211,14 @@ const tarefasController = {
                 'bemestar': 3
             };
 
-            let categoria = categoriaId || categoriaMap[req.query.filtro_categoria] || null;
-            let filtro = filtroClassificacao || 'todas';
+            let categoria = categoriaId || categoriaMap[filtroCategoria] || null;
+            let filtro = filtroClassificacao || null;
 
             let pagina = parseInt(req.query.pagina) || 1;;
             let regPagina = 18;
             let inicio = (pagina - 1) * regPagina;
 
-            const data = await conteudoModel.PesquisarPorTitulo(termoPesquisa, filtroTipo, categoria, inicio, regPagina);
+            const data = await conteudoModel.PesquisarPorTitulo(termoPesquisa, filtroTipo, categoria, inicio, regPagina, filtroClassificacao);
 
             let totReg = await conteudoModel.TotalRegPorTitulo(termoPesquisa, filtroTipo, categoria);
             let totalRegistros = totReg[0].total;
@@ -264,6 +264,7 @@ const tarefasController = {
             }));
             return {
                 termoPesquisa,
+                filtroTipo,
                 aviso: data.length === 0 ? "Não há postagens disponíveis para esta pesquisa." : null,
                 usuario_logado: req.session.autenticado,
                 postagens: combinedConteudo,
@@ -350,6 +351,30 @@ const tarefasController = {
             }
         } catch (erro) {
             res.status(500).json({ erro: erro.message });
+        }
+    },
+    AvaliarPostagem: async (req, res) => {
+        const { nota, conteudo_id, clientes_id, categorias_id } = req.body;
+
+        console.log("Valor Avaliação:" + req.body.rate.value);
+
+        if (!clientesId) {
+            return console.log("Usuário não logado!")
+        }
+
+        try {
+            await conteudoModel.Avaliacao({
+                conteudo_id,
+                nota,
+                clientes_id,
+                categorias_id
+            });
+
+            console.log("Avaliação registrada com sucesso!");
+            return res.status(201).json({ message: 'Avaliação registrada com sucesso!' });
+        } catch (erro) {
+            console.error("Erro ao registrar avaliação:", erro); // Melhore a mensagem de erro
+            return res.status(500).json({ error: 'Erro ao registrar a avaliação' });
         }
     },
     CriarDica: async (req, res) => {
@@ -473,13 +498,10 @@ const tarefasController = {
 
     listarDenuncias: async (req, res) => {
         try {
-            categoria = req.query.categoria || null;
-            results = await admModel.acharDenuncia();
-            resultsconteudo = await admModel.acharConteudo(categoria);
+            results = await admModel.mostrarDenuncias();
 
             return {
                 denunciasNoControl: results,
-                resultsconteudo,
                 usuario_logado: req.session.autenticado
             };
 
@@ -494,25 +516,30 @@ const tarefasController = {
             const dadosForm = {
                 motivo: req.body.motivo,
                 detalhamento_denuncia: req.body.detalhamento_denuncia,
+                id_denunciador: req.session.autenticado.id
             };
-    
+
             const postagemId = req.params.id;
             const postagem = await conteudoModel.BuscarPostagemPorId(postagemId);
-    
+
             if (!postagem) {
                 return res.status(404).render("pages/erro", { mensagem: "Postagem não encontrada" });
             }
-    
-            // Buscar o criador do conteúdo
+
             const criador = await admModel.acharClienteCriadorDenuncia(postagemId);
-    
-            // Adiciona o nickname do criador ao dadosForm
             dadosForm.usuario_denunciado = criador.Nickname;
 
-            // Continuar o processo de criação da denúncia
-            const resultado = await admModel.criarDenuncia(dadosForm);
-    
-            if (resultado) {
+            const [categoriaResult] = await admModel.categoriaDenuncia(postagemId);
+
+            if (!categoriaResult) {
+                return res.status(500).send('Erro ao buscar a categoria do conteúdo.');
+            }
+
+            dadosForm.categoria = categoriaResult.Categorias_idCategorias;
+
+            const resultadoDenuncia = await admModel.criarDenuncia(dadosForm);
+
+            if (resultadoDenuncia) {
                 res.status(200).send('Denúncia recebida com sucesso!');
             } else {
                 res.status(500).send('Erro ao enviar denúncia');
@@ -522,8 +549,14 @@ const tarefasController = {
             res.status(500).send('Erro ao enviar denúncia');
         }
     }
-    
-    
+
+    // listarUsuario: async (req, res) => {
+    //     try{
+    //         const result = await 
+    //     }catch(error){
+    //         console.error('Erro ao armazenar denúncia:', error);
+    //     }
+    // }
 
 
 };
