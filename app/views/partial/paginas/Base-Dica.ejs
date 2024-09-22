@@ -508,7 +508,7 @@
                   </section>
                   <section class="avaliacao">
                      <img src="/imagens-svg/2-body/avalia.svg" alt="avaliacao" class="icone-info-dica">
-                     <h3 class="texto-info">5.0</h3>
+                     <h3 class="texto-info"><%= postagem.mediaAvaliacoes %></h3>
                   </section>
                   <% if (postagem.categoria===1) { %>
                      <section class="porcoe">
@@ -528,23 +528,30 @@
                            : 'Nenhuma subcategoria indicada' %>
                      </p>
                   </figure>
-                  <aside class="estrelas_culinaria" data-user-id="<%= usuario_logado %>" data-conteudo-id="<%= postagem.id %>" data-categorias-id="<%= postagem.categoria %>">
+                  <aside class="estrelas_culinaria">
                      <article class="avalie">
                         <h1 class="gostou">GOSTOU?</h1>
                         <h2 class="p-aval">Avalie essa dica!</h2>
                      </article>
-                     <div class="rate" id="rating-container">
-                        <input type="radio" id="star5" name="rate" value="5" />
-                        <label class="label_culinaria" for="star5" title="5 stars"></label>
-                        <input type="radio" id="star4" name="rate" value="4" />
-                        <label class="label_culinaria" for="star4" title="4 stars"></label>
-                        <input type="radio" id="star3" name="rate" value="3" />
-                        <label class="label_culinaria" for="star3" title="3 stars"></label>
-                        <input type="radio" id="star2" name="rate" value="2" />
-                        <label class="label_culinaria" for="star2" title="2 stars"></label>
-                        <input type="radio" id="star1" name="rate" value="1" />
-                        <label class="label_culinaria" for="star1" title="1 star"></label>
-                     </div>
+                     <form action="/avaliar" method="POST">
+                        <input type="hidden" name="conteudo_id" value="<%= postagem.id %>">
+                        <input type="hidden" name="categorias_id" value="<%= postagem.categoria %>">
+                        <input type="hidden" name="clientes_id" value="<%= usuario_logado %>">
+
+                        <div class="rate" id="rating-container">
+                           <input type="radio" id="star5" name="nota" value="5" />
+                           <label class="label_culinaria" for="star5" title="5 stars"></label>
+                           <input type="radio" id="star4" name="nota" value="4" />
+                           <label class="label_culinaria" for="star4" title="4 stars"></label>
+                           <input type="radio" id="star3" name="nota" value="3" />
+                           <label class="label_culinaria" for="star3" title="3 stars"></label>
+                           <input type="radio" id="star2" name="nota" value="2" />
+                           <label class="label_culinaria" for="star2" title="2 stars"></label>
+                           <input type="radio" id="star1" name="nota" value="1" />
+                           <label class="label_culinaria" for="star1" title="1 star"></label>
+                        </div>
+                        <button type="submit">Enviar Avaliação</button>
+                     </form>
                   </aside>
                   <% } else if (postagem.categoria===2) { %>
                      <figure class="hashtags">
@@ -613,7 +620,8 @@
                                  <%= ingrediente.quantidade_ingredientes %>
                                     <%= ingrediente.medida_ingredientes %>
                               </p>
-                              <p class="ingreditente_button_ingrediente">| <%= ingrediente.ingredientes ? ingrediente.ingredientes : 'Essa dica não contém itens necessários' %>
+                              <p class="ingreditente_button_ingrediente">| <%= ingrediente.ingredientes ?
+                                    ingrediente.ingredientes : 'Essa dica não contém itens necessários' %>
                               </p>
                            </button>
                            <% }) %>

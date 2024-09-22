@@ -12,6 +12,7 @@
         margin-left: 12vh;
         margin-bottom: 20vh;
         margin-right: 4vh;
+        height: fit-content;
     }
     .linha_filtros_pesquisa{
         border-top: #4D16BB solid 2px;

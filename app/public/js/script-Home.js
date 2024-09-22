@@ -64,9 +64,9 @@ document.addEventListener("DOMContentLoaded", function() {
 
     // Se você quiser estilizar com base em um parâmetro específico na URL:
     let urlParams = new URLSearchParams(window.location.search);
-    let filtro = urlParams.get('filtro') || 'em_alta'; // Define 'em_alta' como padrão
+    let filtro = urlParams.get('filtro') || 'em-alta'; // Define 'em-alta' como padrão
 
-    if (filtro === 'em_alta') {
+    if (filtro === 'em-alta') {
         document.querySelector('.Filtro-emAlta').classList.add('filtro-selecionado');
     }else if (filtro === 'recente') {
         document.querySelector('.Filtro-recente').classList.add('filtro-selecionado');

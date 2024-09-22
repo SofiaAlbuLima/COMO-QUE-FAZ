@@ -125,8 +125,6 @@ const tarefasController = {
     MostrarPosts: async (req, res, categoriaId = null) => {
         res.locals.moment = moment;
         try {
-
-            const postagemId = req.params.id;
             const categoriaMap = {
                 'culinaria': 1,
                 'limpeza': 2,
@@ -135,11 +133,11 @@ const tarefasController = {
             };
             const filtros = {
                 recente: 'recente',
-                'em-alta': 'em_alta',
+                'em-alta': 'em-alta',
                 rapidos: 'rapidos',
             };
             let categoria = categoriaId || categoriaMap[req.query.categoria] || null;
-            let filtro = req.query.filtro || 'em_alta';
+            let filtro = req.query.filtro || 'em-alta';
             let pagina = req.query.pagina || 1;
             let regPagina = 12;
             let inicio = (pagina - 1) * regPagina;
@@ -168,6 +166,7 @@ const tarefasController = {
             }
             let combinedConteudo = await Promise.all(results.map(async (conteudo) => {
                 let ingredientes = await conteudoModel.BuscarIngredientesPorPostagemId(conteudo.id);
+                let mediaAvaliacoes = await conteudoModel.CalcularMediaAvaliacoes(conteudo.id);
                 return {
                     nome: conteudo.Titulo,
                     usuario: conteudo.Clientes_idClientes,
@@ -180,7 +179,8 @@ const tarefasController = {
                     porcoes: conteudo.porcoes > 0 ? `${conteudo.porcoes} ${conteudo.porcoes > 1 ? 'Porções' : 'Porção'}` : null,
                     tipo: conteudo.tipo,
                     subcategorias: conteudo.subcategorias,
-                    ingredientes: ingredientes.length ? ingredientes.map(i => i.ingredientes).join(', ') : null
+                    ingredientes: ingredientes.length ? ingredientes.map(i => i.ingredientes).join(', ') : null,
+                    mediaAvaliacoes
                 };
             }));
 
@@ -190,7 +190,7 @@ const tarefasController = {
                 postagens: combinedConteudo,
                 paginador: paginador,
                 categoriaAtual: categoria || 'todas',
-                novoFiltro: filtro || 'em_alta'
+                novoFiltro: filtro || 'em-alta'
             };
 
         } catch (e) {
@@ -249,18 +249,22 @@ const tarefasController = {
                 return res.status(404).json({ erro: "Nenhum resultado encontrado" });
             }
 
-            let combinedConteudo = data.map(conteudo => ({
-                nome: conteudo.Titulo,
-                usuario: conteudo.Clientes_idClientes,
-                nome_usuario: conteudo.nome_usuario,
-                id: conteudo.id,
-                categoria: conteudo.Categorias_idCategorias,
-                tempo: conteudo.tempo ? formatarTempo(conteudo.tempo) : null,
-                descricao: conteudo.Descricao || null,
-                etapas: conteudo.Etapas_Modo_de_Preparo,
-                porcoes: conteudo.porcoes > 0 ? `${conteudo.porcoes} ${conteudo.porcoes > 1 ? 'Porções' : 'Porção'}` : null,
-                tipo: conteudo.tipo,
-                subcategorias: conteudo.subcategorias
+            let combinedConteudo = await Promise.all(data.map(async conteudo => {
+                let mediaAvaliacoes = await conteudoModel.CalcularMediaAvaliacoes(conteudo.id);
+                return {
+                    nome: conteudo.Titulo,
+                    usuario: conteudo.Clientes_idClientes,
+                    nome_usuario: conteudo.nome_usuario,
+                    id: conteudo.id,
+                    categoria: conteudo.Categorias_idCategorias,
+                    tempo: conteudo.tempo ? formatarTempo(conteudo.tempo) : null,
+                    descricao: conteudo.Descricao || null,
+                    etapas: conteudo.Etapas_Modo_de_Preparo,
+                    porcoes: conteudo.porcoes > 0 ? `${conteudo.porcoes} ${conteudo.porcoes > 1 ? 'Porções' : 'Porção'}` : null,
+                    tipo: conteudo.tipo,
+                    subcategorias: conteudo.subcategorias,
+                    mediaAvaliacoes
+                };
             }));
             return {
                 termoPesquisa,
@@ -285,6 +289,7 @@ const tarefasController = {
             const postagemId = req.params.id;
             const postagem = await conteudoModel.BuscarPostagemPorId(postagemId);
             const ingredientes = await conteudoModel.BuscarIngredientesPorPostagemId(postagemId);
+            const mediaAvaliacoes = await conteudoModel.CalcularMediaAvaliacoes(postagemId);
 
             if (!postagem) {
                 return res.status(404).render("pages/erro", { mensagem: "Postagem não encontrada" });
@@ -318,7 +323,8 @@ const tarefasController = {
                 porcoes: postagem.porcoes > 0 ? `${postagem.porcoes} ${postagem.porcoes > 1 ? 'Porções' : 'Porção'}` : null,
                 tipo: postagem.tipo,
                 ingredientes: ingredientes,
-                subcategorias: postagem.subcategorias
+                subcategorias: postagem.subcategorias,
+                mediaAvaliacoes
             };
 
             switch (postagem.Categorias_idCategorias) {
@@ -354,15 +360,24 @@ const tarefasController = {
         }
     },
     AvaliarPostagem: async (req, res) => {
-        const { nota, conteudo_id, clientes_id, categorias_id } = req.body;
+        const { nota, conteudo_id, categorias_id } = req.body;
+        const clientes_id = req.session.autenticado.id;
 
-        console.log("Valor Avaliação:" + req.body.rate.value);
+        console.log("Valor Avaliação:" + nota);
+        console.log("Id do cliente:" + clientes_id);
 
-        if (!clientesId) {
-            return console.log("Usuário não logado!")
+        if (!clientes_id) {
+            console.log("Usuário não logado!")
+            return res.redirect("/login");
         }
 
         try {
+            const avaliacaoExistente = await conteudoModel.VerificarAvaliacaoExistente(clientes_id, conteudo_id);
+
+            if (avaliacaoExistente) {
+                return res.status(400).json({ message: "Você já avaliou esta postagem." });
+            }
+
             await conteudoModel.Avaliacao({
                 conteudo_id,
                 nota,
@@ -371,9 +386,9 @@ const tarefasController = {
             });
 
             console.log("Avaliação registrada com sucesso!");
-            return res.status(201).json({ message: 'Avaliação registrada com sucesso!' });
+            return res.redirect("/dica/" + conteudo_id);
         } catch (erro) {
-            console.error("Erro ao registrar avaliação:", erro); // Melhore a mensagem de erro
+            console.error("Erro ao registrar avaliação:", erro);
             return res.status(500).json({ error: 'Erro ao registrar a avaliação' });
         }
     },
@@ -495,7 +510,6 @@ const tarefasController = {
             res.redirect('/');
         }
     },
-
     listarDenuncias: async (req, res) => {
         try {
             results = await admModel.mostrarDenuncias();

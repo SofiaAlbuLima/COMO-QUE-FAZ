@@ -13,7 +13,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
 function filtrosCategoria() {
 const fcutodasElList = document.querySelectorAll('.filtrocu button');
-const filtro = urlParams.get('filtro') || 'em_alta'; // Define 'em_alta' como padrão
+const filtro = urlParams.get('filtro') || 'em-alta'; // Define 'em-alta' como padrão
 
 
 fcutodasElList.forEach(Option => {

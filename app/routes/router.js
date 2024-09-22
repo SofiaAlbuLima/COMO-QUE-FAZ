@@ -47,13 +47,7 @@ router.get("/pesquisa", async (req, res) => {
     }
 });
 router.post("/avaliar", VerificarAutenticacao, async (req, res) => {
-    try {
-        // Chama o método do controlador para registrar a avaliação
-        const response = await tarefasController.AvaliarPostagem(req, res);
-        res.status(response.status).json(response.data);
-    } catch (error) {
-        res.status(500).json({ erro: error.message });
-    }
+    await tarefasController.AvaliarPostagem(req, res);
 });
 
 router.get("/culinaria", async function (req, res) {
