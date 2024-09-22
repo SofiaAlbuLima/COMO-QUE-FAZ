@@ -3,7 +3,7 @@ const pool = require("../../config/pool-conexoes");
 const imagemModel = {
     criarImagem: async(camposCriar) => {
         try {
-            const [resultados] = await pool.query("INSERT INTO midia SET ?", [camposCriar]);
+            const [resultados] = await pool.query("INSERT INTO midia SET ?", [camposCriar]);    
             return resultados;
         } catch (erro) {
             throw erro;

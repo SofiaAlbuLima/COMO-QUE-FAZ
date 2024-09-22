@@ -42,7 +42,6 @@ function apagarEtapa(button) {
     etapaDiv.remove();
 }
 
-
 function adicionarIngrediente() {
     const container = document.getElementById('ingredientes-div');
     const numeroIngrediente = container.querySelectorAll('.ingrediente-article').length + 1;

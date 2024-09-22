@@ -1,6 +1,8 @@
 var express = require('express');
 
 var router = express.Router();
+
+const imagemController = require("../controllers/controller-midia");
 const moment = require("moment");
 
 const tarefasController = require("../controllers/controller");
@@ -8,9 +10,9 @@ const { VerificarAutenticacao, limparSessao, gravarUsuAutenticado, verificarUsuA
 
 router.post("/login", tarefasController.regrasValidacaoLogin, gravarUsuAutenticado, tarefasController.Login_formLogin);
 router.post("/cadastro", tarefasController.regrasValidacaoCadastro, tarefasController.Login_formCadastro);
-router.post('/criar-dica', VerificarAutenticacao, tarefasController.CriarDica);
+router.post('/criar-dica', VerificarAutenticacao, imagemController.uploadImagem, tarefasController.CriarDica);
 router.post('/criar-pergunta', VerificarAutenticacao, tarefasController.CriarPergunta);
-
+router.post('/upload-imagem', imagemController.uploadImagem, imagemController.criarImagem);
 
 // Links & Template - Parte Publica
 router.get("/", VerificarAutenticacao, async function (req, res) {

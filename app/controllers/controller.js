@@ -416,6 +416,10 @@ const tarefasController = {
 
             const subcategoriasTexto = req.body.dica_subcategorias || '';
 
+            const imagens = req.files.map(file => file.filename); // Supondo que você está usando multer
+            const imagensString = imagens.length > 0 ? imagens.join(',') : null; // Concatena os nomes dos arquivos ou null
+
+
             const FormCriarDica = {
                 Clientes_idClientes: req.session.autenticado.id,
                 Titulo: req.body.dica_titulo,
@@ -424,7 +428,8 @@ const tarefasController = {
                 porcoes: porcoes,
                 Descricao: req.body.dica_descricao,
                 Etapas_Modo_de_Preparo: etapasTexto,
-                subcategorias: subcategoriasTexto
+                subcategorias: subcategoriasTexto,
+                Imagem: imagensString 
             };
 
             console.log('FormCriarDica:', FormCriarDica); // Debugging

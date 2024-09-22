@@ -176,19 +176,51 @@
 
                   <section class="conteudo conteudo3" id="conteudoTarefa3">
                      <h2 id="titulo-midias">MÍDIAS</h2>
-                     <input type="file" id="files" accept="image/*" multiple style="display: none;">
+                     <input type="file" id="files" name="imagem" accept="image/*" multiple required>
                      <figure id="esqueleto-midias">
-                        <h1 id="adicione-midias">ADICIONE IMAGENS E VÍDEOS À SUA POSTAGEM!</h1>
-                        <figure id="retangulo-adicionar-midia">
-                           <img src="/imagens/mais-rosa.svg" alt="adicionar mídia" id="mais-adicionar-midia">
-                        </figure>
-                        <figure class="midia-adicionada-retangulo" id="midia-adicionada-retangulo">
-                           </div>
-                        </figure>
-                        <figure id="fundo-midias"></figure>
-                        <figure id="result"></figure>
+                         <h1 id="adicione-midias">ADICIONE IMAGENS E VÍDEOS À SUA POSTAGEM!</h1>
+                         <figure id="retangulo-adicionar-midia">
+                             <img src="/imagens/mais-rosa.svg" alt="adicionar mídia" id="mais-adicionar-midia">
+                         </figure>
+                         <figure id="fundo-midias"></figure>
+                         <figure id="result"></figure>
                      </figure>
-                  </section>
+                 </section>
+                 
+                 <script>
+                 function previewImages() {
+                     const files = document.getElementById('files').files;
+                     const preview = document.getElementById('midias-preview');
+                     preview.innerHTML = '';
+                 
+                     Array.from(files).forEach(file => {
+                         const img = document.createElement('img');
+                         img.src = URL.createObjectURL(file);
+                         img.style.width = '100px'; // ajuste o tamanho conforme necessário
+                         preview.appendChild(img);
+                     });
+                 }
+                 
+                 async function uploadImages() {
+                     const files = document.getElementById('files').files;
+                     const formData = new FormData();
+                  
+                     Array.from(files).forEach(file => {
+                         formData.append('imagem', file);
+                     });
+                 
+                     const response = await fetch('/upload-imagem', {
+                         method: 'POST',
+                         body: formData
+                     });
+                 
+                     if (response.ok) {
+                         alert('Imagens enviadas com sucesso!');
+                     } else {
+                         alert('Erro ao enviar imagens!');
+                     }
+                 }
+                 </script>
                </article>
 
                <nav id="botoes-criar-post">
