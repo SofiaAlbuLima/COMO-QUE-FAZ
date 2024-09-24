@@ -327,7 +327,8 @@ const tarefasController = {
                 tipo: postagem.tipo,
                 ingredientes: ingredientes,
                 subcategorias: postagem.subcategorias,
-                mediaAvaliacoes
+                mediaAvaliacoes,
+                imagem: postagem.idMidia ? `/uploads-midia-banco/${postagem.idMidia}` : null
             };
 
             switch (postagem.Categorias_idCategorias) {

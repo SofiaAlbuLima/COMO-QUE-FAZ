@@ -69,15 +69,16 @@ function adicionarIngrediente() {
                     <h4 id="nome-do-ingrediente">Medida</h4>
                     <select name="medida_ingredientes" id="medidas-elementos">
                         <optgroup class="dropDown-medidas">
+                            <option value="Nenhuma medida" class="item-medidas">Nenhuma medida</option>
+                            <option value="Unidade" class="item-medidas">Unidade</option>
                             <option value="Xícara" class="item-medidas">Xícara</option>
                             <option value="Colher de sopa" class="item-medidas">Colher de sopa</option>
                             <option value="Colher de chá" class="item-medidas">Colher de chá</option>
-                            <option value="Colher de café" class="item-medidas">Colher de café</option>
-                            <option value="Colher de sobremesa" class="item-medidas">Colher de sobremesa</option>
                             <option value="Copo americano" class="item-medidas">Copo americano</option>
                             <option value="Gramas (gr)" class="item-medidas">Gramas (gr)</option>
+                            <option value="Quilogramas (kg)" class="item-medidas">Quilogramas (kg)</option>
                             <option value="Mililitros (ml)" class="item-medidas">Mililitros (ml)</option>
-                            <option value="Unidade" class="item-medidas">Unidade</option>
+                            <option value="Litros (L)" class="item-medidas">Litros (L)</option>
                         </optgroup>
                     </select>
                 </section>

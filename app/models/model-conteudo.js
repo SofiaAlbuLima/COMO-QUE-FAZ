@@ -270,7 +270,8 @@ const conteudoModel = {
                    c.Descricao, 
                    c.Etapas_Modo_de_Preparo, 
                    c.porcoes, 
-                   c.subcategorias,  -- Incluindo a coluna subcategorias
+                   c.subcategorias,
+                   c.idMidia,
                    'dica' AS tipo, 
                    cl.Nickname AS nome_usuario
             FROM conteudo_postagem AS c
@@ -287,7 +288,8 @@ const conteudoModel = {
                    NULL AS Descricao, 
                    NULL AS Etapas_Modo_de_Preparo, 
                    NULL AS porcoes, 
-                   NULL AS subcategorias,  -- Adicionando NULL para subcategorias na tabela de perguntas
+                   NULL AS subcategorias,
+                   NULL AS idMidia,
                    'pergunta' AS tipo, 
                    cl.Nickname AS nome_usuario
             FROM perguntas AS p
