@@ -177,7 +177,7 @@
                   <section class="conteudo conteudo3" id="conteudoTarefa3">
                      <h2 id="titulo-midias">MÍDIAS</h2>
                      <input type="file" id="files" name="imagem" accept="image/*" multiple required
-                        onchange="previewImages()">
+                        onchange="previewImages()" style="display: none;">
                      <figure id="esqueleto-midias">
                         <h1 id="adicione-midias">ADICIONE IMAGENS E VÍDEOS À SUA POSTAGEM!</h1>
                         <figure id="retangulo-adicionar-midia">
@@ -189,21 +189,58 @@
                   </section>
 
                   <script>
-                     function previewImages() {
-                        const files = document.getElementById('files').files;
-                        const preview = document.getElementById('result'); // Container correto para as imagens
-                        preview.innerHTML = ''; // Limpa o preview anterior
+                     if (window.File && window.FileList && window.FileReader) {
+                        var filesInput = document.getElementById("files");
+                        var output = document.getElementById("result");
+                        var retanguloAdicionarMidia = document.getElementById("retangulo-adicionar-midia");
 
-                        Array.from(files).forEach(file => {
-                           const img = document.createElement('img');
-                           img.src = URL.createObjectURL(file);
-                           img.style.width = '100px'; // ajuste o tamanho conforme necessário
-                           img.style.margin = '10px'; // adicione espaçamento entre as imagens
-                           img.onload = () => {
-                              URL.revokeObjectURL(img.src); // Limpa a URL depois que a imagem é carregada
-                           };
-                           preview.appendChild(img);
+                        retanguloAdicionarMidia.addEventListener("click", function () {
+                           filesInput.click(); // Clique no input de arquivo
                         });
+
+                        filesInput.addEventListener("change", function (event) {
+                           const files = event.target.files; // FileList object
+                           output.innerHTML = ''; // Limpa o output anterior
+
+                           Array.from(files).forEach(file => {
+                              // Apenas imagens
+                              if (!file.type.match('image')) return;
+
+                              var picReader = new FileReader();
+
+                              picReader.addEventListener("load", function (event) {
+                                 var picFile = event.target;
+                                 var thumbnailContainer = document.createElement("div");
+                                 thumbnailContainer.className = "thumbnail-container";
+
+                                 var closeButton = document.createElement("span");
+                                 closeButton.className = "close-button";
+                                 closeButton.innerHTML = "X";
+                                 closeButton.addEventListener("click", function () {
+                                    thumbnailContainer.remove();
+                                 });
+
+                                 var thumbnail = document.createElement("img");
+                                 thumbnail.className = 'thumbnail';
+                                 thumbnail.src = picFile.result;
+                                 thumbnail.title = picFile.name;
+                                 thumbnail.style.width = '100px'; // ajuste o tamanho conforme necessário
+                                 thumbnail.style.margin = '10px'; // adicione espaçamento entre as imagens
+
+                                 thumbnailContainer.appendChild(thumbnail);
+                                 thumbnailContainer.appendChild(closeButton);
+                                 output.appendChild(thumbnailContainer);
+                              });
+
+                              // Lê a imagem
+                              picReader.readAsDataURL(file);
+                           });
+
+                           // Limpa o input após a seleção
+                           filesInput.value = '';
+                        });
+                     } else {
+                        console.log("Your browser does not support File API");
                      }
                   </script>
                </article>
