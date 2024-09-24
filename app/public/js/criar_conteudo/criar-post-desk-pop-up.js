@@ -287,62 +287,6 @@ function atualizarCampoOculto() {
     hiddenInput.value = subcategorias.join(', ');
 }
 
-window.onload = function () {
-
-    // Check File API support
-    if (window.File && window.FileList && window.FileReader) {
-        var filesInput = document.getElementById("files");
-        var output = document.getElementById("result");
-        var retanguloAdicionarMidia = document.getElementById("retangulo-adicionar-midia");
-
-        retanguloAdicionarMidia.addEventListener("click", function () {
-            filesInput.click(); // Clique no input de arquivo
-        });
-
-        filesInput.addEventListener("change", function (event) {
-
-            var files = event.target.files; // FileList object
-
-            for (var i = 0; i < files.length; i++) {
-                var file = files[i];
-
-                // Only pics
-                if (!file.type.match('image')) continue;
-
-                var picReader = new FileReader();
-
-                picReader.addEventListener("load", function (event) {
-                    var picFile = event.target;
-                    var thumbnailContainer = document.createElement("div");
-                    thumbnailContainer.className = "thumbnail-container";
-
-                    var closeButton = document.createElement("span");
-                    closeButton.className = "close-button";
-                    closeButton.innerHTML = "X";
-
-                    closeButton.addEventListener("click", function () {
-                        thumbnailContainer.remove();
-                    });
-
-                    var thumbnail = document.createElement("img");
-                    thumbnail.className = 'thumbnail';
-                    thumbnail.src = picFile.result;
-                    thumbnail.title = picFile.name;
-
-                    thumbnailContainer.appendChild(thumbnail);
-                    thumbnailContainer.appendChild(closeButton);
-                    output.appendChild(thumbnailContainer);
-                });
-
-                // Read the image
-                picReader.readAsDataURL(file);
-            }
-        });
-    } else {
-        console.log("Your browser does not support File API");
-    }
-}
-
 function dropdownmedidas(p) {
     var dropdownElement = document.querySelector('.dropDown-medidas');
     dropdownElement.style.display = p === 0 ? 'block' : 'none';

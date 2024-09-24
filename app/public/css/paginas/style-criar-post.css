@@ -25,6 +25,7 @@
     display: block;
     width: 100vw;
   }
+ 
 
   #tudonessapaginamobile {
     max-height: 100vh;
@@ -143,8 +144,8 @@
   #agrupamento-conteudo {
     padding: 0;
     margin: 0;
-   
-  
+   max-width: 100%;
+ 
 
   }
 
@@ -156,8 +157,8 @@
   }
 
   #conteudoTarefa2 {
-    left: 0;
-   position: fixed;
+   left: 0;
+  position:fixed;
    margin-top: -48vh;
    overflow: auto;
  
@@ -166,8 +167,8 @@
   #conteudoTarefa3 {
     left: 0;
     margin-top: -48vh;
-   position: fixed;
-  
+    position: fixed;
+
   }
 
   #detalhes {
@@ -261,7 +262,7 @@
     border-top: 1px solid #909090;
     margin-top: 5vw;
     padding-top: 4.26vw;
-    width: 100vw;
+    width: 100%;
   }
 
   #titulo-da-postagem {
@@ -324,7 +325,7 @@
     margin-top: 5vw;
     border-top: 1px solid #909090;
     padding-top: 6.66vw;
-    width: 100vw;
+    width: 100%;
   }
 
   #icon-seta-select {
@@ -665,7 +666,6 @@
     width: 1.06vw;
     height: 49.06vw;
     padding: 2px 2px 2px 2px;
-    margin-left: 6.4vw;
     background-color: #cb218c;
     box-sizing: border-box;
     position: relative;
@@ -861,9 +861,9 @@
     width: 3vw;
   }
 
-  ::-webkit-scrollbar-thumb {
+  /* ::-webkit-scrollbar-thumb {
     background-color: #cb218c;
-  }
+  } */
 
   .item-medidas {
     width: 42vw;
@@ -1007,7 +1007,7 @@
 
   #linhas-roxa-conteudo{
     border-left: 1vw #9e5fef solid;
-    margin-left: 6.4vw;
+    margin-left: 9vw;
   }
   
   #input-modo-de-preparo{

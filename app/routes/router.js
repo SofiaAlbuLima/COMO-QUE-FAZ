@@ -128,6 +128,13 @@ router.get("/sair-da-conta", limparSessao, function (req, res) {
     res.redirect("/");
 });
 
+router.get("/criar-dica", verificarUsuAutorizado([1, 2], "/"), function (req, res) {
+    res.render("pages/template", {
+        pagina: { cabecalho: "cabecalho", conteudo: "Criar-dica", rodape: "none" },
+        usuario_logado: req.session.autenticado,
+    });
+});
+
 router.get("/criar-postagem", VerificarAutenticacao, function (req, res) {
     res.render("pages/template", {
         pagina: { cabecalho: "none", conteudo: "sair", rodape: "none" },
