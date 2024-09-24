@@ -79,7 +79,22 @@
                         <th style="width: 4vh;" class="titulo-tabela"></th>
                      </tr>
 
-                     <% denunciasNoControl.forEach(function(denuncia){ %>
+                     <% PostagensNoControl.forEach(function(conteudo){ %>
+                     <tr class="linhas"> <!-- Conteudo da tabela -->
+                        <td class="linha-postagens Coluna-id">#<%=conteudo.ID_conteudo%></td>
+                        <td class="linha-postagens">
+                           <p class="Coluna-conteudo-postagens">Postagem</p>
+                        </td>
+                        <td class="linha-postagens Coluna-titulo"><%=conteudo.ID_conteudo%></td>
+                        <td class="linha-postagens Coluna-categoria"><%=conteudo.ID_conteudo%></td>
+                        <td class="linha-postagens Coluna-autor" data-autor="true"><%=conteudo.Clientes_idClientes%></td>
+                        <td class="linha-postagens"> <img class="icon-rosa-linha visualizar-icon-postagem" src="/imagens-svg/visualizar-icon-rosa.svg" alt=""></td>
+                        <td class="linha-postagens"> <img class="icon-rosa-linha bloquear-icon-postagem" src="/imagens-svg/bloquear-icon-rosa.svg" alt=""></td>
+                        <td class="linha-postagens"> <img class="icon-rosa-linha excluir-icon-postagem" src="/imagens-svg/excluir-icon-rosa.svg" alt=""></td>
+                     </tr>
+                     <% }); %>
+                     
+                     <% PerguntasNoControl.forEach(function(conteudo){ %>
                      <tr class="linhas"> <!-- Conteudo da tabela -->
                         <td class="linha-postagens Coluna-id">#10.049</td>
                         <td class="linha-postagens">

@@ -106,10 +106,25 @@ const admModel = {
 
     //------------------------------------------------------- USUARIO
 
-    mostrarPostagensPerguntas: async () => {
+    mostrarPostagens: async () => {
         try {
             let query = `
-            select * from conteudo_postagem`
+            select * from conteudo_postagem
+            `
+
+            const [result] = await pool.query(query);
+            return result;
+
+        } catch (erro) {
+            throw erro;
+        }
+    },
+    
+    mostrarPerguntas: async () => {
+        try {
+            let query = `
+            select * from perguntas
+            `
 
             const [result] = await pool.query(query);
             return result;

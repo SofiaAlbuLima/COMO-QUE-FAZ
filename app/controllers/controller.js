@@ -586,6 +586,34 @@ const tarefasController = {
         }catch(error){
             console.error('Erro ao armazenar denúncia:', error);
         }
+    },
+
+    listarPostagens: async (req, res) => {
+        try{
+            const results = await  admModel.mostrarPostagens();
+
+            return {
+                PostagensNoControl: results,
+                usuario_logado: req.session.autenticado
+            };
+
+        }catch(error){
+            console.error('Erro ao armazenar denúncia:', error);
+        }
+    },
+
+    listarPerguntas: async (req, res) => {
+        try{
+            const results = await  admModel.mostrarPerguntas();
+
+            return {
+                PerguntasNoControl: results,
+                usuario_logado: req.session.autenticado
+            };
+
+        }catch(error){
+            console.error('Erro ao armazenar denúncia:', error);
+        }
     }
 
 };
