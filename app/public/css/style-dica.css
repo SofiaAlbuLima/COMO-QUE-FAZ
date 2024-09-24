@@ -1001,6 +1001,21 @@
     .titulo-icon-bemestar, .estrelas_bemestar{
         background-color: #00cd83;
     }
+    .botao-enviar-avaliacao{
+        width: 100%;
+        align-items: center;
+        border: none;
+        border-radius: 0px 0px 10px 10px;
+        height: 2.5vh;
+        color: #00583a;
+        cursor: pointer;
+        margin-top: 1vh;
+    }
+    .botao-enviar-avaliacao:hover{
+        color: white;
+        border: 2px solid white;
+        background-color: #00cd83;
+    }
 
     .icon-categoria {
         width: 3.5vh;
@@ -1228,6 +1243,7 @@
         color: white;
         font-weight: 400;
         text-align: left;
+        margin-top: 0.5vh;
     }
 
     /* estrelas de avaliacao */
