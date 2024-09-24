@@ -52,7 +52,8 @@ const conteudoModel = {
                     c.Descricao, 
                     c.Etapas_Modo_de_Preparo, 
                     c.porcoes, 
-                    c.subcategorias
+                    c.subcategorias,
+                    c.idMidia
                 FROM conteudo_postagem AS c
                 JOIN clientes AS cl ON c.Clientes_idClientes = cl.idClientes
                 UNION ALL
@@ -67,7 +68,8 @@ const conteudoModel = {
                     NULL AS Descricao, 
                     NULL AS Etapas_Modo_de_Preparo, 
                     NULL AS porcoes, 
-                    NULL AS subcategorias
+                    NULL AS subcategorias,
+                    NULL AS idMidia
                 FROM perguntas AS p
                 JOIN clientes AS cl ON p.Clientes_idClientes = cl.idClientes
             ) AS combined

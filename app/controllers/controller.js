@@ -184,10 +184,6 @@ const tarefasController = {
                 };
             }));
             
-            combinedConteudo.forEach((conteudo, index) => {
-                console.log(`ID da Mídia para a postagem ${index + 1}:`, conteudo.imagem);
-            });
-
             return {
                 usuario_logado: req.session.autenticado,
                 login: req.session.logado,
@@ -254,6 +250,7 @@ const tarefasController = {
             }
 
             let combinedConteudo = await Promise.all(data.map(async conteudo => {
+                let ingredientes = await conteudoModel.BuscarIngredientesPorPostagemId(conteudo.id);
                 let mediaAvaliacoes = await conteudoModel.CalcularMediaAvaliacoes(conteudo.id);
                 return {
                     nome: conteudo.Titulo,
@@ -267,7 +264,9 @@ const tarefasController = {
                     porcoes: conteudo.porcoes > 0 ? `${conteudo.porcoes} ${conteudo.porcoes > 1 ? 'Porções' : 'Porção'}` : null,
                     tipo: conteudo.tipo,
                     subcategorias: conteudo.subcategorias,
-                    mediaAvaliacoes
+                    mediaAvaliacoes,
+                    ingredientes: ingredientes.length ? ingredientes.map(i => i.ingredientes).join(', ') : null,
+                    imagem: conteudo.idMidia ? `/uploads-midia-banco/${conteudo.idMidia}` : null
                 };
             }));
             return {
