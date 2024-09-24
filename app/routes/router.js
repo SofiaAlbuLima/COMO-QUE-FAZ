@@ -219,11 +219,14 @@ router.get("/adm/usuarios", verificarUsuAutorizado([2], "/sair"),
 router.get("/adm/postagens-perguntas", verificarUsuAutorizado([2], "/sair"),
     async function (req, res) {
         try {
-            const data = await tarefasController.listarUsuarios(req, res);
+            const data = await tarefasController.listarPostagens(req, res);
+            const dataa = await tarefasController.listarPerguntas(req, res);
+
             res.render("pages/template-adm",
                 {
                     pagina: { cabecalho: "administrar/menu-administrativo", conteudo: "administrar/paginas/adm-postagens" },
-                    ...data
+                    ...data,
+                    ...dataa
                 });
         } catch (error) {
             res.status(500).json({ erro: error.message });
