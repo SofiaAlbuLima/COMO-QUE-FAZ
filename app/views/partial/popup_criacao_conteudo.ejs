@@ -54,7 +54,7 @@
             <figure id="close-modal-criar-post">X</figure>
          </section>
 
-         <form action="/criar-dica" method="post">
+         <form action="/criar-dica" method="post" enctype="multipart/form-data">
             <section id="criar-post-etapas">
                <aside class="linha-baixo">
                   <figure class="linha-progresso" id="progresso"></figure>
@@ -176,51 +176,36 @@
 
                   <section class="conteudo conteudo3" id="conteudoTarefa3">
                      <h2 id="titulo-midias">MÍDIAS</h2>
-                     <input type="file" id="files" name="imagem" accept="image/*" multiple required>
+                     <input type="file" id="files" name="imagem" accept="image/*" multiple required
+                        onchange="previewImages()">
                      <figure id="esqueleto-midias">
-                         <h1 id="adicione-midias">ADICIONE IMAGENS E VÍDEOS À SUA POSTAGEM!</h1>
-                         <figure id="retangulo-adicionar-midia">
-                             <img src="/imagens/mais-rosa.svg" alt="adicionar mídia" id="mais-adicionar-midia">
-                         </figure>
-                         <figure id="fundo-midias"></figure>
-                         <figure id="result"></figure>
+                        <h1 id="adicione-midias">ADICIONE IMAGENS E VÍDEOS À SUA POSTAGEM!</h1>
+                        <figure id="retangulo-adicionar-midia">
+                           <img src="/imagens/mais-rosa.svg" alt="adicionar mídia" id="mais-adicionar-midia">
+                        </figure>
+                        <figure id="fundo-midias"></figure>
+                        <figure id="result"></figure>
                      </figure>
-                 </section>
-                 
-                 <script>
-                 function previewImages() {
-                     const files = document.getElementById('files').files;
-                     const preview = document.getElementById('midias-preview');
-                     preview.innerHTML = '';
-                 
-                     Array.from(files).forEach(file => {
-                         const img = document.createElement('img');
-                         img.src = URL.createObjectURL(file);
-                         img.style.width = '100px'; // ajuste o tamanho conforme necessário
-                         preview.appendChild(img);
-                     });
-                 }
-                 
-                 async function uploadImages() {
-                     const files = document.getElementById('files').files;
-                     const formData = new FormData();
-                  
-                     Array.from(files).forEach(file => {
-                         formData.append('imagem', file);
-                     });
-                 
-                     const response = await fetch('/upload-imagem', {
-                         method: 'POST',
-                         body: formData
-                     });
-                 
-                     if (response.ok) {
-                         alert('Imagens enviadas com sucesso!');
-                     } else {
-                         alert('Erro ao enviar imagens!');
+                  </section>
+
+                  <script>
+                     function previewImages() {
+                        const files = document.getElementById('files').files;
+                        const preview = document.getElementById('result'); // Container correto para as imagens
+                        preview.innerHTML = ''; // Limpa o preview anterior
+
+                        Array.from(files).forEach(file => {
+                           const img = document.createElement('img');
+                           img.src = URL.createObjectURL(file);
+                           img.style.width = '100px'; // ajuste o tamanho conforme necessário
+                           img.style.margin = '10px'; // adicione espaçamento entre as imagens
+                           img.onload = () => {
+                              URL.revokeObjectURL(img.src); // Limpa a URL depois que a imagem é carregada
+                           };
+                           preview.appendChild(img);
+                        });
                      }
-                 }
-                 </script>
+                  </script>
                </article>
 
                <nav id="botoes-criar-post">

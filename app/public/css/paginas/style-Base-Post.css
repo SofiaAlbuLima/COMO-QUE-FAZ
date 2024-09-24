@@ -18,7 +18,17 @@
   .postagem:hover .hover_ingredientes_basePost-culinaria {
     display: flex;
   }
-  .postagem:hover .titulo_post, .postagem:hover .postagem_info_primeiro_plano{
+
+  .postagem:hover .hover_ingredientes_basePost-limpeza {
+    display: flex;
+  }
+
+  .postagem:hover .hover_ingredientes_basePost-bemEstar {
+    display: flex;
+  }
+
+  .postagem:hover .titulo_post,
+  .postagem:hover .postagem_info_primeiro_plano {
     display: none;
   }
 
@@ -52,6 +62,7 @@
     color: white;
     position: absolute;
     padding-bottom: 1vh;
+    z-index: 2;
   }
 
   #icon-categoria-branco {
@@ -60,6 +71,25 @@
     margin-right: 2vh;
     position: absolute;
     padding-bottom: 1vh;
+    z-index: 2;
+  }
+
+  .imagem-container {
+    position: relative;
+    display: inline-block;
+    overflow: hidden;
+    border-radius: 10px 10px 0 0;
+  }
+
+  .imagem-container::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 1;
+    height: 8vh;
+    background: linear-gradient(to top, rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0)); 
   }
 
   .imagem_postagem {
@@ -67,6 +97,7 @@
     border-radius: 10px 10px 0 0;
     display: block;
     width: 100%;
+    position: relative;
   }
 
   .hover_ingredientes_basePost-culinaria,
@@ -80,7 +111,7 @@
     z-index: 5;
     border-top-right-radius: 10px;
     border-top-left-radius: 10px;
-    box-sizing: border-box; 
+    box-sizing: border-box;
     padding: 2vh;
   }
 

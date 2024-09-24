@@ -2,7 +2,6 @@
 
 const usuarioModel = require("../models/model-usuario"); //Requisição do arquivo Model para executar ações no Banco de Dados
 const conteudoModel = require("../models/model-conteudo");
-const imagemModel = require("../models/model-midia");
 const admModel = require("../models/model-adm");
 const moment = require("moment"); //datas e horas bonitinhas
 const { body, validationResult } = require("express-validator");
@@ -180,9 +179,14 @@ const tarefasController = {
                     tipo: conteudo.tipo,
                     subcategorias: conteudo.subcategorias,
                     ingredientes: ingredientes.length ? ingredientes.map(i => i.ingredientes).join(', ') : null,
-                    mediaAvaliacoes
+                    mediaAvaliacoes,
+                    imagem: conteudo.idMidia ? `/uploads-midia-banco/${conteudo.idMidia}` : null
                 };
             }));
+            
+            combinedConteudo.forEach((conteudo, index) => {
+                console.log(`ID da Mídia para a postagem ${index + 1}:`, conteudo.imagem);
+            });
 
             return {
                 usuario_logado: req.session.autenticado,
@@ -417,7 +421,7 @@ const tarefasController = {
             const subcategoriasTexto = req.body.dica_subcategorias || '';
 
             const imagens = req.files.map(file => file.filename); // Supondo que você está usando multer
-            const imagensString = imagens.length > 0 ? imagens.join(',') : null; // Concatena os nomes dos arquivos ou null
+            const idMidia  = imagens.length > 0 ? imagens.join(',') : null; // Concatena os nomes dos arquivos ou null
 
 
             const FormCriarDica = {
@@ -429,7 +433,7 @@ const tarefasController = {
                 Descricao: req.body.dica_descricao,
                 Etapas_Modo_de_Preparo: etapasTexto,
                 subcategorias: subcategoriasTexto,
-                Imagem: imagensString 
+                idMidia : idMidia  
             };
 
             console.log('FormCriarDica:', FormCriarDica); // Debugging
