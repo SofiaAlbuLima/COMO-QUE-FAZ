@@ -519,6 +519,7 @@ const tarefasController = {
             res.redirect('/');
         }
     },
+
     listarDenuncias: async (req, res) => {
         try {
             results = await admModel.mostrarDenuncias();
@@ -571,16 +572,21 @@ const tarefasController = {
             console.error('Erro ao armazenar denúncia:', error);
             res.status(500).send('Erro ao enviar denúncia');
         }
+    },
+
+    listarUsuarios: async (req, res) => {
+        try{
+            const results = await  admModel.mostrarUsuarios();
+
+            return {
+                usuariosNoControl: results,
+                usuario_logado: req.session.autenticado
+            };
+
+        }catch(error){
+            console.error('Erro ao armazenar denúncia:', error);
+        }
     }
-
-    // listarUsuario: async (req, res) => {
-    //     try{
-    //         const result = await 
-    //     }catch(error){
-    //         console.error('Erro ao armazenar denúncia:', error);
-    //     }
-    // }
-
 
 };
 

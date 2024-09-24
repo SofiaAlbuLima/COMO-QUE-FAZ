@@ -169,16 +169,7 @@ router.get("/pagamento", function (req, res) {
     });
 });
 
-
-
-
-
-
 router.post('/denunciar/:id', tarefasController.armazenarDenuncia);
-
-
-
-
 
 // Links & Template - Parte Administrativa
 router.get("/adm", verificarUsuAutorizado([2], "/sair"),
@@ -204,21 +195,32 @@ router.get("/adm/denuncias", verificarUsuAutorizado([2], "/sair"),
         }
     });
 
-router.get("/adm/postagens-perguntas", verificarUsuAutorizado([2], "/sair"),
-    function (req, res) {
-        res.render("pages/template-adm",
-            {
-                pagina: { cabecalho: "administrar/menu-administrativo", conteudo: "administrar/paginas/adm-postagens" },
-                usuario_logado: req.session.autenticado
-            });
-    });
 router.get("/adm/usuarios", verificarUsuAutorizado([2], "/sair"),
-    function (req, res) {
-        res.render("pages/template-adm",
-            {
-                pagina: { cabecalho: "administrar/menu-administrativo", conteudo: "administrar/paginas/adm-usuarios" },
-                usuario_logado: req.session.autenticado
-            });
+    async function (req, res) {
+        try {
+            const data = await tarefasController.listarUsuarios(req, res);
+            res.render("pages/template-adm",
+                {
+                    pagina: { cabecalho: "administrar/menu-administrativo", conteudo: "administrar/paginas/adm-usuarios" },
+                    ...data
+                });
+        } catch (error) {
+            res.status(500).json({ erro: error.message });
+        }
+    });
+
+router.get("/adm/postagens-perguntas", verificarUsuAutorizado([2], "/sair"),
+    async function (req, res) {
+        try {
+            const data = await tarefasController.listarUsuarios(req, res);
+            res.render("pages/template-adm",
+                {
+                    pagina: { cabecalho: "administrar/menu-administrativo", conteudo: "administrar/paginas/adm-postagens" },
+                    ...data
+                });
+        } catch (error) {
+            res.status(500).json({ erro: error.message });
+        }
     });
 
 router.get("/adm/acesso-premium", verificarUsuAutorizado([2], "/sair"),

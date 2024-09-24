@@ -87,8 +87,37 @@ const admModel = {
         } catch (erro) {
             throw erro;
         }
-    }
+    },
 
+    //------------------------------------------------------- USUARIO
+
+    mostrarUsuarios: async () => {
+        try{
+            let query = `
+            select * from clientes;`
+
+            const [result] = await pool.query(query);
+            return result;
+
+        } catch (erro) {
+            throw erro;
+        }
+    },
+
+    //------------------------------------------------------- USUARIO
+
+    mostrarPostagensPerguntas: async () => {
+        try {
+            let query = `
+            select * from conteudo_postagem`
+
+            const [result] = await pool.query(query);
+            return result;
+
+        } catch (erro) {
+            throw erro;
+        }
+    }
 }
 
 module.exports = admModel

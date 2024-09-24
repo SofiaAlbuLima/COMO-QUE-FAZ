@@ -79,6 +79,7 @@
                         <th style="width: 4vh;" class="titulo-tabela"></th>
                      </tr>
 
+                     <% denunciasNoControl.forEach(function(denuncia){ %>
                      <tr class="linhas"> <!-- Conteudo da tabela -->
                         <td class="linha-postagens Coluna-id">#10.049</td>
                         <td class="linha-postagens">
@@ -91,6 +92,7 @@
                         <td class="linha-postagens"> <img class="icon-rosa-linha bloquear-icon-postagem" src="/imagens-svg/bloquear-icon-rosa.svg" alt=""></td>
                         <td class="linha-postagens"> <img class="icon-rosa-linha excluir-icon-postagem" src="/imagens-svg/excluir-icon-rosa.svg" alt=""></td>
                      </tr>
+                     <% }); %>
 
                   </table>
                </section>
