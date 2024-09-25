@@ -195,15 +195,14 @@
                         var retanguloAdicionarMidia = document.getElementById("retangulo-adicionar-midia");
 
                         retanguloAdicionarMidia.addEventListener("click", function () {
-                           filesInput.click(); // Clique no input de arquivo
+                           filesInput.click();
                         });
 
                         filesInput.addEventListener("change", function (event) {
-                           const files = event.target.files; // FileList object
-                           output.innerHTML = ''; // Limpa o output anterior
+                           const files = event.target.files;
+                           output.innerHTML = '';
 
                            Array.from(files).forEach(file => {
-                              // Apenas imagens
                               if (!file.type.match('image')) return;
 
                               var picReader = new FileReader();
@@ -224,19 +223,17 @@
                                  thumbnail.className = 'thumbnail';
                                  thumbnail.src = picFile.result;
                                  thumbnail.title = picFile.name;
-                                 thumbnail.style.width = '100px'; // ajuste o tamanho conforme necessário
-                                 thumbnail.style.margin = '10px'; // adicione espaçamento entre as imagens
+                                 thumbnail.style.width = '100px';
+                                 thumbnail.style.margin = '10px';
 
                                  thumbnailContainer.appendChild(thumbnail);
                                  thumbnailContainer.appendChild(closeButton);
                                  output.appendChild(thumbnailContainer);
                               });
 
-                              // Lê a imagem
                               picReader.readAsDataURL(file);
                            });
 
-                           // Limpa o input após a seleção
                            filesInput.value = '';
                         });
                      } else {
