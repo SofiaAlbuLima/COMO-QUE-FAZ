@@ -111,11 +111,11 @@ const admModel = {
             let query = `
             SELECT combined.*, COALESCE(media.media, 0) AS media_avaliacao
             FROM (
-                SELECT c.ID_conteudo AS id, c.Clientes_idClientes, c.Categorias_idCategorias, c.Titulo, c.tempo, c.Descricao, c.Etapas_Modo_de_Preparo, c.porcoes, 'dica' AS tipo, cl.Nickname AS nome_usuario, c.subcategorias, c.idMidia
+                SELECT c.ID_conteudo AS id, c.Clientes_idClientes, c.Categorias_idCategorias as categoria, c.Titulo, c.tempo, c.Descricao, c.Etapas_Modo_de_Preparo, c.porcoes, 'dica' AS tipo, cl.Nickname AS nome_usuario, c.subcategorias, c.idMidia
                 FROM conteudo_postagem AS c
                 JOIN clientes AS cl ON c.Clientes_idClientes = cl.idClientes
                 UNION ALL
-                SELECT p.ID_Pergunta AS id, p.Clientes_idClientes, p.categorias_idCategorias, p.titulo AS Titulo, NULL AS tempo, NULL AS Descricao, NULL AS Etapas_Modo_de_Preparo, NULL AS porcoes, 'pergunta' AS tipo, cl.Nickname AS nome_usuario, NULL AS subcategorias, NULL AS idMidia
+                SELECT p.ID_Pergunta AS id, p.Clientes_idClientes, p.categorias_idCategorias as categoria, p.titulo AS Titulo, NULL AS tempo, NULL AS Descricao, NULL AS Etapas_Modo_de_Preparo, NULL AS porcoes, 'pergunta' AS tipo, cl.Nickname AS nome_usuario, NULL AS subcategorias, NULL AS idMidia
                 FROM perguntas AS p
                 JOIN clientes AS cl ON p.Clientes_idClientes = cl.idClientes
             ) AS combined

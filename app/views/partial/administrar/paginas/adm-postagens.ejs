@@ -79,20 +79,36 @@
                         <th style="width: 4vh;" class="titulo-tabela"></th>
                      </tr>
 
-                     <% PostagensNoControl.forEach(function(conteudo){ %>
-                     <tr class="linhas"> <!-- Conteudo da tabela -->
-                        <td class="linha-postagens Coluna-id">#<%=conteudo.ID_conteudo%></td>
-                        <td class="linha-postagens">
-                           <p class="Coluna-conteudo-postagens">Postagem</p>
-                        </td>
-                        <td class="linha-postagens Coluna-titulo"><%=conteudo.ID_conteudo%></td>
-                        <td class="linha-postagens Coluna-categoria"><%=conteudo.ID_conteudo%></td>
-                        <td class="linha-postagens Coluna-autor" data-autor="true"><%=conteudo.Clientes_idClientes%></td>
-                        <td class="linha-postagens"> <img class="icon-rosa-linha visualizar-icon-postagem" src="/imagens-svg/visualizar-icon-rosa.svg" alt=""></td>
-                        <td class="linha-postagens"> <img class="icon-rosa-linha bloquear-icon-postagem" src="/imagens-svg/bloquear-icon-rosa.svg" alt=""></td>
-                        <td class="linha-postagens"> <img class="icon-rosa-linha excluir-icon-postagem" src="/imagens-svg/excluir-icon-rosa.svg" alt=""></td>
-                     </tr>
-                     <% }); %>
+                     <% PostagensNoControl.forEach(function(conteudo) { %>
+                        <% if (id === ID_conteudo) { %>
+                            <tr class="linhas"> <!-- Conteudo da tabela postagens-->
+                                <td class="linha-postagens Coluna-id">#<%=conteudo.id%></td>
+                                <td class="linha-postagens">
+                                    <p class="Coluna-conteudo-postagens">Postagem</p>
+                                </td>
+                                <td class="linha-postagens Coluna-titulo"><%=conteudo.Titulo%></td>
+                                <td class="linha-postagens Coluna-categoria"><%=conteudo.categoria%></td>
+                                <td class="linha-postagens Coluna-autor" data-autor="true"><%=conteudo.Clientes_idClientes%></td>
+                                <td class="linha-postagens"> <img class="icon-rosa-linha visualizar-icon-postagem" src="/imagens-svg/visualizar-icon-rosa.svg" alt=""></td>
+                                <td class="linha-postagens"> <img class="icon-rosa-linha bloquear-icon-postagem" src="/imagens-svg/bloquear-icon-rosa.svg" alt=""></td>
+                                <td class="linha-postagens"> <img class="icon-rosa-linha excluir-icon-postagem" src="/imagens-svg/excluir-icon-rosa.svg" alt=""></td>
+                            </tr>
+                        <% } else if (id === ID_Pergunta) { %>
+                            <tr class="linhas"> <!-- Conteudo da tabela postagens-->
+                                <td class="linha-postagens Coluna-id">#<%=conteudo.id%></td>
+                                <td class="linha-postagens">
+                                    <p class="Coluna-conteudo-postagens">Pergunta</p>
+                                </td>
+                                <td class="linha-postagens Coluna-titulo"><%=conteudo.Titulo%></td>
+                                <td class="linha-postagens Coluna-categoria"><%=conteudo.categoria%></td>
+                                <td class="linha-postagens Coluna-autor" data-autor="true"><%=conteudo.Clientes_idClientes%></td>
+                                <td class="linha-postagens"> <img class="icon-rosa-linha visualizar-icon-postagem" src="/imagens-svg/visualizar-icon-rosa.svg" alt=""></td>
+                                <td class="linha-postagens"> <img class="icon-rosa-linha bloquear-icon-postagem" src="/imagens-svg/bloquear-icon-rosa.svg" alt=""></td>
+                                <td class="linha-postagens"> <img class="icon-rosa-linha excluir-icon-postagem" src="/imagens-svg/excluir-icon-rosa.svg" alt=""></td>
+                            </tr>
+                        <% } %>
+                    <% }); %>
+                    
                      
                      <!-- TRABALHAR COM IF ELSE NAS COLUNAS PARA CHAMAR PERGUNTA E CONTEUDO -->
 
