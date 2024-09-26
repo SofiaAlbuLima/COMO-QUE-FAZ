@@ -591,10 +591,13 @@ const tarefasController = {
     listarPostagens: async (req, res) => {
         try{
             const results = await  admModel.mostrarPostagens();
+            const autorDica = results.Clientes_idClientes;
+            const RecebeAutor = await admModel.PegarNomeCliente(autorDica);
 
             return {
-                PostagensNoControl: results,
-                usuario_logado: req.session.autenticado
+                PostagensNoControl: (results, RecebeAutor),
+                usuario_logado: req.session.autenticado,
+
             };
 
         }catch(error){

@@ -92,7 +92,7 @@ const admModel = {
     //------------------------------------------------------- USUARIO
 
     mostrarUsuarios: async () => {
-        try{
+        try {
             let query = `
             select * from clientes;`
 
@@ -110,22 +110,55 @@ const admModel = {
         try {
             let query = `
             SELECT combined.*, COALESCE(media.media, 0) AS media_avaliacao
-            FROM (
-                SELECT c.ID_conteudo AS id, c.Clientes_idClientes, c.Categorias_idCategorias as categoria, c.Titulo, c.tempo, c.Descricao, c.Etapas_Modo_de_Preparo, c.porcoes, 'dica' AS tipo, cl.Nickname AS nome_usuario, c.subcategorias, c.idMidia
-                FROM conteudo_postagem AS c
-                JOIN clientes AS cl ON c.Clientes_idClientes = cl.idClientes
-                UNION ALL
-                SELECT p.ID_Pergunta AS id, p.Clientes_idClientes, p.categorias_idCategorias as categoria, p.titulo AS Titulo, NULL AS tempo, NULL AS Descricao, NULL AS Etapas_Modo_de_Preparo, NULL AS porcoes, 'pergunta' AS tipo, cl.Nickname AS nome_usuario, NULL AS subcategorias, NULL AS idMidia
-                FROM perguntas AS p
-                JOIN clientes AS cl ON p.Clientes_idClientes = cl.idClientes
-            ) AS combined
-            LEFT JOIN (
-                SELECT conteudo_postagem_ID_conteudo, AVG(Nota) AS media
-                FROM avaliacao
-                GROUP BY conteudo_postagem_ID_conteudo
-            ) AS media ON combined.id = media.conteudo_postagem_ID_conteudo
+FROM (
+    SELECT 
+        c.ID_conteudo AS id, 
+        'conteudo_postagem' AS origem,  -- Identificador de origem
+        c.Clientes_idClientes, 
+        c.Categorias_idCategorias AS categoria, 
+        c.Titulo, 
+        c.tempo, 
+        c.Descricao, 
+        c.Etapas_Modo_de_Preparo, 
+        c.porcoes, 
+        cl.Nickname AS nome_usuario, 
+        c.subcategorias, 
+        c.idMidia
+    FROM conteudo_postagem AS c
+    JOIN clientes AS cl 
+    ON c.Clientes_idClientes = cl.idClientes
+    
+    UNION ALL
+    
+    SELECT 
+        p.ID_Pergunta AS id, 
+        'pergunta' AS origem,  -- Identificador de origem
+        p.Clientes_idClientes, 
+        p.categorias_idCategorias AS categoria, 
+        p.titulo AS Titulo, 
+        NULL AS tempo, 
+        NULL AS Descricao, 
+        NULL AS Etapas_Modo_de_Preparo, 
+        NULL AS porcoes, 
+        cl.Nickname AS nome_usuario, 
+        NULL AS subcategorias, 
+        NULL AS idMidia
+    FROM perguntas AS p
+    JOIN clientes AS cl 
+    ON p.Clientes_idClientes = cl.idClientes
+) AS combined
+LEFT JOIN (
+    SELECT 
+        conteudo_postagem_ID_conteudo, 
+        AVG(Nota) AS media
+    FROM avaliacao
+    GROUP BY conteudo_postagem_ID_conteudo
+) AS media 
+ON combined.id = media.conteudo_postagem_ID_conteudo;
+
             `;
 
+            const IDclientes = await pool.query(query);
             const [result] = await pool.query(query);
             return result;
 
@@ -133,6 +166,24 @@ const admModel = {
             throw erro;
         }
     },
+
+    PegarNomeCliente: async (autorDica) => {
+        try {
+            let query = `
+            SELECT Nickname FROM clientes WHERE idClientes = ?;`;
+            
+            const [result] = await pool.query(query, [autorDica]);
+            
+            if (result.length > 0) {
+                return result;  // Deve retornar o resultado contendo o Nickname
+            } else {
+                return null;  // Caso o cliente não seja encontrado
+            }
+    
+        } catch (erro) {
+            throw erro;
+        }
+    }
     
 }
 
