@@ -16,7 +16,7 @@ const fileFilter = (req, file, callBack) => {
     }
 };
 
-module.exports = (caminho = null, tamanhoArq = 3) => {
+module.exports = (caminho = null, tamanhoArq = 10) => {
     if(caminho = null){
         const storage = multer.memoryStorage();
         upload = multer({
