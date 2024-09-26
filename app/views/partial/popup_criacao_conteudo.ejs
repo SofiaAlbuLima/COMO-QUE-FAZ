@@ -176,8 +176,7 @@
 
                   <section class="conteudo conteudo3" id="conteudoTarefa3">
                      <h2 id="titulo-midias">MÍDIAS</h2>
-                     <input type="file" id="files" name="imagem" accept="image/*" multiple required
-                        onchange="previewImages()" style="display: none;">
+                     <input type="file" id="imagem_criar_post" name="imagem_criar_post" onchange="loadImg(event)" required>
                      <figure id="esqueleto-midias">
                         <h1 id="adicione-midias">ADICIONE IMAGENS E VÍDEOS À SUA POSTAGEM!</h1>
                         <figure id="retangulo-adicionar-midia">
@@ -190,7 +189,7 @@
 
                   <script>
                      if (window.File && window.FileList && window.FileReader) {
-                        var filesInput = document.getElementById("files");
+                        var filesInput = document.getElementById("imagem_criar_post");
                         var output = document.getElementById("result");
                         var retanguloAdicionarMidia = document.getElementById("retangulo-adicionar-midia");
 

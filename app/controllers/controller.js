@@ -1,10 +1,13 @@
 // Responsável por receber as entradas do usuário, interpretá-las e acionar ações adequadas no modelo e na visualização
 
-const usuarioModel = require("../models/model-usuario"); //Requisição do arquivo Model para executar ações no Banco de Dados
+const usuarioModel = require("../models/model-usuario");
 const conteudoModel = require("../models/model-conteudo");
 const admModel = require("../models/model-adm");
+
 const moment = require("moment"); //datas e horas bonitinhas
 const { body, validationResult } = require("express-validator");
+const {removeImg} = require("../util/removeImg");
+
 const bcrypt = require("bcryptjs");
 var salt = bcrypt.genSaltSync(12);
 
@@ -180,7 +183,7 @@ const tarefasController = {
                     subcategorias: conteudo.subcategorias,
                     ingredientes: ingredientes.length ? ingredientes.map(i => i.ingredientes).join(', ') : null,
                     mediaAvaliacoes,
-                    imagem: conteudo.idMidia ? `/uploads-midia-banco/${conteudo.idMidia}` : null
+                    imagem: results[0].idMidia != null ? `data:image/jpeg;base64,${results[0].idMidia.toString('base64')}` : null,
                 };
             }));
             
@@ -265,8 +268,7 @@ const tarefasController = {
                     tipo: conteudo.tipo,
                     subcategorias: conteudo.subcategorias,
                     mediaAvaliacoes,
-                    ingredientes: ingredientes.length ? ingredientes.map(i => i.ingredientes).join(', ') : null,
-                    imagem: conteudo.idMidia ? `/uploads-midia-banco/${conteudo.idMidia}` : null
+                    ingredientes: ingredientes.length ? ingredientes.map(i => i.ingredientes).join(', ') : null
                 };
             }));
             return {
@@ -327,8 +329,7 @@ const tarefasController = {
                 tipo: postagem.tipo,
                 ingredientes: ingredientes,
                 subcategorias: postagem.subcategorias,
-                mediaAvaliacoes,
-                imagem: postagem.idMidia ? `/uploads-midia-banco/${postagem.idMidia}` : null
+                mediaAvaliacoes
             };
 
             switch (postagem.Categorias_idCategorias) {
@@ -420,9 +421,6 @@ const tarefasController = {
 
             const subcategoriasTexto = req.body.dica_subcategorias || '';
 
-            const imagens = req.files.map(file => file.filename); // Supondo que você está usando multer
-            const idMidia  = imagens.length > 0 ? imagens.join(',') : null; // Concatena os nomes dos arquivos ou null
-
 
             const FormCriarDica = {
                 Clientes_idClientes: req.session.autenticado.id,
@@ -433,7 +431,7 @@ const tarefasController = {
                 Descricao: req.body.dica_descricao,
                 Etapas_Modo_de_Preparo: etapasTexto,
                 subcategorias: subcategoriasTexto,
-                idMidia : idMidia  
+                idMidia: idMidia  
             };
 
             console.log('FormCriarDica:', FormCriarDica); // Debugging

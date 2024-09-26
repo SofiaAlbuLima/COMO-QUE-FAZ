@@ -20,8 +20,6 @@ const env = require('dotenv').config();
 
 app.use(express.static('app/public'));
 
-app.use('/uploads-midia-banco', express.static(path.join(__dirname, 'app/uploads-midia-banco')));
-
 app.set('view engine', 'ejs');
 app.set('views', './app/views')
 
