@@ -1001,17 +1001,36 @@
     .titulo-icon-bemestar, .estrelas_bemestar{
         background-color: #00cd83;
     }
-    .botao-enviar-avaliacao{
+    .botao-enviar-avaliacao-Culinaria, .botao-enviar-avaliacao-Limpeza, .botao-enviar-avaliacao-BemEstar{
         width: 100%;
         align-items: center;
         border: none;
         border-radius: 0px 0px 10px 10px;
         height: 2.5vh;
-        color: #00583a;
         cursor: pointer;
         margin-top: 1vh;
     }
     .botao-enviar-avaliacao:hover{
+        color: white;
+        border: 2px solid white;
+    }
+    .botao-enviar-avaliacao-Culinaria{
+        color: #4e081d;
+    }.botao-enviar-avaliacao-Culinaria:hover{
+        color: white;
+        border: 2px solid white;
+        background-color: #cb2154;
+    }
+    .botao-enviar-avaliacao-Limpeza{
+        color: #012a4b;
+    }.botao-enviar-avaliacao-Limpeza:hover{
+        color: white;
+        border: 2px solid white;
+        background-color: #027de1;
+    }
+    .botao-enviar-avaliacao-BemEstar{
+        color: #126c4b;
+    }.botao-enviar-avaliacao-BemEstar:hover{
         color: white;
         border: 2px solid white;
         background-color: #00cd83;
