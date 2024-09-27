@@ -478,7 +478,7 @@ const tarefasController = {
         } catch (e) {
             console.log(e);
             res.render("pages/template", {
-                pagina: { cabecalho: "cabecalho", conteudo: "meu-perfil", rodape: "rodape" },
+                pagina: { cabecalho: "cabecalho", conteudo: "Meu-perfil", rodape: "rodape" },
                 usuario_logado: req.session.autenticado,
                 listaErros: e,
                 dadosNotificacao: {
