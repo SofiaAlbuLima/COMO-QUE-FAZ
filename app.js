@@ -23,6 +23,8 @@ app.use(express.static('app/public'));
 app.set('view engine', 'ejs');
 app.set('views', './app/views')
 
+app.use('/uploads', express.static('uploads'));
+
 var rotas = require('./app/routes/router');
 app.use('/', rotas);
 

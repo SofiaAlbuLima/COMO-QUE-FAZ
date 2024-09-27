@@ -1,63 +1,58 @@
 const multer = require('multer');
 const path = require('path');
-const fs = require('fs');
 
 const fileFilter = (req, file, callBack) => {
+    console.log("File recebido:", file);
+    if (!file || !file.originalname) {
+        return callBack(new Error("Arquivo inválido ou não enviado"));
+    }
+
     const allowedExtensions = /jpeg|jpg|png/;
     const extname = allowedExtensions.test(
-        path.extname(file.origianalname).toLowerCase()
+        path.extname(file.originalname).toLowerCase()
     );
     const mimetype = allowedExtensions.test(file.mimetype);
 
-    if(extname && mimetype){
-        return callBack(null,true);
+    if (extname && mimetype) {
+        return callBack(null, true);
     } else {
-        callBack(new Error ("Apenas Arquivos de imagem são permitidos!"));
+        callBack(new Error("Apenas arquivos de imagem são permitidos!"));
     }
 };
 
-module.exports = (caminho = null, tamanhoArq = 10) => {
-    if(caminho = null){
-        const storage = multer.memoryStorage();
-        upload = multer({
-            storage: storage,
-            limits: { fileSize: tamanhoArq * 1024 * 1024 },
-            fileFilter: fileFilter,
+module.exports = (campoArquivo) => {
+    const storage = multer.diskStorage({
+        destination: (req, file, cb) => {
+            cb(null, 'uploads/');
+        },
+        filename: (req, file, cb) => {
+            cb(null, `${Date.now()}-${file.originalname}`);
+        }
+    });
+
+    const upload = multer({
+        storage: storage,
+        limits: { fileSize: 10 * 1024 * 1024 },
+        fileFilter: fileFilter,
+    });
+
+    return (req, res, next) => {
+        req.session.erroMulter = null;
+        upload.single(campoArquivo)(req, res, function (err) {
+            if (err instanceof multer.MulterError) {
+                req.session.erroMulter = {
+                    value: '',
+                    msg: err.message,
+                    path: campoArquivo
+                };
+            } else if (err) {
+                req.session.erroMulter = {
+                    value: '',
+                    msg: err.message,
+                    path: campoArquivo
+                };
+            }
+            next();
         });
-    } else {
-        const storagePasta = multer.diskStorage({
-            destination: (req, file, callBack) => {
-                callBack(null, caminho);
-            },
-            filename: function (req, file, callBack){
-                callBack(null, file.fieldname + '-' + Date.now() + path.extname(file.originalname));
-            },
-        });
-        upload = multer({
-            storage: storagePasta,
-            limits: { fileSize: tamanhoArq * 1024 * 1024},
-            fileFilter: fileFilter,
-        });
-    }
-    return (campoArquivo) => {
-        return (req, res, next) => {
-            req.session.erroMulter = null;
-            upload.single(campoArquivo)(req, res, function (err){
-                if (err instanceof multer.MulterError){
-                    req.session.erroMulter = {
-                        value: '',
-                        msg: err.message,
-                        path: campoArquivo
-                    }
-                } else if (err){
-                    req.session.erroMulter = {
-                        value: '',
-                        msg: err.message,
-                        path: campoArquivo
-                    }
-                }
-                next();
-            });
-        };
-    }
+    };
 };

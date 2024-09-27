@@ -421,7 +421,6 @@ const tarefasController = {
 
             const subcategoriasTexto = req.body.dica_subcategorias || '';
 
-
             const FormCriarDica = {
                 Clientes_idClientes: req.session.autenticado.id,
                 Titulo: req.body.dica_titulo,
@@ -431,8 +430,13 @@ const tarefasController = {
                 Descricao: req.body.dica_descricao,
                 Etapas_Modo_de_Preparo: etapasTexto,
                 subcategorias: subcategoriasTexto,
-                idMidia: idMidia  
+                idMidia: req.file ? req.file.path : null    
             };
+            console.log("Arquivo recebido no controlador:", req.file);
+            if (!req.file) {
+                return res.status(400).send("Arquivo não encontrado. Verifique o campo de upload.");
+            }
+        
 
             console.log('FormCriarDica:', FormCriarDica); // Debugging
 
