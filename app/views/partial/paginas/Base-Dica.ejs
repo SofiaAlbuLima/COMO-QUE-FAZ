@@ -630,18 +630,21 @@
                      <li class="ingreditente_dica">
                         <% postagem.ingredientes.forEach(ingrediente=> { %>
                            <button class="ingreditente_dica_button" onclick="visibility1D()" onclick="Hidden1D()">
-                              <p class="pontinho">•</p>
-                              <p class="ingreditente_button_medida_quantidade">
-                                 <% if (ingrediente.medida_ingredientes !=="Nenhuma medida" ) { %>
+                              <% if (ingrediente.medida_ingredientes !=="Nenhuma medida" ) { %>
+                                 <p class="pontinho">•</p>
+                                 <p class="ingreditente_button_medida_quantidade">
                                     <%= ingrediente.quantidade_ingredientes %>
                                        <%= ingrediente.medida_ingredientes %>
-                                          <% } else { %>
-                                             <%= ingrediente.quantidade_ingredientes %>
-                                                <% } %>
-                              </p>
-                              <p class="ingreditente_button_ingrediente">| <%= ingrediente.ingredientes ?
-                                    ingrediente.ingredientes : 'Essa dica não contém itens necessários' %>
-                              </p>
+                                 </p>
+                                 <p class="ingreditente_button_ingrediente">| <%= ingrediente.ingredientes ?
+                                       ingrediente.ingredientes : 'Essa dica não contém itens necessários' %>
+                                 </p>
+                                 <% } else { %>
+                                    <p class="pontinho">•</p>
+                                    <p class="ingreditente_button_ingrediente"><%= ingrediente.ingredientes ?
+                                          ingrediente.ingredientes : 'Essa dica não contém itens necessários' %>
+                                    </p>
+                                    <% } %>
                            </button>
                            <% }) %>
                      </li>
@@ -686,17 +689,21 @@
                         <li class="ingreditente_dica">
                            <% postagem.ingredientes.forEach(ingrediente=> { %>
                               <button class="ingreditente_dica_button" onclick="visibility1D()" onclick="Hidden1D()">
-                                 <p class="pontinho">•</p>
-                                 <p class="ingreditente_button_medida_quantidade">
-                                    <% if (ingrediente.medida_ingredientes !=="Nenhuma medida" ) { %>
+                                 <% if (ingrediente.medida_ingredientes !=="Nenhuma medida" ) { %>
+                                    <p class="pontinho">•</p>
+                                    <p class="ingreditente_button_medida_quantidade">
                                        <%= ingrediente.quantidade_ingredientes %>
                                           <%= ingrediente.medida_ingredientes %>
-                                             <% } else { %>
-                                                <%= ingrediente.quantidade_ingredientes %>
-                                                   <% } %>
-                                 </p>
-                                 <p class="ingreditente_button_ingrediente">| <%= ingrediente.ingredientes %>
-                                 </p>
+                                    </p>
+                                    <p class="ingreditente_button_ingrediente">| <%= ingrediente.ingredientes ?
+                                          ingrediente.ingredientes : 'Essa dica não contém itens necessários' %>
+                                    </p>
+                                    <% } else { %>
+                                       <p class="pontinho">•</p>
+                                       <p class="ingreditente_button_ingrediente"><%= ingrediente.ingredientes ?
+                                             ingrediente.ingredientes : 'Essa dica não contém itens necessários' %>
+                                       </p>
+                                       <% } %>
                               </button>
                               <% }) %>
                         </li>
@@ -741,17 +748,21 @@
                            <% postagem.ingredientes.forEach(ingrediente=> { %>
                               <li class="ingreditente_dica">
                                  <button class="ingreditente_dica_button" onclick="visibility1D()" onclick="Hidden1D()">
-                                    <p class="pontinho">•</p>
-                                    <p class="ingreditente_button_medida_quantidade">
-                                       <% if (ingrediente.medida_ingredientes !=="Nenhuma medida" ) { %>
+                                    <% if (ingrediente.medida_ingredientes !=="Nenhuma medida" ) { %>
+                                       <p class="pontinho">•</p>
+                                       <p class="ingreditente_button_medida_quantidade">
                                           <%= ingrediente.quantidade_ingredientes %>
                                              <%= ingrediente.medida_ingredientes %>
-                                                <% } else { %>
-                                                   <%= ingrediente.quantidade_ingredientes %>
-                                                      <% } %>
-                                    </p>
-                                    <p class="ingreditente_button_ingrediente">| <%= ingrediente.ingredientes %>
-                                    </p>
+                                       </p>
+                                       <p class="ingreditente_button_ingrediente">| <%= ingrediente.ingredientes ?
+                                             ingrediente.ingredientes : 'Essa dica não contém itens necessários' %>
+                                       </p>
+                                       <% } else { %>
+                                          <p class="pontinho">•</p>
+                                          <p class="ingreditente_button_ingrediente"><%= ingrediente.ingredientes ?
+                                                ingrediente.ingredientes : 'Essa dica não contém itens necessários' %>
+                                          </p>
+                                          <% } %>
                                  </button>
                               </li>
                               <% }) %>

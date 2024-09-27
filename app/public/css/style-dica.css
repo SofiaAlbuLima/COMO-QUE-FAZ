@@ -1373,7 +1373,6 @@
         display: flex;
         padding: 1vh;
         width: 100%;
-        flex-wrap: wrap;
         align-items: flex-start;
     }
 
@@ -1385,6 +1384,7 @@
     .ingreditente_dica_button p {
         color: white;
         font-size: 2.2vh;
+        flex-wrap: wrap;
     }
 
     .ingreditente_button_medida_quantidade {
