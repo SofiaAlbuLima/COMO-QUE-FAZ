@@ -187,7 +187,7 @@ const tarefasController = {
             }));
             
             return {
-                usuario_logado: req.session.autenticado,
+                usuario_logado: req.session.autenticado || {},
                 login: req.session.logado,
                 postagens: combinedConteudo,
                 paginador: paginador,
