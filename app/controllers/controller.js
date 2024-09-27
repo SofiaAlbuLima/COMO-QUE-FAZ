@@ -7,7 +7,6 @@ const admModel = require("../models/model-adm");
 const moment = require("moment"); //datas e horas bonitinhas
 const { body, validationResult } = require("express-validator");
 const {removeImg} = require("../util/removeImg");
-
 const bcrypt = require("bcryptjs");
 var salt = bcrypt.genSaltSync(12);
 
@@ -183,7 +182,7 @@ const tarefasController = {
                     subcategorias: conteudo.subcategorias,
                     ingredientes: ingredientes.length ? ingredientes.map(i => i.ingredientes).join(', ') : null,
                     mediaAvaliacoes,
-                    imagem: results[0].idMidia != null ? `data:image/jpeg;base64,${results[0].idMidia.toString('base64')}` : null,
+                    imagem: conteudo.idMidia ? `data:image;base64,${conteudo.idMidia.toString('base64')}` : null
                 };
             }));
             
@@ -268,7 +267,8 @@ const tarefasController = {
                     tipo: conteudo.tipo,
                     subcategorias: conteudo.subcategorias,
                     mediaAvaliacoes,
-                    ingredientes: ingredientes.length ? ingredientes.map(i => i.ingredientes).join(', ') : null
+                    ingredientes: ingredientes.length ? ingredientes.map(i => i.ingredientes).join(', ') : null,
+                    imagem: conteudo.idMidia ? `data:image;base64,${conteudo.idMidia.toString('base64')}` : null
                 };
             }));
             return {
@@ -430,13 +430,12 @@ const tarefasController = {
                 Descricao: req.body.dica_descricao,
                 Etapas_Modo_de_Preparo: etapasTexto,
                 subcategorias: subcategoriasTexto,
-                idMidia: req.file ? req.file.path : null    
+                idMidia: req.file ? req.file.buffer : null
             };
             console.log("Arquivo recebido no controlador:", req.file);
             if (!req.file) {
                 return res.status(400).send("Arquivo não encontrado. Verifique o campo de upload.");
-            }
-        
+            }     
 
             console.log('FormCriarDica:', FormCriarDica); // Debugging
 
