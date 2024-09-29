@@ -494,17 +494,18 @@
     margin: auto;
     width: 50vw;
     border-radius: 14px;
-    background-color: #f9f9f9;
     box-sizing: border-box;
     margin-top: 17vh;
   }
 
   img.fundo-foto-perfil {
-    transform: translate(37px, -68px);
+    transform: translate(40px, -68px);
+    width: 15.3vh;
   }
 
   img.foto-perfil {
-    transform: translate(-94px, -78px);
+    transform: translate(-98px, -78px);
+    width: 13.5vh;
   }
 
   button.editar-perfil {
