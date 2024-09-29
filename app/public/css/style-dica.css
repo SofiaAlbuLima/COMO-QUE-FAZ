@@ -1433,7 +1433,7 @@
     .titulo-medida {
         font-family: Fira Sans;
         font-weight: 400;
-        font-size: 1.8vh;
+        font-size: 2.3vh;
         text-decoration: none;
     }
 
@@ -1449,7 +1449,8 @@
 
     .info-texto {
         font-family: Fira Sans Bold;
-        font-size: 1.7vh;
+        font-size: 2vh;
+        margin-top: 0.5vh;
         text-decoration: none;
     }
 
