@@ -916,7 +916,6 @@
         text-decoration: underline;
         font-weight: Bold;
         color: #9e5fef;
-        margin-left: 7px;
     }
 
     .seta-1 {
@@ -1798,6 +1797,7 @@
         transform: translate(-50%, -50%);
         z-index: 1001;
         overflow: hidden;
+        border: #4D16BB 2px solid;
     }
 
     /* header denuncia ------------------------ */

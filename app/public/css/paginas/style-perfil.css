@@ -490,44 +490,10 @@
 
 
 @media only screen and (min-width: 481px) {
-  .perfil-cima {
-    margin: auto;
-    width: 50vw;
-    border-radius: 14px;
-    box-sizing: border-box;
-    margin-top: 17vh;
-  }
-
-  img.fundo-foto-perfil {
-    transform: translate(40px, -68px);
-    width: 15.3vh;
-  }
-
-  img.foto-perfil {
-    transform: translate(-98px, -78px);
-    width: 13.5vh;
-  }
-
-  button.editar-perfil {
-    width: 144px;
-    height: 36px;
-    padding: 2px 2px 2px 2px;
-    border-radius: 12px;
-    border-style: none;
-    background-color: #4d16bb;
-    box-sizing: border-box;
-    font-family: "Fira Sans Bold", "Fira Sans", sans-serif;
-    font-weight: 700;
-    font-size: 18px;
-    color: #ffffff;
-    text-align: center;
-    line-height: normal;
-    transform: translate(490px, -100px);
-  }
-
   .mapa-do-site {
     display: flex;
-    margin-bottom: 2%;
+    margin-top: 18vh;
+    margin-left: 52vh;
   }
 
   .mapa-do-site p {
@@ -543,118 +509,142 @@
     text-decoration: underline;
     font-weight: Bold;
     color: #9e5fef;
-    margin-left: 7px;
   }
 
-  .seta-1 {
+  .seta-mapa {
     margin-right: 7px;
   }
 
-  h1.User1234 {
+  .perfil-cima {
+    margin: auto;
+    width: 50vw;
+    border-radius: 14px;
+    box-sizing: border-box;
+    background-color: #f9f9f9;
+    margin-top: 2vh;
+  }
+  .gato-esticado {
+    width: 50vw;
+    position: absolute;
+    z-index: 1;
+  }
+  .foto-perfil_editar-perfil{
+    justify-content: space-between;
+    display: flex;
+    padding-top: 10vh;
+    padding-left: 3vh;
+    padding-right: 4vh;
+  }
+  .foto-de-perfil-fundo{
+    display: flex;
+    width: 15.3vh;
+    height: 15.3vh;
+    z-index: 2;
+  }
+  .fundo-foto-perfil {
+    width: 15.5vh;
+    position: absolute;
+  }
+  .foto-perfil {
+    width: 13.5vh;
+    position: absolute;
+    padding: 0.9vh;
+  }
+  .editar-perfil {
+    width: 18vh;
+    height: 4vh;
+    border-radius: 12px;
+    border: #cb218c 2px solid;
+    color: #cb218c;
+    font-family: Fira Sans;
+    font-weight: 600;
+    font-size: 2vh;
+    align-items: center;
+    display: flex;
+    z-index: 2;
+    margin-top: 11vh;
+    padding-left: 3vh;
+    cursor: pointer;
+    background-color: #f9f9f9;
+  }
+  .editar-perfil:hover{
+    background-color: #cb218c;
+    color: white;
+  }
+
+  .texto-perfil{
+    padding: 1vh 4vh 3vh 4vh;
+  }
+  .User1234 {
     font-family: "Heavitas", sans-serif;
     color: #cb218c;
     font-size: 22px;
-    transform: translate(57px, -70px);
     font-weight: 500;
   }
-
-  h2.Nome1234 {
+  .Nome1234 {
     font-family: Fira Sans;
     font-weight: 700;
     color: #333333;
     font-size: 20px;
-    transform: translate(65px, -70px);
   }
-
-  .nome-user {
-    display: flex;
-  }
-
-  h5.dicas-caseiras {
+  .descricao-perfil {
     font-family: Fira Sans;
     font-size: 16px;
-    transform: translate(57px, -65px);
     font-weight: 500;
+    padding-top: 2vh;
+    padding-bottom: 2vh;
+    font-size: 1.9vh;
   }
 
-  .descricao-pf {
+  .links-redes_sociais {
     font-size: 16px;
     font-weight: 400;
     font-family: Fira Sans;
-    transform: translate(60px, -60px);
+    align-items: center;
+  }
+  .icon-link{
+    display: flex;
+    width: 2.5vh;
+    padding-right: 1vh;
+  }
+  .site-perfil{
+    display: flex;
+    color: #cb218c; 
+    font-weight: bold; 
+    text-decoration: underline;
+    font-family: Fira Sans;
+    padding: 0vh 0.7vh 0vh 0vh;
+  }
+  .links-redes_sociais{
+    font-size: 1.8vh;
+    display: flex;
+  }
+  .link-site-perfil{
+    font-family: Fira Sans;
+    padding: 0vh 2vh 0vh 0vh;
+  }
+  .rede-social-perfil {
+    width: 3vh;
+    display: flex;
+    padding: 0vh 2vh 0vh 2vh;
   }
 
-  img.tiktok-rosa {
-    width: 24px;
-    height: 24px;
-    box-sizing: border-box;
-    transform: translate(60px, -50px);
+  .seguidores-seguindo-dicas{
+    display: flex;
+    gap: 2vh;
+    margin-top: 2vh;
   }
-
-  img.twitter-rosa {
-    width: 24px;
-    height: 24px;
-    box-sizing: border-box;
-    transform: translate(70px, -50px);
-  }
-
-  img.instagram-rosa {
-    width: 24px;
-    height: 24px;
-    box-sizing: border-box;
-    transform: translate(80px, -50px);
-  }
-
-  .vis-seguidores {
-    width: 166px;
-    height: 36px;
-    padding: 6px 2px 2px 2px;
+  .seguidores-seguindo-dicas_figure{
     border-radius: 12px;
-    background-color: #ffd662;
-    box-sizing: border-box;
-    font-family: "Fira Sans", sans-serif;
-    color: #4d16bb;
+    background-color: #ffdcf2;
+    color: #cb218c;
+    font-family: Fira Sans;
     text-align: center;
-    font-size: 18px;
-    display: inline-block;
-    margin-right: 15px;
-    margin-top: 8px;
-    transform: translate(-30px, -10px);
+    align-items: center;
+    font-size: 2vh;
     font-weight: 700;
-  }
-
-  .vis-seguindo {
-    width: 166px;
-    height: 36px;
-    padding: 6px 2px 2px 2px;
-    border-radius: 12px;
-    background-color: #ffd662;
-    box-sizing: border-box;
-    font-family: "Fira Sans", sans-serif;
-    color: #4d16bb;
-    text-align: center;
-    font-size: 18px;
-    display: inline-block;
-    transform: translate(-20px, -10px);
-    margin-top: 8px;
-    font-weight: 700;
-  }
-
-  .vis-postagens {
-    width: 166px;
-    height: 36px;
-    padding: 6px 2px 2px 2px;
-    border-radius: 12px;
-    background-color: #ffd662;
-    box-sizing: border-box;
-    font-family: "Fira Sans", sans-serif;
-    color: #4d16bb;
-    text-align: center;
-    font-size: 18px;
-    display: inline-block;
-    transform: translate(5px, -10px);
-    margin-top: 8px;
-    font-weight: 700;
+    display: flex;
+    padding: 0.8vh 4vh;
   }
 
 
@@ -809,11 +799,10 @@
     line-height: normal;
     border-style: none;
 
-    &:
-    hover {
+    &:hover {
       box-sizing: border-box;
-    opacity: 1;
-    background-color: #9d5fef3f;
+      opacity: 1;
+      background-color: #9d5fef3f;
     }
   }
 
@@ -917,7 +906,7 @@
     border-radius: 10px;
     z-index: 300;
     width: 30%;
-    margin-top: 2%;
+    transform: translate(0vh, -3vh);
     margin-left: 35%;
     height: 725px;
     background-color: #f9f9f9;
@@ -929,6 +918,7 @@
     width: 1920px;
     height: 1080px;
     z-index: 299;
+    transform: translate(0vh, -9vh);
   }
 
   .xis-sair {
@@ -957,7 +947,7 @@
   }
 
   #camera1 {
-    transform: translate(26vw, -12vh);
+    transform: translate(26vw, -9vh);
   }
 
   #camera2 {
@@ -970,7 +960,7 @@
 
   .tit-editar {
     font-family: Heavitas;
-    font-weight: 400;
+    font-weight: 300;
     font-size: 18px;
     margin-left: 45px;
     color: #4d16bb;
@@ -1047,10 +1037,6 @@
     background-color: #F2F2F2;
     border-radius: 5px 5px 5px 5px;
     display: flex;
-  }
-
-  .gato-esticado {
-    width: 50vw;
   }
 
   .filtro-perfil {
