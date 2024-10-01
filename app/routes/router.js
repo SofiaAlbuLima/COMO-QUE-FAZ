@@ -92,11 +92,17 @@ router.get("/bem-estar", async function (req, res) {
     }
 });
 
-router.get("/perfil", VerificarAutenticacao, verificarUsuAutorizado([1, 2], "/"), function (req, res) {
-    res.render("pages/template", {
-        pagina: { cabecalho: "cabecalho", conteudo: "Meu-perfil", rodape: "none" },
-        usuario_logado: req.session.autenticado,
-    });
+router.get("/perfil", VerificarAutenticacao, verificarUsuAutorizado([1, 2], "/"), async function (req, res) {
+    try {
+        const data = await tarefasController.MostrarPosts(req, res);
+        res.render("pages/template",
+            {
+                pagina: { cabecalho: "cabecalho", conteudo: "Meu-perfil", rodape: "rodape" },
+                ...data
+            });
+    } catch (error) {
+        res.status(500).json({ erro: error.message });
+    }
 });
 router.get("/notificacoes", verificarUsuAutorizado([1, 2], "/"), function (req, res) {
     res.render("pages/template", {

@@ -270,43 +270,58 @@
    </section>
 
    <section class="conteudo-dispositivo desktop">
-      <article id="editar-perfil-popup" style="display: none;">
-         <h1 onclick="SairEditarPerfil()" class="xis-sair">X</h1>
-         <img class="banner-editar" src="./imagens/gato-esticado.svg" alt="foto do banner no perfil">
-         <img id="camera1" class="editar-foto-camera" src="./imagens-svg/2-body/icon-camera-rosa.svg"
-            alt="icon-camera-rosa">
-         <img class="fundo-foto-editar" src="./imagens/fundo-foto-perfil.svg" alt="foto de perfil">
-         <img class="foto-editar" src="./imagens/foto-perfil.svg" alt="">
-         <img id="camera2" class="editar-foto-camera" src="./imagens-svg/2-body/icon-camera-rosa.svg"
-            alt="icon-camera-rosa">
-         <h3 id="tit1" class="tit-editar">NOME DE USUÁRIO</h3>
-         <input class="tex-editar" type="text" name="user" placeholder="Sofizinha">
-         <h3 class="tit-editar">BIOGRAFIA</h3>
-         <input class="tex-editar" type="text" name="user" placeholder="Dicas caseiras fáceis de fazer">
-         <figure class="tit-duas">
-            <h3 class="tit-editar">NOME DO SITE</h3>
-            <h3 class="tit-editar">URL DO SITE</h3>
-         </figure>
-         <figure class="tex-duas">
-            <input id="tex-duas1" class="tex-editar" type="text" name="user" placeholder="Site">
-            <input id="tex-duas2" class="tex-editar" type="text" name="user" placeholder="UserDicas.com.br">
-         </figure>
-         <h3 class="tit-editar">REDES CONECTADAS</h3>
-         <section class="redes-editar">
-            <figure class="rede-editar">
-               <img src="./imagens-svg/2-body/tiktok-roxo-escuro.svg" alt="tiktok">
-            </figure>
-            <figure class="rede-editar">
-               <img src="./imagens-svg/2-body/instagram-roxo-escuro.svg" alt="instagram">
-            </figure>
-            <figure class="rede-editar">
-               <img src="./imagens-svg/2-body/twitter-roxo-escuro.svg" alt="twitter">
-            </figure>
-         </section>
-         <button onclick="SairEditarPerfil()" class="salvar">SALVAR</button>
-      </article>
-
       <figure id="fundo-editar-perfil" style="display: none;">
+         <article id="editar-perfil-popup" style="display: none;">
+            <form action="/editar-perfil">
+               <figure class="editar-perfil-sair">
+                  <h1 class="titulo-editar-perfil">editar perfil</h1>
+                  <h1 onclick="SairEditarPerfil()" class="xis-sair">X</h1>
+               </figure>
+               <article class="editar-informacoes-perfil">
+                  <img class="banner-editar" src="./imagens/gato-esticado.svg" alt="foto do banner no perfil">
+                  <figure class="fotos-perfil-editar">
+                     <img class="fundo-foto-editar" src="./imagens/fundo-foto-perfil.svg" alt="foto de perfil">
+                     <img class="foto-editar" src="./imagens/foto-perfil.svg" alt="">
+                  </figure>
+
+                  <img id="camera1" class="editar-foto-camera" src="./imagens-svg/2-body/icon-camera-rosa.svg"
+                     alt="icon-camera-rosa">
+                  <img id="camera2" class="editar-foto-camera" src="./imagens-svg/2-body/icon-camera-rosa.svg"
+                     alt="icon-camera-rosa">
+
+                  <article class="inputs-editar-perfil">
+                     <h3 id="tit1" class="tit-editar">NOME DE USUÁRIO</h3>
+                     <input class="tex-editar" type="text" name="user" placeholder="Sofizinha">
+                     <h3 class="tit-editar">BIOGRAFIA</h3>
+                     <input class="tex-editar" type="text" name="user" placeholder="Dicas caseiras fáceis de fazer">
+                     <article class="tit-duas-coluna">
+                        <figure class="tit-duas">
+                           <h3 class="tit-editar">NOME DO SITE</h3>
+                           <input id="tex-duas1" class="tex-editar-site" type="text" name="user" placeholder="Site">
+                        </figure>
+                        <figure class="tit-duas">
+                           <h3 class="tit-editar">URL DO SITE</h3>
+                           <input id="tex-duas2" class="tex-editar-url" type="text" name="user"
+                              placeholder="UserDicas.com.br">
+                        </figure>
+                     </article>
+                     <h3 class="tit-editar">REDES CONECTADAS</h3>
+                     <section class="redes-editar">
+                        <figure class="rede-editar">
+                           <img src="./imagens-svg/2-body/tiktok-roxo-escuro.svg" alt="tiktok">
+                        </figure>
+                        <figure class="rede-editar">
+                           <img src="./imagens-svg/2-body/instagram-roxo-escuro.svg" alt="instagram">
+                        </figure>
+                        <figure class="rede-editar">
+                           <img src="./imagens-svg/2-body/twitter-roxo-escuro.svg" alt="twitter">
+                        </figure>
+                     </section>
+                  </article>
+                  <button type="submit" onclick="SairEditarPerfil()" class="salvar">SALVAR</button>
+               </article>
+            </form>
+         </article>
       </figure>
 
       <article id="Perfil" class="tabcontent active">
@@ -349,7 +364,16 @@
          </section>
 
          <section class="perfil-baixo">
-            <img class="gato-sem-rascunhos" src="./imagens-svg/2-body/gato-nuvem-sem-conteudo.svg" alt="sem rascunhos">
+            <article class="postagens-perfil-baixo">
+               <h1 class="titulo-postagens-perfil">Postagens da Sofizinha</h1>
+               <section class="postagens-perfil">
+                  <figure class="aviso-sem-postagens">
+                     <img class="gato-sem-rascunhos" src="./imagens-svg/2-body/gato-nuvem-sem-conteudo.svg"
+                        alt="sem rascunhos">
+                     <span class="gato-sem-rascunhos-aviso-texto">Nenhuma postagem nesse perfil!</span>
+                  </figure>
+               </section>
+            </article>
          </section>
       </article>
    </section>
