@@ -1,5 +1,5 @@
 <main>
-      <section class="criarpost">
+      <form class="criarpost">
          <section id="criar-post-cancela">
              <figure id="cancela-criar-post">X</figure>
              <figcaption id="titulo-criar-post">Criar Dica</figcaption>
@@ -22,11 +22,11 @@
                      <h2 id="detalhes">Detalhes</h2>
                      <section id="detalhes-primeira-parte">
                          <h3 id="titulo-da-postagem">Título da postagem</h3>
-                         <input type="text" id="texto-titulo-da-postagem" placeholder="Escreva um título para a sua postagem...">
+                         <input type="text" id="texto-titulo-da-postagem" placeholder="Escreva um título para a sua postagem..." name="dica_titulo">
                      </section>
                      <section id="detalhes-segunda-parte">
                          <section class="guarda-select">
-                             <input class="dialogoselect" id="dialogoselect" type="text" name="categoria"
+                             <input class="dialogoselect" id="dialogoselect" type="text" name="dica_categoria"
                                     onfocus="dropdown(0)" onblur="dropdown(1)" placeholder="Categoria da postagem"
                                     readonly="readonly" />
                              <section class="dropDown" id="dropdown">
@@ -50,22 +50,22 @@
                          <h3 id="tempo-resultado-detalhes">Tempo & Resultado</h3>
                          <section id="tempo-detalhes">
                              <img id="imagem-tempo-detalhes" src="./imagens/tempo-cor-cinza.svg" alt="tempo de execução">
-                             <input type="number" id="horas-tempo-detalhes" placeholder="00">HORAS
-                             <input type="number" id="minutos-tempo-detalhes" placeholder="00">MINUTOS
+                             <input type="number" id="horas-tempo-detalhes" placeholder="00"  name="dica_tempo_horas">HORAS
+                             <input type="number" id="minutos-tempo-detalhes" placeholder="00"  name="dica_tempo_minutos">MINUTOS
                          </section>
                          <section id="tempo-detalhes-porcoes">
                              <img id="imagem-tempo-detalhes-porcoes" src="./imagens/porçoes-cinza-culinaria.png"
                                   alt="tempo de execução">
-                             <input type="number" id="porcoes-tempo-detalhes" placeholder="00">PORÇÕES
+                             <input type="number" id="porcoes-tempo-detalhes" placeholder="00"  name="dica_porcoes">PORÇÕES
                          </section>
                          <section id="descricao-detalhes-total">
-                             <h3 id="titulo-descricao-detalhes">DESCRIÇÃO</h3>
+                             <h3 id="titulo-descricao-detalhes" name="dica_descricao">DESCRIÇÃO</h3>
                              <input type="text" id="descricao-detalhes">
                          </section>
                          <section id="subcategoria-detalhes-total">
                              <h3 id="titulo-subcategoria-detalhes">SUBCATEGORIAS</h3>
                              <section class="input-container">
-                                 <input type="text" id="input-text-subcategoria">
+                                 <input type="text" id="input-text-subcategoria" name="dica_subcategorias">
                                  <img src="./imagens/adicionar-etiqueta.svg" id="icon" onclick="adicionarMensagem()" alt="">
                              </section>
                              <section id="messageList" class="message-list"></section>
@@ -135,7 +135,7 @@
                     </article>
                     <article class="conteudo conteudo3" id="conteudoTarefa3">
                         <h3 id="midias">Mídias</h3>
-                        <input type="file" id="files" accept="image/*" multiple style="display: none;">
+                        <input type="file" id="files" accept="image/*" multiple style="display: none;" name="imagem_criar_post">
                         <section id="esqueleto-midias">
                             <h1 id="adicione-midias">ADICIONE IMAGENS E VÍDEOS À SUA POSTAGEM!</h1>
                             <section id="retangulo-adicionar-midia">
@@ -147,6 +147,6 @@
                     </article>
              </section>
          </section>
-     </section>
+        </form>
      
    </main>
