@@ -637,37 +637,40 @@ const tarefasController = {
     EditarPerfil: async (req, res) => {
         try {
             console.log("Função EditarPerfil chamada!");
-            console.log(req.body);
+            console.log("Alterações:" , req.body);
 
-            const { editar_confirmar_senha, editar_nome_usuario, editar_biografia, editar_nome_site, editar_url_site } = req.body;
+            const { editar_confirmar_senha, editar_nome_usuario, editar_biografia, editar_nome_site, editar_url_site, editar_img_icon, editar_img_banner } = req.body || {};
 
-            if (!req.session.autenticado || !req.session.autenticado.id) {
-                return res.status(401).send("Usuário não autenticado!");
+            if (!req.session.autenticado || !req.session.autenticado.id) { // Verifica se o usuário está autenticado
+                console.log("Erro! 1");
+                return res.redirect("/perfil");
             }
 
-            const user = await usuarioModel.findUserById(req.session.autenticado.id);
+            const user = await usuarioModel.findUserById(req.session.autenticado.id); // Busca os dados atuais do usuário no banco de dados
             if (!user) {
-                return res.status(404).send("Usuário não encontrado!");
+                console.log("Usuário não encontrado");
+                return res.redirect("/perfil");
             }
+            console.log("Dados Atuais: ", user);
+            console.log("Senha atual: ", user.senha);
+            console.log("Senha fornecida: ", editar_confirmar_senha);
 
-            const senhaCorreta = bcrypt.compareSync(editar_confirmar_senha, user.senha);
+            const senhaCorreta = bcrypt.compareSync(editar_confirmar_senha, user.senha); // Confirma a senha fornecida
             if (!senhaCorreta) {
-                return res.status(403).render("pages/template", {
-                    pagina: { cabecalho: "cabecalho", conteudo: "Meu-perfil", rodape: "rodape" },
-                    usuario_logado: req.session.autenticado,
-                    listaErros: ["Senha incorreta!"],
-                    dadosNotificacao: null,
-                });
-            }
+                console.log("Senha Incorreta");
+                return res.redirect("/perfil");
+            };
 
-            const updateData = {};
-            if (editar_nome_usuario) updateData.nome_usuario = editar_nome_usuario;
-            if (editar_biografia) updateData.biografia = editar_biografia;
-            if (editar_nome_site) updateData.nome_site = editar_nome_site;
-            if (editar_url_site) updateData.url_site = editar_url_site;
+            const updateData = {}; // Objeto com os dados de perfil a serem atualizados
+            if (editar_nome_usuario) updateData.Nickname = editar_nome_usuario;
+            if (editar_biografia) updateData.Biografia = editar_biografia;
+            if (editar_nome_site) updateData.nome_do_site = editar_nome_site;
+            if (editar_url_site) updateData.url_do_site = editar_url_site;
+            if (editar_img_icon) updateData.foto_icon_perfil = editar_img_icon;
+            if (editar_img_banner) updateData.foto_banner_perfil = editar_img_banner;
 
             console.log("Dados a serem atualizados:", updateData);
-            await conteudoModel.atualizarPerfil(req.session.autenticado.id, updateData);
+            await conteudoModel.atualizarPerfil(req.session.autenticado.id, updateData); // Atualiza o perfil do usuário no banco de dados
 
             req.session.notification = {
                 titulo: "Perfil atualizado!",
@@ -677,17 +680,11 @@ const tarefasController = {
             return res.redirect("/perfil");
 
         } catch (error) {
-            console.error("Erro ao editar perfil:", error);
-            res.render("pages/template", {
-                pagina: { cabecalho: "cabecalho", conteudo: "Meu-perfil", rodape: "rodape" },
-                usuario_logado: req.session.autenticado,
-                listaErros: ["Erro ao atualizar perfil. Tente novamente!"],
-                dadosNotificacao: null,
-            });
+            console.log("Erro ao editar perfil!");
+            return res.redirect("/perfil");
         }
     }
-
 };
 
 
-module.exports = tarefasController;
+    module.exports = tarefasController;

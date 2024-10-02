@@ -18,26 +18,8 @@ router.post('/editar-perfil',
     VerificarAutenticacao,
     verificarUsuAutorizado([1, 2], "/"),
     tarefasController.regrasValidacaoEditarPerfil,
-    tarefasController.EditarPerfil,
-    tarefasController.MostrarPerfil,
-    async (req, res) => {
-        try {
-            const perfilResponse = await tarefasController.MostrarPerfil(req, res);
-
-            if (perfilResponse.status === 404) {
-                return res.status(404).render("pages/template", {
-                    pagina: { cabecalho: "cabecalho", conteudo: "Meu-perfil", rodape: "rodape" },
-                    usuario_logado: req.session.autenticado,
-                    listaErros: ["Perfil não encontrado."],
-                    dadosNotificacao: null,
-                });
-            }
-
-            res.redirect("/perfil");
-        } catch (error) {
-            res.status(500).json({ erro: error.message });
-        }
-    }
+    uploadPerfil("editar_img_icon", "editar_img_banner"),
+    tarefasController.EditarPerfil
 );
 
 

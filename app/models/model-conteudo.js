@@ -332,7 +332,7 @@ const conteudoModel = {
 
             const query = `UPDATE clientes SET ${camposParaAtualizar.join(', ')} WHERE idClientes = ?`;
             console.log("Consulta SQL:", query);
-            await db.execute(query, valores);
+            await pool.execute(query, valores);
         } catch (error) {
             console.error('Erro ao atualizar perfil no banco de dados:', error);
             throw error;

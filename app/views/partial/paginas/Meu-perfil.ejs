@@ -278,11 +278,19 @@
                   <h1 onclick="SairEditarPerfil()" class="xis-sair">X</h1>
                </figure>
                <article class="editar-informacoes-perfil">
-                  <img class="banner-editar" src="./imagens/gato-esticado.svg" alt="foto do banner no perfil">
+                  <% if(usuario_logado.foto !== null) { %>        
+                     <img class="banner-editar" src="<%= perfil.foto_banner_perfil %>" alt="foto do banner no perfil">
+                     <% }else{ %>
+                        <img class="banner-editar" src="/imagens-svg/2-body/banner-padrao-como-que-faz.svg" alt="foto do banner no perfil">
+                     <% } %>
 
                   <figure class="fotos-perfil-editar">
                      <img class="fundo-foto-editar" src="./imagens/fundo-foto-perfil.svg" alt="foto de perfil">
-                     <img class="foto-editar" src="./imagens/foto-perfil.svg" alt="">
+                     <% if(usuario_logado.foto !== null) { %>
+                        <img class="foto-editar" src="<%= perfil.foto_icon_perfil %>" alt="">
+                     <% }else{ %>
+                        <img class="foto-editar" src="/imagens-svg/2-body/icon-perfil-rosa.svg" alt="">
+                     <% } %>
                   </figure>
 
                   <div class="camera-container">
@@ -291,13 +299,13 @@
                         <img id="camera1" class="editar-foto-camera" src="./imagens-svg/2-body/icon-camera-rosa.svg"
                            alt="icon-camera-rosa">
                      </label>
-                     <input id="cameraInput1" type="file" class="camera-input" name="editar-img-icon" accept="image/*">
+                     <input id="cameraInput1" type="file" class="camera-input" name="editar_img_icon" accept="image/*">
 
                      <label for="cameraInput2">
                         <img id="camera2" class="editar-foto-camera" src="./imagens-svg/2-body/icon-camera-rosa.svg"
                            alt="icon-camera-rosa">
                      </label>
-                     <input id="cameraInput2" type="file" class="camera-input" name="editar-img-banner" accept="image/*">
+                     <input id="cameraInput2" type="file" class="camera-input" name="editar_img_banner" accept="image/*">
                   </div>
                   <script>
                      const cameraInput1 = document.getElementById('cameraInput1');
@@ -322,17 +330,17 @@
 
                   <article class="inputs-editar-perfil">
                      <h3 id="tit1" class="tit-editar">NOME DE USUÁRIO</h3>
-                     <input class="tex-editar" type="text" name="editar-nome-usuario" value="<%= perfil.Nickname %>" placeholder="Nome de usuário">
+                     <input class="tex-editar" type="text" name="editar_nome_usuario" value="<%= perfil.Nickname %>" placeholder="Nome de usuário">
                      <h3 class="tit-editar">BIOGRAFIA</h3>
-                     <input class="tex-editar" type="text" name="editar-biografia" value="<%= perfil.Biografia %>" placeholder="Biografia">
+                     <input class="tex-editar" type="text" name="editar_biografia" value="<%= perfil.Biografia %>" placeholder="Biografia">
                      <article class="tit-duas-coluna">
                         <figure class="tit-duas">
                            <h3 class="tit-editar">NOME DO SITE</h3>
-                           <input id="tex-duas1" class="tex-editar-site" type="text" name="editar-nome-site" value="<%= perfil.nome_do_site %>" placeholder="Site">
+                           <input id="tex-duas1" class="tex-editar-site" type="text" name="editar_nome_site" value="<%= perfil.nome_do_site %>" placeholder="Site">
                         </figure>
                         <figure class="tit-duas">
                            <h3 class="tit-editar">URL DO SITE</h3>
-                           <input id="tex-duas2" class="tex-editar-url" type="text" name="editar-url-site" value="<%= perfil.url_do_site %>" placeholder="URL do site">
+                           <input id="tex-duas2" class="tex-editar-url" type="text" name="editar_url_site" value="<%= perfil.url_do_site %>" placeholder="URL do site">
                         </figure>
                      </article>
                      <h3 class="tit-editar">REDES CONECTADAS</h3>
