@@ -14,15 +14,27 @@ router.post("/login", tarefasController.regrasValidacaoLogin, gravarUsuAutentica
 router.post("/cadastro", tarefasController.regrasValidacaoCadastro, tarefasController.Login_formCadastro);
 router.post('/criar-dica', uploadFile("imagem_criar_post"), VerificarAutenticacao, tarefasController.CriarDica);
 router.post('/criar-pergunta', VerificarAutenticacao, tarefasController.CriarPergunta);
-router.post('/editar-perfil', uploadPerfil("imagem_criar_post"),
+router.post('/editar-perfil',
+    VerificarAutenticacao,
     verificarUsuAutorizado([1, 2], "/"),
     tarefasController.regrasValidacaoEditarPerfil,
+    tarefasController.EditarPerfil,
     tarefasController.MostrarPerfil,
     async (req, res) => {
         try {
-            await tarefasController.EditarPerfil(req, res);
+            const perfilResponse = await tarefasController.MostrarPerfil(req, res);
+
+            if (perfilResponse.status === 404) {
+                return res.status(404).render("pages/template", {
+                    pagina: { cabecalho: "cabecalho", conteudo: "Meu-perfil", rodape: "rodape" },
+                    usuario_logado: req.session.autenticado,
+                    listaErros: ["Perfil não encontrado."],
+                    dadosNotificacao: null,
+                });
+            }
+
+            res.redirect("/perfil");
         } catch (error) {
-            console.error("Erro ao editar perfil:", error);
             res.status(500).json({ erro: error.message });
         }
     }
@@ -110,15 +122,25 @@ router.get("/bem-estar", async function (req, res) {
 router.get("/perfil",
     VerificarAutenticacao,
     verificarUsuAutorizado([1, 2], "/"),
-    tarefasController.MostrarPerfil,
     async (req, res) => {
         try {
-            const data = await tarefasController.MostrarPosts(req, res);
-            res.render("pages/template",
-                {
+            const perfilResponse = await tarefasController.MostrarPerfil(req, res);
+
+            if (perfilResponse && perfilResponse.status !== 404) {
+                res.render("pages/template", {
                     pagina: { cabecalho: "cabecalho", conteudo: "Meu-perfil", rodape: "rodape" },
-                    ...data
+                    usuario_logado: req.session.autenticado,
+                    perfil: perfilResponse.perfil || {},
+                    dadosNotificacao: null,
                 });
+            } else {
+                res.status(404).render("pages/template", {
+                    pagina: { cabecalho: "cabecalho", conteudo: "Meu-perfil", rodape: "rodape" },
+                    usuario_logado: req.session.autenticado,
+                    listaErros: ["Perfil não encontrado."],
+                    dadosNotificacao: null,
+                });
+            }
         } catch (error) {
             res.status(500).json({ erro: error.message });
         }

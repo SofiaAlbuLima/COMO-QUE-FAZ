@@ -45,6 +45,18 @@ const usuarioModel = { //const que agrupa todas as funções de acesso e manipul
             return null;
         }
     },
+    findUserById: async (idClientes) => {
+        try {
+            const [resultados] = await pool.query(
+                "SELECT * FROM clientes WHERE idClientes = ?",
+                [idClientes]
+            );
+            return resultados[0]; // Retorna o usuário encontrado
+        } catch (error) {
+            console.error("Erro ao buscar usuário por ID:", error);
+            throw error;
+        }
+    }
 }
 
 module.exports = usuarioModel //A exportação deste objeto na forma de um módulo.

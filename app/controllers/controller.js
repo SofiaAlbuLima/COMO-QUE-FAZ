@@ -619,47 +619,43 @@ const tarefasController = {
             const perfil = await conteudoModel.obterPerfil(idCliente);
 
             if (!perfil) {
-                return res.status(404).render("pages/template", {
-                    pagina: { cabecalho: "cabecalho", conteudo: "Perfil não encontrado", rodape: "rodape" },
+                return res.status(404).json({
+                    mensagem: "Perfil não encontrado.",
                     usuario_logado: req.session.autenticado,
-                    listaErros: ["Perfil não encontrado."],
-                    dadosNotificacao: null,
                 });
             }
 
             perfil.foto_icon_perfil = perfil.foto_icon_perfil ? `data:image;base64,${perfil.foto_icon_perfil.toString('base64')}` : null;
             perfil.foto_banner_perfil = perfil.foto_banner_perfil ? `data:image;base64,${perfil.foto_banner_perfil.toString('base64')}` : null;
 
-
-            // Renderiza a página do perfil com os dados
-            res.render("pages/template", {
-                pagina: { cabecalho: "cabecalho", conteudo: "Meu-perfil", rodape: "rodape" },
-                usuario_logado: req.session.autenticado,
-                perfil,
-                dadosNotificacao: null,
-            });
+            return { perfil };
         } catch (error) {
             console.error("Erro ao exibir perfil:", error);
-            res.render("pages/template", {
-                pagina: { cabecalho: "cabecalho", conteudo: "Erro", rodape: "rodape" },
-                usuario_logado: req.session.autenticado,
-                listaErros: ["Erro ao carregar perfil. Tente novamente!"],
-                dadosNotificacao: null,
-            });
+            return { status: 500, erro: error.message };
         }
     },
     EditarPerfil: async (req, res) => {
         try {
+            console.log("Função EditarPerfil chamada!");
             console.log(req.body);
 
-            console.log("id:", req.session.autenticado.id);
-            const { senha, editar_nome_usuario, editar_biografia, editar_nome_site, editar_url_site } = req.body;
+            const { editar_confirmar_senha, editar_nome_usuario, editar_biografia, editar_nome_site, editar_url_site } = req.body;
 
-            if (!senha) {
-                return res.status(400).render("pages/template", {
+            if (!req.session.autenticado || !req.session.autenticado.id) {
+                return res.status(401).send("Usuário não autenticado!");
+            }
+
+            const user = await usuarioModel.findUserById(req.session.autenticado.id);
+            if (!user) {
+                return res.status(404).send("Usuário não encontrado!");
+            }
+
+            const senhaCorreta = bcrypt.compareSync(editar_confirmar_senha, user.senha);
+            if (!senhaCorreta) {
+                return res.status(403).render("pages/template", {
                     pagina: { cabecalho: "cabecalho", conteudo: "Meu-perfil", rodape: "rodape" },
                     usuario_logado: req.session.autenticado,
-                    listaErros: ["Senha é obrigatória!"],
+                    listaErros: ["Senha incorreta!"],
                     dadosNotificacao: null,
                 });
             }
