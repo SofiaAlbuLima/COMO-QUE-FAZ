@@ -39,7 +39,12 @@
 
          <% if (usuario_logado && usuario_logado.autenticado) { %>
             <aside id="container" onmouseover="showDiv1()" onmouseout="hideDiv1()" onclick="ToggleMenu()" class="login">
-               <img id="img-usuario" src="/imagens-svg/1-cabeçalho/user_icon.svg" alt="Faça Login">
+               <% if(usuario_logado.foto !== null) { %>
+                  <img id="img-usuario" src="<%= usuario_logado.foto %>" alt="Faça Login">
+               <% }else{ %>
+                  <img id="img-login_hover" src="/imagens/user_icon_hover.svg" alt="Faça Login" style="opacity: 80%;">
+                  <img id="img-login" src="/imagens-svg/1-cabeçalho/user_icon.svg" alt="Faça Login" style="opacity: 80%;">
+               <% } %>
                <!-- ícone usuário -->
 
                <article id="hide-hover-span">

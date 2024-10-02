@@ -272,37 +272,67 @@
    <section class="conteudo-dispositivo desktop">
       <figure id="fundo-editar-perfil" style="display: none;">
          <article id="editar-perfil-popup" style="display: none;">
-            <form action="/editar-perfil">
+            <form action="/editar-perfil" method="post" enctype="multipart/form-data">
                <figure class="editar-perfil-sair">
                   <h1 class="titulo-editar-perfil">editar perfil</h1>
                   <h1 onclick="SairEditarPerfil()" class="xis-sair">X</h1>
                </figure>
                <article class="editar-informacoes-perfil">
                   <img class="banner-editar" src="./imagens/gato-esticado.svg" alt="foto do banner no perfil">
+
                   <figure class="fotos-perfil-editar">
                      <img class="fundo-foto-editar" src="./imagens/fundo-foto-perfil.svg" alt="foto de perfil">
                      <img class="foto-editar" src="./imagens/foto-perfil.svg" alt="">
                   </figure>
 
-                  <img id="camera1" class="editar-foto-camera" src="./imagens-svg/2-body/icon-camera-rosa.svg"
-                     alt="icon-camera-rosa">
-                  <img id="camera2" class="editar-foto-camera" src="./imagens-svg/2-body/icon-camera-rosa.svg"
-                     alt="icon-camera-rosa">
+                  <div class="camera-container">
+
+                     <label for="cameraInput1">
+                        <img id="camera1" class="editar-foto-camera" src="./imagens-svg/2-body/icon-camera-rosa.svg"
+                           alt="icon-camera-rosa">
+                     </label>
+                     <input id="cameraInput1" type="file" class="camera-input" name="editar-img-icon" accept="image/*">
+
+                     <label for="cameraInput2">
+                        <img id="camera2" class="editar-foto-camera" src="./imagens-svg/2-body/icon-camera-rosa.svg"
+                           alt="icon-camera-rosa">
+                     </label>
+                     <input id="cameraInput2" type="file" class="camera-input" name="editar-img-banner" accept="image/*">
+                  </div>
+                  <script>
+                     const cameraInput1 = document.getElementById('cameraInput1');
+                     const cameraInput2 = document.getElementById('cameraInput2');
+                     const bannerEditar = document.querySelector('.banner-editar');
+                     const fotoEditar = document.querySelector('.foto-editar');
+
+                     function atualizarImagem(input, targetImage) {
+                        if (input.files && input.files[0]) {
+                           targetImage.src = URL.createObjectURL(input.files[0]);
+                        }
+                     }
+
+                     cameraInput1.addEventListener('change', () => {
+                        atualizarImagem(cameraInput1, bannerEditar);
+                     });
+
+                     cameraInput2.addEventListener('change', () => {
+                        atualizarImagem(cameraInput2, fotoEditar);
+                     });
+                  </script>
 
                   <article class="inputs-editar-perfil">
                      <h3 id="tit1" class="tit-editar">NOME DE USUÁRIO</h3>
-                     <input class="tex-editar" type="text" name="user" placeholder="Sofizinha">
+                     <input class="tex-editar" type="text" name="editar-nome-usuario" value="<%= perfil.Nickname %>">
                      <h3 class="tit-editar">BIOGRAFIA</h3>
-                     <input class="tex-editar" type="text" name="user" placeholder="Dicas caseiras fáceis de fazer">
+                     <input class="tex-editar" type="text" name="editar-biografia" value="<%= perfil.Biografia %>">
                      <article class="tit-duas-coluna">
                         <figure class="tit-duas">
                            <h3 class="tit-editar">NOME DO SITE</h3>
-                           <input id="tex-duas1" class="tex-editar-site" type="text" name="user" placeholder="Site">
+                           <input id="tex-duas1" class="tex-editar-site" type="text" name="editar-nome-site" value="<%= perfil.nome_do_site %>">
                         </figure>
                         <figure class="tit-duas">
                            <h3 class="tit-editar">URL DO SITE</h3>
-                           <input id="tex-duas2" class="tex-editar-url" type="text" name="user"
-                              placeholder="UserDicas.com.br">
+                           <input id="tex-duas2" class="tex-editar-url" type="text" name="editar-url-site" value="<%= perfil.url_do_site %>">
                         </figure>
                      </article>
                      <h3 class="tit-editar">REDES CONECTADAS</h3>
@@ -318,7 +348,10 @@
                         </figure>
                      </section>
                   </article>
-                  <button type="submit" onclick="SairEditarPerfil()" class="salvar">SALVAR</button>
+
+                  <h3 id="tit1" class="tit-editar">CONFIRME SUA SENHA</h3>
+                  <input class="tex-editar" type="password" placeholder="Insira sua senha atual" name="editar-confirmar-senha" required>
+                  <button type="submit" class="salvar">SALVAR</button>
                </article>
             </form>
          </article>
@@ -332,25 +365,36 @@
             <p class="mapa-2">Meu Perfil</p>
          </figure>
          <section class="perfil-cima">
-            <img class="gato-esticado" src="./imagens/gato-esticado.svg" alt="foto do banner no perfil">
+            <% if(usuario_logado.foto !== null) { %>        
+               <img class="gato-esticado" src="<%= perfil.foto_banner_perfil %>" alt="foto do banner no perfil">
+               <% }else{ %>
+                  <img class="gato-esticado" src="/imagens-svg/2-body/banner-padrao-como-que-faz.svg" alt="foto do banner no perfil">
+               <% } %>
 
             <article class="foto-perfil_editar-perfil">
-               <figure class="foto-de-perfil-fundo">
+               <figure class="foto-de-perfil-fundo">                  
                   <img class="fundo-foto-perfil" src="./imagens/fundo-foto-perfil.svg" alt="foto de perfil">
-                  <img class="foto-perfil" src="./imagens/foto-perfil.svg" alt="">
+                  <% if(usuario_logado.foto !== null) { %>
+                     <img class="foto-perfil" src="<%= perfil.foto_icon_perfil %>" alt="">
+                  <% }else{ %>
+                     <img class="foto-perfil" src="/imagens-svg/2-body/icon-perfil-rosa.svg" alt="">
+                  <% } %>
                </figure>
                <button class="editar-perfil" onclick="EditarPerfil()">Editar Perfil</button>
             </article>
             <article class="texto-perfil">
-               <h1 class="User1234">Sofizinha</h1>
-               <h2 class="Nome1234"> Sofia Albuquerque Lima</h2>
-               <h5 class="descricao-perfil">Dicas caseiras faceis de fazer!</h5>
+               <h1 class="User1234"><%= perfil.Nickname %></h1>
+               <h5 class="descricao-perfil"><%= perfil.Biografia %></h5>
 
                <figure class="links-redes_sociais">
-                  <img class="icon-link" src="./imagens-svg/2-body/icon-de-link.svg" alt="icone de link">
-                  <span class="site-perfil">Site</span>
-                  <span class="site-perfil">|</span>
-                  <span class="link-site-perfil">https://userdicas.com.br</span>
+                  <% if(perfil.url_do_site !== null) { %>
+                     <img class="icon-link" src="./imagens-svg/2-body/icon-de-link.svg" alt="icone de link">
+                     <% if(perfil.nome_do_site !== null) { %>
+                     <span class="site-perfil"><%= perfil.nome_do_site %></span>
+                     <span class="site-perfil">|</span>
+                     <% }else{}%>
+                     <a class="url-site-perfil-a" href="https://<%= perfil.url_do_site %>"><span class="link-site-perfil"><%= perfil.url_do_site %></span></a>
+                  <% }else{}%>
                   <img class="rede-social-perfil" src="./imagens-svg/2-body/tiktok-rosa.svg" alt="tiktok">
                   <img class="rede-social-perfil" src="./imagens-svg/2-body/twitter-rosa.svg" alt="twitter">
                   <img class="rede-social-perfil" src="./imagens-svg/2-body/instagram-rosa.svg" alt="instagram">
@@ -365,7 +409,7 @@
 
          <section class="perfil-baixo">
             <article class="postagens-perfil-baixo">
-               <h1 class="titulo-postagens-perfil">Postagens da Sofizinha</h1>
+               <h1 class="titulo-postagens-perfil">Postagens - <%= perfil.Nickname %></h1>
                <section class="postagens-perfil">
                   <figure class="aviso-sem-postagens">
                      <img class="gato-sem-rascunhos" src="./imagens-svg/2-body/gato-nuvem-sem-conteudo.svg"

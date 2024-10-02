@@ -6,7 +6,7 @@ const admModel = require("../models/model-adm");
 
 const moment = require("moment"); //datas e horas bonitinhas
 const { body, validationResult } = require("express-validator");
-const {removeImg} = require("../util/removeImg");
+const { removeImg } = require("../util/removeImg");
 const bcrypt = require("bcryptjs");
 var salt = bcrypt.genSaltSync(12);
 
@@ -51,6 +51,16 @@ const tarefasController = {
             .isStrongPassword()
             .withMessage("A senha deve ter no mínimo 8 caracteres (mínimo 1 letra maiúscula, 1 caractere especial e 1 número)")
 
+    ],
+    regrasValidacaoEditarPerfil: [
+        body("editar-nome-usuario")
+            .isLength({ min: 5, max: 45 }).withMessage("Nome de usuário deve ter de 5 a 45 caracteres!"),
+        body("editar-biografia")
+            .isLength({ min: 0, max: 200 }).withMessage("Sua biografia deve ter até 200 caracteres!"),
+        body("editar-nome-site")
+            .isLength({ min: 2, max: 30 }).withMessage("Nome do site deve ter de 2 a 30 caracteres!"),
+        body("editar-url-site")
+            .isURL().withMessage("Insira uma URL válida!"),
     ],
     Login_formLogin: async (req, res) => {
         // Verificação de Erros de Validação
@@ -185,7 +195,7 @@ const tarefasController = {
                     imagem: conteudo.idMidia ? `data:image;base64,${conteudo.idMidia.toString('base64')}` : null
                 };
             }));
-            
+
             return {
                 usuario_logado: req.session.autenticado || {},
                 login: req.session.logado,
@@ -436,7 +446,7 @@ const tarefasController = {
             console.log("Arquivo recebido no controlador:", req.file);
             if (!req.file) {
                 return res.status(400).send("Arquivo não encontrado. Verifique o campo de upload.");
-            }     
+            }
 
             console.log('FormCriarDica:', FormCriarDica); // Debugging
 
@@ -536,7 +546,6 @@ const tarefasController = {
             res.json({ erro: "Falha ao acessar dados" });
         }
     },
-
     armazenarDenuncia: async (req, res) => {
         try {
             const dadosForm = {
@@ -575,24 +584,22 @@ const tarefasController = {
             res.status(500).send('Erro ao enviar denúncia');
         }
     },
-
     listarUsuarios: async (req, res) => {
-        try{
-            const results = await  admModel.mostrarUsuarios();
+        try {
+            const results = await admModel.mostrarUsuarios();
 
             return {
                 usuariosNoControl: results,
                 usuario_logado: req.session.autenticado
             };
 
-        }catch(error){
+        } catch (error) {
             console.error('Erro ao armazenar denúncia:', error);
         }
     },
-
     listarPostagens: async (req, res) => {
-        try{
-            const results = await  admModel.mostrarPostagens();
+        try {
+            const results = await admModel.mostrarPostagens();
             const autorDica = results.Clientes_idClientes;
             const RecebeAutor = await admModel.PegarNomeCliente(autorDica);
 
@@ -602,10 +609,88 @@ const tarefasController = {
 
             };
 
-        }catch(error){
+        } catch (error) {
             console.error('Erro ao armazenar denúncia:', error);
         }
     },
+
+    MostrarPerfil: async (req, res) => {
+        try {
+            const idCliente = req.session.autenticado.id;
+            const perfil = await conteudoModel.obterPerfil(idCliente);
+
+            if (!perfil) {
+                return res.status(404).render("pages/template", {
+                    pagina: { cabecalho: "cabecalho", conteudo: "Perfil não encontrado", rodape: "rodape" },
+                    usuario_logado: req.session.autenticado,
+                    listaErros: ["Perfil não encontrado."],
+                    dadosNotificacao: null,
+                });
+            }
+
+            perfil.foto_icon_perfil = perfil.foto_icon_perfil ? `data:image;base64,${perfil.foto_icon_perfil.toString('base64')}` : null;
+            perfil.foto_banner_perfil = perfil.foto_banner_perfil ? `data:image;base64,${perfil.foto_banner_perfil.toString('base64')}` : null;
+
+
+            // Renderiza a página do perfil com os dados
+            res.render("pages/template", {
+                pagina: { cabecalho: "cabecalho", conteudo: "Meu-perfil", rodape: "rodape" },
+                usuario_logado: req.session.autenticado,
+                perfil,
+                dadosNotificacao: null,
+            });
+        } catch (error) {
+            console.error("Erro ao exibir perfil:", error);
+            res.render("pages/template", {
+                pagina: { cabecalho: "cabecalho", conteudo: "Erro", rodape: "rodape" },
+                usuario_logado: req.session.autenticado,
+                listaErros: ["Erro ao carregar perfil. Tente novamente!"],
+                dadosNotificacao: null,
+            });
+        }
+    },
+    EditarPerfil: async (req, res) => {
+        try {
+            console.log(req.body);
+
+            console.log("id:", req.session.autenticado.id);
+            const { senha, editar_nome_usuario, editar_biografia, editar_nome_site, editar_url_site } = req.body;
+
+            if (!senha) {
+                return res.status(400).render("pages/template", {
+                    pagina: { cabecalho: "cabecalho", conteudo: "Meu-perfil", rodape: "rodape" },
+                    usuario_logado: req.session.autenticado,
+                    listaErros: ["Senha é obrigatória!"],
+                    dadosNotificacao: null,
+                });
+            }
+
+            const updateData = {};
+            if (editar_nome_usuario) updateData.nome_usuario = editar_nome_usuario;
+            if (editar_biografia) updateData.biografia = editar_biografia;
+            if (editar_nome_site) updateData.nome_site = editar_nome_site;
+            if (editar_url_site) updateData.url_site = editar_url_site;
+
+            console.log("Dados a serem atualizados:", updateData);
+            await conteudoModel.atualizarPerfil(req.session.autenticado.id, updateData);
+
+            req.session.notification = {
+                titulo: "Perfil atualizado!",
+                mensagem: "Seu perfil foi atualizado com sucesso!",
+                tipo: "success"
+            };
+            return res.redirect("/perfil");
+
+        } catch (error) {
+            console.error("Erro ao editar perfil:", error);
+            res.render("pages/template", {
+                pagina: { cabecalho: "cabecalho", conteudo: "Meu-perfil", rodape: "rodape" },
+                usuario_logado: req.session.autenticado,
+                listaErros: ["Erro ao atualizar perfil. Tente novamente!"],
+                dadosNotificacao: null,
+            });
+        }
+    }
 
 };
 

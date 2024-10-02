@@ -386,9 +386,11 @@
   .editar-foto-camera {
     width: 35px;
   }
+
   #camera1 {
     transform: translate(450px, -90px);
   }
+
   #camera2 {
     transform: translate(-130px, -60px);
   }
@@ -521,8 +523,10 @@
 
   .gato-esticado {
     width: 50vw;
+    border-radius: 10px 10px 0 0;
     position: absolute;
     z-index: 1;
+    height: 18vh;
   }
 
   .foto-perfil_editar-perfil {
@@ -549,6 +553,8 @@
     width: 13.5vh;
     position: absolute;
     padding: 0.9vh;
+    border-radius: 50%; 
+    height: 13.5vh;
   }
 
   .editar-perfil {
@@ -634,6 +640,10 @@
     font-family: Fira Sans;
     padding: 0vh 2vh 0vh 0vh;
     cursor: pointer;
+  }
+  .url-site-perfil-a{
+    text-decoration: none;
+    color: inherit;
   }
 
   .rede-social-perfil {
@@ -760,14 +770,17 @@
     display: flex;
     margin: 3vh 3vh 2vh 0;
   }
+
   .editar-informacoes-perfil {
     padding: 3vh;
   }
+
   .banner-editar {
     position: absolute;
     width: 32vw;
     z-index: 1;
   }
+
   .fotos-perfil-editar {
     display: flex;
     width: 13.3vh;
@@ -777,32 +790,52 @@
     margin-top: 5vh;
     margin-left: 2vh;
   }
-  .fundo-foto-editar {        
+
+  .fundo-foto-editar {
     width: 13.5vh;
     position: absolute;
   }
+
   .foto-editar {
     width: 11.5vh;
     position: absolute;
     padding: 0.9vh;
+    border-radius: 50%; 
+    height: 11.5vh;
   }
-  
+
   .editar-foto-camera {
     width: 35px;
   }
+
+  .camera-container {
+    position: relative;
+  }
+
+  .editar-foto-camera {
+    cursor: pointer;
+  }
+
+  .camera-input {
+    display: none;
+  }
+
   #camera1 {
     transform: translate(10vh, -3vh);
     position: absolute;
     z-index: 3;
   }
+
   #camera2 {
     transform: translate(60vh, -9vh);
     position: absolute;
     z-index: 3;
   }
-  .inputs-editar-perfil{
+
+  .inputs-editar-perfil {
     margin-top: 3vh;
   }
+
   .tit-editar {
     font-family: Fira Sans;
     font-weight: 600;
@@ -810,10 +843,14 @@
     margin-top: 2vh;
     color: #4d16bb;
   }
-  .tex-editar{
+
+  .tex-editar {
     width: 100%;
   }
-  .tex-editar, .tex-editar-site, .tex-editar-url {
+
+  .tex-editar,
+  .tex-editar-site,
+  .tex-editar-url {
     border-top: none;
     border-left: none;
     border-right: none;
@@ -825,22 +862,26 @@
     font-size: 2.2vh;
     outline: none;
   }
-  .tex-editar-site{
+  .tex-editar-site {
     width: 15vh;
   }
-  .tex-editar-url{
+
+  .tex-editar-url {
     width: 40vh;
   }
-  .tit-duas-coluna{
+
+  .tit-duas-coluna {
     justify-content: space-between;
     display: flex;
     gap: 3vh;
   }
+
   .tit-duas {
     margin-top: 1vh;
     display: flex;
     flex-direction: column;
   }
+
   .tex-editar::placeholder {
     color: #333333;
     font-family: Fira Sans;
@@ -854,9 +895,11 @@
     gap: 2vh;
     margin-top: 1vh;
   }
+
   .redes-editar img {
     height: 4vh;
   }
+
   .rede-editar {
     width: 100%;
     justify-content: center;
@@ -872,7 +915,7 @@
     color: white;
     border-radius: 5px;
     width: 100%;
-    margin-top: 6vh;
+    margin-top: 3vh;
     height: 45px;
     border: none;
     cursor: pointer;

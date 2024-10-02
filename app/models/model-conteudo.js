@@ -301,6 +301,42 @@ const conteudoModel = {
         } catch (erro) {
             throw erro;
         }
+    },
+    obterPerfil: async (idClientes) => {
+        try {
+            const query = `SELECT idClientes, Nickname, Biografia, Email, Tipo_Cliente_idTipo_Cliente, nome_do_site, url_do_site, foto_icon_perfil, foto_banner_perfil 
+                           FROM clientes 
+                           WHERE idClientes = ?`;
+            const [result] = await pool.execute(query, [idClientes]);
+            return result[0];
+        } catch (error) {
+            console.error('Erro ao obter perfil do cliente:', error);
+            throw error;
+        }
+    },
+    atualizarPerfil: async (idClientes, dadosAtualizados) => {
+        try {
+            let camposParaAtualizar = [];
+            let valores = [];
+            
+            console.log("- MODEL atualizarPerfil:");
+            console.log("camposParaAtualizar:", camposParaAtualizar);
+            console.log("valores:", valores);
+
+            for (let campo in dadosAtualizados) {
+                camposParaAtualizar.push(`${campo} = ?`);
+                valores.push(dadosAtualizados[campo]);
+            }
+
+            valores.push(idClientes);
+
+            const query = `UPDATE clientes SET ${camposParaAtualizar.join(', ')} WHERE idClientes = ?`;
+            console.log("Consulta SQL:", query);
+            await db.execute(query, valores);
+        } catch (error) {
+            console.error('Erro ao atualizar perfil no banco de dados:', error);
+            throw error;
+        }
     }
 }
 

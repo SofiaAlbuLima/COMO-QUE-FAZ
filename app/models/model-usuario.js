@@ -12,20 +12,22 @@ const pool = require("../../config/pool-conexoes"); //requisição do pool
 
 
 const usuarioModel = { //const que agrupa todas as funções de acesso e manipulação de dados
-    findAll: async()=>{
+    findAll: async () => {
         try {
             const [linhas] = await pool.query("SELECT * FROM clientes");
             return linhas;
-        } catch(erro){
+        } catch (erro) {
             console.log(erro);
         }
     },
     findUserEmail: async ({ Nickname, Email }) => { //usado para verificar se o usuário já existe (valores unicos) 
         try {
-            const [resultados] = await pool.query(
-                "SELECT * FROM clientes WHERE Nickname = ? OR Email = ?",
-                [Nickname, Email]
-            );
+            const query = `
+                SELECT idClientes, Nickname, Email, senha, Tipo_Cliente_idTipo_Cliente, foto_icon_perfil 
+                FROM clientes 
+                WHERE Nickname = ? OR Email = ?
+            `;
+            const [resultados] = await pool.query(query, [Nickname, Email]);
             return resultados;
         } catch (error) {
             console.error("Erro ao buscar usuário por Nickname ou Email:", error);
@@ -42,7 +44,7 @@ const usuarioModel = { //const que agrupa todas as funções de acesso e manipul
             console.log(error);
             return null;
         }
-    },  
+    },
 }
 
 module.exports = usuarioModel //A exportação deste objeto na forma de um módulo.

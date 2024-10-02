@@ -8,11 +8,26 @@ const tarefasController = require("../controllers/controller");
 const { VerificarAutenticacao, limparSessao, gravarUsuAutenticado, verificarUsuAutorizado } = require("../models/autenticator-middleware");
 
 const uploadFile = require("../util/uploader");
+const uploadPerfil = require("../util/uploader-perfil");
 
 router.post("/login", tarefasController.regrasValidacaoLogin, gravarUsuAutenticado, tarefasController.Login_formLogin);
 router.post("/cadastro", tarefasController.regrasValidacaoCadastro, tarefasController.Login_formCadastro);
 router.post('/criar-dica', uploadFile("imagem_criar_post"), VerificarAutenticacao, tarefasController.CriarDica);
 router.post('/criar-pergunta', VerificarAutenticacao, tarefasController.CriarPergunta);
+router.post('/editar-perfil', uploadPerfil("imagem_criar_post"),
+    verificarUsuAutorizado([1, 2], "/"),
+    tarefasController.regrasValidacaoEditarPerfil,
+    tarefasController.MostrarPerfil,
+    async (req, res) => {
+        try {
+            await tarefasController.EditarPerfil(req, res);
+        } catch (error) {
+            console.error("Erro ao editar perfil:", error);
+            res.status(500).json({ erro: error.message });
+        }
+    }
+);
+
 
 // Links & Template - Parte Publica
 router.get("/", VerificarAutenticacao, async function (req, res) {
@@ -92,18 +107,22 @@ router.get("/bem-estar", async function (req, res) {
     }
 });
 
-router.get("/perfil", VerificarAutenticacao, verificarUsuAutorizado([1, 2], "/"), async function (req, res) {
-    try {
-        const data = await tarefasController.MostrarPosts(req, res);
-        res.render("pages/template",
-            {
-                pagina: { cabecalho: "cabecalho", conteudo: "Meu-perfil", rodape: "rodape" },
-                ...data
-            });
-    } catch (error) {
-        res.status(500).json({ erro: error.message });
-    }
-});
+router.get("/perfil",
+    VerificarAutenticacao,
+    verificarUsuAutorizado([1, 2], "/"),
+    tarefasController.MostrarPerfil,
+    async (req, res) => {
+        try {
+            const data = await tarefasController.MostrarPosts(req, res);
+            res.render("pages/template",
+                {
+                    pagina: { cabecalho: "cabecalho", conteudo: "Meu-perfil", rodape: "rodape" },
+                    ...data
+                });
+        } catch (error) {
+            res.status(500).json({ erro: error.message });
+        }
+    });
 router.get("/notificacoes", verificarUsuAutorizado([1, 2], "/"), function (req, res) {
     res.render("pages/template", {
         pagina: { cabecalho: "cabecalho", conteudo: "Minhas-Notificações", rodape: "none" },

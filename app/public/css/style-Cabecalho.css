@@ -194,8 +194,10 @@
       display: inline-block;
     }
     #img-usuario{
-      max-width: 5.5vh;
+      width: 5.5vh;
+      height: 5.5vh;
       display: inline-block;
+      border-radius: 50%;
     }
 
     #hide-hover-span {
