@@ -109,12 +109,12 @@ const admModel = {
     mostrarPostagens: async () => {
         try {
             let query = `
-            SELECT combined.*, COALESCE(media.media, 0) AS media_avaliacao
+            SELECT combined.*
 FROM (
     SELECT 
         c.ID_conteudo AS id, 
         'conteudo_postagem' AS origem,  -- Identificador de origem
-        c.Clientes_idClientes, 
+        c.Clientes_idClientes as clientes, 
         c.Categorias_idCategorias AS categoria, 
         c.Titulo, 
         c.tempo, 
@@ -133,7 +133,7 @@ FROM (
     SELECT 
         p.ID_Pergunta AS id, 
         'pergunta' AS origem,  -- Identificador de origem
-        p.Clientes_idClientes, 
+        p.Clientes_idClientes as clientes, 
         p.categorias_idCategorias AS categoria, 
         p.titulo AS Titulo, 
         NULL AS tempo, 
@@ -158,7 +158,6 @@ ON combined.id = media.conteudo_postagem_ID_conteudo;
 
             `;
 
-            const IDclientes = await pool.query(query);
             const [result] = await pool.query(query);
             return result;
 
@@ -177,7 +176,7 @@ ON combined.id = media.conteudo_postagem_ID_conteudo;
             if (result.length > 0) {
                 return result;  // Deve retornar o resultado contendo o Nickname
             } else {
-                return null;  // Caso o cliente não seja encontrado
+                console.log(erro);
             }
     
         } catch (erro) {

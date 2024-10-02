@@ -605,8 +605,7 @@ const tarefasController = {
 
             return {
                 PostagensNoControl: (results, RecebeAutor),
-                usuario_logado: req.session.autenticado,
-
+                usuario_logado: req.session.autenticado
             };
 
         } catch (error) {
