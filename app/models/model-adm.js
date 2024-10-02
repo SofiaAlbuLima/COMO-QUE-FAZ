@@ -123,7 +123,8 @@ FROM (
         c.porcoes, 
         cl.Nickname AS nome_usuario, 
         c.subcategorias, 
-        c.idMidia
+        c.idMidia,
+        cl.Nickname
     FROM conteudo_postagem AS c
     JOIN clientes AS cl 
     ON c.Clientes_idClientes = cl.idClientes
@@ -142,7 +143,8 @@ FROM (
         NULL AS porcoes, 
         cl.Nickname AS nome_usuario, 
         NULL AS subcategorias, 
-        NULL AS idMidia
+        NULL AS idMidia,
+        cl.Nickname
     FROM perguntas AS p
     JOIN clientes AS cl 
     ON p.Clientes_idClientes = cl.idClientes
@@ -176,7 +178,8 @@ ON combined.id = media.conteudo_postagem_ID_conteudo;
             if (result.length > 0) {
                 return result;  // Deve retornar o resultado contendo o Nickname
             } else {
-                console.log(erro);
+                // console.log(erro);
+                return null;  // Deve retornar o resultado contendo o Nickname
             }
     
         } catch (erro) {

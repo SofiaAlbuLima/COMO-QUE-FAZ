@@ -81,7 +81,8 @@
                      <th style="width: 4vh;" class="titulo-tabela"></th>
                   </tr>
 
-                  <% PostagensNoControl.forEach(function(conteudo) { %>
+                  <%  if(PostagensNoControl){
+                  PostagensNoControl.forEach(function(conteudo) { %>
                      <% if (conteudo.origem === 'conteudo_postagem' ) { %>
                         <tr class="linhas"> <!-- Conteudo da tabela postagens-->
                            <td class="linha-postagens Coluna-id">#<%=conteudo.id%>
@@ -96,7 +97,7 @@
                               <%=conteudo.categoria%>
                            </td>
                            <td class="linha-postagens Coluna-autor" data-autor="true">
-                              <%=conteudo.nomeAutor%>
+                              <%=conteudo.Nickname%>
                            </td>
                            <td class="linha-postagens"> <img class="icon-rosa-linha visualizar-icon-postagem"
                                  src="/imagens-svg/visualizar-icon-rosa.svg" alt=""></td>
@@ -119,7 +120,7 @@
                                  <%=conteudo.categoria%>
                               </td>
                               <td class="linha-postagens Coluna-autor" data-autor="true">
-                                 <%=conteudo.nomeAutor%>
+                                 <%=conteudo.Nickname%>
                               </td>
                               <td class="linha-postagens"> <img class="icon-rosa-linha visualizar-icon-postagem"
                                     src="/imagens-svg/visualizar-icon-rosa.svg" alt=""></td>
@@ -129,7 +130,8 @@
                                     src="/imagens-svg/excluir-icon-rosa.svg" alt=""></td>
                            </tr>
                            <% } %>
-                              <% }); %>
+                              <% });
+                         } %>
 
 
                </table>
