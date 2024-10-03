@@ -148,7 +148,6 @@ router.get("/configuracoes", verificarUsuAutorizado([1, 2], "/"), function (req,
     });
 });
 
-
 router.get("/sair", VerificarAutenticacao, function (req, res) {
     res.render("pages/template", {
         pagina: { cabecalho: "none", conteudo: "sair", rodape: "none" },
@@ -166,15 +165,9 @@ router.get("/criar-dica", verificarUsuAutorizado([1, 2], "/"), function (req, re
     });
 });
 
-router.get("/criar-postagem", VerificarAutenticacao, function (req, res) {
-    res.render("pages/template", {
-        pagina: { cabecalho: "none", conteudo: "sair", rodape: "none" },
-        usuario_logado: req.session.autenticado,
-    });
-});
 router.get("/criar-pergunta", VerificarAutenticacao, function (req, res) {
     res.render("pages/template", {
-        pagina: { cabecalho: "none", conteudo: "sair", rodape: "none" },
+        pagina: { cabecalho: "cabecalho", conteudo: "Criar-pergunta", rodape: "none" },
         usuario_logado: req.session.autenticado,
     });
 });
