@@ -752,7 +752,8 @@ const tarefasController = {
                 login: req.session.logado,
                 postagens: combinedConteudo,
                 paginador: paginador,
-                categoriaAtual: categoriaId || 'todas'
+                categoriaAtual: categoriaId || 'todas',
+                total_postagens: totalRegistros
             };
 
         } catch (e) {
