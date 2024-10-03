@@ -26,6 +26,50 @@
     width: 100vw;
   }
 
+  #tudonessapaginamobile {
+    max-height: 100vh;
+  }
+
+  #menu-post {
+    width: 100vw;
+    height: 18.7vw;
+    display: flex;
+    padding: 0px 0px 0px 0px;
+    justify-content: space-around;
+    background-color: #ffffff;
+    ;
+    box-shadow: 6px 6px 10px 0px rgba(0, 0, 0, 0.08);
+    z-index: 999;
+  }
+
+  #gambiarra-pra-space-around {
+    width: 6.93vw;
+    height: 6.93vw;
+  }
+
+  .perfil-post-foto {
+    margin-left: -5vw;
+    padding-right: 5vw;
+  }
+
+  .user-menu {
+    z-index: 999;
+  }
+
+  #logo-mob-post {
+    width: 13.335vw;
+    height: 13.335vw;
+    box-sizing: border-box;
+    margin-top: 2.4vw;
+    margin-bottom: -2.4vw;
+  }
+
+  .perfil-foto-menu-post {
+    width: 11.73vw;
+    height: 11.73vw;
+    margin-bottom: 3vw;
+  }
+
   #criar-post-cancela {
     width: 66.4%;
     height: 6.4%;
@@ -250,13 +294,13 @@
       color: #adadad;
     }
 
-    ;
+    
 
     input#dialogoselect::-moz-placeholder {
       color: #adadad;
     }
 
-    ;
+    
 
     &:focus {
       outline: 0;
@@ -266,13 +310,13 @@
         color: #cb218c;
       }
 
-      ;
+      
 
       input#dialogoselect::-moz-placeholder {
         color: #cb218c;
       }
 
-      ;
+      
     }
   }
 
