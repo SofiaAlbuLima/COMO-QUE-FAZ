@@ -314,6 +314,18 @@ const conteudoModel = {
             throw error;
         }
     },
+    obterPerfilPorNickname: async (nickname) => {
+        try {
+            const query = `SELECT idClientes, Nickname, Biografia, Email, Tipo_Cliente_idTipo_Cliente, nome_do_site, url_do_site, foto_icon_perfil, foto_banner_perfil 
+                           FROM clientes 
+                           WHERE Nickname = ?`;
+            const [result] = await pool.execute(query, [nickname]);
+            return result[0];
+        } catch (error) {
+            console.error('Erro ao obter perfil pelo nickname:', error);
+            throw error;
+        }
+    },
     atualizarPerfil: async (idClientes, dadosAtualizados) => {
         try {
             let camposParaAtualizar = [];

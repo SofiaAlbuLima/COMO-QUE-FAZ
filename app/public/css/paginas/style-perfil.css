@@ -557,8 +557,7 @@
     height: 13.5vh;
   }
 
-  .editar-perfil {
-    width: 18vh;
+  .editar-perfil, .seguir-perfil {
     height: 4vh;
     border-radius: 12px;
     border: #cb218c 2px solid;
@@ -570,14 +569,22 @@
     display: flex;
     z-index: 2;
     margin-top: 11vh;
-    padding-left: 3vh;
     cursor: pointer;
     background-color: #f9f9f9;
   }
+  .editar-perfil{
+    width: 18vh;
+    padding-left: 3vh;
+  }
 
-  .editar-perfil:hover {
+  .editar-perfil:hover , .seguir-perfil:hover {
     background-color: #cb218c;
     color: white;
+  }
+
+  .seguir-perfil {
+    width: 15vh;
+    padding-left: 4.5vh;
   }
 
   .texto-perfil {

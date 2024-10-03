@@ -688,7 +688,7 @@ const tarefasController = {
             return res.redirect("/perfil");
         }
     },
-    MostrarPostagensPerfil: async (req, res, categoriaId = null) => {
+    MostrarPostagensPerfil: async (req, res) => {
         const idCliente = req.session.autenticado.id;
         res.locals.moment = moment;
 
@@ -752,13 +752,79 @@ const tarefasController = {
                 login: req.session.logado,
                 postagens: combinedConteudo,
                 paginador: paginador,
-                categoriaAtual: categoriaId || 'todas',
                 total_postagens: totalRegistros
             };
 
         } catch (e) {
             console.log(e);
             res.json({ erro: "Falha ao acessar dados" });
+        }
+    },
+    AbrirPerfil: async (req, res) => {
+        try {
+            const nickname  = req.params.nickname; // Obter o ID do usuário da URL
+            const perfil = await conteudoModel.obterPerfilPorNickname(nickname);; // Usar a função de modelo para obter o perfil
+    
+            if (!perfil) {
+                return res.status(404).json({
+                    mensagem: "Perfil não encontrado.",
+                    usuario_logado: req.session.autenticado,
+                });
+            }
+    
+            perfil.foto_icon_perfil = perfil.foto_icon_perfil ? `data:image/png;base64,${perfil.foto_icon_perfil.toString('base64')}` : null;
+            perfil.foto_banner_perfil = perfil.foto_banner_perfil ? `data:image/png;base64,${perfil.foto_banner_perfil.toString('base64')}` : null;
+    
+            // Pegar postagens e total de postagens
+            const pagina = parseInt(req.query.pagina) || 1;
+            const regPagina = 12;
+            const inicio = (pagina - 1) * regPagina;
+    
+            let results = await conteudoModel.PesquisarPostsPerfil(perfil.idClientes, inicio, regPagina);
+            let totReg = await conteudoModel.TotalRegPerfil(perfil.idClientes);
+            let totalRegistros = totReg[0].total;
+    
+            // Paginador
+            let totPaginas = Math.ceil(totalRegistros / regPagina);
+            let paginador = totalRegistros <= regPagina ? null : {
+                "pagina_atual": pagina,
+                "total_reg": totalRegistros,
+                "total_paginas": totPaginas
+            };
+    
+            // Formatar o conteúdo das postagens
+            let combinedConteudo = await Promise.all(results.map(async (conteudo) => {
+                let ingredientes = await conteudoModel.BuscarIngredientesPorPostagemId(conteudo.id);
+                let mediaAvaliacoes = await conteudoModel.CalcularMediaAvaliacoes(conteudo.id);
+                return {
+                    nome: conteudo.Titulo,
+                    usuario: conteudo.Clientes_idClientes,
+                    nome_usuario: conteudo.nome_usuario,
+                    id: conteudo.id,
+                    categoria: conteudo.Categorias_idCategorias,
+                    tempo: conteudo.tempo ? formatarTempo(conteudo.tempo) : null,
+                    descricao: conteudo.Descricao || null,
+                    etapas: conteudo.Etapas_Modo_de_Preparo,
+                    porcoes: conteudo.porcoes > 0 ? `${conteudo.porcoes} ${conteudo.porcoes > 1 ? 'Porções' : 'Porção'}` : null,
+                    tipo: conteudo.tipo,
+                    subcategorias: conteudo.subcategorias,
+                    ingredientes: ingredientes.length ? ingredientes.map(i => i.ingredientes).join(', ') : null,
+                    mediaAvaliacoes,
+                    imagem: conteudo.idMidia ? `data:image;base64,${conteudo.idMidia.toString('base64')}` : null
+                };
+            }));
+    
+            return res.render("pages/template", {
+                pagina: { cabecalho: "cabecalho", conteudo: "Base-Perfil", rodape: "rodape" },
+                perfil,
+                postagens: combinedConteudo,
+                paginador: paginador,
+                total_postagens: totalRegistros,
+                usuario_logado: req.session.autenticado
+            });
+        } catch (error) {
+            console.error("Erro ao abrir perfil:", error);
+            return res.status(500).json({ erro: error.message });
         }
     }
 };

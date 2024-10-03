@@ -129,6 +129,9 @@ router.get("/perfil",
             res.status(500).json({ erro: error.message });
         }
     });
+    router.get("/perfil/:nickname", VerificarAutenticacao, async function (req, res) {
+        await tarefasController.AbrirPerfil(req, res);
+    });
 router.get("/notificacoes", verificarUsuAutorizado([1, 2], "/"), function (req, res) {
     res.render("pages/template", {
         pagina: { cabecalho: "cabecalho", conteudo: "Minhas-Notificações", rodape: "none" },
@@ -181,6 +184,7 @@ router.get("/criar-pergunta", VerificarAutenticacao, function (req, res) {
 router.get("/dica/:id", async function (req, res) {
     await tarefasController.AbrirPostagem(req, res);
 });
+
 router.get("/pergunta/:id", async function (req, res) {
     await tarefasController.AbrirPostagem(req, res);
 });
