@@ -147,7 +147,7 @@ router.get("/configuracoes", verificarUsuAutorizado([1, 2], "/"), function (req,
 });
 
 
-router.get("/sair", function (req, res) {
+router.get("/sair", VerificarAutenticacao, function (req, res) {
     res.render("pages/template", {
         pagina: { cabecalho: "none", conteudo: "sair", rodape: "none" },
         usuario_logado: req.session.autenticado,
