@@ -443,11 +443,12 @@
                <h1 class="titulo-postagens-perfil">Postagens - <%= perfil.Nickname %>
                </h1>
                <section class="postagens-perfil">
-                  <figure class="aviso-sem-postagens">
+                  <%- include("../perguntas-dicas/base-postagens") %>
+                  <!-- <figure class="aviso-sem-postagens">
                      <img class="gato-sem-rascunhos" src="./imagens-svg/2-body/gato-nuvem-sem-conteudo.svg"
                         alt="sem rascunhos">
                      <span class="gato-sem-rascunhos-aviso-texto">Nenhuma postagem nesse perfil!</span>
-                  </figure>
+                  </figure> -->
                </section>
             </article>
          </section>

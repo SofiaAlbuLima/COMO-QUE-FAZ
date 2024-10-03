@@ -687,6 +687,78 @@ const tarefasController = {
             console.log("Erro ao editar perfil!");
             return res.redirect("/perfil");
         }
+    },
+    MostrarPostagensPerfil: async (req, res, categoriaId = null) => {
+        const idCliente = req.session.autenticado.id;
+        res.locals.moment = moment;
+
+        try {
+            const pagina = parseInt(req.query.pagina) || 1; // Página atual
+            const regPagina = 12; // Registros por página
+            const inicio = (pagina - 1) * regPagina; // Cálculo do início da página
+
+            // Buscar as postagens do perfil do usuário
+            let results = await conteudoModel.PesquisarPostsPerfil(idCliente, inicio, regPagina);
+            let totReg = await conteudoModel.TotalRegPerfil(idCliente);
+            let totalRegistros = totReg[0].total;
+            let totPaginas = Math.ceil(totalRegistros / regPagina);
+
+            // Paginador
+            let paginador = totalRegistros <= 12 ? null : {
+                "pagina_atual": pagina,
+                "total_reg": totalRegistros,
+                "total_paginas": totPaginas
+            };
+
+            function formatarTempo(tempo) {
+                let duracao = moment.duration(tempo, 'HH:mm:ss');
+                let horas = duracao.hours();
+                let minutos = duracao.minutes();
+                if (horas > 0 && minutos > 0) {
+                    return `${horas}h${minutos}min`;
+                } else if (horas > 0 && minutos <= 0) {
+                    return `${horas}hora${horas > 1 ? 's' : ''}`;
+                } else if (horas <= 0 && minutos > 0) {
+                    return `${minutos}min`;
+                } else {
+                    return '';
+                }
+            }
+
+            // Formatar o conteúdo
+            let combinedConteudo = await Promise.all(results.map(async (conteudo) => {
+                let ingredientes = await conteudoModel.BuscarIngredientesPorPostagemId(conteudo.id);
+                let mediaAvaliacoes = await conteudoModel.CalcularMediaAvaliacoes(conteudo.id);
+                return {
+                    nome: conteudo.Titulo,
+                    usuario: conteudo.Clientes_idClientes,
+                    nome_usuario: conteudo.nome_usuario,
+                    id: conteudo.id,
+                    categoria: conteudo.Categorias_idCategorias,
+                    tempo: conteudo.tempo ? formatarTempo(conteudo.tempo) : null,
+                    descricao: conteudo.Descricao || null,
+                    etapas: conteudo.Etapas_Modo_de_Preparo,
+                    porcoes: conteudo.porcoes > 0 ? `${conteudo.porcoes} ${conteudo.porcoes > 1 ? 'Porções' : 'Porção'}` : null,
+                    tipo: conteudo.tipo,
+                    subcategorias: conteudo.subcategorias,
+                    ingredientes: ingredientes.length ? ingredientes.map(i => i.ingredientes).join(', ') : null,
+                    mediaAvaliacoes,
+                    imagem: conteudo.idMidia ? `data:image;base64,${conteudo.idMidia.toString('base64')}` : null
+                };
+            }));
+
+            return {
+                usuario_logado: req.session.autenticado || {},
+                login: req.session.logado,
+                postagens: combinedConteudo,
+                paginador: paginador,
+                categoriaAtual: categoriaId || 'todas'
+            };
+
+        } catch (e) {
+            console.log(e);
+            res.json({ erro: "Falha ao acessar dados" });
+        }
     }
 };
 

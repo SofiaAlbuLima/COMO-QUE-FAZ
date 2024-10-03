@@ -339,6 +339,41 @@ const conteudoModel = {
             console.error('Erro ao atualizar perfil no banco de dados:', error);
             throw error;
         }
+    },
+    PesquisarPostsPerfil: async (idCliente, inicio, total) => {
+        try {
+            let query = `
+            SELECT c.ID_conteudo AS id, c.Clientes_idClientes, c.Categorias_idCategorias, c.Titulo, c.tempo, c.Descricao, c.Etapas_Modo_de_Preparo, c.porcoes, 'dica' AS tipo, cl.Nickname AS nome_usuario, c.subcategorias, c.idMidia
+            FROM conteudo_postagem AS c
+            JOIN clientes AS cl ON c.Clientes_idClientes = cl.idClientes
+            WHERE c.Clientes_idClientes = ?
+            UNION ALL
+            SELECT p.ID_Pergunta AS id, p.Clientes_idClientes, p.categorias_idCategorias, p.titulo AS Titulo, NULL AS tempo, NULL AS Descricao, NULL AS Etapas_Modo_de_Preparo, NULL AS porcoes, 'pergunta' AS tipo, cl.Nickname AS nome_usuario, NULL AS subcategorias, NULL AS idMidia
+            FROM perguntas AS p
+            JOIN clientes AS cl ON p.Clientes_idClientes = cl.idClientes
+            WHERE p.Clientes_idClientes = ?
+            LIMIT ?, ?`;
+    
+            const [linhas] = await pool.query(query, [idCliente, idCliente, inicio, total]);
+            return linhas;
+        } catch (erro) {
+            throw erro;
+        }
+    },
+    TotalRegPerfil: async (idCliente) => {
+        try {
+            let query = `
+            SELECT COUNT(*) as total FROM (
+                SELECT ID_conteudo AS id FROM conteudo_postagem WHERE Clientes_idClientes = ?
+                UNION ALL
+                SELECT ID_Pergunta AS id FROM perguntas WHERE Clientes_idClientes = ?
+            ) AS combined`;
+    
+            const [total] = await pool.query(query, [idCliente, idCliente]);
+            return total;
+        } catch (erro) {
+            throw erro;
+        }
     }
 }
 

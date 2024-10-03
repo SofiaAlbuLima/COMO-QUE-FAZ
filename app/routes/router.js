@@ -107,6 +107,7 @@ router.get("/perfil",
     async (req, res) => {
         try {
             const perfilResponse = await tarefasController.MostrarPerfil(req, res);
+            const data = await tarefasController.MostrarPostagensPerfil(req, res);
 
             if (perfilResponse && perfilResponse.status !== 404) {
                 res.render("pages/template", {
@@ -114,6 +115,7 @@ router.get("/perfil",
                     usuario_logado: req.session.autenticado,
                     perfil: perfilResponse.perfil || {},
                     dadosNotificacao: null,
+                    ...data
                 });
             } else {
                 res.status(404).render("pages/template", {
