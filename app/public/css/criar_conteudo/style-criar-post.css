@@ -25,51 +25,6 @@
     display: block;
     width: 100vw;
   }
- 
-
-  #tudonessapaginamobile {
-    max-height: 100vh;
-  }
-
-  #menu-post {
-    width: 100vw;
-    height: 18.7vw;
-    display: flex;
-    padding: 0px 0px 0px 0px;
-    justify-content: space-around;
-    background-color: #ffffff;
-    ;
-    box-shadow: 6px 6px 10px 0px rgba(0, 0, 0, 0.08);
-    z-index: 999;
-  }
-
-  #gambiarra-pra-space-around {
-    width: 6.93vw;
-    height: 6.93vw;
-  }
-
-  .perfil-post-foto {
-    margin-left: -5vw;
-    padding-right: 5vw;
-  }
-
-  .user-menu {
-    z-index: 999;
-  }
-
-  #logo-mob-post {
-    width: 13.335vw;
-    height: 13.335vw;
-    box-sizing: border-box;
-    margin-top: 2.4vw;
-    margin-bottom: -2.4vw;
-  }
-
-  .perfil-foto-menu-post {
-    width: 11.73vw;
-    height: 11.73vw;
-    margin-bottom: 3vw;
-  }
 
   #criar-post-cancela {
     width: 66.4%;
@@ -144,8 +99,8 @@
   #agrupamento-conteudo {
     padding: 0;
     margin: 0;
-   max-width: 100%;
- 
+   
+  
 
   }
 
@@ -157,8 +112,8 @@
   }
 
   #conteudoTarefa2 {
-   left: 0;
-  position:fixed;
+    left: 0;
+   position: fixed;
    margin-top: -48vh;
    overflow: auto;
  
@@ -167,8 +122,8 @@
   #conteudoTarefa3 {
     left: 0;
     margin-top: -48vh;
-    position: fixed;
-
+   position: fixed;
+  
   }
 
   #detalhes {
@@ -262,7 +217,7 @@
     border-top: 1px solid #909090;
     margin-top: 5vw;
     padding-top: 4.26vw;
-    width: 100%;
+    width: 100vw;
   }
 
   #titulo-da-postagem {
@@ -325,7 +280,7 @@
     margin-top: 5vw;
     border-top: 1px solid #909090;
     padding-top: 6.66vw;
-    width: 100%;
+    width: 100vw;
   }
 
   #icon-seta-select {
@@ -666,6 +621,7 @@
     width: 1.06vw;
     height: 49.06vw;
     padding: 2px 2px 2px 2px;
+    margin-left: 6.4vw;
     background-color: #cb218c;
     box-sizing: border-box;
     position: relative;
@@ -861,9 +817,9 @@
     width: 3vw;
   }
 
-  /* ::-webkit-scrollbar-thumb {
+  ::-webkit-scrollbar-thumb {
     background-color: #cb218c;
-  } */
+  }
 
   .item-medidas {
     width: 42vw;
@@ -1007,7 +963,7 @@
 
   #linhas-roxa-conteudo{
     border-left: 1vw #9e5fef solid;
-    margin-left: 9vw;
+    margin-left: 6.4vw;
   }
   
   #input-modo-de-preparo{
