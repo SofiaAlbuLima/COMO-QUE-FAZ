@@ -778,7 +778,9 @@
   .banner-editar {
     position: absolute;
     width: 32vw;
+    height: 12vh;
     z-index: 1;
+    border-radius: 10px 10px 0 0;
   }
 
   .fotos-perfil-editar {

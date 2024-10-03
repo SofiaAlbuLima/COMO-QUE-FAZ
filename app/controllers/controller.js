@@ -623,10 +623,12 @@ const tarefasController = {
                 });
             }
 
-            perfil.foto_icon_perfil = perfil.foto_icon_perfil ? `data:image;base64,${perfil.foto_icon_perfil.toString('base64')}` : null;
-            perfil.foto_banner_perfil = perfil.foto_banner_perfil ? `data:image;base64,${perfil.foto_banner_perfil.toString('base64')}` : null;
+            perfil.foto_icon_perfil = perfil.foto_icon_perfil ? `data:image/png;base64,${perfil.foto_icon_perfil.toString('base64')}` : null;
+            perfil.foto_banner_perfil = perfil.foto_banner_perfil ? `data:image/png;base64,${perfil.foto_banner_perfil.toString('base64')}` : null;
 
-            return { perfil };
+            req.session.autenticado.foto = perfil.foto_icon_perfil;
+
+            return { perfil, usuario_logado: req.session.autenticado };
         } catch (error) {
             console.error("Erro ao exibir perfil:", error);
             return { status: 500, erro: error.message };
@@ -635,7 +637,7 @@ const tarefasController = {
     EditarPerfil: async (req, res) => {
         try {
             console.log("Função EditarPerfil chamada!");
-            console.log("Alterações:" , req.body);
+            console.log("Alterações:", req.body);
 
             const { editar_confirmar_senha, editar_nome_usuario, editar_biografia, editar_nome_site, editar_url_site, editar_img_icon, editar_img_banner } = req.body || {};
 
@@ -664,9 +666,13 @@ const tarefasController = {
             if (editar_biografia) updateData.Biografia = editar_biografia;
             if (editar_nome_site) updateData.nome_do_site = editar_nome_site;
             if (editar_url_site) updateData.url_do_site = editar_url_site;
-            if (editar_img_icon) updateData.foto_icon_perfil = editar_img_icon;
-            if (editar_img_banner) updateData.foto_banner_perfil = editar_img_banner;
 
+            if (req.filePerfil) {
+                updateData.foto_icon_perfil = req.filePerfil.buffer;
+            }
+            if (req.fileBanner) {
+                updateData.foto_banner_perfil = req.fileBanner.buffer;
+            }
             console.log("Dados a serem atualizados:", updateData);
             await conteudoModel.atualizarPerfil(req.session.autenticado.id, updateData); // Atualiza o perfil do usuário no banco de dados
 
@@ -685,4 +691,4 @@ const tarefasController = {
 };
 
 
-    module.exports = tarefasController;
+module.exports = tarefasController;

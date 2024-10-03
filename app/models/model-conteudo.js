@@ -317,22 +317,24 @@ const conteudoModel = {
     atualizarPerfil: async (idClientes, dadosAtualizados) => {
         try {
             let camposParaAtualizar = [];
-            let valores = [];
-            
-            console.log("- MODEL atualizarPerfil:");
-            console.log("camposParaAtualizar:", camposParaAtualizar);
-            console.log("valores:", valores);
+        let valores = [];
 
-            for (let campo in dadosAtualizados) {
+        for (let campo in dadosAtualizados) {
+            // Verifica se o campo é uma imagem para salvar como BLOB
+            if (campo === 'foto_icon_perfil' || campo === 'foto_banner_perfil') {
+                camposParaAtualizar.push(`${campo} = ?`);
+                valores.push(dadosAtualizados[campo]);
+            } else {
                 camposParaAtualizar.push(`${campo} = ?`);
                 valores.push(dadosAtualizados[campo]);
             }
+        }
 
-            valores.push(idClientes);
+        valores.push(idClientes);
 
-            const query = `UPDATE clientes SET ${camposParaAtualizar.join(', ')} WHERE idClientes = ?`;
-            console.log("Consulta SQL:", query);
-            await pool.execute(query, valores);
+        const query = `UPDATE clientes SET ${camposParaAtualizar.join(', ')} WHERE idClientes = ?`;
+        console.log("Consulta SQL:", query);
+        await pool.execute(query, valores);
         } catch (error) {
             console.error('Erro ao atualizar perfil no banco de dados:', error);
             throw error;
