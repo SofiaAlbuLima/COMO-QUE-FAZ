@@ -488,7 +488,7 @@ const tarefasController = {
         } catch (e) {
             console.log(e);
             res.render("pages/template", {
-                pagina: { cabecalho: "cabecalho", conteudo: "Meu-perfil", rodape: "rodape" },
+                pagina: { cabecalho: "cabecalho", conteudo: "Perfil", rodape: "rodape" },
                 usuario_logado: req.session.autenticado,
                 listaErros: e,
                 dadosNotificacao: {
@@ -791,6 +791,21 @@ const tarefasController = {
                 "total_reg": totalRegistros,
                 "total_paginas": totPaginas
             };
+
+            function formatarTempo(tempo) {
+                let duracao = moment.duration(tempo, 'HH:mm:ss');
+                let horas = duracao.hours();
+                let minutos = duracao.minutes();
+                if (horas > 0 && minutos > 0) {
+                    return `${horas}h${minutos}min`;
+                } else if (horas > 0 && minutos <= 0) {
+                    return `${horas}hora${horas > 1 ? 's' : ''}`;
+                } else if (horas <= 0 && minutos > 0) {
+                    return `${minutos}min`;
+                } else {
+                    return '';
+                }
+            }
     
             // Formatar o conteúdo das postagens
             let combinedConteudo = await Promise.all(results.map(async (conteudo) => {
@@ -815,7 +830,7 @@ const tarefasController = {
             }));
     
             return res.render("pages/template", {
-                pagina: { cabecalho: "cabecalho", conteudo: "Base-Perfil", rodape: "rodape" },
+                pagina: { cabecalho: "cabecalho", conteudo: "Perfil", rodape: "rodape" },
                 perfil,
                 postagens: combinedConteudo,
                 paginador: paginador,

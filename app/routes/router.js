@@ -111,7 +111,7 @@ router.get("/perfil",
 
             if (perfilResponse && perfilResponse.status !== 404) {
                 res.render("pages/template", {
-                    pagina: { cabecalho: "cabecalho", conteudo: "Meu-perfil", rodape: "rodape" },
+                    pagina: { cabecalho: "cabecalho", conteudo: "Perfil", rodape: "rodape" },
                     usuario_logado: req.session.autenticado,
                     perfil: perfilResponse.perfil || {},
                     dadosNotificacao: null,
@@ -119,7 +119,7 @@ router.get("/perfil",
                 });
             } else {
                 res.status(404).render("pages/template", {
-                    pagina: { cabecalho: "cabecalho", conteudo: "Meu-perfil", rodape: "rodape" },
+                    pagina: { cabecalho: "cabecalho", conteudo: "Perfil", rodape: "rodape" },
                     usuario_logado: req.session.autenticado,
                     listaErros: ["Perfil não encontrado."],
                     dadosNotificacao: null,
