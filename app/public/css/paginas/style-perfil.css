@@ -121,12 +121,10 @@
   }
 
   .perfil-baixo {
-    width: 410px;
-    height: 720px;
-    padding: 2px 2px 2px 2px;
-    background-color: #e8e8e8;
-    box-sizing: border-box;
-    transform: translate(-10px, -190px);
+    width: 50vh;
+    padding: 1vh 4vh;
+    background-color: #f9f9f9;
+    margin-top: 2vh;
   }
 
   .headerfav {
@@ -366,9 +364,8 @@
   }
 
   .banner-editar {
-    width: 95%;
-    margin-left: 2.5%;
-    margin-top: 20px;
+    position: absolute;
+    width: 100%;
   }
 
   .foto-fundo-editar {
@@ -490,43 +487,10 @@
 
 
 @media only screen and (min-width: 481px) {
-  .perfil-cima {
-    margin: auto;
-    width: 50vw;
-    border-radius: 14px;
-    background-color: #f9f9f9;
-    box-sizing: border-box;
-    margin-top: 17vh;
-  }
-
-  img.fundo-foto-perfil {
-    transform: translate(37px, -68px);
-  }
-
-  img.foto-perfil {
-    transform: translate(-94px, -78px);
-  }
-
-  button.editar-perfil {
-    width: 144px;
-    height: 36px;
-    padding: 2px 2px 2px 2px;
-    border-radius: 12px;
-    border-style: none;
-    background-color: #4d16bb;
-    box-sizing: border-box;
-    font-family: "Fira Sans Bold", "Fira Sans", sans-serif;
-    font-weight: 700;
-    font-size: 18px;
-    color: #ffffff;
-    text-align: center;
-    line-height: normal;
-    transform: translate(490px, -100px);
-  }
-
   .mapa-do-site {
     display: flex;
-    margin-bottom: 2%;
+    margin-top: 18vh;
+    margin-left: 52vh;
   }
 
   .mapa-do-site p {
@@ -542,458 +506,389 @@
     text-decoration: underline;
     font-weight: Bold;
     color: #9e5fef;
-    margin-left: 7px;
   }
 
-  .seta-1 {
+  .seta-mapa {
     margin-right: 7px;
   }
 
-  h1.User1234 {
+  .perfil-cima {
+    margin: auto;
+    width: 50vw;
+    border-radius: 14px;
+    box-sizing: border-box;
+    background-color: #f9f9f9;
+    margin-top: 2vh;
+  }
+
+  .gato-esticado {
+    width: 50vw;
+    border-radius: 10px 10px 0 0;
+    position: absolute;
+    z-index: 1;
+    height: 18vh;
+  }
+
+  .foto-perfil_editar-perfil {
+    justify-content: space-between;
+    display: flex;
+    padding-top: 10vh;
+    padding-left: 3vh;
+    padding-right: 4vh;
+  }
+
+  .foto-de-perfil-fundo {
+    display: flex;
+    width: 15.3vh;
+    height: 15.3vh;
+    z-index: 2;
+  }
+
+  .fundo-foto-perfil {
+    width: 15.5vh;
+    position: absolute;
+  }
+
+  .foto-perfil {
+    width: 13.5vh;
+    position: absolute;
+    padding: 0.9vh;
+    border-radius: 50%; 
+    height: 13.5vh;
+  }
+
+  .editar-perfil, .seguir-perfil {
+    height: 4vh;
+    border-radius: 12px;
+    border: #cb218c 2px solid;
+    color: #cb218c;
+    font-family: Fira Sans;
+    font-weight: 600;
+    font-size: 2vh;
+    align-items: center;
+    display: flex;
+    z-index: 2;
+    margin-top: 11vh;
+    cursor: pointer;
+    background-color: #f9f9f9;
+  }
+  .editar-perfil{
+    width: 18vh;
+    padding-left: 3vh;
+  }
+
+  .editar-perfil:hover , .seguir-perfil:hover {
+    background-color: #cb218c;
+    color: white;
+  }
+
+  .seguir-perfil {
+    width: 15vh;
+    padding-left: 4.5vh;
+  }
+
+  .texto-perfil {
+    padding: 1vh 4vh 3vh 4vh;
+  }
+
+  .User1234 {
     font-family: "Heavitas", sans-serif;
     color: #cb218c;
     font-size: 22px;
-    transform: translate(57px, -70px);
     font-weight: 500;
   }
 
-  h2.Nome1234 {
+  .Nome1234 {
     font-family: Fira Sans;
     font-weight: 700;
     color: #333333;
     font-size: 20px;
-    transform: translate(65px, -70px);
   }
 
-  .nome-user {
-    display: flex;
-  }
-
-  h5.dicas-caseiras {
+  .descricao-perfil {
     font-family: Fira Sans;
     font-size: 16px;
-    transform: translate(57px, -65px);
     font-weight: 500;
+    padding-top: 2vh;
+    padding-bottom: 2vh;
+    font-size: 1.9vh;
   }
 
-  .descricao-pf {
+  .links-redes_sociais {
     font-size: 16px;
     font-weight: 400;
     font-family: Fira Sans;
-    transform: translate(60px, -60px);
+    align-items: center;
   }
 
-  img.tiktok-rosa {
-    width: 24px;
-    height: 24px;
-    box-sizing: border-box;
-    transform: translate(60px, -50px);
+  .icon-link {
+    display: flex;
+    width: 2.5vh;
+    padding-right: 1vh;
+    cursor: pointer;
   }
 
-  img.twitter-rosa {
-    width: 24px;
-    height: 24px;
-    box-sizing: border-box;
-    transform: translate(70px, -50px);
+  .site-perfil {
+    display: flex;
+    color: #cb218c;
+    font-weight: bold;
+    text-decoration: underline;
+    font-family: Fira Sans;
+    padding: 0vh 0.7vh 0vh 0vh;
+    cursor: pointer;
   }
 
-  img.instagram-rosa {
-    width: 24px;
-    height: 24px;
-    box-sizing: border-box;
-    transform: translate(80px, -50px);
+  .links-redes_sociais {
+    font-size: 1.8vh;
+    display: flex;
   }
 
-  .vis-seguidores {
-    width: 166px;
-    height: 36px;
-    padding: 6px 2px 2px 2px;
+  .link-site-perfil {
+    font-family: Fira Sans;
+    padding: 0vh 2vh 0vh 0vh;
+    cursor: pointer;
+  }
+  .url-site-perfil-a{
+    text-decoration: none;
+    color: inherit;
+  }
+
+  .rede-social-perfil {
+    width: 3vh;
+    display: flex;
+    cursor: pointer;
+    padding: 0vh 2vh 0vh 2vh;
+  }
+
+  .seguidores-seguindo-dicas {
+    display: flex;
+    gap: 2vh;
+    margin-top: 2vh;
+  }
+
+  .seguidores-seguindo-dicas_figure {
     border-radius: 12px;
-    background-color: #ffd662;
-    box-sizing: border-box;
-    font-family: "Fira Sans", sans-serif;
-    color: #4d16bb;
+    background-color: #ffdcf2;
+    color: #cb218c;
+    font-family: Fira Sans;
     text-align: center;
-    font-size: 18px;
-    display: inline-block;
-    margin-right: 15px;
-    margin-top: 8px;
-    transform: translate(-30px, -10px);
+    align-items: center;
+    font-size: 2vh;
     font-weight: 700;
-  }
-
-  .vis-seguindo {
-    width: 166px;
-    height: 36px;
-    padding: 6px 2px 2px 2px;
-    border-radius: 12px;
-    background-color: #ffd662;
-    box-sizing: border-box;
-    font-family: "Fira Sans", sans-serif;
-    color: #4d16bb;
-    text-align: center;
-    font-size: 18px;
-    display: inline-block;
-    transform: translate(-20px, -10px);
-    margin-top: 8px;
-    font-weight: 700;
-  }
-
-  .vis-postagens {
-    width: 166px;
-    height: 36px;
-    padding: 6px 2px 2px 2px;
-    border-radius: 12px;
-    background-color: #ffd662;
-    box-sizing: border-box;
-    font-family: "Fira Sans", sans-serif;
-    color: #4d16bb;
-    text-align: center;
-    font-size: 18px;
-    display: inline-block;
-    transform: translate(5px, -10px);
-    margin-top: 8px;
-    font-weight: 700;
+    display: flex;
+    padding: 0.8vh 4vh;
   }
 
 
   /*perfil parte de baixo*/
   .perfil-baixo {
-    padding-top: 15px;
-  }
-
-  .tab-perfil {
     display: flex;
-    overflow: hidden;
-    width: 50.5%;
-    background-color: #ffffff;
-    margin: auto;
+    margin-bottom: 10vh;
   }
 
-  .tab-perfil button {
-    background-color: inherit;
-    flex-grow: 1;
-    border: none;
-    outline: none;
-    cursor: pointer;
-    width: 309px;
-    height: 47px;
-    padding: 2px 2px 2px 2px;
-    transition: 0.3s;
-    font-family: "Heavitas", sans-serif;
-    background-color: #e0e0e0;
-    color: #9e5fef;
-    font-size: 21px;
-    border-radius: 2px;
-    box-sizing: border-box;
-  }
-
-  .tab-perfil button:hover {
-    background-color: rgba(24, 24, 24, 0.185);
-  }
-
-  .tab-perfil button.active {
-    background-color: #9e5fef;
-    color: white;
-  }
-
-  #Postagens {
-    display: block;
-    width: 100%;
-  }
-
-  .tabcontent-perfil {
-    display: none;
-    width: 309px;
-    height: 47px;
-    padding: 2px 0px 0px 2px;
-    background-color: rgba(255, 255, 255, 0);
-    box-sizing: border-box;
-    border-top: none;
-  }
-
-  /*Rascunhos*/
-  .rascunhos-esqueleto {
-    width: 926px;
-    height: 586px;
-    padding: 2px 2px 2px 2px;
-    background-color: #f2f2f2;
-    box-sizing: border-box;
-  }
-
-  .pontilhado-em-volta {
-    width: 853px;
-    height: 360px;
-    padding: 2px 2px 2px 2px;
-    border-radius: 10px;
-    border: 6px dashed #bababa;
-    background-color: rgba(242, 242, 242, 0);
-    box-sizing: border-box;
-    transform: translate(36.5px, 25px);
-  }
-
-  img.gato-sem-rascunhos {
-    width: 272px;
-    height: 272px;
-    opacity: 0.59;
-    box-sizing: border-box;
-    transform: translate(327px, -300px);
-  }
-
-  h2.sem-rascunhos {
-    width: 355px;
-    height: 32px;
-    background-color: rgba(255, 255, 255, 0);
-    box-sizing: border-box;
-    font-family: "Fira Sans Bold", "Fira Sans", sans-serif;
-    font-weight: 700;
-    color: #8c8c8c;
-    text-align: center;
-    line-height: normal;
-    transform: translate(285.5px, -365px);
-  }
-
-  h2.Comece-por-aqui {
-    width: 191px;
-    height: 32px;
-    background-color: rgba(255, 255, 255, 0);
-    box-sizing: border-box;
-    font-family: "Fira Sans Bold", "Fira Sans", sans-serif;
-    font-weight: 700;
-    text-decoration: underline;
-    color: #9e5fef;
-    text-align: left;
-    line-height: normal;
-    transform: translate(377.5px, -370px);
-    cursor: pointer;
-  }
-
-  /*Fim de rascunhos*/
-
-  /*Postagens*/
-  .postagens-esqueleto {
-    padding: 2px 20px 2px 0px;
-    box-sizing: border-box;
-  }
-
-  .filtro {
-    margin-top: 25px;
-    margin-left: 33px;
-    display: flex;
-    gap: 10px;
-    margin: auto;
-    /* margin-top: auto; */
-    /* margin-bottom: auto; */
-  }
-
-  .filtroint {
-    margin-top: 25px;
-    margin-left: 160px;
-    display: flex;
-    gap: 10px;
-  }
-
-  button.botao-filtro {
-    margin: 14px 7px 0px 0;
-    width: 125px;
-    height: 29px;
-    padding: 2px 2px 2px 2px;
-    border-radius: 7px;
-    background-color: rgba(158, 95, 239, 0.13);
-    box-sizing: border-box;
-    font-family: "Fira Sans Bold", "Fira Sans", sans-serif;
-    font-weight: 700;
-    color: #9e5fef;
-    text-align: center;
-    line-height: normal;
-    border-style: none;
-
-    &:
-    hover {
-      box-sizing: border-box;
-    opacity: 1;
-    background-color: #9d5fef3f;
-    }
-  }
-
-  .botao-filtro.active {
-    background-color: #9e5fef;
-    box-sizing: border-box;
-    font-family: "Fira Sans Bold", "Fira Sans", sans-serif;
-    font-weight: 700;
-    color: #ffffff;
-  }
-
-  /*Fim postagens*/
-
-  /*InteraÃ§Ãµes*/
-  .interacoes-esqueleto {
-    width: 926px;
-    height: 586px;
-    padding: 2px 2px 2px 2px;
-    box-sizing: border-box;
-  }
-
-  .heart-icon {
-    cursor: pointer;
-    transition: fill 0.3s ease-in-out;
-  }
-
-  img.azul {
-    content: url(https://files.axshare.com/gsc/V8CDR5/14/98/53/149853897c1d4acaafb2a9e4cf5619cd/images/perfil/u17.svg?pageId=3e54c061-96d3-4029-9a62-74e3821412f8)
-  }
-
-  img.vermelho {
-    content: url(https://files.axshare.com/gsc/V8CDR5/14/98/53/149853897c1d4acaafb2a9e4cf5619cd/images/perfil/u18.svg?pageId=3e54c061-96d3-4029-9a62-74e3821412f8)
-  }
-
-  .comentario-interacoes {
-    width: 835px;
-    height: 150px;
-    background-color: #e4e4e4;
-    margin-top: 50px;
-    margin-left: 2vw;
-    border-radius: 15px;
-  }
-
-  .roxoresposta {
-    background-color: #9e5fef;
-    height: 30px;
-    border-top-left-radius: 20px;
-    border-top-right-radius: 20px;
-
-  }
-
-  .comentouint {
-    margin-left: 110px;
-    margin-top: -80px;
-  }
-
-  .cometint {
-
-    margin-left: 110px;
-    margin-top: 7px;
-    font-family: "Fira Sans", sans-serif;
-    font-size: 20px;
-  }
-
-  .userint {
-    font-family: "Fira Sans Bold", "Fira Sans", sans-serif;
-    font-size: 20px;
-    height: 20px;
-    margin-left: 40px;
-    margin-top: -20px;
-
-  }
-
-  .comentarioint {
-    margin-left: 42vw;
-  }
-
-  .respondeuint {
-    font-family: "Fira Sans Bold", "Fira Sans", sans-serif;
-    color: #ffd662;
-    font-size: 20px;
-    height: 20px;
-    margin-top: -20px;
-    margin-left: 220px;
-  }
-
-  .ygona {
-    border-radius: 200%;
-    width: 80px;
-    height: 80px;
-    margin-left: 10px;
-    margin-top: 10px;
-    border-color: #9e5fef;
-  }
-
-  /*Fim de interaÃ§Ãµes*/
-
-  #editar-perfil-popup {
-    position: fixed;
-    padding: 1%;
-    border-radius: 10px;
-    z-index: 300;
-    width: 30%;
-    margin-top: 2%;
-    margin-left: 35%;
-    height: 725px;
+  .postagens-perfil-baixo {
+    width: 50vw;
     background-color: #f9f9f9;
+    margin: 2.5vh auto auto auto;
+    border-top: 2px solid #cb218c;
   }
+
+  .titulo-postagens-perfil {
+    font-family: Heavitas;
+    color: #cb218c;
+    font-weight: 700;
+    font-size: 2.3vh;
+    width: 100%;
+    justify-content: center;
+    padding-top: 1vh;
+    padding-bottom: 1vh;
+    display: flex;
+    border-bottom: 1px solid #b2b2b2;
+  }
+
+  .postagens-perfil {
+    justify-content: center;
+    display: flex;
+    padding: 3vh 7vh;
+  }
+
+  .gato-sem-rascunhos {
+    width: 35vh;
+    opacity: 0.59;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .gato-sem-rascunhos-aviso-texto {
+    color: #333333;
+    font-family: Fira Sans;
+    font-weight: 700;
+    font-size: 2vh;
+    display: flex;
+    flex-direction: column;
+    transform: translate(0vh, -7vh);
+    align-items: center;
+  }
+
+  /* EDITAR PERFIL */
 
   #fundo-editar-perfil {
     position: fixed;
     background: #000000a3;
-    width: 1920px;
-    height: 1080px;
+    width: 100%;
+    height: 100%;
     z-index: 299;
+    top: 0;
+    left: 0;
+  }
+
+  #editar-perfil-popup {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    border-radius: 10px;
+    z-index: 300;
+    width: 35vw;
+    background-color: #f9f9f9;
+    display: flex;
+  }
+
+  .editar-perfil-sair {
+    width: 100%;
+    justify-content: space-between;
+    display: flex;
+    border-bottom: #4d16bb 1px solid;
+  }
+
+  .titulo-editar-perfil {
+    display: flex;
+    color: #4d16bb;
+    font-family: Heavitas;
+    font-size: 2vh;
+    margin: 3vh 0 2vh 3vh;
   }
 
   .xis-sair {
     color: #4d16bb;
+    font-family: Heavitas;
+    font-size: 2vh;
     cursor: pointer;
+    display: flex;
+    margin: 3vh 3vh 2vh 0;
+  }
+
+  .editar-informacoes-perfil {
+    padding: 3vh;
   }
 
   .banner-editar {
-    width: 30vw;
-    margin-top: 20px;
-    height: 95px;
+    position: absolute;
+    width: 32vw;
+    height: 12vh;
+    z-index: 1;
+    border-radius: 10px 10px 0 0;
   }
 
-  .foto-editar {
-    transform: translate(-100.5px, -63px);
-    height: 90px;
+  .fotos-perfil-editar {
+    display: flex;
+    width: 13.3vh;
+    height: 13.3vh;
+    z-index: 2;
+    position: relative;
+    margin-top: 5vh;
+    margin-left: 2vh;
   }
 
   .fundo-foto-editar {
-    transform: translate(0px, -58px);
-    height: 100px;
+    width: 13.5vh;
+    position: absolute;
+  }
+
+  .foto-editar {
+    width: 11.5vh;
+    position: absolute;
+    padding: 0.9vh;
+    border-radius: 50%; 
+    height: 11.5vh;
   }
 
   .editar-foto-camera {
     width: 35px;
   }
 
+  .camera-container {
+    position: relative;
+  }
+
+  .editar-foto-camera {
+    cursor: pointer;
+  }
+
+  .camera-input {
+    display: none;
+  }
+
   #camera1 {
-    transform: translate(26vw, -12vh);
+    transform: translate(10vh, -3vh);
+    position: absolute;
+    z-index: 3;
   }
 
   #camera2 {
-    transform: translate(-130px, -60px);
+    transform: translate(60vh, -9vh);
+    position: absolute;
+    z-index: 3;
   }
 
-  #tit1 {
-    margin-top: -40px;
+  .inputs-editar-perfil {
+    margin-top: 3vh;
   }
 
   .tit-editar {
-    font-family: Heavitas;
-    font-weight: 400;
-    font-size: 18px;
-    margin-left: 45px;
+    font-family: Fira Sans;
+    font-weight: 600;
+    font-size: 2.2vh;
+    margin-top: 2vh;
     color: #4d16bb;
   }
 
-  .tit-duas {
-    display: flex;
-    justify-content: space-between;
-    margin-right: 120px;
+  .tex-editar {
+    width: 100%;
   }
 
-  .tex-editar {
-    margin-top: 10px;
-    margin-bottom: 20px;
-    margin-left: 45px;
+  .tex-editar,
+  .tex-editar-site,
+  .tex-editar-url {
     border-top: none;
     border-left: none;
     border-right: none;
     border-bottom: 1.5px solid #333333;
-    width: 83%;
+    height: 3vh;
+    margin-top: 0.5vh;
     background: none;
     font-family: Fira Sans;
-    font-size: 16px;
+    font-size: 2.2vh;
     outline: none;
+  }
+  .tex-editar-site {
+    width: 15vh;
+  }
+
+  .tex-editar-url {
+    width: 40vh;
+  }
+
+  .tit-duas-coluna {
+    justify-content: space-between;
+    display: flex;
+    gap: 3vh;
+  }
+
+  .tit-duas {
+    margin-top: 1vh;
+    display: flex;
+    flex-direction: column;
   }
 
   .tex-editar::placeholder {
@@ -1002,58 +897,36 @@
     outline: none;
   }
 
-  .tex-duas {
+  .redes-editar {
+    width: 100%;
     display: flex;
     justify-content: space-between;
-    margin-right: 45px;
+    gap: 2vh;
+    margin-top: 1vh;
   }
 
   .redes-editar img {
-    height: 30px;
-  }
-
-  .redes-editar {
-    width: 83%;
-    margin-left: 45px;
-    display: flex;
-    justify-content: space-between;
+    height: 4vh;
   }
 
   .rede-editar {
-    margin-top: 10px;
-    padding: 2% 0% 0 12%;
-    width: 31%;
-    height: 50px;
+    width: 100%;
+    justify-content: center;
+    display: flex;
+    padding: 1vh 0 1vh 0;
     border-radius: 5px;
     background: #ffd662;
+    cursor: pointer;
   }
 
   .salvar {
     background: #4d16bb;
     color: white;
     border-radius: 5px;
-    margin-top: 100px;
-    margin-left: 300px;
-    width: 180px;
+    width: 100%;
+    margin-top: 3vh;
     height: 45px;
     border: none;
     cursor: pointer;
-  }
-
-  .filtro-perfil {
-    justify-content: center;
-    padding: 0.8% 2% 0.8% 2%;
-    background-color: #F2F2F2;
-    border-radius: 5px 5px 5px 5px;
-    display: flex;
-  }
-
-  .gato-esticado {
-    width: 50vw;
-  }
-
-  .filtro-perfil {
-    margin: auto;
-    width: 50vw;
   }
 }

@@ -29,7 +29,8 @@
     line-height: 22px;
     margin-left: 8.5%;
     font-size: 15px;
-    margin-bottom: 20%;
+    margin-top: 5%;
+    margin-bottom: 15%;
     }
     button.sair{
     width: 85%;
@@ -122,8 +123,9 @@
     text-align: justify;
     line-height: 22px;
     margin-left: 8.5%;
-    font-size: 15px;
-    margin-bottom: 20%;
+    font-size: 2vh;
+    margin-top: 10%;
+    margin-bottom: 5%;
     }
     button.sair{
     width: 85%;
@@ -215,8 +217,9 @@
     text-align: justify;
     line-height: 22px;
     margin-left: 8.5%;
-    font-size: 15px;
-    margin-bottom: 20%;
+    font-size: 2vh;
+    margin-top: 10%;
+    margin-bottom: 10%;
     }
     button.sair{
     width: 85%;

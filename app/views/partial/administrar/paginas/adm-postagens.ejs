@@ -6,7 +6,7 @@
    <meta http-equiv="X-UA-Compatible" content="IE=edge">
    <meta name="viewport" content="width=device-width, initial-scale=1.0">
    <link rel="shortcut icon" href="imagens/favcon-adm.png" type="image/x-icon" />
-   
+
    <link rel="stylesheet" href="../css/style-adm-paginas.css">
 
    <title>Admin | Postagens</title>
@@ -24,77 +24,118 @@
             <h1 class="titulo-pagina">POSTAGENS & PERGUNTAS</h1>
             <hr class="linha-pagina">
          </section>
-   
+
          <section class="conteudo-pagina">
             <!-- tabela Denúncias - Inicio -->
-               <section id="menu-filtros-denuncias" class="grid-menu-filtros-postagem">
-                  <figure id="titulo-id-postagem" class="linha-1-titulos">ID</figure>
-                  <figure id="titulo-conteudo-postagem" class="linha-1-titulos">Conteúdo</figure>
-                  <figure id="titulo-titulo-postagem" class="linha-1-titulos">Título</figure>
-                  <figure id="titulo-autor-postagem" class="linha-1-titulos">Autor</figure>
-                  <figure id="titulo-categoria-postagem" class="linha-1-titulos">Categoria</figure>
-                  
-                  <article id="pesquisar-postagem" class="linha-1-titulos">
-                     <img class="icone-pesquisa" src="/imagens-svg/5-adm/pesquisa-cinza.svg" alt="">
-                     <input class="pesquisa-input" type="text" id="myInput" onkeyup="myFunction()" placeholder="Pesquisar ID ou perfil..."> <!-- pesquisa (search) na tabala - onkeyup é quando um user digita -->
-                  </article>
+            <section id="menu-filtros-denuncias" class="grid-menu-filtros-postagem">
+               <figure id="titulo-id-postagem" class="linha-1-titulos">ID</figure>
+               <figure id="titulo-conteudo-postagem" class="linha-1-titulos">Conteúdo</figure>
+               <figure id="titulo-titulo-postagem" class="linha-1-titulos">Título</figure>
+               <figure id="titulo-autor-postagem" class="linha-1-titulos">Autor</figure>
+               <figure id="titulo-categoria-postagem" class="linha-1-titulos">Categoria</figure>
 
-                  <select id="filtro-conteudo-denuncia" class="linha-2-filtros">
-                     <option value="" id="opcao-conteudo-denuncia" class="opcao-denuncia-filtro">123...</option>
-                     <option value="" id="opcao-conteudo-denuncia" class="opcao-denuncia-filtro">123...</option>
-                     <option value="" id="opcao-conteudo-denuncia" class="opcao-denuncia-filtro">123...</option>
-                  </select>
+               <article id="pesquisar-postagem" class="linha-1-titulos">
+                  <img class="icone-pesquisa" src="/imagens-svg/5-adm/pesquisa-cinza.svg" alt="">
+                  <input class="pesquisa-input" type="text" id="myInput" onkeyup="myFunction()"
+                     placeholder="Pesquisar ID ou perfil...">
+                  <!-- pesquisa (search) na tabala - onkeyup é quando um user digita -->
+               </article>
 
-                  <select id="filtro-motivo-denuncia" class="linha-2-filtros">
-                     <option value="" id="opcao-motivo-denuncia" class="opcao-denuncia-filtro">Pergunta</option>
-                     <option value="" id="opcao-motivo-denuncia" class="opcao-denuncia-filtro">Postagem</option>
-                  </select>
+               <select id="filtro-conteudo-denuncia" class="linha-2-filtros">
+                  <option value="" id="opcao-conteudo-denuncia" class="opcao-denuncia-filtro">123...</option>
+                  <option value="" id="opcao-conteudo-denuncia" class="opcao-denuncia-filtro">123...</option>
+                  <option value="" id="opcao-conteudo-denuncia" class="opcao-denuncia-filtro">123...</option>
+               </select>
 
-                  <select id="filtro-categoria-denuncia" class="linha-2-filtros">
-                     <option value="" id="opcao-categoria-denuncia" class="opcao-denuncia-filtro">A-Z</option>
-                  </select>
+               <select id="filtro-motivo-denuncia" class="linha-2-filtros">
+                  <option value="" id="opcao-motivo-denuncia" class="opcao-denuncia-filtro">Pergunta</option>
+                  <option value="" id="opcao-motivo-denuncia" class="opcao-denuncia-filtro">Postagem</option>
+               </select>
 
-                  <select id="filtro-autor-denuncia" class="linha-2-filtros">
-                     <option value="" id="opcao-autor-denuncia" class="opcao-denuncia-filtro">A-Z</option>
-                  </select>
+               <select id="filtro-categoria-denuncia" class="linha-2-filtros">
+                  <option value="" id="opcao-categoria-denuncia" class="opcao-denuncia-filtro">A-Z</option>
+               </select>
 
-                  <select id="filtro-status-denuncia" class="linha-2-filtros">
-                     <option value="" id="opcao-status-denuncia" class="opcao-denuncia-filtro">Culinaria</option>
-                     <option value="" id="opcao-status-denuncia" class="opcao-denuncia-filtro">Limpeza</option>
-                     <option value="" id="opcao-status-denuncia" class="opcao-denuncia-filtro">Bem-estar</option>
-                  </select>
-               </section>
+               <select id="filtro-autor-denuncia" class="linha-2-filtros">
+                  <option value="" id="opcao-autor-denuncia" class="opcao-denuncia-filtro">A-Z</option>
+               </select>
 
-               <section class="fundo-tabela-postagens">
-                  <table class="tabela-postagens" id="myTable">
-                     
-                     <tr class="cabeçalho-tabela-postagens">
-                        <th style="width: 8vh; padding-left: 3vh;" class="titulo-tabela">ID</th>
-                        <th style="width: 15vh;" class="titulo-tabela">Conteúdo</th>
-                        <th style="width: 30vh;" class="titulo-tabela">Título do Conteúdo</th>
-                        <th style="width: 15vh;" class="titulo-tabela">Categoria</th>
-                        <th style="width: 23vh;" class="titulo-tabela">Autor</th>
-                        <th style="width: 4vh;" class="titulo-tabela"></th>
-                        <th style="width: 4vh;" class="titulo-tabela"></th>
-                        <th style="width: 4vh;" class="titulo-tabela"></th>
-                     </tr>
+               <select id="filtro-status-denuncia" class="linha-2-filtros">
+                  <option value="" id="opcao-status-denuncia" class="opcao-denuncia-filtro">Culinaria</option>
+                  <option value="" id="opcao-status-denuncia" class="opcao-denuncia-filtro">Limpeza</option>
+                  <option value="" id="opcao-status-denuncia" class="opcao-denuncia-filtro">Bem-estar</option>
+               </select>
+            </section>
 
-                     <tr class="linhas"> <!-- Conteudo da tabela -->
-                        <td class="linha-postagens Coluna-id">#10.049</td>
-                        <td class="linha-postagens">
-                           <p class="Coluna-conteudo-postagens">Postagem</p>
-                        </td>
-                        <td class="linha-postagens Coluna-titulo">Receita de Lancheira Saudável para Crianças</td>
-                        <td class="linha-postagens Coluna-categoria">Cúlinária</td>
-                        <td class="linha-postagens Coluna-autor" data-autor="true">User</td>
-                        <td class="linha-postagens"> <img class="icon-rosa-linha visualizar-icon-postagem" src="/imagens-svg/visualizar-icon-rosa.svg" alt=""></td>
-                        <td class="linha-postagens"> <img class="icon-rosa-linha bloquear-icon-postagem" src="/imagens-svg/bloquear-icon-rosa.svg" alt=""></td>
-                        <td class="linha-postagens"> <img class="icon-rosa-linha excluir-icon-postagem" src="/imagens-svg/excluir-icon-rosa.svg" alt=""></td>
-                     </tr>
+            <section class="fundo-tabela-postagens">
+               <table class="tabela-postagens" id="myTable">
 
-                  </table>
-               </section>
-            <!-- tabela Denúncias - Fim -->
+                  <tr class="cabeçalho-tabela-postagens">
+                     <th style="width: 8vh; padding-left: 3vh;" class="titulo-tabela">ID</th>
+                     <th style="width: 15vh;" class="titulo-tabela">Conteúdo</th>
+                     <th style="width: 30vh;" class="titulo-tabela">Título do Conteúdo</th>
+                     <th style="width: 15vh;" class="titulo-tabela">Categoria</th>
+                     <th style="width: 23vh;" class="titulo-tabela">Autor</th>
+                     <th style="width: 4vh;" class="titulo-tabela"></th>
+                     <th style="width: 4vh;" class="titulo-tabela"></th>
+                     <th style="width: 4vh;" class="titulo-tabela"></th>
+                  </tr>
+
+                  <%  if(PostagensNoControl){
+                  PostagensNoControl.forEach(function(conteudo) { %>
+                     <% if (conteudo.origem === 'conteudo_postagem' ) { %>
+                        <tr class="linhas"> <!-- Conteudo da tabela postagens-->
+                           <td class="linha-postagens Coluna-id">#<%=conteudo.id%>
+                           </td>
+                           <td class="linha-postagens">
+                              <p class="Coluna-conteudo-postagens">Dica</p>
+                           </td>
+                           <td class="linha-postagens Coluna-titulo">
+                              <%=conteudo.Titulo%>
+                           </td>
+                           <td class="linha-postagens Coluna-categoria">
+                              <%=conteudo.categoria%>
+                           </td>
+                           <td class="linha-postagens Coluna-autor" data-autor="true">
+                              <%=conteudo.Nickname%>
+                           </td>
+                           <td class="linha-postagens"> <img class="icon-rosa-linha visualizar-icon-postagem"
+                                 src="/imagens-svg/visualizar-icon-rosa.svg" alt=""></td>
+                           <td class="linha-postagens"> <img class="icon-rosa-linha bloquear-icon-postagem"
+                                 src="/imagens-svg/bloquear-icon-rosa.svg" alt=""></td>
+                           <td class="linha-postagens"> <img class="icon-rosa-linha excluir-icon-postagem"
+                                 src="/imagens-svg/excluir-icon-rosa.svg" alt=""></td>
+                        </tr>
+                        <% } else if (conteudo.origem === 'pergunta' ) { %>
+                           <tr class="linhas"> <!-- Conteudo da tabela postagens-->
+                              <td class="linha-postagens Coluna-id">#<%=conteudo.id%>
+                              </td>
+                              <td class="linha-postagens">
+                                 <p class="Coluna-conteudo-postagens">Pergunta</p>
+                              </td>
+                              <td class="linha-postagens Coluna-titulo">
+                                 <%=conteudo.Titulo%>
+                              </td>
+                              <td class="linha-postagens Coluna-categoria">
+                                 <%=conteudo.categoria%>
+                              </td>
+                              <td class="linha-postagens Coluna-autor" data-autor="true">
+                                 <%=conteudo.Nickname%>
+                              </td>
+                              <td class="linha-postagens"> <img class="icon-rosa-linha visualizar-icon-postagem"
+                                    src="/imagens-svg/visualizar-icon-rosa.svg" alt=""></td>
+                              <td class="linha-postagens"> <img class="icon-rosa-linha bloquear-icon-postagem"
+                                    src="/imagens-svg/bloquear-icon-rosa.svg" alt=""></td>
+                              <td class="linha-postagens"> <img class="icon-rosa-linha excluir-icon-postagem"
+                                    src="/imagens-svg/excluir-icon-rosa.svg" alt=""></td>
+                           </tr>
+                           <% } %>
+                              <% });
+                         } %>
+
+
+               </table>
+            </section>
          </section>
 
       </section>

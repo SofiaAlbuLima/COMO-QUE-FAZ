@@ -2,17 +2,26 @@ var express = require('express');
 
 var router = express.Router();
 
-const imagemController = require("../controllers/controller-midia");
 const moment = require("moment");
 
 const tarefasController = require("../controllers/controller");
 const { VerificarAutenticacao, limparSessao, gravarUsuAutenticado, verificarUsuAutorizado } = require("../models/autenticator-middleware");
 
+const uploadFile = require("../util/uploader");
+const uploadPerfil = require("../util/uploader-perfil");
+
 router.post("/login", tarefasController.regrasValidacaoLogin, gravarUsuAutenticado, tarefasController.Login_formLogin);
 router.post("/cadastro", tarefasController.regrasValidacaoCadastro, tarefasController.Login_formCadastro);
-router.post('/criar-dica', VerificarAutenticacao, imagemController.uploadImagem, tarefasController.CriarDica);
+router.post('/criar-dica', uploadFile("imagem_criar_post"), VerificarAutenticacao, tarefasController.CriarDica);
 router.post('/criar-pergunta', VerificarAutenticacao, tarefasController.CriarPergunta);
-router.post('/upload-imagem', imagemController.uploadImagem, imagemController.criarImagem);
+router.post('/editar-perfil',
+    VerificarAutenticacao,
+    verificarUsuAutorizado([1, 2], "/"),
+    tarefasController.regrasValidacaoEditarPerfil,
+    uploadPerfil("editar_img_icon", "editar_img_banner"),
+    tarefasController.EditarPerfil
+);
+
 
 // Links & Template - Parte Publica
 router.get("/", VerificarAutenticacao, async function (req, res) {
@@ -92,12 +101,37 @@ router.get("/bem-estar", async function (req, res) {
     }
 });
 
-router.get("/perfil", VerificarAutenticacao, verificarUsuAutorizado([1, 2], "/"), function (req, res) {
-    res.render("pages/template", {
-        pagina: { cabecalho: "cabecalho", conteudo: "Meu-perfil", rodape: "none" },
-        usuario_logado: req.session.autenticado,
+router.get("/perfil",
+    VerificarAutenticacao,
+    verificarUsuAutorizado([1, 2], "/"),
+    async (req, res) => {
+        try {
+            const perfilResponse = await tarefasController.MostrarPerfil(req, res);
+            const data = await tarefasController.MostrarPostagensPerfil(req, res);
+
+            if (perfilResponse && perfilResponse.status !== 404) {
+                res.render("pages/template", {
+                    pagina: { cabecalho: "cabecalho", conteudo: "Perfil", rodape: "rodape" },
+                    usuario_logado: req.session.autenticado,
+                    perfil: perfilResponse.perfil || {},
+                    dadosNotificacao: null,
+                    ...data
+                });
+            } else {
+                res.status(404).render("pages/template", {
+                    pagina: { cabecalho: "cabecalho", conteudo: "Perfil", rodape: "rodape" },
+                    usuario_logado: req.session.autenticado,
+                    listaErros: ["Perfil não encontrado."],
+                    dadosNotificacao: null,
+                });
+            }
+        } catch (error) {
+            res.status(500).json({ erro: error.message });
+        }
     });
-});
+    router.get("/perfil/:nickname", VerificarAutenticacao, async function (req, res) {
+        await tarefasController.AbrirPerfil(req, res);
+    });
 router.get("/notificacoes", verificarUsuAutorizado([1, 2], "/"), function (req, res) {
     res.render("pages/template", {
         pagina: { cabecalho: "cabecalho", conteudo: "Minhas-Notificações", rodape: "none" },
@@ -117,8 +151,7 @@ router.get("/configuracoes", verificarUsuAutorizado([1, 2], "/"), function (req,
     });
 });
 
-
-router.get("/sair", function (req, res) {
+router.get("/sair", VerificarAutenticacao, function (req, res) {
     res.render("pages/template", {
         pagina: { cabecalho: "none", conteudo: "sair", rodape: "none" },
         usuario_logado: req.session.autenticado,
@@ -128,21 +161,23 @@ router.get("/sair-da-conta", limparSessao, function (req, res) {
     res.redirect("/");
 });
 
-router.get("/criar-postagem", VerificarAutenticacao, function (req, res) {
+router.get("/criar-dica", verificarUsuAutorizado([1, 2], "/"), function (req, res) {
     res.render("pages/template", {
-        pagina: { cabecalho: "none", conteudo: "sair", rodape: "none" },
+        pagina: { cabecalho: "cabecalho", conteudo: "Criar-dica", rodape: "none" },
         usuario_logado: req.session.autenticado,
     });
 });
+
 router.get("/criar-pergunta", VerificarAutenticacao, function (req, res) {
     res.render("pages/template", {
-        pagina: { cabecalho: "none", conteudo: "sair", rodape: "none" },
+        pagina: { cabecalho: "cabecalho", conteudo: "Criar-pergunta", rodape: "none" },
         usuario_logado: req.session.autenticado,
     });
 });
 router.get("/dica/:id", async function (req, res) {
     await tarefasController.AbrirPostagem(req, res);
 });
+
 router.get("/pergunta/:id", async function (req, res) {
     await tarefasController.AbrirPostagem(req, res);
 });
@@ -169,16 +204,7 @@ router.get("/pagamento", function (req, res) {
     });
 });
 
-
-
-
-
-
 router.post('/denunciar/:id', tarefasController.armazenarDenuncia);
-
-
-
-
 
 // Links & Template - Parte Administrativa
 router.get("/adm", verificarUsuAutorizado([2], "/sair"),
@@ -204,21 +230,32 @@ router.get("/adm/denuncias", verificarUsuAutorizado([2], "/sair"),
         }
     });
 
-router.get("/adm/postagens-perguntas", verificarUsuAutorizado([2], "/sair"),
-    function (req, res) {
-        res.render("pages/template-adm",
-            {
-                pagina: { cabecalho: "administrar/menu-administrativo", conteudo: "administrar/paginas/adm-postagens" },
-                usuario_logado: req.session.autenticado
-            });
-    });
 router.get("/adm/usuarios", verificarUsuAutorizado([2], "/sair"),
-    function (req, res) {
-        res.render("pages/template-adm",
-            {
-                pagina: { cabecalho: "administrar/menu-administrativo", conteudo: "administrar/paginas/adm-usuarios" },
-                usuario_logado: req.session.autenticado
-            });
+    async function (req, res) {
+        try {
+            const data = await tarefasController.listarUsuarios(req, res);
+            res.render("pages/template-adm",
+                {
+                    pagina: { cabecalho: "administrar/menu-administrativo", conteudo: "administrar/paginas/adm-usuarios" },
+                    ...data
+                });
+        } catch (error) {
+            res.status(500).json({ erro: error.message });
+        }
+    });
+
+router.get("/adm/postagens-perguntas", verificarUsuAutorizado([2], "/sair"),
+    async function (req, res) {
+        try {
+            const data = await tarefasController.listarPostagens(req, res);
+            res.render("pages/template-adm",
+                {
+                    pagina: { cabecalho: "administrar/menu-administrativo", conteudo: "administrar/paginas/adm-postagens" },
+                    ...data
+                });
+        } catch (error) {
+            res.status(500).json({ erro: error.message });
+        }
     });
 
 router.get("/adm/acesso-premium", verificarUsuAutorizado([2], "/sair"),

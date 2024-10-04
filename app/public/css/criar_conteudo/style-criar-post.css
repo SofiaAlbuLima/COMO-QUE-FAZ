@@ -190,7 +190,6 @@
     text-align: left;
     line-height: normal;
     font-size: 200%;
-   
     margin-left: 7%;
     overflow: auto;
   }
@@ -203,7 +202,6 @@
     text-align: left;
     line-height: normal;
     font-size: 200%;
-   
     margin-left: 7%;
     overflow: auto;
   }
@@ -294,13 +292,13 @@
       color: #adadad;
     }
 
-    ;
+    
 
     input#dialogoselect::-moz-placeholder {
       color: #adadad;
     }
 
-    ;
+    
 
     &:focus {
       outline: 0;
@@ -310,13 +308,13 @@
         color: #cb218c;
       }
 
-      ;
+      
 
       input#dialogoselect::-moz-placeholder {
         color: #cb218c;
       }
 
-      ;
+      
     }
   }
 

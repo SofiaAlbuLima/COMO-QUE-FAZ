@@ -1,11 +1,12 @@
 // Responsável por receber as entradas do usuário, interpretá-las e acionar ações adequadas no modelo e na visualização
 
-const usuarioModel = require("../models/model-usuario"); //Requisição do arquivo Model para executar ações no Banco de Dados
+const usuarioModel = require("../models/model-usuario");
 const conteudoModel = require("../models/model-conteudo");
-const imagemModel = require("../models/model-midia");
 const admModel = require("../models/model-adm");
+
 const moment = require("moment"); //datas e horas bonitinhas
 const { body, validationResult } = require("express-validator");
+const { removeImg } = require("../util/removeImg");
 const bcrypt = require("bcryptjs");
 var salt = bcrypt.genSaltSync(12);
 
@@ -50,6 +51,16 @@ const tarefasController = {
             .isStrongPassword()
             .withMessage("A senha deve ter no mínimo 8 caracteres (mínimo 1 letra maiúscula, 1 caractere especial e 1 número)")
 
+    ],
+    regrasValidacaoEditarPerfil: [
+        body("editar-nome-usuario")
+            .isLength({ min: 5, max: 45 }).withMessage("Nome de usuário deve ter de 5 a 45 caracteres!"),
+        body("editar-biografia")
+            .isLength({ min: 0, max: 200 }).withMessage("Sua biografia deve ter até 200 caracteres!"),
+        body("editar-nome-site")
+            .isLength({ min: 2, max: 30 }).withMessage("Nome do site deve ter de 2 a 30 caracteres!"),
+        body("editar-url-site")
+            .isURL().withMessage("Insira uma URL válida!"),
     ],
     Login_formLogin: async (req, res) => {
         // Verificação de Erros de Validação
@@ -180,12 +191,13 @@ const tarefasController = {
                     tipo: conteudo.tipo,
                     subcategorias: conteudo.subcategorias,
                     ingredientes: ingredientes.length ? ingredientes.map(i => i.ingredientes).join(', ') : null,
-                    mediaAvaliacoes
+                    mediaAvaliacoes,
+                    imagem: conteudo.idMidia ? `data:image;base64,${conteudo.idMidia.toString('base64')}` : null
                 };
             }));
 
             return {
-                usuario_logado: req.session.autenticado,
+                usuario_logado: req.session.autenticado || {},
                 login: req.session.logado,
                 postagens: combinedConteudo,
                 paginador: paginador,
@@ -250,6 +262,7 @@ const tarefasController = {
             }
 
             let combinedConteudo = await Promise.all(data.map(async conteudo => {
+                let ingredientes = await conteudoModel.BuscarIngredientesPorPostagemId(conteudo.id);
                 let mediaAvaliacoes = await conteudoModel.CalcularMediaAvaliacoes(conteudo.id);
                 return {
                     nome: conteudo.Titulo,
@@ -263,7 +276,9 @@ const tarefasController = {
                     porcoes: conteudo.porcoes > 0 ? `${conteudo.porcoes} ${conteudo.porcoes > 1 ? 'Porções' : 'Porção'}` : null,
                     tipo: conteudo.tipo,
                     subcategorias: conteudo.subcategorias,
-                    mediaAvaliacoes
+                    mediaAvaliacoes,
+                    ingredientes: ingredientes.length ? ingredientes.map(i => i.ingredientes).join(', ') : null,
+                    imagem: conteudo.idMidia ? `data:image;base64,${conteudo.idMidia.toString('base64')}` : null
                 };
             }));
             return {
@@ -324,7 +339,8 @@ const tarefasController = {
                 tipo: postagem.tipo,
                 ingredientes: ingredientes,
                 subcategorias: postagem.subcategorias,
-                mediaAvaliacoes
+                mediaAvaliacoes,
+                imagem: postagem.idMidia ? `data:image;base64,${postagem.idMidia.toString('base64')}` : null
             };
 
             switch (postagem.Categorias_idCategorias) {
@@ -416,10 +432,6 @@ const tarefasController = {
 
             const subcategoriasTexto = req.body.dica_subcategorias || '';
 
-            const imagens = req.files.map(file => file.filename); // Supondo que você está usando multer
-            const imagensString = imagens.length > 0 ? imagens.join(',') : null; // Concatena os nomes dos arquivos ou null
-
-
             const FormCriarDica = {
                 Clientes_idClientes: req.session.autenticado.id,
                 Titulo: req.body.dica_titulo,
@@ -429,8 +441,12 @@ const tarefasController = {
                 Descricao: req.body.dica_descricao,
                 Etapas_Modo_de_Preparo: etapasTexto,
                 subcategorias: subcategoriasTexto,
-                Imagem: imagensString 
+                idMidia: req.file ? req.file.buffer : null
             };
+            console.log("Arquivo recebido no controlador:", req.file);
+            if (!req.file) {
+                return res.status(400).send("Arquivo não encontrado. Verifique o campo de upload.");
+            }
 
             console.log('FormCriarDica:', FormCriarDica); // Debugging
 
@@ -472,7 +488,7 @@ const tarefasController = {
         } catch (e) {
             console.log(e);
             res.render("pages/template", {
-                pagina: { cabecalho: "cabecalho", conteudo: "meu-perfil", rodape: "rodape" },
+                pagina: { cabecalho: "cabecalho", conteudo: "Perfil", rodape: "rodape" },
                 usuario_logado: req.session.autenticado,
                 listaErros: e,
                 dadosNotificacao: {
@@ -530,7 +546,6 @@ const tarefasController = {
             res.json({ erro: "Falha ao acessar dados" });
         }
     },
-
     armazenarDenuncia: async (req, res) => {
         try {
             const dadosForm = {
@@ -566,17 +581,265 @@ const tarefasController = {
             console.error('Erro ao armazenar denúncia:', error);
             res.status(500).send('Erro ao enviar denúncia');
         }
+    },
+    listarUsuarios: async (req, res) => {
+        try {
+            const results = await admModel.mostrarUsuarios();
+
+            return {
+                usuariosNoControl: results,
+                usuario_logado: req.session.autenticado
+            };
+
+        } catch (error) {
+            console.error('Erro ao armazenar denúncia:', error);
+        }
+    },
+    listarPostagens: async (req, res) => {
+        try {
+            const results = await admModel.mostrarPostagens();
+
+            return {
+                PostagensNoControl: (results),
+                usuario_logado: req.session.autenticado
+            };
+
+        } catch (error) {
+            console.error('Erro ao armazenar denúncia:', error);
+        }
+    },
+
+    MostrarPerfil: async (req, res) => {
+        try {
+            const idCliente = req.session.autenticado.id;
+            const perfil = await conteudoModel.obterPerfil(idCliente);
+
+            if (!perfil) {
+                return res.status(404).json({
+                    mensagem: "Perfil não encontrado.",
+                    usuario_logado: req.session.autenticado,
+                });
+            }
+
+            perfil.foto_icon_perfil = perfil.foto_icon_perfil ? `data:image/png;base64,${perfil.foto_icon_perfil.toString('base64')}` : null;
+            perfil.foto_banner_perfil = perfil.foto_banner_perfil ? `data:image/png;base64,${perfil.foto_banner_perfil.toString('base64')}` : null;
+
+            req.session.autenticado.foto = perfil.foto_icon_perfil;
+
+            return { perfil, usuario_logado: req.session.autenticado };
+        } catch (error) {
+            console.error("Erro ao exibir perfil:", error);
+            return { status: 500, erro: error.message };
+        }
+    },
+    EditarPerfil: async (req, res) => {
+        try {
+            console.log("Função EditarPerfil chamada!");
+            console.log("Alterações:", req.body);
+
+            const { editar_confirmar_senha, editar_nome_usuario, editar_biografia, editar_nome_site, editar_url_site, editar_img_icon, editar_img_banner } = req.body || {};
+
+            if (!req.session.autenticado || !req.session.autenticado.id) { // Verifica se o usuário está autenticado
+                console.log("Erro! 1");
+                return res.redirect("/perfil");
+            }
+
+            const user = await usuarioModel.findUserById(req.session.autenticado.id); // Busca os dados atuais do usuário no banco de dados
+            if (!user) {
+                console.log("Usuário não encontrado");
+                return res.redirect("/perfil");
+            }
+            console.log("Dados Atuais: ", user);
+            console.log("Senha atual: ", user.senha);
+            console.log("Senha fornecida: ", editar_confirmar_senha);
+
+            const senhaCorreta = bcrypt.compareSync(editar_confirmar_senha, user.senha); // Confirma a senha fornecida
+            if (!senhaCorreta) {
+                console.log("Senha Incorreta");
+                return res.redirect("/perfil");
+            };
+
+            const updateData = {}; // Objeto com os dados de perfil a serem atualizados
+            if (editar_nome_usuario) updateData.Nickname = editar_nome_usuario;
+            if (editar_biografia) updateData.Biografia = editar_biografia;
+            if (editar_nome_site) updateData.nome_do_site = editar_nome_site;
+            if (editar_url_site) updateData.url_do_site = editar_url_site;
+
+            if (req.filePerfil) {
+                updateData.foto_icon_perfil = req.filePerfil.buffer;
+            }
+            if (req.fileBanner) {
+                updateData.foto_banner_perfil = req.fileBanner.buffer;
+            }
+            console.log("Dados a serem atualizados:", updateData);
+            await conteudoModel.atualizarPerfil(req.session.autenticado.id, updateData); // Atualiza o perfil do usuário no banco de dados
+
+            req.session.notification = {
+                titulo: "Perfil atualizado!",
+                mensagem: "Seu perfil foi atualizado com sucesso!",
+                tipo: "success"
+            };
+            return res.redirect("/perfil");
+
+        } catch (error) {
+            console.log("Erro ao editar perfil!");
+            return res.redirect("/perfil");
+        }
+    },
+    MostrarPostagensPerfil: async (req, res) => {
+        const idCliente = req.session.autenticado.id;
+        res.locals.moment = moment;
+
+        try {
+            const pagina = parseInt(req.query.pagina) || 1; // Página atual
+            const regPagina = 12; // Registros por página
+            const inicio = (pagina - 1) * regPagina; // Cálculo do início da página
+
+            // Buscar as postagens do perfil do usuário
+            let results = await conteudoModel.PesquisarPostsPerfil(idCliente, inicio, regPagina);
+            let totReg = await conteudoModel.TotalRegPerfil(idCliente);
+            let totalRegistros = totReg[0].total;
+            let totPaginas = Math.ceil(totalRegistros / regPagina);
+
+            // Paginador
+            let paginador = totalRegistros <= 12 ? null : {
+                "pagina_atual": pagina,
+                "total_reg": totalRegistros,
+                "total_paginas": totPaginas
+            };
+
+            function formatarTempo(tempo) {
+                let duracao = moment.duration(tempo, 'HH:mm:ss');
+                let horas = duracao.hours();
+                let minutos = duracao.minutes();
+                if (horas > 0 && minutos > 0) {
+                    return `${horas}h${minutos}min`;
+                } else if (horas > 0 && minutos <= 0) {
+                    return `${horas}hora${horas > 1 ? 's' : ''}`;
+                } else if (horas <= 0 && minutos > 0) {
+                    return `${minutos}min`;
+                } else {
+                    return '';
+                }
+            }
+
+            // Formatar o conteúdo
+            let combinedConteudo = await Promise.all(results.map(async (conteudo) => {
+                let ingredientes = await conteudoModel.BuscarIngredientesPorPostagemId(conteudo.id);
+                let mediaAvaliacoes = await conteudoModel.CalcularMediaAvaliacoes(conteudo.id);
+                return {
+                    nome: conteudo.Titulo,
+                    usuario: conteudo.Clientes_idClientes,
+                    nome_usuario: conteudo.nome_usuario,
+                    id: conteudo.id,
+                    categoria: conteudo.Categorias_idCategorias,
+                    tempo: conteudo.tempo ? formatarTempo(conteudo.tempo) : null,
+                    descricao: conteudo.Descricao || null,
+                    etapas: conteudo.Etapas_Modo_de_Preparo,
+                    porcoes: conteudo.porcoes > 0 ? `${conteudo.porcoes} ${conteudo.porcoes > 1 ? 'Porções' : 'Porção'}` : null,
+                    tipo: conteudo.tipo,
+                    subcategorias: conteudo.subcategorias,
+                    ingredientes: ingredientes.length ? ingredientes.map(i => i.ingredientes).join(', ') : null,
+                    mediaAvaliacoes,
+                    imagem: conteudo.idMidia ? `data:image;base64,${conteudo.idMidia.toString('base64')}` : null
+                };
+            }));
+
+            return {
+                usuario_logado: req.session.autenticado || {},
+                login: req.session.logado,
+                postagens: combinedConteudo,
+                paginador: paginador,
+                total_postagens: totalRegistros
+            };
+
+        } catch (e) {
+            console.log(e);
+            res.json({ erro: "Falha ao acessar dados" });
+        }
+    },
+    AbrirPerfil: async (req, res) => {
+        try {
+            const nickname  = req.params.nickname; // Obter o ID do usuário da URL
+            const perfil = await conteudoModel.obterPerfilPorNickname(nickname);; // Usar a função de modelo para obter o perfil
+    
+            if (!perfil) {
+                return res.status(404).json({
+                    mensagem: "Perfil não encontrado.",
+                    usuario_logado: req.session.autenticado,
+                });
+            }
+    
+            perfil.foto_icon_perfil = perfil.foto_icon_perfil ? `data:image/png;base64,${perfil.foto_icon_perfil.toString('base64')}` : null;
+            perfil.foto_banner_perfil = perfil.foto_banner_perfil ? `data:image/png;base64,${perfil.foto_banner_perfil.toString('base64')}` : null;
+    
+            // Pegar postagens e total de postagens
+            const pagina = parseInt(req.query.pagina) || 1;
+            const regPagina = 12;
+            const inicio = (pagina - 1) * regPagina;
+    
+            let results = await conteudoModel.PesquisarPostsPerfil(perfil.idClientes, inicio, regPagina);
+            let totReg = await conteudoModel.TotalRegPerfil(perfil.idClientes);
+            let totalRegistros = totReg[0].total;
+    
+            // Paginador
+            let totPaginas = Math.ceil(totalRegistros / regPagina);
+            let paginador = totalRegistros <= regPagina ? null : {
+                "pagina_atual": pagina,
+                "total_reg": totalRegistros,
+                "total_paginas": totPaginas
+            };
+
+            function formatarTempo(tempo) {
+                let duracao = moment.duration(tempo, 'HH:mm:ss');
+                let horas = duracao.hours();
+                let minutos = duracao.minutes();
+                if (horas > 0 && minutos > 0) {
+                    return `${horas}h${minutos}min`;
+                } else if (horas > 0 && minutos <= 0) {
+                    return `${horas}hora${horas > 1 ? 's' : ''}`;
+                } else if (horas <= 0 && minutos > 0) {
+                    return `${minutos}min`;
+                } else {
+                    return '';
+                }
+            }
+    
+            // Formatar o conteúdo das postagens
+            let combinedConteudo = await Promise.all(results.map(async (conteudo) => {
+                let ingredientes = await conteudoModel.BuscarIngredientesPorPostagemId(conteudo.id);
+                let mediaAvaliacoes = await conteudoModel.CalcularMediaAvaliacoes(conteudo.id);
+                return {
+                    nome: conteudo.Titulo,
+                    usuario: conteudo.Clientes_idClientes,
+                    nome_usuario: conteudo.nome_usuario,
+                    id: conteudo.id,
+                    categoria: conteudo.Categorias_idCategorias,
+                    tempo: conteudo.tempo ? formatarTempo(conteudo.tempo) : null,
+                    descricao: conteudo.Descricao || null,
+                    etapas: conteudo.Etapas_Modo_de_Preparo,
+                    porcoes: conteudo.porcoes > 0 ? `${conteudo.porcoes} ${conteudo.porcoes > 1 ? 'Porções' : 'Porção'}` : null,
+                    tipo: conteudo.tipo,
+                    subcategorias: conteudo.subcategorias,
+                    ingredientes: ingredientes.length ? ingredientes.map(i => i.ingredientes).join(', ') : null,
+                    mediaAvaliacoes,
+                    imagem: conteudo.idMidia ? `data:image;base64,${conteudo.idMidia.toString('base64')}` : null
+                };
+            }));
+    
+            return res.render("pages/template", {
+                pagina: { cabecalho: "cabecalho", conteudo: "Perfil", rodape: "rodape" },
+                perfil,
+                postagens: combinedConteudo,
+                paginador: paginador,
+                total_postagens: totalRegistros,
+                usuario_logado: req.session.autenticado
+            });
+        } catch (error) {
+            console.error("Erro ao abrir perfil:", error);
+            return res.status(500).json({ erro: error.message });
+        }
     }
-
-    // listarUsuario: async (req, res) => {
-    //     try{
-    //         const result = await 
-    //     }catch(error){
-    //         console.error('Erro ao armazenar denúncia:', error);
-    //     }
-    // }
-
-
 };
 
 

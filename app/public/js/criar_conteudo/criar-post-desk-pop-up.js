@@ -69,15 +69,16 @@ function adicionarIngrediente() {
                     <h4 id="nome-do-ingrediente">Medida</h4>
                     <select name="medida_ingredientes" id="medidas-elementos">
                         <optgroup class="dropDown-medidas">
+                            <option value="Nenhuma medida" class="item-medidas">Nenhuma medida</option>
+                            <option value="Unidade" class="item-medidas">Unidade</option>
                             <option value="Xícara" class="item-medidas">Xícara</option>
                             <option value="Colher de sopa" class="item-medidas">Colher de sopa</option>
                             <option value="Colher de chá" class="item-medidas">Colher de chá</option>
-                            <option value="Colher de café" class="item-medidas">Colher de café</option>
-                            <option value="Colher de sobremesa" class="item-medidas">Colher de sobremesa</option>
                             <option value="Copo americano" class="item-medidas">Copo americano</option>
                             <option value="Gramas (gr)" class="item-medidas">Gramas (gr)</option>
+                            <option value="Quilogramas (kg)" class="item-medidas">Quilogramas (kg)</option>
                             <option value="Mililitros (ml)" class="item-medidas">Mililitros (ml)</option>
-                            <option value="Unidade" class="item-medidas">Unidade</option>
+                            <option value="Litros (L)" class="item-medidas">Litros (L)</option>
                         </optgroup>
                     </select>
                 </section>
@@ -284,62 +285,6 @@ function atualizarCampoOculto() {
 
     // Atualizar o valor do campo oculto
     hiddenInput.value = subcategorias.join(', ');
-}
-
-window.onload = function () {
-
-    // Check File API support
-    if (window.File && window.FileList && window.FileReader) {
-        var filesInput = document.getElementById("files");
-        var output = document.getElementById("result");
-        var retanguloAdicionarMidia = document.getElementById("retangulo-adicionar-midia");
-
-        retanguloAdicionarMidia.addEventListener("click", function () {
-            filesInput.click(); // Clique no input de arquivo
-        });
-
-        filesInput.addEventListener("change", function (event) {
-
-            var files = event.target.files; // FileList object
-
-            for (var i = 0; i < files.length; i++) {
-                var file = files[i];
-
-                // Only pics
-                if (!file.type.match('image')) continue;
-
-                var picReader = new FileReader();
-
-                picReader.addEventListener("load", function (event) {
-                    var picFile = event.target;
-                    var thumbnailContainer = document.createElement("div");
-                    thumbnailContainer.className = "thumbnail-container";
-
-                    var closeButton = document.createElement("span");
-                    closeButton.className = "close-button";
-                    closeButton.innerHTML = "X";
-
-                    closeButton.addEventListener("click", function () {
-                        thumbnailContainer.remove();
-                    });
-
-                    var thumbnail = document.createElement("img");
-                    thumbnail.className = 'thumbnail';
-                    thumbnail.src = picFile.result;
-                    thumbnail.title = picFile.name;
-
-                    thumbnailContainer.appendChild(thumbnail);
-                    thumbnailContainer.appendChild(closeButton);
-                    output.appendChild(thumbnailContainer);
-                });
-
-                // Read the image
-                picReader.readAsDataURL(file);
-            }
-        });
-    } else {
-        console.log("Your browser does not support File API");
-    }
 }
 
 function dropdownmedidas(p) {

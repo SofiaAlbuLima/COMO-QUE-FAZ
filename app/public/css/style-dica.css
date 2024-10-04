@@ -916,7 +916,6 @@
         text-decoration: underline;
         font-weight: Bold;
         color: #9e5fef;
-        margin-left: 7px;
     }
 
     .seta-1 {
@@ -999,6 +998,40 @@
         background-color: #027de1;
     }
     .titulo-icon-bemestar, .estrelas_bemestar{
+        background-color: #00cd83;
+    }
+    .botao-enviar-avaliacao-Culinaria, .botao-enviar-avaliacao-Limpeza, .botao-enviar-avaliacao-BemEstar{
+        width: 100%;
+        align-items: center;
+        border: none;
+        border-radius: 0px 0px 10px 10px;
+        height: 2.5vh;
+        cursor: pointer;
+        margin-top: 1vh;
+    }
+    .botao-enviar-avaliacao:hover{
+        color: white;
+        border: 2px solid white;
+    }
+    .botao-enviar-avaliacao-Culinaria{
+        color: #4e081d;
+    }.botao-enviar-avaliacao-Culinaria:hover{
+        color: white;
+        border: 2px solid white;
+        background-color: #cb2154;
+    }
+    .botao-enviar-avaliacao-Limpeza{
+        color: #012a4b;
+    }.botao-enviar-avaliacao-Limpeza:hover{
+        color: white;
+        border: 2px solid white;
+        background-color: #027de1;
+    }
+    .botao-enviar-avaliacao-BemEstar{
+        color: #126c4b;
+    }.botao-enviar-avaliacao-BemEstar:hover{
+        color: white;
+        border: 2px solid white;
         background-color: #00cd83;
     }
 
@@ -1228,6 +1261,7 @@
         color: white;
         font-weight: 400;
         text-align: left;
+        margin-top: 0.5vh;
     }
 
     /* estrelas de avaliacao */
@@ -1338,7 +1372,6 @@
         display: flex;
         padding: 1vh;
         width: 100%;
-        flex-wrap: wrap;
         align-items: flex-start;
     }
 
@@ -1350,6 +1383,7 @@
     .ingreditente_dica_button p {
         color: white;
         font-size: 2.2vh;
+        flex-wrap: wrap;
     }
 
     .ingreditente_button_medida_quantidade {
@@ -1398,7 +1432,7 @@
     .titulo-medida {
         font-family: Fira Sans;
         font-weight: 400;
-        font-size: 1.8vh;
+        font-size: 2.3vh;
         text-decoration: none;
     }
 
@@ -1414,7 +1448,8 @@
 
     .info-texto {
         font-family: Fira Sans Bold;
-        font-size: 1.7vh;
+        font-size: 2vh;
+        margin-top: 0.5vh;
         text-decoration: none;
     }
 
@@ -1762,6 +1797,7 @@
         transform: translate(-50%, -50%);
         z-index: 1001;
         overflow: hidden;
+        border: #4D16BB 2px solid;
     }
 
     /* header denuncia ------------------------ */
