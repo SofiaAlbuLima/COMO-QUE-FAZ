@@ -515,6 +515,7 @@ const tarefasController = {
             res.redirect('/');
         }
     },
+
     listarDenuncias: async (req, res) => {
         try {
             results = await admModel.mostrarDenuncias();
@@ -535,15 +536,13 @@ const tarefasController = {
             const dadosForm = {
                 motivo: req.body.motivo,
                 detalhamento_denuncia: req.body.detalhamento_denuncia,
-                id_denunciador: req.session.autenticado.id
+                autor_denuncia: req.session.autenticado.Nickname
             };
 
             const postagemId = req.params.id;
             const postagem = await conteudoModel.BuscarPostagemPorId(postagemId);
 
-            if (!postagem) {
-                return res.status(404).render("pages/erro", { mensagem: "Postagem não encontrada" });
-            }
+            dadosForm.conteudo_postagem_ID_conteudo = postagem.ID_conteudo;
 
             const criador = await admModel.acharClienteCriadorDenuncia(postagemId);
             dadosForm.usuario_denunciado = criador.Nickname;

@@ -16,15 +16,15 @@ const admModel = {
     criarDenuncia: async (dadosForm) => {
         try {
             const query = `
-                INSERT INTO denuncia (motivo, detalhamento_denuncia, usuario_denunciado, Categorias_idCategorias)
+                INSERT INTO denuncia (motivo, detalhamento_denuncia, conteudo_postagem_ID_conteudo, autor_denuncia)
                 VALUES (?, ?, ?, ?)
             `;
 
             const [resultado] = await pool.query(query, [
                 dadosForm.motivo,
                 dadosForm.detalhamento_denuncia,
-                dadosForm.usuario_denunciado,
-                dadosForm.categoria
+                dadosForm.conteudo_postagem_ID_conteudo,
+                dadosForm.autor_denuncia
             ]);
 
             return resultado;
@@ -36,10 +36,14 @@ const admModel = {
     acharClienteCriadorDenuncia: async (id) => {
         try {
             const query = `
-                SELECT c.Nickname
-                FROM clientes c
-                JOIN conteudo_postagem cp ON cp.Clientes_idClientes = c.idClientes
-                WHERE cp.ID_conteudo = ?;
+                SELECT clientes.Nickname
+                FROM denuncia
+                JOIN conteudo_postagem 
+                ON denuncia.conteudo_postagem_ID_conteudo = conteudo_postagem.ID_conteudo
+                JOIN clientes 
+                ON conteudo_postagem.Clientes_idClientes = clientes.idClientes
+                WHERE conteudo_postagem.ID_conteudo = ?;
+
             `;
 
             const [resultados] = await pool.query(query, [id]);
@@ -54,24 +58,6 @@ const admModel = {
             throw erro;
         }
     },
-
-    // tirar isso, pq já coloquei no controller, pelo re.session.auteticado.id ------ colocar o id da postagem na tabela denuncia, pq se nn vai ocorrer a repetição de informações (ex: nome de quem criou a denuncia)
-    // AutorDenuncia: async () => {
-    //     try {
-    //         query = `
-    //         SELECT c.Nickname AS criador_denuncia
-    //         FROM denuncia d
-    //         JOIN clientes c ON d.Clientes_idClientes = c.idClientes
-    //         WHERE d.ID_denuncia = ?;
-    //         `
-    //         const [resultado] = await pool.query(query);
-    //         return resultado;
-
-    //     } catch (erro) {
-    //         throw erro;
-    //     }
-    // },
-
 
     categoriaDenuncia: async (postagemId) => {
         try {
