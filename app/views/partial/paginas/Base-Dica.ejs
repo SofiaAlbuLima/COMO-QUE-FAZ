@@ -467,9 +467,21 @@
                </aside>
 
                <figure class="titulos-post">
-                  <a class="url-site-perfil-a" href="/perfil/<%= postagem.nome_usuario %>"><h3 class="titulo-user" style="color: #9e5fef;">
-                     <%= postagem.nome_usuario %>
-                  </h3></a>
+                  <a class="url-site-perfil-a" href="/perfil/<%= postagem.nome_usuario %>">
+                     <article class="usuario-foto-nome">
+                        <% if(postagem.fotoPerfil !==null) { %>
+                           <img id="img-usuario-post" src="<%= postagem.fotoPerfil %>" alt="Faça Login">
+                           <% }else{ %>
+                              <img id="img-login_hover-post" src="/imagens/user_icon_hover.svg" alt="Faça Login"
+                                 style="opacity: 80%;">
+                              <img id="img-login-post" src="/imagens-svg/1-cabeçalho/user_icon.svg" alt="Faça Login"
+                                 style="opacity: 80%;">
+                              <% } %>
+                                 <h3 class="titulo-user" style="color: #9e5fef;">
+                                    <%= postagem.nome_usuario %>
+                                 </h3>
+                     </article>
+                  </a>
                   <h3 class="titulo-user"></h3>
                   <h1 class="titulo-principal">
                      <%= postagem.titulo %>
@@ -609,406 +621,431 @@
                <section class="Itens-necessários_culinaria">
                   <h1 class="itens-titulo">ITENS NECESSÁRIOS</h1>
                   <ul class="lista-itens">
-                     <% postagem.ingredientes.forEach((ingrediente, index) => { %>
+                     <% postagem.ingredientes.forEach((ingrediente, index)=> { %>
                         <li class="ingreditente_dica">
-                          <button class="ingreditente_dica_button" onclick="toggleDivVisibility(<%= index %>)">
+                           <button class="ingreditente_dica_button" onclick="toggleDivVisibility(<%= index %>)">
 
-                            <% if (ingrediente.medida_ingredientes !== "Nenhuma medida") { %>
-                              <p class="pontinho">•</p>
-                              <p class="ingreditente_button_medida_quantidade">
-                                <%= ingrediente.quantidade_ingredientes %> <%= ingrediente.medida_ingredientes %>
-                              </p>
-                              <p class="ingreditente_button_ingrediente">
-                                | <%= ingrediente.ingredientes ? ingrediente.ingredientes : 'Essa dica não contém itens necessários' %>
-                              </p>
-                            <% } else { %>
-                              <p class="pontinho">•</p>
-                              <p class="ingreditente_button_ingrediente">
-                                <%= ingrediente.ingredientes ? ingrediente.ingredientes : 'Essa dica não contém itens necessários' %>
-                              </p>
-                            <% } %>
-                          </button>
-                          
-                          <% if (ingrediente.medida_ingredientes !== "Nenhuma medida" && ingrediente.medida_ingredientes !== "Unidade") { %>
-                          <section class="myDIV" id="myDIVD-<%= index %>" style="display: none;">
-                            <article class="info-item_culinaria">
-                              <article>
-                                 
-                              <% if (ingrediente.medida_ingredientes == "Xícara") { %>
-                                 <h3 class="titulo-medida">Uma xícara é equivalente à:</h3>
-                                <li class="lista-info-1">
-                                  <p class="info-texto">• 16 colheres de sopa</p>
-                                  <p class="info-texto">• 180g a 300g</p>
-                                  <p class="info-texto">• 250 mL</p>
-                                  <p class="info-texto">• 4 xícaras = 1 litro</p>
-                                </li>
-                              <% } else if (ingrediente.medida_ingredientes == "Colher de sopa") { %>
-                                 <h3 class="titulo-medida">Uma colher de sopa é equivalente à:</h3>
-                                <li class="lista-info-1">
-                                  <p class="info-texto">• 15 mL</p>
-                                  <p class="info-texto">• 16 colheres de sopa = 1 xícara</p>
-                                  <p class="info-texto">• 13 colheres de sopa = 1 copo americano</p>
-                                </li>
-                              <% } else if (ingrediente.medida_ingredientes == "Colher de chá") { %>
-                                 <h3 class="titulo-medida">Uma colher de chá é equivalente à:</h3>
-                                <li class="lista-info-1">
-                                  <p class="info-texto">• 5 mL</p>
-                                  <p class="info-texto">• 3 colheres de chá = 1 colher de sopa</p>
-                                  <p class="info-texto">• 48 colheres de chá = 1 xícara</p>
-                                </li>
-                              <% } else if (ingrediente.medida_ingredientes == "Copo americano") { %>
-                                 <h3 class="titulo-medida">Um copo americano é equivalente à:</h3>
-                                <li class="lista-info-1">
-                                  <p class="info-texto">• 200 mL</p>
-                                  <p class="info-texto">• 13 colheres de sopa</p>
-                                  <p class="info-texto">• 40 colheres de chá</p>
-                                  <p class="info-texto">• 1/2 copo americano = 1 xícara</p>
-                                </li>
-                              <% } else if (ingrediente.medida_ingredientes == "Gramas (gr)") { %>
-                                 <h3 class="titulo-medida">Regras Gerais para Gramas:</h3>
-                                <li class="lista-info-1">
-                                  <p class="info-texto">• Ingredientes sólidos | 150 a 200 gramas = 1 xícara</p>
-                                  <p class="info-texto">• Ingredientes líquidos | 180 a 300 gramas = 1 xícara</p>
-                                  <p class="info-texto">• Ingredientes em pó | 150 a 180 gramas = 1 xícara</p>
-                                </li>
-                              <% } else if (ingrediente.medida_ingredientes == "Quilogramas (kg)") { %>
-                                 <h3 class="titulo-medida">Regras Gerais para Quilos:</h3>
-                                <li class="lista-info-1">
-                                 <p class="info-texto">• Ingredientes secos | 1 kg = 5 a 7 xícaras</p>
-                                 <p class="info-texto">• Ingredientes Líquidos | 1 kg = 3 a 5 xícaras</p>
-                                </li>
-                              <% } else if (ingrediente.medida_ingredientes == "Mililitros (ml)") { %>
-                                 <h3 class="titulo-medida">Regras Gerais para Mililitros:</h3>
-                                <li class="lista-info-1">
-                                  <p class="info-texto">• 250 mL = 1 xícara</p>
-                                  <p class="info-texto">• 5 mL = 1 colher de chá</p>
-                                </li>
-                              <% } else if (ingrediente.medida_ingredientes == "Litros (L)") { %>
-                                 <h3 class="titulo-medida">Regras Gerais para Litros:</h3>
-                                <li class="lista-info-1">
-                                  <p class="info-texto">• 1 litro = 4 xícaras</p>
-                                  <p class="info-texto">• 1 litro = 66 colheres de sopa</p>
-                                  <p class="info-texto">• 1 litro = 200 colheres de chá</p>
-                                  <p class="info-texto">• 1/4 litro = 1 xícara</p>
-                                </li>
-                              <% } %>
-                              </article>
-                            </article>
-                          </section>
-                          <% } else {%>
-                          <% } %>
-                        </li>
-                      <% }) %>
-                  </ul>
-               </section>
-
-               <section class="Modo-Preparo-culiaria">
-                  <h1 class="modo-titulo">MODO DE PREPARO</h1>
-                  <ul class="lista-modo">
-                     <% postagem.etapas.forEach(function(etapa, index) { %>
-                        <ol class="modos">
-                           <h1 class="t-modo">
-                              <%= index + 1 %>
-                           </h1>
-                           <p class="p-modo">
-                              <%= etapa %>
-                           </p>
-                        </ol>
-                        <% }) %>
-                  </ul>
-               </section>
-               <% } else if (postagem.categoria===2) { %>
-                  <section class="Itens-necessários_limpeza">
-                     <h1 class="itens-titulo">ITENS NECESSÁRIOS</h1>
-                     <ul class="lista-itens">
-                        <% postagem.ingredientes.forEach((ingrediente, index) => { %>
-                           <li class="ingreditente_dica">
-                             <button class="ingreditente_dica_button" onclick="toggleDivVisibility(<%= index %>)">
-   
-                               <% if (ingrediente.medida_ingredientes !== "Nenhuma medida") { %>
+                              <% if (ingrediente.medida_ingredientes !=="Nenhuma medida" ) { %>
                                  <p class="pontinho">•</p>
                                  <p class="ingreditente_button_medida_quantidade">
-                                   <%= ingrediente.quantidade_ingredientes %> <%= ingrediente.medida_ingredientes %>
+                                    <%= ingrediente.quantidade_ingredientes %>
+                                       <%= ingrediente.medida_ingredientes %>
                                  </p>
                                  <p class="ingreditente_button_ingrediente">
-                                   | <%= ingrediente.ingredientes ? ingrediente.ingredientes : 'Essa dica não contém itens necessários' %>
+                                    | <%= ingrediente.ingredientes ? ingrediente.ingredientes
+                                       : 'Essa dica não contém itens necessários' %>
                                  </p>
-                               <% } else { %>
-                                 <p class="pontinho">•</p>
-                                 <p class="ingreditente_button_ingrediente">
-                                   <%= ingrediente.ingredientes ? ingrediente.ingredientes : 'Essa dica não contém itens necessários' %>
-                                 </p>
-                               <% } %>
-                             </button>
-                             
-                             <% if (ingrediente.medida_ingredientes !== "Nenhuma medida" && ingrediente.medida_ingredientes !== "Unidade") { %>
-                             <section class="myDIV" id="myDIVD-<%= index %>" style="display: none;">
-                               <article class="info-item_limpeza">
-                                 <article>
-                                    
-                                 <% if (ingrediente.medida_ingredientes == "Xícara") { %>
-                                    <h3 class="titulo-medida">Uma xícara é equivalente à:</h3>
-                                   <li class="lista-info-1">
-                                     <p class="info-texto">• 16 colheres de sopa</p>
-                                     <p class="info-texto">• 180g a 300g</p>
-                                     <p class="info-texto">• 250 mL</p>
-                                     <p class="info-texto">• 4 xícaras = 1 litro</p>
-                                   </li>
-                                 <% } else if (ingrediente.medida_ingredientes == "Colher de sopa") { %>
-                                    <h3 class="titulo-medida">Uma colher de sopa é equivalente à:</h3>
-                                   <li class="lista-info-1">
-                                     <p class="info-texto">• 15 mL</p>
-                                     <p class="info-texto">• 16 colheres de sopa = 1 xícara</p>
-                                     <p class="info-texto">• 13 colheres de sopa = 1 copo americano</p>
-                                   </li>
-                                 <% } else if (ingrediente.medida_ingredientes == "Colher de chá") { %>
-                                    <h3 class="titulo-medida">Uma colher de chá é equivalente à:</h3>
-                                   <li class="lista-info-1">
-                                     <p class="info-texto">• 5 mL</p>
-                                     <p class="info-texto">• 3 colheres de chá = 1 colher de sopa</p>
-                                     <p class="info-texto">• 48 colheres de chá = 1 xícara</p>
-                                   </li>
-                                 <% } else if (ingrediente.medida_ingredientes == "Copo americano") { %>
-                                    <h3 class="titulo-medida">Um copo americano é equivalente à:</h3>
-                                   <li class="lista-info-1">
-                                     <p class="info-texto">• 200 mL</p>
-                                     <p class="info-texto">• 13 colheres de sopa</p>
-                                     <p class="info-texto">• 40 colheres de chá</p>
-                                     <p class="info-texto">• 1/2 copo americano = 1 xícara</p>
-                                   </li>
-                                 <% } else if (ingrediente.medida_ingredientes == "Gramas (gr)") { %>
-                                    <h3 class="titulo-medida">Regras Gerais para Gramas:</h3>
-                                   <li class="lista-info-1">
-                                     <p class="info-texto">• Ingredientes sólidos | 150 a 200 gramas = 1 xícara</p>
-                                     <p class="info-texto">• Ingredientes líquidos | 180 a 300 gramas = 1 xícara</p>
-                                     <p class="info-texto">• Ingredientes em pó | 150 a 180 gramas = 1 xícara</p>
-                                   </li>
-                                 <% } else if (ingrediente.medida_ingredientes == "Quilogramas (kg)") { %>
-                                    <h3 class="titulo-medida">Regras Gerais para Quilos:</h3>
-                                   <li class="lista-info-1">
-                                    <p class="info-texto">• Ingredientes secos | 1 kg = 5 a 7 xícaras</p>
-                                    <p class="info-texto">• Ingredientes Líquidos | 1 kg = 3 a 5 xícaras</p>
-                                   </li>
-                                 <% } else if (ingrediente.medida_ingredientes == "Mililitros (ml)") { %>
-                                    <h3 class="titulo-medida">Regras Gerais para Mililitros:</h3>
-                                   <li class="lista-info-1">
-                                     <p class="info-texto">• 250 mL = 1 xícara</p>
-                                     <p class="info-texto">• 5 mL = 1 colher de chá</p>
-                                   </li>
-                                 <% } else if (ingrediente.medida_ingredientes == "Litros (L)") { %>
-                                    <h3 class="titulo-medida">Regras Gerais para Litros:</h3>
-                                   <li class="lista-info-1">
-                                     <p class="info-texto">• 1 litro = 4 xícaras</p>
-                                     <p class="info-texto">• 1 litro = 66 colheres de sopa</p>
-                                     <p class="info-texto">• 1 litro = 200 colheres de chá</p>
-                                     <p class="info-texto">• 1/4 litro = 1 xícara</p>
-                                   </li>
-                                 <% } %>
-                                 </article>
-                               </article>
-                             </section>
-                             <% } else {%>
-                             <% } %>
-                           </li>
-                         <% }) %>
-                     </ul>
-                  </section>
-
-                  <section class="Modo-Preparo-limpeza">
-                     <h1 class="modo-titulo">MODO DE PREPARO</h1>
-                     <ul class="lista-modo">
-                        <% postagem.etapas.forEach(function(etapa, index) { %>
-                           <ol class="modos">
-                              <h1 class="t-modo">
-                                 <%= index + 1 %>
-                              </h1>
-                              <p class="p-modo">
-                                 <%= etapa %>
-                              </p>
-                           </ol>
-                           <% }) %>
-                     </ul>
-                  </section>
-                  <% } else if (postagem.categoria===3) { %>
-                     <section class="Itens-necessários_bemestar">
-                        <h1 class="itens-titulo">ITENS NECESSÁRIOS</h1>
-                        <ul class="lista-itens">
-                           <% postagem.ingredientes.forEach((ingrediente, index) => { %>
-                              <li class="ingreditente_dica">
-                                <button class="ingreditente_dica_button" onclick="toggleDivVisibility(<%= index %>)">
-      
-                                  <% if (ingrediente.medida_ingredientes !== "Nenhuma medida") { %>
-                                    <p class="pontinho">•</p>
-                                    <p class="ingreditente_button_medida_quantidade">
-                                      <%= ingrediente.quantidade_ingredientes %> <%= ingrediente.medida_ingredientes %>
-                                    </p>
-                                    <p class="ingreditente_button_ingrediente">
-                                      | <%= ingrediente.ingredientes ? ingrediente.ingredientes : 'Essa dica não contém itens necessários' %>
-                                    </p>
-                                  <% } else { %>
+                                 <% } else { %>
                                     <p class="pontinho">•</p>
                                     <p class="ingreditente_button_ingrediente">
-                                      <%= ingrediente.ingredientes ? ingrediente.ingredientes : 'Essa dica não contém itens necessários' %>
+                                       <%= ingrediente.ingredientes ? ingrediente.ingredientes
+                                          : 'Essa dica não contém itens necessários' %>
                                     </p>
-                                  <% } %>
-                                </button>
-                                
-                                <% if (ingrediente.medida_ingredientes !== "Nenhuma medida" && ingrediente.medida_ingredientes !== "Unidade") { %>
-                                <section class="myDIV" id="myDIVD-<%= index %>" style="display: none;">
-                                  <article class="info-item_bemestar">
-                                    <article>
-                                       
-                                    <% if (ingrediente.medida_ingredientes == "Xícara") { %>
-                                       <h3 class="titulo-medida">Uma xícara é equivalente à:</h3>
-                                      <li class="lista-info-1">
-                                        <p class="info-texto">• 16 colheres de sopa</p>
-                                        <p class="info-texto">• 180g a 300g</p>
-                                        <p class="info-texto">• 250 mL</p>
-                                        <p class="info-texto">• 4 xícaras = 1 litro</p>
-                                      </li>
-                                    <% } else if (ingrediente.medida_ingredientes == "Colher de sopa") { %>
-                                       <h3 class="titulo-medida">Uma colher de sopa é equivalente à:</h3>
-                                      <li class="lista-info-1">
-                                        <p class="info-texto">• 15 mL</p>
-                                        <p class="info-texto">• 16 colheres de sopa = 1 xícara</p>
-                                        <p class="info-texto">• 13 colheres de sopa = 1 copo americano</p>
-                                      </li>
-                                    <% } else if (ingrediente.medida_ingredientes == "Colher de chá") { %>
-                                       <h3 class="titulo-medida">Uma colher de chá é equivalente à:</h3>
-                                      <li class="lista-info-1">
-                                        <p class="info-texto">• 5 mL</p>
-                                        <p class="info-texto">• 3 colheres de chá = 1 colher de sopa</p>
-                                        <p class="info-texto">• 48 colheres de chá = 1 xícara</p>
-                                      </li>
-                                    <% } else if (ingrediente.medida_ingredientes == "Copo americano") { %>
-                                       <h3 class="titulo-medida">Um copo americano é equivalente à:</h3>
-                                      <li class="lista-info-1">
-                                        <p class="info-texto">• 200 mL</p>
-                                        <p class="info-texto">• 13 colheres de sopa</p>
-                                        <p class="info-texto">• 40 colheres de chá</p>
-                                        <p class="info-texto">• 1/2 copo americano = 1 xícara</p>
-                                      </li>
-                                    <% } else if (ingrediente.medida_ingredientes == "Gramas (gr)") { %>
-                                       <h3 class="titulo-medida">Regras Gerais para Gramas:</h3>
-                                      <li class="lista-info-1">
-                                        <p class="info-texto">• Ingredientes sólidos | 150 a 200 gramas = 1 xícara</p>
-                                        <p class="info-texto">• Ingredientes líquidos | 180 a 300 gramas = 1 xícara</p>
-                                        <p class="info-texto">• Ingredientes em pó | 150 a 180 gramas = 1 xícara</p>
-                                      </li>
-                                    <% } else if (ingrediente.medida_ingredientes == "Quilogramas (kg)") { %>
-                                       <h3 class="titulo-medida">Regras Gerais para Quilos:</h3>
-                                      <li class="lista-info-1">
-                                       <p class="info-texto">• Ingredientes secos | 1 kg = 5 a 7 xícaras</p>
-                                       <p class="info-texto">• Ingredientes Líquidos | 1 kg = 3 a 5 xícaras</p>
-                                      </li>
-                                    <% } else if (ingrediente.medida_ingredientes == "Mililitros (ml)") { %>
-                                       <h3 class="titulo-medida">Regras Gerais para Mililitros:</h3>
-                                      <li class="lista-info-1">
-                                        <p class="info-texto">• 250 mL = 1 xícara</p>
-                                        <p class="info-texto">• 5 mL = 1 colher de chá</p>
-                                      </li>
-                                    <% } else if (ingrediente.medida_ingredientes == "Litros (L)") { %>
-                                       <h3 class="titulo-medida">Regras Gerais para Litros:</h3>
-                                      <li class="lista-info-1">
-                                        <p class="info-texto">• 1 litro = 4 xícaras</p>
-                                        <p class="info-texto">• 1 litro = 66 colheres de sopa</p>
-                                        <p class="info-texto">• 1 litro = 200 colheres de chá</p>
-                                        <p class="info-texto">• 1/4 litro = 1 xícara</p>
-                                      </li>
                                     <% } %>
-                                    </article>
-                                  </article>
-                                </section>
-                                <% } else {%>
-                                <% } %>
+                           </button>
+
+                           <% if (ingrediente.medida_ingredientes !=="Nenhuma medida" && ingrediente.medida_ingredientes
+                              !=="Unidade" ) { %>
+                              <section class="myDIV" id="myDIVD-<%= index %>" style="display: none;">
+                                 <article class="info-item_culinaria">
+                                    <article>
+
+                                       <% if (ingrediente.medida_ingredientes=="Xícara" ) { %>
+                                          <h3 class="titulo-medida">Uma xícara é equivalente à:</h3>
+                        <li class="lista-info-1">
+                           <p class="info-texto">• 16 colheres de sopa</p>
+                           <p class="info-texto">• 180g a 300g</p>
+                           <p class="info-texto">• 250 mL</p>
+                           <p class="info-texto">• 4 xícaras = 1 litro</p>
+                        </li>
+                        <% } else if (ingrediente.medida_ingredientes=="Colher de sopa" ) { %>
+                           <h3 class="titulo-medida">Uma colher de sopa é equivalente à:</h3>
+                           <li class="lista-info-1">
+                              <p class="info-texto">• 15 mL</p>
+                              <p class="info-texto">• 16 colheres de sopa = 1 xícara</p>
+                              <p class="info-texto">• 13 colheres de sopa = 1 copo americano</p>
+                           </li>
+                           <% } else if (ingrediente.medida_ingredientes=="Colher de chá" ) { %>
+                              <h3 class="titulo-medida">Uma colher de chá é equivalente à:</h3>
+                              <li class="lista-info-1">
+                                 <p class="info-texto">• 5 mL</p>
+                                 <p class="info-texto">• 3 colheres de chá = 1 colher de sopa</p>
+                                 <p class="info-texto">• 48 colheres de chá = 1 xícara</p>
                               </li>
-                            <% }) %>
-                        </ul>
-                     </section>
-
-                     <section class="Modo-Preparo-bemestar">
-                        <h1 class="modo-titulo">MODO DE PREPARO</h1>
-                        <ul class="lista-modo">
-                           <% postagem.etapas.forEach(function(etapa, index) { %>
-                              <ol class="modos">
-                                 <h1 class="t-modo">
-                                    <%= index + 1 %>
-                                 </h1>
-                                 <p class="p-modo">
-                                    <%= etapa %>
-                                 </p>
-                              </ol>
-                              <% }) %>
-                        </ul>
-                     </section>
-                     <% } %>
+                              <% } else if (ingrediente.medida_ingredientes=="Copo americano" ) { %>
+                                 <h3 class="titulo-medida">Um copo americano é equivalente à:</h3>
+                                 <li class="lista-info-1">
+                                    <p class="info-texto">• 200 mL</p>
+                                    <p class="info-texto">• 13 colheres de sopa</p>
+                                    <p class="info-texto">• 40 colheres de chá</p>
+                                    <p class="info-texto">• 1/2 copo americano = 1 xícara</p>
+                                 </li>
+                                 <% } else if (ingrediente.medida_ingredientes=="Gramas (gr)" ) { %>
+                                    <h3 class="titulo-medida">Regras Gerais para Gramas:</h3>
+                                    <li class="lista-info-1">
+                                       <p class="info-texto">• Ingredientes sólidos | 150 a 200 gramas = 1 xícara</p>
+                                       <p class="info-texto">• Ingredientes líquidos | 180 a 300 gramas = 1 xícara</p>
+                                       <p class="info-texto">• Ingredientes em pó | 150 a 180 gramas = 1 xícara</p>
+                                    </li>
+                                    <% } else if (ingrediente.medida_ingredientes=="Quilogramas (kg)" ) { %>
+                                       <h3 class="titulo-medida">Regras Gerais para Quilos:</h3>
+                                       <li class="lista-info-1">
+                                          <p class="info-texto">• Ingredientes secos | 1 kg = 5 a 7 xícaras</p>
+                                          <p class="info-texto">• Ingredientes Líquidos | 1 kg = 3 a 5 xícaras</p>
+                                       </li>
+                                       <% } else if (ingrediente.medida_ingredientes=="Mililitros (ml)" ) { %>
+                                          <h3 class="titulo-medida">Regras Gerais para Mililitros:</h3>
+                                          <li class="lista-info-1">
+                                             <p class="info-texto">• 250 mL = 1 xícara</p>
+                                             <p class="info-texto">• 5 mL = 1 colher de chá</p>
+                                          </li>
+                                          <% } else if (ingrediente.medida_ingredientes=="Litros (L)" ) { %>
+                                             <h3 class="titulo-medida">Regras Gerais para Litros:</h3>
+                                             <li class="lista-info-1">
+                                                <p class="info-texto">• 1 litro = 4 xícaras</p>
+                                                <p class="info-texto">• 1 litro = 66 colheres de sopa</p>
+                                                <p class="info-texto">• 1 litro = 200 colheres de chá</p>
+                                                <p class="info-texto">• 1/4 litro = 1 xícara</p>
+                                             </li>
+                                             <% } %>
          </article>
-
-
-         <article class="comentarios">
-            <h1 class="comem-titulo">13 Comentários</h1>
-            <aside class="filtrod">
-               <img src="/imagens-svg/2-body/filtro-icon-roxoescuro.svg " alt="filtro">
-               <p class="p-filtro">Filtrar</p>
-            </aside>
          </article>
-
-         <section class="comentar">
-            <img src="/imagens-svg/2-body/imagem-foto-de-perfil-fofa.svg" alt="foto-de-perfil">
-            <input class="inserir-comentariod" type="text" name="inserir-comentario" id="inserir-comentario"
-               placeholder="Digite seu comentário...">
-            <label for="inserir-comentario"></label>
-         </section>
-
-         <section class="botoes-comentard">
-            <button class="cancelar-comentar">Cancelar</button>
-            <button class="botao-comentard" type="submit" value="Comentar">Comentar</button>
-         </section>
-
-         <article id="hide-opcoes-comentario-Desktop" style="display: none;">
-            <section class="denunciar-comentario">
-               <img src="/imagens/denunciar-cor-preta.svg" alt="denunciar">
-               <p>Denunciar comentário</p>
-            </section>
-            <section class="compartilhar-comentario">
-               <img src="/imagens/compartilhar-cor-preta.svg" alt="compartilhar">
-               <p>Compartilhar comentário</p>
-            </section>
-         </article>
-
-         <article class="comentario">
-            <img class="foto-de-perfil-taylorfan" src="/imagens-svg/2-body/icon-garota-taylorfan.svg"
-               alt="foto-de-perfil-taylorfan">
-            <figure class="nomes-comentario">
-               <h1>TaylorFan</h1>
-               <p class="nome-usuario-comt">| Maria Fernanda da Silva</p>
-            </figure>
-            <section id="opcoes-comentario" class="opcoes-comentario" onclick="AbrirOpcoesComentarioDesktop()">
-               <figure class="ponto-comentario"></figure>
-               <figure class="ponto-comentario"></figure>
-               <figure class="ponto-comentario"></figure>
-
-               <p class="texto-coment-taylor">to me babando todo 🤤
-                  Ate babei
-               </p>
-            </section>
-         </article>
-
-         <section class="curtir-responderd">
-            <figure class="coracao-curtird" onclick="toggleLike1(this)">
-               <img class="coracao-vazado" src="/imagens/coracaovazio.svg" alt="coracação-vazado">
-               <img id="coracao-preenchido1" class="coracao-preenchidod" src="/imagens/coracao-rosa.png"
-                  alt="coracação-preenchido" style="display: none;">
-            </figure>
-            <p class="numero-curtida">15</p>
-            <h3 class="responder-comentd">| Responder</h3>
-         </section>
-
-         <figure class="mostrar-mais">
-            <h1>MOSTRAR MAIS</h1>
-         </figure>
-         <% } else { %>
-            <p>Postagem não encontrada.</p>
-            <% } %>
    </section>
+   <% } else {%>
+      <% } %>
+         </li>
+         <% }) %>
+            </ul>
+            </section>
+
+            <section class="Modo-Preparo-culiaria">
+               <h1 class="modo-titulo">MODO DE PREPARO</h1>
+               <ul class="lista-modo">
+                  <% postagem.etapas.forEach(function(etapa, index) { %>
+                     <ol class="modos">
+                        <h1 class="t-modo">
+                           <%= index + 1 %>
+                        </h1>
+                        <p class="p-modo">
+                           <%= etapa %>
+                        </p>
+                     </ol>
+                     <% }) %>
+               </ul>
+            </section>
+            <% } else if (postagem.categoria===2) { %>
+               <section class="Itens-necessários_limpeza">
+                  <h1 class="itens-titulo">ITENS NECESSÁRIOS</h1>
+                  <ul class="lista-itens">
+                     <% postagem.ingredientes.forEach((ingrediente, index)=> { %>
+                        <li class="ingreditente_dica">
+                           <button class="ingreditente_dica_button" onclick="toggleDivVisibility(<%= index %>)">
+
+                              <% if (ingrediente.medida_ingredientes !=="Nenhuma medida" ) { %>
+                                 <p class="pontinho">•</p>
+                                 <p class="ingreditente_button_medida_quantidade">
+                                    <%= ingrediente.quantidade_ingredientes %>
+                                       <%= ingrediente.medida_ingredientes %>
+                                 </p>
+                                 <p class="ingreditente_button_ingrediente">
+                                    | <%= ingrediente.ingredientes ? ingrediente.ingredientes
+                                       : 'Essa dica não contém itens necessários' %>
+                                 </p>
+                                 <% } else { %>
+                                    <p class="pontinho">•</p>
+                                    <p class="ingreditente_button_ingrediente">
+                                       <%= ingrediente.ingredientes ? ingrediente.ingredientes
+                                          : 'Essa dica não contém itens necessários' %>
+                                    </p>
+                                    <% } %>
+                           </button>
+
+                           <% if (ingrediente.medida_ingredientes !=="Nenhuma medida" && ingrediente.medida_ingredientes
+                              !=="Unidade" ) { %>
+                              <section class="myDIV" id="myDIVD-<%= index %>" style="display: none;">
+                                 <article class="info-item_limpeza">
+                                    <article>
+
+                                       <% if (ingrediente.medida_ingredientes=="Xícara" ) { %>
+                                          <h3 class="titulo-medida">Uma xícara é equivalente à:</h3>
+                        <li class="lista-info-1">
+                           <p class="info-texto">• 16 colheres de sopa</p>
+                           <p class="info-texto">• 180g a 300g</p>
+                           <p class="info-texto">• 250 mL</p>
+                           <p class="info-texto">• 4 xícaras = 1 litro</p>
+                        </li>
+                        <% } else if (ingrediente.medida_ingredientes=="Colher de sopa" ) { %>
+                           <h3 class="titulo-medida">Uma colher de sopa é equivalente à:</h3>
+                           <li class="lista-info-1">
+                              <p class="info-texto">• 15 mL</p>
+                              <p class="info-texto">• 16 colheres de sopa = 1 xícara</p>
+                              <p class="info-texto">• 13 colheres de sopa = 1 copo americano</p>
+                           </li>
+                           <% } else if (ingrediente.medida_ingredientes=="Colher de chá" ) { %>
+                              <h3 class="titulo-medida">Uma colher de chá é equivalente à:</h3>
+                              <li class="lista-info-1">
+                                 <p class="info-texto">• 5 mL</p>
+                                 <p class="info-texto">• 3 colheres de chá = 1 colher de sopa</p>
+                                 <p class="info-texto">• 48 colheres de chá = 1 xícara</p>
+                              </li>
+                              <% } else if (ingrediente.medida_ingredientes=="Copo americano" ) { %>
+                                 <h3 class="titulo-medida">Um copo americano é equivalente à:</h3>
+                                 <li class="lista-info-1">
+                                    <p class="info-texto">• 200 mL</p>
+                                    <p class="info-texto">• 13 colheres de sopa</p>
+                                    <p class="info-texto">• 40 colheres de chá</p>
+                                    <p class="info-texto">• 1/2 copo americano = 1 xícara</p>
+                                 </li>
+                                 <% } else if (ingrediente.medida_ingredientes=="Gramas (gr)" ) { %>
+                                    <h3 class="titulo-medida">Regras Gerais para Gramas:</h3>
+                                    <li class="lista-info-1">
+                                       <p class="info-texto">• Ingredientes sólidos | 150 a 200 gramas = 1 xícara</p>
+                                       <p class="info-texto">• Ingredientes líquidos | 180 a 300 gramas = 1 xícara</p>
+                                       <p class="info-texto">• Ingredientes em pó | 150 a 180 gramas = 1 xícara</p>
+                                    </li>
+                                    <% } else if (ingrediente.medida_ingredientes=="Quilogramas (kg)" ) { %>
+                                       <h3 class="titulo-medida">Regras Gerais para Quilos:</h3>
+                                       <li class="lista-info-1">
+                                          <p class="info-texto">• Ingredientes secos | 1 kg = 5 a 7 xícaras</p>
+                                          <p class="info-texto">• Ingredientes Líquidos | 1 kg = 3 a 5 xícaras</p>
+                                       </li>
+                                       <% } else if (ingrediente.medida_ingredientes=="Mililitros (ml)" ) { %>
+                                          <h3 class="titulo-medida">Regras Gerais para Mililitros:</h3>
+                                          <li class="lista-info-1">
+                                             <p class="info-texto">• 250 mL = 1 xícara</p>
+                                             <p class="info-texto">• 5 mL = 1 colher de chá</p>
+                                          </li>
+                                          <% } else if (ingrediente.medida_ingredientes=="Litros (L)" ) { %>
+                                             <h3 class="titulo-medida">Regras Gerais para Litros:</h3>
+                                             <li class="lista-info-1">
+                                                <p class="info-texto">• 1 litro = 4 xícaras</p>
+                                                <p class="info-texto">• 1 litro = 66 colheres de sopa</p>
+                                                <p class="info-texto">• 1 litro = 200 colheres de chá</p>
+                                                <p class="info-texto">• 1/4 litro = 1 xícara</p>
+                                             </li>
+                                             <% } %>
+                                                </article>
+                                                </article>
+               </section>
+               <% } else {%>
+                  <% } %>
+                     </li>
+                     <% }) %>
+                        </ul>
+                        </section>
+
+                        <section class="Modo-Preparo-limpeza">
+                           <h1 class="modo-titulo">MODO DE PREPARO</h1>
+                           <ul class="lista-modo">
+                              <% postagem.etapas.forEach(function(etapa, index) { %>
+                                 <ol class="modos">
+                                    <h1 class="t-modo">
+                                       <%= index + 1 %>
+                                    </h1>
+                                    <p class="p-modo">
+                                       <%= etapa %>
+                                    </p>
+                                 </ol>
+                                 <% }) %>
+                           </ul>
+                        </section>
+                        <% } else if (postagem.categoria===3) { %>
+                           <section class="Itens-necessários_bemestar">
+                              <h1 class="itens-titulo">ITENS NECESSÁRIOS</h1>
+                              <ul class="lista-itens">
+                                 <% postagem.ingredientes.forEach((ingrediente, index)=> { %>
+                                    <li class="ingreditente_dica">
+                                       <button class="ingreditente_dica_button"
+                                          onclick="toggleDivVisibility(<%= index %>)">
+
+                                          <% if (ingrediente.medida_ingredientes !=="Nenhuma medida" ) { %>
+                                             <p class="pontinho">•</p>
+                                             <p class="ingreditente_button_medida_quantidade">
+                                                <%= ingrediente.quantidade_ingredientes %>
+                                                   <%= ingrediente.medida_ingredientes %>
+                                             </p>
+                                             <p class="ingreditente_button_ingrediente">
+                                                | <%= ingrediente.ingredientes ? ingrediente.ingredientes
+                                                   : 'Essa dica não contém itens necessários' %>
+                                             </p>
+                                             <% } else { %>
+                                                <p class="pontinho">•</p>
+                                                <p class="ingreditente_button_ingrediente">
+                                                   <%= ingrediente.ingredientes ? ingrediente.ingredientes
+                                                      : 'Essa dica não contém itens necessários' %>
+                                                </p>
+                                                <% } %>
+                                       </button>
+
+                                       <% if (ingrediente.medida_ingredientes !=="Nenhuma medida" &&
+                                          ingrediente.medida_ingredientes !=="Unidade" ) { %>
+                                          <section class="myDIV" id="myDIVD-<%= index %>" style="display: none;">
+                                             <article class="info-item_bemestar">
+                                                <article>
+
+                                                   <% if (ingrediente.medida_ingredientes=="Xícara" ) { %>
+                                                      <h3 class="titulo-medida">Uma xícara é equivalente à:</h3>
+                                    <li class="lista-info-1">
+                                       <p class="info-texto">• 16 colheres de sopa</p>
+                                       <p class="info-texto">• 180g a 300g</p>
+                                       <p class="info-texto">• 250 mL</p>
+                                       <p class="info-texto">• 4 xícaras = 1 litro</p>
+                                    </li>
+                                    <% } else if (ingrediente.medida_ingredientes=="Colher de sopa" ) { %>
+                                       <h3 class="titulo-medida">Uma colher de sopa é equivalente à:</h3>
+                                       <li class="lista-info-1">
+                                          <p class="info-texto">• 15 mL</p>
+                                          <p class="info-texto">• 16 colheres de sopa = 1 xícara</p>
+                                          <p class="info-texto">• 13 colheres de sopa = 1 copo americano</p>
+                                       </li>
+                                       <% } else if (ingrediente.medida_ingredientes=="Colher de chá" ) { %>
+                                          <h3 class="titulo-medida">Uma colher de chá é equivalente à:</h3>
+                                          <li class="lista-info-1">
+                                             <p class="info-texto">• 5 mL</p>
+                                             <p class="info-texto">• 3 colheres de chá = 1 colher de sopa</p>
+                                             <p class="info-texto">• 48 colheres de chá = 1 xícara</p>
+                                          </li>
+                                          <% } else if (ingrediente.medida_ingredientes=="Copo americano" ) { %>
+                                             <h3 class="titulo-medida">Um copo americano é equivalente à:</h3>
+                                             <li class="lista-info-1">
+                                                <p class="info-texto">• 200 mL</p>
+                                                <p class="info-texto">• 13 colheres de sopa</p>
+                                                <p class="info-texto">• 40 colheres de chá</p>
+                                                <p class="info-texto">• 1/2 copo americano = 1 xícara</p>
+                                             </li>
+                                             <% } else if (ingrediente.medida_ingredientes=="Gramas (gr)" ) { %>
+                                                <h3 class="titulo-medida">Regras Gerais para Gramas:</h3>
+                                                <li class="lista-info-1">
+                                                   <p class="info-texto">• Ingredientes sólidos | 150 a 200 gramas = 1
+                                                      xícara</p>
+                                                   <p class="info-texto">• Ingredientes líquidos | 180 a 300 gramas = 1
+                                                      xícara</p>
+                                                   <p class="info-texto">• Ingredientes em pó | 150 a 180 gramas = 1
+                                                      xícara</p>
+                                                </li>
+                                                <% } else if (ingrediente.medida_ingredientes=="Quilogramas (kg)" ) { %>
+                                                   <h3 class="titulo-medida">Regras Gerais para Quilos:</h3>
+                                                   <li class="lista-info-1">
+                                                      <p class="info-texto">• Ingredientes secos | 1 kg = 5 a 7 xícaras
+                                                      </p>
+                                                      <p class="info-texto">• Ingredientes Líquidos | 1 kg = 3 a 5
+                                                         xícaras</p>
+                                                   </li>
+                                                   <% } else if (ingrediente.medida_ingredientes=="Mililitros (ml)" ) {
+                                                      %>
+                                                      <h3 class="titulo-medida">Regras Gerais para Mililitros:</h3>
+                                                      <li class="lista-info-1">
+                                                         <p class="info-texto">• 250 mL = 1 xícara</p>
+                                                         <p class="info-texto">• 5 mL = 1 colher de chá</p>
+                                                      </li>
+                                                      <% } else if (ingrediente.medida_ingredientes=="Litros (L)" ) { %>
+                                                         <h3 class="titulo-medida">Regras Gerais para Litros:</h3>
+                                                         <li class="lista-info-1">
+                                                            <p class="info-texto">• 1 litro = 4 xícaras</p>
+                                                            <p class="info-texto">• 1 litro = 66 colheres de sopa</p>
+                                                            <p class="info-texto">• 1 litro = 200 colheres de chá</p>
+                                                            <p class="info-texto">• 1/4 litro = 1 xícara</p>
+                                                         </li>
+                                                         <% } %>
+                                                            </article>
+                                                            </article>
+                           </section>
+                           <% } else {%>
+                              <% } %>
+                                 </li>
+                                 <% }) %>
+                                    </ul>
+                                    </section>
+
+                                    <section class="Modo-Preparo-bemestar">
+                                       <h1 class="modo-titulo">MODO DE PREPARO</h1>
+                                       <ul class="lista-modo">
+                                          <% postagem.etapas.forEach(function(etapa, index) { %>
+                                             <ol class="modos">
+                                                <h1 class="t-modo">
+                                                   <%= index + 1 %>
+                                                </h1>
+                                                <p class="p-modo">
+                                                   <%= etapa %>
+                                                </p>
+                                             </ol>
+                                             <% }) %>
+                                       </ul>
+                                    </section>
+                                    <% } %>
+                                       </article>
+
+
+                                       <article class="comentarios">
+                                          <h1 class="comem-titulo">13 Comentários</h1>
+                                          <aside class="filtrod">
+                                             <img src="/imagens-svg/2-body/filtro-icon-roxoescuro.svg " alt="filtro">
+                                             <p class="p-filtro">Filtrar</p>
+                                          </aside>
+                                       </article>
+
+                                       <section class="comentar">
+                                          <img src="/imagens-svg/2-body/imagem-foto-de-perfil-fofa.svg"
+                                             alt="foto-de-perfil">
+                                          <input class="inserir-comentariod" type="text" name="inserir-comentario"
+                                             id="inserir-comentario" placeholder="Digite seu comentário...">
+                                          <label for="inserir-comentario"></label>
+                                       </section>
+
+                                       <section class="botoes-comentard">
+                                          <button class="cancelar-comentar">Cancelar</button>
+                                          <button class="botao-comentard" type="submit"
+                                             value="Comentar">Comentar</button>
+                                       </section>
+
+                                       <article id="hide-opcoes-comentario-Desktop" style="display: none;">
+                                          <section class="denunciar-comentario">
+                                             <img src="/imagens/denunciar-cor-preta.svg" alt="denunciar">
+                                             <p>Denunciar comentário</p>
+                                          </section>
+                                          <section class="compartilhar-comentario">
+                                             <img src="/imagens/compartilhar-cor-preta.svg" alt="compartilhar">
+                                             <p>Compartilhar comentário</p>
+                                          </section>
+                                       </article>
+
+                                       <article class="comentario">
+                                          <img class="foto-de-perfil-taylorfan"
+                                             src="/imagens-svg/2-body/icon-garota-taylorfan.svg"
+                                             alt="foto-de-perfil-taylorfan">
+                                          <figure class="nomes-comentario">
+                                             <h1>TaylorFan</h1>
+                                             <p class="nome-usuario-comt">| Maria Fernanda da Silva</p>
+                                          </figure>
+                                          <section id="opcoes-comentario" class="opcoes-comentario"
+                                             onclick="AbrirOpcoesComentarioDesktop()">
+                                             <figure class="ponto-comentario"></figure>
+                                             <figure class="ponto-comentario"></figure>
+                                             <figure class="ponto-comentario"></figure>
+
+                                             <p class="texto-coment-taylor">to me babando todo 🤤
+                                                Ate babei
+                                             </p>
+                                          </section>
+                                       </article>
+
+                                       <section class="curtir-responderd">
+                                          <figure class="coracao-curtird" onclick="toggleLike1(this)">
+                                             <img class="coracao-vazado" src="/imagens/coracaovazio.svg"
+                                                alt="coracação-vazado">
+                                             <img id="coracao-preenchido1" class="coracao-preenchidod"
+                                                src="/imagens/coracao-rosa.png" alt="coracação-preenchido"
+                                                style="display: none;">
+                                          </figure>
+                                          <p class="numero-curtida">15</p>
+                                          <h3 class="responder-comentd">| Responder</h3>
+                                       </section>
+
+                                       <figure class="mostrar-mais">
+                                          <h1>MOSTRAR MAIS</h1>
+                                       </figure>
+                                       <% } else { %>
+                                          <p>Postagem não encontrada.</p>
+                                          <% } %>
+                                             </section>
 </main>

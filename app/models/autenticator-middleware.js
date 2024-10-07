@@ -25,18 +25,22 @@ gravarUsuAutenticado = async (req, res, next) => { //verifica se o usuário exis
             const { input1, input2 } = req.body;
             const users = await usuario.findUserEmail({ Nickname: input1, Email: input1 });
 
-            const fotoPerfil = users[0].foto_icon_perfil ? `data:image/png;base64,${users[0].foto_icon_perfil.toString('base64')}` : null;
+            if (users.length > 0) {
+                const fotoPerfil = users[0].foto_icon_perfil ? `data:image/png;base64,${users[0].foto_icon_perfil.toString('base64')}` : null;
 
-            if (users.length === 1 && bcrypt.compareSync(input2, users[0].senha)) {
-                autenticado = {
-                    autenticado: users[0].Nickname,
-                    tipo: users[0].Tipo_Cliente_idTipo_Cliente,
-                    id: users[0].idClientes,
-                    foto: fotoPerfil 
-                };
-                console.log("login feito");
+                if (users.length === 1 && bcrypt.compareSync(input2, users[0].senha)) {
+                    autenticado = {
+                        autenticado: users[0].Nickname,
+                        tipo: users[0].Tipo_Cliente_idTipo_Cliente,
+                        id: users[0].idClientes,
+                        foto: fotoPerfil
+                    };
+                    console.log("login feito");
+                } else {
+                    console.log("Senha incorreta");
+                }
             } else {
-                console.log("Nenhum usuário encontrado ou múltiplos usuários encontrados");
+                console.log("Nenhum usuário encontrado");
             }
         } else {
             console.log("Erros de validação:", erros.array());

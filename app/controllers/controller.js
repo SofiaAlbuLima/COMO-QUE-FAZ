@@ -12,13 +12,11 @@ var salt = bcrypt.genSaltSync(12);
 
 
 const tarefasController = {
-
+    // REGRAS VALIDAÇÃO
     regrasValidacaoLogin: [
         body('input1')
             .custom(value => {
-                // Verifica se é um email válido
                 const isEmail = /^\S+@\S+\.\S+$/.test(value);
-                // Verifica se é um nome de usuário válido (por exemplo, apenas caracteres alfanuméricos)
                 const isUsername = /^[a-zA-Z0-9_.\-\s]+$/.test(value)
 
                 if (!isEmail && !isUsername) {
@@ -62,8 +60,8 @@ const tarefasController = {
         body("editar-url-site")
             .isURL().withMessage("Insira uma URL válida!"),
     ],
+    // LOGIN & CADASTRO
     Login_formLogin: async (req, res) => {
-        // Verificação de Erros de Validação
         const erros = validationResult(req);
         if (!erros.isEmpty()) {
             return res.render("pages/template", {
@@ -75,12 +73,10 @@ const tarefasController = {
             });
         }
 
-        // Verificar se o usuário está autenticado
         if (req.session.autenticado && req.session.autenticado.autenticado) {
-            return res.redirect("/"); // Redireciona se o usuário já estiver autenticado
+            return res.redirect("/");
         }
 
-        // Renderizar a página de login se não houver erros e o usuário não estiver autenticado
         res.render("pages/template", {
             pagina: { cabecalho: "cabecalho", conteudo: "Fazer-Login", FormCadastro: "template_cadastro", FormLogin: "template_login", rodape: "rodape" },
             usuario_logado: null,
@@ -91,7 +87,7 @@ const tarefasController = {
     },
     Login_formCadastro: async (req, res) => {
         const erros = validationResult(req);
-        var dadosForm = { //dados que o usuário digita no formulário
+        var dadosForm = { 
             Nickname: req.body.nomeusu_usu,
             senha: bcrypt.hashSync(req.body.senha_usu, salt),
             Email: req.body.email_usu,
@@ -133,6 +129,7 @@ const tarefasController = {
             console.log("erro no cadastro!");
         }
     },
+    // POSTAGENS
     MostrarPosts: async (req, res, categoriaId = null) => {
         res.locals.moment = moment;
         try {
@@ -408,6 +405,7 @@ const tarefasController = {
             return res.status(500).json({ error: 'Erro ao registrar a avaliação' });
         }
     },
+    // CRIAR DICA & PERGUNTA
     CriarDica: async (req, res) => {
         try {
             let categoriaId;
@@ -531,7 +529,7 @@ const tarefasController = {
             res.redirect('/');
         }
     },
-
+    // DENÚNCIAS / ADM
     listarDenuncias: async (req, res) => {
         try {
             results = await admModel.mostrarDenuncias();
@@ -610,8 +608,8 @@ const tarefasController = {
             console.error('Erro ao armazenar denúncia:', error);
         }
     },
-
-    MostrarPerfil: async (req, res) => {
+    // PERFIL
+    MostrarProprioPerfil: async (req, res) => {
         try {
             const idCliente = req.session.autenticado.id;
             const perfil = await conteudoModel.obterPerfil(idCliente);
@@ -636,9 +634,6 @@ const tarefasController = {
     },
     EditarPerfil: async (req, res) => {
         try {
-            console.log("Função EditarPerfil chamada!");
-            console.log("Alterações:", req.body);
-
             const { editar_confirmar_senha, editar_nome_usuario, editar_biografia, editar_nome_site, editar_url_site, editar_img_icon, editar_img_banner } = req.body || {};
 
             if (!req.session.autenticado || !req.session.autenticado.id) { // Verifica se o usuário está autenticado
@@ -651,9 +646,6 @@ const tarefasController = {
                 console.log("Usuário não encontrado");
                 return res.redirect("/perfil");
             }
-            console.log("Dados Atuais: ", user);
-            console.log("Senha atual: ", user.senha);
-            console.log("Senha fornecida: ", editar_confirmar_senha);
 
             const senhaCorreta = bcrypt.compareSync(editar_confirmar_senha, user.senha); // Confirma a senha fornecida
             if (!senhaCorreta) {
@@ -673,7 +665,6 @@ const tarefasController = {
             if (req.fileBanner) {
                 updateData.foto_banner_perfil = req.fileBanner.buffer;
             }
-            console.log("Dados a serem atualizados:", updateData);
             await conteudoModel.atualizarPerfil(req.session.autenticado.id, updateData); // Atualiza o perfil do usuário no banco de dados
 
             req.session.notification = {
@@ -770,6 +761,10 @@ const tarefasController = {
                     mensagem: "Perfil não encontrado.",
                     usuario_logado: req.session.autenticado,
                 });
+            }
+
+            if (req.session.autenticado.autenticado === nickname) {
+                return res.redirect("/perfil"); 
             }
     
             perfil.foto_icon_perfil = perfil.foto_icon_perfil ? `data:image/png;base64,${perfil.foto_icon_perfil.toString('base64')}` : null;

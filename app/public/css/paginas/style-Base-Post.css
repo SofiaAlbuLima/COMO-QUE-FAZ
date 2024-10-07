@@ -15,6 +15,27 @@
     justify-content: space-between;
     z-index: 1;
   }
+  .usuario-foto-nome{
+    display: inline-flex;
+    gap: 2vh;
+    align-items: center;
+    max-width: fit-content;
+  }
+  .usuario-foto-nome:hover{
+    background-color: #9d5fef11;
+    padding: 1vh 2vh 1vh 1vh;
+    border-radius: 10px;
+  }
+  #img-usuario-post, #img-login_hover-post, #img-login-post{
+    width: 4vh;
+  }
+  #img-login-post{
+    display: inline-block;
+  }
+  #img-login_hover-post{
+    position: absolute;
+    display: none;
+  }
 
   .postagem:hover .hover_ingredientes_basePost-culinaria {
     display: flex;
