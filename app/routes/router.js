@@ -106,7 +106,7 @@ router.get("/perfil",
     verificarUsuAutorizado([1, 2], "/"),
     async (req, res) => {
         try {
-            const perfilResponse = await tarefasController.MostrarPerfil(req, res);
+            const perfilResponse = await tarefasController.MostrarProprioPerfil(req, res);
             const data = await tarefasController.MostrarPostagensPerfil(req, res);
 
             if (perfilResponse && perfilResponse.status !== 404) {
