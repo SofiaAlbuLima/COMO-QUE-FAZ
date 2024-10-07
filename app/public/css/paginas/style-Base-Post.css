@@ -40,14 +40,17 @@
 
   .postagem:hover .hover_ingredientes_basePost-culinaria {
     display: flex;
+    flex-direction: column;
   }
 
   .postagem:hover .hover_ingredientes_basePost-limpeza {
     display: flex;
+    flex-direction: column;
   }
 
   .postagem:hover .hover_ingredientes_basePost-bemEstar {
     display: flex;
+    flex-direction: column;
   }
 
   .postagem:hover .titulo_post,
@@ -125,11 +128,26 @@
   .patinhas-favoritar{
     justify-content: space-between;
     display: flex;
+    height: 4vh;
   }
 
   .patinha-indicador{
-    width: 3vh;
+    width: 3.5vh;
     display: flex;
+  }
+  .patinha-indicador:hover + .span-patinha{
+    display: block;
+  }
+  .span-patinha{
+    display: none;
+    position: absolute;
+    transform: translate(3vh, 3vh);
+    font-family: Fira Sans Bold;
+    font-size: 1.8vh;
+    color: white;
+    background-color: #cb218c;
+    padding: 0.8vh;
+    border-radius: 10px;
   }
 
   .hover_ingredientes_basePost-culinaria,
@@ -166,6 +184,8 @@
     font-family: Fira Sans;
     align-items: center;
     display: flex;
+    height: 100%;
+    text-align: center;
   }
 
   .legenda {
@@ -353,7 +373,6 @@
   }
 
   /* Paginador - Fim */
-
 
 }
 
