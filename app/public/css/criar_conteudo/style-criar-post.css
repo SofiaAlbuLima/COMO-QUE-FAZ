@@ -26,51 +26,7 @@
     width: 100vw;
   }
 
-  #tudonessapaginamobile {
-    max-height: 100vh;
-  }
-
-  #menu-post {
-    width: 100vw;
-    height: 18.7vw;
-    display: flex;
-    padding: 0px 0px 0px 0px;
-    justify-content: space-around;
-    background-color: #ffffff;
-    ;
-    box-shadow: 6px 6px 10px 0px rgba(0, 0, 0, 0.08);
-    z-index: 999;
-  }
-
-  #gambiarra-pra-space-around {
-    width: 6.93vw;
-    height: 6.93vw;
-  }
-
-  .perfil-post-foto {
-    margin-left: -5vw;
-    padding-right: 5vw;
-  }
-
-  .user-menu {
-    z-index: 999;
-  }
-
-  #logo-mob-post {
-    width: 13.335vw;
-    height: 13.335vw;
-    box-sizing: border-box;
-    margin-top: 2.4vw;
-    margin-bottom: -2.4vw;
-  }
-
-  .perfil-foto-menu-post {
-    width: 11.73vw;
-    height: 11.73vw;
-    margin-bottom: 3vw;
-  }
-
-  #criar-post-cancela {
+  #criar-post-cancela-mb {
     width: 66.4%;
     height: 6.4%;
     margin-left: 6.4%;
@@ -78,7 +34,7 @@
     background-color: #ffffff;
   }
 
-  #cancela-criar-post {
+  #cancela-criar-post-mb {
     display: inline-block;
     color: #4d16bb;
     font-size: 130%;
@@ -90,7 +46,7 @@
     line-height: normal;
   }
 
-  #titulo-criar-post {
+  #titulo-criar-post-mb {
     display: inline-block;
     width: 45.86%;
     background-color: rgba(255, 255, 255, 0);
@@ -101,61 +57,58 @@
     white-space: nowrap;
   }
 
-  #criar-post-etapas {
-    margin-top: 4vw;
-  }
-
-  .linha-baixo {
+  .linha-baixo-mb {
     width: 100%;
     height: 4vw;
     padding: 2px 2px 2px 2px;
     background-image: linear-gradient(89.9984726943774deg, #ffa462 0%, #9d21cb 48.6110592628467%, #4d16bb 99.2062434669349%);
-    box-sizing: border-box;
     position: relative;
     overflow: hidden;
     transform: rotate(180deg);
+    box-sizing: border-box;
   }
 
-  #progresso {
+  #progresso-mb {
     box-shadow: 0 0 5vw 8vw rgba(225, 225, 225, 0.904);
     width: 100vw;
     height: 4vw;
     padding: 2px 2px 2px 2px;
     background-color: #d7d7d7;
-    box-sizing: border-box;
     position: absolute;
+    box-sizing: border-box;
+  }
+
+  #criar-post-etapas-mb {
+    width: 100vw;
   }
 
   /* Estilos para a lista de tarefas */
-  .lista-tarefas {
-    display: flex;
+  .lista-tarefas-mb {
     width: 100vw;
+    display: flex;
+    transition: transform 0.3s ease-in-out;
     height: 4vw;
     background-color: #ffffff;
     margin-top: 7%;
   }
 
   /* Estilos para as tarefas */
-  .tarefa {
-    visibility: hidden;
+  .tarefa-mb {
+    display: none;
+    min-width: 100%;
   }
 
-  #agrupamento-conteudo {
-    padding: 0;
-    margin: 0;
-   
-  
-
+  .tarefa-mb.ativo {
+    display: block;
+    min-width: 100%;
   }
 
-  #conteudoTarefa1 {
+  #conteudoTarefa1-mb {
     left: 0;
-  
-  
     height: 100vw;
   }
 
-  #conteudoTarefa2 {
+  #conteudoTarefa2-mb {
     left: 0;
    position: fixed;
    margin-top: -48vh;
@@ -163,14 +116,14 @@
  
   }
 
-  #conteudoTarefa3 {
+  #conteudoTarefa3-mb {
     left: 0;
     margin-top: -48vh;
    position: fixed;
   
   }
 
-  #detalhes {
+  #detalhes-mb {
     background-color: rgba(255, 255, 255, 0);
     box-sizing: border-box;
     font-family: "Heavitas", sans-serif;
@@ -182,7 +135,7 @@
     margin-left: 7vw;
   }
 
-  #elementos {
+  #elementos-mb {
     background-color: rgba(255, 255, 255, 0);
     box-sizing: border-box;
     font-family: "Heavitas", sans-serif;
@@ -194,7 +147,7 @@
     overflow: auto;
   }
 
-  #midias {
+  #midias-mb {
     background-color: rgba(255, 255, 255, 0);
     box-sizing: border-box;
     font-family: "Heavitas", sans-serif;
@@ -206,13 +159,13 @@
     overflow: auto;
   }
 
-  .conteudo {
+  .conteudo-mb {
     width: 100%;
     height: 100%;
     transition: transform 0.5s ease-in-out;
   }
 
-  #botoes-criar-post {
+  #botoes-criar-post-mb {
     width: 100vw;
     height: 16vw;
     padding-top: 5vw;
@@ -221,7 +174,7 @@
     box-shadow: 0px -2px 12px 0px rgba(0, 0, 0, 0.35);
   }
 
-  #btnAvancar {
+  #btnAvancar-mb {
     font-size: 100%;
     font-family: "Fira Sans Bold", "Fira Sans", sans-serif;
     font-weight: 700;
@@ -237,7 +190,7 @@
     position: relative;
   }
 
-  #btnVoltar {
+  #btnVoltar-mb {
     width: 42vw;
     height: 10.10vw;
     padding: 2px 2px 2px 2px;
@@ -255,14 +208,14 @@
     position: absolute;
   }
 
-  #detalhes-primeira-parte {
+  #detalhes-primeira-parte-mb {
     border-top: 1px solid #909090;
     margin-top: 5vw;
     padding-top: 4.26vw;
     width: 100vw;
   }
 
-  #titulo-da-postagem {
+  #titulo-da-postagem-mb {
     font-family: "Fira Sans Bold", "Fira Sans", sans-serif;
     font-weight: 700;
     color: #333333;
@@ -271,18 +224,18 @@
     margin-left: 7vw;
   }
 
-  #texto-titulo-da-postagem {
+  #texto-titulo-da-postagem-mb {
     width: 82vw;
     height: 9.33vw;
     padding: 2px 2px 2px 2px;
     margin-left: 7vw;
     margin-top: 1.55vw;
-    font-size: 100%;
     border: 0;
     border-bottom: 1px solid #d7d7d7;
     background-color: #ffffff;
     box-sizing: border-box;
-    font-family: "Arial", sans-serif;
+    font-family: "Fira Sans Bold", "Fira Sans", sans-serif;
+    font-size: 100%;
     padding-left: 1vw;
     padding-bottom: 2vw;
     color: #333333;
@@ -292,14 +245,6 @@
       color: #adadad;
     }
 
-    
-
-    input#dialogoselect::-moz-placeholder {
-      color: #adadad;
-    }
-
-    
-
     &:focus {
       outline: 0;
       border-bottom: 2px #CB218C solid;
@@ -307,75 +252,95 @@
       &::-webkit-input-placeholder {
         color: #cb218c;
       }
-
-      
-
-      input#dialogoselect::-moz-placeholder {
-        color: #cb218c;
-      }
-
-      
     }
   }
 
-  #detalhes-segunda-parte {
+  #detalhes-segunda-parte-mb {
     margin-top: 5vw;
     border-top: 1px solid #909090;
-    padding-top: 6.66vw;
     width: 100vw;
   }
 
-  #icon-seta-select {
+  #icon-seta-select-mb {
     margin-left: -8vw;
     transform: rotate(180deg);
   }
 
 
-  #dialogoselect {
+  .dialogoselect-mb {
     margin-left: 7vw;
+    margin-top: 5vw;
     padding-left: 1.06vw;
     width: 85vw;
     height: 10.66vw;
     outline: none;
     border-radius: 5px;
     border: 1px solid #979797;
-    font-family: "Fira Sans", sans-serif;
-    font-size: 130%;
+
+    &::-webkit-input-placeholder {
+    font-family: "Fira Sans Bold", "Fira Sans", sans-serif;
+    font-weight: 700;
+    color: #333333;
+    text-align: left;
+    font-size: 140%;
+    }
 
     &:focus {
-      background-image: url(../imagens/seta-select.svg);
       background-position-x: 96%;
       background-position-y: 50%;
       background-repeat: no-repeat;
-
-      &::-webkit-input-placeholder {
-        color: #cb218c;
-        padding-right: -10%
-      }
-
-      ;
-
-      input#dialogoselect::-moz-placeholder {
-        color: #cb218c;
-      }
-
-      ;
       border: 2px #CB218C solid;
       border-bottom: 0;
       border-bottom-right-radius: 0;
       border-bottom-left-radius: 0;
+      &::-webkit-input-placeholder {
+        color: #CB218C;
+      font-family: "Fira Sans Bold", "Fira Sans", sans-serif;
+      font-weight: 700;
+      text-align: left;
+      font-size: 140%;
+      }
     }
   }
 
-  ::-webkit-input-placeholder {
-    color: #333;
+  
+  .dialogoselect-mb.categoria-culinaria {
+    background-color: #cb2154;
+    
+    &::-webkit-input-placeholder {
+      color: #ffff;
+    font-family: "Fira Sans Bold", "Fira Sans", sans-serif;
+    font-weight: 700;
+    text-align: left;
+    font-size: 140%;
+    }
   }
 
-  input#dialogoselect::-moz-placeholder {
-    color: #333;
+  .dialogoselect-mb.categoria-limpeza {
+    background-color: #027de1;
+    
+    &::-webkit-input-placeholder {
+      color: #ffff;
+      font-family: "Fira Sans Bold", "Fira Sans", sans-serif;
+      font-weight: 700;
+      text-align: left;
+      font-size: 140%;
+    }
   }
 
-  .dropDown {
+  .dialogoselect-mb.categoria-bemestar {
+    background-color: #00cd83;
+    
+    &::-webkit-input-placeholder {
+      color: #ffff;
+      font-family: "Fira Sans Bold", "Fira Sans", sans-serif;
+      font-weight: 700;
+      text-align: left;
+      font-size: 140%;
+    }
+  }
+
+  .dropDown-mb {
     box-sizing: border-box;
     width: 87vw;
     height: 36vw;
@@ -394,22 +359,15 @@
     display: none;
   }
 
-  #icon-dropdown {
+  #icon-dropdown-mb {
     width: 8vw;
     height: 8vw;
     position: absolute;
     margin-left: -8vw;
   }
 
-  .iconitem-select-detalhes {
-    background-color: #f2f2f2;
-    font-family: "Arial Bold", "Arial Normal", "Arial", sans-serif;
-    font-size: 100%;
-    color: #333333;
-    cursor: pointer;
-  }
 
-  .item-select-detalhes{
+  .item-select-detalhes-mb{
     background-color: #f2f2f2;
     font-family: "Arial Bold", "Arial Normal", "Arial", sans-serif;
     font-size: 100%;
@@ -420,106 +378,138 @@
     margin-left: 2vw;
   }
 
-  .dialogoselect.categoria-culinaria {
-    background-color: #cb2154;
-    color: #ffff;
-  }
-
-  .dialogoselect.categoria-limpeza {
-    background-color: #027de1;
-    color: #ffff;
-  }
-
-  .dialogoselect.categoria-bemestar {
-    background-color: #00cd83;
-    color: #ffff;
-  }
-
-  #item-select-detalhes-1 {
+  #item-select-detalhes-mb-1 {
     margin-bottom: 5.86%;
   }
 
-  #item-select-detalhes-2 {
+  #item-select-detalhes-mb-2 {
     margin-bottom: 5.86%;
   }
 
-  #tempo-resultado-detalhes {
+  #tempo-resultado-detalhes-mb {
     font-family: "Fira Sans Bold", "Fira Sans", sans-serif;
     font-weight: 700;
     color: #333333;
     text-align: left;
     line-height: normal;
-    color: #333333;
     font-size: 140%;
     margin-left: 6.4%;
     margin-top: 8vw;
   }
 
-  #imagem-tempo-detalhes {
+  #tempo-detalhes-mb {
+    display: flex;
+    align-items: center;
+    margin-top: 5.6vw;
+    margin-left: 6.4%;
+    color: #979797;
+  }
+
+  #imagem-tempo-detalhes-mb {
     width: 9.06vw;
     height: 9.06vw;
-    margin-bottom: -2%;
     padding: 2px 2px 2px 2px;
     box-sizing: border-box;
     fill: #909090;
   }
 
-  #imagem-tempo-detalhes-porcoes {
+  #imagem-tempo-detalhes-porcoes-mb {
     width: 9.06vw;
     height: 9.06vw;
-    margin-bottom: -4%;
     padding: 2px 2px 2px 2px;
     box-sizing: border-box;
     fill: #909090;
   }
 
-  #tempo-detalhes {
-    appearance: none;
+  #tempo-detalhes-porcoes-mb {
+    display: flex;
+    align-items: center;
     margin-top: 5.6vw;
-    margin-left: 8.2vw;
-    display: inline-block;
-    font-family: "Fira Sans Bold", "Fira Sans", sans-serif;
-    font-weight: 700;
-    color: #333333;
-    text-align: left;
+    margin-left: 6.4%;
   }
 
-  #tempo-detalhes-porcoes {
-    appearance: none;
-    margin-top: 5.6vw;
-    margin-left: 8.2vw;
-    font-family: "Fira Sans Bold", "Fira Sans", sans-serif;
-    font-weight: 700;
-    color: #333333;
-    text-align: left;
-    display: none;
-  }
-
-  #horas-tempo-detalhes {
+  #horas-tempo-detalhes-mb {
     width: 9.06vw;
     height: 9.33vw;
     border: 0;
     border-bottom: 1px solid #d7d7d7;
-    font-family: "Arial", sans-serif;
-    font-size: 124%;
-    color: #adadad;
+    font-family: "Fira Sans Bold", "Fira Sans", sans-serif;
+    font-size: 120%;
+    color: #333333;
     box-sizing: border-box;
     padding-left: 1.3vw;
-    padding-bottom: 2vw;
     margin-left: 2.93vw;
     margin-right: 2vw;
 
     &::-webkit-input-placeholder {
       color: #adadad;
+      font-family: "Fira Sans Bold", "Fira Sans", sans-serif;
+      font-size: 120%;
     }
 
-    ;
+    &:focus {
+      outline: 0;
+      border-bottom: 2px #CB218C solid;
+      color: #333333;
 
-    input#dialogoselect::-moz-placeholder {
+      &::-webkit-input-placeholder {
+        color: #cb218c;
+      }
+    }
+  }
+
+  #minutos-tempo-detalhes-mb {
+    width: 9.06vw;
+    height: 9.33vw;
+    border: 0;
+    border-bottom: 1px solid #d7d7d7;
+    font-family: "Fira Sans Bold", "Fira Sans", sans-serif;
+    font-size: 120%;
+    color: #333333;
+    box-sizing: border-box;
+    padding-left: 1.3vw;
+    margin-left: 2.93vw;
+    margin-right: 2vw;
+
+    &::-webkit-input-placeholder {
       color: #adadad;
+      font-family: "Fira Sans Bold", "Fira Sans", sans-serif;
+      font-size: 120%;
     }
 
-    ;
+    &:focus {
+      outline: 0;
+      border-bottom: 2px #CB218C solid;
+      color: #333333;
+
+      &::-webkit-input-placeholder {
+        color: #cb218c;
+      }
+    }
+  }
+
+  #tempo-detalhes-porcoes-mb{
+    display: none;
+    color: #979797;
+  }
+
+  #porcoes-tempo-detalhes-mb{
+    width: 9.06vw;
+    height: 9.33vw;
+    border: 0;
+    border-bottom: 1px solid #d7d7d7;
+    font-family: "Fira Sans Bold", "Fira Sans", sans-serif;
+    font-size: 120%;
+    box-sizing: border-box;
+    padding-left: 1.3vw;
+    margin-left: 2.93vw;
+    margin-right: 2vw;
+
+    &::-webkit-input-placeholder {
+      color: #adadad;
+      font-family: "Fira Sans Bold", "Fira Sans", sans-serif;
+      font-size: 120%;
+    }
 
     &:focus {
       outline: 0;
@@ -529,30 +519,22 @@
       &::-webkit-input-placeholder {
         color: #cb218c;
       }
-
-      ;
-
-      input#dialogoselect::-moz-placeholder {
-        color: #cb218c;
-      }
-
-      ;
     }
   }
 
-  #descricao-detalhes-total {
+  #descricao-detalhes-total-mb {
     margin-top: 10vw;
     margin-left: 8vw;
   }
 
-  #titulo-descricao-detalhes {
+  #titulo-descricao-detalhes-mb {
     font-family: "Arial Bold", "Arial Normal", "Arial", sans-serif;
     font-weight: 700;
     color: #333333;
     margin-bottom: 3vw;
   }
 
-  #descricao-detalhes {
+  #descricao-detalhes-mb {
     width: 85vw;
     height: 7.2vw;
     padding: 2px 2px 2px 2px;
@@ -576,7 +558,7 @@
 
       ;
 
-      input#dialogoselect::-moz-placeholder {
+      input#dialogoselect-mb::-moz-placeholder {
         color: #cb218c;
       }
 
@@ -584,7 +566,7 @@
     }
   }
 
-  #titulo-subcategoria-detalhes {
+  #titulo-subcategoria-detalhes-mb {
     font-family: "Arial Bold", "Arial Normal", "Arial", sans-serif;
     font-weight: 700;
     color: #333333;
@@ -592,16 +574,16 @@
     margin-bottom: 3vw;
   }
 
-  #subcategoria-detalhes-total {
+  #subcategoria-detalhes-total-mb {
     margin-top: 4.53vw;
     margin-left: 8vw;
   }
 
-  .input-container {
+  .input-container-mb {
     margin-bottom: 10%;
   }
 
-  #input-text-subcategoria {
+  #input-text-subcategoria-mb {
     display: inline-block;
     width: 87.2vw;
     height: 8.26vw;
@@ -619,7 +601,7 @@
     }
   }
 
-  #icon {
+  #icon-mb {
     display: inline-block;
     width: 5.06vw;
     height: 5.06vw;
@@ -627,7 +609,7 @@
     margin-bottom: -1.6vw;
   }
 
-  .message-list {
+  .message-list-mb {
     width: 82vw;
     height: 9vw;
     max-height: 200px;
@@ -639,7 +621,7 @@
     display: flex;
   }
 
-  #div-etiqueta-subcategoria {
+  #div-etiqueta-subcategoria-mb {
     width: relative;
     height: 4.8vw;
     border-radius: 6px;
@@ -653,13 +635,13 @@
     padding: 0px 1% 1% 1%;
   }
 
-  #esqueleto-elementos {
+  #esqueleto-elementos-mb {
     border-top: 1px solid #909090;
     margin-top: 5.06%;
     padding-top: 4.26%;
   }
 
-  #linha-rosa-ingredientes {
+  #linha-rosa-ingredientes-mb {
     width: 1.06vw;
     height: 49.06vw;
     padding: 2px 2px 2px 2px;
@@ -670,12 +652,12 @@
     margin-top: -25vw;
   }
 
-  #sem-a-linha-rosa {
+  #sem-a-linha-rosa-mb {
     margin-left: 9vw;
     padding-top: 6vw;
   }
 
-  #titulo-ingredientes-elementos {
+  #titulo-ingredientes-elementos-mb {
     font-family: "Fira Sans Bold", "Fira Sans", sans-serif;
     font-weight: 700;
     color: #cb218c;
@@ -686,17 +668,17 @@
     border: 0;
   }
 
-  #botao-de-add-ingrediente {
+  #botao-de-add-ingrediente-mb {
     margin-left: 79vw;
     margin-bottom: -19vw;
   }
 
-  #botao-de-tirar-ingrediente {
+  #botao-de-tirar-ingrediente-mb {
     margin-left: 88vw;
     margin-bottom: -13.3vw;
   }
 
-  #numero-do-ingrediente {
+  #numero-do-ingrediente-mb {
     width: 7vw;
     margin-top: 7.4vw;
     margin-left: -3vw;
@@ -722,7 +704,7 @@
     ;
   }
 
-  #nome-do-ingrediente {
+  #nome-do-ingrediente-mb {
     font-family: "Fira Sans Bold", "Fira Sans", sans-serif;
     font-weight: 500;
     font-size: 80%;
@@ -732,7 +714,7 @@
     margin-left: 5vw;
   }
 
-  #input-nome-do-ingrediente {
+  #input-nome-do-ingrediente-mb {
     width: 78%;
     height: 9%;
     padding: 2px 2px 2px 2px;
@@ -754,26 +736,18 @@
       color: #adadad;
     }
 
-    ;
-
-    input#dialogoselect::-moz-placeholder {
-      color: #adadad;
-    }
-
-    ;
-
     &:focus {
       outline: 0;
       border-bottom: 2px #CB218C solid;
     }
   }
 
-  #coiso-pra-deixar-certo {
+  #coiso-pra-deixar-certo-mb {
     display: flex;
     position: absolute;
   }
 
-  #input-quantidade-do-ingrediente {
+  #input-quantidade-do-ingrediente-mb {
     width: 20vw;
     padding-left: 6.6vw;
     margin-left: 5vw;
@@ -806,7 +780,7 @@
     }
   }
 
-  #medidas-elementos {
+  #medidas-elementos-mb {
     margin-left: 4vw;
     margin-top: 2vw;
     padding-left: 2vw;
@@ -840,7 +814,7 @@
     }
   }
 
-  .dropDown-medidas {
+  .dropDown-medidas-mb {
     width: 46vw;
     height: 40vw;
     margin-left: 4vw;
@@ -863,7 +837,7 @@
     background-color: #cb218c;
   }
 
-  .item-medidas {
+  .item-medidas-mb {
     width: 42vw;
     height: 4vw;
     margin-bottom: 7vw;
@@ -875,13 +849,13 @@
     text-align: left;
   }
 
-  #esqueleto-midias {
+  #esqueleto-midias-mb {
     border-top: 1px solid #909090;
     margin-top: 5.06%;
     padding-top: 4.26%;
   }
 
-  #adicione-midias {
+  #adicione-midias-mb {
     font-family: "Fira Sans Bold", "Fira Sans", sans-serif;
     font-weight: 700;
     color: #333333;
@@ -892,7 +866,7 @@
     margin-left: 11.46vw;
   }
 
-  #retangulo-adicionar-midia {
+  #retangulo-adicionar-midia-mb {
     width: 77.06vw;
     height: 34.4vw;
     margin-left: 11.46vw;
@@ -904,14 +878,14 @@
     box-sizing: border-box;
   }
 
-  #mais-adicionar-midia {
+  #mais-adicionar-midia-mb {
     width: 6.13vw;
     height: 6.13vw;
     margin-left: 35.5vw;
     margin-top: 13.6vw;
   }
 
-  .thumbnail {
+  .thumbnail-mb {
     max-width: 77.06vw;
     height: 26.66vw;
     margin-bottom: 2vw;
@@ -920,7 +894,7 @@
     position: relative;
   }
 
-  .close-button {
+  .close-button-mb {
     width: 6vw;
     height: 6vw;
     margin-left: -6vw;
@@ -933,15 +907,15 @@
     font-family: 'Heavitas', sans-serif;
   }
 
-  #ingredientes-elementos-NaN {
+  #ingredientes-elementos-NaN-mb {
     margin-top: -11vw;
   }
 
-  #tudo-dos-clones{
+  #tudo-dos-clones-mb{
     margin-top: 10vw;
   }
 
-  #numero-do-modo-de-preparo {
+  #numero-do-modo-de-preparo-mb {
     width: 8vw;
     margin-top: 8vw;
     margin-left: 3vw;
@@ -955,7 +929,7 @@
     position: absolute;
   }
 
-  #simbolo-do-numero{
+  #simbolo-do-numero-mb{
     display: inline-block;
     font-family: "Fira Sans", sans-serif;
     font-size: 100%;
@@ -968,12 +942,12 @@
     margin-right: 0.5vw;
   }
 
-  #modo-de-preparo {
+  #modo-de-preparo-mb {
     box-sizing: border-box;
    
   }
 
-  #modo-de-preparo-titulo {
+  #modo-de-preparo-titulo-mb {
     font-family: "Fira Sans Bold", "Fira Sans", sans-serif;
     font-weight: 700;
     color: #9e5fef;
@@ -982,13 +956,13 @@
     font-size: 130%;
   }
 
-  #modo-de-preparo-NaN{
+  #modo-de-preparo-NaN-mb{
     box-sizing: border-box;
     margin-left: 6.4vw;
     border-left: 1vw #9e5fef solid;
   }
 
-  #passo-a-passo-modo{
+  #passo-a-passo-modo-mb{
     font-family: "Fira Sans Bold", "Fira Sans", sans-serif;
     font-weight: 500;
     color: #adadad;
@@ -998,17 +972,17 @@
     font-size: 100%;
   }
 
-  #botoes-de-tirar-colocar{
+  #botoes-de-tirar-colocar-mb{
     margin-left: 80vw;
     margin-top: -12vw;
   }
 
-  #linhas-roxa-conteudo{
+  #linhas-roxa-conteudo-mb{
     border-left: 1vw #9e5fef solid;
     margin-left: 6.4vw;
   }
   
-  #input-modo-de-preparo{
+  #input-modo-de-preparo-mb{
     width: 68vw;
     height: 9%;
     padding: 2px 2px 2px 2px;
@@ -1042,7 +1016,7 @@
     }
   }
 
-  #apagar-modo-de-preparo{
+  #apagar-modo-de-preparo-mb{
     background: none;
     color: #979797;
     border: none;
