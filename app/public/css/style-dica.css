@@ -1087,7 +1087,7 @@
     }
 
     /* opcoes tres pontinhos escondido */
-    #hide-opcoes-Desktop {
+    .hide-opcoes-Desktop {
         position: absolute;
         z-index: 1000;
         border-top-right-radius: 0px;
@@ -1115,7 +1115,6 @@
     .denunciar {
         padding-left: 2vh;
         padding-right: 2vh;
-        width: 20vh;
         display: flex;
         cursor: pointer;
     }

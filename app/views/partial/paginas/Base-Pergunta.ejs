@@ -4,20 +4,21 @@
 
             <section class="cabecalho-pergunta-mobile">
                 <header class="categoria-pergunta-mobile">
-                    <img src=".imagens/categoculinaria.svg" alt="icon-categoria-culinaria"
-                        class="icon-culinaria">
+                    <img src=".imagens/categoculinaria.svg" alt="icon-categoria-culinaria" class="icon-culinaria">
                     <h1 class="categoria-culinaria-pergunta-mobile">CULINÁRIA</h1>
                 </header>
-                <img class="feedback-pergunta-mobile" src="/imagens/tres-pontinhos-roxoescuro.png" alt="mão no botão ajudar">
+                <img class="feedback-pergunta-mobile" src="/imagens/tres-pontinhos-roxoescuro.png"
+                    alt="mão no botão ajudar">
             </section>
-            
+
             <aside class="usuario-pergunta-mobile">
                 <h3><span class="nick2">NandãoDoAçaí</span> | Nanda da Silva</h3>
             </aside>
             <p class="pergunta-mobile">Gente, eu comi um bolo de pão de mel em uma festa... queria fazer também </p>
             <nav class="interacoes-pergunta-mobile">
                 <button class="ajuda">Ajudas</button>
-                <button class="ajudar "> <img class="mao" src="/imagens/2-body/maoajuda.svg" alt="opções">Ajudar</button>
+                <button class="ajudar "> <img class="mao" src="/imagens/2-body/maoajuda.svg"
+                        alt="opções">Ajudar</button>
             </nav>
         </article>
 
@@ -67,36 +68,134 @@
 
     <section id="conteudo-dispositivo-desktop">
         <section class="alinhamento-pergunta-desktop">
-            <% if (postagem.categoria === 1) { %>
-                <figure class="categoria-pergunta-desktop_culinaria">
-                   <img src="/imagens/icon-culinaria-branco.png" alt="icon-categoria" class="icon-categoria">
-                   <h1 class="titulo-categoria"><%= postagem.nomeCategoria %></h1>
-                </figure>
-             <% } else if (postagem.categoria === 2) { %>
-                <figure class="categoria-pergunta-desktop_limpeza">
-                   <img src="/imagens/icon-limpeza-branco.png" alt="icon-categoria" class="icon-categoria">
-                   <h1 class="titulo-categoria"><%= postagem.nomeCategoria %></h1>
-                </figure>
-             <% } else if (postagem.categoria === 3) { %>
-                <figure class="categoria-pergunta-desktop_bemestar">
-                   <img src="/imagens/icon-bemestar-branco.png" alt="icon-categoria" class="icon-categoria">
-                   <h1 class="titulo-categoria"><%= postagem.nomeCategoria %></h1>
-                </figure>
-             <% } %>
-             
-            <img class="perg-pontinho1" src="" alt="">
-            <span class="usuario-pergunta">
-                <h3><span class="nick2"> <%= postagem.nome_usuario %> </span></h3>
-            </span>
-            <p class="conteudoperg"> <%= postagem.titulo %> </p>
-            <nav class="opcoes-ajuda-desktop">
-                <button class="ajuda">Patinhas</button>
+            <article class="perfil-pontinhos-pergunta">
+                <a class="url-site-perfil-a" href="/perfil/<%= postagem.nome_usuario %>">
+                    <article class="usuario-foto-nome">
+                        <% if(postagem.fotoPerfil !==null) { %>
+                            <img id="img-usuario-post" src="<%= postagem.fotoPerfil %>" alt="Faça Login">
+                            <% }else{ %>
+                                <img id="img-login_hover-post" src="/imagens/user_icon_hover.svg" alt="Faça Login"
+                                    style="opacity: 80%;">
+                                <img id="img-login-post" src="/imagens-svg/1-cabeçalho/user_icon.svg" alt="Faça Login"
+                                    style="opacity: 80%;">
+                                <% } %>
+                                    <h3 class="titulo-user" style="color: #9e5fef;">
+                                        <%= postagem.nome_usuario %>
+                                    </h3>
+                    </article>
+                </a>
 
-                <button class="ajudar "> <img class="mao" src="/imagens-svg/patinha-icon.svg"
-                        alt="mão botão ajudar">Dar a pata</button>
+                <article class="categoria_opcoes-pergunta">
+                    <% if (postagem.categoria===1) { %>
+                        <button id="opcoes" class="opcoes_pergunta_culinaria" onclick="AbrirOpcoesDesktop(event)">
+                            <figure class="ponto_pergunta"></figure>
+                            <figure class="ponto_pergunta"></figure>
+                            <figure class="ponto_pergunta"></figure>
+                        </button>
+                        <% } else if (postagem.categoria===2) { %>
+                            <button id="opcoes" class="opcoes_pergunta_limpeza" onclick="AbrirOpcoesDesktop(event)">
+                                <figure class="ponto_pergunta"></figure>
+                                <figure class="ponto_pergunta"></figure>
+                                <figure class="ponto_pergunta"></figure>
+                            </button>
+                            <% } else if (postagem.categoria===3) { %>
+                                <button id="opcoes" class="opcoes_pergunta_bemestar"
+                                    onclick="AbrirOpcoesDesktop(event)">
+                                    <figure class="ponto_pergunta"></figure>
+                                    <figure class="ponto_pergunta"></figure>
+                                    <figure class="ponto_pergunta"></figure>
+                                </button>
+                                <% } %>
+                </article>
 
-            </nav>
+                <aside id="hide-opcoes-Desktop" class="hide-opcoes-Desktop-pergunta" style="display: none;">
+                    <section class="denunciar" id="denunciar" onclick="AbrirDenunciar()">
+                        <img src="/imagens-svg/2-body/denunciar-cor-preta.svg" alt="denunciar">
+                        <p>Denunciar Pergunta</p>
+                    </section>
+                    <section class="compartilhar">
+                        <img src="/imagens-svg/2-body/compartilhar-cor-preta.svg" alt="compartilhar">
+                        <p>Compartilhar Pergunta</p>
+                    </section>
+                </aside>
 
+                <aside id="hide-denuncia-Desktop" style="display: none;">
+                    <section class="header-popup-denunciar">
+                        <figure class="popup-header-figure">
+                            <img src="/imagens-svg/4-PopUp/gato-preenchido-roxo.svg" alt="icon gato criar dica"
+                                class="gato-popup-header">
+                            <h2 id="titulo-do-pop-up">Faça sua denúncia!</h2>
+                        </figure>
+
+                        <figure id="fechar-pop-up-denuncia">X</figure>
+                    </section>
+
+                    <section class="body-popup-denuncia">
+                        <h2 class="denuncia-titulo">Nos conte sobre sua denúncia:</h2>
+
+
+
+
+                        <form class="denuncia-form" action="/denunciar/<%= postagem.id %>" method="POST">
+                            <label for="denuncia-tipo" class="denuncia-label">Motivo da Denúncia:</label>
+                            <select id="denuncia-tipo" name="motivo" class="denuncia-select" required>
+                                <option class="opcao-select-popup" value="">Selecione o motivo</option>
+                                <option class="opcao-select-popup" value="spam">Spam</option>
+                                <option class="opcao-select-popup" value="conteudo-inadequado">Conteúdo Inadequado
+                                </option>
+                                <option class="opcao-select-popup" value="violencia">Violações dos termos de uso
+                                </option>
+                            </select>
+
+                            <label for="denuncia-descricao" class="denuncia-label">Descrição:</label>
+                            <textarea id="denuncia-descricao" name="detalhamento_denuncia" class="denuncia-textarea"
+                                required placeholder="Detalhe o motivo da denúncia..."></textarea>
+
+                            <button type="submit" class="denuncia-submit">Enviar Denúncia</button>
+                        </form>
+
+
+
+                    </section>
+                </aside>
+            </article>
+
+            <hr class="linha-pergunta-culinaria">
+            <article class="pergunta-parte-baixo">
+                <% if (postagem.categoria===1) { %>
+                    <figure class="categoria-pergunta-desktop_culinaria">
+                        <img src="/imagens/icon-culinaria-branco.png" alt="icon-categoria" class="icon-categoria">
+                        <h1 class="titulo-categoria">
+                            <%= postagem.nomeCategoria %>
+                        </h1>
+                    </figure>
+                    <% } else if (postagem.categoria===2) { %>
+                        <figure class="categoria-pergunta-desktop_limpeza">
+                            <img src="/imagens/icon-limpeza-branco.png" alt="icon-categoria" class="icon-categoria">
+                            <h1 class="titulo-categoria">
+                                <%= postagem.nomeCategoria %>
+                            </h1>
+                        </figure>
+                        <% } else if (postagem.categoria===3) { %>
+                            <figure class="categoria-pergunta-desktop_bemestar">
+                                <img src="/imagens/icon-bemestar-branco.png" alt="icon-categoria"
+                                    class="icon-categoria">
+                                <h1 class="titulo-categoria">
+                                    <%= postagem.nomeCategoria %>
+                                </h1>
+                            </figure>
+                            <% } %>
+                                <p class="conteudoperg">
+                                    <%= postagem.titulo %>
+                                </p>
+                                <nav class="opcoes-ajuda-desktop">
+                                    <button class="ajuda">Patinhas</button>
+
+                                    <button class="ajudar "> <img class="patinha" src="/imagens-svg/patinha-icon.svg"
+                                            alt="mão botão ajudar">Dar a pata</button>
+
+                                </nav>
+            </article>
         </section>
     </section>
 </main>

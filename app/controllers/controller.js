@@ -306,6 +306,12 @@ const tarefasController = {
             if (!postagem) {
                 return res.status(404).render("pages/erro", { mensagem: "Postagem não encontrada" });
             }
+            
+            const usuarioPerfil = await conteudoModel.obterPerfilPorNickname(postagem.nome_usuario);
+
+            const fotoPerfil = usuarioPerfil?.foto_icon_perfil 
+            ? `data:image/png;base64,${usuarioPerfil.foto_icon_perfil.toString('base64')}`
+            : null;
 
             function formatarTempo(tempo) {
                 let duracao = moment.duration(tempo, 'HH:mm:ss');
@@ -337,7 +343,8 @@ const tarefasController = {
                 ingredientes: ingredientes,
                 subcategorias: postagem.subcategorias,
                 mediaAvaliacoes,
-                imagem: postagem.idMidia ? `data:image;base64,${postagem.idMidia.toString('base64')}` : null
+                imagem: postagem.idMidia ? `data:image;base64,${postagem.idMidia.toString('base64')}` : null,
+                fotoPerfil
             };
 
             switch (postagem.Categorias_idCategorias) {

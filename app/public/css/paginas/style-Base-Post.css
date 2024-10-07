@@ -28,6 +28,7 @@
   }
   #img-usuario-post, #img-login_hover-post, #img-login-post{
     width: 4vh;
+    border-radius: 50%;
   }
   #img-login-post{
     display: inline-block;
