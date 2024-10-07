@@ -1,153 +1,185 @@
 <main>
-      <form class="criarpost">
-         <section id="criar-post-cancela">
-             <figure id="cancela-criar-post">X</figure>
-             <figcaption id="titulo-criar-post">Criar Dica</figcaption>
-         </section>
-         <section id="criar-post-etapas">
-             <section class="linha-baixo">
-                 <section class="linha-progresso" id="progresso"></section>
-             </section>
-             
-             <article id="botoes-criar-post">
-                 <button id="btnVoltar" class="Voltar">VOLTAR</button>
-                 <button id="btnAvancar" class="Avancar">PRÓXIMA ETAPA...</button>
-             </article>
-             <nav class="lista-tarefas">
-                 <button class="tarefa ativo" id="detalhes">Detalhes</button>
-                 <button class="tarefa" id="elementos">Elementos</button>
-                 <button class="tarefa" id="midias">Mídias</button>
-             </nav>
-             <section id="agrupamento-conteudo">
-                 <article class="conteudo conteudo1" id="conteudoTarefa1">
-                     <h2 id="detalhes">Detalhes</h2>
-                     <section id="detalhes-primeira-parte">
-                         <h3 id="titulo-da-postagem">Título da postagem</h3>
-                         <input type="text" id="texto-titulo-da-postagem" placeholder="Escreva um título para a sua postagem..." name="dica_titulo">
-                     </section>
-                     <section id="detalhes-segunda-parte">
-                         <section class="guarda-select">
-                             <input class="dialogoselect" id="dialogoselect" type="text" name="dica_categoria"
-                                    onfocus="dropdown(0)" onblur="dropdown(1)" placeholder="Categoria da postagem"
-                                    readonly="readonly" />
-                             <section class="dropDown" id="dropdown">
-                                 <article class="listDropDown">
-                                     <img class="iconitem-select-detalhes" id="icon-dropdown" onmousedown="category(1)"
-                                          src="./imagens/culinaria-icon-categoria-1.png" alt="culinária">
-                                     <div value="culinaria-categoria" class="item-select-detalhes texto"
-                                          id="item-select-detalhes-1" onmousedown="category(1)">CULINÁRIA</div>
-                                     <img class="iconitem-select-detalhes icon" id="icon-dropdown" onmousedown="category(2)"
-                                          src="./imagens/limpeza-icon-categoria.png" alt="limpeza">
-                                     <div class="item-select-detalhes texto" id="item-select-detalhes-2"
-                                          onmousedown="category(2)">LIMPEZA</div>
-                                     <img class="iconitem-select-detalhes icon" id="icon-dropdown" onmousedown="category(3)"
-                                          src="./imagens/bem-estar-icon-categoria.png" alt="bem-estar">
-                                     <div class="item-select-detalhes texto" id="item-select-detalhes-3"
-                                          onmousedown="category(3)">BEM-ESTAR</div>
-                                 </article>
-                             </section>
-                             <img id="icon-seta-select" src="./imagens/seta-select.svg" alt="selecione uma categoria">
-                         </section>
-                         <h3 id="tempo-resultado-detalhes">Tempo & Resultado</h3>
-                         <section id="tempo-detalhes">
-                             <img id="imagem-tempo-detalhes" src="./imagens/tempo-cor-cinza.svg" alt="tempo de execução">
-                             <input type="number" id="horas-tempo-detalhes" placeholder="00"  name="dica_tempo_horas">HORAS
-                             <input type="number" id="minutos-tempo-detalhes" placeholder="00"  name="dica_tempo_minutos">MINUTOS
-                         </section>
-                         <section id="tempo-detalhes-porcoes">
-                             <img id="imagem-tempo-detalhes-porcoes" src="./imagens/porçoes-cinza-culinaria.png"
-                                  alt="tempo de execução">
-                             <input type="number" id="porcoes-tempo-detalhes" placeholder="00"  name="dica_porcoes">PORÇÕES
-                         </section>
-                         <section id="descricao-detalhes-total">
-                             <h3 id="titulo-descricao-detalhes" name="dica_descricao">DESCRIÇÃO</h3>
-                             <input type="text" id="descricao-detalhes">
-                         </section>
-                         <section id="subcategoria-detalhes-total">
-                             <h3 id="titulo-subcategoria-detalhes">SUBCATEGORIAS</h3>
-                             <section class="input-container">
-                                 <input type="text" id="input-text-subcategoria" name="dica_subcategorias">
-                                 <img src="./imagens/adicionar-etiqueta.svg" id="icon" onclick="adicionarMensagem()" alt="">
-                             </section>
-                             <section id="messageList" class="message-list"></section>
-                         </section>
-                     </section>
-                 </article>
-                 <article class="conteudo conteudo2" id="conteudoTarefa2">
-                     <h2 id="elementos">Elementos</h2>
-                     <section id="esqueleto-elementos">
-                         <h2 id="titulo-ingredientes-elementos">INGREDIENTES</h2>
-                         <section id="clonados-ou-nao">
-                             <article id="ingredientes-elementos">
-                                 <img id="botao-de-add-ingrediente" src="./imagens/adicionar-ingrediente.svg"
-                                      onclick="duplicarDiv()">
-                                 <img id="botao-de-tirar-ingrediente" src="./imagens/tirar-ingrediente.svg"
-                                      alt="excluir ingrediente" onclick="apagarDiv(this)">
-                                 <section id="sem-a-linha-rosa">
-                                     <h4 id="nome-do-ingrediente">Nome do ingrediente</h4>
-                                     <input type="text" id="input-nome-do-ingrediente" placeholder="Farinha de trigo">
-                                     <section id="coiso-pra-deixar-certo">
-                                         <section id="quantidade-elementos">
-                                             <h4 id="nome-do-ingrediente">Quantidade/Peso</h4>
-                                             <input type="text" id="input-quantidade-do-ingrediente" placeholder="01">
-                                         </section>
-                                         <section id="guardar-medidas-elementos">
-                                             <h4 id="nome-do-ingrediente">Medida</h4>
-                                             <select name="medidas-elementos" id="medidas-elementos">
-                                                 <option value="item-de-modo-de-preparo" class="item-medidas">Unidade</option>
-                                                 <option value="item-de-modo-de-preparo" class="item-medidas">Xícara</option>
-                                                 <option value="item-de-modo-de-preparo" class="item-medidas">Colher de sopa</option>
-                                                 <option value="item-de-modo-de-preparo" class="item-medidas">Colher de chá</option>
-                                                 <option value="item-de-modo-de-preparo" class="item-medidas">Copo americano</option>
-                                                 <option value="item-de-modo-de-preparo" class="item-medidas">Gramas (gr)</option>
-                                                 <option value="item-de-modo-de-preparo" class="item-medidas">Quilogramas (kg)</option>
-                                                 <option value="item-de-modo-de-preparo" class="item-medidas">Mililitros (ml)</option>
-                                                 <option value="item-de-modo-de-preparo" class="item-medidas">Litros (L)</option>
-                                             </select>
-                                         </section>
-                                     </section>
-                                     <section id="linha-rosa-ingredientes">
-                                         <h2 id="numero-do-ingrediente">1</h2>
-                                     </section>
-                                 </article>
-                             </section>
-                             <section id="tudo-dos-clones">
-                                 <article id="linhas-roxa-conteudo">
-                                     <section id="titulo-texto-modo">
-                                         <h2 id="modo-de-preparo-titulo">MODO DE PREPARO</h2>
-                                         <h4 id="passo-a-passo-modo">Passo a passo</h4>
-                                     </section>
-                                     <section id="botoes-de-tirar-colocar">
-                                         <img id="botao-de-add-modo" src="./imagens/adicionar-ingrediente.svg"
-                                              onclick="duplicarDivModo()">
-                                     </section>
-                                     <section id="modo-de-preparo">
-                                         <span id="arruma-numero-simbolo">
-                                             <input type="text" id="numero-do-modo-de-preparo" placeholder="1" disabled="disabled">
-                                             <h2 id="simbolo-do-numero">º</h2>
-                                         </span>
-                                         <input type="text" id="input-modo-de-preparo" placeholder="Misture todos os ingredientes...">
-                                         <button id="apagar-modo-de-preparo" onclick="apagarDivModo(this)">X</button>
-                                     </section>
-                                 </article>
-                             </section>
-                         </section>
-                     </section>
-                    </article>
-                    <article class="conteudo conteudo3" id="conteudoTarefa3">
-                        <h3 id="midias">Mídias</h3>
-                        <input type="file" id="files" accept="image/*" multiple style="display: none;" name="imagem_criar_post">
-                        <section id="esqueleto-midias">
-                            <h1 id="adicione-midias">ADICIONE IMAGENS E VÍDEOS À SUA POSTAGEM!</h1>
-                            <section id="retangulo-adicionar-midia">
-                                <img src="./imagens/mais-rosa.svg" alt="adicionar mídia" id="mais-adicionar-midia">
+    <section id="criar-post-cancela-mb">
+        <figure id="cancela-criar-post-mb">X</figure>
+        <figcaption id="titulo-criar-post-mb">Criar Dica</figcaption>
+    </section>
+
+    <section class="linha-baixo-mb">
+        <section class="linha-progresso-mb" id="progresso-mb"></section>
+    </section>
+
+    <form action="/criar-dica" method="post" enctype="multipart/form-data">
+        <section id="criar-post-etapas-mb">
+            <article id="botoes-criar-post-mb">
+                <button id="btnVoltar-mb" class="Voltar-mb">VOLTAR</button>
+                <button id="btnAvancar-mb" class="Avancar-mb">PRÓXIMA ETAPA...</button>
+            </article>
+
+            <nav class="lista-tarefas-mb">
+                <!-- <button class="tarefa-mb ativo" id="detalhes-mb">Detalhes</button>
+                <button class="tarefa-mb" id="elementos-mb">Elementos</button>
+                <button class="tarefa-mb" id="midias-mb">Mídias</button> -->
+
+                <article class="tarefa-mb ativo" id="conteudoTarefa1-mb">
+                    <h2 id="detalhes-mb">Detalhes</h2>
+                    <section id="detalhes-primeira-parte-mb">
+                        <h3 id="titulo-da-postagem-mb">Título da Dica</h3>
+                        <input type="text" id="texto-titulo-da-postagem-mb"
+                            placeholder="Como que faz..." name="dica_titulo">
+                            
+                        <section class="guarda-select-mb">
+                            <input class="dialogoselect-mb" id="dialogoselect-mb" type="text" name="dica_categoria"
+                                 placeholder="Categoria da postagem" readonly="readonly" />
+                            <section class="dropDown-mb" id="dropdown-mb">
+
+                                <article class="listDropDown-mb">
+                                    <img class="iconitem-select-detalhes-mb" id="icon-dropdown-mb"
+                                        onmousedown="categor(1)" src="/imagens/culinaria-icon-categoria-1.png"
+                                        alt="culinária">
+
+                                    <div value="culinaria-categoria" class="item-select-detalhes-mb texto"
+                                        id="item-select-detalhes-mb-1" onmousedown="categor(1)">Culinária</div>
+
+                                    <img class="iconitem-select-detalhes-mb icon" id="icon-dropdown-mb"
+                                        onmousedown="categor(2)" src="/imagens/limpeza-icon-categoria.png"
+                                        alt="limpeza">
+
+                                    <div class="item-select-detalhes-mb texto" id="item-select-detalhes-mb-2"
+                                        onmousedown="categor(2)">Limpeza</div>
+
+                                    <img class="iconitem-select-detalhes-mb icon" id="icon-dropdown-mb"
+                                        onmousedown="categor(3)" src="/imagens/bem-estar-icon-categoria.png"
+                                        alt="bem-estar">
+
+                                    <div class="item-select-detalhes-mb texto" id="item-select-detalhes-mb-3"
+                                        onmousedown="categor(3)">Bem Estar</div>
+                                </article>
+
                             </section>
-                            <section class="midia-adicionada-retangulo" id="midia-adicionada-retangulo"></section>
                         </section>
-                        <section id="result"></section>
-                    </article>
-             </section>
-         </section>
-        </form>
-     
-   </main>
+                    </section>
+
+                    <section id="detalhes-segunda-parte-mb">
+                        <h3 id="tempo-resultado-detalhes-mb">Tempo & Resultado</h3>
+                        <section id="tempo-detalhes-mb">
+                            <img id="imagem-tempo-detalhes-mb" src="/imagens/tempo-cor-cinza.svg" alt="tempo de execução">
+                            <input type="number" id="horas-tempo-detalhes-mb" placeholder="00"
+                                name="dica_tempo_horas"> H
+                            <input type="number" id="minutos-tempo-detalhes-mb" placeholder="00"
+                                name="dica_tempo_minutos">Min
+                        </section>
+
+                        <section id="tempo-detalhes-porcoes-mb">
+                            <img id="imagem-tempo-detalhes-porcoes-mb" src="/imagens/porçoes-cinza-culinaria.png"
+                                alt="tempo de execução">
+                            <input type="number" id="porcoes-tempo-detalhes-mb" placeholder="00"
+                                name="dica_porcoes">Porções
+                        </section>
+
+                        <section id="descricao-detalhes-total-mb">
+                            <h3 id="titulo-descricao-detalhes-mb" name="dica_descricao">Descrição</h3>
+                            <input type="text" id="descricao-detalhes-mb">
+                        </section>
+                        
+                        <section id="subcategoria-detalhes-total-mb">
+                            <h3 id="titulo-subcategoria-detalhes-mb">Subcategorias</h3>
+                            <section class="input-container-mb">
+                                <input type="text" id="input-text-subcategoria-mb" name="dica_subcategorias">
+                                <img src="/imagens/adicionar-etiqueta.svg" id="icon-mb" onclick="adicionarMensagem()"
+                                    alt="">
+                            </section>
+                            <section id="messageList-mb" class="message-list-mb"></section>
+                        </section>
+                    </section>
+                </article>
+
+                <article class="tarefa-mb" id="conteudoTarefa2-mb">
+                    <h2 id="elementos-mb">Elementos</h2>
+                    <section id="esqueleto-elementos-mb">
+                        <h2 id="titulo-ingredientes-elementos-mb">INGREDIENTES</h2>
+                        <section id="clonados-ou-nao-mb">
+                            <article id="ingredientes-elementos-mb">
+                                <img id="botao-de-add-ingrediente-mb" src="/imagens/adicionar-ingrediente.svg"
+                                    onclick="duplicarDiv()">
+                                <img id="botao-de-tirar-ingrediente-mb" src="/imagens/tirar-ingrediente.svg"
+                                    alt="excluir ingrediente" onclick="apagarDiv(this)">
+                                <section id="sem-a-linha-rosa-mb">
+                                    <h4 id="nome-do-ingrediente-mb">Nome do ingrediente</h4>
+                                    <input type="text" id="input-nome-do-ingrediente-mb" placeholder="Farinha de trigo">
+                                    <section id="coiso-pra-deixar-certo-mb">
+                                        <section id="quantidade-elementos-mb">
+                                            <h4 id="nome-do-ingrediente-mb">Quantidade/Peso</h4>
+                                            <input type="text" id="input-quantidade-do-ingrediente-mb" placeholder="01">
+                                        </section>
+                                        <section id="guardar-medidas-elementos-mb">
+                                            <h4 id="nome-do-ingrediente-mb">Medida</h4>
+                                            <select name="medidas-elementos" id="medidas-elementos-mb">
+                                                <option value="item-de-modo-de-preparo" class="item-medidas-mb">Unidade
+                                                </option>
+                                                <option value="item-de-modo-de-preparo" class="item-medidas-mb">Xícara
+                                                </option>
+                                                <option value="item-de-modo-de-preparo" class="item-medidas-mb">Colher de
+                                                    sopa</option>
+                                                <option value="item-de-modo-de-preparo" class="item-medidas-mb">Colher de
+                                                    chá</option>
+                                                <option value="item-de-modo-de-preparo" class="item-medidas-mb">Copo
+                                                    americano</option>
+                                                <option value="item-de-modo-de-preparo" class="item-medidas-mb">Gramas (gr)
+                                                </option>
+                                                <option value="item-de-modo-de-preparo" class="item-medidas-mb">Quilogramas
+                                                    (kg)</option>
+                                                <option value="item-de-modo-de-preparo" class="item-medidas-mb">Mililitros
+                                                    (ml)</option>
+                                                <option value="item-de-modo-de-preparo" class="item-medidas-mb">Litros (L)
+                                                </option>
+                                            </select>
+                                        </section>
+                                    </section>
+                                    <section id="linha-rosa-ingredientes-mb">
+                                        <h2 id="numero-do-ingrediente-mb">1</h2>
+                                    </section>
+                            </article>
+                        </section>
+                        <section id="tudo-dos-clones-mb">
+                            <article id="linhas-roxa-conteudo-mb">
+                                <section id="titulo-texto-modo-mb">
+                                    <h2 id="modo-de-preparo-titulo-mb">MODO DE PREPARO</h2>
+                                    <h4 id="passo-a-passo-modo-mb">Passo a passo</h4>
+                                </section>
+                                <section id="botoes-de-tirar-colocar-mb">
+                                    <img id="botao-de-add-modo-mb" src="/imagens/adicionar-ingrediente.svg"
+                                        onclick="duplicarDivModo()">
+                                </section>
+                                <section id="modo-de-preparo-mb">
+                                    <span id="arruma-numero-simbolo-mb">
+                                        <input type="text" id="numero-do-modo-de-preparo-mb" placeholder="1"
+                                            disabled="disabled">
+                                        <h2 id="simbolo-do-numero-mb">º</h2>
+                                    </span>
+                                    <input type="text" id="input-modo-de-preparo-mb"
+                                        placeholder="Misture todos os ingredientes...">
+                                    <button id="apagar-modo-de-preparo-mb" onclick="apagarDivModo(this)">X</button>
+                                </section>
+                            </article>
+                        </section>
+                    </section>
+                </article>
+
+                <article class="tarefa-mb" id="conteudoTarefa3-mb">
+                    <h3 id="midias-mb">Mídias</h3>
+                    <input type="file" id="files-mb" accept="image/*" multiple style="display: none;"
+                        name="imagem_criar_post">
+                    <section id="esqueleto-midias-mb">
+                        <h1 id="adicione-midias-mb">ADICIONE IMAGENS E VÍDEOS À SUA DICA!</h1>
+                        <section id="retangulo-adicionar-midia-mb">
+                            <img src="/imagens/mais-rosa.svg" alt="adicionar mídia" id="mais-adicionar-midia-mb">
+                        </section>
+                        <section class="midia-adicionada-retangulo-mb" id="midia-adicionada-retangulo-mb"></section>
+                    </section>
+                    <section id="result-mb"></section>
+                </article>
+            </nav>
+        </section>
+    </form>
+
+</main>
