@@ -149,15 +149,18 @@ const tarefasController = {
             let pagina = req.query.pagina || 1;
             let regPagina = 12;
             let inicio = (pagina - 1) * regPagina;
+
             let results = await conteudoModel.FindPage(categoria, filtros[filtro], inicio, regPagina);
             let totReg = await conteudoModel.TotalReg(categoria, filtros[filtro]);
             let totalRegistros = totReg[0].total;
             let totPaginas = Math.ceil(totalRegistros / regPagina);
+
             let paginador = totalRegistros <= 12 ? null : {
                 "pagina_atual": pagina,
                 "total_reg": totalRegistros,
                 "total_paginas": totPaginas
             };
+
             function formatarTempo(tempo) {
                 let duracao = moment.duration(tempo, 'HH:mm:ss');
                 let horas = duracao.hours();
@@ -172,9 +175,13 @@ const tarefasController = {
                     return '';
                 }
             }
+
             let combinedConteudo = await Promise.all(results.map(async (conteudo) => {
                 let ingredientes = await conteudoModel.BuscarIngredientesPorPostagemId(conteudo.id);
                 let mediaAvaliacoes = await conteudoModel.CalcularMediaAvaliacoes(conteudo.id);
+
+                const isPatinha = await conteudoModel.VerificarSePatinha(conteudo.id);
+                console.log(isPatinha);
                 return {
                     nome: conteudo.Titulo,
                     usuario: conteudo.Clientes_idClientes,
@@ -189,7 +196,8 @@ const tarefasController = {
                     subcategorias: conteudo.subcategorias,
                     ingredientes: ingredientes.length ? ingredientes.map(i => i.ingredientes).join(', ') : null,
                     mediaAvaliacoes,
-                    imagem: conteudo.idMidia ? `data:image;base64,${conteudo.idMidia.toString('base64')}` : null
+                    imagem: conteudo.idMidia ? `data:image;base64,${conteudo.idMidia.toString('base64')}` : null,
+                    patinha: isPatinha
                 };
             }));
 

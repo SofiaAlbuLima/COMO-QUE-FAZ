@@ -122,6 +122,15 @@
     width: 100%;
     position: relative;
   }
+  .patinhas-favoritar{
+    justify-content: space-between;
+    display: flex;
+  }
+
+  .patinha-indicador{
+    width: 3vh;
+    display: flex;
+  }
 
   .hover_ingredientes_basePost-culinaria,
   .hover_ingredientes_basePost-limpeza,

@@ -6,6 +6,12 @@
                <figure class="postagem_parte_de_cima">
                   <% if (item.categoria===1) { %>
                      <figure class="hover_ingredientes_basePost-culinaria">
+                        <article class="patinhas-favoritar">
+                        <% if (item.patinha) { %>
+                           <img class="patinha-indicador" src="/imagens-svg/patinha-icon.svg" alt="">
+                           <% } %>
+                           <img class="patinha-indicador" src="/imagens-svg/2-body/salvar-post-vazado.svg" alt="">
+                        </article>
                         <h3 class="ingredientes_basePost">
                            <%= item.ingredientes ? item.ingredientes.replace(/,\s*/g, ' - ' )
                               : 'Essa dica não contém itens necessários' %>
@@ -13,6 +19,12 @@
                      </figure>
                      <% } else if (item.categoria===2) { %>
                         <figure class="hover_ingredientes_basePost-limpeza">
+                           <article class="patinhas-favoritar">
+                           <% if (item.patinha) { %>
+                              <img class="patinha-indicador" src="/imagens-svg/patinha-icon.svg" alt="">
+                              <% } %>
+                              <img class="patinha-indicador" src="/imagens-svg/2-body/salvar-post-vazado.svg" alt="">
+                           </article>
                            <h3 class="ingredientes_basePost">
                               <%= item.ingredientes ? item.ingredientes.replace(/,\s*/g, ' - ' )
                                  : 'Essa dica não contém itens necessários' %>
@@ -20,6 +32,12 @@
                         </figure>
                         <% } else if (item.categoria===3) { %>
                            <figure class="hover_ingredientes_basePost-bemEstar">
+                              <article class="patinhas-favoritar">
+                              <% if (item.patinha) { %>
+                                 <img class="patinha-indicador" src="/imagens-svg/patinha-icon.svg" alt="">
+                                 <% } %>
+                                 <img class="patinha-indicador" src="/imagens-svg/2-body/salvar-post-vazado.svg" alt="">
+                              </article>
                               <h3 class="ingredientes_basePost">
                                  <%= item.ingredientes ? item.ingredientes.replace(/,\s*/g, ' - ' )
                                     : 'Essa dica não contém itens necessários' %>
@@ -44,6 +62,7 @@
                               <img src="<%= item.imagem %>" alt="imagem da postagem" class="imagem_postagem">
                           </div>
                </figure>
+               
                <aside class="legenda">
                   <figure class="legenda_relogio">
                      <img src="/imagens/relogio-cinza.svg" alt="relogio">

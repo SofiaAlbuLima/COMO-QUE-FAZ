@@ -386,6 +386,18 @@ const conteudoModel = {
         } catch (erro) {
             throw erro;
         }
+    },
+    VerificarSePatinha: async (conteudoId) => {
+        try {
+            const [rows] = await pool.query(`
+                SELECT 1 FROM respostas_dica
+                WHERE Conteudo_ID_Dica = ?`, [conteudoId]);
+    
+            return rows.length > 0;
+        } catch (error) {
+            console.error("Erro ao verificar se é uma patinha: ", error);
+            return false;
+        }
     }
 }
 
