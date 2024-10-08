@@ -196,6 +196,7 @@ router.get("/login", function (req, res) {
         pagina: { cabecalho: "cabecalho", FormCadastro: "template_cadastro", FormLogin: "template_login", conteudo: "Fazer-Login", rodape: "rodape" },
         usuario_logado: req.session.autenticado,
         listaErroslog: null,
+        listaErrosCad: null,
         listaErros: null,
         dadosNotificacao: null
     });
