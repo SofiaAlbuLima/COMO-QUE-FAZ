@@ -106,6 +106,7 @@ mostrarArtigo(currentIndex);
 function categor(categorId) {
     var inputElement = document.querySelector('.dialogoselect-mb');
     var itemElement = document.getElementById('item-select-detalhes-mb-' + categorId);
+    const section = document.getElementById('tempo-detalhes-porcoes-mb');
 
     if (!itemElement) {
         console.error('Categoria não encontrada para o ID: ' + categorId);
@@ -117,12 +118,15 @@ function categor(categorId) {
     switch (categorId) {
         case 1:
             inputElement.classList.add('categoria-culinaria');
+            section.style.display = 'flex'; // Exibe a section
             break;
         case 2:
             inputElement.classList.add('categoria-limpeza');
+            section.style.display = 'none';  // Oculta a section
             break;
         case 3:
             inputElement.classList.add('categoria-bemestar');
+            section.style.display = 'none';  // Oculta a section
             break;
         default:
             console.warn('ID de categoria inválido: ' + categorId);
@@ -133,36 +137,7 @@ function categor(categorId) {
 
     inputElement.value = '';
 
-    mostrarElementoCulinaria();
 }
-
-const input = document.getElementById('dialogoselect-mb');
-const section = document.getElementById('tempo-detalhes-porcoes-mb');
-
-input.addEventListener('input', function() {
-    if (input.value.toLowerCase() === 'Culinária') {
-        section.style.display = 'flex'; // Exibe a section
-    } else {
-        section.style.display = 'none';  // Oculta a section
-    }
-});
-
-// function mostrarElementoCulinaria() {
-//     var input = document.getElementById("dialogoselect-mb");
-//     var elementoPorcoes = document.getElementById("tempo-detalhes-porcoes-mb");
-
-//     // Para depuração
-//     console.log("Verificando se mostrarElementoCulinaria está sendo chamada");
-
-//     // Verifica se o input tem a classe da categoria culinária
-//     if (input.classList.contains("categoria-culinaria")) {
-//         console.log("Categoria Culinária detectada, mostrando o elemento");
-//         elementoPorcoes.style.display = "block"; // Mostra o campo "porções"
-//     } else {
-//         console.log("Categoria não é culinária, escondendo o elemento");
-//         elementoPorcoes.style.display = "none"; // Esconde o campo "porções"
-//     }
-// }
 
 document.addEventListener("DOMContentLoaded", function () {
     const inputSelect = document.getElementById("dialogoselect-mb");
