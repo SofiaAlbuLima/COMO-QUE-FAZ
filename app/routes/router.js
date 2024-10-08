@@ -171,6 +171,13 @@ router.get("/criar-dica", verificarUsuAutorizado([1, 2], "/"), function (req, re
     });
 });
 
+router.get("/criar-pergunta-mob", verificarUsuAutorizado([1, 2], "/"), function (req, res) {
+    res.render("pages/template", {
+        pagina: { cabecalho: "cabecalho", conteudo: "Criar-pergunta", rodape: "none" },
+        usuario_logado: req.session.autenticado,
+    });
+});
+
 router.get("/criar-pergunta", VerificarAutenticacao, function (req, res) {
     res.render("pages/template", {
         pagina: { cabecalho: "cabecalho", conteudo: "Criar-pergunta", rodape: "none" },

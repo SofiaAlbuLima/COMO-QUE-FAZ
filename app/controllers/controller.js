@@ -297,7 +297,7 @@ const tarefasController = {
                 paginaAtual: pagina,
                 totalPaginas: totalPaginas,
                 
-    paginaAtual: paginador ? paginador.paginaAtual : 1,: paginador,
+    paginaAtual: paginador ? paginador.paginaAtual : 1,
                 categoriaAtual: categoria || 'todas',
                 novoFiltro: filtro || 'recente',
             };
