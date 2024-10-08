@@ -1,8 +1,8 @@
 <% 
          let avisoErro = {"input1":"", "input2":""}
          let msgErro = ""
-             if(listaErroslog){
-                 listaErroslog.errors.forEach(function(itemErro){
+             if(listaErrosCad){
+                 listaErrosCad.errors.forEach(function(itemErro){
                      if(itemErro.path == "input1"){
                          avisoErro.input1 = "erro";
                          msgErro += `* ${itemErro.msg} <br>`

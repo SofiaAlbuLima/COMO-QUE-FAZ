@@ -422,10 +422,11 @@
   }
 
   #tempo-detalhes-porcoes-mb {
-    display: flex;
+    display: none;
     align-items: center;
     margin-top: 5.6vw;
     margin-left: 6.4%;
+    color: #979797;
   }
 
   #horas-tempo-detalhes-mb {
@@ -486,10 +487,6 @@
         color: #cb218c;
       }
     }
-  }
-
-  #tempo-detalhes-porcoes-mb{
-    color: #979797;
   }
 
   #porcoes-tempo-detalhes-mb{

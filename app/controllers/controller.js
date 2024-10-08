@@ -99,7 +99,7 @@ const tarefasController = {
                 pagina: { cabecalho: "cabecalho", conteudo: "Fazer-Login", FormCadastro: "template_cadastro", FormLogin: "template_login", rodape: "rodape" },
                 usuario_logado: req.session.autenticado,
                 listaErros: erros,
-                listaErroslog: null,
+                listaErrosCad: null,
                 dadosNotificacao: null
             });
         }
@@ -119,7 +119,7 @@ const tarefasController = {
                 pagina: { cabecalho: "cabecalho", conteudo: "Fazer-Login", FormCadastro: "template_cadastro", FormLogin: "template_login", rodape: "rodape" },
                 usuario_logado: req.session.autenticado,
                 listaErros: null,
-                listaErroslog: null,
+                listaErrosCad: null,
                 dadosNotificacao: {
                     titulo: "Erro ao cadastrar!",
                     mensagem: "Tente novamente!",
