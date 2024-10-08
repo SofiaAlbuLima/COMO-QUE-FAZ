@@ -630,25 +630,12 @@
         padding-right: 4vh;
     }
 
-    .linha-pergunta-culinaria,
-    .linha-pergunta-limpeza,
-    .linha-pergunta-bemEstar {
+    .linha-pergunta{
         border-top: none;
         border-left: none;
         border-right: none;
         margin-bottom: 2vh;
-    }
-
-    .linha-pergunta-culinaria {
-        border-bottom: #cb1154 2px solid;
-    }
-
-    .linha-pergunta-limpeza {
-        border-bottom: #027de1 2px solid;
-    }
-
-    .linha-pergunta-bemEstar {
-        border-bottom: #00cd83 2px solid;
+        border-bottom: #cb218c 2px solid;
     }
 
     .categoria-pergunta-desktop_culinaria,
@@ -768,38 +755,17 @@
         transform: translate(-34vh, 0vh);
     }
 
-    .opcoes_pergunta_culinaria,
-    .opcoes_pergunta_limpeza,
-    .opcoes_pergunta_bemestar {
+    .opcoes_pergunta{
         cursor: pointer;
         padding: 0.8vh;
         border-radius: 10px;
         border: none;
         background-color: #f4f4f4;
+        border: none;
     }
 
-    .opcoes_pergunta_culinaria:hover {
-        background: #e8407225;
-    }
-
-    .opcoes_pergunta_limpeza:hover {
-        background: #027de12c;
-    }
-
-    .opcoes_pergunta_bemestar:hover {
-        background: #00cd823c;
-    }
-
-    .opcoes_pergunta_culinaria .ponto_pergunta {
-        background: #cb218c;
-    }
-
-    .opcoes_pergunta_limpeza .ponto_pergunta {
-        background: #027de1;
-    }
-
-    .opcoes_pergunta_bemestar .ponto_pergunta {
-        background: #00cd83;
+    .opcoes_pergunta:hover {
+        background: #cb218d26;
     }
 
     .ponto_pergunta {
@@ -807,5 +773,6 @@
         height: 8px;
         margin-bottom: 3px;
         border-radius: 3px;
+        background-color: #cb218c;
     }
 }

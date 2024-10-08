@@ -296,8 +296,8 @@ const tarefasController = {
                 filtro: filtro,
                 paginaAtual: pagina,
                 totalPaginas: totalPaginas,
-                
-    paginaAtual: paginador ? paginador.paginaAtual : 1,
+
+                paginaAtual: paginador ? paginador.paginaAtual : 1,
                 categoriaAtual: categoria || 'todas',
                 novoFiltro: filtro || 'recente',
             };
@@ -402,6 +402,10 @@ const tarefasController = {
     MostrarPatinhas: async (req, res) => {
         try {
             const idPergunta = req.params.IdPostagem;
+
+            const pergunta = await conteudoModel.BuscarPerguntaPorId(idPergunta);
+            const nomePergunta = pergunta ? pergunta.titulo : 'Pergunta não encontrada';
+
             const dicasPatinhas = await conteudoModel.BuscarDicasPorPergunta(idPergunta);
 
             function formatarTempo(tempo) {
@@ -426,8 +430,7 @@ const tarefasController = {
                 return {
                     nome: dica.Titulo,
                     usuario: dica.Clientes_idClientes,
-                    nome_usuario: dica.nome_usuario,
-                    id: dica.id,
+                    id: dica.ID_conteudo,
                     categoria: dica.Categorias_idCategorias,
                     tempo: dica.tempo ? formatarTempo(dica.tempo) : null,
                     descricao: dica.Descricao || null,
@@ -437,6 +440,8 @@ const tarefasController = {
                     mediaAvaliacoes,
                     ingredientes: ingredientes.length ? ingredientes.map(i => i.ingredientes).join(', ') : null,
                     imagem: dica.idMidia ? `data:image;base64,${dica.idMidia.toString('base64')}` : null,
+                    patinha: true,
+                    tipo: 'dica'
                 };
             }));
 
@@ -460,6 +465,7 @@ const tarefasController = {
                 postagens: dicasFormatadas,
                 dicas: dicasFormatadas,
                 perguntaId: idPergunta,
+                nomePergunta: nomePergunta,
                 paginador: paginador,
                 paginaAtual: paginador ? paginador.paginaAtual : 1,
                 totalPaginas: totalPaginas,

@@ -86,26 +86,11 @@
                 </a>
 
                 <article class="categoria_opcoes-pergunta">
-                    <% if (postagem.categoria===1) { %>
-                        <button id="opcoes" class="opcoes_pergunta_culinaria" onclick="AbrirOpcoesDesktop(event)">
+                        <button id="opcoes" class="opcoes_pergunta" onclick="AbrirOpcoesDesktop(event)">
                             <figure class="ponto_pergunta"></figure>
                             <figure class="ponto_pergunta"></figure>
                             <figure class="ponto_pergunta"></figure>
                         </button>
-                        <% } else if (postagem.categoria===2) { %>
-                            <button id="opcoes" class="opcoes_pergunta_limpeza" onclick="AbrirOpcoesDesktop(event)">
-                                <figure class="ponto_pergunta"></figure>
-                                <figure class="ponto_pergunta"></figure>
-                                <figure class="ponto_pergunta"></figure>
-                            </button>
-                            <% } else if (postagem.categoria===3) { %>
-                                <button id="opcoes" class="opcoes_pergunta_bemestar"
-                                    onclick="AbrirOpcoesDesktop(event)">
-                                    <figure class="ponto_pergunta"></figure>
-                                    <figure class="ponto_pergunta"></figure>
-                                    <figure class="ponto_pergunta"></figure>
-                                </button>
-                                <% } %>
                 </article>
 
                 <aside id="hide-opcoes-Desktop" class="hide-opcoes-Desktop-pergunta" style="display: none;">
@@ -159,8 +144,8 @@
                     </section>
                 </aside>
             </article>
-
-            <hr class="linha-pergunta-culinaria">
+            
+            <hr class="linha-pergunta">
             <article class="pergunta-parte-baixo">
                 <% if (postagem.categoria===1) { %>
                     <figure class="categoria-pergunta-desktop_culinaria">
