@@ -1,12 +1,12 @@
 .sn-notifications-container {
-    --sn-success-color: rgb(111, 207, 151);
-    --sn-success-progress-color: rgb(84, 170, 120);
-    --sn-error-color: #4D16BB;
-    --sn-error-progress-color: rgb(192, 69, 69);
-    --sn-warning-color: rgb(242, 201, 76);
-    --sn-warning-progress-color: rgb(196, 166, 79);
-    --sn-info-color: rgb(81, 205, 243);
-    --sn-info-progress-color: rgb(84, 169, 196);
+    --sn-success-color: #4D16BB;
+    --sn-success-progress-color: #4D16BB;
+    --sn-error-color: #cb2154;
+    --sn-error-progress-color:#cb2154;
+    --sn-warning-color: #FFD662;
+    --sn-warning-progress-color: #FFD662;
+    --sn-info-color:#027de1;
+    --sn-info-progress-color:#027de1;
     --sn-notifications-gap: 20px;
     --sn-notifications-padding: 20px;
     --sn-notify-width: 320px;
