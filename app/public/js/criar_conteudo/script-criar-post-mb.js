@@ -136,37 +136,48 @@ function categor(categorId) {
     mostrarElementoCulinaria();
 }
 
-function mostrarElementoCulinaria() {
-    var input = document.getElementById("dialogoselect-mb");
-    var elementoPorcoes = document.getElementById("tempo-detalhes-porcoes-mb");
+const input = document.getElementById('dialogoselect-mb');
+const section = document.getElementById('tempo-detalhes-porcoes-mb');
 
-    // Para depuração
-    console.log("Verificando se mostrarElementoCulinaria está sendo chamada");
-
-    // Verifica se o input tem a classe da categoria culinária
-    if (input.classList.contains("categoria-culinaria")) {
-        console.log("Categoria Culinária detectada, mostrando o elemento");
-        elementoPorcoes.style.display = "block"; // Mostra o campo "porções"
+input.addEventListener('input', function() {
+    if (input.value.toLowerCase() === 'Culinária') {
+        section.style.display = 'flex'; // Exibe a section
     } else {
-        console.log("Categoria não é culinária, escondendo o elemento");
-        elementoPorcoes.style.display = "none"; // Esconde o campo "porções"
+        section.style.display = 'none';  // Oculta a section
     }
-}
+});
 
-document.addEventListener("DOMContentLoaded", function() {
+// function mostrarElementoCulinaria() {
+//     var input = document.getElementById("dialogoselect-mb");
+//     var elementoPorcoes = document.getElementById("tempo-detalhes-porcoes-mb");
+
+//     // Para depuração
+//     console.log("Verificando se mostrarElementoCulinaria está sendo chamada");
+
+//     // Verifica se o input tem a classe da categoria culinária
+//     if (input.classList.contains("categoria-culinaria")) {
+//         console.log("Categoria Culinária detectada, mostrando o elemento");
+//         elementoPorcoes.style.display = "block"; // Mostra o campo "porções"
+//     } else {
+//         console.log("Categoria não é culinária, escondendo o elemento");
+//         elementoPorcoes.style.display = "none"; // Esconde o campo "porções"
+//     }
+// }
+
+document.addEventListener("DOMContentLoaded", function () {
     const inputSelect = document.getElementById("dialogoselect-mb");
     const dropdownMenu = document.getElementById("dropdown-mb");
     const categoryItems = document.querySelectorAll(".item-select-detalhes-mb");
 
     // Evento para abrir/fechar o dropdown ao clicar no input
-    inputSelect.addEventListener("click", function() {
+    inputSelect.addEventListener("click", function () {
         // Alterna o display do dropdown (mostra ou oculta)
         dropdownMenu.style.display = dropdownMenu.style.display === "none" ? "block" : "none";
     });
 
     // Evento para selecionar uma categoria
     categoryItems.forEach(item => {
-        item.addEventListener("click", function() {
+        item.addEventListener("click", function () {
             const selectedCategory = item.getAttribute("data-category");
             inputSelect.value = selectedCategory; // Atualiza o valor do input com a categoria selecionada
             dropdownMenu.style.display = "none"; // Fecha o dropdown após a seleção
@@ -174,12 +185,13 @@ document.addEventListener("DOMContentLoaded", function() {
     });
 
     // Fecha o dropdown ao clicar fora do mesmo
-    document.addEventListener("click", function(event) {
+    document.addEventListener("click", function (event) {
         if (!inputSelect.contains(event.target) && !dropdownMenu.contains(event.target)) {
             dropdownMenu.style.display = "none";
         }
     });
 });
+
 
 function adicionarMensagem() {
     const inputText = document.getElementById('input-text-subcategoria-mb');
@@ -192,10 +204,8 @@ function adicionarMensagem() {
     if (inputValue !== '') {
         // Criar um novo elemento de div para exibir a mensagem
         const messageDiv = document.createElement('div');
-        messageDiv.id = 'div-etiqueta-subcategoria-mb';
+        messageDiv.className = 'div-etiqueta-subcategoria-mb';
         messageDiv.textContent = inputValue;
-        messageDiv.style.paddingLeft = '1%';
-        messageDiv.style.paddingRight = '1%';
 
         // Adicionar a div à lista de mensagens
         messageList.appendChild(messageDiv);
@@ -203,11 +213,27 @@ function adicionarMensagem() {
         // Limpar o valor do input
         inputText.value = '';
 
+        // Atualizar o campo oculto
+        atualizarCampoOculto();
+
+        // Adicionar evento de clique para remover a subcategoria
         messageDiv.addEventListener("click", function () {
             messageDiv.remove();
-        })
+            atualizarCampoOculto();
+        });
     }
+}
 
+function atualizarCampoOculto() {
+    const messageList = document.getElementById('messageList-mb');
+    const hiddenInput = document.getElementById('dica_subcategorias-mb');
+
+    // Obter todas as subcategorias da lista
+    const subcategorias = Array.from(messageList.getElementsByClassName('div-etiqueta-subcategoria-mb'))
+        .map(div => div.textContent.trim());
+
+    // Atualizar o valor do campo oculto
+    hiddenInput.value = subcategorias.join(', ');
 }
 
 window.onload = function () {
