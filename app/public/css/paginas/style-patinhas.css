@@ -1,0 +1,50 @@
+.container_patinhas{
+    display: flex;
+    margin-top: 18vh; 
+    justify-content: center;
+}
+.conteudo_patinhas{
+    width: 135vh;
+    margin-top: 0;
+}
+.mapa_do_site-link_patinhas{
+    display: inline;
+    margin-left: 2vh;
+    font-family: Fira Sans;
+    color: black;
+}
+.cabecalho_patinhas{
+    margin-top: 1vh;
+    display: flex;
+    justify-content: space-between;
+}
+.patinhas_textos{
+    display: flex;
+}
+.titulo-descricao-patinhas{
+    display: inline;
+    margin-left: 2vh;
+}
+.titulo_pagina_patinhas{
+    color: #4D16BB;
+    margin-top: 1vh;
+    font-size: 45px;
+    font-weight: 400;
+}
+.descricao_pagina_patinhas{
+    width: 45vh;
+    font-size: 2vh;
+    font-family: Fira Sans;
+    margin-bottom: 2vh;
+}
+.linha_separadora_patinhas{    
+    border: 1px solid #4D16BB;
+    width: 100%;
+    margin-left: 2vh;
+}
+.postagens_patinhas{    
+    margin-top: 3.5vh;
+    justify-content: center;
+    display: flex;
+    width: 100%;
+}

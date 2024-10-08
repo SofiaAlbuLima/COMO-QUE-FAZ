@@ -87,7 +87,7 @@ const tarefasController = {
     },
     Login_formCadastro: async (req, res) => {
         const erros = validationResult(req);
-        var dadosForm = { 
+        var dadosForm = {
             Nickname: req.body.nomeusu_usu,
             senha: bcrypt.hashSync(req.body.senha_usu, salt),
             Email: req.body.email_usu,
@@ -181,7 +181,6 @@ const tarefasController = {
                 let mediaAvaliacoes = await conteudoModel.CalcularMediaAvaliacoes(conteudo.id);
 
                 const isPatinha = await conteudoModel.VerificarSePatinha(conteudo.id);
-                console.log(isPatinha);
                 return {
                     nome: conteudo.Titulo,
                     usuario: conteudo.Clientes_idClientes,
@@ -269,6 +268,7 @@ const tarefasController = {
             let combinedConteudo = await Promise.all(data.map(async conteudo => {
                 let ingredientes = await conteudoModel.BuscarIngredientesPorPostagemId(conteudo.id);
                 let mediaAvaliacoes = await conteudoModel.CalcularMediaAvaliacoes(conteudo.id);
+                const isPatinha = await conteudoModel.VerificarSePatinha(conteudo.id);
                 return {
                     nome: conteudo.Titulo,
                     usuario: conteudo.Clientes_idClientes,
@@ -283,7 +283,8 @@ const tarefasController = {
                     subcategorias: conteudo.subcategorias,
                     mediaAvaliacoes,
                     ingredientes: ingredientes.length ? ingredientes.map(i => i.ingredientes).join(', ') : null,
-                    imagem: conteudo.idMidia ? `data:image;base64,${conteudo.idMidia.toString('base64')}` : null
+                    imagem: conteudo.idMidia ? `data:image;base64,${conteudo.idMidia.toString('base64')}` : null,
+                    patinha: isPatinha
                 };
             }));
             return {
@@ -295,7 +296,8 @@ const tarefasController = {
                 filtro: filtro,
                 paginaAtual: pagina,
                 totalPaginas: totalPaginas,
-                paginador: paginador,
+                
+    paginaAtual: paginador ? paginador.paginaAtual : 1,: paginador,
                 categoriaAtual: categoria || 'todas',
                 novoFiltro: filtro || 'recente',
             };
@@ -314,12 +316,12 @@ const tarefasController = {
             if (!postagem) {
                 return res.status(404).render("pages/erro", { mensagem: "Postagem não encontrada" });
             }
-            
+
             const usuarioPerfil = await conteudoModel.obterPerfilPorNickname(postagem.nome_usuario);
 
-            const fotoPerfil = usuarioPerfil?.foto_icon_perfil 
-            ? `data:image/png;base64,${usuarioPerfil.foto_icon_perfil.toString('base64')}`
-            : null;
+            const fotoPerfil = usuarioPerfil?.foto_icon_perfil
+                ? `data:image/png;base64,${usuarioPerfil.foto_icon_perfil.toString('base64')}`
+                : null;
 
             function formatarTempo(tempo) {
                 let duracao = moment.duration(tempo, 'HH:mm:ss');
@@ -334,6 +336,13 @@ const tarefasController = {
                 } else {
                     return '';
                 }
+            }
+
+            const isPatinha = await conteudoModel.VerificarSePatinha(postagemId);
+            let idPergunta = null;
+
+            if (isPatinha) {
+                idPergunta = await conteudoModel.BuscarPerguntaPorPatinhaId(postagemId);
             }
 
             let postagemFormatada = {
@@ -352,7 +361,10 @@ const tarefasController = {
                 subcategorias: postagem.subcategorias,
                 mediaAvaliacoes,
                 imagem: postagem.idMidia ? `data:image;base64,${postagem.idMidia.toString('base64')}` : null,
-                fotoPerfil
+                fotoPerfil,
+                patinha: isPatinha,
+                idPerguntaAssociada: idPergunta,
+                IdPostagem: postagemId
             };
 
             switch (postagem.Categorias_idCategorias) {
@@ -385,6 +397,77 @@ const tarefasController = {
             }
         } catch (erro) {
             res.status(500).json({ erro: erro.message });
+        }
+    },
+    MostrarPatinhas: async (req, res) => {
+        try {
+            const idPergunta = req.params.IdPostagem;
+            const dicasPatinhas = await conteudoModel.BuscarDicasPorPergunta(idPergunta);
+
+            function formatarTempo(tempo) {
+                let duracao = moment.duration(tempo, 'HH:mm:ss');
+                let horas = duracao.hours();
+                let minutos = duracao.minutes();
+                if (horas > 0 && minutos > 0) {
+                    return `${horas}h${minutos}min`;
+                } else if (horas > 0 && minutos <= 0) {
+                    return `${horas}hora${horas > 1 ? 's' : ''}`;
+                } else if (horas <= 0 && minutos > 0) {
+                    return `${minutos}min`;
+                } else {
+                    return '';
+                }
+            }
+
+            const dicasFormatadas = await Promise.all(dicasPatinhas.map(async dica => {
+                const ingredientes = await conteudoModel.BuscarIngredientesPorPostagemId(dica.id);
+                const mediaAvaliacoes = await conteudoModel.CalcularMediaAvaliacoes(dica.id);
+
+                return {
+                    nome: dica.Titulo,
+                    usuario: dica.Clientes_idClientes,
+                    nome_usuario: dica.nome_usuario,
+                    id: dica.id,
+                    categoria: dica.Categorias_idCategorias,
+                    tempo: dica.tempo ? formatarTempo(dica.tempo) : null,
+                    descricao: dica.Descricao || null,
+                    etapas: dica.Etapas_Modo_de_Preparo,
+                    porcoes: dica.porcoes,
+                    subcategorias: dica.subcategorias,
+                    mediaAvaliacoes,
+                    ingredientes: ingredientes.length ? ingredientes.map(i => i.ingredientes).join(', ') : null,
+                    imagem: dica.idMidia ? `data:image;base64,${dica.idMidia.toString('base64')}` : null,
+                };
+            }));
+
+            console.log("Dicas formatadas: ", dicasFormatadas);
+
+            const totalDicas = dicasFormatadas.length;
+            console.log("totalDicas: ", totalDicas);
+
+            const regPagina = 12;
+            const totalPaginas = Math.ceil(totalDicas / regPagina);
+            console.log("totalPaginas: ", totalPaginas);
+            const paginador = totalDicas <= regPagina ? null : {
+                paginaAtual: 1,
+                totalRegistros: totalDicas,
+                totalPaginas: totalPaginas
+            };
+
+            res.render("pages/template", {
+                pagina: { cabecalho: "cabecalho", conteudo: "Patinhas", rodape: "rodape" },
+                usuario_logado: req.session.autenticado || {},
+                postagens: dicasFormatadas,
+                dicas: dicasFormatadas,
+                perguntaId: idPergunta,
+                paginador: paginador,
+                paginaAtual: paginador ? paginador.paginaAtual : 1,
+                totalPaginas: totalPaginas,
+
+            });
+        } catch (error) {
+            console.error("Erro ao mostrar patinhas: ", error);
+            res.status(500).json({ erro: "Erro ao buscar patinhas para a pergunta." });
         }
     },
     AvaliarPostagem: async (req, res) => {
@@ -766,9 +849,9 @@ const tarefasController = {
     },
     AbrirPerfil: async (req, res) => {
         try {
-            const nickname  = req.params.nickname; // Obter o ID do usuário da URL
+            const nickname = req.params.nickname; // Obter o ID do usuário da URL
             const perfil = await conteudoModel.obterPerfilPorNickname(nickname);; // Usar a função de modelo para obter o perfil
-    
+
             if (!perfil) {
                 return res.status(404).json({
                     mensagem: "Perfil não encontrado.",
@@ -777,21 +860,21 @@ const tarefasController = {
             }
 
             if (req.session.autenticado.autenticado === nickname) {
-                return res.redirect("/perfil"); 
+                return res.redirect("/perfil");
             }
-    
+
             perfil.foto_icon_perfil = perfil.foto_icon_perfil ? `data:image/png;base64,${perfil.foto_icon_perfil.toString('base64')}` : null;
             perfil.foto_banner_perfil = perfil.foto_banner_perfil ? `data:image/png;base64,${perfil.foto_banner_perfil.toString('base64')}` : null;
-    
+
             // Pegar postagens e total de postagens
             const pagina = parseInt(req.query.pagina) || 1;
             const regPagina = 12;
             const inicio = (pagina - 1) * regPagina;
-    
+
             let results = await conteudoModel.PesquisarPostsPerfil(perfil.idClientes, inicio, regPagina);
             let totReg = await conteudoModel.TotalRegPerfil(perfil.idClientes);
             let totalRegistros = totReg[0].total;
-    
+
             // Paginador
             let totPaginas = Math.ceil(totalRegistros / regPagina);
             let paginador = totalRegistros <= regPagina ? null : {
@@ -814,7 +897,7 @@ const tarefasController = {
                     return '';
                 }
             }
-    
+
             // Formatar o conteúdo das postagens
             let combinedConteudo = await Promise.all(results.map(async (conteudo) => {
                 let ingredientes = await conteudoModel.BuscarIngredientesPorPostagemId(conteudo.id);
@@ -836,7 +919,7 @@ const tarefasController = {
                     imagem: conteudo.idMidia ? `data:image;base64,${conteudo.idMidia.toString('base64')}` : null
                 };
             }));
-    
+
             return res.render("pages/template", {
                 pagina: { cabecalho: "cabecalho", conteudo: "Perfil", rodape: "rodape" },
                 perfil,

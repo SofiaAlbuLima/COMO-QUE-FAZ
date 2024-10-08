@@ -189,11 +189,13 @@
                                     <%= postagem.titulo %>
                                 </p>
                                 <nav class="opcoes-ajuda-desktop">
-                                    <button class="ajuda">Patinhas</button>
-
-                                    <button class="ajudar "> <img class="patinha" src="/imagens-svg/patinha-icon.svg"
-                                            alt="mão botão ajudar">Dar a pata</button>
-
+                                    <a href="/patinhas/<%= postagem.IdPostagem %>">
+                                        <button class="ajuda">Patinhas</button>
+                                    </a>
+                                    <button class="ajudar ">
+                                        <img class="patinha" src="/imagens-svg/patinha-icon.svg" alt="mão botão ajudar">
+                                        Dar a pata
+                                    </button>
                                 </nav>
             </article>
         </section>

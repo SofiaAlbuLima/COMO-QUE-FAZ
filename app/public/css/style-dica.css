@@ -1099,6 +1099,36 @@
         right: 36vh;
         transform: translate(0, -5vh);
     }
+    .patinha-dica{
+        display: flex;
+        cursor: pointer;
+    }
+    #patinha-dica:hover{
+        background-color: #cb218d11;
+        padding: 1vh 2vh 1vh 1vh;
+        border-radius: 10px;
+    }
+    .hover-ver-pergunta{
+        display: none;
+        position: absolute;
+        transform: translate(52vh, 1vh);
+        font-family: Fira Sans Bold;
+        font-size: 1.8vh;
+        color: white;
+        background-color: #cb218c;
+        padding: 0.8vh;
+        border-radius: 10px;
+    }
+    #patinha-dica:hover + .hover-ver-pergunta{
+        display: block;
+    }
+    .patinha-indicador-dica{
+        color: #CB218C;
+        font-family: Fira Sans;
+        display: flex;
+        align-items: center;
+        margin-left: 1vh;
+    }
 
     #hide-opcoes-Desktop img {
         width: 2vh;

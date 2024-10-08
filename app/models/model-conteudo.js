@@ -30,14 +30,14 @@ const conteudoModel = {
         try {
             const tipoCondicao = filtroTipo !== null && filtroTipo !== 'todas' ? `AND tipo = ?` : '';
             const categoriaCondicao = filtroCategoria ? `AND Categorias_idCategorias = ?` : '';
-    
+
             console.log("Termo Pesquisado: " + termoPesquisa);
             console.log("Tipo de Postagem: " + filtroTipo);
             console.log("Categoria: " + filtroCategoria);
             console.log("Inicio: " + inicio);
             console.log("Total: " + total);
             console.log("Classificação: " + filtroClassificacao);
-    
+
             let query = `
             SELECT combined.*, COALESCE(media.media, 0) AS media_avaliacao
             FROM (
@@ -81,7 +81,7 @@ const conteudoModel = {
             WHERE Titulo LIKE ? 
             ${tipoCondicao}
             ${categoriaCondicao}`;
-    
+
             switch (filtroClassificacao) {
                 case 'mais-rapidas':
                     query += ` ORDER BY tempo ASC`;
@@ -93,14 +93,14 @@ const conteudoModel = {
                 default:
                     query += ` ORDER BY id DESC`;
             }
-    
+
             query += ` LIMIT ?, ?`;
-    
+
             const params = [`%${termoPesquisa}%`];
             if (filtroTipo !== null && filtroTipo !== 'todas') params.push(filtroTipo);
             if (filtroCategoria) params.push(filtroCategoria);
             params.push(inicio, total);
-    
+
             const resposta = await pool.query(query, params);
             const [linhas] = resposta;
             return linhas;
@@ -152,11 +152,11 @@ const conteudoModel = {
                 GROUP BY conteudo_postagem_ID_conteudo
             ) AS media ON combined.id = media.conteudo_postagem_ID_conteudo
             `;
-    
+
             if (categoria) {
                 query += ` WHERE combined.Categorias_idCategorias = ${pool.escape(categoria)}`;
             }
-    
+
             switch (ordem) {
                 case 'rapidos':
                     query += ` ${categoria ? 'AND' : 'WHERE'} tipo = 'dica' ORDER BY tempo ASC`;
@@ -168,7 +168,7 @@ const conteudoModel = {
                 default:
                     query += ` ORDER BY id DESC`;
             }
-    
+
             query += ` LIMIT ?, ?`;
             const [linhas] = await pool.query(query, [inicio, total]);
             return linhas;
@@ -329,24 +329,24 @@ const conteudoModel = {
     atualizarPerfil: async (idClientes, dadosAtualizados) => {
         try {
             let camposParaAtualizar = [];
-        let valores = [];
+            let valores = [];
 
-        for (let campo in dadosAtualizados) {
-            // Verifica se o campo é uma imagem para salvar como BLOB
-            if (campo === 'foto_icon_perfil' || campo === 'foto_banner_perfil') {
-                camposParaAtualizar.push(`${campo} = ?`);
-                valores.push(dadosAtualizados[campo]);
-            } else {
-                camposParaAtualizar.push(`${campo} = ?`);
-                valores.push(dadosAtualizados[campo]);
+            for (let campo in dadosAtualizados) {
+                // Verifica se o campo é uma imagem para salvar como BLOB
+                if (campo === 'foto_icon_perfil' || campo === 'foto_banner_perfil') {
+                    camposParaAtualizar.push(`${campo} = ?`);
+                    valores.push(dadosAtualizados[campo]);
+                } else {
+                    camposParaAtualizar.push(`${campo} = ?`);
+                    valores.push(dadosAtualizados[campo]);
+                }
             }
-        }
 
-        valores.push(idClientes);
+            valores.push(idClientes);
 
-        const query = `UPDATE clientes SET ${camposParaAtualizar.join(', ')} WHERE idClientes = ?`;
-        console.log("Consulta SQL:", query);
-        await pool.execute(query, valores);
+            const query = `UPDATE clientes SET ${camposParaAtualizar.join(', ')} WHERE idClientes = ?`;
+            console.log("Consulta SQL:", query);
+            await pool.execute(query, valores);
         } catch (error) {
             console.error('Erro ao atualizar perfil no banco de dados:', error);
             throw error;
@@ -365,7 +365,7 @@ const conteudoModel = {
             JOIN clientes AS cl ON p.Clientes_idClientes = cl.idClientes
             WHERE p.Clientes_idClientes = ?
             LIMIT ?, ?`;
-    
+
             const [linhas] = await pool.query(query, [idCliente, idCliente, inicio, total]);
             return linhas;
         } catch (erro) {
@@ -380,7 +380,7 @@ const conteudoModel = {
                 UNION ALL
                 SELECT ID_Pergunta AS id FROM perguntas WHERE Clientes_idClientes = ?
             ) AS combined`;
-    
+
             const [total] = await pool.query(query, [idCliente, idCliente]);
             return total;
         } catch (erro) {
@@ -392,11 +392,28 @@ const conteudoModel = {
             const [rows] = await pool.query(`
                 SELECT 1 FROM respostas_dica
                 WHERE Conteudo_ID_Dica = ?`, [conteudoId]);
-    
+
             return rows.length > 0;
         } catch (error) {
             console.error("Erro ao verificar se é uma patinha: ", error);
             return false;
+        }
+    },
+    BuscarDicasPorPergunta: async (idPergunta) => {
+        try {
+            const [rows] = await pool.query(`
+                SELECT c.*
+                FROM conteudo_postagem AS c
+                WHERE c.ID_conteudo IN (
+                    SELECT Conteudo_ID_Dica
+                    FROM respostas_dica
+                    WHERE Perguntas_ID_Pergunta = ?
+                )`, [idPergunta]);
+
+            return rows;
+        } catch (error) {
+            console.error("Erro ao buscar dicas por pergunta: ", error);
+            return [];
         }
     }
 }

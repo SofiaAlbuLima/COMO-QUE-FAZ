@@ -395,6 +395,7 @@
                               </h1>
                            </figure>
                            <% } %>
+
                               <% if (postagem.categoria===1) { %>
                                  <button id="opcoes" class="opcoes_dica_culinaria" onclick="AbrirOpcoesDesktop(event)">
                                     <figure class="ponto_dica"></figure>
@@ -467,22 +468,33 @@
                </aside>
 
                <figure class="titulos-post">
-                  <a class="url-site-perfil-a" href="/perfil/<%= postagem.nome_usuario %>">
-                     <article class="usuario-foto-nome">
-                        <% if(postagem.fotoPerfil !==null) { %>
-                           <img id="img-usuario-post" src="<%= postagem.fotoPerfil %>" alt="Faça Login">
-                           <% }else{ %>
-                              <img id="img-login_hover-post" src="/imagens/user_icon_hover.svg" alt="Faça Login"
-                                 style="opacity: 80%;">
-                              <img id="img-login-post" src="/imagens-svg/1-cabeçalho/user_icon.svg" alt="Faça Login"
-                                 style="opacity: 80%;">
-                              <% } %>
-                                 <h3 class="titulo-user" style="color: #9e5fef;">
-                                    <%= postagem.nome_usuario %>
-                                 </h3>
-                     </article>
-                  </a>
-                  <h3 class="titulo-user"></h3>
+                  <article style="display: flex; gap: 4vh;">
+                     <a class="url-site-perfil-a" href="/perfil/<%= postagem.nome_usuario %>" style="display: flex;">
+                        <article class="usuario-foto-nome">
+                           <% if(postagem.fotoPerfil !==null) { %>
+                              <img id="img-usuario-post" src="<%= postagem.fotoPerfil %>" alt="Faça Login">
+                              <% }else{ %>
+                                 <img id="img-login_hover-post" src="/imagens/user_icon_hover.svg" alt="Faça Login"
+                                    style="opacity: 80%;">
+                                 <img id="img-login-post" src="/imagens-svg/1-cabeçalho/user_icon.svg" alt="Faça Login"
+                                    style="opacity: 80%;">
+                                 <% } %>
+                                    <h3 class="titulo-user" style="color: #9e5fef;">
+                                       <%= postagem.nome_usuario %>
+                                    </h3>
+                        </article>
+                     </a>
+                     <% if(postagem.patinha){ %>
+                        <a class="url-site-perfil-a" id="patinha-dica" href="/pergunta/<%= postagem.idPerguntaAssociada %>">
+                           <article class="patinha-dica">
+                              <img class="patinha-indicador" src="/imagens-svg/patinha-rosa-icon.svg" alt="">
+                              <h3 class="patinha-indicador-dica">Essa dica é uma patinha!</h3>
+                           </article>
+                        </a>
+                        <span class="hover-ver-pergunta">Ver pergunta!</span>
+                        <% } %>
+                  </article>
+
                   <h1 class="titulo-principal">
                      <%= postagem.titulo %>
                   </h1>

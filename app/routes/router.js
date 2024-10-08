@@ -57,6 +57,9 @@ router.get("/pesquisa", async (req, res) => {
         res.status(500).json({ erro: error.message });
     }
 });
+
+router.get("/patinhas/:IdPostagem", tarefasController.MostrarPatinhas);
+
 router.post("/avaliar", VerificarAutenticacao, async (req, res) => {
     await tarefasController.AvaliarPostagem(req, res);
 });
@@ -129,9 +132,9 @@ router.get("/perfil",
             res.status(500).json({ erro: error.message });
         }
     });
-    router.get("/perfil/:nickname", VerificarAutenticacao, async function (req, res) {
-        await tarefasController.AbrirPerfil(req, res);
-    });
+router.get("/perfil/:nickname", VerificarAutenticacao, async function (req, res) {
+    await tarefasController.AbrirPerfil(req, res);
+});
 router.get("/notificacoes", verificarUsuAutorizado([1, 2], "/"), function (req, res) {
     res.render("pages/template", {
         pagina: { cabecalho: "cabecalho", conteudo: "Minhas-Notificações", rodape: "none" },
