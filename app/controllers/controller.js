@@ -181,6 +181,11 @@ const tarefasController = {
                 let mediaAvaliacoes = await conteudoModel.CalcularMediaAvaliacoes(conteudo.id);
 
                 const isPatinha = await conteudoModel.VerificarSePatinha(conteudo.id);
+
+                let quantidadePatinhas = 0;
+                if(conteudo.tipo === "pergunta"){
+                    quantidadePatinhas = await conteudoModel.BuscarQuantidadePatinhasPorPergunta(conteudo.id);
+                }
                 return {
                     nome: conteudo.Titulo,
                     usuario: conteudo.Clientes_idClientes,
@@ -196,7 +201,8 @@ const tarefasController = {
                     ingredientes: ingredientes.length ? ingredientes.map(i => i.ingredientes).join(', ') : null,
                     mediaAvaliacoes,
                     imagem: conteudo.idMidia ? `data:image;base64,${conteudo.idMidia.toString('base64')}` : null,
-                    patinha: isPatinha
+                    patinha: isPatinha,
+                    quantidadePatinhas: quantidadePatinhas
                 };
             }));
 
@@ -269,6 +275,11 @@ const tarefasController = {
                 let ingredientes = await conteudoModel.BuscarIngredientesPorPostagemId(conteudo.id);
                 let mediaAvaliacoes = await conteudoModel.CalcularMediaAvaliacoes(conteudo.id);
                 const isPatinha = await conteudoModel.VerificarSePatinha(conteudo.id);
+
+                let quantidadePatinhas = 0;
+                if(conteudo.tipo === "pergunta"){
+                    quantidadePatinhas = await conteudoModel.BuscarQuantidadePatinhasPorPergunta(conteudo.id);
+                }
                 return {
                     nome: conteudo.Titulo,
                     usuario: conteudo.Clientes_idClientes,
@@ -284,7 +295,8 @@ const tarefasController = {
                     mediaAvaliacoes,
                     ingredientes: ingredientes.length ? ingredientes.map(i => i.ingredientes).join(', ') : null,
                     imagem: conteudo.idMidia ? `data:image;base64,${conteudo.idMidia.toString('base64')}` : null,
-                    patinha: isPatinha
+                    patinha: isPatinha,
+                    quantidadePatinhas: quantidadePatinhas
                 };
             }));
             return {
@@ -296,7 +308,7 @@ const tarefasController = {
                 filtro: filtro,
                 paginaAtual: pagina,
                 totalPaginas: totalPaginas,
-
+                paginador: paginador,
                 paginaAtual: paginador ? paginador.paginaAtual : 1,
                 categoriaAtual: categoria || 'todas',
                 novoFiltro: filtro || 'recente',
@@ -509,7 +521,12 @@ const tarefasController = {
                 categorias_id
             });
 
+            const mediaAvaliacoes = await conteudoModel.CalcularMediaAvaliacoes(conteudo_id);
+            const mediaFormatada = parseFloat(mediaAvaliacoes).toFixed(1);
+
             console.log("Avaliação registrada com sucesso!");
+            console.log("Média atualizada: ", mediaFormatada);
+
             return res.redirect("/dica/" + conteudo_id);
         } catch (erro) {
             console.error("Erro ao registrar avaliação:", erro);
@@ -557,6 +574,10 @@ const tarefasController = {
                 return res.status(400).send("Arquivo não encontrado. Verifique o campo de upload.");
             }
 
+            if (req.body.pergunta_id) {
+                FormCriarDica.pergunta_id = req.body.pergunta_id;  // Atribua o ID da pergunta
+            }
+
             console.log('FormCriarDica:', FormCriarDica); // Debugging
 
             const createPostagem = await conteudoModel.CriarPostagem(FormCriarDica);
@@ -593,6 +614,11 @@ const tarefasController = {
                 mensagem: "Sua dica foi publicada com sucesso!",
                 tipo: "success"
             };
+
+            if (req.body.pergunta_id) {
+                return res.redirect("/pergunta/" + req.body.pergunta_id);
+            }
+
             return res.redirect("/perfil");
         } catch (e) {
             console.log(e);

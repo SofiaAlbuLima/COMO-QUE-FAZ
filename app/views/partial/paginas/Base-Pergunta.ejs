@@ -174,28 +174,34 @@
                                     <%= postagem.titulo %>
                                 </p>
                                 <nav class="opcoes-ajuda-desktop">
-                                    <% if (postagem.quantidadePatinhas === 0) { %>
-                                        <button class="ajuda">
-                                            Nenhuma patinha
-                                        </button>
-                                    <% } else if (postagem.quantidadePatinhas === 1) { %>
-                                        <a href="/patinhas/<%= postagem.IdPostagem %>">
-                                            <button class="ajuda">
-                                                <%= postagem.quantidadePatinhas %> Patinha
-                                            </button>
-                                        </a>
-                                        <% } else { %>
+                                    <% if (postagem.quantidadePatinhas===0) { %>
+                                        <button class="ajuda">Nenhuma patinha</button>
+                                        <% } else if (postagem.quantidadePatinhas===1) { %>
                                             <a href="/patinhas/<%= postagem.IdPostagem %>">
                                                 <button class="ajuda">
-                                                    <%= postagem.quantidadePatinhas %> Patinhas
+                                                    <%= postagem.quantidadePatinhas %> Patinha
                                                 </button>
                                             </a>
-                                        <% } %>
-                                                <button class="ajudar ">
-                                                    <img class="patinha" src="/imagens-svg/patinha-icon.svg"
-                                                        alt="mão botão ajudar">
-                                                    Dar a pata
-                                                </button>
+                                            <% } else { %>
+                                                <a href="/patinhas/<%= postagem.IdPostagem %>">
+                                                    <button class="ajuda">
+                                                        <%= postagem.quantidadePatinhas %> Patinhas
+                                                    </button>
+                                                </a>
+                                                <% } %>
+                                                <% if(usuario_logado){ %>
+                                                    <button class="ajudar"  onclick="abrirModalCriarDica(perguntaId)">
+                                                        <img class="patinha" src="/imagens-svg/patinha-icon.svg"
+                                                            alt="mão botão ajudar">
+                                                        Dar a pata
+                                                    </button>
+                                                    <% } else { %>
+                                                        <button class="ajudar" onclick="window.location.href='/login'">
+                                                            <img class="patinha" src="/imagens-svg/patinha-icon.svg"
+                                                                alt="mão botão ajudar">
+                                                            Dar a pata
+                                                        </button>
+                                                        <% } %>
                                 </nav>
             </article>
         </section>

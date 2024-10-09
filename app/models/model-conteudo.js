@@ -422,7 +422,7 @@ const conteudoModel = {
                 SELECT Perguntas_ID_Pergunta 
                 FROM respostas_dica 
                 WHERE Conteudo_ID_Dica = ?`, [patinhaId]);
-    
+
             // Corrigir para acessar o nome correto da coluna no objeto retornado
             return rows.length > 0 ? rows[0].Perguntas_ID_Pergunta : null;
         } catch (error) {
@@ -434,9 +434,9 @@ const conteudoModel = {
         console.log("ID Pergunta recebido:", idPergunta); // Adiciona um log para verificar o ID recebido
         const query = `SELECT titulo FROM perguntas WHERE ID_Pergunta = ?`;
         const [result] = await pool.query(query, [idPergunta]);
-        
+
         console.log("Resultado da consulta:", result); // Adiciona um log para verificar o resultado da consulta
-    
+
         // Verifica se result não está vazio
         if (result.length > 0) {
             return result[0]; // Retorna o objeto completo, por exemplo: { titulo: 'Como limpar o sofá na sala?' }

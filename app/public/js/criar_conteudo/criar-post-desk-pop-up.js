@@ -316,3 +316,14 @@ function mostrarElementoCulinaria() {
         elemento.style.display = "none"; // Esconde o elemento se nenhuma opção estiver selecionada
     }
 }
+
+function abrirModalCriarDica(perguntaId) {
+    // Defina o valor do campo oculto com o ID da pergunta
+    document.getElementById('pergunta_id').value = perguntaId;
+
+    // Exibir o modal de criação de dica
+    document.getElementById('modalCriarDica').style.display = 'block';
+
+    // Mostrar mensagem personalizada
+    document.getElementById('mensagemPergunta').innerText = 'Você está criando uma dica para a pergunta selecionada!';
+}
