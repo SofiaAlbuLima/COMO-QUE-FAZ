@@ -96,7 +96,7 @@
                 </article>
 
                 <article class="tarefa-mb" id="conteudoTarefa2-mb">
-                    <h2 id="elementos-mb">Elementos</h2>
+                    <h2 id="elementos-mb">Elementos & Passo a passo</h2>
                     <section id="esqueleto-elementos-mb">
                         <h2 id="titulo-ingredientes-elementos-mb">INGREDIENTES</h2>
                         <section id="clonados-ou-nao-mb">
@@ -107,15 +107,15 @@
                                     alt="excluir ingrediente" onclick="apagarDiv(this)">
                                 <section id="sem-a-linha-rosa-mb">
                                     <h4 id="nome-do-ingrediente-mb">Nome do ingrediente</h4>
-                                    <input type="text" id="input-nome-do-ingrediente-mb" placeholder="Farinha de trigo">
+                                    <input type="text" name="ingredientes" id="input-nome-do-ingrediente-mb" placeholder="Farinha de trigo">
                                     <section id="coiso-pra-deixar-certo-mb">
                                         <section id="quantidade-elementos-mb">
                                             <h4 id="nome-do-ingrediente-mb">Quantidade/Peso</h4>
-                                            <input type="text" id="input-quantidade-do-ingrediente-mb" placeholder="01">
+                                            <input type="text" id="input-quantidade-do-ingrediente-mb" placeholder="01" name="quantidade_ingredientes">
                                         </section>
                                         <section id="guardar-medidas-elementos-mb">
                                             <h4 id="nome-do-ingrediente-mb">Medida</h4>
-                                            <select name="medidas-elementos" id="medidas-elementos-mb">
+                                            <select name="medidas-elementos" id="medidas-elementos-mb" name="medida_ingredientes">
                                                 <option value="item-de-modo-de-preparo" class="item-medidas-mb">Unidade
                                                 </option>
                                                 <option value="item-de-modo-de-preparo" class="item-medidas-mb">Xícara
@@ -158,7 +158,7 @@
                                             disabled="disabled">
                                         <h2 id="simbolo-do-numero-mb">º</h2>
                                     </span>
-                                    <input type="text" id="input-modo-de-preparo-mb"
+                                    <input type="text" name="etapas_modo_preparo" id="input-modo-de-preparo-mb"
                                         placeholder="Misture todos os ingredientes...">
                                     <button id="apagar-modo-de-preparo-mb" onclick="apagarDivModo(this)">X</button>
                                 </section>
