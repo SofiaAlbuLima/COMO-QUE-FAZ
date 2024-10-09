@@ -37,8 +37,8 @@
              
              let mensagemErro = ""
              let avsErro = {"email_usu":"", "senha_usu":"", "conf_senha":""}
-                 if(listaErros){
-                     listaErros.errors.forEach(function(itemErro){
+                 if(listaErrosCad){
+                     listaErrosCad.errors.forEach(function(itemErro){
                          if(itemErro.path == "email_usu"){
                              avsErro.email_usu = "erro";
                              mensagemErro += `* ${itemErro.msg} <br>`
