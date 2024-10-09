@@ -197,7 +197,7 @@ router.get("/login", function (req, res) {
         usuario_logado: req.session.autenticado,
         listaErroslog: null,
         listaErrosCad: null,
-        listaErros: null,
+      
         dadosNotificacao: null
     });
 });

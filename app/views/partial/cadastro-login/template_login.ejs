@@ -35,45 +35,8 @@
              <% } %>
 
              
-             <% 
-             
-             let mensagemErro = ""
-             let avsErro = {"email_usu":"", "senha_usu":"", "conf_senha":""}
-                 if(listaErros){
-                     listaErros.errors.forEach(function(itemErro){
-                         if(itemErro.path == "email_usu"){
-                             avsErro.email_usu = "erro";
-                             mensagemErro += `* ${itemErro.msg} <br>`
-                         }
-                         if(itemErro.path == "senha_usu"){
-                             avsErro.senha_usu = "erro";
-                             mensagemErro += `* ${itemErro.msg} <br>`
-                         }
-                         if(itemErro.path == "conf_senha"){
-                           avsErro.conf_senha = "erro";
-                           mensagemErro += `* ${itemErro.msg} <br>`
-                       }
-                     })
-                     if(mensagemErro != ""){
-                     %>
-                         <script>
-                             let mensagemErro ="<%= mensagemErro %>"
-                             notify("Erro(s) no preenchimento", 
-                                    "Verifique o(s) campo(s) <br> " + mensagemErro.replace(/&lt;/g,"<").replace(/&gt;/g,">"), 
-                                    "error", "center", 5000)                        
-                         </script>
-                     <%
-                     }
-                 }
-                 if (dadosNotificacao) { %>
-                  <script>
-                          notify("<%= dadosNotificacao.titulo%>","<%= dadosNotificacao.mensagem%>", "<%= dadosNotificacao.tipo%>", "center")
-                          if("<%= dadosNotificacao.tipo %>" == "success"){
-                              setTimeout(function(){window.location="/"}, 3000)
-                          }                        
-                  </script>
-              <% } %>
-
+    
+           
 <form action="/login" method="post">
     <span class="fazer-login-mob">FAZER LOGIN:</span>
     <p>Seja bem-vindo de volta!</p>
