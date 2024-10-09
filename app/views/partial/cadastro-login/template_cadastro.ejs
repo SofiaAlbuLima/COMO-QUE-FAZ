@@ -1,44 +1,10 @@
-<% 
-         let avisoErro = {"input1":"", "input2":""}
-         let msgErro = ""
-             if(listaErrosCad){
-                 listaErrosCad.errors.forEach(function(itemErro){
-                     if(itemErro.path == "input1"){
-                         avisoErro.input1 = "erro";
-                         msgErro += `* ${itemErro.msg} <br>`
-                     }
-                     if(itemErro.path == "input2"){
-                         avisoErro.input2 = "erro";
-                         msgErro += `* ${itemErro.msg} <br>`
-                     }
-                 })
-                 if(msgErro != ""){
-                 %>
-                     <script>
-                         let msgErro ="<%= msgErro %>"
-                         notify("Erro(s) no preenchimento", 
-                                "Verifique o(s) campo(s) <br> " + msgErro.replace(/&lt;/g,"<").replace(/&gt;/g,">"), 
-                                "error", "center", 5000)                        
-                     </script>
-                 <%
-                 }
-             }
-             if (dadosNotificacao) { %>
-                 <script>
-                         notify("<%= dadosNotificacao.titulo%>","<%= dadosNotificacao.mensagem%>", "<%= dadosNotificacao.tipo%>", "center")
-                         if("<%= dadosNotificacao.tipo %>" == "success"){
-                             setTimeout(function(){window.location="/"}, 3000)
-                         }                        
-                 </script>
-             <% } %>
-
              
              <% 
              
              let mensagemErro = ""
              let avsErro = {"email_usu":"", "senha_usu":"", "conf_senha":""}
-                 if(listaErros){
-                     listaErros.errors.forEach(function(itemErro){
+                 if(listaErrosCad){
+                     listaErrosCad.errors.forEach(function(itemErro){
                          if(itemErro.path == "email_usu"){
                              avsErro.email_usu = "erro";
                              mensagemErro += `* ${itemErro.msg} <br>`

@@ -68,7 +68,8 @@ const tarefasController = {
                 pagina: { cabecalho: "cabecalho", conteudo: "Fazer-Login", FormCadastro: "template_cadastro", FormLogin: "template_login", rodape: "rodape" },
                 usuario_logado: req.session.autenticado,
                 listaErroslog: erros,
-                listaErros: null,
+               
+                listaErrosCad: null,
                 dadosNotificacao: null
             });
         }
@@ -81,7 +82,8 @@ const tarefasController = {
             pagina: { cabecalho: "cabecalho", conteudo: "Fazer-Login", FormCadastro: "template_cadastro", FormLogin: "template_login", rodape: "rodape" },
             usuario_logado: null,
             listaErroslog: null,
-            listaErros: null,
+          
+            listaErrosCad: null,
             dadosNotificacao: { titulo: "Falha ao logar!", mensagem: "Usuário e/ou senha inválidos!", tipo: "error" }
         });
     },
@@ -98,8 +100,9 @@ const tarefasController = {
             return res.render("pages/template", {
                 pagina: { cabecalho: "cabecalho", conteudo: "Fazer-Login", FormCadastro: "template_cadastro", FormLogin: "template_login", rodape: "rodape" },
                 usuario_logado: req.session.autenticado,
-                listaErros: erros,
-                listaErrosCad: null,
+              
+                listaErroslog: null,
+                listaErrosCad: erros,
                 dadosNotificacao: null
             });
         }
@@ -118,8 +121,9 @@ const tarefasController = {
             res.render("pages/template", {
                 pagina: { cabecalho: "cabecalho", conteudo: "Fazer-Login", FormCadastro: "template_cadastro", FormLogin: "template_login", rodape: "rodape" },
                 usuario_logado: req.session.autenticado,
-                listaErros: null,
+               
                 listaErrosCad: null,
+                listaErroslog: null,
                 dadosNotificacao: {
                     titulo: "Erro ao cadastrar!",
                     mensagem: "Tente novamente!",
@@ -625,7 +629,8 @@ const tarefasController = {
             res.render("pages/template", {
                 pagina: { cabecalho: "cabecalho", conteudo: "Perfil", rodape: "rodape" },
                 usuario_logado: req.session.autenticado,
-                listaErros: e,
+                 listaErrosCad: null,
+                 listaErroslog: null,
                 dadosNotificacao: {
                     titulo: "Erro ao realizar a postagem!",
                     mensagem: "Verifique os valores digitados em rascunhos!",
