@@ -439,10 +439,15 @@ const conteudoModel = {
     
         // Verifica se result não está vazio
         if (result.length > 0) {
-            return result[0].titulo; // Retorna o título da pergunta
+            return result[0]; // Retorna o objeto completo, por exemplo: { titulo: 'Como limpar o sofá na sala?' }
         } else {
-            return null; // Retorna null se não encontrar a pergunta
+            return null;
         }
+    },
+    BuscarQuantidadePatinhasPorPergunta: async (idPergunta) => {
+        const query = `SELECT COUNT(*) as quantidade FROM respostas_dica WHERE Perguntas_ID_Pergunta = ?`;
+        const [result] = await pool.query(query, [idPergunta]);
+        return result[0].quantidade;
     }
 }
 

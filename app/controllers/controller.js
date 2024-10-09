@@ -338,12 +338,17 @@ const tarefasController = {
                 }
             }
 
-            const isPatinha = await conteudoModel.VerificarSePatinha(postagemId);
             let idPergunta = null;
+            let quantidadePatinhas = 0;
 
+            const isPatinha = await conteudoModel.VerificarSePatinha(postagemId);
             if (isPatinha) {
                 idPergunta = await conteudoModel.BuscarPerguntaPorPatinhaId(postagemId);
+            } else {
+                idPergunta = postagemId;
             }
+
+            quantidadePatinhas = await conteudoModel.BuscarQuantidadePatinhasPorPergunta(idPergunta);
 
             let postagemFormatada = {
                 titulo: postagem.Titulo,
@@ -364,7 +369,8 @@ const tarefasController = {
                 fotoPerfil,
                 patinha: isPatinha,
                 idPerguntaAssociada: idPergunta,
-                IdPostagem: postagemId
+                IdPostagem: postagemId,
+                quantidadePatinhas: quantidadePatinhas
             };
 
             switch (postagem.Categorias_idCategorias) {
@@ -405,6 +411,7 @@ const tarefasController = {
 
             const pergunta = await conteudoModel.BuscarPerguntaPorId(idPergunta);
             const nomePergunta = pergunta ? pergunta.titulo : 'Pergunta não encontrada';
+            console.log("nomePergunta: ", nomePergunta);
 
             const dicasPatinhas = await conteudoModel.BuscarDicasPorPergunta(idPergunta);
 

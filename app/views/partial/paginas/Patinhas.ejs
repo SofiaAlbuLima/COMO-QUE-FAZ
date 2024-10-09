@@ -3,22 +3,29 @@
         <section class="container_patinhas">
 
             <section class="conteudo_patinhas">
-                <section>
-                    <a class="mapa_do_site-link_patinhas" href="/"> Home</a>
-                    <a class="mapa_do_site-atual"> > Patinhas: '<%= nomePergunta %>'</a>
+                <section class="mapas_patinhas">
+                    <a class="mapa_do_site-link_patinhas" href="/" style="margin-left: 2vh;">Home</a>
+                    <p class="seta_mapa_patinhas"> > </p>
+                    <a class="mapa_do_site-link_patinhas" href="/pergunta/<%=perguntaId%>">Pergunta</a>
+                     <p class="seta_mapa_patinhas"> > </p>
+                    <a class="mapa_do_site-atual">Patinhas: '<%= nomePergunta %>'</a>
                 </section>
                 <section class="cabecalho_patinhas">
                     <article class="patinhas_textos">
+                        <img src="/imagens-svg/patinha-roxo-escuro-icon.svg" class="imagem-patinhas-icon">
                         <article class="titulo-descricao-patinhas">
-                            <h1 class="titulo_pagina_patinhas">Patinhas: ""</h1>
-                            <p class="descricao_pagina_patinhas">Consulte aqui seus resultados sobre
-                            </p>
+                            <h1 class="titulo_pagina_patinhas"><%= nomePergunta %></h1>
+                            <p class="descricao_pagina_patinhas">Consulte aqui seus resultados sobre <%= nomePergunta %></p>
                         </article>
                     </article>
                 </section>
                 <hr class="linha_separadora_patinhas">
                 <section class="postagens_patinhas">
+                    <% if(postagens && postagens.length > 0){ %>
                     <%- include("../perguntas-dicas/base-postagens", { postagens: postagens }) %>
+                    <% } else { %>
+                        <p>Nenhuma dica para essa pergunta :(</p>
+                    <% } %>
                 </section>
             </section>
         </section>

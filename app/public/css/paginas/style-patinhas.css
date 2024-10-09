@@ -1,3 +1,10 @@
+.mapas_patinhas{
+    gap: 1vh;
+}
+.mapas_patinhas, .seta_mapa_patinhas{
+    font-family: Fira Sans;
+    display: flex;
+}
 .container_patinhas{
     display: flex;
     margin-top: 18vh; 
@@ -8,8 +15,7 @@
     margin-top: 0;
 }
 .mapa_do_site-link_patinhas{
-    display: inline;
-    margin-left: 2vh;
+    display: inline;    
     font-family: Fira Sans;
     color: black;
 }
@@ -25,14 +31,19 @@
     display: inline;
     margin-left: 2vh;
 }
+.imagem-patinhas-icon{
+    width: 9vh;
+    display: flex;
+    margin-left: 2vh;
+}
 .titulo_pagina_patinhas{
     color: #4D16BB;
     margin-top: 1vh;
     font-size: 45px;
     font-weight: 400;
+    display: flex;
 }
 .descricao_pagina_patinhas{
-    width: 45vh;
     font-size: 2vh;
     font-family: Fira Sans;
     margin-bottom: 2vh;
