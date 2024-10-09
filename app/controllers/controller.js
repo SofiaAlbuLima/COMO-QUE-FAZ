@@ -99,7 +99,7 @@ const tarefasController = {
                 pagina: { cabecalho: "cabecalho", conteudo: "Fazer-Login", FormCadastro: "template_cadastro", FormLogin: "template_login", rodape: "rodape" },
                 usuario_logado: req.session.autenticado,
                 listaErros: erros,
-                listaErrosCad: null,
+                listaErrosCad: erros,
                 dadosNotificacao: null
             });
         }
