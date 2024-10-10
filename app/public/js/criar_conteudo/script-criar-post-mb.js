@@ -1,7 +1,8 @@
-const btnVoltar = document.getElementById('btnVoltar-mb');
+const btnVoltar = document.getElementById('btnVoltar-mb'); 
 const btnAvancar = document.getElementById('btnAvancar-mb');
 const artigos = document.querySelectorAll('.tarefa-mb');
 const progresso = document.getElementById('progresso-mb');
+const form = document.querySelector('form'); // Pegue o formulário se ele existir na página
 
 let currentIndex = 0;
 
@@ -13,7 +14,8 @@ function mostrarArtigo(index) {
     artigos[index].classList.add('ativo');
 
     // Atualiza a largura da linha de progresso
-    const progressoWidth = ((index + 1) / artigos.length) * 100;
+    const itemWidth = 100 / artigos.length;
+    const progressoWidth = itemWidth * (artigos.length - (currentIndex + 1)); 
     progresso.style.width = progressoWidth + "%";
 }
 
@@ -21,6 +23,10 @@ btnAvancar.addEventListener('click', () => {
     if (currentIndex < artigos.length - 1) {
         currentIndex++;
         mostrarArtigo(currentIndex);
+    } else {
+        // Caso esteja no último artigo, envie o formulário
+        btnAvancar.innerText = "CRIAR POSTAGEM"; // Altera o texto do botão
+        form.submit(); // Submete o formulário
     }
 });
 
@@ -32,6 +38,7 @@ btnVoltar.addEventListener('click', () => {
 });
 
 mostrarArtigo(currentIndex);
+
 
 
 // document.addEventListener("DOMContentLoaded", function () {

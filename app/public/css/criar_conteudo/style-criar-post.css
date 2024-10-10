@@ -105,21 +105,15 @@
 
   #conteudoTarefa1-mb {
     left: 0;
-    height: 100vw;
   }
 
   #conteudoTarefa2-mb {
     left: 0;
-   position: fixed;
-   margin-top: -48vh;
-   overflow: auto;
  
   }
 
   #conteudoTarefa3-mb {
     left: 0;
-    margin-top: -48vh;
-   position: fixed;
   
   }
 
@@ -130,7 +124,7 @@
     color: #4d16bb;
     text-align: left;
     line-height: normal;
-    font-size: 200%;
+    font-size: 180%;
   overflow: hidden;
     margin-left: 7vw;
   }
@@ -142,9 +136,8 @@
     color: #921FC9;
     text-align: left;
     line-height: normal;
-    font-size: 200%;
+    font-size: 180%;
     margin-left: 7%;
-    overflow: auto;
   }
 
   #midias-mb {
@@ -154,9 +147,8 @@
     color: #CB218C;
     text-align: left;
     line-height: normal;
-    font-size: 200%;
+    font-size: 180%;
     margin-left: 7%;
-    overflow: auto;
   }
 
   .conteudo-mb {
@@ -641,7 +633,6 @@
     width: 1.06vw;
     height: 49.06vw;
     padding: 2px 2px 2px 2px;
-    margin-left: 6.4vw;
     background-color: #cb218c;
     box-sizing: border-box;
     position: relative;
@@ -658,7 +649,7 @@
     font-weight: 700;
     color: #cb218c;
     text-align: left;
-    margin-left: 12vw;
+    margin-left: 14vw;
     margin-bottom: -17vw;
     font-size: 130%;
     border: 0;
@@ -666,12 +657,12 @@
 
   #botao-de-add-ingrediente-mb {
     margin-left: 79vw;
-    margin-bottom: -19vw;
+    margin-bottom: -12vw;
   }
 
   #botao-de-tirar-ingrediente-mb {
     margin-left: 88vw;
-    margin-bottom: -13.3vw;
+    margin-bottom: -6.5vw;
   }
 
   #numero-do-ingrediente-mb {
@@ -690,14 +681,6 @@
     &::-webkit-input-placeholder {
       color: #909090;
     }
-
-    ;
-
-    input#dialogoselect::-moz-placeholder {
-      color: #909090;
-    }
-
-    ;
   }
 
   #nome-do-ingrediente-mb {
@@ -707,7 +690,7 @@
     color: #333333;
     text-align: left;
     margin-top: 3vw;
-    margin-left: 5vw;
+    margin-left: 7vw;
   }
 
   #input-nome-do-ingrediente-mb {
@@ -722,7 +705,7 @@
     border-bottom: 1px solid #d7d7d7;
     background-color: #ffffff;
     box-sizing: border-box;
-    font-family: "Arial", sans-serif;
+    font-family: "Fira Sans Bold", "Fira Sans", sans-serif;
     padding-left: 1%;
     padding-bottom: 2%;
     color: #333333;
@@ -730,6 +713,8 @@
 
     &::-webkit-input-placeholder {
       color: #adadad;
+      font-family: "Fira Sans Bold", "Fira Sans", sans-serif;
+      font-size: 110%;
     }
 
     &:focus {
@@ -826,11 +811,12 @@
 
   ::-webkit-scrollbar {
     background-color: #f2f2f2;
-    width: 3vw;
+    width: 1vw;
   }
 
   ::-webkit-scrollbar-thumb {
-    background-color: #cb218c;
+    background-color: #ccc;
+    width: 1vw;
   }
 
   .item-medidas-mb {
@@ -897,7 +883,7 @@
     padding-top: 4vw;
     text-align: center;
     position: absolute;
-    color: #979797;
+    color: #979797;180
     border-radius: 50%;
     font-size: 110%;
     font-family: 'Heavitas', sans-serif;
@@ -1019,4 +1005,7 @@
     display: inline-block;
   }
 
+  -webkit-input-placeholder{
+    color: #000;
+  }
 }

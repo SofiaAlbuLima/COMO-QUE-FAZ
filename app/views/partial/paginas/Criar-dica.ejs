@@ -11,8 +11,8 @@
     <form action="/criar-dica" method="post" enctype="multipart/form-data">
         <section id="criar-post-etapas-mb">
             <article id="botoes-criar-post-mb">
-                <button id="btnVoltar-mb" class="Voltar-mb">VOLTAR</button>
-                <button id="btnAvancar-mb" class="Avancar-mb">PRÓXIMA ETAPA...</button>
+                <button id="btnVoltar-mb" class="Voltar-mb" type="button">VOLTAR</button>
+                <button id="btnAvancar-mb" class="Avancar-mb" type="button">PRÓXIMA ETAPA...</button>
             </article>
 
             <nav class="lista-tarefas-mb">
@@ -24,12 +24,12 @@
                     <h2 id="detalhes-mb">Detalhes</h2>
                     <section id="detalhes-primeira-parte-mb">
                         <h3 id="titulo-da-postagem-mb">Título da Dica</h3>
-                        <input type="text" id="texto-titulo-da-postagem-mb"
-                            placeholder="Como que faz..." name="dica_titulo">
-                            
+                        <input type="text" id="texto-titulo-da-postagem-mb" placeholder="Como que faz..."
+                            name="dica_titulo">
+
                         <section class="guarda-select-mb">
                             <input class="dialogoselect-mb" id="dialogoselect-mb" type="text" name="dica_categoria"
-                                 placeholder="Categoria da postagem" readonly="readonly" />
+                                placeholder="Categoria da postagem" readonly="readonly" />
                             <section class="dropDown-mb" id="dropdown-mb">
 
                                 <article class="listDropDown-mb">
@@ -61,11 +61,12 @@
 
                     <section id="detalhes-segunda-parte-mb">
                         <h3 id="tempo-resultado-detalhes-mb">Tempo & Resultado</h3>
-                        
+
                         <section id="tempo-detalhes-mb">
-                            <img id="imagem-tempo-detalhes-mb" src="/imagens/tempo-cor-cinza.svg" alt="tempo de execução">
-                            <input type="number" id="horas-tempo-detalhes-mb" placeholder="00"
-                                name="dica_tempo_horas"> H
+                            <img id="imagem-tempo-detalhes-mb" src="/imagens/tempo-cor-cinza.svg"
+                                alt="tempo de execução">
+                            <input type="number" id="horas-tempo-detalhes-mb" placeholder="00" name="dica_tempo_horas">
+                            H
                             <input type="number" id="minutos-tempo-detalhes-mb" placeholder="00"
                                 name="dica_tempo_minutos">Min
                         </section>
@@ -81,7 +82,7 @@
                             <h3 id="titulo-descricao-detalhes-mb" name="dica_descricao">Descrição</h3>
                             <input type="text" id="descricao-detalhes-mb">
                         </section>
-                        
+
                         <section id="subcategoria-detalhes-total-mb">
                             <h3 id="titulo-subcategoria-detalhes-mb">Subcategorias</h3>
                             <section class="input-container-mb">
@@ -96,7 +97,7 @@
                 </article>
 
                 <article class="tarefa-mb" id="conteudoTarefa2-mb">
-                    <h2 id="elementos-mb">Elementos & Passo a passo</h2>
+                    <h2 id="elementos-mb">Elementos & <br> Passo a passo</h2>
                     <section id="esqueleto-elementos-mb">
                         <h2 id="titulo-ingredientes-elementos-mb">INGREDIENTES</h2>
                         <section id="clonados-ou-nao-mb">
@@ -107,32 +108,41 @@
                                     alt="excluir ingrediente" onclick="apagarDiv(this)">
                                 <section id="sem-a-linha-rosa-mb">
                                     <h4 id="nome-do-ingrediente-mb">Nome do ingrediente</h4>
-                                    <input type="text" name="ingredientes" id="input-nome-do-ingrediente-mb" placeholder="Farinha de trigo">
+                                    <input type="text" name="ingredientes" id="input-nome-do-ingrediente-mb"
+                                        placeholder="Farinha de trigo">
                                     <section id="coiso-pra-deixar-certo-mb">
                                         <section id="quantidade-elementos-mb">
                                             <h4 id="nome-do-ingrediente-mb">Quantidade/Peso</h4>
-                                            <input type="text" id="input-quantidade-do-ingrediente-mb" placeholder="01" name="quantidade_ingredientes">
+                                            <input type="text" id="input-quantidade-do-ingrediente-mb" placeholder="01"
+                                                name="quantidade_ingredientes">
                                         </section>
                                         <section id="guardar-medidas-elementos-mb">
                                             <h4 id="nome-do-ingrediente-mb">Medida</h4>
-                                            <select name="medidas-elementos" id="medidas-elementos-mb" name="medida_ingredientes">
+                                            <select name="medidas-elementos" id="medidas-elementos-mb"
+                                                name="medida_ingredientes">
                                                 <option value="item-de-modo-de-preparo" class="item-medidas-mb">Unidade
                                                 </option>
                                                 <option value="item-de-modo-de-preparo" class="item-medidas-mb">Xícara
                                                 </option>
-                                                <option value="item-de-modo-de-preparo" class="item-medidas-mb">Colher de
+                                                <option value="item-de-modo-de-preparo" class="item-medidas-mb">Colher
+                                                    de
                                                     sopa</option>
-                                                <option value="item-de-modo-de-preparo" class="item-medidas-mb">Colher de
+                                                <option value="item-de-modo-de-preparo" class="item-medidas-mb">Colher
+                                                    de
                                                     chá</option>
                                                 <option value="item-de-modo-de-preparo" class="item-medidas-mb">Copo
                                                     americano</option>
-                                                <option value="item-de-modo-de-preparo" class="item-medidas-mb">Gramas (gr)
+                                                <option value="item-de-modo-de-preparo" class="item-medidas-mb">Gramas
+                                                    (gr)
                                                 </option>
-                                                <option value="item-de-modo-de-preparo" class="item-medidas-mb">Quilogramas
+                                                <option value="item-de-modo-de-preparo" class="item-medidas-mb">
+                                                    Quilogramas
                                                     (kg)</option>
-                                                <option value="item-de-modo-de-preparo" class="item-medidas-mb">Mililitros
+                                                <option value="item-de-modo-de-preparo" class="item-medidas-mb">
+                                                    Mililitros
                                                     (ml)</option>
-                                                <option value="item-de-modo-de-preparo" class="item-medidas-mb">Litros (L)
+                                                <option value="item-de-modo-de-preparo" class="item-medidas-mb">Litros
+                                                    (L)
                                                 </option>
                                             </select>
                                         </section>
