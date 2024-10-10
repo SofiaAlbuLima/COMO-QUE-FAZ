@@ -190,7 +190,7 @@
                                                 </a>
                                                 <% } %>
                                                 <% if(usuario_logado){ %>
-                                                    <button class="ajudar"  onclick="abrirModalCriarDica(perguntaId)">
+                                                    <button class="ajudar" onclick="abrirModalCriarDica(<%= postagem.IdPostagem %>, '<%= postagem.titulo %>')">
                                                         <img class="patinha" src="/imagens-svg/patinha-icon.svg"
                                                             alt="mão botão ajudar">
                                                         Dar a pata

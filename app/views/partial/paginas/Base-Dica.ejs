@@ -505,19 +505,21 @@
                </p>
 
                <aside class="tempo-avaliacao-porcoes">
+                  <% if (postagem.tempo) { %>
                   <section class="tempo">
                      <img src="/imagens-svg/2-body/tempo.svg" alt="tempo" class="icone-info-dica">
                      <h3 class="texto-info">
                         <%= postagem.tempo %>
                      </h3>
                   </section>
+                  <% } %>
                   <section class="avaliacao">
                      <img src="/imagens-svg/2-body/avalia.svg" alt="avaliacao" class="icone-info-dica">
                      <h3 class="texto-info">
                         <%= postagem.mediaAvaliacoes %>
                      </h3>
                   </section>
-                  <% if (postagem.categoria===1) { %>
+                  <% if (postagem.categoria===1 && postagem.porcoes) { %>
                      <section class="porcoe">
                         <img src="/imagens-svg/2-body/porcao.svg" alt="porcao" class="icone-info-dica">
                         <h3 class="texto-info">
@@ -529,12 +531,14 @@
 
 
                <% if (postagem.categoria===1) { %>
+                  <% if (postagem.subcategorias) { %>
                   <figure class="hashtags">
                      <p class="hashtags-texto-culinaria">
                         <%= postagem.subcategorias ? postagem.subcategorias.replace(/,\s*/g, ' - ' )
                            : 'Nenhuma subcategoria indicada' %>
                      </p>
                   </figure>
+                  <% } %>
                   <aside class="estrelas_culinaria">
                      <article class="avalie">
                         <h1 class="gostou">GOSTOU?</h1>
@@ -561,12 +565,14 @@
                      </form>
                   </aside>
                   <% } else if (postagem.categoria===2) { %>
+                     <% if (postagem.subcategorias) { %>
                      <figure class="hashtags">
                         <p class="hashtags-texto-limpeza">
                            <%= postagem.subcategorias ? postagem.subcategorias.replace(/,\s*/g, ' - ' )
                               : 'Nenhuma subcategoria indicada' %>
                         </p>
                      </figure>
+                     <% } %>
                      <aside class="estrelas_limpeza">
                         <article class="avalie">
                            <h1 class="gostou">GOSTOU?</h1>
@@ -593,12 +599,14 @@
                         </form>
                      </aside>
                      <% } else if (postagem.categoria===3) { %>
+                        <% if (postagem.subcategorias) { %>
                         <figure class="hashtags">
                            <p class="hashtags-texto-bemestar">
                               <%= postagem.subcategorias ? postagem.subcategorias.replace(/,\s*/g, ' - ' )
                                  : 'Nenhuma subcategoria indicada' %>
                            </p>
                         </figure>
+                        <% } %>
                         <aside class="estrelas_bemestar">
                            <article class="avalie">
                               <h1 class="gostou">GOSTOU?</h1>

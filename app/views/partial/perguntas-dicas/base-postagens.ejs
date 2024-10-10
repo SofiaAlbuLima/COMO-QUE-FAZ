@@ -78,19 +78,21 @@
                </figure>
 
                <aside class="legenda">
+                  <% if(item.tempo){ %>
                   <figure class="legenda_relogio">
                      <img src="/imagens/relogio-cinza.svg" alt="relogio">
                      <h3>
                         <%= item.tempo %>
                      </h3>
                   </figure>
+                  <% } %>
                   <figure class="legenda_estrela">
                      <img src="/imagens/estrela-cinza.svg" alt="estrela">
                      <h3>
                         <%= item.mediaAvaliacoes %>
                      </h3>
                   </figure>
-                  <% if(item.categoria===1){ %>
+                  <% if(item.categoria===1 && item.porcoes){ %>
                      <figure class="legenda_partes">
                         <img src="/imagens/partes-cinza.png" alt="partes">
                         <h3>

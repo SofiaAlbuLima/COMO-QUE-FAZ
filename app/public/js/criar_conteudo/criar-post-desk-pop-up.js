@@ -30,7 +30,7 @@ function adicionarEtapa() {
                 <h2 id="simbolo-do-numero">º</h2>
             </span>
             <input type="text" id="input-modo-de-preparo" placeholder="Descrição da etapa"
-            name="etapas_modo_preparo">
+            name="etapas_modo_preparo" required>
             <button class="button-etapas" type="button" onclick="apagarEtapa(this)">X</button>
         </article>
     `;
@@ -111,6 +111,8 @@ function removerIngrediente(element) {
     }
 }
 
+let toggleModal;
+
 function setupModal() {
     const openModalButton = document.querySelector("#open-modal");
     const closeModalButton = document.querySelector("#close-modal-criar-post");
@@ -121,11 +123,29 @@ function setupModal() {
         event.stopPropagation();
     });
 
-    const toggleModal = () => {
-        modalElement.classList.toggle("hidden");
-        fadeElement.classList.toggle("hidden");
+    // Função para limpar o modal e restaurar o estado original
+    const resetModalState = () => {
+        console.log("Limpando estado do modal...");
+
+        // Reseta o ID da pergunta e o texto padrão
+        document.getElementById('pergunta_id').value = '';
+        document.getElementById('criar-post-titulo').innerText = 'CRIAR DICA';
+        document.getElementById('gato-criar-post').src = '/imagens-svg/4-PopUp/gato-preenchido-roxo.svg';
     };
 
+    // Função para abrir e fechar o modal
+    toggleModal = () => {
+        console.log("Toggling modal...");
+        modalElement.classList.toggle("hidden");
+        fadeElement.classList.toggle("hidden");
+
+        // Se o modal está fechando (adicionando 'hidden'), reseta o estado
+        if (modalElement.classList.contains("hidden")) {
+            resetModalState();
+        }
+    };
+
+    // Associa o evento de clique para abrir e fechar o modal
     [openModalButton, closeModalButton, fadeElement].forEach((el) => {
         el.addEventListener("click", () => toggleModal());
     });
@@ -134,6 +154,18 @@ function setupModal() {
 document.addEventListener("DOMContentLoaded", function () {
     setupModal();
 });
+
+// Função para abrir o modal no contexto de "Criar Patinha"
+function abrirModalCriarDica(perguntaId, perguntaTitulo) {
+    console.log("Abrindo modal para a pergunta:", perguntaId);
+    document.getElementById('pergunta_id').value = perguntaId;
+
+    // Atualiza o modal para o contexto de "Criar Patinha"
+    document.getElementById('criar-post-titulo').innerText = `CRIAR PATINHA: ${perguntaTitulo}`;
+    document.getElementById('gato-criar-post').src = '/imagens-svg/patinha-roxo-escuro-icon.svg';
+    
+    toggleModal();
+}
 
 document.addEventListener("DOMContentLoaded", function () {
     const itens = document.querySelectorAll(".tarefa");
@@ -315,15 +347,4 @@ function mostrarElementoCulinaria() {
     } else {
         elemento.style.display = "none"; // Esconde o elemento se nenhuma opção estiver selecionada
     }
-}
-
-function abrirModalCriarDica(perguntaId) {
-    // Defina o valor do campo oculto com o ID da pergunta
-    document.getElementById('pergunta_id').value = perguntaId;
-
-    // Exibir o modal de criação de dica
-    document.getElementById('modalCriarDica').style.display = 'block';
-
-    // Mostrar mensagem personalizada
-    document.getElementById('mensagemPergunta').innerText = 'Você está criando uma dica para a pergunta selecionada!';
 }

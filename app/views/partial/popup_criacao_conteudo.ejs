@@ -31,12 +31,12 @@
          </section>
 
          <section class="float-opt opt-text" id="open-modal">
-            <img src="imagens/editar_icon.svg" alt="criar uma dica">
+            <img src="/imagens/editar_icon.svg" alt="criar uma dica">
          </section>
          <span class="descricao_criar">Criar uma Dica</span>
 
          <section class="float-opt opt-media" id="open-pergunta">
-            <img src="imagens/feedback_icon.svg" alt="criar uma pergunta">
+            <img src="/imagens/feedback_icon.svg" alt="criar uma pergunta">
          </section>
          <span class="descricao_criar">Fazer uma pergunta</span>
 
@@ -82,14 +82,14 @@
                <article id="agrupamento-conteudo">
                   <section class="conteudo conteudo1" id="conteudoTarefa1">
                      <h2 id="titulo-detalhes">DETALHES</h2>
-                     <input type="text" id="input-titulo-da-postagem" maxlength="100" placeholder="TÍTULO DA POSTAGEM"
-                        name="dica_titulo">
+                     <input type="text" id="input-titulo-da-postagem" maxlength="100" placeholder="TÍTULO DA POSTAGEM*"
+                        name="dica_titulo" required>
                      <span id="b-titulo-da-postagem">0/300</span>
                      <section id="select-tempo-resultado-inline">
                         <figure class="guarda-select">
                            <input class="dialogoselect" id="dialogoselect" type="text" name="dica_categoria"
-                              onfocus="dropdown(0)" onblur="dropdown(1)" placeholder="CATEGORIA DA POSTAGEM"
-                              readonly="readonly" />
+                              onfocus="dropdown(0)" onblur="dropdown(1)" placeholder="CATEGORIA DA POSTAGEM*"
+                              readonly="readonly" required>
                            <div class="dropDown" id="dropdown" style="z-index: 1000; display: none;">
                               <div class="listDropDown">
                                  <div value="culinaria-categoria" class="item-select-detalhes texto"
@@ -114,17 +114,17 @@
 
                         <figure id="tempo-detalhes-porcoes">
                            <img id="imagem-tempo-detalhes-porcoes"
-                              src="./imagens-svg/4-PopUp/porçoes-cinza-culinaria.svg" alt="porcoes de execução">
+                              src="/imagens-svg/4-PopUp/porçoes-cinza-culinaria.svg" alt="porcoes de execução">
                            <input type="number" id="horas-tempo-detalhes" maxlength="3" max="100" placeholder="00"
-                              min="0" name="dica_porcoes">PORÇÕES
+                              min="0" name="dica_porcoes">PORÇÕES*
                         </figure>
                      </section>
 
                      <section id="descricao-subcategorias">
                         <figure id="descricao-detalhes-total">
-                           <h3 id="titulo-descricao-detalhes">DESCRIÇÃO</h3>
+                           <h3 id="titulo-descricao-detalhes">DESCRIÇÃO*</h3>
                            <textarea id="descricao-detalhes" name="dica_descricao" cols="30" rows="10"
-                              maxlength="300"></textarea>
+                              maxlength="300" required></textarea>
                            <span id="b-descricao-detalhes">0/300</span>
                         </figure>
                         <section id="subcategoria-detalhes-total">
@@ -178,10 +178,10 @@
 
                   <section class="conteudo conteudo3" id="conteudoTarefa3">
                      <h2 id="titulo-midias">MÍDIAS</h2>
-                     <input type="file" id="imagem_criar_post" name="imagem_criar_post" onchange="loadImg(event)"
+                     <input type="file" id="imagem_criar_post" name="imagem_criar_post" onchange="loadImg(event)" style="display: none;"
                         required>
                      <figure id="esqueleto-midias">
-                        <h1 id="adicione-midias">ADICIONE IMAGENS E VÍDEOS À SUA POSTAGEM!</h1>
+                        <h1 id="adicione-midias">ADICIONE IMAGENS E VÍDEOS À SUA POSTAGEM!*</h1>
                         <figure id="retangulo-adicionar-midia">
                            <img src="/imagens/mais-rosa.svg" alt="adicionar mídia" id="mais-adicionar-midia">
                         </figure>
@@ -225,7 +225,7 @@
                                  thumbnail.className = 'thumbnail';
                                  thumbnail.src = picFile.result;
                                  thumbnail.title = picFile.name;
-                                 thumbnail.style.width = '100px';
+                                 thumbnail.style.width = '500';
                                  thumbnail.style.margin = '10px';
 
                                  thumbnailContainer.appendChild(thumbnail);
@@ -258,7 +258,7 @@
          <section class="modal-header-pergunta">
             <img src="/imagens-svg/4-PopUp/gato-preenchido-roxo.svg" alt="icon gato criar pergunta"
                id="gato-criar-post">
-            <h2 id="criar-post-titulo">CRIAR PERGUNTA</h2>
+            <h2 id="criar-pergunta-titulo">CRIAR PERGUNTA</h2>
             <figure class="fechar-pergunta" id="close-modal-pergunta">X</figure>
          </section>
          
@@ -268,13 +268,13 @@
 
                <section class="alinhamento-da-pergunta">
                   <figure id="linha-colorida-pgt"></figure>
-                  <input type="text" id="input-titulo-da-pergunta" placeholder="DESCREVA SUA PERGUNTA"
+                  <input type="text" maxlength="100" id="input-titulo-da-pergunta" placeholder="DESCREVA SUA PERGUNTA*"
                      name="pergunta_titulo">
 
                   <section class="guarda-select-perguntar">
                      <input class="dialogoselect-perguntar-categoria" id="dialogoselect-perguntar-categoria" type="text"
                         name="pergunta_categoria" onfocus="dropdownpergunta(0)" onblur="dropdownpergunta(1)"
-                        placeholder="CATEGORIA DA PERGUNTA" readonly="readonly">
+                        placeholder="CATEGORIA DA PERGUNTA*" readonly="readonly">
                      <figure class="dropdown-perguntar-categoria" style="z-index: 1000;">
                         <figure class="listdropdown-perguntar-categoria">
                            <option value="categoria-culinaria" class="item-perguntar-categoria"

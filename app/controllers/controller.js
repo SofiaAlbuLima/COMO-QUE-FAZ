@@ -68,7 +68,7 @@ const tarefasController = {
                 pagina: { cabecalho: "cabecalho", conteudo: "Fazer-Login", FormCadastro: "template_cadastro", FormLogin: "template_login", rodape: "rodape" },
                 usuario_logado: req.session.autenticado,
                 listaErroslog: erros,
-               
+
                 listaErrosCad: null,
                 dadosNotificacao: null
             });
@@ -82,7 +82,7 @@ const tarefasController = {
             pagina: { cabecalho: "cabecalho", conteudo: "Fazer-Login", FormCadastro: "template_cadastro", FormLogin: "template_login", rodape: "rodape" },
             usuario_logado: null,
             listaErroslog: null,
-          
+
             listaErrosCad: null,
             dadosNotificacao: { titulo: "Falha ao logar!", mensagem: "Usuário e/ou senha inválidos!", tipo: "error" }
         });
@@ -100,7 +100,7 @@ const tarefasController = {
             return res.render("pages/template", {
                 pagina: { cabecalho: "cabecalho", conteudo: "Fazer-Login", FormCadastro: "template_cadastro", FormLogin: "template_login", rodape: "rodape" },
                 usuario_logado: req.session.autenticado,
-              
+
                 listaErroslog: null,
                 listaErrosCad: erros,
                 dadosNotificacao: null
@@ -121,7 +121,7 @@ const tarefasController = {
             res.render("pages/template", {
                 pagina: { cabecalho: "cabecalho", conteudo: "Fazer-Login", FormCadastro: "template_cadastro", FormLogin: "template_login", rodape: "rodape" },
                 usuario_logado: req.session.autenticado,
-               
+
                 listaErrosCad: null,
                 listaErroslog: null,
                 dadosNotificacao: {
@@ -187,7 +187,7 @@ const tarefasController = {
                 const isPatinha = await conteudoModel.VerificarSePatinha(conteudo.id);
 
                 let quantidadePatinhas = 0;
-                if(conteudo.tipo === "pergunta"){
+                if (conteudo.tipo === "pergunta") {
                     quantidadePatinhas = await conteudoModel.BuscarQuantidadePatinhasPorPergunta(conteudo.id);
                 }
                 return {
@@ -281,7 +281,7 @@ const tarefasController = {
                 const isPatinha = await conteudoModel.VerificarSePatinha(conteudo.id);
 
                 let quantidadePatinhas = 0;
-                if(conteudo.tipo === "pergunta"){
+                if (conteudo.tipo === "pergunta") {
                     quantidadePatinhas = await conteudoModel.BuscarQuantidadePatinhasPorPergunta(conteudo.id);
                 }
                 return {
@@ -404,17 +404,19 @@ const tarefasController = {
                     break;
             }
 
+            const usuario_logado = req.session.autenticado ? req.session.autenticado : null;
+
             if (postagem.tipo === 'dica') {
                 res.render("pages/template", {
                     pagina: { cabecalho: "cabecalho", conteudo: "Base-Dica", rodape: "rodape" },
                     postagem: postagemFormatada,
-                    usuario_logado: req.session.autenticado
+                    usuario_logado: usuario_logado
                 });
             } else if (postagem.tipo === 'pergunta') {
                 res.render("pages/template", {
                     pagina: { cabecalho: "cabecalho", conteudo: "Base-Pergunta", rodape: "rodape" },
                     postagem: postagemFormatada,
-                    usuario_logado: req.session.autenticado
+                    usuario_logado: usuario_logado
                 });
             }
         } catch (erro) {
@@ -553,12 +555,11 @@ const tarefasController = {
                 categoriaId = 3;
             }
 
-            const etapasModoPreparo = req.body.etapas_modo_preparo;
-            if (!Array.isArray(etapasModoPreparo)) {
-                console.log('etapas_modo_preparo não é um array:', etapasModoPreparo);
-                return res.status(400).send('Etapas do modo de preparo inválidas');
+            let etapasModoPreparo = req.body.etapas_modo_preparo;
+            if (typeof etapasModoPreparo === 'string') {
+                etapasModoPreparo = [etapasModoPreparo]; // Se for uma string única, transformar em array
             }
-            const etapasTexto = etapasModoPreparo.join('; ');
+            const etapasTexto = Array.isArray(etapasModoPreparo) ? etapasModoPreparo.join('; ') : '';
 
             const subcategoriasTexto = req.body.dica_subcategorias || '';
 
@@ -576,10 +577,6 @@ const tarefasController = {
             console.log("Arquivo recebido no controlador:", req.file);
             if (!req.file) {
                 return res.status(400).send("Arquivo não encontrado. Verifique o campo de upload.");
-            }
-
-            if (req.body.pergunta_id) {
-                FormCriarDica.pergunta_id = req.body.pergunta_id;  // Atribua o ID da pergunta
             }
 
             console.log('FormCriarDica:', FormCriarDica); // Debugging
@@ -613,6 +610,20 @@ const tarefasController = {
 
             console.log("Postagem e ingredientes realizados com sucesso!", postagemId);
 
+            if (req.body.pergunta_id) {
+                const respostaDica = {
+                    Perguntas_ID_Pergunta: req.body.pergunta_id,
+                    Clientes_idClientes: req.session.autenticado.id,
+                    Conteudo_ID_Dica: postagemId
+                };
+                try {
+                    await conteudoModel.CriarRespostaDica(respostaDica);
+                    console.log("Vínculo com a pergunta criado na tabela respostas_dica!");
+                } catch (error) {
+                    console.error("Erro ao criar vínculo na tabela respostas_dica:", error);
+                }
+            }
+
             req.session.notification = {
                 titulo: "Postagem realizada!",
                 mensagem: "Sua dica foi publicada com sucesso!",
@@ -629,8 +640,8 @@ const tarefasController = {
             res.render("pages/template", {
                 pagina: { cabecalho: "cabecalho", conteudo: "Perfil", rodape: "rodape" },
                 usuario_logado: req.session.autenticado,
-                 listaErrosCad: null,
-                 listaErroslog: null,
+                listaErrosCad: null,
+                listaErroslog: null,
                 dadosNotificacao: {
                     titulo: "Erro ao realizar a postagem!",
                     mensagem: "Verifique os valores digitados em rascunhos!",

@@ -448,6 +448,27 @@ const conteudoModel = {
         const query = `SELECT COUNT(*) as quantidade FROM respostas_dica WHERE Perguntas_ID_Pergunta = ?`;
         const [result] = await pool.query(query, [idPergunta]);
         return result[0].quantidade;
+    },
+    CriarRespostaDica: async (respostaDica) => {
+        const query = `
+            INSERT INTO respostas_dica (Perguntas_ID_Pergunta, Clientes_idClientes, Conteudo_ID_Dica)
+            VALUES (?, ?, ?)
+        `;
+        
+        const valores = [
+            respostaDica.Perguntas_ID_Pergunta,
+            respostaDica.Clientes_idClientes,
+            respostaDica.Conteudo_ID_Dica
+        ];
+
+        try {
+            const [result] = await pool.execute(query, valores);
+            console.log("Resposta vinculada à pergunta criada com sucesso:", result);
+            return result;
+        } catch (error) {
+            console.error("Erro ao criar a resposta vinculada à pergunta:", error);
+            throw error;
+        }
     }
 }
 
