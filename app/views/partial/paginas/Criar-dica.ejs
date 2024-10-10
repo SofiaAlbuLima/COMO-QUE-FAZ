@@ -103,9 +103,9 @@
                         <section id="clonados-ou-nao-mb">
                             <article id="ingredientes-elementos-mb">
                                 <img id="botao-de-add-ingrediente-mb" src="/imagens/adicionar-ingrediente.svg"
-                                    onclick="duplicarDiv()">
+                                    onclick="duplicarDivmb()">
                                 <img id="botao-de-tirar-ingrediente-mb" src="/imagens/tirar-ingrediente.svg"
-                                    alt="excluir ingrediente" onclick="apagarDiv(this)">
+                                    alt="excluir ingrediente" onclick="apagarDivmb(this)">
                                 <section id="sem-a-linha-rosa-mb">
                                     <h4 id="nome-do-ingrediente-mb">Nome do ingrediente</h4>
                                     <input type="text" name="ingredientes" id="input-nome-do-ingrediente-mb"
@@ -160,7 +160,7 @@
                                 </section>
                                 <section id="botoes-de-tirar-colocar-mb">
                                     <img id="botao-de-add-modo-mb" src="/imagens/adicionar-ingrediente.svg"
-                                        onclick="duplicarDivModo()">
+                                        onclick="duplicarDivModombmb()">
                                 </section>
                                 <section id="modo-de-preparo-mb">
                                     <span id="arruma-numero-simbolo-mb">
@@ -170,9 +170,10 @@
                                     </span>
                                     <input type="text" name="etapas_modo_preparo" id="input-modo-de-preparo-mb"
                                         placeholder="Misture todos os ingredientes...">
-                                    <button id="apagar-modo-de-preparo-mb" onclick="apagarDivModo(this)">X</button>
+                                    <button id="apagar-modo-de-preparo-mb" type="button" style="display:none;">X</button>
                                 </section>
                             </article>
+                            
                         </section>
                     </section>
                 </article>

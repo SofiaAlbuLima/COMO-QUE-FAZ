@@ -303,73 +303,135 @@ function qmedidas(pega) {
     var oitemedidas = document.getElementById('itemedidas-mb-' + pega).innerText;
     document.getElementById('medidas-elementos-mb').value = oitemedidas;
 }
+var contadorDivs = 1; // O primeiro já conta, então começamos com 1
 
-var contadorDivs = 0;
-
-function duplicarDiv() {
+function duplicarDivmb() {
     var divOriginal = document.getElementById('ingredientes-elementos-mb');
-    var clone = divOriginal.cloneNode(true);
-    contadorDivs++;
-    clone.id = "ingredientes-elementos-mb-" + contadorDivs;
-    document.getElementById('clonados-ou-nao-mb').appendChild(clone);
-    atualizarNumeracaoIngredientes()
+    var clone = divOriginal.cloneNode(true); // Clona o elemento
+    contadorDivs++; // Incrementa o contador de divs
 
+    // Atualiza o ID da div clonada
+    clone.id = "ingredientes-elementos-mb-" + contadorDivs;
+    
+    // Limpa o campo de input do ingrediente e ajusta o número
+    var numeroDoIngrediente = clone.querySelector("#numero-do-ingrediente-mb");
+    if (numeroDoIngrediente) {
+        numeroDoIngrediente.innerText = contadorDivs; // Atualiza o número do ingrediente
+    }
+    
+    clone.querySelector('#input-nome-do-ingrediente-mb').value = ''; // Limpa o nome do ingrediente
+    clone.querySelector('#input-quantidade-do-ingrediente-mb').value = ''; // Limpa a quantidade
+
+    // Adiciona o clone ao container
+    document.getElementById('clonados-ou-nao-mb').appendChild(clone);
+
+    atualizarNumeracaoIngredientes(); // Atualiza a numeração de todos os ingredientes
 }
 
-function apagarDiv(element) {
-    var parent = element.parentNode;
-    if (parent.id !== 'ingredientes-elementos-mb') {
-        parent.parentNode.removeChild(parent);
-        atualizarNumeracaoIngredientes()
+function apagarDivmb(element) {
+    var parent = element.closest('article'); // Pegamos o elemento pai "article"
+    
+    // Verifica se o elemento pai é o ingrediente original
+    if (parent && parent.id !== 'ingredientes-elementos-mb') {
+        parent.parentNode.removeChild(parent); // Remove o clone
+        atualizarNumeracaoIngredientes(); // Atualiza a numeração após apagar
     }
+    // Se for o original (id = 'ingredientes-elementos-mb'), não faz nada.
 }
 
 function atualizarNumeracaoIngredientes() {
-    var divs = document.querySelectorAll('[id^="ingredientes-mb-"]');
+    var divs = document.querySelectorAll('[id^="ingredientes-elementos-mb"], [id^="ingredientes-elementos-mb-"]'); // Inclui o original e os clones
     divs.forEach(function (div, index) {
         var numeroDoIngrediente = div.querySelector("#numero-do-ingrediente-mb");
         if (numeroDoIngrediente) {
-            numeroDoIngrediente.innerText = index + 1;
+            numeroDoIngrediente.innerText = index + 1; // Atualiza o número do ingrediente para cada clone
         }
     });
 }
 
-//botoes de criar e tirar modo de preparo
+// No carregamento da página, já numeramos o primeiro ingrediente
+document.addEventListener('DOMContentLoaded', function() {
+    atualizarNumeracaoIngredientes();
+});
+
+
+//----------------------------------------------------------------------------------------------------botoes de criar e tirar modo de preparo
 
 document.getElementById("botao-de-add-modo-mb").addEventListener("click", function () {
-    duplicarDivModo();
+    duplicarDivModombmb();
 });
 
-document.getElementById("botao-de-tirar-modo-mb").addEventListener("click", function () {
-    var element = this.parentNode;
-    apagarDivModo(element);
+// Muda o evento para o container dos clones
+document.getElementById('tudo-dos-clones-mb').addEventListener("click", function (event) {
+    if (event.target && event.target.matches("#apagar-modo-de-preparo-mb")) {
+        var elementmb = event.target.closest('section'); // Pega o elemento pai mais próximo
+        apagarDivModombmb(elementmb);
+    }
 });
 
-var contadorDivsModo = 0;
+var contadorDivsModombmb = 1; // Contador começa em 1, pois já existe o primeiro modo de preparo
 
-function duplicarDivModo() {
-    var divOriginal = document.getElementById('modo-de-preparo-mb');
-    var clone = divOriginal.cloneNode(true);
-    contadorDivsModo++;
-    clone.id = "modo-de-preparo-mb-" + contadorDivsModo;
-    document.getElementById('tudo-dos-clones-mb').appendChild(clone);
-    atualizarNumeracao();
-}
+function duplicarDivModombmb() {
+    var divOriginalmb = document.getElementById('modo-de-preparo-mb');
+    
+    // Garante que o clone será criado uma única vez por clique
+    if (divOriginalmb) {
+        // Clona o modo de preparo original
+        var clonemb = divOriginalmb.cloneNode(true); 
+        
+        contadorDivsModombmb++; // Incrementa o contador de divs
+        
+        clonemb.id = "modo-de-preparo-mb-" + contadorDivsModombmb; // Atualiza o ID do clone
 
-function apagarDivModo(element) {
-    var parent = element.parentNode;
-    if (parent.id !== 'modo-de-preparo-mb') {
-        parent.parentNode.removeChild(parent);
-        atualizarNumeracao();
+        // Limpa o campo de texto do clone para permitir novo input
+        var textarea = clonemb.querySelector('input[name="etapas_modo_preparo"]');
+        if (textarea) {
+            textarea.value = ''; // Limpa o campo de texto
+        }
+
+        // Atualiza o número do modo de preparo no clone
+        var numeroDoModombmb = clonemb.querySelector("#numero-do-modo-de-preparo-mb");
+        if (numeroDoModombmb) {
+            numeroDoModombmb.value = contadorDivsModombmb;
+        }
+
+        // Exibe o botão de apagar no clone
+        var botaoApagar = clonemb.querySelector("#apagar-modo-de-preparo-mb");
+        if (botaoApagar) {
+            botaoApagar.style.display = 'block'; // Torna o botão visível
+            botaoApagar.onclick = function(event) {
+                event.stopPropagation(); // Impede que o clique no botão acione o listener do container
+                apagarDivModombmb(clonemb); // Liga a função de apagar ao botão
+            };
+        }
+
+        // Adiciona o clone ao container
+        document.getElementById('tudo-dos-clones-mb').appendChild(clonemb);
+
+        atualizarNumeracaombmb(); // Atualiza a numeração de todos os modos de preparo
     }
 }
 
-function atualizarNumeracao() {
-    var divs = document.querySelectorAll('[id^="modo-de-preparo-mb-"]');
-    divs.forEach(function (div, index) {
-        var numeroDoModo = div.querySelector("#numero-do-modo-de-preparo-mb");
-        if (numeroDoModo) {
-            numeroDoModo.value = index + 1;
+function apagarDivModombmb(elementmb) {
+    // Verifica se o elemento a ser removido é um clone (não é o original)
+    if (elementmb && elementmb.id !== 'modo-de-preparo-mb') {
+        elementmb.parentNode.removeChild(elementmb); // Remove o clone
+        atualizarNumeracaombmb(); // Atualiza a numeração após apagar
+    }
+}
+
+function atualizarNumeracaombmb() {
+    var divsmb = document.querySelectorAll('[id^="modo-de-preparo-mb-"], [id="modo-de-preparo-mb"]');
+    
+    divsmb.forEach(function (divmb, indexmb) {
+        var numeroDoModombmb = divmb.querySelector("#numero-do-modo-de-preparo-mb");
+        if (numeroDoModombmb) {
+            numeroDoModombmb.value = indexmb + 1; // Atualiza a numeração corretamente
         }
     });
 }
+
+// Já numeramos o primeiro modo de preparo ao carregar a página
+document.addEventListener('DOMContentLoaded', function() {
+    atualizarNumeracaombmb();
+});

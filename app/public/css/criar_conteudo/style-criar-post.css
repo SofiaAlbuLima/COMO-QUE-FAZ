@@ -640,7 +640,7 @@
   }
 
   #sem-a-linha-rosa-mb {
-    margin-left: 9vw;
+    margin-left: 5vw;
     padding-top: 6vw;
   }
 
@@ -649,7 +649,7 @@
     font-weight: 700;
     color: #cb218c;
     text-align: left;
-    margin-left: 14vw;
+    margin-left: 12vw;
     margin-bottom: -17vw;
     font-size: 130%;
     border: 0;
@@ -713,8 +713,10 @@
 
     &::-webkit-input-placeholder {
       color: #adadad;
-      font-family: "Fira Sans Bold", "Fira Sans", sans-serif;
-      font-size: 110%;
+      font-family: "Fira Sans", sans-serif;
+      font-weight: 500;
+      text-align: left;
+      font-size: 90%;
     }
 
     &:focus {
@@ -745,15 +747,11 @@
 
     &::-webkit-input-placeholder {
       color: #adadad;
+      font-family: "Fira Sans", sans-serif;
+      font-weight: 500;
+      text-align: left;
+      font-size: 90%;
     }
-
-    ;
-
-    input#dialogoselect::-moz-placeholder {
-      color: #adadad;
-    }
-
-    ;
 
     &:focus {
       outline: 0;
@@ -779,15 +777,11 @@
 
     &::-webkit-input-placeholder {
       color: #adadad;
+      font-family: "Fira Sans", sans-serif;
+      font-weight: 500;
+      text-align: left;
+      font-size: 90%;
     }
-
-    ;
-
-    input#dialogoselect::-moz-placeholder {
-      color: #adadad;
-    }
-
-    ;
 
     &:focus {
       outline: none;
@@ -945,13 +939,17 @@
   }
 
   #passo-a-passo-modo-mb{
+    margin-left: 4.4vw;
+    margin-top: 3vw;
     font-family: "Fira Sans Bold", "Fira Sans", sans-serif;
     font-weight: 500;
-    color: #adadad;
+    font-size: 80%;
+    color: #333333;
     text-align: left;
-    margin-left: 4.4vw;
-    padding-top: 0.7vw;
-    font-size: 100%;
+  }
+
+  #modo-de-preparo-mb-NaN{
+    margin-left: 5vw;
   }
 
   #botoes-de-tirar-colocar-mb{
@@ -961,7 +959,7 @@
 
   #linhas-roxa-conteudo-mb{
     border-left: 1vw #9e5fef solid;
-    margin-left: 6.4vw;
+    margin-left: 5vw;
   }
   
   #input-modo-de-preparo-mb{
@@ -974,23 +972,20 @@
     border-bottom: 1px solid #d7d7d7;
     background-color: #ffffff;
     box-sizing: border-box;
-    font-family: "Arial", sans-serif;
     padding-left: 1%;
     padding-bottom: 2vw;
+    font-weight: 500;
+    font-family: 'Fira Sans', sans-serif;
     color: #333333;
     text-align: left;
 
     &::-webkit-input-placeholder {
       color: #adadad;
+      font-family: "Fira Sans", sans-serif;
+      font-weight: 500;
+      text-align: left;
+      font-size: 90%;
     }
-
-    ;
-
-    input#dialogoselect::-moz-placeholder {
-      color: #adadad;
-    }
-
-    ;
 
     &:focus {
       outline: 0;
