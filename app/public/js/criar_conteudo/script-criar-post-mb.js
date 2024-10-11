@@ -2,7 +2,7 @@ const btnVoltar = document.getElementById('btnVoltar-mb');
 const btnAvancar = document.getElementById('btnAvancar-mb');
 const artigos = document.querySelectorAll('.tarefa-mb');
 const progresso = document.getElementById('progresso-mb');
-const form = document.querySelector('form'); // Pegue o formulário se ele existir na página
+const form = document.getElementById('form-criar-mb'); // Pegue o formulário se ele existir na página
 
 let currentIndex = 0;
 
@@ -17,6 +17,13 @@ function mostrarArtigo(index) {
     const itemWidth = 100 / artigos.length;
     const progressoWidth = itemWidth * (artigos.length - (currentIndex + 1)); 
     progresso.style.width = progressoWidth + "%";
+
+    // Se estiver no último artigo, muda o texto do botão para "CRIAR DICA"
+    if (currentIndex === artigos.length - 1) {
+        btnAvancar.innerText = "CRIAR DICA";
+    } else {
+        btnAvancar.innerText = "PRÓXIMA ETAPA...";
+    }
 }
 
 btnAvancar.addEventListener('click', () => {
@@ -25,7 +32,6 @@ btnAvancar.addEventListener('click', () => {
         mostrarArtigo(currentIndex);
     } else {
         // Caso esteja no último artigo, envie o formulário
-        btnAvancar.innerText = "CRIAR POSTAGEM"; // Altera o texto do botão
         form.submit(); // Submete o formulário
     }
 });
@@ -37,8 +43,8 @@ btnVoltar.addEventListener('click', () => {
     }
 });
 
+// Exibe o primeiro artigo ao carregar a página
 mostrarArtigo(currentIndex);
-
 
 
 // document.addEventListener("DOMContentLoaded", function () {
@@ -175,30 +181,23 @@ document.addEventListener("DOMContentLoaded", function () {
 });
 
 
-function adicionarMensagem() {
+function adicionarMensagemmb() {
     const inputText = document.getElementById('input-text-subcategoria-mb');
     const messageList = document.getElementById('messageList-mb');
 
-    // Obter o valor do input
     const inputValue = inputText.value.trim();
 
-    // Verificar se o valor não está vazio
     if (inputValue !== '') {
-        // Criar um novo elemento de div para exibir a mensagem
         const messageDiv = document.createElement('div');
         messageDiv.className = 'div-etiqueta-subcategoria-mb';
         messageDiv.textContent = inputValue;
 
-        // Adicionar a div à lista de mensagens
         messageList.appendChild(messageDiv);
 
-        // Limpar o valor do input
         inputText.value = '';
 
-        // Atualizar o campo oculto
         atualizarCampoOculto();
 
-        // Adicionar evento de clique para remover a subcategoria
         messageDiv.addEventListener("click", function () {
             messageDiv.remove();
             atualizarCampoOculto();
@@ -210,11 +209,9 @@ function atualizarCampoOculto() {
     const messageList = document.getElementById('messageList-mb');
     const hiddenInput = document.getElementById('dica_subcategorias-mb');
 
-    // Obter todas as subcategorias da lista
     const subcategorias = Array.from(messageList.getElementsByClassName('div-etiqueta-subcategoria-mb'))
         .map(div => div.textContent.trim());
 
-    // Atualizar o valor do campo oculto
     hiddenInput.value = subcategorias.join(', ');
 }
 
@@ -303,73 +300,127 @@ function qmedidas(pega) {
     var oitemedidas = document.getElementById('itemedidas-mb-' + pega).innerText;
     document.getElementById('medidas-elementos-mb').value = oitemedidas;
 }
+var contadorDivs = 1; // O primeiro já conta, então começamos com 1
 
-var contadorDivs = 0;
-
-function duplicarDiv() {
+function duplicarDivmb() {
     var divOriginal = document.getElementById('ingredientes-elementos-mb');
-    var clone = divOriginal.cloneNode(true);
-    contadorDivs++;
-    clone.id = "ingredientes-elementos-mb-" + contadorDivs;
-    document.getElementById('clonados-ou-nao-mb').appendChild(clone);
-    atualizarNumeracaoIngredientes()
+    var clone = divOriginal.cloneNode(true); // Clona o elemento
+    contadorDivs++; // Incrementa o contador de divs
 
+    // Atualiza o ID da div clonada
+    clone.id = "ingredientes-elementos-mb-" + contadorDivs;
+    
+    // Limpa o campo de input do ingrediente e ajusta o número
+    var numeroDoIngrediente = clone.querySelector("#numero-do-ingrediente-mb");
+    if (numeroDoIngrediente) {
+        numeroDoIngrediente.innerText = contadorDivs; // Atualiza o número do ingrediente
+    }
+    
+    clone.querySelector('#input-nome-do-ingrediente-mb').value = ''; // Limpa o nome do ingrediente
+    clone.querySelector('#input-quantidade-do-ingrediente-mb').value = ''; // Limpa a quantidade
+
+    // Adiciona o clone ao container
+    document.getElementById('clonados-ou-nao-mb').appendChild(clone);
+
+    atualizarNumeracaoIngredientes(); // Atualiza a numeração de todos os ingredientes
 }
 
-function apagarDiv(element) {
-    var parent = element.parentNode;
-    if (parent.id !== 'ingredientes-elementos-mb') {
-        parent.parentNode.removeChild(parent);
-        atualizarNumeracaoIngredientes()
+function apagarDivmb(element) {
+    var parent = element.closest('article'); // Pegamos o elemento pai "article"
+    
+    // Verifica se o elemento pai é o ingrediente original
+    if (parent && parent.id !== 'ingredientes-elementos-mb') {
+        parent.parentNode.removeChild(parent); // Remove o clone
+        atualizarNumeracaoIngredientes(); // Atualiza a numeração após apagar
     }
+    // Se for o original (id = 'ingredientes-elementos-mb'), não faz nada.
 }
 
 function atualizarNumeracaoIngredientes() {
-    var divs = document.querySelectorAll('[id^="ingredientes-mb-"]');
+    var divs = document.querySelectorAll('[id^="ingredientes-elementos-mb"], [id^="ingredientes-elementos-mb-"]'); // Inclui o original e os clones
     divs.forEach(function (div, index) {
         var numeroDoIngrediente = div.querySelector("#numero-do-ingrediente-mb");
         if (numeroDoIngrediente) {
-            numeroDoIngrediente.innerText = index + 1;
+            numeroDoIngrediente.innerText = index + 1; // Atualiza o número do ingrediente para cada clone
         }
     });
 }
 
-//botoes de criar e tirar modo de preparo
-
-document.getElementById("botao-de-add-modo-mb").addEventListener("click", function () {
-    duplicarDivModo();
+// No carregamento da página, já numeramos o primeiro ingrediente
+document.addEventListener('DOMContentLoaded', function() {
+    atualizarNumeracaoIngredientes();
 });
 
-document.getElementById("botao-de-tirar-modo-mb").addEventListener("click", function () {
-    var element = this.parentNode;
-    apagarDivModo(element);
+
+//----------------------------------------------------------------------------------------------botoes de criar e tirar modo de preparo
+
+// Muda o evento para o container dos clones
+document.getElementById('tudo-dos-clones-mb').addEventListener("click", function (event) {
+    if (event.target && event.target.matches("#apagar-modo-de-preparo-mb")) {
+        var elementmb = event.target.closest('section'); // Pega o elemento pai mais próximo
+        apagarDivModombmb(elementmb);
+    }
 });
 
-var contadorDivsModo = 0;
+var contadorDivsModombmb = 1; // Contador começa em 1, pois já existe o primeiro modo de preparo
 
-function duplicarDivModo() {
-    var divOriginal = document.getElementById('modo-de-preparo-mb');
-    var clone = divOriginal.cloneNode(true);
-    contadorDivsModo++;
-    clone.id = "modo-de-preparo-mb-" + contadorDivsModo;
-    document.getElementById('tudo-dos-clones-mb').appendChild(clone);
-    atualizarNumeracao();
-}
+function duplicarDivModombmb() {
+    var divOriginalmb = document.getElementById('modo-de-preparo-mb');
+    
+    if (divOriginalmb) {
+        var clonemb = divOriginalmb.cloneNode(true); 
+        
+        contadorDivsModombmb++;
+        
+        clonemb.id = "modo-de-preparo-mb-" + contadorDivsModombmb; 
+        clonemb.style.marginLeft = '5vw';
 
-function apagarDivModo(element) {
-    var parent = element.parentNode;
-    if (parent.id !== 'modo-de-preparo-mb') {
-        parent.parentNode.removeChild(parent);
-        atualizarNumeracao();
+        var textarea = clonemb.querySelector('input[name="etapas_modo_preparo"]');
+        if (textarea) {
+            textarea.value = ''; 
+        }
+
+        var numeroDoModombmb = clonemb.querySelector("#numero-do-modo-de-preparo-mb");
+        if (numeroDoModombmb) {
+            numeroDoModombmb.value = contadorDivsModombmb;
+        }
+
+        var botaoApagar = clonemb.querySelector("#apagar-modo-de-preparo-mb");
+        if (botaoApagar) {
+            botaoApagar.style.display = 'inline-block'; 
+            botaoApagar.onclick = function(event) {
+                event.stopPropagation(); 
+                apagarDivModombmb(clonemb); 
+            };
+        }
+
+        // Adiciona o clone ao container
+        document.getElementById('tudo-dos-clones-mb').appendChild(clonemb);
+
+        atualizarNumeracaombmb(); // Atualiza a numeração de todos os modos de preparo
     }
 }
 
-function atualizarNumeracao() {
-    var divs = document.querySelectorAll('[id^="modo-de-preparo-mb-"]');
-    divs.forEach(function (div, index) {
-        var numeroDoModo = div.querySelector("#numero-do-modo-de-preparo-mb");
-        if (numeroDoModo) {
-            numeroDoModo.value = index + 1;
+function apagarDivModombmb(elementmb) {
+    // Verifica se o elemento a ser removido é um clone (não é o original)
+    if (elementmb && elementmb.id !== 'modo-de-preparo-mb') {
+        elementmb.parentNode.removeChild(elementmb); // Remove o clone
+        atualizarNumeracaombmb(); // Atualiza a numeração após apagar
+    }
+}
+
+function atualizarNumeracaombmb() {
+    var divsmb = document.querySelectorAll('[id^="modo-de-preparo-mb-"], [id="modo-de-preparo-mb"]');
+    
+    divsmb.forEach(function (divmb, indexmb) {
+        var numeroDoModombmb = divmb.querySelector("#numero-do-modo-de-preparo-mb");
+        if (numeroDoModombmb) {
+            numeroDoModombmb.value = indexmb + 1; // Atualiza a numeração corretamente
         }
     });
 }
+
+// Já numeramos o primeiro modo de preparo ao carregar a página
+document.addEventListener('DOMContentLoaded', function() {
+    atualizarNumeracaombmb();
+});
