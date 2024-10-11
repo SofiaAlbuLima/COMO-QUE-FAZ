@@ -2,7 +2,7 @@ const btnVoltar = document.getElementById('btnVoltar-mb');
 const btnAvancar = document.getElementById('btnAvancar-mb');
 const artigos = document.querySelectorAll('.tarefa-mb');
 const progresso = document.getElementById('progresso-mb');
-const form = document.querySelector('form'); // Pegue o formulário se ele existir na página
+const form = document.getElementById('form-criar-mb'); // Pegue o formulário se ele existir na página
 
 let currentIndex = 0;
 
@@ -17,6 +17,13 @@ function mostrarArtigo(index) {
     const itemWidth = 100 / artigos.length;
     const progressoWidth = itemWidth * (artigos.length - (currentIndex + 1)); 
     progresso.style.width = progressoWidth + "%";
+
+    // Se estiver no último artigo, muda o texto do botão para "CRIAR DICA"
+    if (currentIndex === artigos.length - 1) {
+        btnAvancar.innerText = "CRIAR DICA";
+    } else {
+        btnAvancar.innerText = "PRÓXIMA ETAPA...";
+    }
 }
 
 btnAvancar.addEventListener('click', () => {
@@ -25,7 +32,6 @@ btnAvancar.addEventListener('click', () => {
         mostrarArtigo(currentIndex);
     } else {
         // Caso esteja no último artigo, envie o formulário
-        btnAvancar.innerText = "CRIAR POSTAGEM"; // Altera o texto do botão
         form.submit(); // Submete o formulário
     }
 });
@@ -37,8 +43,8 @@ btnVoltar.addEventListener('click', () => {
     }
 });
 
+// Exibe o primeiro artigo ao carregar a página
 mostrarArtigo(currentIndex);
-
 
 
 // document.addEventListener("DOMContentLoaded", function () {
@@ -175,30 +181,23 @@ document.addEventListener("DOMContentLoaded", function () {
 });
 
 
-function adicionarMensagem() {
+function adicionarMensagemmb() {
     const inputText = document.getElementById('input-text-subcategoria-mb');
     const messageList = document.getElementById('messageList-mb');
 
-    // Obter o valor do input
     const inputValue = inputText.value.trim();
 
-    // Verificar se o valor não está vazio
     if (inputValue !== '') {
-        // Criar um novo elemento de div para exibir a mensagem
         const messageDiv = document.createElement('div');
         messageDiv.className = 'div-etiqueta-subcategoria-mb';
         messageDiv.textContent = inputValue;
 
-        // Adicionar a div à lista de mensagens
         messageList.appendChild(messageDiv);
 
-        // Limpar o valor do input
         inputText.value = '';
 
-        // Atualizar o campo oculto
         atualizarCampoOculto();
 
-        // Adicionar evento de clique para remover a subcategoria
         messageDiv.addEventListener("click", function () {
             messageDiv.remove();
             atualizarCampoOculto();
@@ -210,11 +209,9 @@ function atualizarCampoOculto() {
     const messageList = document.getElementById('messageList-mb');
     const hiddenInput = document.getElementById('dica_subcategorias-mb');
 
-    // Obter todas as subcategorias da lista
     const subcategorias = Array.from(messageList.getElementsByClassName('div-etiqueta-subcategoria-mb'))
         .map(div => div.textContent.trim());
 
-    // Atualizar o valor do campo oculto
     hiddenInput.value = subcategorias.join(', ');
 }
 
