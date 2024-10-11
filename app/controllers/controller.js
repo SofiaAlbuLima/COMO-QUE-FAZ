@@ -777,7 +777,10 @@ const tarefasController = {
 
             req.session.autenticado.foto = perfil.foto_icon_perfil;
 
-            return { perfil, usuario_logado: req.session.autenticado };
+            return { 
+                perfil, 
+                usuario_logado: req.session.autenticado
+             };
         } catch (error) {
             console.error("Erro ao exibir perfil:", error);
             return { status: 500, erro: error.message };
@@ -894,7 +897,9 @@ const tarefasController = {
                 login: req.session.logado,
                 postagens: combinedConteudo,
                 paginador: paginador,
-                total_postagens: totalRegistros
+                total_postagens: totalRegistros,
+                categoriaAtual: 'todas',
+                novoFiltro: 'recente'
             };
 
         } catch (e) {
