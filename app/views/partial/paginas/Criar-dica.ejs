@@ -8,7 +8,7 @@
         <section class="linha-progresso-mb" id="progresso-mb"></section>
     </section>
 
-    <form action="/criar-dica" method="post" enctype="multipart/form-data">
+    <form id="form-criar-mb" action="/criar-dica" method="post" enctype="multipart/form-data">
         <section id="criar-post-etapas-mb">
             <article id="botoes-criar-post-mb">
                 <button id="btnVoltar-mb" class="Voltar-mb" type="button">VOLTAR</button>
@@ -87,7 +87,7 @@
                             <h3 id="titulo-subcategoria-detalhes-mb">Subcategorias</h3>
                             <section class="input-container-mb">
                                 <input type="text" id="input-text-subcategoria-mb" name="dica_subcategorias">
-                                <img src="/imagens/adicionar-etiqueta.svg" id="icon-mb" onclick="adicionarMensagem()"
+                                <img src="/imagens/adicionar-etiqueta.svg" id="icon-mb" onclick="adicionarMensagemmb()"
                                     alt="">
                             </section>
                             <section id="messageList-mb" class="message-list-mb"></section>
@@ -172,8 +172,7 @@
                                         placeholder="Misture todos os ingredientes...">
                                     <button id="apagar-modo-de-preparo-mb" type="button" style="display:none;">X</button>
                                 </section>
-                            </article>
-                            
+                            </article>                            
                         </section>
                     </section>
                 </article>

@@ -609,7 +609,7 @@
     display: flex;
   }
 
-  #div-etiqueta-subcategoria-mb {
+  .div-etiqueta-subcategoria-mb {
     width: relative;
     height: 4.8vw;
     border-radius: 6px;
