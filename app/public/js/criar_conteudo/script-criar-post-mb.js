@@ -352,11 +352,7 @@ document.addEventListener('DOMContentLoaded', function() {
 });
 
 
-//----------------------------------------------------------------------------------------------------botoes de criar e tirar modo de preparo
-
-document.getElementById("botao-de-add-modo-mb").addEventListener("click", function () {
-    duplicarDivModombmb();
-});
+//----------------------------------------------------------------------------------------------botoes de criar e tirar modo de preparo
 
 // Muda o evento para o container dos clones
 document.getElementById('tudo-dos-clones-mb').addEventListener("click", function (event) {
@@ -371,34 +367,30 @@ var contadorDivsModombmb = 1; // Contador começa em 1, pois já existe o primei
 function duplicarDivModombmb() {
     var divOriginalmb = document.getElementById('modo-de-preparo-mb');
     
-    // Garante que o clone será criado uma única vez por clique
     if (divOriginalmb) {
-        // Clona o modo de preparo original
         var clonemb = divOriginalmb.cloneNode(true); 
         
-        contadorDivsModombmb++; // Incrementa o contador de divs
+        contadorDivsModombmb++;
         
-        clonemb.id = "modo-de-preparo-mb-" + contadorDivsModombmb; // Atualiza o ID do clone
+        clonemb.id = "modo-de-preparo-mb-" + contadorDivsModombmb; 
+        clonemb.style.marginLeft = '5vw';
 
-        // Limpa o campo de texto do clone para permitir novo input
         var textarea = clonemb.querySelector('input[name="etapas_modo_preparo"]');
         if (textarea) {
-            textarea.value = ''; // Limpa o campo de texto
+            textarea.value = ''; 
         }
 
-        // Atualiza o número do modo de preparo no clone
         var numeroDoModombmb = clonemb.querySelector("#numero-do-modo-de-preparo-mb");
         if (numeroDoModombmb) {
             numeroDoModombmb.value = contadorDivsModombmb;
         }
 
-        // Exibe o botão de apagar no clone
         var botaoApagar = clonemb.querySelector("#apagar-modo-de-preparo-mb");
         if (botaoApagar) {
-            botaoApagar.style.display = 'block'; // Torna o botão visível
+            botaoApagar.style.display = 'inline-block'; 
             botaoApagar.onclick = function(event) {
-                event.stopPropagation(); // Impede que o clique no botão acione o listener do container
-                apagarDivModombmb(clonemb); // Liga a função de apagar ao botão
+                event.stopPropagation(); 
+                apagarDivModombmb(clonemb); 
             };
         }
 
