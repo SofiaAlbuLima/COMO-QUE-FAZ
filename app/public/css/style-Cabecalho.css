@@ -37,10 +37,7 @@
       margin-top: 5px;
       align-self: center;
       }
-      .search {
-      margin-top: 22px;
-      margin-right: 13px;
-      }
+    
       .search img {
       max-width: 26px;
       }
@@ -50,10 +47,6 @@
       margin-right: -7px;
       position: relative;
       display: inline-block;
-      }
-      .login img {
-      max-width: 34px;
-      margin-top: 10px;    
       }
       .topcs {
       background-color: #5417bd;
@@ -70,7 +63,6 @@
       font-size: 14px;
       }
       .search {
-        width: 30vh;
         margin-top: 2vh;
         display: flex;
       }
@@ -90,6 +82,7 @@
         width: 9vh;
         font-size: 1.6vh;
         margin-right: 2vh;
+        display: none;
       }
       #hide-hover-search input:focus {
         outline: none;
@@ -122,7 +115,6 @@
     .login {
       margin-top: 1.5vh;
       align-items: center;
-      width: 15vh;
       height: 5.5vh;
       display: flex;
       border-top-left-radius: 20px;
@@ -187,71 +179,6 @@
       transform: rotate(180deg);
   }
     /* Login & Perfil - Fim */
-   
-    
-    /* Logomarca CQF - Inicio */
-    .logo {
-      margin-top: 1vh;
-    
-    }
-
-    /* Logomarca CQF - Fim */
-
-    
-    /* Pesquisa - Inicio */
-    .search {
-      width: 30vh;
-      margin-top: 2vh;
-      display: flex;
-    }
-    .search img {
-      display: inline-block;
-      max-width: 3vh;
-      max-height: 3vh;
-    }
-    #hide-hover-search input{
-      margin-top: 1.5vh;
-      color: #474747;
-      border-top: 0px solid;
-      border-left: 0px solid;
-      border-right: 0px solid;
-      border-bottom: 0.3vh solid #9d21cb;
-      font-family: Fira Sans;
-      margin-right: 2vh;
-    }
-    #hide-hover-search input:focus {
-      outline: none;
-  }
-  /* Pesquisa - Fim */
-
-  
-  /* Categorias - Inicio */
-    .topcs a {
-      text-decoration: none;
-      color: white;
-      margin-top: 0.8vh;
-      font-size: 17px;
-      font-family: Heavitas;
-      font-weight: 300;
-    }
-    .culinaria {
-        margin-left: 13.14px;
-        font-family: Fira Sans Bold;
-        font-weight: 700;
-        margin-top: 12px;
-    }
-    .limpeza {
-      font-family: Fira Sans Bold;
-      text-align: center;
-      margin-top: 12px;
-      font-weight: 700;
-  }
-    .bem-estar {
-      margin-right: 8.59px;
-      font-family: Fira Sans Bold;
-      margin-top: 12px;
-      font-weight: 700;
-    }
     
   /* Categorias - Fim */
 
@@ -260,7 +187,7 @@
     display: none;
     position: absolute;
     margin-top: 8vh;
-    transform: translate(-2vh, -1.2vh);
+    transform: translate(-7vh, -1.2vh);
     top: 0;
     background-color: #f5f0ff;
     width: 30vh;
@@ -293,7 +220,6 @@
 }
     /* FIM - HEADER MOBILE - SEM LOGIN */
 
-}
 
 @media only screen and (min-width: 480px) {
 /* INIÍCIO - HEADER DESKTOP - SEM LOGIN */
