@@ -16,10 +16,6 @@
       font-family: Fira Sans;
       src: url("../fonts/fira-sans.regular.ttf");
     }
-
-    .header-dispositivo-desktop{
-        display: none;
-    }
     /* INÍCIO - HEADER MOBILE - SEM LOGIN */
       
     .logos {
