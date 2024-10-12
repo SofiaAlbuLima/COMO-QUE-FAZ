@@ -138,10 +138,32 @@
   .patinha-indicador:hover + .span-patinha{
     display: block;
   }
+  .button-favoritar-feed{
+    background-color: #00000000;
+    border: none;
+    cursor: pointer;
+  }
+  .button-favoritar-feed:hover{
+    opacity: 60%;
+  }
+  .span-favoritar{
+    background-color: #cb218c;
+    color: white;
+    font-family: Fira Sans Bold;
+    font-size: 1.8vh;
+    position: absolute;
+    display: none;
+    padding: 0.8vh;
+    border-radius: 10px;
+    transform: translate(20.5vh, -5vh);
+  }
+  .button-favoritar-feed:hover + .span-favoritar{
+    display: flex;
+  }
   .span-patinha{
     display: none;
     position: absolute;
-    transform: translate(3vh, 3vh);
+    transform: translate(-1vh, -5vh);
     font-family: Fira Sans Bold;
     font-size: 1.8vh;
     color: white;

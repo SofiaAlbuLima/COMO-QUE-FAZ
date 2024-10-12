@@ -14,9 +14,45 @@
                                  <img class="patinha-indicador" src="/imagens-svg/patinha-icon.svg" alt=""
                                     style="opacity: 0;">
                                  <% } %>
-                                    <img class="patinha-indicador" src="/imagens-svg/2-body/salvar-post-vazado.svg"
-                                       alt="">
+                                    <input type="hidden" id="conteudoId_1" name="conteudoId" value="<%= item.id %>">
+                                    <!-- ID do conteúdo -->
+                                    <button class="button-favoritar-feed" onclick="favoritarPostagem(this); event.stopPropagation();">
+                                       <img class="patinha-indicador" src="/imagens-svg/2-body/salvar-post-vazado.svg"
+                                          alt="">
+                                    </button>
+                                    <span class="span-favoritar">Favoritar postagem</span>
                         </article>
+
+                        <script>
+                           function favoritarPostagem(button) {
+                              const conteudoId = button.parentElement.querySelector('input[name="conteudoId"]').value;
+
+                              if (!conteudoId) {
+                                 console.error('Input hidden com ID do conteúdo não encontrado.');
+                                 return;
+                              }
+
+                              console.log("Função favoritarPostagem chamada");
+                              console.log("Conteúdo ID enviado:", conteudoId);
+
+                              fetch('/favoritos', {
+                                 method: 'POST',
+                                 headers: {
+                                    'Content-Type': 'application/json'
+                                 },
+                                 body: JSON.stringify({ conteudoId })
+                              })
+                                 .then(response => response.json())
+                                 .then(data => {
+                                    console.log("Resposta do servidor:", data);
+                                    alert(data.message); // Notifica o usuário
+                                 })
+                                 .catch(error => {
+                                    console.error('Erro ao favoritar a postagem:', error);
+                                 });
+                           }
+                        </script>
+
                         <h3 class="ingredientes_basePost">
                            <%= item.ingredientes ? item.ingredientes.replace(/,\s*/g, ' - ' )
                               : 'Essa dica não contém itens necessários' %>
@@ -32,8 +68,13 @@
                                     <img class="patinha-indicador" src="/imagens-svg/patinha-icon.svg" alt=""
                                        style="opacity: 0;">
                                     <% } %>
-                                       <img class="patinha-indicador" src="/imagens-svg/2-body/salvar-post-vazado.svg"
-                                          alt="">
+                                       <input type="hidden" id="conteudoId_1" name="conteudoId" value="<%= item.id %>">
+                                       <!-- ID do conteúdo -->
+                                       <button class="button-favoritar-feed" onclick="favoritarPostagem(this); event.stopPropagation();">
+                                          <img class="patinha-indicador" src="/imagens-svg/2-body/salvar-post-vazado.svg"
+                                             alt="">
+                                       </button>
+                                       <span class="span-favoritar">Favoritar postagem</span>
                            </article>
                            <h3 class="ingredientes_basePost">
                               <%= item.ingredientes ? item.ingredientes.replace(/,\s*/g, ' - ' )
@@ -43,13 +84,20 @@
                         <% } else if (item.categoria===3) { %>
                            <figure class="hover_ingredientes_basePost-bemEstar">
                               <article class="patinhas-favoritar">
-                              <% if (item.patinha) { %>
-                                 <img class="patinha-indicador" src="/imagens-svg/patinha-icon.svg" alt="">
-                                 <span class="span-patinha">Essa dica é uma patinha!</span>
-                                 <% }else{ %>
-                                    <img class="patinha-indicador" src="/imagens-svg/patinha-icon.svg" alt="" style="opacity: 0;">
-                                    <% } %>
-                                 <img class="patinha-indicador" src="/imagens-svg/2-body/salvar-post-vazado.svg" alt="">
+                                 <% if (item.patinha) { %>
+                                    <img class="patinha-indicador" src="/imagens-svg/patinha-icon.svg" alt="">
+                                    <span class="span-patinha">Essa dica é uma patinha!</span>
+                                    <% }else{ %>
+                                       <img class="patinha-indicador" src="/imagens-svg/patinha-icon.svg" alt=""
+                                          style="opacity: 0;">
+                                       <% } %>
+                                          <input type="hidden" id="conteudoId_1" name="conteudoId" value="<%= item.id %>">
+                                          <!-- ID do conteúdo -->
+                                          <button class="button-favoritar-feed" onclick="favoritarPostagem(this); event.stopPropagation();">
+                                             <img class="patinha-indicador" src="/imagens-svg/2-body/salvar-post-vazado.svg"
+                                                alt="">
+                                          </button>
+                                          <span class="span-favoritar">Favoritar postagem</span>
                               </article>
                               <h3 class="ingredientes_basePost">
                                  <%= item.ingredientes ? item.ingredientes.replace(/,\s*/g, ' - ' )
@@ -79,27 +127,27 @@
 
                <aside class="legenda">
                   <% if(item.tempo){ %>
-                  <figure class="legenda_relogio">
-                     <img src="/imagens/relogio-cinza.svg" alt="relogio">
-                     <h3>
-                        <%= item.tempo %>
-                     </h3>
-                  </figure>
-                  <% } %>
-                  <figure class="legenda_estrela">
-                     <img src="/imagens/estrela-cinza.svg" alt="estrela">
-                     <h3>
-                        <%= item.mediaAvaliacoes %>
-                     </h3>
-                  </figure>
-                  <% if(item.categoria===1 && item.porcoes){ %>
-                     <figure class="legenda_partes">
-                        <img src="/imagens/partes-cinza.png" alt="partes">
+                     <figure class="legenda_relogio">
+                        <img src="/imagens/relogio-cinza.svg" alt="relogio">
                         <h3>
-                           <%= item.porcoes %>
+                           <%= item.tempo %>
                         </h3>
                      </figure>
                      <% } %>
+                        <figure class="legenda_estrela">
+                           <img src="/imagens/estrela-cinza.svg" alt="estrela">
+                           <h3>
+                              <%= item.mediaAvaliacoes %>
+                           </h3>
+                        </figure>
+                        <% if(item.categoria===1 && item.porcoes){ %>
+                           <figure class="legenda_partes">
+                              <img src="/imagens/partes-cinza.png" alt="partes">
+                              <h3>
+                                 <%= item.porcoes %>
+                              </h3>
+                           </figure>
+                           <% } %>
                </aside>
 
             </section>
@@ -121,7 +169,9 @@
                         </figure>
                         <figure class="patinhas">
                            <img src="/imagens-svg/patinha-icon.svg" alt="ícone-patinhas">
-                           <p><%= item.quantidadePatinhas %></p>
+                           <p>
+                              <%= item.quantidadePatinhas %>
+                           </p>
                         </figure>
                      </article>
                      <% } else if (item.categoria===2) { %>
@@ -140,7 +190,9 @@
                            </figure>
                            <figure class="patinhas">
                               <img src="/imagens-svg/patinha-icon.svg" alt="ícone-patinhas">
-                              <p><%= item.quantidadePatinhas %></p>
+                              <p>
+                                 <%= item.quantidadePatinhas %>
+                              </p>
                            </figure>
                         </article>
                         <% } else if (item.categoria===3) { %>
@@ -159,7 +211,9 @@
                               </figure>
                               <figure class="patinhas">
                                  <img src="/imagens-svg/patinha-icon.svg" alt="ícone-patinhas">
-                                 <p><%= item.quantidadePatinhas %></p>
+                                 <p>
+                                    <%= item.quantidadePatinhas %>
+                                 </p>
                               </figure>
                            </article>
                            <% } %>

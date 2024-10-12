@@ -469,6 +469,55 @@ const conteudoModel = {
             console.error("Erro ao criar a resposta vinculada à pergunta:", error);
             throw error;
         }
+    },
+    // FAVORITOS
+    addFavorito: async (clienteId, conteudoId) => {
+        try {
+            const [result] = await pool.query(
+                "INSERT INTO favoritos (Clientes_idClientes, Conteúdo_ID_conteúdo) VALUES (?, ?)",
+                [clienteId, conteudoId]
+            );
+            return result; // Retorna o resultado da operação
+        } catch (error) {
+            console.error("Erro ao adicionar favorito:", error);
+            throw error;
+        }
+    },
+    removeFavorito: async (clienteId, conteudoId) => {
+        try {
+            const [result] = await pool.query(
+                "DELETE FROM favoritos WHERE Clientes_idClientes = ? AND Conteúdo_ID_conteúdo = ?",
+                [clienteId, conteudoId]
+            );
+            return result; // Retorna o resultado da operação
+        } catch (error) {
+            console.error("Erro ao remover favorito:", error);
+            throw error;
+        }
+    },
+    isFavorito: async (clienteId, conteudoId) => {
+        try {
+            const [result] = await pool.query(
+                "SELECT * FROM favoritos WHERE Clientes_idClientes = ? AND Conteúdo_ID_conteúdo = ?",
+                [clienteId, conteudoId]
+            );
+            return result.length > 0; // Retorna true se já for favorito
+        } catch (error) {
+            console.error("Erro ao verificar favorito:", error);
+            throw error;
+        }
+    },
+    getFavoritosByCliente: async (clienteId) => {
+        try {
+            const [result] = await pool.query(
+                "SELECT * FROM favoritos WHERE Clientes_idClientes = ?",
+                [clienteId]
+            );
+            return result; // Retorna todos os favoritos do cliente
+        } catch (error) {
+            console.error("Erro ao buscar favoritos do cliente:", error);
+            throw error;
+        }
     }
 }
 

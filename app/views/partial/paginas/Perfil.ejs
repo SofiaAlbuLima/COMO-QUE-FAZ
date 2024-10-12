@@ -270,7 +270,7 @@
    </section>
 
    <section class="conteudo-dispositivo desktop">
-      <% if (usuario_logado.autenticado == perfil.Nickname){ %>
+      <% if (usuario_logado.autenticado==perfil.Nickname){ %>
          <figure id="fundo-editar-perfil" style="display: none;">
             <article id="editar-perfil-popup" style="display: none;">
                <form action="/editar-perfil" method="post" enctype="multipart/form-data">
@@ -331,8 +331,11 @@
                                     <figure class="tit-duas">
                                        <h3 class="tit-editar">URL DO SITE</h3>
                                        <article style="display: flex;">
-                                          <p style="display: flex; font-family: Fira Sans; font-size: 2.2vh; align-items: center;">http://</p><input id="tex-duas2" class="tex-editar-url" type="text" name="editar_url_site"
-                                          value="<%= perfil.url_do_site %>" placeholder="URL do site">
+                                          <p
+                                             style="display: flex; font-family: Fira Sans; font-size: 2.2vh; align-items: center;">
+                                             http://</p><input id="tex-duas2" class="tex-editar-url" type="text"
+                                             name="editar_url_site" value="<%= perfil.url_do_site %>"
+                                             placeholder="URL do site">
                                        </article>
                                     </figure>
                                  </article>
@@ -395,12 +398,12 @@
                                        <img class="foto-perfil" src="/imagens-svg/2-body/icon-perfil-rosa.svg" alt="">
                                        <% } %>
                               </figure>
-                              
-                           <% if (usuario_logado.autenticado==perfil.Nickname){ %>
-                              <button class="editar-perfil" onclick="EditarPerfil()">Editar Perfil</button>
-                           <% } else {%>
-                              <button class="seguir-perfil">Seguir</button>
-                           <% } %>
+
+                              <% if (usuario_logado.autenticado==perfil.Nickname){ %>
+                                 <button class="editar-perfil" onclick="EditarPerfil()">Editar Perfil</button>
+                                 <% } else {%>
+                                    <button class="seguir-perfil">Seguir</button>
+                                    <% } %>
                            </article>
                            <article class="texto-perfil">
                               <h1 class="User1234">
@@ -441,12 +444,15 @@
                      <h1 class="titulo-postagens-perfil">Postagens - <%= perfil.Nickname %>
                      </h1>
                      <section class="postagens-perfil">
-                        <%- include("../perguntas-dicas/base-postagens") %>
-                           <!-- <figure class="aviso-sem-postagens">
-                     <img class="gato-sem-rascunhos" src="./imagens-svg/2-body/gato-nuvem-sem-conteudo.svg"
-                        alt="sem rascunhos">
-                     <span class="gato-sem-rascunhos-aviso-texto">Nenhuma postagem nesse perfil!</span>
-                  </figure> -->
+                        <% if(total_postagens> 0) { %>
+                           <%- include("../perguntas-dicas/base-postagens") %>
+                              <% }else{ %>
+                                 <figure class="aviso-sem-postagens">
+                                    <img class="gato-sem-rascunhos"
+                                       src="/imagens-svg/2-body/gato-nuvem-sem-conteudo.svg" alt="sem rascunhos">
+                                    <span class="gato-sem-rascunhos-aviso-texto">Nenhuma postagem nesse perfil!</span>
+                                 </figure>
+                                 <% }%>
                      </section>
                   </article>
                </section>

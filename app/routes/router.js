@@ -15,6 +15,11 @@ router.post("/login", tarefasController.regrasValidacaoLogin, gravarUsuAutentica
 router.post("/cadastro", tarefasController.regrasValidacaoCadastro, tarefasController.Login_formCadastro);
 router.post('/criar-dica', uploadFile("imagem_criar_post"), VerificarAutenticacao, tarefasController.CriarDica);
 router.post('/criar-pergunta', VerificarAutenticacao, tarefasController.CriarPergunta);
+
+router.post('/favoritos', tarefasController.adicionarFavorito);
+router.delete('/favoritos', tarefasController.removerFavorito);
+router.get('/favoritos', tarefasController.listarFavoritos);
+
 router.post('/editar-perfil',
     VerificarAutenticacao,
     verificarUsuAutorizado([1, 2], "/"),

@@ -59,7 +59,7 @@ const tarefasController = {
         body("editar-url-site")
             .isURL().withMessage("Insira uma URL válida!"),
     ],
-    // LOGIN & CADASTRO
+    // LOGIN & CADASTRO & GOOGLE
     Login_formLogin: async (req, res) => {
         const erros = validationResult(req);
         if (!erros.isEmpty()) {
@@ -161,7 +161,7 @@ const tarefasController = {
                 foto: fotoPerfil
             };
 
-            done(null, { usuario, autenticado }); 
+            done(null, { usuario, autenticado });
         } catch (error) {
             return done(error, null); // Retorna o erro caso algo falhe
         }
@@ -550,6 +550,7 @@ const tarefasController = {
             res.status(500).json({ erro: "Erro ao buscar patinhas para a pergunta." });
         }
     },
+    // INTERAÇÃO DO USUÁRIO
     AvaliarPostagem: async (req, res) => {
         const { nota, conteudo_id, categorias_id } = req.body;
         const clientes_id = req.session.autenticado.id;
@@ -586,6 +587,49 @@ const tarefasController = {
         } catch (erro) {
             console.error("Erro ao registrar avaliação:", erro);
             return res.status(500).json({ error: 'Erro ao registrar a avaliação' });
+        }
+    },
+    adicionarFavorito: async (req, res) => {
+        const clienteId = req.session.autenticado.id;
+        const conteudoId = req.body.conteudoId;
+    
+        if (!conteudoId) {
+            return res.status(400).json({ message: "ID do conteúdo não fornecido." });
+        }
+    
+        try {
+            const jaFavorito = await conteudoModel.isFavorito(clienteId, conteudoId);
+            if (jaFavorito) {
+                return res.status(400).json({ message: "Já está nos favoritos." });
+            }
+    
+            await conteudoModel.addFavorito(clienteId, conteudoId);
+            res.status(201).json({ message: "Favorito adicionado com sucesso." });
+            console.log("Favorito adicionado com sucesso");
+        } catch (error) {
+            console.error("Erro ao adicionar favorito:", error);
+            res.status(500).json({ message: "Erro ao adicionar favorito." });
+        }
+    },
+    removerFavorito: async (req, res) => {
+        const clienteId = req.session.autenticado.id; // ID do cliente a partir da sessão
+        const conteudoId = req.body.conteudoId  ; // ID do conteúdo a ser removido dos favoritos
+
+        try {
+            await conteudoModel.removeFavorito(clienteId, conteudoId);
+            res.status(200).json({ message: "Favorito removido com sucesso." });
+        } catch (error) {
+            res.status(500).json({ message: "Erro ao remover favorito." });
+        }
+    },
+    listarFavoritos: async (req, res) => {
+        const clienteId = req.session.autenticado.id; // ID do cliente a partir da sessão
+
+        try {
+            const favoritos = await conteudoModel.getFavoritosByCliente(clienteId);
+            res.status(200).json(favoritos);
+        } catch (error) {
+            res.status(500).json({ message: "Erro ao listar favoritos." });
         }
     },
     // CRIAR DICA & PERGUNTA
