@@ -10,7 +10,6 @@ const { removeImg } = require("../util/removeImg");
 const bcrypt = require("bcryptjs");
 var salt = bcrypt.genSaltSync(12);
 
-
 const tarefasController = {
     // REGRAS VALIDAÇÃO
     regrasValidacaoLogin: [
@@ -68,7 +67,6 @@ const tarefasController = {
                 pagina: { cabecalho: "cabecalho", conteudo: "Fazer-Login", FormCadastro: "template_cadastro", FormLogin: "template_login", rodape: "rodape" },
                 usuario_logado: req.session.autenticado,
                 listaErroslog: erros,
-
                 listaErrosCad: null,
                 dadosNotificacao: null
             });
@@ -78,17 +76,17 @@ const tarefasController = {
             return res.redirect("/");
         }
 
-        res.render("pages/template", {
+        return res.render("pages/template", {
             pagina: { cabecalho: "cabecalho", conteudo: "Fazer-Login", FormCadastro: "template_cadastro", FormLogin: "template_login", rodape: "rodape" },
             usuario_logado: null,
             listaErroslog: null,
-
             listaErrosCad: null,
             dadosNotificacao: { titulo: "Falha ao logar!", mensagem: "Usuário e/ou senha inválidos!", tipo: "error" }
         });
     },
     Login_formCadastro: async (req, res) => {
         const erros = validationResult(req);
+        const salt = bcrypt.genSaltSync(10);
         var dadosForm = {
             Nickname: req.body.nomeusu_usu,
             senha: bcrypt.hashSync(req.body.senha_usu, salt),
@@ -100,7 +98,6 @@ const tarefasController = {
             return res.render("pages/template", {
                 pagina: { cabecalho: "cabecalho", conteudo: "Fazer-Login", FormCadastro: "template_cadastro", FormLogin: "template_login", rodape: "rodape" },
                 usuario_logado: req.session.autenticado,
-
                 listaErroslog: null,
                 listaErrosCad: erros,
                 dadosNotificacao: null
@@ -110,6 +107,12 @@ const tarefasController = {
             let create = usuarioModel.create(dadosForm);
             console.log("cadastro realizado!");
 
+            req.session.autenticado = {
+                autenticado: dadosForm.Nickname,
+                tipo: dadosForm.Tipo_Cliente_idTipo_Cliente,
+                id: create.idClientes,
+            };
+
             req.session.notification = {
                 titulo: "Cadastro realizado!",
                 mensagem: "Novo usuário criado com sucesso!",
@@ -118,10 +121,9 @@ const tarefasController = {
             return res.redirect("/");
         } catch (e) {
             console.log(e);
-            res.render("pages/template", {
+            return res.render("pages/template", {
                 pagina: { cabecalho: "cabecalho", conteudo: "Fazer-Login", FormCadastro: "template_cadastro", FormLogin: "template_login", rodape: "rodape" },
                 usuario_logado: req.session.autenticado,
-
                 listaErrosCad: null,
                 listaErroslog: null,
                 dadosNotificacao: {
@@ -130,7 +132,54 @@ const tarefasController = {
                     tipo: "error"
                 },
             });
-            console.log("erro no cadastro!");
+        }
+    },
+    encontrarOuCriarUsuarioGoogle: async (accessToken, refreshToken, profile, done) => {
+        try {
+            const email = profile.emails[0].value; // Pega o email do perfil Google
+            let usuario = await usuarioModel.findUserByEmail(email); // Usa a função do model para buscar por email
+
+            if (!usuario) {
+                // Se o usuário não existir, crie um novo
+                const novoUsuario = {
+                    Nickname: profile.displayName,
+                    Email: email,
+                    Tipo_Cliente_idTipo_Cliente: 1, // Defina o tipo padrão
+                };
+                usuario = await usuarioModel.create(novoUsuario); // Cria o novo usuário no banco de dados
+            }
+            if (!usuario) {
+                return done(new Error("Usuário não encontrado ou criado."), null); // Retorna erro se o usuário não foi encontrado ou criado
+            }
+
+            const fotoPerfil = usuario.foto_icon_perfil ? `data:image/png;base64,${usuario.foto_icon_perfil.toString('base64')}` : null;
+
+            autenticado = {
+                autenticado: usuario.Nickname,
+                tipo: usuario.Tipo_Cliente_idTipo_Cliente,
+                id: usuario.idClientes,
+                foto: fotoPerfil
+            };
+
+            done(null, { usuario, autenticado }); 
+        } catch (error) {
+            return done(error, null); // Retorna o erro caso algo falhe
+        }
+    },
+    serializeUser: (user, done) => {
+        console.log("Serializando usuário:", user, done);
+        if (user && user.usuario.idClientes) {
+            done(null, user.usuario.idClientes);
+        } else {
+            done(new Error("Usuário não encontrado para serializar."), null);
+        }
+    },
+    deserializeUser: async (id, done) => {
+        try {
+            const user = await usuarioModel.findUserById(id);
+            done(null, user);
+        } catch (error) {
+            done(error, null);
         }
     },
     // POSTAGENS
@@ -777,10 +826,10 @@ const tarefasController = {
 
             req.session.autenticado.foto = perfil.foto_icon_perfil;
 
-            return { 
-                perfil, 
+            return {
+                perfil,
                 usuario_logado: req.session.autenticado
-             };
+            };
         } catch (error) {
             console.error("Erro ao exibir perfil:", error);
             return { status: 500, erro: error.message };
@@ -807,6 +856,20 @@ const tarefasController = {
                 return res.redirect("/perfil");
             };
 
+            if (editar_nome_usuario) {
+                const nicknameExistente = await usuarioModel.findUserByNickname(editar_nome_usuario);
+
+                if (nicknameExistente && nicknameExistente.idClientes !== user.idClientes) {
+                    console.log("Nickname já está em uso");
+                    req.session.notification = {
+                        titulo: "Erro ao atualizar!",
+                        mensagem: "O nome de usuário já está em uso por outra conta.",
+                        tipo: "error"
+                    };
+                    return res.redirect("/perfil");
+                }
+            }
+
             const updateData = {}; // Objeto com os dados de perfil a serem atualizados
             if (editar_nome_usuario) updateData.Nickname = editar_nome_usuario;
             if (editar_biografia) updateData.Biografia = editar_biografia;
@@ -820,6 +883,10 @@ const tarefasController = {
                 updateData.foto_banner_perfil = req.fileBanner.buffer;
             }
             await conteudoModel.atualizarPerfil(req.session.autenticado.id, updateData); // Atualiza o perfil do usuário no banco de dados
+
+            if (editar_nome_usuario) {
+                req.session.autenticado.autenticado = editar_nome_usuario;
+            }
 
             req.session.notification = {
                 titulo: "Perfil atualizado!",

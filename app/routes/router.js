@@ -1,4 +1,5 @@
 var express = require('express');
+const passport = require('passport');
 
 var router = express.Router();
 
@@ -22,6 +23,19 @@ router.post('/editar-perfil',
     tarefasController.EditarPerfil
 );
 
+router.get('/auth/google', passport.authenticate('google', { scope: ['profile', 'email'] }));
+router.get('/auth/google/callback',
+    passport.authenticate('google', { failureRedirect: '/login' }),
+    (req, res) => {
+        const { usuario, autenticado } = req.user; 
+
+        req.session.autenticado = autenticado; 
+
+        console.log("Usuário autenticado:", req.user); 
+        res.redirect('/');
+    }
+);
+
 
 // Links & Template - Parte Publica
 router.get("/", VerificarAutenticacao, async function (req, res) {
@@ -30,7 +44,8 @@ router.get("/", VerificarAutenticacao, async function (req, res) {
         res.render("pages/template",
             {
                 pagina: { cabecalho: "cabecalho", conteudo: "index", rodape: "rodape" },
-                ...data
+                ...data,
+                usuario_logado: req.session.autenticado 
             });
     } catch (error) {
         res.status(500).json({ erro: error.message });

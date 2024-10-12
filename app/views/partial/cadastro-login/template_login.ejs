@@ -39,7 +39,7 @@
            
 <form action="/login" method="post">
     <span class="fazer-login-mob">FAZER LOGIN:</span>
-    <p>Seja bem-vindo de volta!</p>
+    <p class="p-bemVindo">Seja bem-vindo de volta!</p>
 
     <figure class="caixa-mob">
        <input class="<%= avisoErro.input1%> input1" type="text" id="input1" placeholder="E-MAIL / NOME DE USUÁRIO" name="input1" required>
@@ -48,11 +48,12 @@
     </figure>
 
     <article class="redes-login-mob">
-       <span class="esqueceu-foi">Esqueceu a senha? <a href="#">Recupere aqui</a></span>
+       <span class="esqueceu-foi">Esqueceu a senha? <a href="#" class="recuperar-a">Recupere aqui</a></span>
        <figure class="redes-botoes-mob">
-          <button><a href=""><img src="imagens/google_logo.svg" alt="login com google"></a></button>
-          <button><a href=""><img src="imagens/facebook_logo.svg" alt="login com facebook"></a></button>
-          <button><a href=""><img src="imagens/apple_logo.svg" alt="login com apple"></a></button>
+        <a href="/auth/google" class="google-a">
+            <img src="imagens/google_logo.svg" alt="login com google" style="display: flex;">
+            <p class="texto-google">Fazer login com o Google</p>
+        </a>
        </figure>
     </article>
 

@@ -330,25 +330,15 @@
                                     </figure>
                                     <figure class="tit-duas">
                                        <h3 class="tit-editar">URL DO SITE</h3>
-                                       <input id="tex-duas2" class="tex-editar-url" type="text" name="editar_url_site"
+                                       <article style="display: flex;">
+                                          <p style="display: flex; font-family: Fira Sans; font-size: 2.2vh; align-items: center;">http://</p><input id="tex-duas2" class="tex-editar-url" type="text" name="editar_url_site"
                                           value="<%= perfil.url_do_site %>" placeholder="URL do site">
+                                       </article>
                                     </figure>
                                  </article>
-                                 <h3 class="tit-editar">REDES CONECTADAS</h3>
-                                 <section class="redes-editar">
-                                    <figure class="rede-editar">
-                                       <img src="/imagens-svg/2-body/tiktok-roxo-escuro.svg" alt="tiktok">
-                                    </figure>
-                                    <figure class="rede-editar">
-                                       <img src="/imagens-svg/2-body/instagram-roxo-escuro.svg" alt="instagram">
-                                    </figure>
-                                    <figure class="rede-editar">
-                                       <img src="/imagens-svg/2-body/twitter-roxo-escuro.svg" alt="twitter">
-                                    </figure>
-                                 </section>
                               </article>
 
-                              <h3 id="tit1" class="tit-editar">CONFIRME SUA SENHA</h3>
+                              <h3 id="tit1" class="tit-editar" style="margin-top: 6vh;">CONFIRME SUA SENHA</h3>
                               <input class="tex-editar" type="password" placeholder="Insira sua senha atual"
                                  name="editar_confirmar_senha" required>
                               <button type="submit" class="salvar">SALVAR</button>
@@ -435,12 +425,6 @@
                                                 <%= perfil.url_do_site %>
                                              </span></a>
                                           <% }else{}%>
-                                             <img class="rede-social-perfil" src="/imagens-svg/2-body/tiktok-rosa.svg"
-                                                alt="tiktok">
-                                             <img class="rede-social-perfil" src="/imagens-svg/2-body/twitter-rosa.svg"
-                                                alt="twitter">
-                                             <img class="rede-social-perfil"
-                                                src="/imagens-svg/2-body/instagram-rosa.svg" alt="instagram">
                               </figure>
                               <figure class="seguidores-seguindo-dicas">
                                  <figure class="seguidores-seguindo-dicas_figure">100 seguidores</figure>
