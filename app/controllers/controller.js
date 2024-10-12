@@ -887,7 +887,7 @@ const tarefasController = {
                 console.log("Erro! 1");
                 return res.redirect("/perfil");
             }
-
+            console.log("usuario pesquisado: ", req.session.autenticado.id);
             const user = await usuarioModel.findUserById(req.session.autenticado.id); // Busca os dados atuais do usuário no banco de dados
             if (!user) {
                 console.log("Usuário não encontrado");
