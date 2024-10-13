@@ -239,6 +239,11 @@ const tarefasController = {
                 if (conteudo.tipo === "pergunta") {
                     quantidadePatinhas = await conteudoModel.BuscarQuantidadePatinhasPorPergunta(conteudo.id);
                 }
+
+                let isFavorito = false;
+                if (req.session.autenticado.id) {
+                    isFavorito = await conteudoModel.isFavorito(req.session.autenticado.id, conteudo.id);
+                }                
                 return {
                     nome: conteudo.Titulo,
                     usuario: conteudo.Clientes_idClientes,
@@ -255,7 +260,8 @@ const tarefasController = {
                     mediaAvaliacoes,
                     imagem: conteudo.idMidia ? `data:image;base64,${conteudo.idMidia.toString('base64')}` : null,
                     patinha: isPatinha,
-                    quantidadePatinhas: quantidadePatinhas
+                    quantidadePatinhas: quantidadePatinhas,
+                    isFavorito: isFavorito
                 };
             }));
 
@@ -333,6 +339,11 @@ const tarefasController = {
                 if (conteudo.tipo === "pergunta") {
                     quantidadePatinhas = await conteudoModel.BuscarQuantidadePatinhasPorPergunta(conteudo.id);
                 }
+
+                let isFavorito = false;
+                if (conteudo.Clientes_idClientes) {
+                    isFavorito = await conteudoModel.isFavorito(conteudo.Clientes_idClientes, conteudo.id);
+                }
                 return {
                     nome: conteudo.Titulo,
                     usuario: conteudo.Clientes_idClientes,
@@ -349,7 +360,8 @@ const tarefasController = {
                     ingredientes: ingredientes.length ? ingredientes.map(i => i.ingredientes).join(', ') : null,
                     imagem: conteudo.idMidia ? `data:image;base64,${conteudo.idMidia.toString('base64')}` : null,
                     patinha: isPatinha,
-                    quantidadePatinhas: quantidadePatinhas
+                    quantidadePatinhas: quantidadePatinhas,
+                    isFavorito: isFavorito
                 };
             }));
             return {
@@ -590,6 +602,10 @@ const tarefasController = {
         }
     },
     adicionarFavorito: async (req, res) => {
+        if (!req.session.autenticado || !req.session.autenticado.id) {
+            return res.status(401).json({ message: "Usuário não autenticado" });
+        }
+
         const clienteId = req.session.autenticado.id;
         const conteudoId = req.body.conteudoId;
     
@@ -612,8 +628,15 @@ const tarefasController = {
         }
     },
     removerFavorito: async (req, res) => {
+        if (!req.session.autenticado || !req.session.autenticado.id) {
+            return res.status(401).json({ message: "Usuário não autenticado" });
+        }
         const clienteId = req.session.autenticado.id; // ID do cliente a partir da sessão
         const conteudoId = req.body.conteudoId  ; // ID do conteúdo a ser removido dos favoritos
+
+        if (!conteudoId) {
+            return res.status(400).json({ message: "ID do conteúdo não fornecido." });
+        }
 
         try {
             await conteudoModel.removeFavorito(clienteId, conteudoId);
@@ -985,6 +1008,11 @@ const tarefasController = {
             let combinedConteudo = await Promise.all(results.map(async (conteudo) => {
                 let ingredientes = await conteudoModel.BuscarIngredientesPorPostagemId(conteudo.id);
                 let mediaAvaliacoes = await conteudoModel.CalcularMediaAvaliacoes(conteudo.id);
+
+                let isFavorito = false;
+                if (conteudo.Clientes_idClientes) {
+                    isFavorito = await conteudoModel.isFavorito(conteudo.Clientes_idClientes, conteudo.id);
+                }
                 return {
                     nome: conteudo.Titulo,
                     usuario: conteudo.Clientes_idClientes,
@@ -999,7 +1027,8 @@ const tarefasController = {
                     subcategorias: conteudo.subcategorias,
                     ingredientes: ingredientes.length ? ingredientes.map(i => i.ingredientes).join(', ') : null,
                     mediaAvaliacoes,
-                    imagem: conteudo.idMidia ? `data:image;base64,${conteudo.idMidia.toString('base64')}` : null
+                    imagem: conteudo.idMidia ? `data:image;base64,${conteudo.idMidia.toString('base64')}` : null,
+                    isFavorito: isFavorito
                 };
             }));
 

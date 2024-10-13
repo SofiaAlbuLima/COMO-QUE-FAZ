@@ -14,13 +14,24 @@
                                  <img class="patinha-indicador" src="/imagens-svg/patinha-icon.svg" alt=""
                                     style="opacity: 0;">
                                  <% } %>
-                                    <input type="hidden" id="conteudoId_1" name="conteudoId" value="<%= item.id %>">
+                                    <input type="hidden" id="conteudoId_<%= item.id %>" name="conteudoId"
+                                       value="<%= item.id %>">
                                     <!-- ID do conteúdo -->
-                                    <button class="button-favoritar-feed" onclick="favoritarPostagem(this); event.stopPropagation();">
-                                       <img class="patinha-indicador" src="/imagens-svg/2-body/salvar-post-vazado.svg"
-                                          alt="">
-                                    </button>
-                                    <span class="span-favoritar">Favoritar postagem</span>
+                                    <% if(item.isFavorito){ %>
+                                       <button class="button-favoritar-feed"
+                                          onclick="favoritarPostagem(this); event.stopPropagation();">
+                                          <img class="patinha-indicador"
+                                             src="/imagens-svg/2-body/salvar-post-preenchido.svg" alt="">
+                                       </button>
+                                       <span class="span-favoritar">Remover favorito da dica</span>
+                                       <% } else { %>
+                                          <button class="button-favoritar-feed"
+                                             onclick="favoritarPostagem(this); event.stopPropagation();">
+                                             <img class="patinha-indicador"
+                                                src="/imagens-svg/2-body/salvar-post-vazado.svg" alt="">
+                                          </button>
+                                          <span class="span-favoritar">Favoritar dica</span>
+                                          <% } %>
                         </article>
 
                         <script>
@@ -32,23 +43,49 @@
                                  return;
                               }
 
-                              console.log("Função favoritarPostagem chamada");
-                              console.log("Conteúdo ID enviado:", conteudoId);
+                              const img = button.querySelector('img.patinha-indicador');
+                              const isFavoritado = img.src.includes('salvar-post-preenchido.svg'); // Verifica se está favoritado
 
-                              fetch('/favoritos', {
-                                 method: 'POST',
+                              // Define a rota e o método a ser usado (POST para adicionar e DELETE para remover)
+                              const url = isFavoritado ? '/remover-favorito' : '/adicionar-favorito';
+                              const method = isFavoritado ? 'DELETE' : 'POST';
+
+                              fetch(url, {
+                                 method: method,
                                  headers: {
                                     'Content-Type': 'application/json'
                                  },
                                  body: JSON.stringify({ conteudoId })
                               })
-                                 .then(response => response.json())
+                                 .then(response => {
+                                    const contentType = response.headers.get('Content-Type');
+                                    if (contentType && contentType.includes('application/json')) {
+                                       return response.json();
+                                    } else {
+                                       return response.text().then(text => {
+                                          throw new Error('Resposta não JSON: ' + text);
+                                       });
+                                    }
+                                 })
                                  .then(data => {
-                                    console.log("Resposta do servidor:", data);
-                                    alert(data.message); // Notifica o usuário
+                                    if (data.message === "Usuário não autenticado") {
+                                       window.location.href = "/login";
+                                    } else {
+                                       console.log("Resposta do servidor:", data);
+
+                                       // Altera o ícone e o texto de acordo com a ação realizada
+                                       const span = button.nextElementSibling;
+                                       if (isFavoritado) {
+                                          img.src = '/imagens-svg/2-body/salvar-post-vazado.svg'; // Removeu dos favoritos
+                                          span.textContent = 'Favoritar dica';
+                                       } else {
+                                          img.src = '/imagens-svg/2-body/salvar-post-preenchido.svg'; // Adicionou aos favoritos
+                                          span.textContent = 'Remover favorito da dica';
+                                       }
+                                    }
                                  })
                                  .catch(error => {
-                                    console.error('Erro ao favoritar a postagem:', error);
+                                    console.error('Erro ao favoritar/desfavoritar a postagem:', error);
                                  });
                            }
                         </script>
@@ -68,13 +105,24 @@
                                     <img class="patinha-indicador" src="/imagens-svg/patinha-icon.svg" alt=""
                                        style="opacity: 0;">
                                     <% } %>
-                                       <input type="hidden" id="conteudoId_1" name="conteudoId" value="<%= item.id %>">
+                                       <input type="hidden" id="conteudoId_<%= item.id %>" name="conteudoId"
+                                          value="<%= item.id %>">
                                        <!-- ID do conteúdo -->
-                                       <button class="button-favoritar-feed" onclick="favoritarPostagem(this); event.stopPropagation();">
-                                          <img class="patinha-indicador" src="/imagens-svg/2-body/salvar-post-vazado.svg"
-                                             alt="">
-                                       </button>
-                                       <span class="span-favoritar">Favoritar postagem</span>
+                                       <% if(item.isFavorito){ %>
+                                          <button class="button-favoritar-feed"
+                                             onclick="favoritarPostagem(this); event.stopPropagation();">
+                                             <img class="patinha-indicador"
+                                                src="/imagens-svg/2-body/salvar-post-preenchido.svg" alt="">
+                                          </button>
+                                          <span class="span-favoritar">Remover favorito da dica</span>
+                                          <% } else { %>
+                                             <button class="button-favoritar-feed"
+                                                onclick="favoritarPostagem(this); event.stopPropagation();">
+                                                <img class="patinha-indicador"
+                                                   src="/imagens-svg/2-body/salvar-post-vazado.svg" alt="">
+                                             </button>
+                                             <span class="span-favoritar">Favoritar dica</span>
+                                             <% } %>
                            </article>
                            <h3 class="ingredientes_basePost">
                               <%= item.ingredientes ? item.ingredientes.replace(/,\s*/g, ' - ' )
@@ -91,13 +139,24 @@
                                        <img class="patinha-indicador" src="/imagens-svg/patinha-icon.svg" alt=""
                                           style="opacity: 0;">
                                        <% } %>
-                                          <input type="hidden" id="conteudoId_1" name="conteudoId" value="<%= item.id %>">
+                                          <input type="hidden" id="conteudoId_<%= item.id %>" name="conteudoId"
+                                             value="<%= item.id %>">
                                           <!-- ID do conteúdo -->
-                                          <button class="button-favoritar-feed" onclick="favoritarPostagem(this); event.stopPropagation();">
-                                             <img class="patinha-indicador" src="/imagens-svg/2-body/salvar-post-vazado.svg"
-                                                alt="">
-                                          </button>
-                                          <span class="span-favoritar">Favoritar postagem</span>
+                                          <% if(item.isFavorito){ %>
+                                             <button class="button-favoritar-feed"
+                                                onclick="favoritarPostagem(this); event.stopPropagation();">
+                                                <img class="patinha-indicador"
+                                                   src="/imagens-svg/2-body/salvar-post-preenchido.svg" alt="">
+                                             </button>
+                                             <span class="span-favoritar">Remover favorito da dica</span>
+                                             <% } else { %>
+                                                <button class="button-favoritar-feed"
+                                                   onclick="favoritarPostagem(this); event.stopPropagation();">
+                                                   <img class="patinha-indicador"
+                                                      src="/imagens-svg/2-body/salvar-post-vazado.svg" alt="">
+                                                </button>
+                                                <span class="span-favoritar">Favoritar dica</span>
+                                                <% } %>
                               </article>
                               <h3 class="ingredientes_basePost">
                                  <%= item.ingredientes ? item.ingredientes.replace(/,\s*/g, ' - ' )

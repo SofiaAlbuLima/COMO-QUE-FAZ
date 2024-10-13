@@ -155,7 +155,7 @@
     display: none;
     padding: 0.8vh;
     border-radius: 10px;
-    transform: translate(20.5vh, -5vh);
+    transform: translate(22.5vh, -5vh);
   }
   .button-favoritar-feed:hover + .span-favoritar{
     display: flex;

@@ -16,8 +16,9 @@ router.post("/cadastro", tarefasController.regrasValidacaoCadastro, tarefasContr
 router.post('/criar-dica', uploadFile("imagem_criar_post"), VerificarAutenticacao, tarefasController.CriarDica);
 router.post('/criar-pergunta', VerificarAutenticacao, tarefasController.CriarPergunta);
 
-router.post('/favoritos', tarefasController.adicionarFavorito);
-router.delete('/favoritos', tarefasController.removerFavorito);
+
+router.post('/adicionar-favorito', tarefasController.adicionarFavorito);
+router.delete('/remover-favorito', tarefasController.removerFavorito);
 router.get('/favoritos', tarefasController.listarFavoritos);
 
 router.post('/editar-perfil',
