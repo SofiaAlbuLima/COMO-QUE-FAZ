@@ -96,6 +96,7 @@
     align-items: center;
     padding: 0 0 0 4%;
     border-radius: 6px 6px 0px 0px;
+    border-bottom: 2px solid #9e5fef;
   }
 
   .headernot h3 {
@@ -147,7 +148,8 @@
   .conteudo-fav {
     background-color: #ececec;
     width: 50vw;
-    border-radius: 10px;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
     margin-bottom: 10vh;
   }
   .postagens-favoritas {
