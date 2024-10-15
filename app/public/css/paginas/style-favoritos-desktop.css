@@ -147,7 +147,13 @@
   .conteudo-fav {
     background-color: #ececec;
     width: 50vw;
-    height: 50vh;
     border-radius: 10px;
+    margin-bottom: 10vh;
+  }
+  .postagens-favoritas {
+    justify-content: center;
+    display: flex;
+    padding: 3vh 7vh;
+    width: 100%;
   }
 }

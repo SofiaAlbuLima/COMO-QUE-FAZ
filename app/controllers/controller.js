@@ -243,7 +243,7 @@ const tarefasController = {
                 let isFavorito = false;
                 if (req.session.autenticado.id) {
                     isFavorito = await conteudoModel.isFavorito(req.session.autenticado.id, conteudo.id);
-                }                
+                }
                 return {
                     nome: conteudo.Titulo,
                     usuario: conteudo.Clientes_idClientes,
@@ -562,7 +562,166 @@ const tarefasController = {
             res.status(500).json({ erro: "Erro ao buscar patinhas para a pergunta." });
         }
     },
-    // INTERAÇÃO DO USUÁRIO
+    MostrarPostagensPerfil: async (req, res) => {
+        const idCliente = req.session.autenticado.id;
+        res.locals.moment = moment;
+
+        try {
+            const pagina = parseInt(req.query.pagina) || 1; // Página atual
+            const regPagina = 12; // Registros por página
+            const inicio = (pagina - 1) * regPagina; // Cálculo do início da página
+
+            // Buscar as postagens do perfil do usuário
+            let results = await conteudoModel.PesquisarPostsPerfil(idCliente, inicio, regPagina);
+            let totReg = await conteudoModel.TotalRegPerfil(idCliente);
+            let totalRegistros = totReg[0].total;
+            let totPaginas = Math.ceil(totalRegistros / regPagina);
+
+            // Paginador
+            let paginador = totalRegistros <= 12 ? null : {
+                "pagina_atual": pagina,
+                "total_reg": totalRegistros,
+                "total_paginas": totPaginas
+            };
+
+            function formatarTempo(tempo) {
+                let duracao = moment.duration(tempo, 'HH:mm:ss');
+                let horas = duracao.hours();
+                let minutos = duracao.minutes();
+                if (horas > 0 && minutos > 0) {
+                    return `${horas}h${minutos}min`;
+                } else if (horas > 0 && minutos <= 0) {
+                    return `${horas}hora${horas > 1 ? 's' : ''}`;
+                } else if (horas <= 0 && minutos > 0) {
+                    return `${minutos}min`;
+                } else {
+                    return '';
+                }
+            }
+
+            // Formatar o conteúdo
+            let combinedConteudo = await Promise.all(results.map(async (conteudo) => {
+                let ingredientes = await conteudoModel.BuscarIngredientesPorPostagemId(conteudo.id);
+                let mediaAvaliacoes = await conteudoModel.CalcularMediaAvaliacoes(conteudo.id);
+
+                let isFavorito = false;
+                if (conteudo.Clientes_idClientes) {
+                    isFavorito = await conteudoModel.isFavorito(conteudo.Clientes_idClientes, conteudo.id);
+                }
+                return {
+                    nome: conteudo.Titulo,
+                    usuario: conteudo.Clientes_idClientes,
+                    nome_usuario: conteudo.nome_usuario,
+                    id: conteudo.id,
+                    categoria: conteudo.Categorias_idCategorias,
+                    tempo: conteudo.tempo ? formatarTempo(conteudo.tempo) : null,
+                    descricao: conteudo.Descricao || null,
+                    etapas: conteudo.Etapas_Modo_de_Preparo,
+                    porcoes: conteudo.porcoes > 0 ? `${conteudo.porcoes} ${conteudo.porcoes > 1 ? 'Porções' : 'Porção'}` : null,
+                    tipo: conteudo.tipo,
+                    subcategorias: conteudo.subcategorias,
+                    ingredientes: ingredientes.length ? ingredientes.map(i => i.ingredientes).join(', ') : null,
+                    mediaAvaliacoes,
+                    imagem: conteudo.idMidia ? `data:image;base64,${conteudo.idMidia.toString('base64')}` : null,
+                    isFavorito: isFavorito
+                };
+            }));
+
+            return {
+                usuario_logado: req.session.autenticado || {},
+                login: req.session.logado,
+                postagens: combinedConteudo,
+                paginador: paginador,
+                total_postagens: totalRegistros,
+                categoriaAtual: 'todas',
+                novoFiltro: 'recente'
+            };
+
+        } catch (e) {
+            console.log(e);
+            res.json({ erro: "Falha ao acessar dados" });
+        }
+    },
+    listarFavoritos: async (req, res) => {
+        const clienteId = req.session.autenticado.id;
+        res.locals.moment = moment;
+        try {
+            const pagina = parseInt(req.query.pagina) || 1;
+            const regPagina = 12;
+            const inicio = (pagina - 1) * regPagina;
+
+            // Buscar postagens favoritados do usuário
+            let results = await conteudoModel.getFavoritosByCliente(clienteId, inicio, regPagina);
+            let totalRegistros = await conteudoModel.totalFavoritos(clienteId); // Retorna o total de favoritos
+            let totPaginas = Math.ceil(totalRegistros / regPagina);
+
+            // Paginador
+            let paginador = totalRegistros <= 12 ? null : {
+                "pagina_atual": pagina,
+                "total_reg": totalRegistros,
+                "total_paginas": totPaginas
+            };
+            
+            function formatarTempo(tempo) {
+                let duracao = moment.duration(tempo, 'HH:mm:ss');
+                let horas = duracao.hours();
+                let minutos = duracao.minutes();
+                if (horas > 0 && minutos > 0) {
+                    return `${horas}h${minutos}min`;
+                } else if (horas > 0 && minutos <= 0) {
+                    return `${horas}hora${horas > 1 ? 's' : ''}`;
+                } else if (horas <= 0 && minutos > 0) {
+                    return `${minutos}min`;
+                } else {
+                    return '';
+                }
+            }
+
+            // Formatando o conteúdo
+            let combinedConteudo = await Promise.all(results.map(async (conteudo) => {
+                let ingredientes = await conteudoModel.BuscarIngredientesPorPostagemId(conteudo.id);
+                let mediaAvaliacoes = await conteudoModel.CalcularMediaAvaliacoes(conteudo.id);
+
+                const isPatinha = await conteudoModel.VerificarSePatinha(conteudo.id);
+
+                return {
+                    nome: conteudo.Titulo,
+                    usuario: conteudo.Clientes_idClientes,
+                    nome_usuario: conteudo.nome_usuario,
+                    id: conteudo.id,
+                    categoria: conteudo.Categorias_idCategorias,
+                    tempo: conteudo.tempo ? formatarTempo(conteudo.tempo) : null,
+                    descricao: conteudo.Descricao || null,
+                    etapas: conteudo.Etapas_Modo_de_Preparo,
+                    porcoes: conteudo.porcoes > 0 ? `${conteudo.porcoes} ${conteudo.porcoes > 1 ? 'Porções' : 'Porção'}` : null,
+                    tipo: conteudo.tipo,
+                    subcategorias: conteudo.subcategorias,
+                    ingredientes: ingredientes.length ? ingredientes.map(i => i.ingredientes).join(', ') : null,
+                    mediaAvaliacoes,
+                    imagem: conteudo.idMidia ? `data:image;base64,${conteudo.idMidia.toString('base64')}` : null,
+                    isFavorito: true,
+                    patinha: isPatinha,
+                };
+            }));
+
+            console.log(combinedConteudo);
+            
+            return res.render("pages/template", {
+                pagina: { cabecalho: "cabecalho", conteudo: "Meus-Favoritos", rodape: "none" },
+                usuario_logado: req.session.autenticado || {},
+                login: req.session.logado,
+                postagens: combinedConteudo,
+                paginador: paginador,
+                total_postagens: totalRegistros,
+                categoriaAtual: 'todas',
+                novoFiltro: 'recente'
+            });
+        } catch (error) {
+            console.log(error);
+            res.json({ erro: "Falha ao acessar dados" });
+        }
+    },
+    // INTERAÇÃO DO USUÁRIO - Avaliação, Favoritos
     AvaliarPostagem: async (req, res) => {
         const { nota, conteudo_id, categorias_id } = req.body;
         const clientes_id = req.session.autenticado.id;
@@ -608,17 +767,17 @@ const tarefasController = {
 
         const clienteId = req.session.autenticado.id;
         const conteudoId = req.body.conteudoId;
-    
+
         if (!conteudoId) {
             return res.status(400).json({ message: "ID do conteúdo não fornecido." });
         }
-    
+
         try {
             const jaFavorito = await conteudoModel.isFavorito(clienteId, conteudoId);
             if (jaFavorito) {
                 return res.status(400).json({ message: "Já está nos favoritos." });
             }
-    
+
             await conteudoModel.addFavorito(clienteId, conteudoId);
             res.status(201).json({ message: "Favorito adicionado com sucesso." });
             console.log("Favorito adicionado com sucesso");
@@ -632,7 +791,7 @@ const tarefasController = {
             return res.status(401).json({ message: "Usuário não autenticado" });
         }
         const clienteId = req.session.autenticado.id; // ID do cliente a partir da sessão
-        const conteudoId = req.body.conteudoId  ; // ID do conteúdo a ser removido dos favoritos
+        const conteudoId = req.body.conteudoId; // ID do conteúdo a ser removido dos favoritos
 
         if (!conteudoId) {
             return res.status(400).json({ message: "ID do conteúdo não fornecido." });
@@ -643,16 +802,6 @@ const tarefasController = {
             res.status(200).json({ message: "Favorito removido com sucesso." });
         } catch (error) {
             res.status(500).json({ message: "Erro ao remover favorito." });
-        }
-    },
-    listarFavoritos: async (req, res) => {
-        const clienteId = req.session.autenticado.id; // ID do cliente a partir da sessão
-
-        try {
-            const favoritos = await conteudoModel.getFavoritosByCliente(clienteId);
-            res.status(200).json(favoritos);
-        } catch (error) {
-            res.status(500).json({ message: "Erro ao listar favoritos." });
         }
     },
     // CRIAR DICA & PERGUNTA
@@ -965,86 +1114,6 @@ const tarefasController = {
         } catch (error) {
             console.log("Erro ao editar perfil!");
             return res.redirect("/perfil");
-        }
-    },
-    MostrarPostagensPerfil: async (req, res) => {
-        const idCliente = req.session.autenticado.id;
-        res.locals.moment = moment;
-
-        try {
-            const pagina = parseInt(req.query.pagina) || 1; // Página atual
-            const regPagina = 12; // Registros por página
-            const inicio = (pagina - 1) * regPagina; // Cálculo do início da página
-
-            // Buscar as postagens do perfil do usuário
-            let results = await conteudoModel.PesquisarPostsPerfil(idCliente, inicio, regPagina);
-            let totReg = await conteudoModel.TotalRegPerfil(idCliente);
-            let totalRegistros = totReg[0].total;
-            let totPaginas = Math.ceil(totalRegistros / regPagina);
-
-            // Paginador
-            let paginador = totalRegistros <= 12 ? null : {
-                "pagina_atual": pagina,
-                "total_reg": totalRegistros,
-                "total_paginas": totPaginas
-            };
-
-            function formatarTempo(tempo) {
-                let duracao = moment.duration(tempo, 'HH:mm:ss');
-                let horas = duracao.hours();
-                let minutos = duracao.minutes();
-                if (horas > 0 && minutos > 0) {
-                    return `${horas}h${minutos}min`;
-                } else if (horas > 0 && minutos <= 0) {
-                    return `${horas}hora${horas > 1 ? 's' : ''}`;
-                } else if (horas <= 0 && minutos > 0) {
-                    return `${minutos}min`;
-                } else {
-                    return '';
-                }
-            }
-
-            // Formatar o conteúdo
-            let combinedConteudo = await Promise.all(results.map(async (conteudo) => {
-                let ingredientes = await conteudoModel.BuscarIngredientesPorPostagemId(conteudo.id);
-                let mediaAvaliacoes = await conteudoModel.CalcularMediaAvaliacoes(conteudo.id);
-
-                let isFavorito = false;
-                if (conteudo.Clientes_idClientes) {
-                    isFavorito = await conteudoModel.isFavorito(conteudo.Clientes_idClientes, conteudo.id);
-                }
-                return {
-                    nome: conteudo.Titulo,
-                    usuario: conteudo.Clientes_idClientes,
-                    nome_usuario: conteudo.nome_usuario,
-                    id: conteudo.id,
-                    categoria: conteudo.Categorias_idCategorias,
-                    tempo: conteudo.tempo ? formatarTempo(conteudo.tempo) : null,
-                    descricao: conteudo.Descricao || null,
-                    etapas: conteudo.Etapas_Modo_de_Preparo,
-                    porcoes: conteudo.porcoes > 0 ? `${conteudo.porcoes} ${conteudo.porcoes > 1 ? 'Porções' : 'Porção'}` : null,
-                    tipo: conteudo.tipo,
-                    subcategorias: conteudo.subcategorias,
-                    ingredientes: ingredientes.length ? ingredientes.map(i => i.ingredientes).join(', ') : null,
-                    mediaAvaliacoes,
-                    imagem: conteudo.idMidia ? `data:image;base64,${conteudo.idMidia.toString('base64')}` : null,
-                    isFavorito: isFavorito
-                };
-            }));
-
-            return {
-                usuario_logado: req.session.autenticado || {},
-                login: req.session.logado,
-                postagens: combinedConteudo,
-                paginador: paginador,
-                total_postagens: totalRegistros,
-                categoriaAtual: 'todas',
-                novoFiltro: 'recente'
-            };
-
-        } catch (e) {
-            console.log(e);
-            res.json({ erro: "Falha ao acessar dados" });
         }
     },
     AbrirPerfil: async (req, res) => {

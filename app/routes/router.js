@@ -19,7 +19,6 @@ router.post('/criar-pergunta', VerificarAutenticacao, tarefasController.CriarPer
 
 router.post('/adicionar-favorito', tarefasController.adicionarFavorito);
 router.delete('/remover-favorito', tarefasController.removerFavorito);
-router.get('/favoritos', tarefasController.listarFavoritos);
 
 router.post('/editar-perfil',
     VerificarAutenticacao,
@@ -162,10 +161,12 @@ router.get("/notificacoes", verificarUsuAutorizado([1, 2], "/"), function (req, 
         usuario_logado: req.session.autenticado,
     });
 });
-router.get("/favoritos", verificarUsuAutorizado([1, 2], "/"), function (req, res) {
+router.get("/favoritos", verificarUsuAutorizado([1, 2], "/"), tarefasController.listarFavoritos, function (req, res) {
     res.render("pages/template", {
         pagina: { cabecalho: "cabecalho", conteudo: "Meus-Favoritos", rodape: "none" },
         usuario_logado: req.session.autenticado,
+        postagens: res.locals.postagens,
+        paginador: res.locals.paginador 
     });
 });
 router.get("/configuracoes", verificarUsuAutorizado([1, 2], "/"), function (req, res) {
