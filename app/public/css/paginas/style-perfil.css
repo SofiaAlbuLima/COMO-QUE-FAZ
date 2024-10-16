@@ -2,8 +2,7 @@
 
   .mapa-do-site {
     display: flex;
-    margin-top: 18vh;
-    margin-left: 52vh;
+    margin-left: 1vh;
   }
 
   .mapa-do-site p {
@@ -35,11 +34,10 @@
   }
 
   .gato-esticado {
-    width: 50vw;
-    border-radius: 10px 10px 0 0;
-    position: absolute;
-    z-index: 1;
+   position: absolute;
+    width: 90vw;
     height: 18vh;
+    align-self: center;
   }
 
   .foto-perfil_editar-perfil {
