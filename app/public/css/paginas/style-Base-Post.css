@@ -15,25 +15,32 @@
     justify-content: space-between;
     z-index: 1;
   }
-  .usuario-foto-nome{
+
+  .usuario-foto-nome {
     display: inline-flex;
     gap: 1vh;
     align-items: center;
     max-width: fit-content;
   }
-  .usuario-foto-nome:hover{
+
+  .usuario-foto-nome:hover {
     background-color: #9d5fef11;
     padding: 1vh 2vh 1vh 1vh;
     border-radius: 10px;
   }
-  #img-usuario-post, #img-login_hover-post, #img-login-post{
+
+  #img-usuario-post,
+  #img-login_hover-post,
+  #img-login-post {
     width: 4vh;
     border-radius: 50%;
   }
-  #img-login-post{
+
+  #img-login-post {
     display: inline-block;
   }
-  #img-login_hover-post{
+
+  #img-login_hover-post {
     position: absolute;
     display: none;
   }
@@ -115,7 +122,7 @@
     bottom: 0;
     z-index: 1;
     height: 8vh;
-    background: linear-gradient(to top, rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0)); 
+    background: linear-gradient(to top, rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0));
   }
 
   .imagem_postagem {
@@ -125,28 +132,33 @@
     width: 100%;
     position: relative;
   }
-  .patinhas-favoritar{
+
+  .patinhas-favoritar {
     justify-content: space-between;
     display: flex;
     height: 4vh;
   }
 
-  .patinha-indicador{
+  .patinha-indicador {
     width: 3.5vh;
     display: flex;
   }
-  .patinha-indicador:hover + .span-patinha{
+
+  .patinha-indicador:hover+.span-patinha {
     display: block;
   }
-  .button-favoritar-feed{
+
+  .button-favoritar-feed {
     background-color: #00000000;
     border: none;
     cursor: pointer;
   }
-  .button-favoritar-feed:hover{
+
+  .button-favoritar-feed:hover {
     opacity: 60%;
   }
-  .span-favoritar{
+
+  .span-favoritar {
     background-color: #cb218c;
     color: white;
     font-family: Fira Sans Bold;
@@ -157,10 +169,12 @@
     border-radius: 10px;
     transform: translate(22.5vh, -5vh);
   }
-  .button-favoritar-feed:hover + .span-favoritar{
+
+  .button-favoritar-feed:hover+.span-favoritar {
     display: flex;
   }
-  .span-patinha{
+
+  .span-patinha {
     display: none;
     position: absolute;
     transform: translate(-1vh, -5vh);
@@ -416,25 +430,32 @@
     justify-content: space-between;
     z-index: 1;
   }
-  .usuario-foto-nome{
+
+  .usuario-foto-nome {
     display: inline-flex;
     gap: 1vh;
     align-items: center;
     max-width: fit-content;
   }
-  .usuario-foto-nome:hover{
+
+  .usuario-foto-nome:hover {
     background-color: #9d5fef11;
     padding: 1vh 2vh 1vh 1vh;
     border-radius: 10px;
   }
-  #img-usuario-post, #img-login_hover-post, #img-login-post{
+
+  #img-usuario-post,
+  #img-login_hover-post,
+  #img-login-post {
     width: 4vw;
     border-radius: 50%;
   }
-  #img-login-post{
+
+  #img-login-post {
     display: inline-block;
   }
-  #img-login_hover-post{
+
+  #img-login_hover-post {
     position: absolute;
     display: none;
   }
@@ -516,7 +537,7 @@
     bottom: 0;
     z-index: 1;
     height: 8vh;
-    background: linear-gradient(to top, rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0)); 
+    background: linear-gradient(to top, rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0));
   }
 
   .imagem_postagem {
@@ -526,42 +547,49 @@
     width: 100%;
     position: relative;
   }
-  .patinhas-favoritar{
+
+  .patinhas-favoritar {
     justify-content: space-between;
     display: flex;
-    height: 4vh;
+    height: 6vw;
   }
 
-  .patinha-indicador{
-    width: 3.5vh;
+  .patinha-indicador {
+    width: 6vw;
     display: flex;
   }
-  .patinha-indicador:hover + .span-patinha{
+
+  .patinha-indicador:hover+.span-patinha {
     display: block;
   }
-  .button-favoritar-feed{
+
+  .button-favoritar-feed {
     background-color: #00000000;
     border: none;
     cursor: pointer;
   }
-  .button-favoritar-feed:hover{
+
+  .button-favoritar-feed:hover {
     opacity: 60%;
   }
-  .span-favoritar{
+
+  .span-favoritar {
     background-color: #cb218c;
     color: white;
     font-family: Fira Sans Bold;
-    font-size: 1.8vh;
+    font-size: 3vw;
     position: absolute;
     display: none;
     padding: 0.8vh;
     border-radius: 10px;
     transform: translate(22.5vh, -5vh);
   }
-  .button-favoritar-feed:hover + .span-favoritar{
+
+  .button-favoritar-feed:hover+.span-favoritar {
     display: flex;
   }
-  .span-patinha{
+
+  .span-patinha {
     display: none;
     position: absolute;
     transform: translate(-1vh, -5vh);
@@ -577,7 +605,7 @@
   .hover_ingredientes_basePost-limpeza,
   .hover_ingredientes_basePost-bemEstar {
     position: absolute;
-    width: 100%;
+    width: 46vw;
     height: 100%;
     justify-content: center;
     display: none;
@@ -585,7 +613,7 @@
     border-top-right-radius: 10px;
     border-top-left-radius: 10px;
     box-sizing: border-box;
-    padding: 2vh;
+    padding: 2vw;
   }
 
   .hover_ingredientes_basePost-culinaria {
@@ -601,14 +629,15 @@
   }
 
   .ingredientes_basePost {
+    width: 45vw;
     color: white;
-    font-weight: 600f;
-    font-size: 2vh;
+    font-weight: 600;
+    font-size: 3vw;
     font-family: Fira Sans;
     align-items: center;
     display: flex;
-    height: 100%;
     text-align: center;
+    margin-right: 12vw;
   }
 
   .legenda {
@@ -738,7 +767,7 @@
   .texto-pergunta {
     font-family: Fira Sans;
     color: #333333;
-    font-size: 2vh;
+    font-size: 3vw;
     font-weight: 600;
     transition: font-size 0.3s ease-in-out;
   }
@@ -774,15 +803,15 @@
 
   .pergunta-categoria img,
   .patinhas img {
-    width: 3vh;
-    height: 3vh;
+    width: 6vw;
+    height: 6vw;
   }
 
   .pergunta-categoria p,
   .patinhas p {
     font-family: Fira Sans;
     color: white;
-    font-size: 20px;
+    font-size: 3vw;
     margin-top: 0.2vh;
     font-weight: 600;
   }
