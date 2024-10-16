@@ -200,7 +200,7 @@ router.get("/criar-pergunta-mob", verificarUsuAutorizado([1, 2], "/"), function 
     });
 });
 
-router.get("/criar-pergunta", VerificarAutenticacao, function (req, res) {
+router.get("/criar-pergunta", verificarUsuAutorizado([1, 2], "/"), VerificarAutenticacao, function (req, res) {
     res.render("pages/template", {
         pagina: { cabecalho: "cabecalho", conteudo: "Criar-pergunta", rodape: "none" },
         usuario_logado: req.session.autenticado,

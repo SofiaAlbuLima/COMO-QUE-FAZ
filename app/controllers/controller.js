@@ -144,6 +144,7 @@ const tarefasController = {
                 const novoUsuario = {
                     Nickname: profile.displayName,
                     Email: email,
+                    senha: null,
                     Tipo_Cliente_idTipo_Cliente: 1, // Defina o tipo padrão
                 };
                 usuario = await usuarioModel.create(novoUsuario); // Cria o novo usuário no banco de dados

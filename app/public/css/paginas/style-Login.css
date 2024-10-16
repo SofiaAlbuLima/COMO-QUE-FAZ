@@ -27,7 +27,6 @@
 	}
 	.login-mob p{
 		font-family: Fira Sans Bold;
-		color: #ffd662;
 		margin-bottom: 6%;
 	}
 	.input2{
@@ -41,7 +40,6 @@
 	.redes-login-mob a{
 		font-family: Fira Sans Bold;
 		font-size: 14px;
-		color: #ffd662;
 		text-decoration: underline
 	}
 	.redes-botoes-mob button {
@@ -55,9 +53,25 @@
 		margin-bottom: 5%;
 	}
 	.redes-botoes-mob{
-		display: flex;
-		justify-content: space-between;
+        display: flex;
+        justify-content: center;
+        padding-left: 13.5%;
+        padding-right: 13.5%;
 	}
+	.google-a {
+        width: 100%;
+        background-color: #ffd662;
+        border: none;
+        padding: 5% 10% 5% 10%;
+        border-radius: 5px;
+        margin-top: 3%;
+        margin-bottom: 5%;
+        align-items: center;
+        justify-content: center;
+        display: flex;
+        gap: 2vh;
+        text-decoration: none;
+    }
 	.lembrar-senha-mob {
 		margin-bottom: 5%;
 		text-align: left;
