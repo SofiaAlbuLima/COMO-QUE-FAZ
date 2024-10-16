@@ -1,438 +1,407 @@
 @media only screen and (max-width: 480px) {
-  .conteudo-dispositivo.desktop {
-    display: none;
-  }
 
-  .conteudo-dispositivo.mobile {
-    display: block;
-    width: 100vw;
-  }
-
-  .gato-esticado {
-    margin-top: 2%;
-    margin-left: 1%;
-    margin-right: 1%;
-    width: 98%;
-  }
-
-  .imagem-perfil-mob {
-    width: 90px;
-    height: 90px;
-    margin-left: 7%;
-    margin-top: -10%;
-    border: 4px solid white;
-    border-radius: 100px;
-  }
-
-  h1.User1234 {
-    font-family: "Heavitas", sans-serif;
-    color: #cb218c;
-    font-size: 16px;
-    margin-top: -1%;
-    margin-left: 7%;
-    font-weight: 500;
-  }
-
-  h2.Nome1234 {
-    font-family: Fira Sans Bold;
-    font-weight: 600;
-    color: #333333;
-    font-size: 15px;
-    margin-left: 7%;
-    margin-top: -1%;
-  }
-
-  .segui-mob {
-    margin-top: 5%;
-    font-family: Fira Sans Bold;
-    color: #333333;
-    font-size: 16px;
+  .mapa-do-site {
     display: flex;
-    justify-content: space-between;
-    margin-left: 7%;
-    margin-right: 15%;
+    margin-top: 18vh;
+    margin-left: 52vh;
   }
 
-  .redes-sociais-perfil {
-    margin-top: 4%;
-    display: flex;
-  }
-
-  .rede {
-    width: 24px;
-    margin-right: 5%;
-  }
-
-  #vis-seguindo {
-    font-weight: 500;
-    font-size: 13px;
-    font-family: Fira Sans Bold;
-  }
-
-  #segui {
-    margin-bottom: -3px;
-    text-align: center;
-  }
-
-  .foto-editar {
-    justify-content: space-between;
-    display: flex;
-  }
-
-  button.editar-perfil {
-    width: 150px;
-    height: 30px;
-    margin-top: 2%;
-    margin-right: 7%;
-    margin-bottom: 7%;
-    padding: 2% 0 2px 30px;
-    border-radius: 10px;
-    border-style: none;
-    background-color: #4d16bb;
-    font-family: "Heavitas", sans-serif;
-    color: #ffffff;
-    text-align: center;
-    line-height: normal;
-    font-size: 12px;
-    display: flex;
-  }
-
-  #descrição-perfil {
-    margin-top: 3%;
-    margin-left: 7%;
-  }
-
-  h5.dicas-caseiras {
-    font-family: Fira Sans;
-    font-size: 15px;
-    font-weight: 400;
-  }
-
-  .descricao-pf {
-    font-size: 15px;
-    font-weight: 400;
+  .mapa-do-site p {
     font-family: Fira Sans;
   }
 
-  #icon-link {
-    width: 14px;
-    height: 16px;
-    transform: translate(0px, 3px);
+  .mapa-1 {
+    text-decoration: underline;
+    margin-right: 7px;
   }
 
-  .perfil-baixo {
-    width: 50vh;
-    padding: 1vh 4vh;
+  .mapa-2 {
+    text-decoration: underline;
+    font-weight: Bold;
+    color: #9e5fef;
+  }
+
+  .seta-mapa {
+    margin-right: 7px;
+  }
+
+  .perfil-cima {
+    margin: auto;
+    width: 50vw;
+    border-radius: 14px;
+    box-sizing: border-box;
     background-color: #f9f9f9;
     margin-top: 2vh;
   }
 
-  .headerfav {
-    box-sizing: border-box;
-    font-family: "Heavitas", sans-serif;
-    color: #9e5fef;
-    font-size: 20px;
-    display: flex;
+  .gato-esticado {
+    width: 50vw;
+    border-radius: 10px 10px 0 0;
+    position: absolute;
+    z-index: 1;
+    height: 18vh;
+  }
+
+  .foto-perfil_editar-perfil {
     justify-content: space-between;
-    margin-left: 7%;
-    margin-right: 7%;
-    margin-top: 5%;
-  }
-
-  .textfav {
-    font-size: 25px;
-    margin-top: 1%;
-    font-weight: 400;
-    width: 85%;
-  }
-
-  .filtro-icon {
-    height: 30px;
-    margin-top: 1%;
-  }
-
-  .fav {
-    height: 10%;
-  }
-
-  .pontilhado-mob {
-    width: 95vw;
-    height: 80vw;
-    padding: 2px 2px 2px 2px;
-    border-radius: 10px;
-    border: 6px dashed #bababa;
-    background-color: rgba(242, 242, 242, 0);
-    box-sizing: border-box;
-    transform: translate(-145px, 20px);
-  }
-
-  .gato-rasc {
-    width: 300px;
-    height: 310px;
-    margin-top: -900px;
-    margin-left: -80px;
-
-  }
-
-  .sem-rasc {
-    margin-top: -340px;
-    width: 80vw;
-    margin-left: -110px;
-    font-size: 20px;
-  }
-
-  .Comece-mob {
-    margin-top: 220px;
-    width: 200px;
-    height: 50px;
-    background-image: linear-gradient(89.99311970570312deg, #4d16bb 0%, #9d21cb 95.48561645502186%);
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    font-family: Fira Sans Bold;
-    font-weight: 700;
-    color: #ffffff;
-    text-align: center;
-    line-height: normal;
-    margin-left: -30px;
-  }
-
-  .postagens-rascunhos-interacoes {
-    margin-top: 5%;
     display: flex;
-    justify-content: space-between;
-    background-color: #e0e0e0;
-    height: 9vw;
+    padding-top: 10vh;
+    padding-left: 3vh;
+    padding-right: 4vh;
   }
 
-  .postagens-rascunhos-interacoes button {
-    width: 50%;
-    border: none;
-    background-color: #e0e0e0;
-    color: #9e5fef;
+  .foto-de-perfil-fundo {
+    display: flex;
+    width: 15.3vh;
+    height: 15.3vh;
+    z-index: 2;
   }
 
-  .postagens:hover {
-    background-color: #9e5fef;
-    color: white;
-  }
-
-  .rascunhos:hover {
-    background-color: #9e5fef;
-    color: white;
-  }
-
-  .interacoes:hover {
-    background-color: #9e5fef;
-    color: white;
-  }
-
-  .sem-rescunhos {
-    margin-top: 25px;
-    width: 95%;
-    border-radius: 10px;
-    border: 4px dashed #bababa;
-    margin-left: -2.5%;
-    margin-bottom: 300px;
-  }
-
-  .sem-rescunhos img {
-    margin-left: 78px;
-    width: 60%;
-    opacity: 0.5;
-  }
-
-  .sem-rescunhos h3 {
-    color: #7a7a7a;
-    font-family: Fira Sans;
-    margin-left: 17.5%;
-    margin-top: -40px;
-    font-size: 90%;
-    width: 65%;
-  }
-
-  .sem-rescunhos h2 {
-    color: #9e5fef;
-    font-family: Fira Sans Bold;
-    margin-left: 27.5%;
-    width: 45%;
-    text-decoration: underline;
-    font-size: 100%;
-    margin-bottom: 50px;
-  }
-
-  /* interaÃ§Ãµes ----------------------------------------------------------------------- */
-  #base-not-interacoes {
-    width: 100vw;
-    height: 25vw;
-    background-color: aliceblue;
-    margin-left: -6.8vw;
-    padding-top: 7vw;
-    border: 0;
-    border-bottom: 1px solid #d7d7d7;
-  }
-
-  #foto-perfil-not {
-    width: 18vw;
-    height: 18vw;
-    border-radius: 10vw;
-    margin-left: 5vw;
-    display: inline-block;
-  }
-
-  #descri-interacao {
-    display: inline-block;
-    margin-left: 3vw;
-    margin-top: 4vw;
+  .fundo-foto-perfil {
+    width: 15.5vh;
     position: absolute;
   }
 
-  #nome-do-user {
-    color: #333333;
-    font-family: Fira Sans, sans-serif;
-    font-size: 100%;
-    font-weight: 700;
+  .foto-perfil {
+    width: 13.5vh;
+    position: absolute;
+    padding: 0.9vh;
+    border-radius: 50%; 
+    height: 13.5vh;
   }
 
-  #tipo-interacao {
-    color: #7e7e7e;
-    font-family: Fira Sans, sans-serif;
-    font-size: 80%;
+  .editar-perfil, .seguir-perfil {
+    height: 4vh;
+    border-radius: 12px;
+    border: #cb218c 2px solid;
+    color: #cb218c;
+    font-family: Fira Sans;
+    font-weight: 600;
+    font-size: 2vh;
+    align-items: center;
+    display: flex;
+    z-index: 2;
+    margin-top: 11vh;
+    cursor: pointer;
+    background-color: #f9f9f9;
+  }
+  .editar-perfil{
+    width: 18vh;
+    padding-left: 3vh;
+  }
+
+  .editar-perfil:hover , .seguir-perfil:hover {
+    background-color: #cb218c;
+    color: white;
+  }
+
+  .seguir-perfil {
+    width: 15vh;
+    padding-left: 4.5vh;
+  }
+
+  .texto-perfil {
+    padding: 1vh 4vh 3vh 4vh;
+  }
+
+  .User1234 {
+    font-family: "Heavitas", sans-serif;
+    color: #cb218c;
+    font-size: 22px;
     font-weight: 500;
   }
 
-  #ver-interacao {
-    width: 22vw;
-    height: 8vw;
-    border: none;
-    color: white;
-    background-color: #cb218c;
-    display: inline-block;
-    border-radius: 1vw;
-    font-weight: 600;
-    font-family: Fira Sans, sans-serif;
-    margin-left: 47vw;
-    position: absolute;
-    margin-top: 4vw;
-  }
-
-  /* FINAL interaÃ§Ãµes ----------------------------------------------------------------------- */
-
-  button.editar-perfil-mob {
-    width: 144px;
-    height: 36px;
-    padding: 1px 1px 1px 1px;
-    border-radius: 12px;
-    border-style: none;
-    background-color: #4d16bb;
-    box-sizing: border-box;
-    font-family: "Fira Sans Bold", "Fira Sans", sans-serif;
+  .Nome1234 {
+    font-family: Fira Sans;
     font-weight: 700;
-    font-size: 15px;
-    color: #ffffff;
+    color: #333333;
+    font-size: 20px;
+  }
+
+  .descricao-perfil {
+    font-family: Fira Sans;
+    font-size: 16px;
+    font-weight: 500;
+    padding-top: 2vh;
+    padding-bottom: 2vh;
+    font-size: 1.9vh;
+  }
+
+  .links-redes_sociais {
+    font-size: 16px;
+    font-weight: 400;
+    font-family: Fira Sans;
+    align-items: center;
+  }
+
+  .icon-link {
+    display: flex;
+    width: 2.5vh;
+    padding-right: 1vh;
+    cursor: pointer;
+  }
+
+  .site-perfil {
+    display: flex;
+    color: #cb218c;
+    font-weight: bold;
+    text-decoration: underline;
+    font-family: Fira Sans;
+    padding: 0vh 0.7vh 0vh 0vh;
+    cursor: pointer;
+  }
+
+  .links-redes_sociais {
+    font-size: 1.8vh;
+    display: flex;
+  }
+
+  .link-site-perfil {
+    font-family: Fira Sans;
+    padding: 0vh 2vh 0vh 0vh;
+    cursor: pointer;
+  }
+  .url-site-perfil-a{
+    text-decoration: none;
+    color: inherit;
+  }
+
+  .rede-social-perfil {
+    width: 3vh;
+    display: flex;
+    cursor: pointer;
+    padding: 0vh 2vh 0vh 2vh;
+  }
+
+  .seguidores-seguindo-dicas {
+    display: flex;
+    gap: 2vh;
+    margin-top: 2vh;
+  }
+
+  .seguidores-seguindo-dicas_figure {
+    border-radius: 12px;
+    background-color: #ffdcf2;
+    color: #cb218c;
+    font-family: Fira Sans;
     text-align: center;
-    line-height: normal;
-    transform: translate(-30px, 10px);
+    align-items: center;
+    font-size: 2vh;
+    font-weight: 700;
+    display: flex;
+    padding: 0.8vh 4vh;
   }
 
-  #editar-perfil-popup-mob {
-    position: fixed;
-    padding: 1%;
-    border-radius: 10px;
-    z-index: 300;
-    width: 93%;
-    margin-top: 10%;
-    margin-left: 2.5%;
-    height: 555px;
+
+  /*perfil parte de baixo*/
+  .perfil-baixo {
+    display: flex;
+    margin-bottom: 10vh;
+  }
+
+  .postagens-perfil-baixo {
+    width: 50vw;
     background-color: #f9f9f9;
+    margin: 2.5vh auto auto auto;
+    border-top: 2px solid #cb218c;
   }
 
-  #fundo-editar-perfil-mob {
+  .titulo-postagens-perfil {
+    font-family: Heavitas;
+    color: #cb218c;
+    font-weight: 700;
+    font-size: 2.3vh;
+    width: 100%;
+    justify-content: center;
+    padding-top: 1vh;
+    padding-bottom: 1vh;
+    display: flex;
+    border-bottom: 1px solid #b2b2b2;
+  }
+
+  .postagens-perfil {
+    justify-content: center;
+    display: flex;
+    padding: 3vh 7vh;
+  }
+
+  .gato-sem-rascunhos {
+    width: 35vh;
+    opacity: 0.59;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .gato-sem-rascunhos-aviso-texto {
+    color: #333333;
+    font-family: Fira Sans;
+    font-weight: 700;
+    font-size: 2vh;
+    display: flex;
+    flex-direction: column;
+    transform: translate(0vh, -7vh);
+    align-items: center;
+  }
+
+  /* EDITAR PERFIL */
+
+  #fundo-editar-perfil {
     position: fixed;
     background: #000000a3;
     width: 100%;
     height: 100%;
-    margin-top: -15%;
     z-index: 299;
+    top: 0;
+    left: 0;
+  }
+
+  #editar-perfil-popup {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    border-radius: 10px;
+    z-index: 300;
+    width: 35vw;
+    background-color: #f9f9f9;
+    display: flex;
+  }
+
+  .editar-perfil-sair {
+    width: 100%;
+    justify-content: space-between;
+    display: flex;
+    border-bottom: #4d16bb 1px solid;
+  }
+
+  .titulo-editar-perfil {
+    display: flex;
+    color: #4d16bb;
+    font-family: Heavitas;
+    font-size: 2vh;
+    margin: 3vh 0 2vh 3vh;
   }
 
   .xis-sair {
     color: #4d16bb;
+    font-family: Heavitas;
+    font-size: 2vh;
     cursor: pointer;
-    margin-left: 20px;
-    margin-top: 10px;
+    display: flex;
+    margin: 3vh 3vh 2vh 0;
+  }
+
+  .editar-informacoes-perfil {
+    padding: 3vh;
   }
 
   .banner-editar {
     position: absolute;
-    width: 100%;
+    width: 32vw;
+    height: 12vh;
+    z-index: 1;
+    border-radius: 10px 10px 0 0;
   }
 
-  .foto-fundo-editar {
-    margin-left: 5%;
-    height: 0;
-  }
-
-  .foto-editar-perfil {
-    transform: translate(-80px, -65px);
-    height: 70px;
+  .fotos-perfil-editar {
+    display: flex;
+    width: 13.3vh;
+    height: 13.3vh;
+    z-index: 2;
+    position: relative;
+    margin-top: 5vh;
+    margin-left: 2vh;
   }
 
   .fundo-foto-editar {
-    transform: translate(0px, -58px);
-    height: 80px;
+    width: 13.5vh;
+    position: absolute;
+  }
+
+  .foto-editar {
+    width: 11.5vh;
+    position: absolute;
+    padding: 0.9vh;
+    border-radius: 50%; 
+    height: 11.5vh;
   }
 
   .editar-foto-camera {
     width: 35px;
   }
 
+  .camera-container {
+    position: relative;
+  }
+
+  .editar-foto-camera {
+    cursor: pointer;
+  }
+
+  .camera-input {
+    display: none;
+  }
+
   #camera1 {
-    transform: translate(450px, -90px);
+    transform: translate(10vh, -3vh);
+    position: absolute;
+    z-index: 3;
   }
 
   #camera2 {
-    transform: translate(-130px, -60px);
+    transform: translate(60vh, -9vh);
+    position: absolute;
+    z-index: 3;
   }
 
+  .inputs-editar-perfil {
+    margin-top: 3vh;
+  }
 
   .tit-editar {
-    font-family: Heavitas;
-    font-weight: 400;
-    font-size: 15px;
-    margin-left: 25px;
+    font-family: Fira Sans;
+    font-weight: 600;
+    font-size: 2.2vh;
+    margin-top: 2vh;
     color: #4d16bb;
-  }
-
-  .tit-editar1 {
-    font-family: Heavitas;
-    font-weight: 400;
-    font-size: 15px;
-    margin-left: 35px;
-    color: #4d16bb;
-    width: 120px;
-  }
-
-  .tit-duas {
-    display: flex;
-    justify-content: space-between;
-    margin-right: 70px;
-    margin-left: -10px;
   }
 
   .tex-editar {
-    margin-top: 10px;
-    margin-bottom: 20px;
-    margin-left: 25px;
+    width: 100%;
+  }
+
+  .tex-editar,
+  .tex-editar-site,
+  .tex-editar-url {
     border-top: none;
     border-left: none;
     border-right: none;
     border-bottom: 1.5px solid #333333;
-    width: 83%;
+    height: 3vh;
+    margin-top: 0.5vh;
     background: none;
     font-family: Fira Sans;
-    font-size: 16px;
+    font-size: 2.2vh;
     outline: none;
+  }
+  .tex-editar-site {
+    width: 15vh;
+  }
+
+  .tex-editar-url {
+    width: 37vh;
+  }
+
+  .tit-duas-coluna {
+    justify-content: space-between;
+    display: flex;
+    gap: 3vh;
+  }
+
+  .tit-duas {
+    margin-top: 1vh;
+    display: flex;
+    flex-direction: column;
   }
 
   .tex-editar::placeholder {
@@ -441,47 +410,15 @@
     outline: none;
   }
 
-  .tex-duas {
-    display: flex;
-    justify-content: space-between;
-    margin-right: 45px;
-  }
-
-  .redes-editar img {
-    height: 30px;
-  }
-
-  .redes-editar {
-    width: 83%;
-    margin-left: 25px;
-    display: flex;
-    justify-content: space-between;
-  }
-
-  .rede-editar {
-    margin-top: 10px;
-    padding: 6% 0% 0% 10%;
-    width: 20%;
-    height: 50px;
-    border-radius: 5px;
-    background: #ffd662;
-  }
-
   .salvar {
     background: #4d16bb;
     color: white;
     border-radius: 5px;
-    margin-top: 10px;
-    margin-right: 10px;
-    width: 130px;
-    height: 30px;
+    width: 100%;
+    margin-top: 3vh;
+    height: 45px;
     border: none;
     cursor: pointer;
-  }
-
-  .cima-editar {
-    justify-content: space-between;
-    display: flex;
   }
 }
 
