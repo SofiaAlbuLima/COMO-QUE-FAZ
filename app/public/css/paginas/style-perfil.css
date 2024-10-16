@@ -1,12 +1,5 @@
 @media only screen and (max-width: 480px) {
-  .conteudo-dispositivo.desktop {
-    display: none;
-  }
 
-  .conteudo-dispositivo.mobile {
-    display: block;
-    width: 100vw;
-  }
 
   .gato-esticado {
     margin-top: 2%;
