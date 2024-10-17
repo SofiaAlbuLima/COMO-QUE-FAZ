@@ -16,10 +16,6 @@
             </article>
 
             <nav class="lista-tarefas-mb">
-                <!-- <button class="tarefa-mb ativo" id="detalhes-mb">Detalhes</button>
-                <button class="tarefa-mb" id="elementos-mb">Elementos</button>
-                <button class="tarefa-mb" id="midias-mb">Mídias</button> -->
-
                 <article class="tarefa-mb ativo" id="conteudoTarefa1-mb">
                     <h2 id="detalhes-mb">Detalhes</h2>
                     <section id="detalhes-primeira-parte-mb">
@@ -29,7 +25,7 @@
 
                         <section class="guarda-select-mb">
                             <input class="dialogoselect-mb" id="dialogoselect-mb" type="text" name="dica_categoria"
-                                placeholder="Categoria da postagem" readonly="readonly" />
+                                placeholder="Categoria da postagem" readonly="readonly" required>
                             <section class="dropDown-mb" id="dropdown-mb">
 
                                 <article class="listDropDown-mb">
@@ -74,13 +70,13 @@
                         <section id="tempo-detalhes-porcoes-mb">
                             <img id="imagem-tempo-detalhes-porcoes-mb" src="/imagens/porçoes-cinza-culinaria.png"
                                 alt="tempo de execução">
-                            <input type="number" id="porcoes-tempo-detalhes-mb" placeholder="00"
+                            <input type="number" id="porcoes-tempo-detalhes-mb" max="100" min="0" placeholder="00"
                                 name="dica_porcoes">Porções
                         </section>
 
                         <section id="descricao-detalhes-total-mb">
-                            <h3 id="titulo-descricao-detalhes-mb" name="dica_descricao">Descrição</h3>
-                            <input type="text" id="descricao-detalhes-mb">
+                            <h3 id="titulo-descricao-detalhes-mb">Descrição</h3>
+                            <input type="text" id="descricao-detalhes-mb" name="dica_descricao">
                         </section>
 
                         <section id="subcategoria-detalhes-total-mb">
