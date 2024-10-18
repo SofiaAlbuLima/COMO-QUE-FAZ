@@ -148,7 +148,7 @@ function categor(categorId) {
 
     inputElement.placeholder = itemElement.innerText;
 
-    inputElement.value = '';
+    inputElement.value = itemElement.innerText;
 
 }
 

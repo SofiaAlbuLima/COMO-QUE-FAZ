@@ -811,6 +811,8 @@ const tarefasController = {
             let categoriaId;
             let porcoes = null;
             const categoria = req.body.dica_categoria;
+           console.log("----------------")
+            console.log(req.body);
 
             if (categoria === "Culinária") {
                 categoriaId = 1;
