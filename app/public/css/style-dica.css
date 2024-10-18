@@ -1111,7 +1111,7 @@
     }
 
     .imagemprincipal {
-        width: 51vh;
+        width: 45vh;
         border-radius: 10px;
         position: absolute;
         margin-top: 22vh;
@@ -1447,17 +1447,17 @@
 
     .avalie {
         width: 28vh;
-        height: 9vh;
     }
 
     .gostou {
-        font-size: 2.5vh;
+        font-size: 1.7vh;
         color: white;
         font-weight: 400;
+        display: none;
     }
 
     .p-aval {
-        font-size: 2.2vh;
+        font-size: 2vh;
         color: white;
         font-weight: 400;
         text-align: left;
@@ -1535,7 +1535,7 @@
         padding-left: 4vh;
         padding-right: 4vh;
         padding-bottom: 2vh;
-        width: 42vh;
+        width: 36vh;
     }
     .Itens-necessários_culinaria{
         background-color: #cb2154;
@@ -1659,7 +1659,7 @@
         padding-bottom: 2vh;
         margin-top: 4vh;
         margin-left: 2vh;
-        width: 42vh;
+        width: 37vh;
     }
     .Modo-Preparo-culiaria{
         border-left: 1vh solid #cb1154;
