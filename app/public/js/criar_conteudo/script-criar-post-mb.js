@@ -117,40 +117,39 @@ mostrarArtigo(currentIndex);
 // });
 
 function categor(categorId) {
-    var inputElement = document.querySelector('.dialogoselect-mb');
-    var itemElement = document.getElementById('item-select-detalhes-mb-' + categorId);
+    const inputElement = document.querySelector('.dialogoselect-mb');
+    const itemElement = document.getElementById('item-select-detalhes-mb-' + categorId);
     const section = document.getElementById('tempo-detalhes-porcoes-mb');
 
-    if (!itemElement) {
-        console.error('Categoria não encontrada para o ID: ' + categorId);
+    if (!inputElement || !itemElement) {
+        console.error('Elemento não encontrado para o ID: ' + (inputElement ? categorId : 'input'));
         return;
     }
 
+    // Remove classes de categoria
     inputElement.classList.remove('categoria-culinaria', 'categoria-limpeza', 'categoria-bemestar');
 
+    // Adiciona a classe correspondente e define o display da seção
     switch (categorId) {
         case 1:
             inputElement.classList.add('categoria-culinaria');
-            section.style.display = 'flex'; // Exibe a section
+            section.style.display = 'flex'; // Exibe a seção
             break;
         case 2:
-            inputElement.classList.add('categoria-limpeza');
-            section.style.display = 'none';  // Oculta a section
-            break;
         case 3:
-            inputElement.classList.add('categoria-bemestar');
-            section.style.display = 'none';  // Oculta a section
+            inputElement.classList.add(categorId === 2 ? 'categoria-limpeza' : 'categoria-bemestar');
+            section.style.display = 'none';  // Oculta a seção
             break;
         default:
             console.warn('ID de categoria inválido: ' + categorId);
             return;
     }
 
+    // Atualiza o placeholder e o valor do input
     inputElement.placeholder = itemElement.innerText;
-
     inputElement.value = itemElement.innerText;
-
 }
+
 
 document.addEventListener("DOMContentLoaded", function () {
     const inputSelect = document.getElementById("dialogoselect-mb");
