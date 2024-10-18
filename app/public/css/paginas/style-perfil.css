@@ -26,7 +26,6 @@
 
   .perfil-cima {
     margin: auto;
-    width: 50vw;
     border-radius: 14px;
     box-sizing: border-box;
     background-color: #f9f9f9;
@@ -35,7 +34,7 @@
 
   .gato-esticado {
    position: absolute;
-    width: 90vw;
+    width: 99.2vw;
     height: 18vh;
     align-self: center;
   }
@@ -165,7 +164,6 @@
   }
 
   .rede-social-perfil {
-    width: 3vh;
     display: flex;
     cursor: pointer;
     padding: 0vh 2vh 0vh 2vh;
@@ -174,7 +172,6 @@
   .seguidores-seguindo-dicas {
     display: flex;
     gap: 2vh;
-    margin-top: 2vh;
   }
 
   .seguidores-seguindo-dicas_figure {
@@ -188,6 +185,9 @@
     font-weight: 700;
     display: flex;
     padding: 0.8vh 4vh;
+    max-width: 6vh;
+    margin-left: -3vh;
+}
   }
 
 
