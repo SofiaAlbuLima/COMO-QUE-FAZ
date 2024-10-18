@@ -34,7 +34,7 @@
 
   .gato-esticado {
    position: absolute;
-    width: 99.2vw;
+    width: 99.3vw;
     height: 18vh;
     align-self: center;
   }
@@ -171,7 +171,7 @@
 
   .seguidores-seguindo-dicas {
     display: flex;
-    gap: 2vh;
+    gap: 3vh;
   }
 
   .seguidores-seguindo-dicas_figure {
@@ -179,16 +179,16 @@
     background-color: #ffdcf2;
     color: #cb218c;
     font-family: Fira Sans;
-    text-align: center;
+    
     align-items: center;
-    font-size: 2vh;
+  
     font-weight: 700;
     display: flex;
     padding: 0.8vh 4vh;
     max-width: 6vh;
-    margin-left: -3vh;
+
 }
-  }
+  
 
 
   /*perfil parte de baixo*/
@@ -198,7 +198,7 @@
   }
 
   .postagens-perfil-baixo {
-    width: 50vw;
+    width: 100%;
     background-color: #f9f9f9;
     margin: 2.5vh auto auto auto;
     border-top: 2px solid #cb218c;
@@ -220,7 +220,7 @@
   .postagens-perfil {
     justify-content: center;
     display: flex;
-    padding: 3vh 7vh;
+    padding: 3vh 0;
   }
 
   .gato-sem-rascunhos {
@@ -260,7 +260,7 @@
     transform: translate(-50%, -50%);
     border-radius: 10px;
     z-index: 300;
-    width: 35vw;
+    width: 85%;
     background-color: #f9f9f9;
     display: flex;
   }
@@ -295,7 +295,7 @@
 
   .banner-editar {
     position: absolute;
-    width: 32vw;
+    width: 73vw;
     height: 12vh;
     z-index: 1;
     border-radius: 10px 10px 0 0;
@@ -387,7 +387,7 @@
   }
 
   .tex-editar-url {
-    width: 37vh;
+    width: 15vh;
   }
 
   .tit-duas-coluna {
