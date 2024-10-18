@@ -3,18 +3,10 @@
       margin: 0;
       padding: 0;
     }
-  
-    .conteudo-mobile {
-      display: block;
-      width: 100vw;
-    }
-  
-    .conteudo-desktop {
-      display: none;
-    }
+
   
     
-    a.mapculinaria {
+    .mapa_do_site-atual {
       text-align: center;
       width: 54px;
       height: 19px;
@@ -27,14 +19,14 @@
       margin-top: 5%;
     }
   
-    img.imgcu {
+    .imagem_pagina_categoria {
       width: 84px;
       height: 84px;
       margin-left: 4%;
       transform: translate(0, 13px);
     }
   
-    h1.titulocu {
+    .titulo_pagina_categoriaCateculinaria {
       font-family: Heavitas;
       color: #cb1154;
       max-width: 150px;
@@ -43,7 +35,7 @@
       transform: translate(110px, -70px);
     }
   
-    p.pcu {
+    .descricao_pagina_categoria {
       text-align: left;
       font-family: Fira Sans;
       width: 65%;
@@ -52,7 +44,7 @@
     }
   
   
-    .fcutodas {
+    .filtros_categoria_Culinaria {
       min-width: 35%;
       height: 35px;
       padding: 2px 2px 2px 2px;
@@ -68,26 +60,7 @@
   
     }
   
-    .filtrocu {
-      display: flex;
-      gap: 10px;
-      overflow: scroll;
-      height: 100%;
-      margin-left: 7%;
-      margin-top: -50px;
-      min-width: 140px;
-      padding: 2px 2px 2px 2px;
-      border-radius: 5px;
-      box-sizing: border-box;
-      font-family: "Fira Sans", sans-serif;
-      color: #333333;
-      text-align: center;
-      line-height: normal;
-      border: none;
-      width: 86%;
-      overflow-x: auto; 
-    }
-  
+   
     .clicado {
       background-color: #cb1154;
       box-sizing: border-box;
@@ -106,15 +79,6 @@
     * {
       margin: 0;
       padding: 0;
-    }
-  
-    .conteudo-desktop {
-      display: block;
-      width: 100vw;
-    }
-  
-    .conteudo-mobile {
-      display: none;
     }
   
     * {
