@@ -45,26 +45,28 @@
 }
 
 .ajustbuttons button {
-    line-height: 7vh;
+    line-height: 6vh;
     font-size: 18px;
     font-family: "Fira Sans Bold", "Fira Sans", sans-serif;
     text-align: left;
     border: none;
+    border-radius: 15px;
 }
 
 .sair-conta {
-    width: 15vw;
+    width: 25vw;
     height: 7vh;
     border: none;
     border-radius: 10px;
     background-color: rgba(158, 95, 239, 1);
     color: white;
-    padding: 6px;
+    padding: 10px;
     margin-top: 5vh;
+    text-align: left;
 }
 
 .colu-2 {
-    width: 40vw;
+    width: 43vw;
     height: 65vh;
     border: solid 2px #9E5FEF;
     border-radius: 10px;
@@ -89,12 +91,131 @@
 .content-ajustments {
     display: flex;
     margin: auto;
-    justify-content: space-around;
+    padding: 15px;
+}
+
+.content-ajustments h3 {
+    font-size: 19px;
+    font-family: "Fira Sans Bold", "Fira Sans", sans-serif;
 }
 
 .part-one {
     border-right: solid 1px;
-    width: 20vw;
+    width: 19.5vw;
+    height: 54vh;
+}
+
+.part-one span {
+    font-family: "Fira Sans Bold", "Fira Sans", sans-serif;
+    color: #6B6B6B;
+}
+
+.part-one form {
+    margin-right: 2vw;
+}
+
+.part-one input {
+    width: 15vw;
+    height: 5vh;
+    background-color: #f2f2f2;
+    border: none;
+    font-family: 'Fira Sans Bold';
+    padding: 5px;
+    border-radius: 5px;
+}
+
+.part-one input::placeholder {
+    color: #9B9B9B;
+}
+
+.part-two {
+    margin-left: 12px;
+}
+
+.content-language {
+    padding: 8px;
+    line-height: 5vh;
+}
+
+.content-language span {
+    color: #6B6B6B;
+}
+
+.languages {
+    display: flex;
+    justify-content: space-between;
+}
+
+.lang {
+    padding: 7px;
+    width: 11vw;
+    height: 5vh;
+    margin-top: 5px;
+    border: none;
+    background-color: #9E5FEF;
+    color: white;
+    font-family: "Fira Sans Bold", "Fira Sans", sans-serif;
+    font-size: 18px;
+    border-radius: 5px;
+}
+
+.content-newnot {
+    width: 17vw;
+    padding: 8px;
+    font-family: "Fira Sans Bold", "Fira Sans", sans-serif;
+    color: #6B6B6B;
+    font-size: 15px;
+}
+
+.title-newnot {
+    font-size: 16px;
+    font-family: "Fira Sans Bold", "Fira Sans", sans-serif;
+}
+
+.notf-filters {
+    display: flex;
+    justify-content: space-between;
+    margin: 5px;
+    background-color: rgba(245, 240, 255, 1);
+    padding: 10px;
+}
+
+.notf-checkbox {
+    display: grid;
+}
+
+.prefnot-filters {
+    display: flex;
+    justify-content: space-between;
+    margin: 5px;
+    background-color: rgba(245, 240, 255, 1);
+    padding: 10px;
+}
+
+.first-part-nn {
+    margin-bottom: 5px;
+}
+
+.prefnot-checkbox {
+    display: grid;
+}
+
+.part-two-sec-acc {
+    margin-left: 12px;
+}
+
+.part-two-sec-acc span {
+    font-family: "Fira Sans Bold", "Fira Sans", sans-serif;
+    font-size: 16px;
+    color: #6B6B6B;
+}
+
+.authentication button {
+    width: 8vw;
+    height: 4vh;
+    border-radius: 3px;
+    border: none;
+    font-family: 'Fira Sans';
 }
 
 .ajusttab.active {
@@ -102,6 +223,124 @@
     border: solid 2px;
     border-radius: 8px;
     border-color: rgba(158, 95, 239, 1);
+}
+
+.losinha {
+    background-color: #9E5FEF;
+    color: white;
+}
+
+.deactivate-account {
+    width: 18vw;
+    height: 5vh;
+    background-color: #CB215D;
+    color: white;
+    font-family: "Fira Sans Bold", "Fira Sans", sans-serif;
+    border: none;
+    border-radius: 3px;
+    text-align: left;
+    padding: 5px;
+}
+
+.margin-sec-acc {
+    margin-top: 3vh;
+    margin-bottom: 3vh;
+}
+
+.buying-options {
+    background-color: #f2f2f2;
+    height: 8vh;
+    width: 18vw;
+    font-size: 12px;
+    padding: 5px;
+}
+
+.buying-options-mid {
+    background-color: #f2f2f2;
+    height: 8vh;
+    width: 18vw;
+    font-size: 12px;
+    padding: 5px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+.history-payment {
+    padding: 8px;
+}
+
+.actual-plan {
+    border-right: solid 1px;
+    width: 19vw;
+    padding: 9px;
+    height: 50vh;
+}
+
+.actual-plan span {
+    font-family: "Fira Sans Bold", "Fira Sans", sans-serif;
+    color: #6B6B6B;
+}
+
+.actual-plan a {
+    color: #CB215D;
+    font-size: 12px;
+}
+
+.actual-plan button {
+    margin-top: 16vh;
+    width: 18vw;
+    height: 5vh;
+    background-color: #9E5FEF;
+    color: white;
+    font-family: "Fira Sans Bold", "Fira Sans", sans-serif;
+    border: none;
+    border-radius: 6px;
+}
+
+.payment-option {
+    height: 9vh;
+    width: 13vw;
+}
+
+.client-card-top {
+    background-color: rgba(79, 22, 186, 1);
+    height: 5vh;
+    width: 17.6vw;
+    border: none;
+    border-radius: 4px;
+    line-height: 5vh;
+    padding: 6px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.client-card-top span {
+    color: white;
+}
+
+.client-card-bottom {
+    height: 14vh;
+    width: 17vw;
+    background-color: #f2f2f2;
+    padding: 12px;
+    line-height: 5vh;
+    border: none;
+    border-radius: 5px;
+}
+
+.client-card-top img {
+    height: 5vh;
+    width: 5vw;
+}
+
+.forma-de-pagamento {
+    margin-top: 3vh;
+    margin-bottom: 3vh;
+}
+
+.authentication {
+    display: flex;
+    justify-content: space-around;
 }
 
 .ajustbuttons button {
