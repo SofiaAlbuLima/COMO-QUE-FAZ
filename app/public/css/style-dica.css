@@ -1267,7 +1267,7 @@
         border-bottom-left-radius: 20px;
         background: white;
         box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.565);
-        right: 36vh;
+        left: 20vh;
         transform: translate(0, -5vh);
     }
     .patinha-dica{

@@ -68,9 +68,11 @@
       }
       .search img {
         display: inline-block;
-        max-width: 4.5vh;
-        max-height: 4.5vh;
+        max-width: 4vh;
+        max-height: 4vh;
       }
+
+
       #hide-hover-search input{
         margin-top: 1.5vh;
         color: #474747;
@@ -82,29 +84,33 @@
         width: 9vh;
         font-size: 1.6vh;
         margin-right: 2vh;
-        display: none;
       }
+
       #hide-hover-search input:focus {
         outline: none;
     }
+
       .culinaria {
       margin-left: 13.14px;
       font-family: Fira Sans Bold;
       font-weight: 700;
       margin-top: 12px;
       }
+
       .bem-estar {
       margin-right: 8.59px;
       font-family: Fira Sans Bold;
       margin-top: 12px;
       font-weight: 700;
       }
+
       .limpeza{
           font-family: Fira Sans Bold;
           text-align: center;
           margin-top: 12px;
           font-weight: 700;
       }
+
       .cabecalho_limpeza{
         background: #027de1;
       }
@@ -229,7 +235,7 @@
     /* FIM - HEADER MOBILE - SEM LOGIN */
 
 
-@media only screen and (min-width: 480px) {
+@media only screen and (min-width: 481px) {
 /* INIÍCIO - HEADER DESKTOP - SEM LOGIN */
     * {
       font-family: Heavitas;
@@ -253,6 +259,7 @@
     main{
       margin-top: 13.5vh;
     }
+    
     .logos {
       display: flex;
       justify-content: space-around;
