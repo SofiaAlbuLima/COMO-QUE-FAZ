@@ -1111,7 +1111,8 @@
     }
 
     .imagemprincipal {
-        width: 45vh;
+        max-width: 35vh;
+        max-height: 25vh;
         border-radius: 10px;
         position: absolute;
         margin-top: 22vh;
