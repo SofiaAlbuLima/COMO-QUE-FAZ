@@ -172,6 +172,7 @@
   .seguidores-seguindo-dicas {
     display: flex;
     gap: 3vh;
+    margin-left: -2vh;
   }
 
   .seguidores-seguindo-dicas_figure {

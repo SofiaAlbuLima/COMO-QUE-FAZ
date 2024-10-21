@@ -105,7 +105,15 @@
           margin-top: 12px;
           font-weight: 700;
       }
-    
+      .cabecalho_limpeza{
+        background: #027de1;
+      }
+      .cabecalho_culinaria{
+        background: #cb1154;
+      }
+      .cabecalho_bemestar{
+        background: #00cd83;
+      }
       
     
     /* Login & Perfil - Inicio */
@@ -241,15 +249,7 @@
       src: url("../fonts/fira-sans.regular.ttf");
     }
     /* Header inteiro - Inicio */
-    .header-dispositivo-mobile{
-      display: none;
-    }
-    .header-dispositivo-desktop{
-      position: fixed;
-      z-index: 100;
-      width: 100%;
-      top: 0;
-    }
+ 
     main{
       margin-top: 13.5vh;
     }
