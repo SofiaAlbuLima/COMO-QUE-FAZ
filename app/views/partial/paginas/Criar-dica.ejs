@@ -23,7 +23,7 @@
                         <input type="text" id="texto-titulo-da-postagem-mb" placeholder="Como que faz..."
                             name="dica_titulo">
 
-                        <section class="guarda-select-mb">
+                        <!-- <section class="guarda-select-mb">
                             <input class="dialogoselect-mb" id="dialogoselect-mb" type="text" name="dica_categoria"
                                 placeholder="Categoria da postagem" readonly="readonly" required>
                             <section class="dropDown-mb" id="dropdown-mb">
@@ -52,7 +52,28 @@
                                 </article>
 
                             </section>
-                        </section>
+                        </section> -->
+
+                        <figure class="guarda-select">
+                            <input class="dialogoselect" id="dialogoselect" type="text" name="dica_categoria"
+                               onfocus="dropdown(0)" onblur="dropdown(1)" placeholder="CATEGORIA DA POSTAGEM*"
+                               readonly="readonly" required>
+ 
+                            <div class="dropDown" id="dropdown" style="z-index: 1000; display: none;">
+                               <div class="listDropDown">
+                                  <div value="culinaria-categoria" class="item-select-detalhes texto"
+                                     id="item-select-detalhes-1" onmousedown="category(1)">Culinária
+                                  </div>
+ 
+                                  <div class="item-select-detalhes texto" id="item-select-detalhes-2"
+                                     onmousedown="category(2)">Limpeza</div>
+                                     
+                                  <div class="item-select-detalhes texto" id="item-select-detalhes-3"
+                                     onmousedown="category(3)">Bem Estar</div>
+                               </div>
+                            </div>
+                         </figure>
+
                     </section>
 
                     <section id="detalhes-segunda-parte-mb">
@@ -67,12 +88,12 @@
                                 name="dica_tempo_minutos">Min
                         </section>
 
-                        <section id="tempo-detalhes-porcoes-mb">
+                        <figure id="tempo-detalhes-porcoes">
                             <img id="imagem-tempo-detalhes-porcoes-mb" src="/imagens/porçoes-cinza-culinaria.png"
                                 alt="tempo de execução">
                             <input type="number" id="porcoes-tempo-detalhes-mb" max="100" min="0" placeholder="00"
                                 name="dica_porcoes">Porções
-                        </section>
+                        </figure>
 
                         <section id="descricao-detalhes-total-mb">
                             <h3 id="titulo-descricao-detalhes-mb">Descrição</h3>
@@ -81,12 +102,12 @@
 
                         <section id="subcategoria-detalhes-total-mb">
                             <h3 id="titulo-subcategoria-detalhes-mb">Subcategorias</h3>
-                            <section class="input-container-mb">
+                            <figure class="input-container-mb">
                                 <input type="text" id="input-text-subcategoria-mb" name="dica_subcategorias_input">
                                 <img src="/imagens/adicionar-etiqueta.svg" id="icon-mb" onclick="adicionarMensagemmb()"
                                     alt="">
-                            </section>
-                            <section id="messageList-mb" class="message-list-mb"></section>
+                            </figure>
+                            <figure id="messageList-mb" class="message-list-mb"></figure>
                             <input type="hidden" id="dica_subcategorias-mb" name="dica_subcategorias">
                         </section>
                     </section>
