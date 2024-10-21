@@ -20,14 +20,10 @@
         src: url("../fonts/fira-sans.regular.ttf");
     }
 
-    #conteudo-dispositivo-desktop {
-        display: none;
+    .patinha{
+        width: 2vh;
+        height: 2vh;
     }
-
-    #conteudo-dispositivo-mobile {
-        display: block;
-    }
-
     .cabecaculinaria {
         margin-left: 7%;
         margin-right: 7%;
@@ -603,19 +599,80 @@
         background-color: #00cd83;
     }
 
+    .perfil-pontinhos-pergunta {
+        justify-content: space-between;
+        display: flex;
+        padding-bottom: 1vh;
+        padding-left: 4vh;
+        padding-right: 4vh;
+    }
 
+    .pergunta-parte-baixo {
+        padding-left: 4vh;
+        padding-right: 4vh;
+    }
 
+    .linha-pergunta{
+        border-top: none;
+        border-left: none;
+        border-right: none;
+        margin-bottom: 2vh;
+        border-bottom: #cb218c 2px solid;
+    }
+
+    .categoria-pergunta-desktop_culinaria,
+    .categoria-pergunta-desktop_limpeza,
+    .categoria-pergunta-desktop_bemestar {
+        line-height: normal;
+        width: 22vh;
+        height: 5vh;
+        padding: 0.3vh 0.3vh 0.3vh 0.3vh;
+        border-radius: 5px;
+        box-sizing: border-box;
+        display: flex;
+    }
+
+    .categoria-pergunta-desktop_culinaria {
+        background-color: #cb1154;
+    }
+
+    .categoria-pergunta-desktop_limpeza {
+        background-color: #027de1;
+    }
+
+    .categoria-pergunta-desktop_bemestar {
+        background-color: #00cd83;
+    }
+
+    .alinhamento-pergunta-desktop {
+        max-width: 80vh;
+        margin: auto;
+        background-color: #e0e0e05b;
+        border-radius: 20px;
+        padding: 2vh 0vh 3vh 0vh;
+        margin-top: 3vh;
+    }
+
+    .opcoes-ajuda-desktop {
+        display: flex;
+        justify-content: space-between;
+        font-family: "Fira Sans Bold", "Fira Sans", sans-serif;
+        margin-top: 2vh;
+    }
+
+    .linhapergunta {
+        width: 55%;
+        margin: auto;
+    }
+
+    .conteudoperg{
+        margin-top: 1vh;
+    }
 
 }
 
 @media only screen and (min-width: 480px) {
-    #conteudo-dispositivo-desktop {
-        display: block;
-    }
 
-    #conteudo-dispositivo-mobile {
-        display: none;
-    }
 
     .perfil-pontinhos-pergunta {
         justify-content: space-between;

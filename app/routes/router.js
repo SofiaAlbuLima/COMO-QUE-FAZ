@@ -1,4 +1,5 @@
 var express = require('express');
+const passport = require('passport');
 
 var router = express.Router();
 
@@ -14,12 +15,30 @@ router.post("/login", tarefasController.regrasValidacaoLogin, gravarUsuAutentica
 router.post("/cadastro", tarefasController.regrasValidacaoCadastro, tarefasController.Login_formCadastro);
 router.post('/criar-dica', uploadFile("imagem_criar_post"), VerificarAutenticacao, tarefasController.CriarDica);
 router.post('/criar-pergunta', VerificarAutenticacao, tarefasController.CriarPergunta);
+
+
+router.post('/adicionar-favorito', tarefasController.adicionarFavorito);
+router.delete('/remover-favorito', tarefasController.removerFavorito);
+
 router.post('/editar-perfil',
     VerificarAutenticacao,
     verificarUsuAutorizado([1, 2], "/"),
     tarefasController.regrasValidacaoEditarPerfil,
     uploadPerfil("editar_img_icon", "editar_img_banner"),
     tarefasController.EditarPerfil
+);
+
+router.get('/auth/google', passport.authenticate('google', { scope: ['profile', 'email'] }));
+router.get('/auth/google/callback',
+    passport.authenticate('google', { failureRedirect: '/login' }),
+    (req, res) => {
+        const { usuario, autenticado } = req.user; 
+
+        req.session.autenticado = autenticado; 
+
+        console.log("Usuário autenticado:", req.user); 
+        res.redirect('/');
+    }
 );
 
 
@@ -30,7 +49,8 @@ router.get("/", VerificarAutenticacao, async function (req, res) {
         res.render("pages/template",
             {
                 pagina: { cabecalho: "cabecalho", conteudo: "index", rodape: "rodape" },
-                ...data
+                ...data,
+                usuario_logado: req.session.autenticado 
             });
     } catch (error) {
         res.status(500).json({ erro: error.message });
@@ -132,19 +152,23 @@ router.get("/perfil",
             res.status(500).json({ erro: error.message });
         }
     });
+
 router.get("/perfil/:nickname", VerificarAutenticacao, async function (req, res) {
     await tarefasController.AbrirPerfil(req, res);
 });
+
 router.get("/notificacoes", verificarUsuAutorizado([1, 2], "/"), function (req, res) {
     res.render("pages/template", {
         pagina: { cabecalho: "cabecalho", conteudo: "Minhas-Notificações", rodape: "none" },
         usuario_logado: req.session.autenticado,
     });
 });
-router.get("/favoritos", verificarUsuAutorizado([1, 2], "/"), function (req, res) {
+router.get("/favoritos", verificarUsuAutorizado([1, 2], "/"), tarefasController.listarFavoritos, function (req, res) {
     res.render("pages/template", {
         pagina: { cabecalho: "cabecalho", conteudo: "Meus-Favoritos", rodape: "none" },
         usuario_logado: req.session.autenticado,
+        postagens: res.locals.postagens,
+        paginador: res.locals.paginador 
     });
 });
 router.get("/configuracoes", verificarUsuAutorizado([1, 2], "/"), function (req, res) {
@@ -164,7 +188,7 @@ router.get("/sair-da-conta", limparSessao, function (req, res) {
     res.redirect("/");
 });
 
-router.get("/criar-dica", verificarUsuAutorizado([1, 2], "/"), function (req, res) {
+router.get("/criar-postagem", verificarUsuAutorizado([1, 2], "/"), function (req, res) {
     res.render("pages/template", {
         pagina: { cabecalho: "cabecalho", conteudo: "Criar-dica", rodape: "none" },
         usuario_logado: req.session.autenticado,
@@ -178,7 +202,7 @@ router.get("/criar-pergunta-mob", verificarUsuAutorizado([1, 2], "/"), function 
     });
 });
 
-router.get("/criar-pergunta", VerificarAutenticacao, function (req, res) {
+router.get("/criar-pergunta", verificarUsuAutorizado([1, 2], "/"), VerificarAutenticacao, function (req, res) {
     res.render("pages/template", {
         pagina: { cabecalho: "cabecalho", conteudo: "Criar-pergunta", rodape: "none" },
         usuario_logado: req.session.autenticado,

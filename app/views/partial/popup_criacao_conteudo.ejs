@@ -87,16 +87,20 @@
                      <span id="b-titulo-da-postagem">0/300</span>
                      <section id="select-tempo-resultado-inline">
                         <figure class="guarda-select">
+
                            <input class="dialogoselect" id="dialogoselect" type="text" name="dica_categoria"
                               onfocus="dropdown(0)" onblur="dropdown(1)" placeholder="CATEGORIA DA POSTAGEM*"
                               readonly="readonly" required>
+
                            <div class="dropDown" id="dropdown" style="z-index: 1000; display: none;">
                               <div class="listDropDown">
                                  <div value="culinaria-categoria" class="item-select-detalhes texto"
                                     id="item-select-detalhes-1" onmousedown="category(1)">Culinária
                                  </div>
+
                                  <div class="item-select-detalhes texto" id="item-select-detalhes-2"
                                     onmousedown="category(2)">Limpeza</div>
+                                    
                                  <div class="item-select-detalhes texto" id="item-select-detalhes-3"
                                     onmousedown="category(3)">Bem Estar</div>
                               </div>
@@ -178,7 +182,7 @@
 
                   <section class="conteudo conteudo3" id="conteudoTarefa3">
                      <h2 id="titulo-midias">MÍDIAS</h2>
-                     <input type="file" id="imagem_criar_post" name="imagem_criar_post" onchange="loadImg(event)" style="display: none;"
+                     <input type="file" id="imagem_criar_post" name="imagem_criar_post" style="display: none;"
                         required>
                      <figure id="esqueleto-midias">
                         <h1 id="adicione-midias">ADICIONE IMAGENS E VÍDEOS À SUA POSTAGEM!*</h1>
@@ -269,12 +273,12 @@
                <section class="alinhamento-da-pergunta">
                   <figure id="linha-colorida-pgt"></figure>
                   <input type="text" maxlength="100" id="input-titulo-da-pergunta" placeholder="DESCREVA SUA PERGUNTA*"
-                     name="pergunta_titulo">
+                     name="pergunta_titulo" required>
 
                   <section class="guarda-select-perguntar">
                      <input class="dialogoselect-perguntar-categoria" id="dialogoselect-perguntar-categoria" type="text"
                         name="pergunta_categoria" onfocus="dropdownpergunta(0)" onblur="dropdownpergunta(1)"
-                        placeholder="CATEGORIA DA PERGUNTA*" readonly="readonly">
+                        placeholder="CATEGORIA DA PERGUNTA*" readonly="readonly" required>
                      <figure class="dropdown-perguntar-categoria" style="z-index: 1000;">
                         <figure class="listdropdown-perguntar-categoria">
                            <option value="categoria-culinaria" class="item-perguntar-categoria"

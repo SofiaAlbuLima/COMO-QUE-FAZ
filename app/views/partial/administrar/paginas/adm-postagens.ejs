@@ -94,13 +94,19 @@
                               <%=conteudo.Titulo%>
                            </td>
                            <td class="linha-postagens Coluna-categoria">
-                              <%=conteudo.categoria%>
+                              <% if(conteudo.categoria === 1){ %>
+                                 Culinária
+                                 <% } else if(conteudo.categoria === 1){ %>
+                                    Limpeza
+                                    <% } else { %>
+                                       Bem Estar
+                                       <% }  %>
                            </td>
                            <td class="linha-postagens Coluna-autor" data-autor="true">
                               <%=conteudo.Nickname%>
                            </td>
-                           <td class="linha-postagens"> <img class="icon-rosa-linha visualizar-icon-postagem"
-                                 src="/imagens-svg/visualizar-icon-rosa.svg" alt=""></td>
+                           <td class="linha-postagens"> <a href="/dica/<%=conteudo.id%>"><img class="icon-rosa-linha visualizar-icon-postagem"
+                              src="/imagens-svg/visualizar-icon-rosa.svg" alt=""></a></td>
                            <td class="linha-postagens"> <img class="icon-rosa-linha bloquear-icon-postagem"
                                  src="/imagens-svg/bloquear-icon-rosa.svg" alt=""></td>
                            <td class="linha-postagens"> <img class="icon-rosa-linha excluir-icon-postagem"
@@ -117,13 +123,19 @@
                                  <%=conteudo.Titulo%>
                               </td>
                               <td class="linha-postagens Coluna-categoria">
-                                 <%=conteudo.categoria%>
+                                 <% if(conteudo.categoria === 1){ %>
+                                    Culinária
+                                    <% } else if(conteudo.categoria === 1){ %>
+                                       Limpeza
+                                       <% } else { %>
+                                          Bem Estar
+                                          <% }  %>
                               </td>
                               <td class="linha-postagens Coluna-autor" data-autor="true">
                                  <%=conteudo.Nickname%>
                               </td>
-                              <td class="linha-postagens"> <img class="icon-rosa-linha visualizar-icon-postagem"
-                                    src="/imagens-svg/visualizar-icon-rosa.svg" alt=""></td>
+                              <td class="linha-postagens"> <a href="/pergunta/<%=conteudo.id%>"><img class="icon-rosa-linha visualizar-icon-postagem"
+                                    src="/imagens-svg/visualizar-icon-rosa.svg" alt=""></a></td>
                               <td class="linha-postagens"> <img class="icon-rosa-linha bloquear-icon-postagem"
                                     src="/imagens-svg/bloquear-icon-rosa.svg" alt=""></td>
                               <td class="linha-postagens"> <img class="icon-rosa-linha excluir-icon-postagem"

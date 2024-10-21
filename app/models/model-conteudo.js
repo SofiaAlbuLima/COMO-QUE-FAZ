@@ -454,7 +454,7 @@ const conteudoModel = {
             INSERT INTO respostas_dica (Perguntas_ID_Pergunta, Clientes_idClientes, Conteudo_ID_Dica)
             VALUES (?, ?, ?)
         `;
-        
+
         const valores = [
             respostaDica.Perguntas_ID_Pergunta,
             respostaDica.Clientes_idClientes,
@@ -467,6 +467,77 @@ const conteudoModel = {
             return result;
         } catch (error) {
             console.error("Erro ao criar a resposta vinculada à pergunta:", error);
+            throw error;
+        }
+    },
+    // FAVORITOS
+    addFavorito: async (clienteId, conteudoId) => {
+        try {
+            const [result] = await pool.query(
+                "INSERT INTO favoritos (Clientes_idClientes, Conteúdo_ID_conteúdo) VALUES (?, ?)",
+                [clienteId, conteudoId]
+            );
+            return result; // Retorna o resultado da operação
+        } catch (error) {
+            console.error("Erro ao adicionar favorito:", error);
+            throw error;
+        }
+    },
+    removeFavorito: async (clienteId, conteudoId) => {
+        try {
+            const [result] = await pool.query(
+                "DELETE FROM favoritos WHERE Clientes_idClientes = ? AND Conteúdo_ID_conteúdo = ?",
+                [clienteId, conteudoId]
+            );
+            return result; // Retorna o resultado da operação
+        } catch (error) {
+            console.error("Erro ao remover favorito:", error);
+            throw error;
+        }
+    },
+    isFavorito: async (clienteId, conteudoId) => {
+        try {
+            const [result] = await pool.query(
+                "SELECT * FROM favoritos WHERE Clientes_idClientes = ? AND Conteúdo_ID_conteúdo = ?",
+                [clienteId, conteudoId]
+            );
+            return result.length > 0; // Retorna true se já for favorito
+        } catch (error) {
+            console.error("Erro ao verificar favorito:", error);
+            throw error;
+        }
+    },
+    getFavoritosByCliente: async (clienteId, inicio, regPagina) => {
+        try {
+            const [result] = await pool.query(`
+                SELECT c.ID_conteudo AS id, c.Clientes_idClientes, c.Categorias_idCategorias, c.Titulo, c.tempo, c.Descricao, c.Etapas_Modo_de_Preparo, c.porcoes, 'dica' AS tipo, cl.Nickname AS nome_usuario, c.subcategorias, c.idMidia
+                FROM favoritos AS f
+                JOIN conteudo_postagem AS c ON f.Conteúdo_ID_conteúdo = c.ID_conteudo
+                JOIN clientes AS cl ON c.Clientes_idClientes = cl.idClientes
+                WHERE f.Clientes_idClientes = ?
+                LIMIT ?, ?
+                `, [clienteId, inicio, regPagina]);
+
+            const resultWithTipo = result.map(postagem => {
+                postagem.tipo = 'dica'; // Adicionando o valor de 'tipo' como 'dica'
+                return postagem;
+            });
+
+            return resultWithTipo;
+        } catch (error) {
+            console.error("Erro ao buscar favoritos do cliente:", error);
+            throw error;
+        }
+    },
+    totalFavoritos: async (clienteId) => {
+        try {
+            const [result] = await pool.query(`
+                SELECT COUNT(*) as total 
+                FROM favoritos 
+                WHERE Clientes_idClientes = ?`, [clienteId]);
+            return result[0].total;
+        } catch (error) {
+            console.error("Erro ao buscar total de favoritos:", error);
             throw error;
         }
     }

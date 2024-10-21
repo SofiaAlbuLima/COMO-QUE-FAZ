@@ -12,8 +12,8 @@ VerificarAutenticacao = (req, res, next) => { //verificar se o usuário está au
     next();
 }
 
-limparSessao = (req, res, next) => {
-    req.session.destroy();
+limparSessao = async (req, res, next) => {
+    await req.session.destroy();
     next()
 }
 

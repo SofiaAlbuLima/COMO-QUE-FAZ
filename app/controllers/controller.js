@@ -10,7 +10,6 @@ const { removeImg } = require("../util/removeImg");
 const bcrypt = require("bcryptjs");
 var salt = bcrypt.genSaltSync(12);
 
-
 const tarefasController = {
     // REGRAS VALIDAÇÃO
     regrasValidacaoLogin: [
@@ -60,7 +59,7 @@ const tarefasController = {
         body("editar-url-site")
             .isURL().withMessage("Insira uma URL válida!"),
     ],
-    // LOGIN & CADASTRO
+    // LOGIN & CADASTRO & GOOGLE
     Login_formLogin: async (req, res) => {
         const erros = validationResult(req);
         if (!erros.isEmpty()) {
@@ -68,7 +67,6 @@ const tarefasController = {
                 pagina: { cabecalho: "cabecalho", conteudo: "Fazer-Login", FormCadastro: "template_cadastro", FormLogin: "template_login", rodape: "rodape" },
                 usuario_logado: req.session.autenticado,
                 listaErroslog: erros,
-
                 listaErrosCad: null,
                 dadosNotificacao: null
             });
@@ -78,17 +76,17 @@ const tarefasController = {
             return res.redirect("/");
         }
 
-        res.render("pages/template", {
+        return res.render("pages/template", {
             pagina: { cabecalho: "cabecalho", conteudo: "Fazer-Login", FormCadastro: "template_cadastro", FormLogin: "template_login", rodape: "rodape" },
             usuario_logado: null,
             listaErroslog: null,
-
             listaErrosCad: null,
             dadosNotificacao: { titulo: "Falha ao logar!", mensagem: "Usuário e/ou senha inválidos!", tipo: "error" }
         });
     },
     Login_formCadastro: async (req, res) => {
         const erros = validationResult(req);
+        const salt = bcrypt.genSaltSync(10);
         var dadosForm = {
             Nickname: req.body.nomeusu_usu,
             senha: bcrypt.hashSync(req.body.senha_usu, salt),
@@ -100,7 +98,6 @@ const tarefasController = {
             return res.render("pages/template", {
                 pagina: { cabecalho: "cabecalho", conteudo: "Fazer-Login", FormCadastro: "template_cadastro", FormLogin: "template_login", rodape: "rodape" },
                 usuario_logado: req.session.autenticado,
-
                 listaErroslog: null,
                 listaErrosCad: erros,
                 dadosNotificacao: null
@@ -110,6 +107,12 @@ const tarefasController = {
             let create = usuarioModel.create(dadosForm);
             console.log("cadastro realizado!");
 
+            req.session.autenticado = {
+                autenticado: dadosForm.Nickname,
+                tipo: dadosForm.Tipo_Cliente_idTipo_Cliente,
+                id: create.idClientes,
+            };
+
             req.session.notification = {
                 titulo: "Cadastro realizado!",
                 mensagem: "Novo usuário criado com sucesso!",
@@ -118,10 +121,9 @@ const tarefasController = {
             return res.redirect("/");
         } catch (e) {
             console.log(e);
-            res.render("pages/template", {
+            return res.render("pages/template", {
                 pagina: { cabecalho: "cabecalho", conteudo: "Fazer-Login", FormCadastro: "template_cadastro", FormLogin: "template_login", rodape: "rodape" },
                 usuario_logado: req.session.autenticado,
-
                 listaErrosCad: null,
                 listaErroslog: null,
                 dadosNotificacao: {
@@ -130,7 +132,55 @@ const tarefasController = {
                     tipo: "error"
                 },
             });
-            console.log("erro no cadastro!");
+        }
+    },
+    encontrarOuCriarUsuarioGoogle: async (accessToken, refreshToken, profile, done) => {
+        try {
+            const email = profile.emails[0].value; // Pega o email do perfil Google
+            let usuario = await usuarioModel.findUserByEmail(email); // Usa a função do model para buscar por email
+
+            if (!usuario) {
+                // Se o usuário não existir, crie um novo
+                const novoUsuario = {
+                    Nickname: profile.displayName,
+                    Email: email,
+                    senha: null,
+                    Tipo_Cliente_idTipo_Cliente: 1, // Defina o tipo padrão
+                };
+                usuario = await usuarioModel.create(novoUsuario); // Cria o novo usuário no banco de dados
+            }
+            if (!usuario) {
+                return done(new Error("Usuário não encontrado ou criado."), null); // Retorna erro se o usuário não foi encontrado ou criado
+            }
+
+            const fotoPerfil = usuario.foto_icon_perfil ? `data:image/png;base64,${usuario.foto_icon_perfil.toString('base64')}` : null;
+
+            autenticado = {
+                autenticado: usuario.Nickname,
+                tipo: usuario.Tipo_Cliente_idTipo_Cliente,
+                id: usuario.idClientes,
+                foto: fotoPerfil
+            };
+
+            done(null, { usuario, autenticado });
+        } catch (error) {
+            return done(error, null); // Retorna o erro caso algo falhe
+        }
+    },
+    serializeUser: (user, done) => {
+        console.log("Serializando usuário:", user, done);
+        if (user && user.usuario.idClientes) {
+            done(null, user.usuario.idClientes);
+        } else {
+            done(new Error("Usuário não encontrado para serializar."), null);
+        }
+    },
+    deserializeUser: async (id, done) => {
+        try {
+            const user = await usuarioModel.findUserById(id);
+            done(null, user);
+        } catch (error) {
+            done(error, null);
         }
     },
     // POSTAGENS
@@ -190,6 +240,11 @@ const tarefasController = {
                 if (conteudo.tipo === "pergunta") {
                     quantidadePatinhas = await conteudoModel.BuscarQuantidadePatinhasPorPergunta(conteudo.id);
                 }
+
+                let isFavorito = false;
+                if (req.session.autenticado.id) {
+                    isFavorito = await conteudoModel.isFavorito(req.session.autenticado.id, conteudo.id);
+                }
                 return {
                     nome: conteudo.Titulo,
                     usuario: conteudo.Clientes_idClientes,
@@ -206,7 +261,8 @@ const tarefasController = {
                     mediaAvaliacoes,
                     imagem: conteudo.idMidia ? `data:image;base64,${conteudo.idMidia.toString('base64')}` : null,
                     patinha: isPatinha,
-                    quantidadePatinhas: quantidadePatinhas
+                    quantidadePatinhas: quantidadePatinhas,
+                    isFavorito: isFavorito
                 };
             }));
 
@@ -284,6 +340,11 @@ const tarefasController = {
                 if (conteudo.tipo === "pergunta") {
                     quantidadePatinhas = await conteudoModel.BuscarQuantidadePatinhasPorPergunta(conteudo.id);
                 }
+
+                let isFavorito = false;
+                if (conteudo.Clientes_idClientes) {
+                    isFavorito = await conteudoModel.isFavorito(conteudo.Clientes_idClientes, conteudo.id);
+                }
                 return {
                     nome: conteudo.Titulo,
                     usuario: conteudo.Clientes_idClientes,
@@ -300,7 +361,8 @@ const tarefasController = {
                     ingredientes: ingredientes.length ? ingredientes.map(i => i.ingredientes).join(', ') : null,
                     imagem: conteudo.idMidia ? `data:image;base64,${conteudo.idMidia.toString('base64')}` : null,
                     patinha: isPatinha,
-                    quantidadePatinhas: quantidadePatinhas
+                    quantidadePatinhas: quantidadePatinhas,
+                    isFavorito: isFavorito
                 };
             }));
             return {
@@ -501,6 +563,166 @@ const tarefasController = {
             res.status(500).json({ erro: "Erro ao buscar patinhas para a pergunta." });
         }
     },
+    MostrarPostagensPerfil: async (req, res) => {
+        const idCliente = req.session.autenticado.id;
+        res.locals.moment = moment;
+
+        try {
+            const pagina = parseInt(req.query.pagina) || 1; // Página atual
+            const regPagina = 12; // Registros por página
+            const inicio = (pagina - 1) * regPagina; // Cálculo do início da página
+
+            // Buscar as postagens do perfil do usuário
+            let results = await conteudoModel.PesquisarPostsPerfil(idCliente, inicio, regPagina);
+            let totReg = await conteudoModel.TotalRegPerfil(idCliente);
+            let totalRegistros = totReg[0].total;
+            let totPaginas = Math.ceil(totalRegistros / regPagina);
+
+            // Paginador
+            let paginador = totalRegistros <= 12 ? null : {
+                "pagina_atual": pagina,
+                "total_reg": totalRegistros,
+                "total_paginas": totPaginas
+            };
+
+            function formatarTempo(tempo) {
+                let duracao = moment.duration(tempo, 'HH:mm:ss');
+                let horas = duracao.hours();
+                let minutos = duracao.minutes();
+                if (horas > 0 && minutos > 0) {
+                    return `${horas}h${minutos}min`;
+                } else if (horas > 0 && minutos <= 0) {
+                    return `${horas}hora${horas > 1 ? 's' : ''}`;
+                } else if (horas <= 0 && minutos > 0) {
+                    return `${minutos}min`;
+                } else {
+                    return '';
+                }
+            }
+
+            // Formatar o conteúdo
+            let combinedConteudo = await Promise.all(results.map(async (conteudo) => {
+                let ingredientes = await conteudoModel.BuscarIngredientesPorPostagemId(conteudo.id);
+                let mediaAvaliacoes = await conteudoModel.CalcularMediaAvaliacoes(conteudo.id);
+
+                let isFavorito = false;
+                if (conteudo.Clientes_idClientes) {
+                    isFavorito = await conteudoModel.isFavorito(conteudo.Clientes_idClientes, conteudo.id);
+                }
+                return {
+                    nome: conteudo.Titulo,
+                    usuario: conteudo.Clientes_idClientes,
+                    nome_usuario: conteudo.nome_usuario,
+                    id: conteudo.id,
+                    categoria: conteudo.Categorias_idCategorias,
+                    tempo: conteudo.tempo ? formatarTempo(conteudo.tempo) : null,
+                    descricao: conteudo.Descricao || null,
+                    etapas: conteudo.Etapas_Modo_de_Preparo,
+                    porcoes: conteudo.porcoes > 0 ? `${conteudo.porcoes} ${conteudo.porcoes > 1 ? 'Porções' : 'Porção'}` : null,
+                    tipo: conteudo.tipo,
+                    subcategorias: conteudo.subcategorias,
+                    ingredientes: ingredientes.length ? ingredientes.map(i => i.ingredientes).join(', ') : null,
+                    mediaAvaliacoes,
+                    imagem: conteudo.idMidia ? `data:image;base64,${conteudo.idMidia.toString('base64')}` : null,
+                    isFavorito: isFavorito
+                };
+            }));
+
+            return {
+                usuario_logado: req.session.autenticado || {},
+                login: req.session.logado,
+                postagens: combinedConteudo,
+                paginador: paginador,
+                total_postagens: totalRegistros,
+                categoriaAtual: 'todas',
+                novoFiltro: 'recente'
+            };
+
+        } catch (e) {
+            console.log(e);
+            res.json({ erro: "Falha ao acessar dados" });
+        }
+    },
+    listarFavoritos: async (req, res) => {
+        const clienteId = req.session.autenticado.id;
+        res.locals.moment = moment;
+        try {
+            const pagina = parseInt(req.query.pagina) || 1;
+            const regPagina = 12;
+            const inicio = (pagina - 1) * regPagina;
+
+            // Buscar postagens favoritados do usuário
+            let results = await conteudoModel.getFavoritosByCliente(clienteId, inicio, regPagina);
+            let totalRegistros = await conteudoModel.totalFavoritos(clienteId); // Retorna o total de favoritos
+            let totPaginas = Math.ceil(totalRegistros / regPagina);
+
+            // Paginador
+            let paginador = totalRegistros <= 12 ? null : {
+                "pagina_atual": pagina,
+                "total_reg": totalRegistros,
+                "total_paginas": totPaginas
+            };
+            
+            function formatarTempo(tempo) {
+                let duracao = moment.duration(tempo, 'HH:mm:ss');
+                let horas = duracao.hours();
+                let minutos = duracao.minutes();
+                if (horas > 0 && minutos > 0) {
+                    return `${horas}h${minutos}min`;
+                } else if (horas > 0 && minutos <= 0) {
+                    return `${horas}hora${horas > 1 ? 's' : ''}`;
+                } else if (horas <= 0 && minutos > 0) {
+                    return `${minutos}min`;
+                } else {
+                    return '';
+                }
+            }
+
+            // Formatando o conteúdo
+            let combinedConteudo = await Promise.all(results.map(async (conteudo) => {
+                let ingredientes = await conteudoModel.BuscarIngredientesPorPostagemId(conteudo.id);
+                let mediaAvaliacoes = await conteudoModel.CalcularMediaAvaliacoes(conteudo.id);
+
+                const isPatinha = await conteudoModel.VerificarSePatinha(conteudo.id);
+
+                return {
+                    nome: conteudo.Titulo,
+                    usuario: conteudo.Clientes_idClientes,
+                    nome_usuario: conteudo.nome_usuario,
+                    id: conteudo.id,
+                    categoria: conteudo.Categorias_idCategorias,
+                    tempo: conteudo.tempo ? formatarTempo(conteudo.tempo) : null,
+                    descricao: conteudo.Descricao || null,
+                    etapas: conteudo.Etapas_Modo_de_Preparo,
+                    porcoes: conteudo.porcoes > 0 ? `${conteudo.porcoes} ${conteudo.porcoes > 1 ? 'Porções' : 'Porção'}` : null,
+                    tipo: conteudo.tipo,
+                    subcategorias: conteudo.subcategorias,
+                    ingredientes: ingredientes.length ? ingredientes.map(i => i.ingredientes).join(', ') : null,
+                    mediaAvaliacoes,
+                    imagem: conteudo.idMidia ? `data:image;base64,${conteudo.idMidia.toString('base64')}` : null,
+                    isFavorito: true,
+                    patinha: isPatinha,
+                };
+            }));
+
+            console.log(combinedConteudo);
+            
+            return res.render("pages/template", {
+                pagina: { cabecalho: "cabecalho", conteudo: "Meus-Favoritos", rodape: "none" },
+                usuario_logado: req.session.autenticado || {},
+                login: req.session.logado,
+                postagens: combinedConteudo,
+                paginador: paginador,
+                total_postagens: totalRegistros,
+                categoriaAtual: 'todas',
+                novoFiltro: 'recente'
+            });
+        } catch (error) {
+            console.log(error);
+            res.json({ erro: "Falha ao acessar dados" });
+        }
+    },
+    // INTERAÇÃO DO USUÁRIO - Avaliação, Favoritos
     AvaliarPostagem: async (req, res) => {
         const { nota, conteudo_id, categorias_id } = req.body;
         const clientes_id = req.session.autenticado.id;
@@ -539,12 +761,58 @@ const tarefasController = {
             return res.status(500).json({ error: 'Erro ao registrar a avaliação' });
         }
     },
+    adicionarFavorito: async (req, res) => {
+        if (!req.session.autenticado || !req.session.autenticado.id) {
+            return res.status(401).json({ message: "Usuário não autenticado" });
+        }
+
+        const clienteId = req.session.autenticado.id;
+        const conteudoId = req.body.conteudoId;
+
+        if (!conteudoId) {
+            return res.status(400).json({ message: "ID do conteúdo não fornecido." });
+        }
+
+        try {
+            const jaFavorito = await conteudoModel.isFavorito(clienteId, conteudoId);
+            if (jaFavorito) {
+                return res.status(400).json({ message: "Já está nos favoritos." });
+            }
+
+            await conteudoModel.addFavorito(clienteId, conteudoId);
+            res.status(201).json({ message: "Favorito adicionado com sucesso." });
+            console.log("Favorito adicionado com sucesso");
+        } catch (error) {
+            console.error("Erro ao adicionar favorito:", error);
+            res.status(500).json({ message: "Erro ao adicionar favorito." });
+        }
+    },
+    removerFavorito: async (req, res) => {
+        if (!req.session.autenticado || !req.session.autenticado.id) {
+            return res.status(401).json({ message: "Usuário não autenticado" });
+        }
+        const clienteId = req.session.autenticado.id; // ID do cliente a partir da sessão
+        const conteudoId = req.body.conteudoId; // ID do conteúdo a ser removido dos favoritos
+
+        if (!conteudoId) {
+            return res.status(400).json({ message: "ID do conteúdo não fornecido." });
+        }
+
+        try {
+            await conteudoModel.removeFavorito(clienteId, conteudoId);
+            res.status(200).json({ message: "Favorito removido com sucesso." });
+        } catch (error) {
+            res.status(500).json({ message: "Erro ao remover favorito." });
+        }
+    },
     // CRIAR DICA & PERGUNTA
     CriarDica: async (req, res) => {
         try {
             let categoriaId;
             let porcoes = null;
             const categoria = req.body.dica_categoria;
+           console.log("----------------")
+            console.log(req.body);
 
             if (categoria === "Culinária") {
                 categoriaId = 1;
@@ -777,7 +1045,10 @@ const tarefasController = {
 
             req.session.autenticado.foto = perfil.foto_icon_perfil;
 
-            return { perfil, usuario_logado: req.session.autenticado };
+            return {
+                perfil,
+                usuario_logado: req.session.autenticado
+            };
         } catch (error) {
             console.error("Erro ao exibir perfil:", error);
             return { status: 500, erro: error.message };
@@ -791,7 +1062,7 @@ const tarefasController = {
                 console.log("Erro! 1");
                 return res.redirect("/perfil");
             }
-
+            console.log("usuario pesquisado: ", req.session.autenticado.id);
             const user = await usuarioModel.findUserById(req.session.autenticado.id); // Busca os dados atuais do usuário no banco de dados
             if (!user) {
                 console.log("Usuário não encontrado");
@@ -803,6 +1074,20 @@ const tarefasController = {
                 console.log("Senha Incorreta");
                 return res.redirect("/perfil");
             };
+
+            if (editar_nome_usuario) {
+                const nicknameExistente = await usuarioModel.findUserByNickname(editar_nome_usuario);
+
+                if (nicknameExistente && nicknameExistente.idClientes !== user.idClientes) {
+                    console.log("Nickname já está em uso");
+                    req.session.notification = {
+                        titulo: "Erro ao atualizar!",
+                        mensagem: "O nome de usuário já está em uso por outra conta.",
+                        tipo: "error"
+                    };
+                    return res.redirect("/perfil");
+                }
+            }
 
             const updateData = {}; // Objeto com os dados de perfil a serem atualizados
             if (editar_nome_usuario) updateData.Nickname = editar_nome_usuario;
@@ -818,6 +1103,10 @@ const tarefasController = {
             }
             await conteudoModel.atualizarPerfil(req.session.autenticado.id, updateData); // Atualiza o perfil do usuário no banco de dados
 
+            if (editar_nome_usuario) {
+                req.session.autenticado.autenticado = editar_nome_usuario;
+            }
+
             req.session.notification = {
                 titulo: "Perfil atualizado!",
                 mensagem: "Seu perfil foi atualizado com sucesso!",
@@ -828,78 +1117,6 @@ const tarefasController = {
         } catch (error) {
             console.log("Erro ao editar perfil!");
             return res.redirect("/perfil");
-        }
-    },
-    MostrarPostagensPerfil: async (req, res) => {
-        const idCliente = req.session.autenticado.id;
-        res.locals.moment = moment;
-
-        try {
-            const pagina = parseInt(req.query.pagina) || 1; // Página atual
-            const regPagina = 12; // Registros por página
-            const inicio = (pagina - 1) * regPagina; // Cálculo do início da página
-
-            // Buscar as postagens do perfil do usuário
-            let results = await conteudoModel.PesquisarPostsPerfil(idCliente, inicio, regPagina);
-            let totReg = await conteudoModel.TotalRegPerfil(idCliente);
-            let totalRegistros = totReg[0].total;
-            let totPaginas = Math.ceil(totalRegistros / regPagina);
-
-            // Paginador
-            let paginador = totalRegistros <= 12 ? null : {
-                "pagina_atual": pagina,
-                "total_reg": totalRegistros,
-                "total_paginas": totPaginas
-            };
-
-            function formatarTempo(tempo) {
-                let duracao = moment.duration(tempo, 'HH:mm:ss');
-                let horas = duracao.hours();
-                let minutos = duracao.minutes();
-                if (horas > 0 && minutos > 0) {
-                    return `${horas}h${minutos}min`;
-                } else if (horas > 0 && minutos <= 0) {
-                    return `${horas}hora${horas > 1 ? 's' : ''}`;
-                } else if (horas <= 0 && minutos > 0) {
-                    return `${minutos}min`;
-                } else {
-                    return '';
-                }
-            }
-
-            // Formatar o conteúdo
-            let combinedConteudo = await Promise.all(results.map(async (conteudo) => {
-                let ingredientes = await conteudoModel.BuscarIngredientesPorPostagemId(conteudo.id);
-                let mediaAvaliacoes = await conteudoModel.CalcularMediaAvaliacoes(conteudo.id);
-                return {
-                    nome: conteudo.Titulo,
-                    usuario: conteudo.Clientes_idClientes,
-                    nome_usuario: conteudo.nome_usuario,
-                    id: conteudo.id,
-                    categoria: conteudo.Categorias_idCategorias,
-                    tempo: conteudo.tempo ? formatarTempo(conteudo.tempo) : null,
-                    descricao: conteudo.Descricao || null,
-                    etapas: conteudo.Etapas_Modo_de_Preparo,
-                    porcoes: conteudo.porcoes > 0 ? `${conteudo.porcoes} ${conteudo.porcoes > 1 ? 'Porções' : 'Porção'}` : null,
-                    tipo: conteudo.tipo,
-                    subcategorias: conteudo.subcategorias,
-                    ingredientes: ingredientes.length ? ingredientes.map(i => i.ingredientes).join(', ') : null,
-                    mediaAvaliacoes,
-                    imagem: conteudo.idMidia ? `data:image;base64,${conteudo.idMidia.toString('base64')}` : null
-                };
-            }));
-
-            return {
-                usuario_logado: req.session.autenticado || {},
-                login: req.session.logado,
-                postagens: combinedConteudo,
-                paginador: paginador,
-                total_postagens: totalRegistros
-            };
-
-        } catch (e) {
-            console.log(e);
-            res.json({ erro: "Falha ao acessar dados" });
         }
     },
     AbrirPerfil: async (req, res) => {

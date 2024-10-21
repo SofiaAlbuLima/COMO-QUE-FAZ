@@ -14,9 +14,26 @@
                                  <img class="patinha-indicador" src="/imagens-svg/patinha-icon.svg" alt=""
                                     style="opacity: 0;">
                                  <% } %>
-                                    <img class="patinha-indicador" src="/imagens-svg/2-body/salvar-post-vazado.svg"
-                                       alt="">
+                                    <input type="hidden" id="conteudoId_<%= item.id %>" name="conteudoId"
+                                       value="<%= item.id %>">
+                                    <!-- ID do conteúdo -->
+                                    <% if(item.isFavorito){ %>
+                                       <button class="button-favoritar-feed"
+                                          onclick="favoritarPostagem(this); event.stopPropagation();">
+                                          <img class="patinha-indicador"
+                                             src="/imagens-svg/2-body/salvar-post-preenchido.svg" alt="">
+                                       </button>
+                                       <span class="span-favoritar">Remover favorito da dica</span>
+                                       <% } else { %>
+                                          <button class="button-favoritar-feed"
+                                             onclick="favoritarPostagem(this); event.stopPropagation();">
+                                             <img class="patinha-indicador"
+                                                src="/imagens-svg/2-body/salvar-post-vazado.svg" alt="">
+                                          </button>
+                                          <span class="span-favoritar">Favoritar dica</span>
+                                          <% } %>
                         </article>
+
                         <h3 class="ingredientes_basePost">
                            <%= item.ingredientes ? item.ingredientes.replace(/,\s*/g, ' - ' )
                               : 'Essa dica não contém itens necessários' %>
@@ -32,8 +49,24 @@
                                     <img class="patinha-indicador" src="/imagens-svg/patinha-icon.svg" alt=""
                                        style="opacity: 0;">
                                     <% } %>
-                                       <img class="patinha-indicador" src="/imagens-svg/2-body/salvar-post-vazado.svg"
-                                          alt="">
+                                       <input type="hidden" id="conteudoId_<%= item.id %>" name="conteudoId"
+                                          value="<%= item.id %>">
+                                       <!-- ID do conteúdo -->
+                                       <% if(item.isFavorito){ %>
+                                          <button class="button-favoritar-feed"
+                                             onclick="favoritarPostagem(this); event.stopPropagation();">
+                                             <img class="patinha-indicador"
+                                                src="/imagens-svg/2-body/salvar-post-preenchido.svg" alt="">
+                                          </button>
+                                          <span class="span-favoritar">Remover favorito da dica</span>
+                                          <% } else { %>
+                                             <button class="button-favoritar-feed"
+                                                onclick="favoritarPostagem(this); event.stopPropagation();">
+                                                <img class="patinha-indicador"
+                                                   src="/imagens-svg/2-body/salvar-post-vazado.svg" alt="">
+                                             </button>
+                                             <span class="span-favoritar">Favoritar dica</span>
+                                             <% } %>
                            </article>
                            <h3 class="ingredientes_basePost">
                               <%= item.ingredientes ? item.ingredientes.replace(/,\s*/g, ' - ' )
@@ -43,13 +76,31 @@
                         <% } else if (item.categoria===3) { %>
                            <figure class="hover_ingredientes_basePost-bemEstar">
                               <article class="patinhas-favoritar">
-                              <% if (item.patinha) { %>
-                                 <img class="patinha-indicador" src="/imagens-svg/patinha-icon.svg" alt="">
-                                 <span class="span-patinha">Essa dica é uma patinha!</span>
-                                 <% }else{ %>
-                                    <img class="patinha-indicador" src="/imagens-svg/patinha-icon.svg" alt="" style="opacity: 0;">
-                                    <% } %>
-                                 <img class="patinha-indicador" src="/imagens-svg/2-body/salvar-post-vazado.svg" alt="">
+                                 <% if (item.patinha) { %>
+                                    <img class="patinha-indicador" src="/imagens-svg/patinha-icon.svg" alt="">
+                                    <span class="span-patinha">Essa dica é uma patinha!</span>
+                                    <% }else{ %>
+                                       <img class="patinha-indicador" src="/imagens-svg/patinha-icon.svg" alt=""
+                                          style="opacity: 0;">
+                                       <% } %>
+                                          <input type="hidden" id="conteudoId_<%= item.id %>" name="conteudoId"
+                                             value="<%= item.id %>">
+                                          <!-- ID do conteúdo -->
+                                          <% if(item.isFavorito){ %>
+                                             <button class="button-favoritar-feed"
+                                                onclick="favoritarPostagem(this); event.stopPropagation();">
+                                                <img class="patinha-indicador"
+                                                   src="/imagens-svg/2-body/salvar-post-preenchido.svg" alt="">
+                                             </button>
+                                             <span class="span-favoritar">Remover favorito da dica</span>
+                                             <% } else { %>
+                                                <button class="button-favoritar-feed"
+                                                   onclick="favoritarPostagem(this); event.stopPropagation();">
+                                                   <img class="patinha-indicador"
+                                                      src="/imagens-svg/2-body/salvar-post-vazado.svg" alt="">
+                                                </button>
+                                                <span class="span-favoritar">Favoritar dica</span>
+                                                <% } %>
                               </article>
                               <h3 class="ingredientes_basePost">
                                  <%= item.ingredientes ? item.ingredientes.replace(/,\s*/g, ' - ' )
@@ -79,27 +130,27 @@
 
                <aside class="legenda">
                   <% if(item.tempo){ %>
-                  <figure class="legenda_relogio">
-                     <img src="/imagens/relogio-cinza.svg" alt="relogio">
-                     <h3>
-                        <%= item.tempo %>
-                     </h3>
-                  </figure>
-                  <% } %>
-                  <figure class="legenda_estrela">
-                     <img src="/imagens/estrela-cinza.svg" alt="estrela">
-                     <h3>
-                        <%= item.mediaAvaliacoes %>
-                     </h3>
-                  </figure>
-                  <% if(item.categoria===1 && item.porcoes){ %>
-                     <figure class="legenda_partes">
-                        <img src="/imagens/partes-cinza.png" alt="partes">
+                     <figure class="legenda_relogio">
+                        <img src="/imagens/relogio-cinza.svg" alt="relogio">
                         <h3>
-                           <%= item.porcoes %>
+                           <%= item.tempo %>
                         </h3>
                      </figure>
                      <% } %>
+                        <figure class="legenda_estrela">
+                           <img src="/imagens/estrela-cinza.svg" alt="estrela">
+                           <h3>
+                              <%= item.mediaAvaliacoes %>
+                           </h3>
+                        </figure>
+                        <% if(item.categoria===1 && item.porcoes){ %>
+                           <figure class="legenda_partes">
+                              <img src="/imagens/partes-cinza.png" alt="partes">
+                              <h3>
+                                 <%= item.porcoes %>
+                              </h3>
+                           </figure>
+                           <% } %>
                </aside>
 
             </section>
@@ -121,7 +172,9 @@
                         </figure>
                         <figure class="patinhas">
                            <img src="/imagens-svg/patinha-icon.svg" alt="ícone-patinhas">
-                           <p><%= item.quantidadePatinhas %></p>
+                           <p>
+                              <%= item.quantidadePatinhas %>
+                           </p>
                         </figure>
                      </article>
                      <% } else if (item.categoria===2) { %>
@@ -140,7 +193,9 @@
                            </figure>
                            <figure class="patinhas">
                               <img src="/imagens-svg/patinha-icon.svg" alt="ícone-patinhas">
-                              <p><%= item.quantidadePatinhas %></p>
+                              <p>
+                                 <%= item.quantidadePatinhas %>
+                              </p>
                            </figure>
                         </article>
                         <% } else if (item.categoria===3) { %>
@@ -159,7 +214,9 @@
                               </figure>
                               <figure class="patinhas">
                                  <img src="/imagens-svg/patinha-icon.svg" alt="ícone-patinhas">
-                                 <p><%= item.quantidadePatinhas %></p>
+                                 <p>
+                                    <%= item.quantidadePatinhas %>
+                                 </p>
                               </figure>
                            </article>
                            <% } %>
@@ -189,3 +246,64 @@
 </section>
 
 </section>
+
+<script>
+   function favoritarPostagem(button) {
+      const conteudoId = button.parentElement.querySelector('input[name="conteudoId"]').value;
+
+      if (!conteudoId) {
+         console.error('Input hidden com ID do conteúdo não encontrado.');
+         return;
+      }
+
+      const img = button.querySelector('img.patinha-indicador');
+      const isFavoritado = img.src.includes('salvar-post-preenchido.svg'); // Verifica se está favoritado
+
+      // Define a rota e o método a ser usado (POST para adicionar e DELETE para remover)
+      const url = isFavoritado ? '/remover-favorito' : '/adicionar-favorito';
+      const method = isFavoritado ? 'DELETE' : 'POST';
+
+      fetch(url, {
+         method: method,
+         headers: {
+            'Content-Type': 'application/json'
+         },
+         body: JSON.stringify({ conteudoId })
+      })
+         .then(response => {
+            const contentType = response.headers.get('Content-Type');
+            if (contentType && contentType.includes('application/json')) {
+               return response.json();
+            } else {
+               return response.text().then(text => {
+                  throw new Error('Resposta não JSON: ' + text);
+               });
+            }
+         })
+         .then(data => {
+            if (data.message === "Usuário não autenticado") {
+               window.location.href = "/login";
+            } else {
+               console.log("Resposta do servidor:", data);
+
+               const span = button.nextElementSibling;
+               const postagemSection = button.closest('.postagem'); // Seleciona o container da postagem
+               if (isFavoritado) {
+                  // Removeu dos favoritos
+                  if (window.location.pathname === '/favoritos') {
+                     postagemSection.remove(); // Remove a postagem da página de favoritos
+                  } else {
+                     img.src = '/imagens-svg/2-body/salvar-post-vazado.svg'; // Atualiza o ícone
+                     span.textContent = 'Favoritar dica';
+                  }
+               } else {
+                  img.src = '/imagens-svg/2-body/salvar-post-preenchido.svg'; // Adicionou aos favoritos
+                  span.textContent = 'Remover favorito da dica';
+               }
+            }
+         })
+         .catch(error => {
+            console.error('Erro ao favoritar/desfavoritar a postagem:', error);
+         });
+   }
+</script>

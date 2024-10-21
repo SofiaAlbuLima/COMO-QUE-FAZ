@@ -2,7 +2,7 @@ const btnVoltar = document.getElementById('btnVoltar-mb');
 const btnAvancar = document.getElementById('btnAvancar-mb');
 const artigos = document.querySelectorAll('.tarefa-mb');
 const progresso = document.getElementById('progresso-mb');
-const form = document.querySelector('form'); // Pegue o formulário se ele existir na página
+const form = document.getElementById('form-criar-mb'); // Pegue o formulário se ele existir na página
 
 let currentIndex = 0;
 
@@ -17,6 +17,13 @@ function mostrarArtigo(index) {
     const itemWidth = 100 / artigos.length;
     const progressoWidth = itemWidth * (artigos.length - (currentIndex + 1)); 
     progresso.style.width = progressoWidth + "%";
+
+    // Se estiver no último artigo, muda o texto do botão para "CRIAR DICA"
+    if (currentIndex === artigos.length - 1) {
+        btnAvancar.innerText = "CRIAR DICA";
+    } else {
+        btnAvancar.innerText = "PRÓXIMA ETAPA...";
+    }
 }
 
 btnAvancar.addEventListener('click', () => {
@@ -25,7 +32,6 @@ btnAvancar.addEventListener('click', () => {
         mostrarArtigo(currentIndex);
     } else {
         // Caso esteja no último artigo, envie o formulário
-        btnAvancar.innerText = "CRIAR POSTAGEM"; // Altera o texto do botão
         form.submit(); // Submete o formulário
     }
 });
@@ -37,8 +43,8 @@ btnVoltar.addEventListener('click', () => {
     }
 });
 
+// Exibe o primeiro artigo ao carregar a página
 mostrarArtigo(currentIndex);
-
 
 
 // document.addEventListener("DOMContentLoaded", function () {
@@ -111,40 +117,39 @@ mostrarArtigo(currentIndex);
 // });
 
 function categor(categorId) {
-    var inputElement = document.querySelector('.dialogoselect-mb');
-    var itemElement = document.getElementById('item-select-detalhes-mb-' + categorId);
+    const inputElement = document.querySelector('.dialogoselect-mb');
+    const itemElement = document.getElementById('item-select-detalhes-mb-' + categorId);
     const section = document.getElementById('tempo-detalhes-porcoes-mb');
 
-    if (!itemElement) {
-        console.error('Categoria não encontrada para o ID: ' + categorId);
+    if (!inputElement || !itemElement) {
+        console.error('Elemento não encontrado para o ID: ' + (inputElement ? categorId : 'input'));
         return;
     }
 
+    // Remove classes de categoria
     inputElement.classList.remove('categoria-culinaria', 'categoria-limpeza', 'categoria-bemestar');
 
+    // Adiciona a classe correspondente e define o display da seção
     switch (categorId) {
         case 1:
             inputElement.classList.add('categoria-culinaria');
-            section.style.display = 'flex'; // Exibe a section
+            section.style.display = 'flex'; // Exibe a seção
             break;
         case 2:
-            inputElement.classList.add('categoria-limpeza');
-            section.style.display = 'none';  // Oculta a section
-            break;
         case 3:
-            inputElement.classList.add('categoria-bemestar');
-            section.style.display = 'none';  // Oculta a section
+            inputElement.classList.add(categorId === 2 ? 'categoria-limpeza' : 'categoria-bemestar');
+            section.style.display = 'none';  // Oculta a seção
             break;
         default:
             console.warn('ID de categoria inválido: ' + categorId);
             return;
     }
 
+    // Atualiza o placeholder e o valor do input
     inputElement.placeholder = itemElement.innerText;
-
-    inputElement.value = '';
-
+    inputElement.value = itemElement.innerText;
 }
+
 
 document.addEventListener("DOMContentLoaded", function () {
     const inputSelect = document.getElementById("dialogoselect-mb");
@@ -175,30 +180,23 @@ document.addEventListener("DOMContentLoaded", function () {
 });
 
 
-function adicionarMensagem() {
+function adicionarMensagemmb() {
     const inputText = document.getElementById('input-text-subcategoria-mb');
     const messageList = document.getElementById('messageList-mb');
 
-    // Obter o valor do input
     const inputValue = inputText.value.trim();
 
-    // Verificar se o valor não está vazio
     if (inputValue !== '') {
-        // Criar um novo elemento de div para exibir a mensagem
         const messageDiv = document.createElement('div');
         messageDiv.className = 'div-etiqueta-subcategoria-mb';
         messageDiv.textContent = inputValue;
 
-        // Adicionar a div à lista de mensagens
         messageList.appendChild(messageDiv);
 
-        // Limpar o valor do input
         inputText.value = '';
 
-        // Atualizar o campo oculto
         atualizarCampoOculto();
 
-        // Adicionar evento de clique para remover a subcategoria
         messageDiv.addEventListener("click", function () {
             messageDiv.remove();
             atualizarCampoOculto();
@@ -210,11 +208,9 @@ function atualizarCampoOculto() {
     const messageList = document.getElementById('messageList-mb');
     const hiddenInput = document.getElementById('dica_subcategorias-mb');
 
-    // Obter todas as subcategorias da lista
     const subcategorias = Array.from(messageList.getElementsByClassName('div-etiqueta-subcategoria-mb'))
         .map(div => div.textContent.trim());
 
-    // Atualizar o valor do campo oculto
     hiddenInput.value = subcategorias.join(', ');
 }
 
@@ -355,11 +351,7 @@ document.addEventListener('DOMContentLoaded', function() {
 });
 
 
-//----------------------------------------------------------------------------------------------------botoes de criar e tirar modo de preparo
-
-document.getElementById("botao-de-add-modo-mb").addEventListener("click", function () {
-    duplicarDivModombmb();
-});
+//----------------------------------------------------------------------------------------------botoes de criar e tirar modo de preparo
 
 // Muda o evento para o container dos clones
 document.getElementById('tudo-dos-clones-mb').addEventListener("click", function (event) {
@@ -374,34 +366,30 @@ var contadorDivsModombmb = 1; // Contador começa em 1, pois já existe o primei
 function duplicarDivModombmb() {
     var divOriginalmb = document.getElementById('modo-de-preparo-mb');
     
-    // Garante que o clone será criado uma única vez por clique
     if (divOriginalmb) {
-        // Clona o modo de preparo original
         var clonemb = divOriginalmb.cloneNode(true); 
         
-        contadorDivsModombmb++; // Incrementa o contador de divs
+        contadorDivsModombmb++;
         
-        clonemb.id = "modo-de-preparo-mb-" + contadorDivsModombmb; // Atualiza o ID do clone
+        clonemb.id = "modo-de-preparo-mb-" + contadorDivsModombmb; 
+        clonemb.style.marginLeft = '5vw';
 
-        // Limpa o campo de texto do clone para permitir novo input
         var textarea = clonemb.querySelector('input[name="etapas_modo_preparo"]');
         if (textarea) {
-            textarea.value = ''; // Limpa o campo de texto
+            textarea.value = ''; 
         }
 
-        // Atualiza o número do modo de preparo no clone
         var numeroDoModombmb = clonemb.querySelector("#numero-do-modo-de-preparo-mb");
         if (numeroDoModombmb) {
             numeroDoModombmb.value = contadorDivsModombmb;
         }
 
-        // Exibe o botão de apagar no clone
         var botaoApagar = clonemb.querySelector("#apagar-modo-de-preparo-mb");
         if (botaoApagar) {
-            botaoApagar.style.display = 'block'; // Torna o botão visível
+            botaoApagar.style.display = 'inline-block'; 
             botaoApagar.onclick = function(event) {
-                event.stopPropagation(); // Impede que o clique no botão acione o listener do container
-                apagarDivModombmb(clonemb); // Liga a função de apagar ao botão
+                event.stopPropagation(); 
+                apagarDivModombmb(clonemb); 
             };
         }
 

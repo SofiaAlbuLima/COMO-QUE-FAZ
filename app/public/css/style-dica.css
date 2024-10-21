@@ -1,895 +1,6 @@
-@media only screen and (max-width: 480px) {
-    .conteudo-dispositivo-desktop {
-        display: none;
-    }
 
-    .conteudo-dispositivo-mobile {
-        display: block;
-    }
-
-    .titulo-icon-categoria {
-        line-height: normal;
-        width: 40%;
-        height: 3%;
-        padding: 2px 2px 2px 2px;
-        border-radius: 5px;
-        background-color: #cb1154;
-        box-sizing: border-box;
-        margin-left: 10%;
-        display: flex;
-        margin-top: 5%;
-    }
-
-    .icon-culinaria {
-        width: 20%;
-        margin-left: 2%;
-    }
-
-    .titulo-categoria {
-        margin-left: 11%;
-        font-size: 80%;
-        color: white;
-        font-family: Heavitas;
-        font-weight: 400;
-        margin-top: 6%;
-    }
-
-    .titulos-post {
-        margin-left: 10%;
-        margin-top: 5%;
-        margin-right: 10%;
-    }
-
-    .titulo-user {
-        font-size: 15px;
-        font-family: Fira Sans;
-        display: inline;
-        color: #333333;
-    }
-
-    .titulo-principal {
-        font-size: 22px;
-        font-family: Heavitas;
-        color: #333333;
-        font-weight: 400;
-        margin-top: 3%;
-    }
-
-    .info-post {
-        margin-top: 3%;
-        margin-left: 11%;
-        margin-right: 11%;
-        justify-content: space-between;
-        display: flex;
-    }
-
-    .tempo {
-        display: inline;
-    }
-
-    .tempo-post {
-        height: 26px;
-    }
-
-    .avaliacao {
-        display: inline;
-    }
-
-    .avalia-post {
-        height: 26px;
-    }
-
-    .porcoe {
-        display: inline;
-        align-content: right;
-    }
-
-    .porcao-post {
-        height: 26px;
-    }
-
-    .texto-info {
-        display: inline;
-        font-size: 26px;
-        font-family: Fira Sans;
-        color: #333333;
-    }
-
-    .descricao-post {
-        margin-left: 10%;
-        margin-right: 10%;
-        font-size: 14px;
-    }
-
-    .descricao {
-        font-family: Fira Sans;
-        text-align: justify;
-        color: #333333;
-        margin-top: 3%;
-        line-height: 100%;
-    }
-
-    .hashtags {
-        margin-top: 5%;
-        font-family: Fira Sans Bold;
-        font-weight: 700;
-        padding: 4% 5% 4% 5%;
-        color: #cb1154;
-        background-color: #f2f2f2;
-        border-radius: 0 0 15px 0;
-    }
-
-    .hashtags-texto {
-        font-family: Fira Sans;
-        font-weight: 700;
-    }
-
-    .Itens-necessários {
-        background-color: #cb2154;
-        border-radius: 5px 5px 5px 5px;
-        padding: 5% 5% 5% 5%;
-    }
-
-    .itens-titulo {
-        color: white;
-        font-weight: 400;
-        font-size: 22px;
-    }
-
-    .lista-itens {
-        margin-top: 5%;
-        font-family: Fira Sans;
-        margin-left: 5%;
-    }
-
-    .item-1 {
-        font-family: Fira Sans Bold;
-        font-weight: 500;
-        color: white;
-        background: none;
-        border: none;
-        text-decoration: none;
-        text-align: left;
-    }
-
-    .item-1:active {
-        transition: 1s;
-    }
-
-    .info-item {
-        background-color: #a20f45;
-        margin-left: -10%;
-        margin-top: -10%;
-        text-align: left;
-        width: 109%;
-        border-radius: 0 0 10px 10px;
-        height: 50px;
-        padding: 14% 3% 5% 2%;
-        display: flex;
-    }
-
-    .icon-colher {
-        width: 50px;
-        height: 50px;
-        display: block;
-        margin-right: 3%;
-    }
-
-    .titulo-colher {
-        font-family: Fira Sans Bold;
-        height: 0;
-        font-size: 13px;
-        text-decoration: none;
-    }
-
-    .myDIV {
-        display: none;
-    }
-
-    .info-texto {
-        font-family: Fira Sans Bold;
-        font-size: 12px;
-        text-decoration: none;
-    }
-
-    .lista-info-1 {
-        margin-top: 10%;
-        margin-left: 10%;
-        font-family: Fira Sans Bold;
-    }
-
-    .lista-info-2 {
-        margin-left: 10%;
-        font-family: Fira Sans Bold;
-    }
-
-    .item-2 {
-        font-family: Fira Sans Bold;
-        font-weight: 500;
-        color: white;
-        background: none;
-        border: none;
-        text-decoration: none;
-        margin-top: 4%;
-        text-align: left;
-    }
-
-    .myDIV2 {
-        display: none;
-    }
-
-    .icon-xicara-cha {
-        width: 50px;
-        height: 50px;
-        display: block;
-        margin-right: 2%;
-        margin-left: 2%;
-    }
-
-    .info-item2 {
-        background-color: #a20f45;
-        margin-left: -10%;
-        margin-top: -10%;
-        text-align: left;
-        width: 109%;
-        border-radius: 0 0 10px 10px;
-        height: 50px;
-        padding: 14% 3% 5% 2%;
-        display: flex;
-    }
-
-    .myDIV3 {
-        display: none;
-    }
-
-    .item-3 {
-        font-family: Fira Sans Bold;
-        font-weight: 500;
-        color: white;
-        background: none;
-        border: none;
-        text-decoration: none;
-        margin-top: 4%;
-        text-align: left;
-    }
-
-    .info-item3 {
-        background-color: #a20f45;
-        margin-left: -10%;
-        margin-top: -10%;
-        text-align: left;
-        width: 109%;
-        border-radius: 0 0 10px 10px;
-        height: 50px;
-        padding: 14% 3% 5% 2%;
-        display: flex;
-    }
-
-    .myDIV4 {
-        display: none;
-    }
-
-    .item-4 {
-        font-family: Fira Sans Bold;
-        font-weight: 500;
-        color: white;
-        background: none;
-        border: none;
-        text-decoration: none;
-        margin-top: 4%;
-        text-align: left;
-    }
-
-    .info-item4 {
-        background-color: #a20f45;
-        margin-left: -10%;
-        margin-top: -10%;
-        text-align: left;
-        width: 109%;
-        border-radius: 0 0 10px 10px;
-        height: 50px;
-        padding: 14% 3% 5% 2%;
-        display: flex;
-    }
-
-    .myDIV5 {
-        display: none;
-    }
-
-    .item-5 {
-        font-family: Fira Sans Bold;
-        font-weight: 500;
-        color: white;
-        background: none;
-        border: none;
-        text-decoration: none;
-        margin-top: 4%;
-        text-align: left;
-    }
-
-    .info-item5 {
-        background-color: #a20f45;
-        margin-left: -10%;
-        margin-top: -10%;
-        text-align: left;
-        width: 109%;
-        border-radius: 0 0 10px 10px;
-        height: 50px;
-        padding: 14% 3% 5% 2%;
-        display: flex;
-    }
-
-    .myDIV6 {
-        display: none;
-    }
-
-    .item-6 {
-        font-family: Fira Sans Bold;
-        font-weight: 500;
-        color: white;
-        background: none;
-        border: none;
-        text-decoration: none;
-        margin-top: 4%;
-        text-align: left;
-    }
-
-    .info-item6 {
-        background-color: #a20f45;
-        margin-left: -10%;
-        margin-top: -10%;
-        text-align: left;
-        width: 109%;
-        border-radius: 0 0 10px 10px;
-        height: 50px;
-        padding: 14% 3% 5% 2%;
-        display: flex;
-    }
-
-    .myDIV7 {
-        display: none;
-    }
-
-    .item-7 {
-        font-family: Fira Sans Bold;
-        font-weight: 500;
-        color: white;
-        background: none;
-        border: none;
-        text-decoration: none;
-        margin-top: 4%;
-        text-align: left;
-    }
-
-    .info-item7 {
-        background-color: #a20f45;
-        margin-left: -10%;
-        margin-top: -10%;
-        text-align: left;
-        width: 109%;
-        border-radius: 0 0 10px 10px;
-        height: 50px;
-        padding: 14% 3% 5% 2%;
-        display: flex;
-    }
-
-    .myDIV8 {
-        display: none;
-    }
-
-    .item-8 {
-        font-family: Fira Sans Bold;
-        font-weight: 500;
-        color: white;
-        background: none;
-        border: none;
-        text-decoration: none;
-        margin-top: 4%;
-        text-align: left;
-    }
-
-    .info-item8 {
-        background-color: #a20f45;
-        margin-left: -10%;
-        margin-top: -10%;
-        text-align: left;
-        width: 109%;
-        border-radius: 0 0 10px 10px;
-        height: 50px;
-        padding: 14% 3% 5% 2%;
-        display: flex;
-    }
-
-    .myDIV9 {
-        display: none;
-    }
-
-    .item-9 {
-        font-family: Fira Sans Bold;
-        font-weight: 500;
-        color: white;
-        background: none;
-        border: none;
-        text-decoration: none;
-        margin-top: 4%;
-        text-align: left;
-    }
-
-    .info-item9 {
-        background-color: #a20f45;
-        margin-left: -10%;
-        margin-top: -10%;
-        text-align: left;
-        width: 109%;
-        border-radius: 0 0 10px 10px;
-        height: 50px;
-        padding: 14% 3% 5% 2%;
-        display: flex;
-    }
-
-    .Modo-Preparo {
-        border-left: 5px solid #cb1154;
-        padding-top: 5%;
-        padding-bottom: 1%;
-    }
-
-    .modo-titulo {
-        color: #333333;
-        font-weight: 400;
-        font-size: 22px;
-        text-align: left;
-        margin-left: 5%;
-    }
-
-    .lista-modo {
-        margin-left: 5%;
-        margin-top: 5%;
-    }
-
-    .modos {
-        background-image: linear-gradient(89.99311970570312deg, #ffffff 0%, #e9e9e9 95.48561645502186%);
-        display: flex;
-        padding: 3% 3% 3% 0%;
-        margin-bottom: 3%;
-        border-radius: 0 0 5px 0;
-    }
-
-    .t-modo {
-        color: #333333;
-        font-size: 20px;
-        text-align: left;
-        display: grid;
-        align-items: center;
-        font-weight: 400;
-    }
-
-    .p-modo {
-        font-family: Fira Sans;
-        font-weight: 400;
-        color: #333333;
-        font-size: 15px;
-        margin-left: 5%;
-    }
-
-    .gostou {
-        font-size: 26px;
-        color: white;
-        font-weight: 400;
-    }
-
-    .estrelas {
-        padding: 4% 10% 3% 10%;
-        width: 80%;
-        background-color: #cb1154;
-        display: flex;
-    }
-
-    .p-aval {
-        font-size: 13px;
-        color: white;
-        font-weight: 400;
-        text-align: left;
-        margin-left: -131px;
-        margin-top: 30px;
-        margin-bottom: 1%;
-    }
-
-    .avalia-estrelas {
-        position: absolute;
-        margin-top: 3.5%;
-        margin-left: 43%;
-        transform: rotateY(180deg);
-        align-items: center;
-    }
-
-    .avalia-estrelas input {
-        display: none;
-    }
-
-    .avalia-estrelas label {
-        width: 10px;
-        background: none;
-    }
-
-    .avalia-estrelas label:before {
-        content: '\f005';
-        font-family: fontAwesome;
-        position: relative;
-        font-size: 27px;
-        color: #711136;
-    }
-
-    .avalia-estrelas label:after {
-        content: '\f005';
-        font-family: fontAwesome;
-        position: absolute;
-        font-size: 27px;
-        color: #ffd662;
-        margin-left: -25px;
-        opacity: 0;
-        transition: 0.5s;
-        text-shadow: 0 2px 5px rgba(0, 0, 0, 0.5);
-    }
-
-    .avalia-estrelas label:hover:after,
-    .avalia-estrelas label:hover~label:after,
-    .avalia-estrelas input:checked~label:after {
-        opacity: 1;
-    }
-
-    .comentarios {
-        margin: 5% 10% 5% 10%;
-        display: flex;
-        justify-content: space-between;
-    }
-
-    .comem-titulo {
-        font-family: Fira Sans;
-        font-size: 23px;
-        color: #333333;
-    }
-
-    .filtro {
-        padding: 3% 5% 3% 5%;
-        background-color: #F2F2F2;
-        border-radius: 5px 5px 5px 5px;
-        display: flex;
-    }
-
-    .p-filtro {
-        font-family: Fira Sans Bold;
-        font-size: 15px;
-        color: #4D16BB;
-    }
-
-    .comentar {
-        margin: 5% 10% 5% 10%;
-        display: flex;
-        justify-content: space-between;
-    }
-
-    .inserir-comentario {
-        border-top: none;
-        border-left: none;
-        border-right: none;
-        border-bottom: 2px solid #4D16BB;
-        margin-left: 5%;
-        width: 100%;
-        height: 25px;
-        font-family: Fira Sans Bold;
-        outline: none;
-    }
-
-    .botao-comentar {
-        background-color: #FFD662;
-        color: #4D16BB;
-        border-top: none;
-        border-left: none;
-        border-right: none;
-        border-bottom: none;
-        border-radius: 5px;
-        padding: 2% 3% 2% 3%;
-        margin-left: 3%;
-        width: 35%;
-    }
-
-    .botoes-comentar {
-        height: 35px;
-        margin-top: -30px;
-        align-items: right;
-        display: flex;
-        margin-bottom: 10%;
-    }
-
-    .cancelar {
-        font-size: 15px;
-        margin-top: 2%;
-        margin-left: 39%;
-        color: #333333;
-        height: 20px;
-        font-family: Fira Sans Bold;
-    }
-
-    input.inserir-comentario::placeholder {
-        opacity: 0.5;
-        color: #333333;
-        font-family: Fira Sans Bold;
-    }
-
-    .estrelas-taylor {
-        content: '\f005';
-        font-family: fontAwesome;
-        margin-left: 5%;
-        width: 100px;
-        color: #9e5fef;
-    }
-
-    .comentario {
-        margin: 5% 0% 5% 10%;
-        display: flex;
-    }
-
-    .comentario h1 {
-        font-family: Fira Sans Bold;
-        font-size: 17px;
-        margin-left: 15px;
-        text-align: left;
-        color: #9e5fef;
-    }
-
-    .tres-pontinhos-comentario {
-        width: 3px;
-        height: 13px;
-        margin-right: 10%;
-    }
-
-    .texto-comentario-taylor {
-        color: #333333;
-        font-family: Fira Sans;
-    }
-
-    .foto-de-perfil-taylorfan {
-        width: 43px;
-        height: 43px;
-    }
-
-    .texto-coment-taylor {
-        text-align: left;
-        margin-left: 24%;
-        margin-top: -9%;
-        margin-right: 10%;
-        font-family: Fira Sans;
-        font-size: 15px;
-    }
-
-    .responder-coment {
-        font-size: 16px;
-        font-family: Fira Sans Bold;
-        color: #4d16bb;
-        margin-left: 5%;
-    }
-
-    .mostrar-mais {
-        height: 50px;
-    }
-
-    .mostrar-mais h1 {
-        background-color: #f2f2f2;
-        color: #4d16bb;
-        border: #4d16bb solid 1px;
-        border-radius: 5px;
-        padding: 2% 3% 2% 3%;
-        height: 15px;
-        margin-left: 10%;
-        margin-right: 10%;
-        margin-top: 7%;
-        width: 73%;
-        font-size: 13px;
-        font-weight: 400;
-        text-align: center;
-    }
-
-    .Carrossel img {
-        width: 100%;
-        border-radius: 5px;
-    }
-
-    .Carrossel {
-        margin-top: 5%;
-        display: block;
-        overflow: hidden;
-        margin-left: 10%;
-        margin-right: 10%;
-    }
-
-    .previa {
-        display: flex;
-        margin-top: 2%;
-    }
-
-    .previa .imagem {
-        width: 120px;
-        border-radius: 5px;
-        transition: 0.2s;
-        margin-bottom: 5%;
-        margin-right: 2%;
-        align-items: center;
-        overflow: hidden;
-        opacity: 0.9;
-    }
-
-    .previa .imagem:hover {
-        filter: brightness(70%);
-        opacity: 1;
-    }
-
-    .heart-icon {
-        cursor: pointer;
-        transition: fill 0.3s ease-in-out;
-    }
-
-    img.azul {
-        content: url(https://files.axshare.com/gsc/V8CDR5/14/98/53/149853897c1d4acaafb2a9e4cf5619cd/images/perfil/u17.svg?pageId=3e54c061-96d3-4029-9a62-74e3821412f8)
-    }
-
-    img.vermelho {
-        content: url(https://files.axshare.com/gsc/V8CDR5/14/98/53/149853897c1d4acaafb2a9e4cf5619cd/images/perfil/u18.svg?pageId=3e54c061-96d3-4029-9a62-74e3821412f8)
-    }
-
-
-    .opcoes {
-        position: absolute;
-        margin-top: -5%;
-        margin-left: 83.2%;
-        cursor: pointer;
-    }
-
-    .opcoes-comentario {
-        position: absolute;
-        margin-left: 73%;
-        cursor: pointer;
-    }
-
-    .ponto {
-        background: #cb2154;
-        width: 8px;
-        height: 8px;
-        margin-bottom: 3px;
-        border-radius: 3px;
-        margin-left: 20px;
-        margin-right: 20px;
-    }
-
-    .ponto-comentario {
-        background: #4d16bb;
-        width: 5px;
-        height: 5px;
-        margin-bottom: 3px;
-        border-radius: 3px;
-        margin-left: 20px;
-        margin-right: 4%;
-    }
-
-    #hide-opcoes {
-        z-index: 1000;
-        margin-top: -5%;
-        margin-left: 28%;
-        display: inline;
-        height: 70px;
-        position: absolute;
-        background-color: white;
-        padding: 5% 5% 5% 5%;
-        border-radius: 5px;
-        box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.565);
-    }
-
-    #hide-opcoes-comentario {
-        z-index: 1000;
-        margin-top: -10%;
-        margin-left: 10%;
-        display: inline;
-        height: 70px;
-        position: absolute;
-        background-color: white;
-        padding: 5% 5% 5% 5%;
-        border-radius: 5px;
-        box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.565);
-    }
-
-    #hide-opcoes img {
-        width: 20px;
-        height: 20px;
-    }
-
-    #hide-opcoes-comentario img {
-        width: 20px;
-        height: 20px;
-    }
-
-    #hide-opcoes p {
-        font-family: Fira Sans Bold;
-        margin-left: 15px;
-    }
-
-    #hide-opcoes-comentario p {
-        font-family: Fira Sans Bold;
-        margin-left: 15px;
-    }
-
-    .denunciar {
-        width: 150px;
-        display: flex;
-        margin-bottom: 20px;
-    }
-
-    .denunciar-comentario {
-        width: 200px;
-        display: flex;
-        margin-bottom: 20px;
-    }
-
-    .compartilhar {
-        width: 180px;
-        display: flex;
-    }
-
-    .compartilhar-comentario {
-        display: flex;
-    }
-
-    .compartilhar-comentario p {
-        width: 210px;
-    }
-
-    .coracao-vazado {
-        height: 18px;
-    }
-
-    .coracao-preenchido {
-        height: 22px;
-        margin-left: 0.2;
-        margin-top: -6.0%;
-        position: absolute;
-        animation: heartBeat 0.5s ease-in-out;
-    }
-
-    @keyframes heartBeat {
-        0% {
-            transform: scale(1);
-        }
-
-        50% {
-            transform: scale(1.2);
-        }
-
-        100% {
-            transform: scale(1);
-        }
-    }
-
-    .coracao-curtir {
-        cursor: pointer;
-        width: 22px;
-        height: 18px;
-    }
-
-    .curtir-responder {
-        display: flex;
-        width: 200px;
-        margin-left: 23%;
-        margin-top: 3%;
-    }
-
-}
-
-@media only screen and (min-width: 480px) {
-    .conteudo-dispositivo-desktop {
-        display: block;
-    }
-
-    .conteudo-dispositivo-mobile {
-        display: none;
-    }
+@media only screen and (min-width: 481px) {
+ 
 
     /* mapa do site */
     a p {
@@ -1643,6 +754,1067 @@
         margin: 5% 0% 5% 16%;
         display: flex;
         width: 950px;
+    }
+
+    .comentario h1 {
+        font-family: Fira Sans Bold;
+        font-size: 18px;
+        margin-left: 8%;
+        text-align: left;
+        color: #9e5fef;
+        margin-top: 1.2%;
+    }
+
+    .nome-usuario-comt {
+        font-family: Fira Sans;
+        font-size: 17px;
+        width: 230px;
+        margin-left: 1%;
+        margin-top: 1.2%;
+    }
+
+    .nomes-comentario {
+        display: flex;
+    }
+
+    .tres-pontinhos-comentario {
+        width: 6px;
+        height: 26px;
+        margin-left: 22%;
+    }
+
+    .texto-comentario-taylor {
+        color: #333333;
+        font-family: Fira Sans;
+    }
+
+    .foto-de-perfil-taylorfan {
+        width: 70px;
+        height: 70px;
+    }
+
+    .texto-coment-taylor {
+        text-align: left;
+        margin-left: -64vh;
+        margin-top: 1vh;
+        font-family: Fira Sans Bold;
+        font-size: 17px;
+    }
+
+    .responder-comentd {
+        font-size: 16px;
+        font-family: Fira Sans Bold;
+        color: #4d16bb;
+
+    }
+
+    .coracao-vazado {
+        height: 18px;
+        position: absolute;
+    }
+
+    .coracao-preenchidod {
+        height: 22px;
+        position: absolute;
+        animation: heartBeat 0.5s ease-in-out;
+    }
+    .numero-curtida{
+        font-size: 16px;
+        font-family: Fira Sans Bold;
+        color: #4d16bb; 
+        margin-left: 3vh;
+    }
+
+    .ponto-comentario {
+        background: #4d16bb;
+        width: 5px;
+        height: 5px;
+        margin-bottom: 3px;
+        border-radius: 3px;
+        margin-left: 20px;
+        margin-right: 4%;
+    }
+
+    .opcoes-comentario {
+        position: absolute;
+        margin-left: 73%;
+        cursor: pointer;
+    }
+
+    #hide-opcoes-comentario-Desktop {
+        z-index: 1000;
+        margin-top: -8%;
+        margin-left: 38%;
+        display: inline;
+        height: 70px;
+        position: absolute;
+        background-color: white;
+        padding: 1% 1% 1% 1%;
+        border-radius: 5px;
+        box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.565);
+    }
+
+    #hide-opcoes-comentario-Desktop img {
+        width: 20px;
+        height: 20px;
+    }
+
+    #hide-opcoes-comentario-Desktop p {
+        font-family: Fira Sans Bold;
+        margin-left: 15px;
+    }
+
+    .denunciar-comentario {
+        width: 200px;
+        display: flex;
+        margin-bottom: 20px;
+    }
+
+    .compartilhar-comentario {
+        display: flex;
+    }
+
+    .compartilhar-comentario p {
+        width: 210px;
+    }
+
+
+    @keyframes heartBeat {
+        0% {
+            transform: scale(1);
+        }
+
+        50% {
+            transform: scale(1.2);
+        }
+
+        100% {
+            transform: scale(1);
+        }
+    }
+
+    .coracao-curtird {
+        cursor: pointer;
+    }
+
+    .curtir-responderd {
+        display: flex;
+        width: 150px;
+        margin-left: 21%;
+        transform: translate(3vh, 17vh);
+    }
+
+    .mostrar-mais {
+        height: 50px;
+        margin-left: 15vh;
+        margin-top: 20vh;
+    }
+
+    .mostrar-mais h1 {
+        background-color: #f2f2f2;
+        color: #4d16bb;
+        border: #4d16bb solid 1px;
+        border-radius: 5px;
+        padding: 0.5% 1% 1% 1%;
+        height: 10px;
+        margin-left: 16%;
+        margin-top: 3%;
+        width: 10%;
+        font-size: 13px;
+        font-weight: 400;
+        text-align: center;
+    }
+
+    /* denuncia --------------------------------------------------------------------------------------------------------------- */
+    #hide-denuncia-Desktop{
+        width: 60.31vw;
+        height: 34vw;
+        border-radius: 0.3vw;
+        background-color: #f2f2f2;
+        position: fixed;
+        left: 50%;
+        top: 50%;
+        transform: translate(-50%, -50%);
+        z-index: 1001;
+        overflow: hidden;
+        border: #4D16BB 2px solid;
+    }
+
+    /* header denuncia ------------------------ */
+
+    .header-popup-denunciar{
+        display: flex;
+        justify-content: space-between;
+        padding-top: 2vh;
+        padding-left: 2vh;
+        padding-right: 2vh;
+    }
+
+    .popup-header-figure{
+        display: flex;
+    }
+
+    .gato-popup-header {
+        width: 1.92vw;
+        height: 1.92vw;
+        margin-left: 4%;
+        margin-top: 0.5%;
+    }
+
+    #titulo-do-pop-up{
+        font-size: 2.8vh;
+        width: 40vh;
+        margin-left: 2vh;
+        font-family: "Heavitas", sans-serif;
+        color: #4d16bb;
+        text-align: left;
+        margin-top: 5px;
+    }
+
+    #fechar-pop-up-denuncia{
+        margin-left: 58%;
+        font-size: 140%;
+        font-family: "Heavitas", sans-serif;
+        color: #4d16bb;
+        cursor: pointer;
+        margin-right: 2vh;
+        margin-top: 0.5vh;
+    }
+
+    /* body denuncia ------------------------ */
+
+    .body-popup-denuncia{
+        font-family: 'Fira Sans', sans-serif;
+        background-color: #f0f0f0;
+        padding: 2.5vh 0.8vh 2.5vh;
+        border-radius: 1vh;
+        max-width: 100vh;
+        margin-left: 12vh;
+        margin-right: 12vh;
+        margin-top: 5vh;
+    }
+
+    .denuncia-titulo {
+        font-family: 'Fira Sans', sans-serif;
+        color: #333;
+        font-size: 2.5vh;
+        margin-bottom: 2vh;
+    }
+
+    .denuncia-form {
+        font-family: 'Fira Sans', sans-serif;
+        display: flex;
+        flex-direction: column;
+    }
+
+    .denuncia-label {
+        font-family: 'Fira Sans', sans-serif;
+        margin-top: 1.5vh;
+        font-weight: bold;
+        color: #555;
+        font-size: 1.8vh;
+    }
+
+    .denuncia-input,
+    .denuncia-textarea,
+    .denuncia-select {
+        font-family: 'Fira Sans', sans-serif;
+        padding: 1vh;
+        margin-top: 0.7vh;
+        border: 0.1vh solid #ccc;
+        border-radius: 0.5vh;
+        font-size: 1.8vh;
+        resize: none;
+    }
+
+    .denuncia-select:focus {
+        outline: none;
+    }
+
+    .opcao-select-popup{
+        font-size: 1.8vh;
+        font-weight: 600;
+        font-family: 'Fira Sans', sans-serif;
+    }
+
+    .denuncia-textarea {
+        font-family: 'Fira Sans', sans-serif;
+        height: 15vh;
+        resize: none;
+        &:focus{
+            outline: none;
+        }
+    }
+
+    .denuncia-submit {
+        font-family: 'Fira Sans', 'Fira Sans Bold', sans-serif;
+        font-weight: 800;
+        background-color: #CB218C;
+        color: white;
+        border: none;
+        padding: 1.5vh 2vh;
+        margin-top: 2vh;
+        border-radius: 0.5vh;
+        cursor: pointer;
+        font-size: 2.5vh;
+    }
+
+}
+
+@media only screen and (max-width: 480px) {
+ 
+
+    /* mapa do site */
+    a p {
+        text-decoration: none;
+        color: #333333;
+    }
+    .mapa_dica {
+        display: flex;
+        margin-left: 3vh;
+        margin-top: 1vh;
+    }
+
+    .mapa_dica p {
+        font-family: Fira Sans;
+        font-size: 1.8vh;
+    }
+
+    .mapa-1 {
+        text-decoration: underline;
+        margin-right: 7px;
+    }
+
+    .mapa-2 {
+        text-decoration: underline;
+        font-weight: Bold;
+        color: #9e5fef;
+    }
+
+    .seta-1 {
+        margin-right: 7px;
+    }
+
+    /* imagens postagem */
+    .carrossel_informacoes_post {
+        justify-content: space-between;
+
+        margin-left: 3vw;
+        gap: 5vh;
+        margin-right: 3vw;
+    }
+
+    .Carrossel {
+        margin-top: 3vh;
+        display: block;
+        width: 70vh;
+    }
+
+    .imagemprincipal {
+        width: 45vh;
+        border-radius: 10px;
+        position: absolute;
+        margin-top: 22vh;
+    }
+
+    .previa {
+        display: flex;
+        margin-top: 2vh;
+        width: 70vh;
+    }
+
+    .previa .imagem {
+        width: 18vh;
+        border-radius: 5px;
+        transition: 0.2s;
+        margin-right: 1.3vh;
+        align-items: center;
+        overflow: hidden;
+        opacity: 0.9;
+    }
+
+    .previa .imagem:hover {
+        filter: brightness(70%);
+        opacity: 1;
+    }
+
+    .imagem img {
+        width: 100%;
+        border-radius: 5px;
+    }
+
+    /* informações posts */
+   
+    /* categoria postagem e opcoes */
+    .categoria_opcoes {
+        justify-content: space-between;
+        margin-top: 2vh;
+        height: 5vh;
+        display: flex;
+    }
+
+    .titulo-icon-culinaria, .titulo-icon-limpeza, .titulo-icon-bemestar {
+        line-height: normal;
+        width: 22vh;
+        height: 5vh;
+        padding: 0.3vh 0.3vh 0.3vh 0.3vh;
+        border-radius: 5px;
+        box-sizing: border-box;
+        display: flex;
+    }
+    .titulo-icon-culinaria, .estrelas_culinaria{
+        background-color: #cb1154;
+    }
+    .titulo-icon-limpeza, .estrelas_limpeza{
+        background-color: #027de1;
+    }
+    .titulo-icon-bemestar, .estrelas_bemestar{
+        background-color: #00cd83;
+    }
+    .botao-enviar-avaliacao-Culinaria, .botao-enviar-avaliacao-Limpeza, .botao-enviar-avaliacao-BemEstar{
+        width: 100%;
+        align-items: center;
+        border: none;
+        border-radius: 0px 0px 10px 10px;
+        height: 2.5vh;
+        cursor: pointer;
+        margin-top: 1vh;
+    }
+    .botao-enviar-avaliacao:hover{
+        color: white;
+        border: 2px solid white;
+    }
+    .botao-enviar-avaliacao-Culinaria{
+        color: #4e081d;
+    }.botao-enviar-avaliacao-Culinaria:hover{
+        color: white;
+        border: 2px solid white;
+        background-color: #cb2154;
+    }
+    .botao-enviar-avaliacao-Limpeza{
+        color: #012a4b;
+    }.botao-enviar-avaliacao-Limpeza:hover{
+        color: white;
+        border: 2px solid white;
+        background-color: #027de1;
+    }
+    .botao-enviar-avaliacao-BemEstar{
+        color: #126c4b;
+    }.botao-enviar-avaliacao-BemEstar:hover{
+        color: white;
+        border: 2px solid white;
+        background-color: #00cd83;
+    }
+
+    .icon-categoria {
+        width: 3.5vh;
+        height: 3.5vh;
+        margin-left: 1vh;
+        margin-top: 0.5vh;
+    }
+
+    .titulo-categoria {
+        margin-left: 2vh;
+        font-size: 100%;
+        color: white;
+        font-family: Heavitas;
+        font-weight: 400;
+        margin-top: 5%;
+        font-size: 2vh;
+    }
+
+    .opcoes_dica_culinaria, .opcoes_dica_limpeza, .opcoes_dica_bemestar {
+        cursor: pointer;
+        padding: 0.8vh;
+        border-radius: 10px;
+        border: none;
+        background-color: white;
+    }
+
+    .opcoes_dica_culinaria:hover {
+        background: #e8407225;
+    }
+    .opcoes_dica_limpeza:hover {
+        background: #027de12c;
+    }
+    .opcoes_dica_bemestar:hover {
+        background: #00cd823c;
+    }
+
+    .ponto_dica {
+        width: 8px;
+        height: 8px;
+        margin-bottom: 3px;
+        border-radius: 3px;
+    }
+    .opcoes_dica_culinaria .ponto_dica {
+        background: #cb2154;
+    }
+    .opcoes_dica_limpeza .ponto_dica {
+        background: #027de1;
+    }
+    .opcoes_dica_bemestar .ponto_dica {
+        background: #00cd83;
+    }
+
+    /* opcoes tres pontinhos escondido */
+    .hide-opcoes-Desktop {
+        position: absolute;
+        z-index: 1000;
+        border-top-right-radius: 0px;
+        border-top-left-radius: 20px;
+        border-bottom-right-radius: 20px;
+        border-bottom-left-radius: 20px;
+        background: white;
+        box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.565);
+        right: 36vh;
+        transform: translate(0, -5vh);
+    }
+    .patinha-dica{
+        display: flex;
+        cursor: pointer;
+    }
+    #patinha-dica:hover{
+        background-color: #cb218d11;
+        padding: 1vh 2vh 1vh 1vh;
+        border-radius: 10px;
+    }
+    .hover-ver-pergunta{
+        display: none;
+        position: absolute;
+        transform: translate(52vh, 1vh);
+        font-family: Fira Sans Bold;
+        font-size: 1.8vh;
+        color: white;
+        background-color: #cb218c;
+        padding: 0.8vh;
+        border-radius: 10px;
+    }
+    #patinha-dica:hover + .hover-ver-pergunta{
+        display: block;
+    }
+    .patinha-indicador-dica{
+        color: #CB218C;
+        font-family: Fira Sans;
+        display: flex;
+        align-items: center;
+        margin-left: 1vh;
+    }
+
+    #hide-opcoes-Desktop img {
+        width: 2vh;
+        height: 2vh;
+        margin-right: 2vh;
+    }
+
+    #hide-opcoes-Desktop p {
+        font-family: Fira Sans Bold;
+        font-size: 1.8vh;
+    }
+
+    .compartilhar,
+    .denunciar {
+        padding-left: 2vh;
+        padding-right: 2vh;
+        display: flex;
+        cursor: pointer;
+    }
+
+    .denunciar {
+        padding-top: 2vh;
+        padding-bottom: 1.5vh;
+        border-top-left-radius: 20px;
+    }
+
+    .compartilhar {
+        padding-top: 1.5vh;
+        padding-bottom: 2vh;
+        border-bottom-right-radius: 20px;
+        border-bottom-left-radius: 20px;
+    }
+
+    .denunciar:hover,
+    .compartilhar:hover {
+        background: rgb(237, 237, 237);
+    }
+
+    /* titulo descricao da postagem */
+    .titulos-post {
+        margin-top: 3vh;
+    }
+
+    .titulo-user {
+        font-size: 2vh;
+        font-family: Fira Sans;
+        display: inline;
+        color: #333333;
+    }
+
+    .titulo-principal {
+        margin-top: 1.5vh;
+        font-size: 3.3vh;
+        font-family: Heavitas;
+        color: #333333;
+        font-weight: 400;
+    }
+
+    .descricao {
+        font-family: Fira Sans;
+        text-align: justify;
+        color: #333333;
+        width: 100%;
+        font-size: 2vh;
+        line-height: 100%;
+        margin-top: 35vh;
+    }
+
+    /* tempo - avaliação - porcoes da postagem */
+    .tempo-avaliacao-porcoes {
+        justify-content:left;
+        display: flex;
+        margin-top: 2.5vh;
+        padding-right: 4vh;
+    }
+
+    .tempo,
+    .porcoe {
+        width: 21vh;
+        display: flex;
+    }
+
+    .avaliacao {
+        width: 12vh;
+        display: flex;
+    }
+
+    .icone-info-dica {
+        width: 4.5vh;
+    }
+
+    .texto-info {
+        display: flex;
+        font-size: 2.5vh;
+        font-family: Fira Sans;
+        color: #333333;
+        margin-left: 1vh;
+        margin-top: 0.8vh;
+    }
+
+    .tempo .texto-info {
+        width: 12vh;
+    }
+
+    .avaliacao .texto-info {
+        width: 5vh;
+    }
+
+    .porcoe .texto-info {
+        width: 19vh;
+    }
+
+    /* hashtags */
+    .hashtags {
+        margin-top: 3vh;
+        padding: 2vh 4vh 2vh 4vh;
+        background-color: #f2f2f2;
+        border-radius: 15px 15px 15px 15px;
+
+    }
+
+    .hashtags-texto-culinaria, .hashtags-texto-limpeza, .hashtags-texto-bemestar {
+        font-family: Fira Sans Bold;
+        font-weight: 500;
+        font-size: 1.8vh;
+    }
+    .hashtags-texto-culinaria{
+        color: #cb1154;
+    }
+    .hashtags-texto-limpeza{
+        color: #027de1;
+    }
+    .hashtags-texto-bemestar{
+        color: #00cd83;
+    }
+
+    /* avaliar */
+    .estrelas_culinaria, .estrelas_limpeza, .estrelas_bemestar {
+        margin-top: 3vh;
+        padding: 2vh 4vh 2vh 4vh;
+        display: flex;
+        border-radius: 20px 20px 20px 20px;
+        justify-content: space-between;
+    }
+
+    .avalie {
+        width: 28vh;
+    }
+
+    .gostou {
+        font-size: 1.7vh;
+        color: white;
+        font-weight: 400;
+        display: none;
+    }
+
+    .p-aval {
+        font-size: 2vh;
+        color: white;
+        font-weight: 400;
+        text-align: left;
+        margin-top: 0.5vh;
+    }
+
+    /* estrelas de avaliacao */
+    .rate {
+        display: flex;
+        direction: rtl;
+        justify-content: center;
+        align-items: center;
+        font-size: 4.3vh;
+        gap: 1vh;
+        font-family: 'FontAwesome';
+    }
+
+    .rate input {
+        display: none;
+    }
+
+    .rate .label_culinaria, .label_limpeza, .label_bemestar {
+        cursor: pointer;
+        transition: color 0.2s;
+    }
+    .label_culinaria{
+        color: #711136;
+    }
+    .label_limpeza{
+        color: #124773;
+    }
+    .label_bemestar{
+        color: #126c4b;
+    }
+
+    .rate input:checked~label {
+        color: #ffc700;
+    }
+
+    .rate label:hover,
+    .rate label:hover~label {
+        color: #deb217;
+    }
+
+    .rate input:checked+label:hover,
+    .rate input:checked+label:hover~label,
+    .rate input:checked~label:hover,
+    .rate input:checked~label:hover~label,
+    .rate label:hover~input:checked~label {
+        color: #c59b08;
+    }
+
+    .rate label:before {
+        content: '\f005';
+        font-family: 'FontAwesome';
+    }
+
+    .avalia-estrelas .checked~label:before {
+        color: #ffbb62;
+    }
+
+    /* itens Necessários & Modo de Preparo */
+    .itens-modos {
+        justify-content: space-between;
+        margin-top: 5vh;
+      margin-left: 2vh;
+
+        gap: 5vh;
+    }
+
+    /* itens Necessários*/
+    .Itens-necessários_culinaria, .Itens-necessários_limpeza, .Itens-necessários_bemestar {
+        border-radius: 10px;
+        padding-top: 3vh;
+        padding-left: 4vh;
+        padding-right: 4vh;
+        padding-bottom: 2vh;
+        width: 36vh;
+    }
+    .Itens-necessários_culinaria{
+        background-color: #cb2154;
+    }
+    .Itens-necessários_limpeza{
+        background-color: #027de1;
+    }
+    .Itens-necessários_bemestar{
+        background-color: #00cd83;
+    }
+
+    .itens-titulo {
+        color: white;
+        font-weight: 400;
+        font-size: 3.5vh;
+        margin-bottom: 2vh;
+    }
+
+    .lista-itens {
+        font-family: Fira Sans;
+        color: white;
+    }
+
+    .ingreditente_dica {
+        list-style-type: none;
+    }
+
+    .ingreditente_dica_button {
+        background: none;
+        border: none;
+        text-align: left;
+        cursor: pointer;
+        display: flex;
+        padding: 1vh;
+        width: 100%;
+        align-items: flex-start;
+    }
+
+    .ingreditente_dica_button:hover {
+        background-color: rgba(0, 0, 0, 0.14);
+        border-radius: 10px;
+    }
+
+    .ingreditente_dica_button p {
+        color: white;
+        font-size: 2.2vh;
+        flex-wrap: wrap;
+    }
+
+    .ingreditente_button_medida_quantidade {
+        font-family: Fira Sans Bold;
+        font-weight: 800;
+        text-decoration: underline;
+    }
+
+    .ingreditente_button_ingrediente {
+        font-family: Fira Sans;
+    }
+
+    .ingreditente_button_medida_quantidade,
+    .pontinho {
+        font-family: Fira Sans;
+        margin-right: 0.5vh;
+    }
+
+    /* informação da medida */
+    .info-item_culinaria, .info-item_limpeza, .info-item_bemestar {
+        border-radius: 0 0 10px 10px;
+        transform: translate(0, -1vh);
+        padding-top: 2vh;
+        padding-left: 1.5vh;
+        padding-right: 2vh;
+        padding-bottom: 2vh;
+        justify-content: left;
+        text-align: left;
+        display: flex;
+    }
+    .info-item_culinaria{
+        background-color: #ae1c48;
+    }
+    .info-item_limpeza{
+        background-color: #026bc1;
+    }
+    .info-item_bemestar{
+        background-color: rgba(0, 0, 0, 0.14);
+    }
+
+    .info-item_culinaria img, .info-item_limpeza img, .info-item_bemestar img{
+        width: 6vh;
+        display: block;
+    }
+
+    .titulo-medida {
+        font-family: Fira Sans;
+        font-weight: 400;
+        font-size: 2.3vh;
+        text-decoration: none;
+    }
+
+    .lista-info-1 {
+        font-family: Fira Sans Bold;
+        list-style-type: none;
+    }
+
+    .lista-info-2 {
+        font-family: Fira Sans Bold;
+        list-style-type: none;
+    }
+
+    .info-texto {
+        font-family: Fira Sans Bold;
+        font-size: 2vh;
+        margin-top: 0.5vh;
+        text-decoration: none;
+    }
+
+    /*  Modo de Preparo  */
+    .Modo-Preparo-culiaria, .Modo-Preparo-limpeza, .Modo-Preparo-bemestar {
+        padding-top: 3vh;
+        padding-left: 3vh;
+        padding-bottom: 2vh;
+        margin-top: 4vh;
+        margin-left: 2vh;
+        width: 37vh;
+    }
+    .Modo-Preparo-culiaria{
+        border-left: 1vh solid #cb1154;
+    }
+    .Modo-Preparo-limpeza{
+        border-left: 1vh solid #027de1;
+    }
+    .Modo-Preparo-bemestar{
+        border-left: 1vh solid #00cd83;
+    }
+
+    .modo-titulo {
+        color: #333333;
+        font-weight: 400;
+        font-size: 3.5vh;
+        text-align: left;
+        margin-bottom: 2vh;
+    }
+
+    .modos {
+        background-image: linear-gradient(89.99311970570312deg, #ffffff 0%, #e9e9e9 95.48561645502186%);
+        display: flex;
+        padding: 3% 3% 3% 0%;
+        border-radius: 0 0 5px 0;
+        margin-bottom: 1vh;
+        align-items: center;
+    }
+
+    .t-modo {
+        color: #333333;
+        font-size: 28px;
+        text-align: left;
+        display: grid;
+        align-items: center;
+        font-weight: 400;
+    }
+
+    .p-modo {
+        font-family: Fira Sans;
+        font-weight: 400;
+        color: #333333;
+        font-size: 17px;
+        margin-left: 5%;
+    }
+
+    /* Comentarios e Anuncio */
+    .comentarios {
+        margin: 5% 0% 2% 16%;
+        display: flex;
+    }
+
+    .comem-titulo {
+        font-family: Fira Sans Bold;
+        font-size: 30px;
+        color: #333333;
+        margin-right: 2%;
+    }
+
+    .filtrod {
+        padding: 0.8% 2% 0.8% 2%;
+        background-color: #F2F2F2;
+        border-radius: 5px 5px 5px 5px;
+        display: flex;
+    }
+
+    .p-filtro {
+        font-family: Fira Sans Bold;
+        font-size: 15px;
+        color: #4D16BB;
+    }
+
+    .comentar {
+        margin: 2% 0% 1% 16%;
+        display: flex;
+    }
+
+    .comentar img {
+        width: 70px;
+    }
+
+    .anuncio {
+        position: absolute;
+        width: 20%;
+        height: 35%;
+        background-color: #d7d7d7;
+        margin-left: 62.2%;
+        margin-top: 4.5%;
+    }
+
+    .inserir-comentariod {
+        border: none;
+        border-bottom: 2px solid #4D16BB;
+        margin-left: 1.5%;
+        width: 40%;
+        height: 50px;
+        font-family: Fira Sans;
+        outline: none;
+        font-size: 20px;
+    }
+
+    .botoes-comentard {
+        height: 35px;
+        align-items: right;
+        display: flex;
+        margin-bottom: 0%;
+      
+    }
+
+    .botao-comentard {
+        height: 40px;
+        width: 190px;
+        border-radius: 6px;
+        font-family: Fira Sans Bold;
+        border: none;
+        margin-left: 2%;
+        background-color: #FFD662;
+        color: #4D16BB;
+        font-family: Fira Sans Bold;
+        font-size: 15px;
+        cursor: pointer;
+    }
+
+    .cancelar-comentar {
+        height: 40px;
+        width: 190px;
+        border-radius: 6px;
+        font-family: Fira Sans Bold;
+        margin-left: 31.7%;
+        border: 1px solid;
+        border-style: fixed;
+        border-color: #4d16bb;
+        color: #4d16bb;
+        background-color: white;
+    }
+
+    input.inserir-comentario::placeholder {
+        opacity: 0.5;
+        color: #333333;
+        font-family: Fira Sans Bold;
+    }
+
+    .estrelas-taylor {
+        content: '\f005';
+        font-family: fontAwesome;
+        margin-left: 1%;
+        font-size: 25px;
+        width: 150px;
+        color: #9e5fef;
+    }
+
+    .comentario {
+        position: absolute;
+        margin: 5% 0% 5% 16%;
+        display: flex;
+    
     }
 
     .comentario h1 {

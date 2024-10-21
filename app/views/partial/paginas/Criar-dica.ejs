@@ -8,7 +8,7 @@
         <section class="linha-progresso-mb" id="progresso-mb"></section>
     </section>
 
-    <form action="/criar-dica" method="post" enctype="multipart/form-data">
+    <form id="form-criar-mb" action="/criar-dica" method="post" enctype="multipart/form-data">
         <section id="criar-post-etapas-mb">
             <article id="botoes-criar-post-mb">
                 <button id="btnVoltar-mb" class="Voltar-mb" type="button">VOLTAR</button>
@@ -16,10 +16,6 @@
             </article>
 
             <nav class="lista-tarefas-mb">
-                <!-- <button class="tarefa-mb ativo" id="detalhes-mb">Detalhes</button>
-                <button class="tarefa-mb" id="elementos-mb">Elementos</button>
-                <button class="tarefa-mb" id="midias-mb">Mídias</button> -->
-
                 <article class="tarefa-mb ativo" id="conteudoTarefa1-mb">
                     <h2 id="detalhes-mb">Detalhes</h2>
                     <section id="detalhes-primeira-parte-mb">
@@ -29,7 +25,7 @@
 
                         <section class="guarda-select-mb">
                             <input class="dialogoselect-mb" id="dialogoselect-mb" type="text" name="dica_categoria"
-                                placeholder="Categoria da postagem" readonly="readonly" />
+                                placeholder="Categoria da postagem" readonly="readonly" required>
                             <section class="dropDown-mb" id="dropdown-mb">
 
                                 <article class="listDropDown-mb">
@@ -74,20 +70,20 @@
                         <section id="tempo-detalhes-porcoes-mb">
                             <img id="imagem-tempo-detalhes-porcoes-mb" src="/imagens/porçoes-cinza-culinaria.png"
                                 alt="tempo de execução">
-                            <input type="number" id="porcoes-tempo-detalhes-mb" placeholder="00"
+                            <input type="number" id="porcoes-tempo-detalhes-mb" max="100" min="0" placeholder="00"
                                 name="dica_porcoes">Porções
                         </section>
 
                         <section id="descricao-detalhes-total-mb">
-                            <h3 id="titulo-descricao-detalhes-mb" name="dica_descricao">Descrição</h3>
-                            <input type="text" id="descricao-detalhes-mb">
+                            <h3 id="titulo-descricao-detalhes-mb">Descrição</h3>
+                            <input type="text" id="descricao-detalhes-mb" name="dica_descricao">
                         </section>
 
                         <section id="subcategoria-detalhes-total-mb">
                             <h3 id="titulo-subcategoria-detalhes-mb">Subcategorias</h3>
                             <section class="input-container-mb">
-                                <input type="text" id="input-text-subcategoria-mb" name="dica_subcategorias">
-                                <img src="/imagens/adicionar-etiqueta.svg" id="icon-mb" onclick="adicionarMensagem()"
+                                <input type="text" id="input-text-subcategoria-mb" name="dica_subcategorias_input">
+                                <img src="/imagens/adicionar-etiqueta.svg" id="icon-mb" onclick="adicionarMensagemmb()"
                                     alt="">
                             </section>
                             <section id="messageList-mb" class="message-list-mb"></section>
@@ -118,8 +114,7 @@
                                         </section>
                                         <section id="guardar-medidas-elementos-mb">
                                             <h4 id="nome-do-ingrediente-mb">Medida</h4>
-                                            <select name="medidas-elementos" id="medidas-elementos-mb"
-                                                name="medida_ingredientes">
+                                            <select id="medidas-elementos-mb" name="medida_ingredientes">
                                                 <option value="item-de-modo-de-preparo" class="item-medidas-mb">Unidade
                                                 </option>
                                                 <option value="item-de-modo-de-preparo" class="item-medidas-mb">Xícara
@@ -170,10 +165,10 @@
                                     </span>
                                     <input type="text" name="etapas_modo_preparo" id="input-modo-de-preparo-mb"
                                         placeholder="Misture todos os ingredientes...">
-                                    <button id="apagar-modo-de-preparo-mb" type="button" style="display:none;">X</button>
+                                    <button id="apagar-modo-de-preparo-mb" type="button"
+                                        style="display:none;">X</button>
                                 </section>
                             </article>
-                            
                         </section>
                     </section>
                 </article>
