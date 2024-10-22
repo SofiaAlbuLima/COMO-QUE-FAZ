@@ -7,6 +7,8 @@
     <section class="linha-baixo-mb">
         <section class="linha-progresso-mb" id="progresso-mb"></section>
     </section>
+    
+    <input type="hidden" name="pergunta_id" id="pergunta_id">
 
     <form id="form-criar-mb" action="/criar-dica" method="post" enctype="multipart/form-data">
         <section id="criar-post-etapas-mb">
@@ -22,37 +24,6 @@
                         <h3 id="titulo-da-postagem-mb">Título da Dica</h3>
                         <input type="text" id="texto-titulo-da-postagem-mb" placeholder="Como que faz..."
                             name="dica_titulo">
-
-                        <!-- <section class="guarda-select-mb">
-                            <input class="dialogoselect-mb" id="dialogoselect-mb" type="text" name="dica_categoria"
-                                placeholder="Categoria da postagem" readonly="readonly" required>
-                            <section class="dropDown-mb" id="dropdown-mb">
-
-                                <article class="listDropDown-mb">
-                                    <img class="iconitem-select-detalhes-mb" id="icon-dropdown-mb"
-                                        onmousedown="categor(1)" src="/imagens/culinaria-icon-categoria-1.png"
-                                        alt="culinária">
-
-                                    <div value="culinaria-categoria" class="item-select-detalhes-mb texto"
-                                        id="item-select-detalhes-mb-1" onmousedown="categor(1)">Culinária</div>
-
-                                    <img class="iconitem-select-detalhes-mb icon" id="icon-dropdown-mb"
-                                        onmousedown="categor(2)" src="/imagens/limpeza-icon-categoria.png"
-                                        alt="limpeza">
-
-                                    <div class="item-select-detalhes-mb texto" id="item-select-detalhes-mb-2"
-                                        onmousedown="categor(2)">Limpeza</div>
-
-                                    <img class="iconitem-select-detalhes-mb icon" id="icon-dropdown-mb"
-                                        onmousedown="categor(3)" src="/imagens/bem-estar-icon-categoria.png"
-                                        alt="bem-estar">
-
-                                    <div class="item-select-detalhes-mb texto" id="item-select-detalhes-mb-3"
-                                        onmousedown="categor(3)">Bem Estar</div>
-                                </article>
-
-                            </section>
-                        </section> -->
 
                         <figure class="guarda-select">
                             <input class="dialogoselect" id="dialogoselect" type="text" name="dica_categoria"

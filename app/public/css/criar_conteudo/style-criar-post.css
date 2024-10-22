@@ -21,14 +21,9 @@
     margin: 0;
   }
 
-  .conteudo-dispositivo.mobile {
-    display: block;
-    width: 100vw;
-  }
-
   #criar-post-cancela-mb {
-    width: 66.4%;
-    height: 6.4%;
+    display: flex;
+    width: 100%;
     margin-left: 6.4%;
     margin-top: 5.06%;
     background-color: #ffffff;
@@ -37,7 +32,7 @@
   #cancela-criar-post-mb {
     display: inline-block;
     color: #4d16bb;
-    font-size: 130%;
+    font-size: 100%;
     background-color: rgba(255, 255, 255, 0);
     box-sizing: border-box;
     font-family: "Heavitas", sans-serif;
@@ -48,13 +43,13 @@
 
   #titulo-criar-post-mb {
     display: inline-block;
-    width: 45.86%;
+    width: 100%;
     background-color: rgba(255, 255, 255, 0);
     font-family: "Heavitas", sans-serif;
     color: #4d16bb;
-    margin-left: 20vw;
-    font-size: 120%;
-    white-space: nowrap;
+    margin-left: 5vw;
+    font-size: 100%;
+    word-wrap: break-word;
   }
 
   .linha-baixo-mb {
