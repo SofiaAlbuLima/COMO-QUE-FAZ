@@ -1,4 +1,4 @@
-@media only screen and (max-width: 480px) {
+@media only screen and (max-width: 600px) {
 	* {
 		font-family: Heavitas;
 		padding: 0;
@@ -153,7 +153,7 @@
 		width: 100%;
 		background-color: #5417bd;
 		background-image: linear-gradient(to right, #5417bd, #9c21cb);
-		height: 500px;
+		height: 100%;
 		padding-top: 5%
 	}
 
@@ -223,7 +223,7 @@
 
 }
 
-@media only screen and (min-width: 480px) {
+@media only screen and (min-width: 601px) {
 	* {
 		font-family: Heavitas;
 		padding: 0;

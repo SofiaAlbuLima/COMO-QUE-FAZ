@@ -1,4 +1,4 @@
-@media only screen and (max-width: 480px) {
+@media only screen and (max-width: 600px) {
     * {
         font-family: Heavitas;
         padding: 0;
@@ -671,7 +671,7 @@
 
 }
 
-@media only screen and (min-width: 480px) {
+@media only screen and (min-width: 601px) {
 
 
     .perfil-pontinhos-pergunta {

@@ -1,4 +1,4 @@
-@media only screen and (min-width: 481px) {
+@media only screen and (min-width: 601px) {
   .postagens {
     display: flex;
     flex-wrap: wrap;
@@ -412,7 +412,7 @@
 
 }
 
-@media only screen and (max-width: 480px) {
+@media only screen and (max-width: 600px) {
   .postagens {
     display: flex;
     flex-wrap: wrap;
