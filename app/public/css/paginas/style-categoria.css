@@ -1,219 +1,255 @@
 @media only screen and (max-width: 600px) {
-    * {
-      margin: 0;
-      padding: 0;
-    }
-
-  
-    
-    .mapa_do_site-link {
-     font-size: 1.5vh;
-      color: black;
-      margin-left: 3%;
-    }
-
-    .mapa_do_site-atual{
-      font-size: 1.5vh;
-      color: black;
-    }
-  
-    .imagem_pagina_categoria {
-      width: 84px;
-      height: 84px;
-      margin-left: 4%;
-      transform: translate(0, 13px);
-    }
-  
-    .titulo_pagina_categoria {
-      font-family: Heavitas;
-      max-width: 150px;
-      font-size: 35px;
-      font-weight: 400;
-      transform: translate(110px, -70px);
-    }
-    .Cateculinaria{
-      color: #cb1154;
-    }
-    .Catelimpeza {
-        color: #027de1;
-      }
-    .Catebemestar {
-        color: #00cd83;
-    }
-    .descricao_pagina_categoria {
-      text-align: left;
-      font-family: Fira Sans;
-      width: 65%;
-      font-size: 12px;
-      transform: translate(110px, -70px);
-    }
-  
-  
-    .filtro_cate {
-   
-        padding: 1.8vh 3vh 0vh 3vh;
-        height: 4vh;
-        border-radius: 20px;
-        background-color: #f2f2f2;
-        font-family: "Fira Sans", sans-serif;
-        font-weight: 900;
-        color: #333333;
-        border: none;
-        text-decoration: none;
-  
-    }
-    .filtros_categoria_Culinaria, .filtros_categoria_BemEstar, .filtros_categoria_Limpeza {
-      display: flex;
-      gap: 2vh;
-      margin-left: 4%;
-    }
-   
-    .linha_separadora_categorias{
-      width: 90%;
-      margin-top: 2vh;
-      margin-left: 6%;
-    }
-    .linha_culinaria{
-      border: 1px solid #cb1154;
-    }
-    .linha_limpeza{
-      border: 1px solid #027de1;
-    }
-    .linha_bemestar{
-      border: 1px solid #00cd83;
-    }
-    .filtros_categoria_Culinaria > .filtro-selecionado{
-      background-color: #cb1154;
-      color: white;
-    }
-    .filtros_categoria_BemEstar > .filtro-selecionado{
-      background-color: #00cd83;
-      color: white;
-    }
-    .filtros_categoria_Limpeza > .filtro-selecionado{
-      background-color: #027de1;
-      color: white;
-    }
-}
-  @media only screen and (min-width: 601px) {
-    * {
-      margin: 0;
-      padding: 0;
-    }
-  
-    * {
-      font-family: Heavitas;
-      padding: 0;
-      margin: 0;
-    }
-  
-    @font-face {
-      font-family: Heavitas;
-      src: url("../fonts/Heavitas.ttf");
-    }
-  
-    @font-face {
-      font-family: Fira Sans Bold;
-      src: url("../fonts/fira-sans.bold.ttf");
-    }
-  
-    @font-face {
-      font-family: Fira Sans;
-      src: url("../fonts/fira-sans.regular.ttf");
-    }
-    
-    .mapa_do_site-link {
-      margin-left: 37vh;
-      font-family: Fira Sans;
-      color: black;
-    }
-    .mapa_do_site-atual {
-      font-family: Fira Sans Bold;
-      color: #9e5fef;
-    }
-    .cabecalho_categoria{
-      margin-top: 2vh;
-      display: flex;
-      justify-content: space-between;
-      padding-left: 35.5vh;
-      padding-right: 37.1vh;
-    }
-    .categoria_textos{
-      display: flex;
-    }
-    .imagem_pagina_categoria {
-      height: 120px;
-    }
-    .titulo-descricao-categoria{
-      display: inline;
-      margin-left: 2vh;
-    }
-    .titulo_pagina_categoria{
-      margin-top: 1vh;
-      font-size: 45px;
-      font-weight: 400 ;
-    }
-    .Cateculinaria{
-      color: #cb1154;
-    }
-    .Catelimpeza {
-        color: #027de1;
-      }
-    .Catebemestar {
-        color: #00cd83;
-    }
-    .descricao_pagina_categoria {
-      width: 45vh;
-      font-size: 15px;
-      font-family: Fira Sans;
-    }
-    .filtros_categoria_Culinaria, .filtros_categoria_BemEstar, .filtros_categoria_Limpeza {
-      display: flex;
-      gap: 2vh;
-      margin-top: 5vh;
-    }
-    .filtro_cate {
-      padding: 1.8vh 3vh 0vh 3vh;
-      height: 4vh;
-      border-radius: 20px;
-      background-color: #f2f2f2;
-      font-family: "Fira Sans", sans-serif;
-      font-size: 18px;
-      font-weight: 900;
-      color: #333333;
-      border: none;
-      text-decoration: none;
-    }
-    .linha_separadora_categorias{
-      width: 132.5vh;
-      margin-left: 37vh;
-      margin-top: 2vh;
-    }
-    .linha_culinaria{
-      border: 1px solid #cb1154;
-    }
-    .linha_limpeza{
-      border: 1px solid #027de1;
-    }
-    .linha_bemestar{
-      border: 1px solid #00cd83;
-    }
-    .filtros_categoria_Culinaria > .filtro-selecionado{
-      background-color: #cb1154;
-      color: white;
-    }
-    .filtros_categoria_BemEstar > .filtro-selecionado{
-      background-color: #00cd83;
-      color: white;
-    }
-    .filtros_categoria_Limpeza > .filtro-selecionado{
-      background-color: #027de1;
-      color: white;
-    }
-    .postagens_categoria{
-      margin-top: 3.5vh;
-      justify-content: center;
-      display: flex;
-      width: 100%;
-    }
+  * {
+    margin: 0;
+    padding: 0;
   }
+
+
+
+  .mapa_do_site-link {
+    font-size: 1.5vh;
+    color: black;
+    margin-left: 3%;
+  }
+
+  .mapa_do_site-atual {
+    font-size: 1.5vh;
+    color: black;
+  }
+
+  .imagem_pagina_categoria {
+    width: 84px;
+    height: 84px;
+    margin-left: 4%;
+    transform: translate(0, 13px);
+  }
+
+  .titulo_pagina_categoria {
+    font-family: Heavitas;
+    max-width: 150px;
+    font-size: 35px;
+    font-weight: 400;
+    transform: translate(110px, -70px);
+  }
+
+  .Cateculinaria {
+    color: #cb1154;
+  }
+
+  .Catelimpeza {
+    color: #027de1;
+  }
+
+  .Catebemestar {
+    color: #00cd83;
+  }
+
+  .descricao_pagina_categoria {
+    text-align: left;
+    font-family: Fira Sans;
+    width: 65%;
+    font-size: 12px;
+    transform: translate(110px, -70px);
+  }
+
+
+  .filtro_cate {
+
+    padding: 1.8vh 3vh 0vh 3vh;
+    height: 4vh;
+    border-radius: 20px;
+    background-color: #f2f2f2;
+    font-family: "Fira Sans", sans-serif;
+    font-weight: 900;
+    color: #333333;
+    border: none;
+    text-decoration: none;
+
+  }
+
+  .filtros_categoria_Culinaria,
+  .filtros_categoria_BemEstar,
+  .filtros_categoria_Limpeza {
+    display: flex;
+    gap: 2vh;
+    margin-left: 4%;
+  }
+
+  .linha_separadora_categorias {
+    width: 90%;
+    margin-top: 2vh;
+    margin-left: 6%;
+  }
+
+  .linha_culinaria {
+    border: 1px solid #cb1154;
+  }
+
+  .linha_limpeza {
+    border: 1px solid #027de1;
+  }
+
+  .linha_bemestar {
+    border: 1px solid #00cd83;
+  }
+
+  .filtros_categoria_Culinaria>.filtro-selecionado {
+    background-color: #cb1154;
+    color: white;
+  }
+
+  .filtros_categoria_BemEstar>.filtro-selecionado {
+    background-color: #00cd83;
+    color: white;
+  }
+
+  .filtros_categoria_Limpeza>.filtro-selecionado {
+    background-color: #027de1;
+    color: white;
+  }
+}
+
+@media only screen and (min-width: 601px) {
+  * {
+    margin: 0;
+    padding: 0;
+  }
+
+  * {
+    font-family: Heavitas;
+    padding: 0;
+    margin: 0;
+  }
+
+  @font-face {
+    font-family: Heavitas;
+    src: url("../fonts/Heavitas.ttf");
+  }
+
+  @font-face {
+    font-family: Fira Sans Bold;
+    src: url("../fonts/fira-sans.bold.ttf");
+  }
+
+  @font-face {
+    font-family: Fira Sans;
+    src: url("../fonts/fira-sans.regular.ttf");
+  }
+
+  .mapa_do_site-link {
+    margin-left: 37vh;
+    font-family: Fira Sans;
+    color: black;
+  }
+
+  .mapa_do_site-atual {
+    font-family: Fira Sans Bold;
+    color: #9e5fef;
+  }
+
+  .cabecalho_categoria {
+    margin-top: 2vh;
+    display: flex;
+    justify-content: space-between;
+    padding-left: 35.5vh;
+    padding-right: 37.1vh;
+  }
+
+  .categoria_textos {
+    display: flex;
+  }
+
+  .imagem_pagina_categoria {
+    height: 120px;
+  }
+
+  .titulo-descricao-categoria {
+    display: inline;
+    margin-left: 2vh;
+  }
+
+  .titulo_pagina_categoria {
+    margin-top: 1vh;
+    font-size: 45px;
+    font-weight: 400;
+  }
+
+  .Cateculinaria {
+    color: #cb1154;
+  }
+
+  .Catelimpeza {
+    color: #027de1;
+  }
+
+  .Catebemestar {
+    color: #00cd83;
+  }
+
+  .descricao_pagina_categoria {
+    width: 45vh;
+    font-size: 15px;
+    font-family: Fira Sans;
+  }
+
+  .filtros_categoria_Culinaria,
+  .filtros_categoria_BemEstar,
+  .filtros_categoria_Limpeza {
+    display: flex;
+    gap: 2vh;
+    margin-top: 5vh;
+  }
+
+  .filtro_cate {
+    padding: 1.8vh 3vh 0vh 3vh;
+    height: 4vh;
+    border-radius: 20px;
+    background-color: #f2f2f2;
+    font-family: "Fira Sans", sans-serif;
+    font-size: 18px;
+    font-weight: 900;
+    color: #333333;
+    border: none;
+    text-decoration: none;
+  }
+
+  .linha_separadora_categorias {
+    width: 132.5vh;
+    margin-left: 37vh;
+    margin-top: 2vh;
+  }
+
+  .linha_culinaria {
+    border: 1px solid #cb1154;
+  }
+
+  .linha_limpeza {
+    border: 1px solid #027de1;
+  }
+
+  .linha_bemestar {
+    border: 1px solid #00cd83;
+  }
+
+  .filtros_categoria_Culinaria>.filtro-selecionado {
+    background-color: #cb1154;
+    color: white;
+  }
+
+  .filtros_categoria_BemEstar>.filtro-selecionado {
+    background-color: #00cd83;
+    color: white;
+  }
+
+  .filtros_categoria_Limpeza>.filtro-selecionado {
+    background-color: #027de1;
+    color: white;
+  }
+
+  .postagens_categoria {
+    margin-top: 3.5vh;
+    justify-content: center;
+    display: flex;
+    width: 100%;
+  }
+}
