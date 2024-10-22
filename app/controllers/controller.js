@@ -8,9 +8,12 @@ const moment = require("moment"); //datas e horas bonitinhas
 const { body, validationResult } = require("express-validator");
 const { removeImg } = require("../util/removeImg");
 const bcrypt = require("bcryptjs");
+const nodemailer = require('nodemailer');
 var salt = bcrypt.genSaltSync(12);
 
 const tarefasController = {
+    //supostamente newsletter
+  
     // REGRAS VALIDAÇÃO
     regrasValidacaoLogin: [
         body('input1')
@@ -875,6 +878,28 @@ const tarefasController = {
                     }
                 }
             }
+
+            // const transporter = nodemailer.createTransport({
+            //     service: 'gmail',  // ou outro serviço de e-mail como SMT
+            //     auth: {
+            //       user: 'comoquefazofficial@gmail.com', 
+            //       pass: 'OsBigodudos@24'
+            //     }
+            //   });
+
+              
+            // let buscarUsu = usuarioModel.findUserById(req.session.autenticado.id);
+               
+            //   // Função que envia o e-mail
+            //   async function Noticacaopost (buscarUsu.Email, req.body.dica_titulo ) {
+            //     try {
+            //       const info = await transporter.sendMail({
+            //         from: '"Nome do seu site" <seuemail@gmail.com>', // remetente
+            //         to: userEmail, // destinatário
+            //         subject: 'Confirmação de Postagem', // assunto do e-mail
+            //         text: `Seu post com o título "${postTitle}" foi publicado com sucesso!`, // corpo do e-mail em texto
+            //       });
+            //     }};
 
             console.log("Postagem e ingredientes realizados com sucesso!", postagemId);
 
