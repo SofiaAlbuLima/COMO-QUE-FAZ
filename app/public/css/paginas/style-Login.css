@@ -256,7 +256,7 @@
 		}
 }
 
-@media only screen and (min-width: 480px) {
+@media only screen and (min-width: 601px) {
     .conteudo-dispositivo-desktop-login{
         background-image: url(/imagens/fundogatos-desktop.png);
 		padding-top: 1vh;
