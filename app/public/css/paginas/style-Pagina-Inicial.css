@@ -106,24 +106,24 @@
   }
 
   .texto-slide1 {
-    font-size: 30px;
+    font-size: 150%;
     height: 10%;
     max-width: 90%;
     font-weight: 400;
     min-width: 30px;
-    margin-top: -280px;
+    margin-top: -70%;
     margin-left: 7%;
     position: absolute;
     color: white;
   }
 
   .texto-slide2 {
-    font-size: 30px;
+    font-size: 150%;
     height: 10%;
     max-width: 90%;
     font-weight: 400;
     min-width: 30px;
-    margin-top: -305px;
+    margin-top: -70%;
     margin-left: 7%;
     position: absolute;
     color: white;
@@ -131,12 +131,12 @@
   }
 
   .texto-slide3 {
-    font-size: 30px;
+    font-size: 150%;
     height: 10%;
     max-width: 90%;
     font-weight: 400;
     min-width: 30px;
-    margin-top: -285px;
+    margin-top: -70%;
     margin-left: 7%;
     position: absolute;
     color: white;
@@ -148,7 +148,7 @@
     font-size: 17px;
     width: 83%;
     font-weight: 400;
-    margin-top: -240px;
+    margin-top: -65%;
     margin-left: 7%;
     margin-right: 7%;
     position: absolute;
@@ -163,7 +163,7 @@
     font-size: 17px;
     width: 83%;
     font-weight: 400;
-    margin-top: -215px;
+    margin-top: -65%;
     margin-left: 7%;
     margin-right: 7%;
     position: absolute;
@@ -492,7 +492,7 @@
   }
 }
 
-@media only screen and (min-width: 480px) {
+@media only screen and (min-width: 601px) {
   * {
     margin: 0;
     padding: 0;

@@ -143,62 +143,6 @@ function atualizarCampoOculto() {
     hiddenInput.value = subcategorias.join(', ');
 }
 
-window.onload = function () {
-
-    // Check File API support
-    if (window.File && window.FileList && window.FileReader) {
-        var filesInput = document.getElementById("files-mb");
-        var output = document.getElementById("result-mb");
-        var retanguloAdicionarMidia = document.getElementById("retangulo-adicionar-midia-mb");
-
-        retanguloAdicionarMidia.addEventListener("click", function () {
-            filesInput.click(); // Clique no input de arquivo
-        });
-
-        filesInput.addEventListener("change", function (event) {
-
-            var files = event.target.files; // FileList object
-
-            for (var i = 0; i < files.length; i++) {
-                var file = files[i];
-
-                // Only pics
-                if (!file.type.match('image')) continue;
-
-                var picReader = new FileReader();
-
-                picReader.addEventListener("load", function (event) {
-                    var picFile = event.target;
-                    var thumbnailContainer = document.createElement("div");
-                    thumbnailContainer.className = "thumbnail-container-mb";
-
-                    var closeButton = document.createElement("span");
-                    closeButton.className = "close-button-mb";
-                    closeButton.innerHTML = "X";
-
-                    closeButton.addEventListener("click", function () {
-                        thumbnailContainer.remove();
-                    });
-
-                    var thumbnail = document.createElement("img");
-                    thumbnail.className = 'thumbnail-mb';
-                    thumbnail.src = picFile.result;
-                    thumbnail.title = picFile.name;
-
-                    thumbnailContainer.appendChild(thumbnail);
-                    thumbnailContainer.appendChild(closeButton);
-                    output.appendChild(thumbnailContainer);
-                });
-
-                // Read the image
-                picReader.readAsDataURL(file);
-            }
-        });
-    } else {
-        console.log("Your browser does not support File API");
-    }
-}
-
 //botoes de criar e tirar ingredientes
 
 document.getElementById("botao-de-add-ingrediente-mb").addEventListener("click", function () {
@@ -352,3 +296,72 @@ function atualizarNumeracaombmb() {
 document.addEventListener('DOMContentLoaded', function() {
     atualizarNumeracaombmb();
 });
+
+// Função para pegar os parâmetros da URL
+function getQueryParams() {
+    const params = new URLSearchParams(window.location.search);
+    return {
+        perguntaId: params.get('perguntaId'),
+        perguntaTitulo: params.get('perguntaTitulo')
+    };
+}
+
+window.onload = function() {
+    // Função de obter parâmetros da URL e atualizar o título
+    const { perguntaId, perguntaTitulo } = getQueryParams();
+    if (perguntaTitulo) {
+        document.getElementById('titulo-criar-post-mb').innerText = `CRIAR PATINHA: ${perguntaTitulo}`;
+    }
+
+    // Função para lidar com o File API
+    if (window.File && window.FileList && window.FileReader) {
+        var filesInput = document.getElementById("files-mb");
+        var output = document.getElementById("result-mb");
+        var retanguloAdicionarMidia = document.getElementById("retangulo-adicionar-midia-mb");
+
+        retanguloAdicionarMidia.addEventListener("click", function () {
+            filesInput.click(); // Clique no input de arquivo
+        });
+
+        filesInput.addEventListener("change", function (event) {
+            var files = event.target.files; // FileList object
+
+            for (var i = 0; i < files.length; i++) {
+                var file = files[i];
+
+                // Only pics
+                if (!file.type.match('image')) continue;
+
+                var picReader = new FileReader();
+
+                picReader.addEventListener("load", function (event) {
+                    var picFile = event.target;
+                    var thumbnailContainer = document.createElement("div");
+                    thumbnailContainer.className = "thumbnail-container-mb";
+
+                    var closeButton = document.createElement("span");
+                    closeButton.className = "close-button-mb";
+                    closeButton.innerHTML = "X";
+
+                    closeButton.addEventListener("click", function () {
+                        thumbnailContainer.remove();
+                    });
+
+                    var thumbnail = document.createElement("img");
+                    thumbnail.className = 'thumbnail-mb';
+                    thumbnail.src = picFile.result;
+                    thumbnail.title = picFile.name;
+
+                    thumbnailContainer.appendChild(thumbnail);
+                    thumbnailContainer.appendChild(closeButton);
+                    output.appendChild(thumbnailContainer);
+                });
+
+                // Read the image
+                picReader.readAsDataURL(file);
+            }
+        });
+    } else {
+        console.log("Your browser does not support File API");
+    }
+};
