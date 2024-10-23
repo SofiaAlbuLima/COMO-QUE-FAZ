@@ -178,6 +178,8 @@
     margin: 5px;
     background-color: rgba(245, 240, 255, 1);
     padding: 10px;
+    width: 18vw;
+    height: 25vh;
 }
 
 .notf-checkbox {
@@ -190,6 +192,21 @@
     margin: 5px;
     background-color: rgba(245, 240, 255, 1);
     padding: 10px;
+    width: 18vw;
+}
+
+.acc-information-form {
+    display: flex;
+    justify-content: space-between;
+}
+
+.acc-information-form button {
+    width: 2vw;
+    height: 4vh;
+    border: none;
+    background-color: #9E5FEF;
+    border-radius: 4px;
+    margin-right: 2vw;
 }
 
 .first-part-nn {
@@ -343,10 +360,123 @@
     justify-content: space-around;
 }
 
+.notf-options {
+    line-height: 5vh;
+    font-size: 17px;
+}
+
 .ajustbuttons button {
     padding: 10px;
 }
 
 .mustaches-payment-offlog {
     display: none;
+}
+
+@media only screen and (max-width: 600px) {
+    .titulo-secoes {
+        font-size: 25px;
+        margin-top: 2vh;
+    }
+
+    .ajustments {
+        display: grid;
+        /* justify-content: space-evenly; */
+        padding: 10px;
+    }
+
+    .colu-1 {
+        width: 100%;
+        height: auto;
+    }
+
+    .ajustbuttons {
+        width: 100%;
+        background-color: transparent;
+    }
+
+    .sair-conta {
+        width: 100%;
+        margin-top: 0;
+    }
+
+    .colu-2 {
+        width: 100%;
+        padding: 0;
+        margin-top: 5vh;
+        border: none;
+    }
+
+    .content-ajustments {
+        display: grid;
+    }
+
+    .part-one {
+        border: none;
+        width: 100%;
+        height: auto;
+    }
+
+    .lang {
+        width: 40%;
+    }
+
+    .part-two {
+        margin-left: 0;
+    }
+
+    .notf-filters {
+        width: 78vw;
+    }
+
+    .prefnot-filters {
+        width: 78vw;
+    }
+
+    .part-one input {
+        width: 40vw;
+    }
+
+    .acc-information-form button {
+        width: 10vw;
+    }
+
+    .authentication button {
+        width: 34vw;
+        margin-top: 2vh;
+    }
+
+    .deactivate-account {
+        width: 40vw;
+    }
+
+    .actual-plan {
+        border: none;
+        width: 100%;
+    }
+
+    .client-card-top {
+        width: 78vw;
+    }
+
+    .client-card-top img {
+        width: 20vw;
+        height: 5vh;
+    }
+
+    .client-card-bottom {
+        width: 75.5vw;
+    }
+
+    .actual-plan button {
+        width: 82vw;
+    }
+
+    .buying-options {
+        width: 80vw;
+    }
+
+    .buying-options-mid {
+        width: 80vw;
+    }
 }
