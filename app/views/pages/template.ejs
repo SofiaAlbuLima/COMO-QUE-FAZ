@@ -54,10 +54,12 @@
    </header>
 
    <main>
-      <%- include("../partial/paginas/"+pagina.conteudo) %>
-         <% if (usuario_logado && usuario_logado.autenticado) { %>
-            <%- include("../partial/popup_criacao_conteudo") %>
-               <%}%>
+      <%- include("../partial/paginas/" + pagina.conteudo) %>
+
+<% if (usuario_logado && usuario_logado.autenticado && pagina.conteudo !== 'Criar-dica') { %>
+  <%- include("../partial/popup_criacao_conteudo") %>
+<% } %>
+
    </main>
 
    <footer>

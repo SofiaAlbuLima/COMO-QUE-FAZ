@@ -1062,8 +1062,6 @@
 }
 
 @media only screen and (max-width: 600px) {
- 
-
     /* mapa do site */
     a p {
         text-decoration: none;
@@ -1111,8 +1109,8 @@
     }
 
     .imagemprincipal {
-        max-width: 35vh;
-        max-height: 25vh;
+        width: 95%;
+        height: auto;
         border-radius: 10px;
         position: absolute;
         margin-top: 22vh;
@@ -1389,13 +1387,14 @@
     }
 
     .icone-info-dica {
-        width: 4.5vh;
+        width: auto;
+        height: 4.5vh;
     }
 
     .texto-info {
         display: flex;
-        font-size: 2.5vh;
-        font-family: Fira Sans;
+        font-size: 100%;
+        font-family: 'Fira Sans', sans-serif;
         color: #333333;
         margin-left: 1vh;
         margin-top: 0.8vh;

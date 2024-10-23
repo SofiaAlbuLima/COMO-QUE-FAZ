@@ -1,7 +1,4 @@
 <main>
-
-
-
    <section class="conteudo-dispositivo-desktop">
       <% if (postagem) { %>
          <article class="mapa_dica">
@@ -147,7 +144,8 @@
                         </article>
                      </a>
                      <% if(postagem.patinha){ %>
-                        <a class="url-site-perfil-a" id="patinha-dica" href="/pergunta/<%= postagem.idPerguntaAssociada %>">
+                        <a class="url-site-perfil-a" id="patinha-dica"
+                           href="/pergunta/<%= postagem.idPerguntaAssociada %>">
                            <article class="patinha-dica">
                               <img class="patinha-indicador" src="/imagens-svg/patinha-rosa-icon.svg" alt="">
                               <h3 class="patinha-indicador-dica">Essa dica é uma patinha!</h3>
@@ -168,108 +166,42 @@
 
                <aside class="tempo-avaliacao-porcoes">
                   <% if (postagem.tempo) { %>
-                  <section class="tempo">
-                     <img src="/imagens-svg/2-body/tempo.svg" alt="tempo" class="icone-info-dica">
-                     <h3 class="texto-info">
-                        <%= postagem.tempo %>
-                     </h3>
-                  </section>
-                  <% } %>
-                  <section class="avaliacao">
-                     <img src="/imagens-svg/2-body/avalia.svg" alt="avaliacao" class="icone-info-dica">
-                     <h3 class="texto-info">
-                        <%= postagem.mediaAvaliacoes %>
-                     </h3>
-                  </section>
-                  <% if (postagem.categoria===1 && postagem.porcoes) { %>
-                     <section class="porcoe">
-                        <img src="/imagens-svg/2-body/porcao.svg" alt="porcao" class="icone-info-dica">
+                     <section class="tempo">
+                        <img src="/imagens-svg/2-body/tempo.svg" alt="tempo" class="icone-info-dica">
                         <h3 class="texto-info">
-                           <%= postagem.porcoes %>
+                           <%= postagem.tempo %>
                         </h3>
                      </section>
                      <% } %>
+                        <section class="avaliacao">
+                           <img src="/imagens-svg/2-body/avalia.svg" alt="avaliacao" class="icone-info-dica">
+                           <h3 class="texto-info">
+                              <%= postagem.mediaAvaliacoes %>
+                           </h3>
+                        </section>
+                        <% if (postagem.categoria===1 && postagem.porcoes) { %>
+                           <section class="porcoe">
+                              <img src="/imagens-svg/2-body/porcao.svg" alt="porcao" class="icone-info-dica">
+                              <h3 class="texto-info">
+                                 <%= postagem.porcoes %>
+                              </h3>
+                           </section>
+                           <% } %>
                </aside>
+
+               
 
 
                <% if (postagem.categoria===1) { %>
                   <% if (postagem.subcategorias) { %>
-                  <figure class="hashtags">
-                     <p class="hashtags-texto-culinaria">
-                        <%= postagem.subcategorias ? postagem.subcategorias.replace(/,\s*/g, ' - ' )
-                           : 'Nenhuma subcategoria indicada' %>
-                     </p>
-                  </figure>
-                  <% } %>
-                  <aside class="estrelas_culinaria">
-                     <article class="avalie">
-                        <h1 class="gostou">GOSTOU?</h1>
-                        <h2 class="p-aval">Avalie essa dica!</h2>
-                     </article>
-                     <form action="/avaliar" method="POST">
-                        <input type="hidden" name="conteudo_id" value="<%= postagem.id %>">
-                        <input type="hidden" name="categorias_id" value="<%= postagem.categoria %>">
-                        <input type="hidden" name="clientes_id" value="<%= usuario_logado %>">
-
-                        <div class="rate" id="rating-container">
-                           <input type="radio" id="star5" name="nota" value="5" />
-                           <label class="label_culinaria" for="star5" title="5 stars"></label>
-                           <input type="radio" id="star4" name="nota" value="4" />
-                           <label class="label_culinaria" for="star4" title="4 stars"></label>
-                           <input type="radio" id="star3" name="nota" value="3" />
-                           <label class="label_culinaria" for="star3" title="3 stars"></label>
-                           <input type="radio" id="star2" name="nota" value="2" />
-                           <label class="label_culinaria" for="star2" title="2 stars"></label>
-                           <input type="radio" id="star1" name="nota" value="1" />
-                           <label class="label_culinaria" for="star1" title="1 star"></label>
-                        </div>
-                        <button type="submit" class="botao-enviar-avaliacao-Culinaria">Enviar Avaliação</button>
-                     </form>
-                  </aside>
-                  <% } else if (postagem.categoria===2) { %>
-                     <% if (postagem.subcategorias) { %>
                      <figure class="hashtags">
-                        <p class="hashtags-texto-limpeza">
+                        <p class="hashtags-texto-culinaria">
                            <%= postagem.subcategorias ? postagem.subcategorias.replace(/,\s*/g, ' - ' )
                               : 'Nenhuma subcategoria indicada' %>
                         </p>
                      </figure>
                      <% } %>
-                     <aside class="estrelas_limpeza">
-                        <article class="avalie">
-                           <h1 class="gostou">GOSTOU?</h1>
-                           <h2 class="p-aval">Avalie essa dica!</h2>
-                        </article>
-                        <form action="/avaliar" method="POST">
-                           <input type="hidden" name="conteudo_id" value="<%= postagem.id %>">
-                           <input type="hidden" name="categorias_id" value="<%= postagem.categoria %>">
-                           <input type="hidden" name="clientes_id" value="<%= usuario_logado %>">
-
-                           <div class="rate" id="rating-container">
-                              <input type="radio" id="star5" name="nota" value="5" />
-                              <label class="label_limpeza" for="star5" title="5 stars"></label>
-                              <input type="radio" id="star4" name="nota" value="4" />
-                              <label class="label_limpeza" for="star4" title="4 stars"></label>
-                              <input type="radio" id="star3" name="nota" value="3" />
-                              <label class="label_limpeza" for="star3" title="3 stars"></label>
-                              <input type="radio" id="star2" name="nota" value="2" />
-                              <label class="label_limpeza" for="star2" title="2 stars"></label>
-                              <input type="radio" id="star1" name="nota" value="1" />
-                              <label class="label_limpeza" for="star1" title="1 star"></label>
-                           </div>
-                           <button type="submit" class="botao-enviar-avaliacao-Limpeza">Enviar Avaliação</button>
-                        </form>
-                     </aside>
-                     <% } else if (postagem.categoria===3) { %>
-                        <% if (postagem.subcategorias) { %>
-                        <figure class="hashtags">
-                           <p class="hashtags-texto-bemestar">
-                              <%= postagem.subcategorias ? postagem.subcategorias.replace(/,\s*/g, ' - ' )
-                                 : 'Nenhuma subcategoria indicada' %>
-                           </p>
-                        </figure>
-                        <% } %>
-                        <aside class="estrelas_bemestar">
+                        <aside class="estrelas_culinaria">
                            <article class="avalie">
                               <h1 class="gostou">GOSTOU?</h1>
                               <h2 class="p-aval">Avalie essa dica!</h2>
@@ -281,20 +213,91 @@
 
                               <div class="rate" id="rating-container">
                                  <input type="radio" id="star5" name="nota" value="5" />
-                                 <label class="label_bemestar" for="star5" title="5 stars"></label>
+                                 <label class="label_culinaria" for="star5" title="5 stars"></label>
                                  <input type="radio" id="star4" name="nota" value="4" />
-                                 <label class="label_bemestar" for="star4" title="4 stars"></label>
+                                 <label class="label_culinaria" for="star4" title="4 stars"></label>
                                  <input type="radio" id="star3" name="nota" value="3" />
-                                 <label class="label_bemestar" for="star3" title="3 stars"></label>
+                                 <label class="label_culinaria" for="star3" title="3 stars"></label>
                                  <input type="radio" id="star2" name="nota" value="2" />
-                                 <label class="label_bemestar" for="star2" title="2 stars"></label>
+                                 <label class="label_culinaria" for="star2" title="2 stars"></label>
                                  <input type="radio" id="star1" name="nota" value="1" />
-                                 <label class="label_bemestar" for="star1" title="1 star"></label>
+                                 <label class="label_culinaria" for="star1" title="1 star"></label>
                               </div>
-                              <button type="submit" class="botao-enviar-avaliacao-BemEstar">Enviar Avaliação</button>
+                              <button type="submit" class="botao-enviar-avaliacao-Culinaria">Enviar Avaliação</button>
                            </form>
                         </aside>
-                        <% } %>
+                        <% } else if (postagem.categoria===2) { %>
+                           <% if (postagem.subcategorias) { %>
+                              <figure class="hashtags">
+                                 <p class="hashtags-texto-limpeza">
+                                    <%= postagem.subcategorias ? postagem.subcategorias.replace(/,\s*/g, ' - ' )
+                                       : 'Nenhuma subcategoria indicada' %>
+                                 </p>
+                              </figure>
+                              <% } %>
+                                 <aside class="estrelas_limpeza">
+                                    <article class="avalie">
+                                       <h1 class="gostou">GOSTOU?</h1>
+                                       <h2 class="p-aval">Avalie essa dica!</h2>
+                                    </article>
+                                    <form action="/avaliar" method="POST">
+                                       <input type="hidden" name="conteudo_id" value="<%= postagem.id %>">
+                                       <input type="hidden" name="categorias_id" value="<%= postagem.categoria %>">
+                                       <input type="hidden" name="clientes_id" value="<%= usuario_logado %>">
+
+                                       <div class="rate" id="rating-container">
+                                          <input type="radio" id="star5" name="nota" value="5" />
+                                          <label class="label_limpeza" for="star5" title="5 stars"></label>
+                                          <input type="radio" id="star4" name="nota" value="4" />
+                                          <label class="label_limpeza" for="star4" title="4 stars"></label>
+                                          <input type="radio" id="star3" name="nota" value="3" />
+                                          <label class="label_limpeza" for="star3" title="3 stars"></label>
+                                          <input type="radio" id="star2" name="nota" value="2" />
+                                          <label class="label_limpeza" for="star2" title="2 stars"></label>
+                                          <input type="radio" id="star1" name="nota" value="1" />
+                                          <label class="label_limpeza" for="star1" title="1 star"></label>
+                                       </div>
+                                       <button type="submit" class="botao-enviar-avaliacao-Limpeza">Enviar
+                                          Avaliação</button>
+                                    </form>
+                                 </aside>
+                                 <% } else if (postagem.categoria===3) { %>
+                                    <% if (postagem.subcategorias) { %>
+                                       <figure class="hashtags">
+                                          <p class="hashtags-texto-bemestar">
+                                             <%= postagem.subcategorias ? postagem.subcategorias.replace(/,\s*/g, ' - '
+                                                ) : 'Nenhuma subcategoria indicada' %>
+                                          </p>
+                                       </figure>
+                                       <% } %>
+                                          <aside class="estrelas_bemestar">
+                                             <article class="avalie">
+                                                <h1 class="gostou">GOSTOU?</h1>
+                                                <h2 class="p-aval">Avalie essa dica!</h2>
+                                             </article>
+                                             <form action="/avaliar" method="POST">
+                                                <input type="hidden" name="conteudo_id" value="<%= postagem.id %>">
+                                                <input type="hidden" name="categorias_id"
+                                                   value="<%= postagem.categoria %>">
+                                                <input type="hidden" name="clientes_id" value="<%= usuario_logado %>">
+
+                                                <div class="rate" id="rating-container">
+                                                   <input type="radio" id="star5" name="nota" value="5" />
+                                                   <label class="label_bemestar" for="star5" title="5 stars"></label>
+                                                   <input type="radio" id="star4" name="nota" value="4" />
+                                                   <label class="label_bemestar" for="star4" title="4 stars"></label>
+                                                   <input type="radio" id="star3" name="nota" value="3" />
+                                                   <label class="label_bemestar" for="star3" title="3 stars"></label>
+                                                   <input type="radio" id="star2" name="nota" value="2" />
+                                                   <label class="label_bemestar" for="star2" title="2 stars"></label>
+                                                   <input type="radio" id="star1" name="nota" value="1" />
+                                                   <label class="label_bemestar" for="star1" title="1 star"></label>
+                                                </div>
+                                                <button type="submit" class="botao-enviar-avaliacao-BemEstar">Enviar
+                                                   Avaliação</button>
+                                             </form>
+                                          </aside>
+                                          <% } %>
             </section>
          </section>
 
@@ -658,7 +661,7 @@
                                        </article>
 
 
-<!--                                        <article class="comentarios">
+                                       <!--                                        <article class="comentarios">
                                           <h1 class="comem-titulo">13 Comentários</h1>
                                           <aside class="filtrod">
                                              <img src="/imagens-svg/2-body/filtro-icon-roxoescuro.svg " alt="filtro">
