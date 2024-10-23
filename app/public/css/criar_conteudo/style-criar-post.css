@@ -1,4 +1,4 @@
-@media only screen and (max-width: 480px) {
+@media only screen and (max-width: 600px) {
 
   @font-face {
     font-family: Heavitas;
@@ -21,23 +21,19 @@
     margin: 0;
   }
 
-  .conteudo-dispositivo.mobile {
-    display: block;
-    width: 100vw;
-  }
-
   #criar-post-cancela-mb {
-    width: 66.4%;
-    height: 6.4%;
+    display: flex;
+    width: 100%;
     margin-left: 6.4%;
     margin-top: 5.06%;
+    margin-bottom: 5.06%;
     background-color: #ffffff;
   }
 
   #cancela-criar-post-mb {
     display: inline-block;
     color: #4d16bb;
-    font-size: 130%;
+    font-size: 100%;
     background-color: rgba(255, 255, 255, 0);
     box-sizing: border-box;
     font-family: "Heavitas", sans-serif;
@@ -48,13 +44,13 @@
 
   #titulo-criar-post-mb {
     display: inline-block;
-    width: 45.86%;
+    width: 100%;
     background-color: rgba(255, 255, 255, 0);
     font-family: "Heavitas", sans-serif;
     color: #4d16bb;
-    margin-left: 20vw;
-    font-size: 120%;
-    white-space: nowrap;
+    margin-left: 5vw;
+    font-size: 100%;
+    word-wrap: break-word;
   }
 
   .linha-baixo-mb {
@@ -109,12 +105,12 @@
 
   #conteudoTarefa2-mb {
     left: 0;
- 
+
   }
 
   #conteudoTarefa3-mb {
     left: 0;
-  
+
   }
 
   #detalhes-mb {
@@ -125,7 +121,7 @@
     text-align: left;
     line-height: normal;
     font-size: 180%;
-  overflow: hidden;
+    overflow: hidden;
     margin-left: 7vw;
   }
 
@@ -253,13 +249,13 @@
     width: 100vw;
   }
 
-  #icon-seta-select-mb {
+  #icon-seta-select {
     margin-left: -8vw;
     transform: rotate(180deg);
   }
 
 
-  .dialogoselect-mb {
+  .dialogoselect {
     margin-left: 7vw;
     margin-top: 5vw;
     padding-left: 1.06vw;
@@ -270,11 +266,11 @@
     border: 1px solid #979797;
 
     &::-webkit-input-placeholder {
-    font-family: "Fira Sans Bold", "Fira Sans", sans-serif;
-    font-weight: 700;
-    color: #333333;
-    text-align: left;
-    font-size: 140%;
+      font-family: "Fira Sans Bold", "Fira Sans", sans-serif;
+      font-weight: 700;
+      color: #333333;
+      text-align: left;
+      font-size: 140%;
     }
 
     &:focus {
@@ -285,65 +281,58 @@
       border-bottom: 0;
       border-bottom-right-radius: 0;
       border-bottom-left-radius: 0;
+
       &::-webkit-input-placeholder {
         color: #CB218C;
-      font-family: "Fira Sans Bold", "Fira Sans", sans-serif;
-      font-weight: 700;
-      text-align: left;
-      font-size: 140%;
+        font-family: "Fira Sans Bold", "Fira Sans", sans-serif;
+        font-weight: 700;
+        text-align: left;
+        font-size: 140%;
       }
     }
   }
 
-  
-  .dialogoselect-mb.categoria-culinaria {
+
+  .dialogoselect.categoria-culinaria {
     background-color: #cb2154;
-    
-    &::-webkit-input-placeholder {
-      color: #ffff;
+    color: #ffff;
     font-family: "Fira Sans Bold", "Fira Sans", sans-serif;
     font-weight: 700;
     text-align: left;
     font-size: 140%;
-    }
   }
 
-  .dialogoselect-mb.categoria-limpeza {
+  .dialogoselect.categoria-limpeza {
     background-color: #027de1;
-    
-    &::-webkit-input-placeholder {
-      color: #ffff;
-      font-family: "Fira Sans Bold", "Fira Sans", sans-serif;
-      font-weight: 700;
-      text-align: left;
-      font-size: 140%;
-    }
+    color: #ffff;
+    font-family: "Fira Sans Bold", "Fira Sans", sans-serif;
+    font-weight: 700;
+    text-align: left;
+    font-size: 140%;
+
   }
 
-  .dialogoselect-mb.categoria-bemestar {
+  .dialogoselect.categoria-bemestar {
     background-color: #00cd83;
-    
-    &::-webkit-input-placeholder {
-      color: #ffff;
-      font-family: "Fira Sans Bold", "Fira Sans", sans-serif;
-      font-weight: 700;
-      text-align: left;
-      font-size: 140%;
-    }
+    color: #ffff;
+    font-family: "Fira Sans Bold", "Fira Sans", sans-serif;
+    font-weight: 700;
+    text-align: left;
+    font-size: 140%;
   }
 
-  .dropDown-mb {
+  .dropDown {
     box-sizing: border-box;
     width: 87vw;
-    height: 36vw;
+    height: 40vw;
     margin-left: 7vw;
     padding-top: 3.2vw;
-    padding-left: 12vw;
+    padding-left: 3vw;
     border-radius: 5px;
     background-color: #f2f2f2;
     font-family: "Arial Bold", "Arial Normal", "Arial", sans-serif;
     font-weight: 700;
-    font-size: 100%;
+    font-size: 120%;
     border: 2px #cb218c solid;
     border-top: 0;
     border-top-left-radius: 0;
@@ -351,7 +340,7 @@
     display: none;
   }
 
-  #icon-dropdown-mb {
+  #icon-dropdown {
     width: 8vw;
     height: 8vw;
     position: absolute;
@@ -359,7 +348,7 @@
   }
 
 
-  .item-select-detalhes-mb{
+  .item-select-detalhes {
     background-color: #f2f2f2;
     font-family: "Arial Bold", "Arial Normal", "Arial", sans-serif;
     font-size: 100%;
@@ -370,11 +359,15 @@
     margin-left: 2vw;
   }
 
-  #item-select-detalhes-mb-1 {
+  #item-select-detalhes-1 {
     margin-bottom: 5.86%;
   }
 
-  #item-select-detalhes-mb-2 {
+  #item-select-detalhes-2 {
+    margin-bottom: 5.86%;
+  }
+
+  #item-select-detalhes-3 {
     margin-bottom: 5.86%;
   }
 
@@ -411,9 +404,10 @@
     padding: 2px 2px 2px 2px;
     box-sizing: border-box;
     fill: #909090;
+    margin-bottom: -3vw;
   }
 
-  #tempo-detalhes-porcoes-mb {
+  #tempo-detalhes-porcoes {
     display: none;
     align-items: center;
     margin-top: 5.6vw;
@@ -481,7 +475,7 @@
     }
   }
 
-  #porcoes-tempo-detalhes-mb{
+  #porcoes-tempo-detalhes-mb {
     width: 9.06vw;
     height: 9.33vw;
     border: 0;
@@ -554,7 +548,7 @@
     }
   }
 
-  #titulo-subcategoria-detalhes-mb {
+  #titulo-subcategoria-detalhes {
     font-family: "Arial Bold", "Arial Normal", "Arial", sans-serif;
     font-weight: 700;
     color: #333333;
@@ -562,16 +556,16 @@
     margin-bottom: 3vw;
   }
 
-  #subcategoria-detalhes-total-mb {
+  #subcategoria-detalhes-total {
     margin-top: 4.53vw;
     margin-left: 8vw;
   }
 
-  .input-container-mb {
+  .input-container {
     margin-bottom: 10%;
   }
 
-  #input-text-subcategoria-mb {
+  #input-text-subcategoria {
     display: inline-block;
     width: 87.2vw;
     height: 8.26vw;
@@ -589,7 +583,7 @@
     }
   }
 
-  #icon-mb {
+  #icon {
     display: inline-block;
     width: 5.06vw;
     height: 5.06vw;
@@ -597,7 +591,7 @@
     margin-bottom: -1.6vw;
   }
 
-  .message-list-mb {
+  .message-list {
     width: 82vw;
     height: 9vw;
     max-height: 200px;
@@ -609,7 +603,7 @@
     display: flex;
   }
 
-  .div-etiqueta-subcategoria-mb {
+  .div-etiqueta-subcategoria {
     width: relative;
     height: 4.8vw;
     border-radius: 6px;
@@ -798,7 +792,8 @@
     background-color: #f2f2f2;
     font-family: "Arial Bold", "Arial Normal", "Arial", sans-serif;
     font-weight: 700;
-    &:focus{
+
+    &:focus {
       outline: none;
     }
   }
@@ -813,7 +808,7 @@
     width: 1vw;
   }
 
-  .item-medidas-mb {
+  .item-medidas {
     width: 42vw;
     height: 4vw;
     margin-bottom: 7vw;
@@ -877,8 +872,8 @@
     padding-top: 4vw;
     text-align: center;
     position: absolute;
-    color: #979797;180
-    border-radius: 50%;
+    color: #979797;
+    180 border-radius: 50%;
     font-size: 110%;
     font-family: 'Heavitas', sans-serif;
   }
@@ -887,7 +882,7 @@
     margin-top: -11vw;
   }
 
-  #tudo-dos-clones-mb{
+  #tudo-dos-clones-mb {
     margin-top: 10vw;
   }
 
@@ -905,7 +900,7 @@
     position: absolute;
   }
 
-  #simbolo-do-numero-mb{
+  #simbolo-do-numero-mb {
     display: inline-block;
     font-family: "Fira Sans", sans-serif;
     font-size: 100%;
@@ -920,7 +915,7 @@
 
   #modo-de-preparo-mb {
     box-sizing: border-box;
-   
+
   }
 
   #modo-de-preparo-titulo-mb {
@@ -932,13 +927,13 @@
     font-size: 130%;
   }
 
-  #modo-de-preparo-NaN-mb{
+  #modo-de-preparo-NaN-mb {
     box-sizing: border-box;
     margin-left: 6.4vw;
     border-left: 1vw #9e5fef solid;
   }
 
-  #passo-a-passo-modo-mb{
+  #passo-a-passo-modo-mb {
     margin-left: 4.4vw;
     margin-top: 3vw;
     font-family: "Fira Sans Bold", "Fira Sans", sans-serif;
@@ -948,21 +943,21 @@
     text-align: left;
   }
 
-  #modo-de-preparo-mb-NaN{
+  #modo-de-preparo-mb-NaN {
     margin-left: 5vw;
   }
 
-  #botoes-de-tirar-colocar-mb{
+  #botoes-de-tirar-colocar-mb {
     margin-left: 80vw;
     margin-top: -12vw;
   }
 
-  #linhas-roxa-conteudo-mb{
+  #linhas-roxa-conteudo-mb {
     border-left: 1vw #9e5fef solid;
     margin-left: 5vw;
   }
-  
-  #input-modo-de-preparo-mb{
+
+  #input-modo-de-preparo-mb {
     width: 68vw;
     height: 9%;
     padding: 2px 2px 2px 2px;
@@ -993,14 +988,14 @@
     }
   }
 
-  #apagar-modo-de-preparo-mb{
+  #apagar-modo-de-preparo-mb {
     background: none;
     color: #979797;
     border: none;
     display: inline-block;
   }
 
-  -webkit-input-placeholder{
+  -webkit-input-placeholder {
     color: #000;
   }
 }

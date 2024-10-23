@@ -42,143 +42,7 @@ btnVoltar.addEventListener('click', () => {
         mostrarArtigo(currentIndex);
     }
 });
-
-// Exibe o primeiro artigo ao carregar a página
 mostrarArtigo(currentIndex);
-
-
-// document.addEventListener("DOMContentLoaded", function () {
-//     const itens = document.querySelectorAll(".tarefa-mb");
-//     const progresso = document.getElementById("progresso-mb");
-//     const btnAvancar = document.getElementById("btnAvancar-mb");
-//     const btnVoltar = document.getElementById("btnVoltar-mb");
-//     const conteudos = document.querySelectorAll(".conteudo-mb");
-
-//     let currentIndex = 0;
-
-//     function handleItemClick(event) {
-//         currentIndex = Array.from(itens).indexOf(event.target);
-//         // Remova a classe 'ativo' de todos os botões de tarefa
-//         itens.forEach(function (item) {
-//             item.classList.remove("ativo");
-//         });
-//         // Adicione a classe 'ativo' ao botão de tarefa atual
-//         event.target.classList.add("ativo");
-
-//         // Define a largura da linha de progresso para corresponder ao botão atual
-//         const itemWidth = 100 / itens.length;
-//         const progressoWidth = itemWidth * (itens.length - (currentIndex + 1)); // Calcula a largura do progresso de trás para frente
-//         progresso.style.width = progressoWidth + "%";
-
-//         // Altera o nome do botão "Avançar" para "Criar Post" na Tarefa 3
-//         if (currentIndex === 2) {
-//             btnAvancar.innerText = "CRIAR DICA";
-//         } else {
-//             btnAvancar.innerText = "PRÓXIMA ETAPA...";
-//         }
-
-//         // Mostrar ou ocultar o botão de voltar com base na posição atual
-//         if (currentIndex === 0) {
-//             btnVoltar.style.display = "none";
-//         } else {
-//             btnVoltar.style.display = "block";
-//         }
-
-//         // Oculta todos os conteúdos de tarefas
-//         conteudos.forEach(function (conteudo, index) {
-//             if (index < currentIndex) {
-//                 conteudo.style.transform = "translateX(-100%)"; // Esconde à esquerda
-//             } else if (index === currentIndex) {
-//                 conteudo.style.transform = "translateX(0%)"; // Mostra o conteúdo atual
-//             } else {
-//                 conteudo.style.transform = "translateX(100%)"; // Esconde à direita
-//             }
-//         });
-//     }
-
-//     // Adiciona um ouvinte de evento de clique ao botão "Avançar"
-//     btnAvancar.addEventListener("click", function () {
-//         const nextIndex = currentIndex + 1;
-//         if (nextIndex < itens.length) {
-//             handleItemClick({ target: itens[nextIndex] });
-//         }
-//     });
-
-//     // Adiciona um ouvinte de evento de clique ao botão "Voltar"
-//     btnVoltar.addEventListener("click", function () {
-//         const prevIndex = currentIndex - 1;
-//         if (prevIndex >= 0) {
-//             handleItemClick({ target: itens[prevIndex] });
-//         }
-//     });
-
-//     // Inicialmente, definir a largura da linha de progresso e mostrar o conteúdo da Tarefa 1
-//     handleItemClick({ target: itens[currentIndex] });
-// });
-
-function categor(categorId) {
-    const inputElement = document.querySelector('.dialogoselect-mb');
-    const itemElement = document.getElementById('item-select-detalhes-mb-' + categorId);
-    const section = document.getElementById('tempo-detalhes-porcoes-mb');
-
-    if (!inputElement || !itemElement) {
-        console.error('Elemento não encontrado para o ID: ' + (inputElement ? categorId : 'input'));
-        return;
-    }
-
-    // Remove classes de categoria
-    inputElement.classList.remove('categoria-culinaria', 'categoria-limpeza', 'categoria-bemestar');
-
-    // Adiciona a classe correspondente e define o display da seção
-    switch (categorId) {
-        case 1:
-            inputElement.classList.add('categoria-culinaria');
-            section.style.display = 'flex'; // Exibe a seção
-            break;
-        case 2:
-        case 3:
-            inputElement.classList.add(categorId === 2 ? 'categoria-limpeza' : 'categoria-bemestar');
-            section.style.display = 'none';  // Oculta a seção
-            break;
-        default:
-            console.warn('ID de categoria inválido: ' + categorId);
-            return;
-    }
-
-    // Atualiza o placeholder e o valor do input
-    inputElement.placeholder = itemElement.innerText;
-    inputElement.value = itemElement.innerText;
-}
-
-
-document.addEventListener("DOMContentLoaded", function () {
-    const inputSelect = document.getElementById("dialogoselect-mb");
-    const dropdownMenu = document.getElementById("dropdown-mb");
-    const categoryItems = document.querySelectorAll(".item-select-detalhes-mb");
-
-    // Evento para abrir/fechar o dropdown ao clicar no input
-    inputSelect.addEventListener("click", function () {
-        // Alterna o display do dropdown (mostra ou oculta)
-        dropdownMenu.style.display = dropdownMenu.style.display === "none" ? "block" : "none";
-    });
-
-    // Evento para selecionar uma categoria
-    categoryItems.forEach(item => {
-        item.addEventListener("click", function () {
-            const selectedCategory = item.getAttribute("data-category");
-            inputSelect.value = selectedCategory; // Atualiza o valor do input com a categoria selecionada
-            dropdownMenu.style.display = "none"; // Fecha o dropdown após a seleção
-        });
-    });
-
-    // Fecha o dropdown ao clicar fora do mesmo
-    document.addEventListener("click", function (event) {
-        if (!inputSelect.contains(event.target) && !dropdownMenu.contains(event.target)) {
-            dropdownMenu.style.display = "none";
-        }
-    });
-});
-
 
 function adicionarMensagemmb() {
     const inputText = document.getElementById('input-text-subcategoria-mb');
@@ -212,62 +76,6 @@ function atualizarCampoOculto() {
         .map(div => div.textContent.trim());
 
     hiddenInput.value = subcategorias.join(', ');
-}
-
-window.onload = function () {
-
-    // Check File API support
-    if (window.File && window.FileList && window.FileReader) {
-        var filesInput = document.getElementById("files-mb");
-        var output = document.getElementById("result-mb");
-        var retanguloAdicionarMidia = document.getElementById("retangulo-adicionar-midia-mb");
-
-        retanguloAdicionarMidia.addEventListener("click", function () {
-            filesInput.click(); // Clique no input de arquivo
-        });
-
-        filesInput.addEventListener("change", function (event) {
-
-            var files = event.target.files; // FileList object
-
-            for (var i = 0; i < files.length; i++) {
-                var file = files[i];
-
-                // Only pics
-                if (!file.type.match('image')) continue;
-
-                var picReader = new FileReader();
-
-                picReader.addEventListener("load", function (event) {
-                    var picFile = event.target;
-                    var thumbnailContainer = document.createElement("div");
-                    thumbnailContainer.className = "thumbnail-container-mb";
-
-                    var closeButton = document.createElement("span");
-                    closeButton.className = "close-button-mb";
-                    closeButton.innerHTML = "X";
-
-                    closeButton.addEventListener("click", function () {
-                        thumbnailContainer.remove();
-                    });
-
-                    var thumbnail = document.createElement("img");
-                    thumbnail.className = 'thumbnail-mb';
-                    thumbnail.src = picFile.result;
-                    thumbnail.title = picFile.name;
-
-                    thumbnailContainer.appendChild(thumbnail);
-                    thumbnailContainer.appendChild(closeButton);
-                    output.appendChild(thumbnailContainer);
-                });
-
-                // Read the image
-                picReader.readAsDataURL(file);
-            }
-        });
-    } else {
-        console.log("Your browser does not support File API");
-    }
 }
 
 //botoes de criar e tirar ingredientes
@@ -423,3 +231,76 @@ function atualizarNumeracaombmb() {
 document.addEventListener('DOMContentLoaded', function() {
     atualizarNumeracaombmb();
 });
+
+// Função para pegar os parâmetros da URL
+function getQueryParams() {
+    const params = new URLSearchParams(window.location.search);
+    return {
+        perguntaId: params.get('perguntaId'),
+        perguntaTitulo: params.get('perguntaTitulo')
+    };
+}
+
+window.onload = function() {
+    // Função de obter parâmetros da URL e atualizar o título
+    const { perguntaId, perguntaTitulo } = getQueryParams();
+    if (perguntaTitulo) {
+        document.getElementById('titulo-criar-post-mb').innerText = `CRIAR PATINHA: ${perguntaTitulo}`;
+    }
+
+    // Função para lidar com o File API
+    if (window.File && window.FileList && window.FileReader) {
+        var filesInput = document.getElementById("files-mb");
+        var output = document.getElementById("result-mb");
+        var retanguloAdicionarMidia = document.getElementById("retangulo-adicionar-midia-mb");
+
+        retanguloAdicionarMidia.addEventListener("click", function () {
+            filesInput.click(); // Clique no input de arquivo
+        });
+
+        filesInput.addEventListener("change", function (event) {
+            var files = event.target.files; // FileList object
+
+            for (var i = 0; i < files.length; i++) {
+                var file = files[i];
+
+                // Only pics
+                if (!file.type.match('image')) continue;
+
+                var picReader = new FileReader();
+
+                picReader.addEventListener("load", function (event) {
+                    var picFile = event.target;
+                    var thumbnailContainer = document.createElement("div");
+                    thumbnailContainer.className = "thumbnail-container-mb";
+
+                    var closeButton = document.createElement("span");
+                    closeButton.className = "close-button-mb";
+                    closeButton.innerHTML = "X";
+
+                    closeButton.addEventListener("click", function () {
+                        thumbnailContainer.remove();
+                    });
+
+                    var thumbnail = document.createElement("img");
+                    thumbnail.className = 'thumbnail-mb';
+                    thumbnail.src = picFile.result;
+                    thumbnail.title = picFile.name;
+
+                    thumbnailContainer.appendChild(thumbnail);
+                    thumbnailContainer.appendChild(closeButton);
+                    output.appendChild(thumbnailContainer);
+                });
+
+                // Read the image
+                picReader.readAsDataURL(file);
+            }
+        });
+    } else {
+        console.log("Your browser does not support File API");
+    }
+};
+
+function goBack() {
+    window.history.back();
+  }

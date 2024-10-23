@@ -1,4 +1,4 @@
-@media only screen and (min-width: 481px) {
+@media only screen and (min-width: 601px) {
 
   #conteudo-dispositivo-mobile {
     display: none;
@@ -62,7 +62,7 @@
   .mapa-do-sitefav {
     display: flex;
     margin-bottom: 2%;
-    margin-top: 15vh;
+    margin-top: 5vh;
   }
 
   .mapa-do-sitefav p {
@@ -160,7 +160,7 @@
   }
 }
 
-@media only screen and (max-width: 480px) {
+@media only screen and (max-width: 600px) {
 
   #conteudo-dispositivo-mobile {
     display: none;

@@ -1,189 +1,240 @@
-@media only screen and (max-width: 480px) {
-    * {
-      font-family: Heavitas;
+@media only screen and (max-width: 600px) {
+  * {
+    font-family: Heavitas;
     padding: 0;
     margin: 0;
-    }
-    @font-face{
-      font-family: Heavitas;
-      src: url("../fonts/Heavitas.ttf");
-    }
-    @font-face{
-      font-family: Fira Sans Bold;
-      src: url("../fonts/fira-sans.bold.ttf");
-    }
-    @font-face{
-      font-family: Fira Sans;
-      src: url("../fonts/fira-sans.regular.ttf");
-    }
-    /* INÍCIO - HEADER MOBILE - SEM LOGIN */
-      
-    .logos {
-      display: flex;
-      justify-content: space-around;
-      height: 70px;
-      box-shadow: 1px 5px 5px rgb(173, 173, 173);
-      background-color: white;
-      }
-      
-      .logo {
-      margin-top: 5px;
-      margin-right: 50px;
-      margin-left: 50px;
-      
-      }
-      .logo img {
-      max-width: 50px;
-      margin-top: 5px;
-      align-self: center;
-      }
-    
-      .search img {
-      max-width: 26px;
-      }
-      .login {
-      margin-top: 9px;
-      margin-left: 18px;
-      margin-right: -7px;
-      position: relative;
-      display: inline-block;
-      }
-      .topcs {
-      background-color: #5417bd;
-      background-image: linear-gradient(to right, #5417bd, #9d21cb);
-      display: flex;
-      justify-content: center;
-      justify-content: space-around;
-      height: 38px;
-      }
-      .topcs a {
-      text-decoration: none;
-      color: white;
-      margin-top: 9px;
-      font-size: 14px;
-      }
-      .search {
-        margin-top: 2vh;
-        display: flex;
-      }
-      .search img {
-        display: inline-block;
-        max-width: 4.5vh;
-        max-height: 4.5vh;
-      }
-      #hide-hover-search input{
-        margin-top: 1.5vh;
-        color: #474747;
-        border-top: 0px solid;
-        border-left: 0px solid;
-        border-right: 0px solid;
-        border-bottom: 0.3vh solid #9d21cb;
-        font-family: Fira Sans;
-        width: 9vh;
-        font-size: 1.6vh;
-        margin-right: 2vh;
-        display: none;
-      }
-      #hide-hover-search input:focus {
-        outline: none;
-    }
-      .culinaria {
-      margin-left: 13.14px;
-      font-family: Fira Sans Bold;
-      font-weight: 700;
-      margin-top: 12px;
-      }
-      .bem-estar {
-      margin-right: 8.59px;
-      font-family: Fira Sans Bold;
-      margin-top: 12px;
-      font-weight: 700;
-      }
-      .limpeza{
-          font-family: Fira Sans Bold;
-          text-align: center;
-          margin-top: 12px;
-          font-weight: 700;
-      }
-    
-      
-    
-    /* Login & Perfil - Inicio */
-    .link-login{
-      text-decoration: none;
-    }
-    .login {
-      margin-top: 1.5vh;
-      align-items: center;
-      height: 5.5vh;
-      display: flex;
-      border-top-left-radius: 20px;
-      border-top-right-radius: 20px;
-      cursor: pointer;
-    }
-    .login:hover{
-      background-color: #f5f0ff;
-    }
-    .login a{
-      height: 5.5vh;
-    }
-      #img-login_hover{
-      position: absolute;
-      max-width: 5.5vh;
-      display: none;  
-    }
-    #img-login{
-      max-width: 5.5vh;
-      display: inline-block;
-    }
-    #img-usuario{
-      width: 5.5vh;
-      height: 5.5vh;
-      display: inline-block;
-      border-radius: 50%;
-    }
-
-    #hide-hover-span {
-      color: #474747;
-      display: none;
-      margin-left: 1vh;
-    } 
-    #hide-hover-span p{
-      text-align: left;
-      font-family: Fira Sans Bold;
-    }
-    
-    .p-1{
-      display: none;
-    }
-    .p-2{
-      font-size: 1.5vh;
-    }
-
-    .cabecalho_seta_abrir_menu{
-      justify-content: center;
-      display: none;
-    }
-    .seta{
-      width: 1vh;
-      height: 1vh;
-      display: inline-block;
-    }
-    .seta_hover{
-      width: 2vh;
-      height: 2vh;
-      display: inline-block;
-      display: none;
-    }
-    .seta_hover.rotated {
-      transform: rotate(180deg);
   }
-    /* Login & Perfil - Fim */
-    
+
+  @font-face {
+    font-family: Heavitas;
+    src: url("../fonts/Heavitas.ttf");
+  }
+
+  @font-face {
+    font-family: Fira Sans Bold;
+    src: url("../fonts/fira-sans.bold.ttf");
+  }
+
+  @font-face {
+    font-family: Fira Sans;
+    src: url("../fonts/fira-sans.regular.ttf");
+  }
+
+  /* INÍCIO - HEADER MOBILE - SEM LOGIN */
+
+  .logos {
+    display: flex;
+    justify-content: space-around;
+    height: 70px;
+    box-shadow: 1px 5px 5px rgb(173, 173, 173);
+    background-color: white;
+  }
+
+  .logo {
+    margin-top: 5px;
+    margin-right: 50px;
+    margin-left: 50px;
+
+  }
+
+  .logo img {
+    max-width: 50px;
+    margin-top: 5px;
+    align-self: center;
+  }
+
+  .search img {
+    max-width: 26px;
+  }
+
+  .login {
+    margin-top: 9px;
+    margin-left: 18px;
+    margin-right: -7px;
+    position: relative;
+    display: inline-block;
+  }
+
+  .topcs {
+    background-color: #5417bd;
+    background-image: linear-gradient(to right, #5417bd, #9d21cb);
+    display: flex;
+    justify-content: center;
+    justify-content: space-around;
+    height: 38px;
+  }
+
+  .topcs a {
+    text-decoration: none;
+    color: white;
+    margin-top: 9px;
+    font-size: 14px;
+  }
+
+  .search {
+    margin-top: 2vh;
+    display: flex;
+  }
+
+  .search img {
+    display: inline-block;
+    max-width: 4vh;
+    max-height: 4vh;
+  }
+
+
+  #hide-hover-search input {
+    margin-top: 1.5vh;
+    color: #474747;
+    border-top: 0px solid;
+    border-left: 0px solid;
+    border-right: 0px solid;
+    border-bottom: 0.3vh solid #5f25d1;
+    width: 9vh;
+    font-size: 1.6vh;
+    margin-right: 2vh;
+    font-family: Fira Sans Bold;
+    font-weight: 700;
+    background: none;
+
+    &::-webkit-input-placeholder {
+      color: #adadad;
+    font-family: Fira Sans Bold;
+    }
+  }
+
+  #hide-hover-search{
+    position: absolute;
+    margin-left: -17vw;
+    margin-top: 1vw;
+  }
+
+  #hide-hover-search input:focus {
+    outline: none;
+  }
+
+  .culinaria {
+    margin-left: 13.14px;
+    font-family: Fira Sans Bold;
+    font-weight: 700;
+    margin-top: 12px;
+  }
+
+  .bem-estar {
+    margin-right: 8.59px;
+    font-family: Fira Sans Bold;
+    margin-top: 12px;
+    font-weight: 700;
+  }
+
+  .limpeza {
+    font-family: Fira Sans Bold;
+    text-align: center;
+    margin-top: 12px;
+    font-weight: 700;
+  }
+
+  .cabecalho_limpeza {
+    background: #027de1;
+  }
+
+  .cabecalho_culinaria {
+    background: #cb1154;
+  }
+
+  .cabecalho_bemestar {
+    background: #00cd83;
+  }
+
+
+  /* Login & Perfil - Inicio */
+  .link-login {
+    text-decoration: none;
+  }
+
+  .login {
+    margin-top: 1.5vh;
+    align-items: center;
+    height: 5.5vh;
+    display: flex;
+    border-top-left-radius: 20px;
+    border-top-right-radius: 20px;
+    cursor: pointer;
+  }
+
+  .login:hover {
+    background-color: #f5f0ff;
+  }
+
+  .login a {
+    height: 5.5vh;
+  }
+
+  #img-login_hover {
+    position: absolute;
+    max-width: 5.5vh;
+    display: none;
+  }
+
+  #img-login {
+    max-width: 5.5vh;
+    display: inline-block;
+  }
+
+  #img-usuario {
+    width: 5.5vh;
+    height: 5.5vh;
+    display: inline-block;
+    border-radius: 50%;
+  }
+
+  #hide-hover-span {
+    color: #474747;
+    display: none;
+    margin-left: 1vh;
+  }
+
+  #hide-hover-span p {
+    text-align: left;
+    font-family: Fira Sans Bold;
+  }
+
+  .p-1 {
+    display: none;
+  }
+
+  .p-2 {
+    font-size: 1.5vh;
+  }
+
+  .cabecalho_seta_abrir_menu {
+    justify-content: center;
+    display: none;
+  }
+
+  .seta {
+    width: 1vh;
+    height: 1vh;
+    display: inline-block;
+  }
+
+  .seta_hover {
+    width: 2vh;
+    height: 2vh;
+    display: inline-block;
+    display: none;
+  }
+
+  .seta_hover.rotated {
+    transform: rotate(180deg);
+  }
+
+  /* Login & Perfil - Fim */
+
   /* Categorias - Fim */
 
   /* Menu Hamburguer - Inicio */
-  .menu_hamburguer_usuario{
+  .menu_hamburguer_usuario {
     display: none;
     position: absolute;
     margin-top: 8vh;
@@ -196,235 +247,263 @@
     border-bottom-right-radius: 10px;
     z-index: 999;
   }
-  .menu_hamburguer_usuario a{
+
+  .menu_hamburguer_usuario a {
     text-decoration: none;
   }
-  .opcao_menu_hamburguer{
+
+  .opcao_menu_hamburguer {
     padding: 1.5vh 5vh 2vh 5vh;
     color: #9d21cb;
   }
-  .opcao_menu_hamburguer:hover{
+
+  .opcao_menu_hamburguer:hover {
     background-color: rgba(255, 214, 98, 1);
   }
-  .opcao_menu_hamburguer.ultimo:hover{
+
+  .opcao_menu_hamburguer.ultimo:hover {
     border-bottom-left-radius: 10px;
     border-bottom-right-radius: 10px;
   }
+
   .menu_hamburguer_usuario a:last-child {
     border-bottom-left-radius: 10px;
     border-bottom-right-radius: 10px;
   }
+
   /* Menu Hamburguer - Fim */
-    
+
   /* FIM - HEADER DESKTOP - SEM LOGIN */
 }
-    /* FIM - HEADER MOBILE - SEM LOGIN */
+
+/* FIM - HEADER MOBILE - SEM LOGIN */
 
 
-@media only screen and (min-width: 480px) {
-/* INIÍCIO - HEADER DESKTOP - SEM LOGIN */
-    * {
-      font-family: Heavitas;
-      padding: 0;
-      margin: 0;
-    }
-    @font-face{
-      font-family: Heavitas;
-      src: url("../fonts/Heavitas.ttf");
-    }
-    @font-face{
-      font-family: Fira Sans Bold;
-      src: url("../fonts/fira-sans.bold.ttf");
-    }
-    @font-face{
-      font-family: Fira Sans;
-      src: url("../fonts/fira-sans.regular.ttf");
-    }
-    /* Header inteiro - Inicio */
-    .header-dispositivo-mobile{
-      display: none;
-    }
-    .header-dispositivo-desktop{
-      position: fixed;
-      z-index: 100;
-      width: 100%;
-      top: 0;
-    }
-    main{
-      margin-top: 13.5vh;
-    }
-    .logos {
-      display: flex;
-      justify-content: space-around;
-      height: 9vh;
-      box-shadow: 1px 5px 5px rgba(87, 87, 87, 0.377);
-      background-color: white;
-      z-index: 100;
-      position: relative;
-    }
-    .topcs {
-      display: flex;
-      justify-content: space-around;
-      height: 4.5vh;
-      position: relative;
-      z-index: 99;
-      transition: transform 0.2s ease-in-out;
-      }
-      .cor_cabecalho{
-        background: linear-gradient(to right, #5417bd, #9d21cb);
-      }
-    .topcs.hide{
-      transform: translateY(-100%);
-    }
-    .cabecalho_limpeza{
-      background: #027de1;
-    }
-    .cabecalho_culinaria{
-      background: #cb1154;
-    }
-    .cabecalho_bemestar{
-      background: #00cd83;
-    }
-    /* Header inteiro - Fim */
+@media only screen and (min-width: 601px) {
 
-    
-    /* Login & Perfil - Inicio */
-    .link-login{
-      text-decoration: none;
-    }
-    .login {
-      margin-top: 1.5vh;
-      align-items: center;
-      width: 29vh;
-      height: 5.5vh;
-      display: flex;
-      border-top-left-radius: 20px;
-      border-top-right-radius: 20px;
-      padding: 0.5vh;
-      cursor: pointer;
-    }
-    .login:hover{
-      background-color: #f5f0ff;
-    }
-    .login a{
-      height: 5.5vh;
-    }
-      #img-login_hover{
-      position: absolute;
-      max-width: 5.5vh;
-      display: none;  
-    }
-    #img-login{
-      max-width: 5.5vh;
-      display: inline-block;
-    }
-    #img-usuario{
-      width: 5.5vh;
-      height: 5.5vh;
-      display: inline-block;
-      border-radius: 50%;
-    }
-
-    #hide-hover-span {
-      color: #474747;
-      display: inline-block;
-      height: 4vh;
-      margin-left: 2vh;
-    } 
-    #hide-hover-span p{
-      text-align: left;
-      font-family: Fira Sans Bold;
-    }
-    
-    .p-1{
-      font-size: 1.5vh;
-    }
-    .p-2{
-      font-size: 2vh;
-    }
-
-    .cabecalho_seta_abrir_menu{
-      justify-content: center;
-      display: inline-block;
-      margin-left: 3vh;
-    }
-    .seta{
-      width: 2vh;
-      height: 2vh;
-      display: inline-block;
-    }
-    .seta_hover{
-      width: 2vh;
-      height: 2vh;
-      display: inline-block;
-      display: none;
-    }
-    .seta_hover.rotated {
-      transform: rotate(180deg);
+  /* INIÍCIO - HEADER DESKTOP - SEM LOGIN */
+  * {
+    font-family: Heavitas;
+    padding: 0;
+    margin: 0;
   }
-    /* Login & Perfil - Fim */
-   
-    
-    /* Logomarca CQF - Inicio */
-    .logo {
-      margin-top: 1vh;
-    
-    }
-    .logo img {
-      max-width: 7vh;
-    }
-    /* Logomarca CQF - Fim */
 
-    
-    /* Pesquisa - Inicio */
-    .search {
-      width: 30vh;
-      margin-top: 2vh;
-      display: flex;
-    }
-    .search img {
-      display: inline-block;
-      max-width: 4.5vh;
-      max-height: 4.5vh;
-    }
-    #hide-hover-search input{
-      margin-top: 1.5vh;
-      color: #474747;
-      border-top: 0px solid;
-      border-left: 0px solid;
-      border-right: 0px solid;
-      border-bottom: 0.3vh solid #9d21cb;
-      font-family: Fira Sans;
-      font-size: 2vh;
-      width: 23vh;
-      margin-right: 2vh;
-    }
-    #hide-hover-search input:focus {
-      outline: none;
+  @font-face {
+    font-family: Heavitas;
+    src: url("../fonts/Heavitas.ttf");
   }
+
+  @font-face {
+    font-family: Fira Sans Bold;
+    src: url("../fonts/fira-sans.bold.ttf");
+  }
+
+  @font-face {
+    font-family: Fira Sans;
+    src: url("../fonts/fira-sans.regular.ttf");
+  }
+
+  /* Header inteiro - Inicio */
+
+  .logos {
+    display: flex;
+    justify-content: space-around;
+    height: 9vh;
+    box-shadow: 1px 5px 5px rgba(87, 87, 87, 0.377);
+    background-color: white;
+    z-index: 100;
+    position: relative;
+  }
+
+  .topcs {
+    display: flex;
+    justify-content: space-around;
+    height: 4.5vh;
+    position: relative;
+    z-index: 99;
+    transition: transform 0.2s ease-in-out;
+  }
+
+  .cor_cabecalho {
+    background: linear-gradient(to right, #5417bd, #9d21cb);
+  }
+
+  .topcs.hide {
+    transform: translateY(-100%);
+  }
+
+  .cabecalho_limpeza {
+    background: #027de1;
+  }
+
+  .cabecalho_culinaria {
+    background: #cb1154;
+  }
+
+  .cabecalho_bemestar {
+    background: #00cd83;
+  }
+
+  /* Header inteiro - Fim */
+
+
+  /* Login & Perfil - Inicio */
+  .link-login {
+    text-decoration: none;
+  }
+
+  .login {
+    margin-top: 1.5vh;
+    align-items: center;
+    width: 29vh;
+    height: 5.5vh;
+    display: flex;
+    border-top-left-radius: 20px;
+    border-top-right-radius: 20px;
+    padding: 0.5vh;
+    cursor: pointer;
+  }
+
+  .login:hover {
+    background-color: #f5f0ff;
+  }
+
+  .login a {
+    height: 5.5vh;
+  }
+
+  #img-login_hover {
+    position: absolute;
+    max-width: 5.5vh;
+    display: none;
+  }
+
+  #img-login {
+    max-width: 5.5vh;
+    display: inline-block;
+  }
+
+  #img-usuario {
+    width: 5.5vh;
+    height: 5.5vh;
+    display: inline-block;
+    border-radius: 50%;
+  }
+
+  #hide-hover-span {
+    color: #474747;
+    display: inline-block;
+    height: 4vh;
+    margin-left: 2vh;
+  }
+
+  #hide-hover-span p {
+    text-align: left;
+    font-family: Fira Sans Bold;
+  }
+
+  .p-1 {
+    font-size: 1.5vh;
+  }
+
+  .p-2 {
+    font-size: 2vh;
+  }
+
+  .cabecalho_seta_abrir_menu {
+    justify-content: center;
+    display: inline-block;
+    margin-left: 3vh;
+  }
+
+  .seta {
+    width: 2vh;
+    height: 2vh;
+    display: inline-block;
+  }
+
+  .seta_hover {
+    width: 2vh;
+    height: 2vh;
+    display: inline-block;
+    display: none;
+  }
+
+  .seta_hover.rotated {
+    transform: rotate(180deg);
+  }
+
+  /* Login & Perfil - Fim */
+
+
+  /* Logomarca CQF - Inicio */
+  .logo {
+    margin-top: 1vh;
+
+  }
+
+  .logo img {
+    max-width: 7vh;
+  }
+
+  /* Logomarca CQF - Fim */
+
+
+  /* Pesquisa - Inicio */
+  .search {
+    width: 30vh;
+    margin-top: 2vh;
+    display: flex;
+  }
+
+  .search img {
+    display: inline-block;
+    max-width: 4.5vh;
+    max-height: 4.5vh;
+  }
+
+  #hide-hover-search input {
+    margin-top: 1.5vh;
+    color: #474747;
+    border-top: 0px solid;
+    border-left: 0px solid;
+    border-right: 0px solid;
+    border-bottom: 0.3vh solid #9d21cb;
+    font-family: Fira Sans;
+    font-size: 2vh;
+    width: 23vh;
+    margin-right: 2vh;
+  }
+
+  #hide-hover-search input:focus {
+    outline: none;
+  }
+
   /* Pesquisa - Fim */
 
-  
+
   /* Categorias - Inicio */
-    .topcs a {
-      text-decoration: none;
-      color: white;
-      margin-top: 0.8vh;
-      font-size: 2.2vh;
-      font-family: Heavitas;
-      font-weight: 300;
-    }
-    .culinaria {
-      margin-left: 30vh;
-    }
-    .bem-estar {
-      margin-right: 30vh;
-    }
-    
+  .topcs a {
+    text-decoration: none;
+    color: white;
+    margin-top: 0.8vh;
+    font-size: 2.2vh;
+    font-family: Heavitas;
+    font-weight: 300;
+  }
+
+  .culinaria {
+    margin-left: 30vh;
+  }
+
+  .bem-estar {
+    margin-right: 30vh;
+  }
+
   /* Categorias - Fim */
 
   /* Menu Hamburguer - Inicio */
-  .menu_hamburguer_usuario{
+  .menu_hamburguer_usuario {
     display: none;
     position: absolute;
     margin-top: 8vh;
@@ -436,25 +515,31 @@
     border-bottom-left-radius: 10px;
     border-bottom-right-radius: 10px;
   }
-  .menu_hamburguer_usuario a{
+
+  .menu_hamburguer_usuario a {
     text-decoration: none;
   }
-  .opcao_menu_hamburguer{
+
+  .opcao_menu_hamburguer {
     padding: 1.5vh 5vh 2vh 5vh;
     color: #9d21cb;
   }
-  .opcao_menu_hamburguer:hover{
+
+  .opcao_menu_hamburguer:hover {
     background-color: rgba(255, 214, 98, 1);
   }
-  .opcao_menu_hamburguer.ultimo:hover{
+
+  .opcao_menu_hamburguer.ultimo:hover {
     border-bottom-left-radius: 10px;
     border-bottom-right-radius: 10px;
   }
+
   .menu_hamburguer_usuario a:last-child {
     border-bottom-left-radius: 10px;
     border-bottom-right-radius: 10px;
   }
+
   /* Menu Hamburguer - Fim */
-    
+
   /* FIM - HEADER DESKTOP - SEM LOGIN */
 }

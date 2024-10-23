@@ -1,4 +1,4 @@
-@media only screen and (min-width: 481px) {
+@media only screen and (min-width: 601px) {
 
     .CRIAR-dispositivo-mobile {
         display: none;
@@ -74,7 +74,8 @@
         display: flex;
         align-items: center;
     }
-    #criar-pergunta-titulo{
+
+    #criar-pergunta-titulo {
         font-size: 2.8vh;
         width: 105vh;
         margin-left: 2vh;
@@ -91,11 +92,12 @@
         margin-left: 4%;
         margin-top: 0.5%;
     }
-    #mensagemPergunta{
+
+    #mensagemPergunta {
         position: absolute;
         background-color: #f5f0ff;
     }
-    
+
     #close-modal-criar-post {
         font-size: 140%;
         font-family: "Heavitas", sans-serif;
@@ -1290,7 +1292,7 @@
     }
 }
 
-@media only screen and (max-width: 480px) {
+@media only screen and (max-width: 600px) {
     .CRIAR-dispositivo-desktop {
         display: none;
     }

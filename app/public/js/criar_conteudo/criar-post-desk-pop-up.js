@@ -58,6 +58,7 @@ function adicionarIngrediente() {
                 <img id="botao-de-tirar-ingrediente" src="/imagens/tirar-ingrediente.svg"
                 alt="excluir ingrediente" onclick="removerIngrediente(this)">
             </article>
+            
             <h4 id="nome-do-ingrediente">Nome do ingrediente</h4>
             <input type="text" id="input-nome-do-ingrediente" placeholder="FARINHA DE TRIGO" name="ingredientes">
             <div id="coiso-pra-deixar-certo">
@@ -65,6 +66,7 @@ function adicionarIngrediente() {
                     <h4 id="nome-do-ingrediente">Quantidade/Peso</h4>
                     <input type="text" id="input-quantidade-do-ingrediente" placeholder="01" name="quantidade_ingredientes">
                 </section>
+
                 <section id="guardar-medidas-elementos">
                     <h4 id="nome-do-ingrediente">Medida</h4>
                     <select name="medida_ingredientes" id="medidas-elementos">
@@ -155,17 +157,22 @@ document.addEventListener("DOMContentLoaded", function () {
     setupModal();
 });
 
-// Função para abrir o modal no contexto de "Criar Patinha"
 function abrirModalCriarDica(perguntaId, perguntaTitulo) {
-    console.log("Abrindo modal para a pergunta:", perguntaId);
-    document.getElementById('pergunta_id').value = perguntaId;
+    if (window.matchMedia("(max-width: 600px)").matches) {
+        // Redireciona para a página de criação mobile, passando perguntaId e perguntaTitulo via query string
+        window.location.href = `/criar-postagem?perguntaId=${perguntaId}&perguntaTitulo=${encodeURIComponent(perguntaTitulo)}`;
+    } else {
+        // Abre o modal no desktop
+        console.log("Abrindo modal para a pergunta:", perguntaId);
+        document.getElementById('pergunta_id').value = perguntaId;
 
-    // Atualiza o modal para o contexto de "Criar Patinha"
-    document.getElementById('criar-post-titulo').innerText = `CRIAR PATINHA: ${perguntaTitulo}`;
-    document.getElementById('gato-criar-post').src = '/imagens-svg/patinha-roxo-escuro-icon.svg';
-    
-    toggleModal();
+        document.getElementById('criar-post-titulo').innerText = `CRIAR PATINHA: ${perguntaTitulo}`;
+        document.getElementById('gato-criar-post').src = '/imagens-svg/patinha-roxo-escuro-icon.svg';
+        
+        toggleModal();
+    }
 }
+
 
 document.addEventListener("DOMContentLoaded", function () {
     const itens = document.querySelectorAll(".tarefa");

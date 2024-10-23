@@ -8,9 +8,12 @@ const moment = require("moment"); //datas e horas bonitinhas
 const { body, validationResult } = require("express-validator");
 const { removeImg } = require("../util/removeImg");
 const bcrypt = require("bcryptjs");
+const nodemailer = require('nodemailer');
 var salt = bcrypt.genSaltSync(12);
 
 const tarefasController = {
+    //supostamente newsletter
+  
     // REGRAS VALIDAÇÃO
     regrasValidacaoLogin: [
         body('input1')
@@ -136,7 +139,11 @@ const tarefasController = {
     },
     encontrarOuCriarUsuarioGoogle: async (accessToken, refreshToken, profile, done) => {
         try {
-            const email = profile.emails[0].value; // Pega o email do perfil Google
+            const email = profile.emails && profile.emails[0] ? profile.emails[0].value : null;
+            if (!email) {
+                return done(new Error("Email do Google não disponível."), null);
+            }
+
             let usuario = await usuarioModel.findUserByEmail(email); // Usa a função do model para buscar por email
 
             if (!usuario) {
@@ -147,7 +154,8 @@ const tarefasController = {
                     senha: null,
                     Tipo_Cliente_idTipo_Cliente: 1, // Defina o tipo padrão
                 };
-                usuario = await usuarioModel.create(novoUsuario); // Cria o novo usuário no banco de dados
+                const resultado = await usuarioModel.create(novoUsuario);
+                usuario = await usuarioModel.findUserById(resultado.insertId); // Cria o novo usuário no banco de dados
             }
             if (!usuario) {
                 return done(new Error("Usuário não encontrado ou criado."), null); // Retorna erro se o usuário não foi encontrado ou criado
@@ -178,6 +186,9 @@ const tarefasController = {
     deserializeUser: async (id, done) => {
         try {
             const user = await usuarioModel.findUserById(id);
+            if (!user) {
+                return done(new Error("Usuário não encontrado."), null);
+            }
             done(null, user);
         } catch (error) {
             done(error, null);
@@ -662,7 +673,7 @@ const tarefasController = {
                 "total_reg": totalRegistros,
                 "total_paginas": totPaginas
             };
-            
+
             function formatarTempo(tempo) {
                 let duracao = moment.duration(tempo, 'HH:mm:ss');
                 let horas = duracao.hours();
@@ -706,7 +717,7 @@ const tarefasController = {
             }));
 
             console.log(combinedConteudo);
-            
+
             return res.render("pages/template", {
                 pagina: { cabecalho: "cabecalho", conteudo: "Meus-Favoritos", rodape: "none" },
                 usuario_logado: req.session.autenticado || {},
@@ -811,7 +822,7 @@ const tarefasController = {
             let categoriaId;
             let porcoes = null;
             const categoria = req.body.dica_categoria;
-           console.log("----------------")
+            console.log("----------------")
             console.log(req.body);
 
             if (categoria === "Culinária") {
@@ -875,6 +886,28 @@ const tarefasController = {
                     }
                 }
             }
+
+            // const transporter = nodemailer.createTransport({
+            //     service: 'gmail',  // ou outro serviço de e-mail como SMT
+            //     auth: {
+            //       user: 'comoquefazofficial@gmail.com', 
+            //       pass: 'OsBigodudos@24'
+            //     }
+            //   });
+
+              
+            // let buscarUsu = usuarioModel.findUserById(req.session.autenticado.id);
+               
+            //   // Função que envia o e-mail
+            //   async function Noticacaopost (buscarUsu.Email, req.body.dica_titulo ) {
+            //     try {
+            //       const info = await transporter.sendMail({
+            //         from: '"Nome do seu site" <seuemail@gmail.com>', // remetente
+            //         to: userEmail, // destinatário
+            //         subject: 'Confirmação de Postagem', // assunto do e-mail
+            //         text: `Seu post com o título "${postTitle}" foi publicado com sucesso!`, // corpo do e-mail em texto
+            //       });
+            //     }};
 
             console.log("Postagem e ingredientes realizados com sucesso!", postagemId);
 
@@ -1122,7 +1155,7 @@ const tarefasController = {
     AbrirPerfil: async (req, res) => {
         try {
             const nickname = req.params.nickname; // Obter o ID do usuário da URL
-            const perfil = await conteudoModel.obterPerfilPorNickname(nickname);; // Usar a função de modelo para obter o perfil
+            const perfil = await conteudoModel.obterPerfilPorNickname(nickname); // Usar a função de modelo para obter o perfil
 
             if (!perfil) {
                 return res.status(404).json({
@@ -1204,6 +1237,10 @@ const tarefasController = {
             console.error("Erro ao abrir perfil:", error);
             return res.status(500).json({ erro: error.message });
         }
+    },
+    // PREMIUM
+    MostrarPlanos: async (req, res) => {
+        const Planos = await conteudoModel.obterPerfilPorNickname(nickname);
     }
 };
 

@@ -1,4 +1,4 @@
-@media only screen and (max-width: 480px){
+@media only screen and (max-width: 600px){
 	.conteudo-dispositivo-desktop-login{
 		display: none;
 	}
@@ -14,7 +14,7 @@
 	.login-mob {
 		background-color: #5417bd;
 		background-image: linear-gradient(to right, #5417bd, #9c21cb);
-		border: 3.5px solid #ffd662;
+		border: 3.5px solid ;
 		border-radius: 25px;
 		text-align: center;
 		padding: 12% 8% 7% 8%;
@@ -23,12 +23,11 @@
 	}
 	.fazer-login-mob{
 		font-size: 27px;
-		color: white;
+		color: #ffd662;
 	}
 	.login-mob p{
 		font-family: Fira Sans Bold;
-		margin-bottom: 6%;
-	}
+		}
 	.input2{
 		margin-bottom: 3%;
 	}	
@@ -40,7 +39,10 @@
 	.redes-login-mob a{
 		font-family: Fira Sans Bold;
 		font-size: 14px;
-		text-decoration: underline
+       color: white;
+	}
+	.p-bemVindo{
+		color: white;
 	}
 	.redes-botoes-mob button {
 		width: 32%;
@@ -55,8 +57,7 @@
 	.redes-botoes-mob{
         display: flex;
         justify-content: center;
-        padding-left: 13.5%;
-        padding-right: 13.5%;
+       
 	}
 	.google-a {
         width: 100%;
@@ -256,7 +257,7 @@
 		}
 }
 
-@media only screen and (min-width: 480px) {
+@media only screen and (min-width: 601px) {
     .conteudo-dispositivo-desktop-login{
         background-image: url(/imagens/fundogatos-desktop.png);
 		padding-top: 1vh;
