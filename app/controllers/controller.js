@@ -1241,7 +1241,6 @@ const tarefasController = {
     // PREMIUM
     MostrarPlanos: async (req, res) => {
         const Planos = await conteudoModel.obterPerfilPorNickname(nickname);
-        // oxii
     }
 };
 
