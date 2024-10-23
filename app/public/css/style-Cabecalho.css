@@ -95,6 +95,7 @@
     margin-right: 2vh;
     font-family: Fira Sans Bold;
     font-weight: 700;
+    background: none;
 
     &::-webkit-input-placeholder {
       color: #adadad;
