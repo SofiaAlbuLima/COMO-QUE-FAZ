@@ -157,12 +157,6 @@ router.get("/perfil/:nickname", VerificarAutenticacao, async function (req, res)
     await tarefasController.AbrirPerfil(req, res);
 });
 
-router.get("/notificacoes", verificarUsuAutorizado([1, 2], "/"), function (req, res) {
-    res.render("pages/template", {
-        pagina: { cabecalho: "cabecalho", conteudo: "Minhas-Notificações", rodape: "none" },
-        usuario_logado: req.session.autenticado,
-    });
-});
 router.get("/favoritos", verificarUsuAutorizado([1, 2], "/"), tarefasController.listarFavoritos, function (req, res) {
     res.render("pages/template", {
         pagina: { cabecalho: "cabecalho", conteudo: "Meus-Favoritos", rodape: "none" },

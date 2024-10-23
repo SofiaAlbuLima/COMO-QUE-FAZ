@@ -300,3 +300,7 @@ window.onload = function() {
         console.log("Your browser does not support File API");
     }
 };
+
+function goBack() {
+    window.history.back();
+  }
