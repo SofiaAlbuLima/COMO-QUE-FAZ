@@ -8,7 +8,7 @@ const moment = require("moment"); //datas e horas bonitinhas
 const { body, validationResult } = require("express-validator");
 const { removeImg } = require("../util/removeImg");
 const bcrypt = require("bcryptjs");
-const nodemailer = require('nodemailer');
+// const nodemailer = require('nodemailer');
 var salt = bcrypt.genSaltSync(12);
 
 const tarefasController = {

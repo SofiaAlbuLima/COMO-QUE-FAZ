@@ -1,6 +1,6 @@
 const express = require('express');
 const app = express();
-const port = 2999; 
+const port = 3000; 
 const fs = require('fs');
 const path = require('path');
 const passport = require('passport');
@@ -16,7 +16,7 @@ passport.use(new GoogleStrategy({
     clientSecret: process.env.GOOGLE_CLIENT_SECRET,
     callbackURL: process.env.NODE_ENV === 'production'
         ? "https://como-que-faz.onrender.com/auth/google/callback"
-        : "http://localhost:2999/auth/google/callback"
+        : "http://localhost:3000/auth/google/callback"
 }, usuarioController.encontrarOuCriarUsuarioGoogle));
 
 // Registro de serialize e deserialize com passport
