@@ -1155,7 +1155,7 @@ const tarefasController = {
     AbrirPerfil: async (req, res) => {
         try {
             const nickname = req.params.nickname; // Obter o ID do usuário da URL
-            const perfil = await conteudoModel.obterPerfilPorNickname(nickname);; // Usar a função de modelo para obter o perfil
+            const perfil = await conteudoModel.obterPerfilPorNickname(nickname); // Usar a função de modelo para obter o perfil
 
             if (!perfil) {
                 return res.status(404).json({
@@ -1237,6 +1237,10 @@ const tarefasController = {
             console.error("Erro ao abrir perfil:", error);
             return res.status(500).json({ erro: error.message });
         }
+    },
+    // PREMIUM
+    MostrarPlanos: async (req, res) => {
+        const Planos = await conteudoModel.obterPerfilPorNickname(nickname);
     }
 };
 

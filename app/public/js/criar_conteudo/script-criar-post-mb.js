@@ -44,71 +44,6 @@ btnVoltar.addEventListener('click', () => {
 });
 mostrarArtigo(currentIndex);
 
-
-// function categor(categorId) {
-//     const inputElement = document.querySelector('.dialogoselect-mb');
-//     const itemElement = document.getElementById('item-select-detalhes-mb-' + categorId);
-//     const section = document.getElementById('tempo-detalhes-porcoes-mb');
-
-//     if (!inputElement || !itemElement) {
-//         console.error('Elemento não encontrado para o ID: ' + (inputElement ? categorId : 'input'));
-//         return;
-//     }
-
-//     // Remove classes de categoria
-//     inputElement.classList.remove('categoria-culinaria', 'categoria-limpeza', 'categoria-bemestar');
-
-//     // Adiciona a classe correspondente e define o display da seção
-//     switch (categorId) {
-//         case 1:
-//             inputElement.classList.add('categoria-culinaria');
-//             section.style.display = 'flex'; // Exibe a seção
-//             break;
-//         case 2:
-//         case 3:
-//             inputElement.classList.add(categorId === 2 ? 'categoria-limpeza' : 'categoria-bemestar');
-//             section.style.display = 'none';  // Oculta a seção
-//             break;
-//         default:
-//             console.warn('ID de categoria inválido: ' + categorId);
-//             return;
-//     }
-
-//     // Atualiza o placeholder e o valor do input
-//     inputElement.placeholder = itemElement.innerText;
-//     inputElement.value = itemElement.innerText;
-// }
-
-
-// document.addEventListener("DOMContentLoaded", function () {
-//     const inputSelect = document.getElementById("dialogoselect-mb");
-//     const dropdownMenu = document.getElementById("dropdown-mb");
-//     const categoryItems = document.querySelectorAll(".item-select-detalhes-mb");
-
-//     // Evento para abrir/fechar o dropdown ao clicar no input
-//     inputSelect.addEventListener("click", function () {
-//         // Alterna o display do dropdown (mostra ou oculta)
-//         dropdownMenu.style.display = dropdownMenu.style.display === "none" ? "block" : "none";
-//     });
-
-//     // Evento para selecionar uma categoria
-//     categoryItems.forEach(item => {
-//         item.addEventListener("click", function () {
-//             const selectedCategory = item.getAttribute("data-category");
-//             inputSelect.value = selectedCategory; // Atualiza o valor do input com a categoria selecionada
-//             dropdownMenu.style.display = "none"; // Fecha o dropdown após a seleção
-//         });
-//     });
-
-//     // Fecha o dropdown ao clicar fora do mesmo
-//     document.addEventListener("click", function (event) {
-//         if (!inputSelect.contains(event.target) && !dropdownMenu.contains(event.target)) {
-//             dropdownMenu.style.display = "none";
-//         }
-//     });
-// });
-
-
 function adicionarMensagemmb() {
     const inputText = document.getElementById('input-text-subcategoria-mb');
     const messageList = document.getElementById('messageList-mb');
@@ -365,3 +300,7 @@ window.onload = function() {
         console.log("Your browser does not support File API");
     }
 };
+
+function goBack() {
+    window.history.back();
+  }

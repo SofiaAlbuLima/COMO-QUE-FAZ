@@ -1,13 +1,13 @@
 <main>
     <section id="criar-post-cancela-mb">
-        <figure id="cancela-criar-post-mb">X</figure>
+        <figure id="cancela-criar-post-mb" onclick="goBack()">X</figure>
         <figcaption id="titulo-criar-post-mb">Criar Dica</figcaption>
     </section>
 
     <section class="linha-baixo-mb">
         <section class="linha-progresso-mb" id="progresso-mb"></section>
     </section>
-    
+
     <input type="hidden" name="pergunta_id" id="pergunta_id">
 
     <form id="form-criar-mb" action="/criar-dica" method="post" enctype="multipart/form-data">
@@ -27,23 +27,23 @@
 
                         <figure class="guarda-select">
                             <input class="dialogoselect" id="dialogoselect" type="text" name="dica_categoria"
-                               onfocus="dropdown(0)" onblur="dropdown(1)" placeholder="CATEGORIA DA POSTAGEM*"
-                               readonly="readonly" required>
- 
+                                onfocus="dropdown(0)" onblur="dropdown(1)" placeholder="CATEGORIA DA POSTAGEM*"
+                                readonly="readonly" required>
+
                             <div class="dropDown" id="dropdown" style="z-index: 1000; display: none;">
-                               <div class="listDropDown">
-                                  <div value="culinaria-categoria" class="item-select-detalhes texto"
-                                     id="item-select-detalhes-1" onmousedown="category(1)">Culinária
-                                  </div>
- 
-                                  <div class="item-select-detalhes texto" id="item-select-detalhes-2"
-                                     onmousedown="category(2)">Limpeza</div>
-                                     
-                                  <div class="item-select-detalhes texto" id="item-select-detalhes-3"
-                                     onmousedown="category(3)">Bem Estar</div>
-                               </div>
+                                <div class="listDropDown">
+                                    <div value="culinaria-categoria" class="item-select-detalhes texto"
+                                        id="item-select-detalhes-1" onmousedown="category(1)">Culinária
+                                    </div>
+
+                                    <div class="item-select-detalhes texto" id="item-select-detalhes-2"
+                                        onmousedown="category(2)">Limpeza</div>
+
+                                    <div class="item-select-detalhes texto" id="item-select-detalhes-3"
+                                        onmousedown="category(3)">Bem Estar</div>
+                                </div>
                             </div>
-                         </figure>
+                        </figure>
 
                     </section>
 
@@ -71,15 +71,16 @@
                             <input type="text" id="descricao-detalhes-mb" name="dica_descricao">
                         </section>
 
-                        <section id="subcategoria-detalhes-total-mb">
-                            <h3 id="titulo-subcategoria-detalhes-mb">Subcategorias</h3>
-                            <figure class="input-container-mb">
-                                <input type="text" id="input-text-subcategoria-mb" name="dica_subcategorias_input">
-                                <img src="/imagens/adicionar-etiqueta.svg" id="icon-mb" onclick="adicionarMensagemmb()"
-                                    alt="">
+                        <section id="subcategoria-detalhes-total">
+                            <h3 id="titulo-subcategoria-detalhes">Subcategorias</h3>
+                            <figure class="input-container">
+                                <input type="text" id="input-text-subcategoria" name="dica_subcategorias_input">
+                                <img src="/imagens/adicionar-etiqueta.svg" id="icon" onclick="adicionarMensagem()"
+                                    alt="adicionar uma Subcategoria">
                             </figure>
-                            <figure id="messageList-mb" class="message-list-mb"></figure>
-                            <input type="hidden" id="dica_subcategorias-mb" name="dica_subcategorias">
+                            <figure id="messageList" class="message-list"></figure>
+                            <!-- Campo oculto para enviar as subcategorias como uma lista separada por vírgulas -->
+                            <input type="hidden" id="dica_subcategorias" name="dica_subcategorias">
                         </section>
                     </section>
                 </article>
@@ -107,30 +108,22 @@
                                         <section id="guardar-medidas-elementos-mb">
                                             <h4 id="nome-do-ingrediente-mb">Medida</h4>
                                             <select id="medidas-elementos-mb" name="medida_ingredientes">
-                                                <option value="item-de-modo-de-preparo" class="item-medidas-mb">Unidade
+                                                <option value="Nenhuma medida" class="item-medidas">Nenhuma medida
                                                 </option>
-                                                <option value="item-de-modo-de-preparo" class="item-medidas-mb">Xícara
+                                                <option value="Unidade" class="item-medidas">Unidade</option>
+                                                <option value="Xícara" class="item-medidas">Xícara</option>
+                                                <option value="Colher de sopa" class="item-medidas">Colher de sopa
                                                 </option>
-                                                <option value="item-de-modo-de-preparo" class="item-medidas-mb">Colher
-                                                    de
-                                                    sopa</option>
-                                                <option value="item-de-modo-de-preparo" class="item-medidas-mb">Colher
-                                                    de
-                                                    chá</option>
-                                                <option value="item-de-modo-de-preparo" class="item-medidas-mb">Copo
-                                                    americano</option>
-                                                <option value="item-de-modo-de-preparo" class="item-medidas-mb">Gramas
-                                                    (gr)
+                                                <option value="Colher de chá" class="item-medidas">Colher de chá
                                                 </option>
-                                                <option value="item-de-modo-de-preparo" class="item-medidas-mb">
-                                                    Quilogramas
-                                                    (kg)</option>
-                                                <option value="item-de-modo-de-preparo" class="item-medidas-mb">
-                                                    Mililitros
-                                                    (ml)</option>
-                                                <option value="item-de-modo-de-preparo" class="item-medidas-mb">Litros
-                                                    (L)
+                                                <option value="Copo americano" class="item-medidas">Copo americano
                                                 </option>
+                                                <option value="Gramas (gr)" class="item-medidas">Gramas (gr)</option>
+                                                <option value="Quilogramas (kg)" class="item-medidas">Quilogramas (kg)
+                                                </option>
+                                                <option value="Mililitros (ml)" class="item-medidas">Mililitros (ml)
+                                                </option>
+                                                <option value="Litros (L)" class="item-medidas">Litros (L)</option>
                                             </select>
                                         </section>
                                     </section>
