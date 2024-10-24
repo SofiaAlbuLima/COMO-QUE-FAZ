@@ -1,4 +1,13 @@
 <main>
+    if (dadosNotificacao) { %>
+        <script>
+                notify("<%= dadosNotificacao.titulo%>","<%= dadosNotificacao.mensagem%>", "<%= dadosNotificacao.tipo%>", "center")
+                if("<%= dadosNotificacao.tipo %>" == "success"){
+                    setTimeout(function(){window.location="/"}, 3000)
+                }                        
+        </script>
+    <% } %>
+    
     <section id="criar-post-cancela-mb">
         <figure id="cancela-criar-post-mb" onclick="goBack()">X</figure>
         <figcaption id="titulo-criar-post-mb">Criar Dica</figcaption>

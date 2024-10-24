@@ -13,7 +13,7 @@ var salt = bcrypt.genSaltSync(12);
 
 const tarefasController = {
     //supostamente newsletter
-  
+
     // REGRAS VALIDAÇÃO
     regrasValidacaoLogin: [
         body('input1')
@@ -109,13 +109,6 @@ const tarefasController = {
         try {
             let create = usuarioModel.create(dadosForm);
             console.log("cadastro realizado!");
-
-            req.session.autenticado = {
-                autenticado: dadosForm.Nickname,
-                tipo: dadosForm.Tipo_Cliente_idTipo_Cliente,
-                id: create.idClientes,
-            };
-
             req.session.notification = {
                 titulo: "Cadastro realizado!",
                 mensagem: "Novo usuário criado com sucesso!",
@@ -895,9 +888,9 @@ const tarefasController = {
             //     }
             //   });
 
-              
+
             // let buscarUsu = usuarioModel.findUserById(req.session.autenticado.id);
-               
+
             //   // Função que envia o e-mail
             //   async function Noticacaopost (buscarUsu.Email, req.body.dica_titulo ) {
             //     try {
@@ -926,9 +919,10 @@ const tarefasController = {
             }
 
             req.session.notification = {
+                dadosNotificacao:{
                 titulo: "Postagem realizada!",
                 mensagem: "Sua dica foi publicada com sucesso!",
-                tipo: "success"
+                tipo: "success"}
             };
 
             if (req.body.pergunta_id) {
@@ -948,6 +942,10 @@ const tarefasController = {
                     mensagem: "Verifique os valores digitados em rascunhos!",
                     tipo: "error"
                 },
+                dadosNotificacao:{
+                    titulo: "Postagem realizada!",
+                    mensagem: "Sua dica foi publicada com sucesso!",
+                    tipo: "success"},
             });
             console.log("Erro ao realizar a postagem!");
         }
@@ -1243,20 +1241,24 @@ const tarefasController = {
         const Planos = await conteudoModel.obterPerfilPorNickname(nickname);
     },
     deleteAccount: async (req, res) => {
-        const userId = req.session.autenticado.autenticado; // Supondo que você tenha um middleware que extrai o ID do usuário do token
+        const userId = req.session.autenticado.id;
         console.log(userId);
-    
+
         try {
             const result = await usuarioModel.deleteUserById(userId);
-            
-            if (result.rowCount > 0) {
+
+            if (result.affectedRows > 0) {
                 res.status(204).send(); // No Content
             } else {
+                // Essa parte só deve ser chamada se não houve exclusão
                 res.status(404).json({ error: 'Conta não encontrada.' });
             }
         } catch (error) {
             console.error('Erro ao excluir conta:', error);
-            res.status(500).json({ error: 'Erro ao excluir a conta.' });
+            // Verifique se não foi enviado um cabeçalho antes
+            if (!res.headersSent) {
+                res.status(500).json({ error: 'Erro ao excluir a conta.' });
+            }
         }
     }
 };

@@ -140,10 +140,11 @@
                                             method: 'DELETE',
                                             headers: {
                                                 'Content-Type': 'application/json',
-                                                'Authorization': 'Bearer ' + localStorage.getItem('token') // ou outro método de autenticação
+                                                'Authorization': 'Bearer ' + localStorage.getItem('token')
                                             }
                                         })
                                             .then(response => {
+                                                console.log('Response:', response); // Adicione este log
                                                 if (response.ok) {
                                                     alert('Conta excluída com sucesso!');
                                                     window.location.href = '/'; // Redirecionar para a home
