@@ -949,6 +949,10 @@ const tarefasController = {
                     mensagem: "Verifique os valores digitados em rascunhos!",
                     tipo: "error"
                 },
+                dadosNotificacao:{
+                    titulo: "Postagem realizada!",
+                    mensagem: "Sua dica foi publicada com sucesso!",
+                    tipo: "success"},
             });
             console.log("Erro ao realizar a postagem!");
         }
