@@ -30,7 +30,7 @@
 
   .titulo_pagina_categoria {
     font-family: Heavitas;
-    max-width: 150px;
+    max-width: 60vw;
     font-size: 35px;
     font-weight: 400;
   }
@@ -50,7 +50,7 @@
   .descricao_pagina_categoria {
     text-align: left;
     font-family: Fira Sans;
-    width: 65%;
+    width: 95%;
     font-size: 12px;
   }
 
@@ -88,14 +88,17 @@
   }
 
   .linha_culinaria {
+    margin-bottom: 5vw;
     border: 1px solid #cb1154;
   }
 
   .linha_limpeza {
+    margin-bottom: 5vw;
     border: 1px solid #027de1;
   }
 
   .linha_bemestar {
+    margin-bottom: 5vw;
     border: 1px solid #00cd83;
   }
 
