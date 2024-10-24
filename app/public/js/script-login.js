@@ -25,6 +25,21 @@ document.addEventListener('DOMContentLoaded', function() {
     }
 });
 
+document.addEventListener('DOMContentLoaded', function() {
+    let campoSenha = document.getElementById('senha1');
+    let campoConfirmaSenha = document.getElementById('senha2');
+    
+    // Impede colar na senha
+    campoSenha.addEventListener("paste", function(e) {
+        e.preventDefault();
+    });
+
+    // Impede colar na confirmação de senha
+    campoConfirmaSenha.addEventListener("paste", function(e) {
+        e.preventDefault();
+    });
+});
+
 function verificaConfirmaSenha() {
  
     let campoSenha = document.getElementById('senha1');
@@ -32,7 +47,7 @@ function verificaConfirmaSenha() {
 
     let campoConfirmaSenha = document. getElementById('senha2');
     let valorConfirmaSenha = campoConfirmaSenha.value;
-     
+   
      if(valorSenha == valorConfirmaSenha) {
     return true;
     } 
