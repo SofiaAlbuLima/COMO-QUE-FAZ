@@ -1241,6 +1241,23 @@ const tarefasController = {
     // PREMIUM
     MostrarPlanos: async (req, res) => {
         const Planos = await conteudoModel.obterPerfilPorNickname(nickname);
+    },
+    deleteAccount: async (req, res) => {
+        const userId = req.session.autenticado.autenticado; // Supondo que você tenha um middleware que extrai o ID do usuário do token
+        console.log(userId);
+    
+        try {
+            const result = await usuarioModel.deleteUserById(userId);
+            
+            if (result.rowCount > 0) {
+                res.status(204).send(); // No Content
+            } else {
+                res.status(404).json({ error: 'Conta não encontrada.' });
+            }
+        } catch (error) {
+            console.error('Erro ao excluir conta:', error);
+            res.status(500).json({ error: 'Erro ao excluir a conta.' });
+        }
     }
 };
 

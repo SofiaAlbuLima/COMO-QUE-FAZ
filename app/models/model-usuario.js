@@ -82,6 +82,9 @@ const usuarioModel = { //const que agrupa todas as funções de acesso e manipul
             throw error;
         }
     },
+    deleteUserById: async (id) => {
+        return await pool.query('DELETE FROM clientes WHERE idClientes = $1', [id]);
+    }
 }
 
 module.exports = usuarioModel //A exportação deste objeto na forma de um módulo.

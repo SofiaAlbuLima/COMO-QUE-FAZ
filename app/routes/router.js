@@ -16,6 +16,7 @@ router.post("/cadastro", tarefasController.regrasValidacaoCadastro, tarefasContr
 router.post('/criar-dica', uploadFile("imagem_criar_post"), VerificarAutenticacao, tarefasController.CriarDica);
 router.post('/criar-pergunta', VerificarAutenticacao, tarefasController.CriarPergunta);
 
+router.delete('/api/excluir-conta', tarefasController.deleteAccount);
 
 router.post('/adicionar-favorito', tarefasController.adicionarFavorito);
 router.delete('/remover-favorito', tarefasController.removerFavorito);

@@ -18,7 +18,24 @@
     font-family: Fira Sans;
     src: url("../fonts/fira-sans.regular.ttf");
 }
+#confirmModal {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: white;
+    border: 1px solid #ccc;
+    padding: 20px;
+    z-index: 1000;
+}
 
+#confirmModal.show {
+    display: block;
+}
+
+body.show:before {
+    display: block; /* mostra o fundo escurecido */
+}
 .ajustments {
     display: flex;
     padding: 50px;

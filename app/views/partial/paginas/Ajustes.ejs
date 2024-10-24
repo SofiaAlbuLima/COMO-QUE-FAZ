@@ -27,7 +27,7 @@
                                             <option value="Portugues">Português</option>
                                         </select>
                                     </section>
-                                    <span>Modo escuro</span>
+                                    <!-- <span>Modo escuro</span> -->
                                 </aside>
                             </aside>
                             <aside class="part-two">
@@ -76,7 +76,7 @@
                         <h2 class="title-aside">Conta e Segurança</h2>
                         <article class="content-ajustments">
                             <aside class="part-one">
-                                <header class="acc-information-form">
+                                <!-- <header class="acc-information-form">
                                     <h3>Informações da Conta</h3>
                                     <button>
                                         <img src="/imagens-svg/2-body/edit-acc-information-icon.svg" alt="Ícone de edição perfil">
@@ -116,10 +116,53 @@
                                     <h3>Gerenciar Conta</h3>
                                     <a href="#"><span>Gerenciar sessões da conta</span></a>
                                     <p><a href="#"><span>Gerenciar contas conectadas</span></a></p>
-                                </aside>
-                                <h3>Desativar a Conta</h3>
-                                <button class="deactivate-account">Desativar</button>
-                                <p><span>Você pode recupera-lá dentro de um prazo de 30 dias</span></p>
+                                </aside> -->
+                                <h3>Excluir a Conta</h3>
+                                <button class="deactivate-account">Excluir conta permanentemente</button>
+
+                                <!-- Modal de confirmação -->
+                                <div id="confirmModal" style="display: none;">
+                                    <p>Você tem certeza que deseja excluir sua conta? Esta ação não pode ser desfeita.
+                                    </p>
+                                    <button id="confirmDelete">Sim, excluir</button>
+                                    <button id="cancelDelete">Cancelar</button>
+                                </div>
+
+                                <script>
+                                    document.querySelector('.deactivate-account').addEventListener('click', function () {
+                                        // Mostrar o modal de confirmação
+                                        document.getElementById('confirmModal').style.display = 'block';
+                                    });
+
+                                    // Ação ao confirmar a exclusão
+                                    document.getElementById('confirmDelete').addEventListener('click', function () {
+                                        fetch('/api/excluir-conta', {
+                                            method: 'DELETE',
+                                            headers: {
+                                                'Content-Type': 'application/json',
+                                                'Authorization': 'Bearer ' + localStorage.getItem('token') // ou outro método de autenticação
+                                            }
+                                        })
+                                            .then(response => {
+                                                if (response.ok) {
+                                                    alert('Conta excluída com sucesso!');
+                                                    window.location.href = '/'; // Redirecionar para a home
+                                                } else {
+                                                    alert('Erro ao excluir a conta. Tente novamente.');
+                                                }
+                                            })
+                                            .catch(error => {
+                                                console.error('Erro:', error);
+                                                alert('Erro ao excluir a conta. Tente novamente.');
+                                            });
+                                    });
+
+                                    // Ação ao cancelar a exclusão
+                                    document.getElementById('cancelDelete').addEventListener('click', function () {
+                                        document.getElementById('confirmModal').style.display = 'none'; // Fechar o modal
+                                    });
+                                </script>
+                                <p><span>Esta ação é permanente e você não conseguirá recuperar sua conta.</span></p>
                             </aside>
                         </article>
                     </article>
@@ -130,7 +173,10 @@
                         <article class="content-ajustments">
                             <aside class="actual-plan">
                                 <h3>Plano Atual</h3>
-                                <span>Plano Semanal R$ 6,90</span>
+                                <figure class="buying-options">
+                                    <span>Nenhum plano adiquirido</span>
+                                </figure>
+                                <!-- <span>Plano Semanal R$ 6,90</span>
                                 <a href="#">Cancelar</a>
                                 <section class="forma-de-pagamento">
                                     <h3>Forma de Pagamento</h3>
@@ -148,22 +194,21 @@
                                         <p><span>Vencimento **/** CVV ***</span></p>
                                     </aside>
                                 </article>
-                                <button>Alterar Forma de Pagamento</button>
+                                <button>Alterar Forma de Pagamento</button> -->
                             </aside>
                             <aside class="history-payment">
                                 <h3>Histórico de Pagamentos</h3>
                                 <figure class="buying-options">
-                                    <span>Ativo Plano Semanal R$ 6,99</span>
-                                    <span>De 26/08/24 até 02/09/2024</span>
+                                    <span>Nenhum pagamento efetuado</span>
                                 </figure>
-                                <figure class="buying-options-mid">
+                                <!-- <figure class="buying-options-mid">
                                     <span>Ativo Plano Semanal R$ 6,99</span>
                                     <span>De 26/08/24 até 02/09/2024</span>
                                 </figure>
                                 <figure class="buying-options">
                                     <span>Ativo Plano Semanal R$ 6,99</span>
                                     <span>De 26/08/24 até 02/09/2024</span>
-                                </figure>
+                                </figure> -->
                             </aside>
                         </article>
                     </article>
