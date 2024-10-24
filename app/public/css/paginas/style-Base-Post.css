@@ -419,8 +419,8 @@
     flex-wrap: wrap;
     align-content: flex-start;
     gap: 1vh;
-    width: 100vw;
-    margin-left: 3vw;
+    width: 97vw;
+    padding-left: 3vw;
   }
 
   /* Postagem individual - Início */
