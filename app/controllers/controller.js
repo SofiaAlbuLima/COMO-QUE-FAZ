@@ -115,7 +115,7 @@ const tarefasController = {
                 tipo: "success"
             };
             return res.redirect("/");
-            
+
         } catch (e) {
             console.log(e);
             return res.render("pages/template", {
@@ -920,10 +920,11 @@ const tarefasController = {
             }
 
             req.session.notification = {
-                dadosNotificacao:{
-                titulo: "Postagem realizada!",
-                mensagem: "Sua dica foi publicada com sucesso!",
-                tipo: "success"}
+                dadosNotificacao: {
+                    titulo: "Postagem realizada!",
+                    mensagem: "Sua dica foi publicada com sucesso!",
+                    tipo: "success"
+                }
             };
 
             if (req.body.pergunta_id) {
@@ -943,10 +944,11 @@ const tarefasController = {
                     mensagem: "Verifique os valores digitados em rascunhos!",
                     tipo: "error"
                 },
-                dadosNotificacao:{
+                dadosNotificacao: {
                     titulo: "Postagem realizada!",
                     mensagem: "Sua dica foi publicada com sucesso!",
-                    tipo: "success"},
+                    tipo: "success"
+                },
             });
             console.log("Erro ao realizar a postagem!");
         }
@@ -1249,14 +1251,13 @@ const tarefasController = {
             const result = await usuarioModel.deleteUserById(userId);
 
             if (result.affectedRows > 0) {
-                res.status(204).send(); // No Content
+                // Retornar um status e uma mensagem
+                res.json({ message: 'Conta excluída com sucesso!' });
             } else {
-                // Essa parte só deve ser chamada se não houve exclusão
                 res.status(404).json({ error: 'Conta não encontrada.' });
             }
         } catch (error) {
             console.error('Erro ao excluir conta:', error);
-            // Verifique se não foi enviado um cabeçalho antes
             if (!res.headersSent) {
                 res.status(500).json({ error: 'Erro ao excluir a conta.' });
             }

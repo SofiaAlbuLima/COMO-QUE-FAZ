@@ -131,8 +131,6 @@
 
                               <% if (usuario_logado.autenticado==perfil.Nickname){ %>
                                  <button class="editar-perfil" onclick="EditarPerfil()">Editar Perfil</button>
-                                 <% } else {%>
-                                    <button class="seguir-perfil">Seguir</button>
                                     <% } %>
                            </article>
                            <article class="texto-perfil">
@@ -160,8 +158,6 @@
                                           <% }else{}%>
                               </figure>
                               <figure class="seguidores-seguindo-dicas">
-                                 <figure class="seguidores-seguindo-dicas_figure">100 seguidores</figure>
-                                 <figure class="seguidores-seguindo-dicas_figure">200 seguindo</figure>
                                  <figure class="seguidores-seguindo-dicas_figure">
                                     <%= total_postagens %> postagens
                                  </figure>
