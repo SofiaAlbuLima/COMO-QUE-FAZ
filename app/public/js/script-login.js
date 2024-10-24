@@ -25,6 +25,7 @@ document.addEventListener('DOMContentLoaded', function() {
     }
 });
 
+
 function verificaConfirmaSenha() {
  
     let campoSenha = document.getElementById('senha1');
@@ -32,6 +33,10 @@ function verificaConfirmaSenha() {
 
     let campoConfirmaSenha = document. getElementById('senha2');
     let valorConfirmaSenha = campoConfirmaSenha.value;
+     
+    copiacola.addEventListener("paste", function(e){
+        e.preventDefault()
+    })
      
      if(valorSenha == valorConfirmaSenha) {
     return true;
