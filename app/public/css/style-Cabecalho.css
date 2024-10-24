@@ -305,6 +305,12 @@
 
   /* Header inteiro - Inicio */
 
+  .header-dispositivo-desktop{
+    position: fixed;
+    width: 100%;
+    z-index: 10000;
+  }
+
   .logos {
     display: flex;
     justify-content: space-around;
