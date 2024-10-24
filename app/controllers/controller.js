@@ -115,6 +115,7 @@ const tarefasController = {
                 tipo: "success"
             };
             return res.redirect("/");
+            
         } catch (e) {
             console.log(e);
             return res.render("pages/template", {
