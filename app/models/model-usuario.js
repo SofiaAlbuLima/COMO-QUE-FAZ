@@ -83,7 +83,7 @@ const usuarioModel = { //const que agrupa todas as funções de acesso e manipul
         }
     },
     deleteUserById: async (id) => {
-        return await pool.query('DELETE FROM clientes WHERE idClientes = $1', [id]);
+        return await pool.query('DELETE FROM clientes WHERE idClientes = ?', [id]);
     }
 }
 
