@@ -926,9 +926,10 @@ const tarefasController = {
             }
 
             req.session.notification = {
+                dadosNotificacao:{
                 titulo: "Postagem realizada!",
                 mensagem: "Sua dica foi publicada com sucesso!",
-                tipo: "success"
+                tipo: "success"}
             };
 
             if (req.body.pergunta_id) {
