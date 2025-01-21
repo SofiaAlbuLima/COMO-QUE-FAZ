@@ -678,17 +678,7 @@
     transition: 0.3s;
   }
 
-  .Recente-Dkt.filtro-selecionado {
-    background-color: #cb218c;
-    color: white;
-  }
-
-  .EmAlta-Dkt.filtro-selecionado {
-    background-color: #cb218c;
-    color: white;
-  }
-
-  .Rapidas-Dkt.filtro-selecionado {
+  #filtro-selecionado {
     background-color: #cb218c;
     color: white;
   }

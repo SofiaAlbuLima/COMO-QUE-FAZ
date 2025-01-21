@@ -1,40 +1,40 @@
-function toggleLike(button) {
-  const heart = document.getElementById('coracao-preenchido');
+// function toggleLike(button) {
+//   const heart = document.getElementById('coracao-preenchido');
 
-  if (heart.style.display === 'block') {
-    heart.style.display = 'none';
-  } else {
-    heart.style.display = 'block';
-  }
-}
-function toggleLike1(button) {
-  const heart = document.getElementById('coracao-preenchido1');
+//   if (heart.style.display === 'block') {
+//     heart.style.display = 'none';
+//   } else {
+//     heart.style.display = 'block';
+//   }
+// }
+// function toggleLike1(button) {
+//   const heart = document.getElementById('coracao-preenchido1');
 
-  if (heart.style.display === 'block') {
-    heart.style.display = 'none';
-  } else {
-    heart.style.display = 'block';
-  }
-}
+//   if (heart.style.display === 'block') {
+//     heart.style.display = 'none';
+//   } else {
+//     heart.style.display = 'block';
+//   }
+// }
 
 
-function AbrirOpcoes() {
-  var x = document.getElementById("hide-opcoes");
-  if (x.style.display === "none") {
-    x.style.display = "block";
-  } else {
-    x.style.display = "none";
-  }
-}
+// function AbrirOpcoes() {
+//   var x = document.getElementById("hide-opcoes");
+//   if (x.style.display === "none") {
+//     x.style.display = "block";
+//   } else {
+//     x.style.display = "none";
+//   }
+// }
 
-function AbrirOpcoesComentario() {
-  var x = document.getElementById("hide-opcoes-comentario");
-  if (x.style.display === "none") {
-    x.style.display = "block";
-  } else {
-    x.style.display = "none";
-  }
-}
+// function AbrirOpcoesComentario() {
+//   var x = document.getElementById("hide-opcoes-comentario");
+//   if (x.style.display === "none") {
+//     x.style.display = "block";
+//   } else {
+//     x.style.display = "none";
+//   }
+// }
 function AbrirOpcoesDesktop(event) {
   event.stopPropagation();  // Impede que o clique propague para o document
   var x = document.getElementById("hide-opcoes-Desktop");
@@ -65,14 +65,14 @@ function fecharOpcoesAoClicarFora(event) {
 document.getElementById("opcoes").addEventListener("click", function (event) {
   event.stopPropagation();
 });
-function AbrirOpcoesComentarioDesktop() {
-  var x = document.getElementById("hide-opcoes-comentario-Desktop");
-  if (x.style.display === "none") {
-    x.style.display = "block";
-  } else {
-    x.style.display = "none";
-  }
-}
+// function AbrirOpcoesComentarioDesktop() {
+//   var x = document.getElementById("hide-opcoes-comentario-Desktop");
+//   if (x.style.display === "none") {
+//     x.style.display = "block";
+//   } else {
+//     x.style.display = "none";
+//   }
+// }
 
 
 

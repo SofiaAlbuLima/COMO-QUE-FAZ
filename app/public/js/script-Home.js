@@ -59,18 +59,32 @@ window.addEventListener("load", function () {
 //------------------------------------------------------------------------------------
 
 document.addEventListener("DOMContentLoaded", function() {
-    // Obtém a URL atual
-    let currentUrl = window.location.href;
 
     // Se você quiser estilizar com base em um parâmetro específico na URL:
     let urlParams = new URLSearchParams(window.location.search);
     let filtro = urlParams.get('filtro') || 'em-alta'; // Define 'em-alta' como padrão
 
+    function limparSelecao() {
+        document.querySelectorAll('[id="filtro-selecionado"]').forEach(el => el.removeAttribute('id'));
+    }
+
     if (filtro === 'em-alta') {
-        document.querySelector('.Filtro-emAlta').classList.add('filtro-selecionado');
-    }else if (filtro === 'recente') {
-        document.querySelector('.Filtro-recente').classList.add('filtro-selecionado');
-    }else if (filtro === 'rapidos') {
-        document.querySelector('.Filtro-rapidas').classList.add('filtro-selecionado');
+        limparSelecao();
+        let emAlta = document.querySelector('#Filtro-emAlta');
+        if (emAlta) {
+            emAlta.setAttribute('id', 'filtro-selecionado');
+        }
+    } else if (filtro === 'recente') {
+        limparSelecao();
+        let recente = document.querySelector('#Filtro-recente');
+        if (recente) {
+            recente.setAttribute('id', 'filtro-selecionado');
+        }
+    } else if (filtro === 'rapidos') {
+        limparSelecao();
+        let rapidas = document.querySelector('#Filtro-rapidas');
+        if (rapidas) {
+            rapidas.setAttribute('id', 'filtro-selecionado');
+        }
     }
 });

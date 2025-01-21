@@ -268,18 +268,20 @@
         padding: 0;
         margin: 0;
     }
-    @font-face{
-        font-family: Heavitas;
-        src: url("../fonts/Heavitas.ttf");
-    }
-    @font-face{
-        font-family: Fira Sans Bold;
-        src: url("../fonts/fira-sans.bold.ttf");
-    }
-    @font-face{
-        font-family: Fira Sans;
-        src: url("../fonts/fira-sans.regular.ttf");
-    }
+    @font-face {
+		font-family: Heavitas;
+		src: url("./../../fonts/Heavitas.ttf");
+	}
+	
+	@font-face {
+		font-family: Fira Sans Bold;
+		src: url("./../../fonts/fira-sans.bold.ttf");
+	}
+	
+	@font-face {
+		font-family: Fira Sans;
+		src: url("./../../fonts/fira-sans.regular.ttf");
+	}
 
     #Cadastro{
         display: block;

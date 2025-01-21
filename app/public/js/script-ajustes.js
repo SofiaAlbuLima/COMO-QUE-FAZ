@@ -20,5 +20,5 @@ function openContent(evt, openAjustmentId) {
 
   evt.currentTarget.classList.add("active");
 }
-
+  
 document.getElementById("defaultOpen").click();
